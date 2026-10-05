@@ -1,0 +1,14 @@
+services:
+  demo:
+    build: .
+    image: riskengine
+    command: ["python", "run_demo.py"]
+
+  api:
+    image: riskengine
+    depends_on:
+      demo:
+        condition: service_completed_successfully
+    command: ["uvicorn", "riskengine.api:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
