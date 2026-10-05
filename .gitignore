@@ -1,0 +1,36 @@
+# Private (never public)
+PLAN.md
+STEPS.md
+illegal_docs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Secrets
+.env
+kaggle.json
+
+# Large / raw data (only small samples are committed)
+data/raw/
+data/cache/
+models/
+*.ckpt
+*.safetensors
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
