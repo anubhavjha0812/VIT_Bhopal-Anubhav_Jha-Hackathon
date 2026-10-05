@@ -22,3 +22,10 @@ def test_unknown_key_is_rejected(tmp_path):
 def test_impact_trigger_must_be_1_to_10():
     with pytest.raises(ValueError, match="impact_trigger"):
         Config(impact_trigger=11)
+
+
+def test_window_must_be_in_order():
+    from datetime import date
+
+    with pytest.raises(ValueError, match="window_start"):
+        Config(window_start=date(2020, 6, 10), window_end=date(2020, 4, 9))

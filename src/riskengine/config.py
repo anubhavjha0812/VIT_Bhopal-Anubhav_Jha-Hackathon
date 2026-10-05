@@ -2,6 +2,7 @@
 
 import tomllib
 from dataclasses import dataclass, fields
+from datetime import date
 from pathlib import Path
 from typing import Literal, get_args, get_type_hints
 
@@ -13,9 +14,11 @@ class Config:
     sentiment: Literal["finbert", "own"] = "finbert"
     events: Literal["keywords", "model"] = "keywords"
     impact: Literal["formula", "learned"] = "formula"
-    rebalancer: Literal["equal", "sentiment"] = "equal"
+    rebalancer: Literal["equal", "sentiment"] = "sentiment"
     shock: Literal["flat", "scaled"] = "flat"
     impact_trigger: int = 7
+    window_start: date = date(2020, 4, 9)
+    window_end: date = date(2020, 6, 10)
 
     def __post_init__(self) -> None:
         hints = get_type_hints(type(self))
@@ -26,6 +29,8 @@ class Config:
                 raise ValueError(f"{f.name}={value!r}, expected one of {allowed}")
         if not 1 <= self.impact_trigger <= 10:
             raise ValueError(f"impact_trigger={self.impact_trigger}, expected 1-10")
+        if not self.window_start < self.window_end:
+            raise ValueError(f"window_start {self.window_start} must be before {self.window_end}")
 
 
 def load_config(path: Path = DEFAULT_PATH) -> Config:

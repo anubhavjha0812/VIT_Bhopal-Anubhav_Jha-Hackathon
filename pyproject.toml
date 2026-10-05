@@ -4,7 +4,14 @@ version = "0.1.0"
 description = "AI/NLP risk engine with sentiment-driven rebalancer and credit stress test"
 requires-python = ">=3.12"
 dependencies = [
+    "fastapi>=0.142.2",
+    "httpx>=0.28.1",
     "pandas>=3.0.6",
+    "tabulate>=0.10.0",
+    "torch>=2.14.1",
+    "transformers>=5.18.0",
+    "uvicorn>=0.54.0",
+    "yfinance>=1.7.0",
 ]
 
 [dependency-groups]
@@ -19,6 +26,15 @@ build-backend = "uv_build"
 
 [tool.uv.build-backend]
 module-name = "riskengine"
+
+# CPU-only PyTorch (small wheels, no CUDA) on Linux/Windows; macOS wheels are CPU already.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform != 'darwin'" }]
 
 [tool.ruff]
 line-length = 100
