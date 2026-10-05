@@ -1,0 +1,10 @@
+# Which version of each part to run.
+# Defaults are the simple baselines; upgrades are switched on as they are built.
+
+sentiment = "finbert"    # finbert | own
+events = "keywords"      # keywords | model
+impact = "formula"       # formula | learned
+rebalancer = "equal"     # equal | sentiment
+shock = "flat"           # flat | scaled
+
+impact_trigger = 7       # Module B runs on events with impact above this
