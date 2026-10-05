@@ -1,0 +1,35 @@
+{
+  "Sentiment (TFNS, 3 classes)": [
+    {
+      "model": "finbert",
+      "n": 2388,
+      "accuracy": 0.72571189279732,
+      "macro_f1": 0.6685349105779501,
+      "per_class_f1": {
+        "negative": 0.5993189557321226,
+        "neutral": 0.8020304568527918,
+        "positive": 0.6042553191489362
+      },
+      "texts_per_s": 12.331324736107554,
+      "model_size_mb": 437.938188,
+      "peak_rss_mb": 1127.31640625
+    }
+  ],
+  "Events (TFN-topic)": [
+    {
+      "model": "keywords",
+      "n": 4117,
+      "accuracy": 0.7398591207189701,
+      "macro_f1": 0.5049056740250303,
+      "per_class_f1": {
+        "Macroeconomic": 0.43406022845275183,
+        "M&A": 0.5932203389830508,
+        "Geopolitical": 0.14090019569471623,
+        "Other": 0.8514419329696025
+      },
+      "texts_per_s": 7357.961816892814,
+      "model_size_mb": 0.0,
+      "peak_rss_mb": 150.5703125
+    }
+  ]
+}

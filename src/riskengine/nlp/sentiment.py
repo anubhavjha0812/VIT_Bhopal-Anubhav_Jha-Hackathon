@@ -26,12 +26,11 @@ class FinBert:
         self._torch = torch
         self.tokenizer = AutoTokenizer.from_pretrained(model)
         self.model = AutoModelForSequenceClassification.from_pretrained(model).eval()
-        labels = {v.lower(): k for k, v in self.model.config.id2label.items()}
-        self.pos, self.neg = labels["positive"], labels["negative"]
+        self.labels = [self.model.config.id2label[i].lower() for i in range(3)]
+        self.pos, self.neg = self.labels.index("positive"), self.labels.index("negative")
         self.batch_size, self.max_length = batch_size, max_length
 
-    def score(self, texts: Sequence[str]) -> list[float]:
-        out: list[float] = []
+    def _probs(self, texts: Sequence[str]):
         with self._torch.inference_mode():
             for i in range(0, len(texts), self.batch_size):
                 batch = self.tokenizer(
@@ -41,9 +40,14 @@ class FinBert:
                     max_length=self.max_length,
                     return_tensors="pt",
                 )
-                p = self.model(**batch).logits.softmax(-1)
-                out.extend((p[:, self.pos] - p[:, self.neg]).tolist())
-        return out
+                yield self.model(**batch).logits.softmax(-1)
+
+    def score(self, texts: Sequence[str]) -> list[float]:
+        return [s for p in self._probs(texts) for s in (p[:, self.pos] - p[:, self.neg]).tolist()]
+
+    def classify(self, texts: Sequence[str]) -> list[str]:
+        """Most likely label per text: positive, negative or neutral."""
+        return [self.labels[i] for p in self._probs(texts) for i in p.argmax(-1).tolist()]
 
 
 def get_scorer(kind: str) -> SentimentScorer:
