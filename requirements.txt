@@ -5,11 +5,21 @@ colorama==0.4.6 ; sys_platform == 'win32'
     # via pytest
 iniconfig==2.3.0
     # via pytest
+numpy==2.5.3
+    # via pandas
 packaging==26.3
     # via pytest
+pandas==3.0.6
+    # via sp-risk-engine
 pluggy==1.6.0
     # via pytest
 pygments==2.21.0
     # via pytest
 pytest==9.1.1
+python-dateutil==2.9.0.post0
+    # via pandas
 ruff==0.16.10
+six==1.17.0
+    # via python-dateutil
+tzdata==2026.5 ; sys_platform == 'emscripten' or sys_platform == 'win32'
+    # via pandas

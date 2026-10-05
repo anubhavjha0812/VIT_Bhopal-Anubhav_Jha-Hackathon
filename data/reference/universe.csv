@@ -1,0 +1,16 @@
+ticker,name,sector,cashtags,aliases
+AAPL,Apple Inc.,Technology,AAPL,Apple
+MSFT,Microsoft Corp.,Technology,MSFT,Microsoft
+GOOGL,Alphabet Inc.,Communication,GOOGL|GOOG,Alphabet|Google
+META,Meta Platforms Inc.,Communication,META|FB,Meta Platforms|Facebook
+NVDA,NVIDIA Corp.,Technology,NVDA,Nvidia|NVIDIA
+AMD,Advanced Micro Devices Inc.,Technology,AMD,Advanced Micro Devices|AMD
+NFLX,Netflix Inc.,Communication,NFLX,Netflix
+DIS,Walt Disney Co.,Communication,DIS,Disney
+AMZN,Amazon.com Inc.,Consumer Discretionary,AMZN,Amazon
+TSLA,Tesla Inc.,Consumer Discretionary,TSLA,Tesla
+KO,Coca-Cola Co.,Consumer Staples,KO,Coca-Cola|Coca Cola
+BA,Boeing Co.,Industrials,BA,Boeing
+XOM,Exxon Mobil Corp.,Energy,XOM,Exxon|ExxonMobil
+JPM,JPMorgan Chase & Co.,Financials,JPM,JPMorgan|JP Morgan|J.P. Morgan
+BAC,Bank of America Corp.,Financials,BAC,Bank of America|BofA
