@@ -1,6 +1,7 @@
 """Daily prices for the universe + S&P 500 index from yfinance, stored small in the repo.
 
-uv run python -m riskengine.ingest.prices        # refresh data/prices/prices_daily.csv
+uv run python -m riskengine.ingest.prices            # prices_daily.csv (replay window)
+uv run python -m riskengine.ingest.prices --history  # prices_history.csv (impact model)
 """
 
 import argparse
@@ -12,8 +13,11 @@ from riskengine.ingest.linking import Linker
 from riskengine.paths import DATA
 
 PRICES_PATH = DATA / "prices" / "prices_daily.csv"
+HISTORY_PATH = DATA / "prices" / "prices_history.csv"
 MARKET = "^GSPC"
+VIX = "^VIX"
 START, END = "2019-01-01", "2021-01-01"  # pre-window history for baselines and betas
+HISTORY_START = "2008-01-01"  # one year before the first headline, for market-model betas
 
 
 def fetch_prices(tickers: list[str], start: str = START, end: str = END) -> pd.DataFrame:
@@ -39,15 +43,18 @@ def load_prices(path: Path = PRICES_PATH) -> pd.DataFrame:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--start", default=START)
-    parser.add_argument("--end", default=END)
+    parser.add_argument("--history", action="store_true", help="2008-2020 incl. VIX")
     args = parser.parse_args()
 
     tickers = [*Linker.from_csv().tickers, MARKET]
-    df = fetch_prices(tickers, args.start, args.end)
-    PRICES_PATH.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(PRICES_PATH, index=False, float_format="%.4f")
-    print(f"{len(df)} rows, {df['ticker'].nunique()} tickers -> {PRICES_PATH}")
+    if args.history:
+        tickers, start, path = [*tickers, VIX], HISTORY_START, HISTORY_PATH
+    else:
+        start, path = START, PRICES_PATH
+    df = fetch_prices(tickers, start, END)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(path, index=False, float_format="%.4f")
+    print(f"{len(df)} rows, {df['ticker'].nunique()} tickers -> {path}")
 
 
 if __name__ == "__main__":
