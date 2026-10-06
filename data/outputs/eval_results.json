@@ -1,7 +1,7 @@
 {
   "Sentiment (TFNS, 3 classes)": [
     {
-      "model": "finbert",
+      "model": "finbert (baseline)",
       "n": 2388,
       "accuracy": 0.72571189279732,
       "macro_f1": 0.6685349105779501,
@@ -10,14 +10,42 @@
         "neutral": 0.8020304568527918,
         "positive": 0.6042553191489362
       },
-      "texts_per_s": 12.331324736107554,
+      "texts_per_s": 13.489615858554139,
       "model_size_mb": 437.938188,
-      "peak_rss_mb": 1127.31640625
+      "peak_rss_mb": 1106.7265625
+    },
+    {
+      "model": "sentiment-bge-small-en-v1.5",
+      "n": 2388,
+      "accuracy": 0.8852596314907872,
+      "macro_f1": 0.848190052064628,
+      "per_class_f1": {
+        "negative": 0.8005952380952381,
+        "neutral": 0.9205753595997499,
+        "positive": 0.8233995584988962
+      },
+      "texts_per_s": 48.17032304399993,
+      "model_size_mb": 133.44462,
+      "peak_rss_mb": 1106.7265625
+    },
+    {
+      "model": "sentiment-finbert",
+      "n": 2388,
+      "accuracy": 0.8927973199329984,
+      "macro_f1": 0.8620818854407588,
+      "per_class_f1": {
+        "negative": 0.8205841446453408,
+        "neutral": 0.9254498714652957,
+        "positive": 0.8402116402116402
+      },
+      "texts_per_s": 14.282218875921087,
+      "model_size_mb": 437.938188,
+      "peak_rss_mb": 1268.92578125
     }
   ],
   "Events (TFN-topic)": [
     {
-      "model": "keywords",
+      "model": "keywords (baseline)",
       "n": 4117,
       "accuracy": 0.7398591207189701,
       "macro_f1": 0.5049056740250303,
@@ -27,9 +55,39 @@
         "Geopolitical": 0.14090019569471623,
         "Other": 0.8514419329696025
       },
-      "texts_per_s": 7357.961816892814,
+      "texts_per_s": 7340.735639313578,
       "model_size_mb": 0.0,
-      "peak_rss_mb": 150.5703125
+      "peak_rss_mb": 146.34375
+    },
+    {
+      "model": "topic-bge-small-en-v1.5",
+      "n": 4117,
+      "accuracy": 0.9604080641243624,
+      "macro_f1": 0.9069487982638812,
+      "per_class_f1": {
+        "Macroeconomic": 0.923921568627451,
+        "M&A": 0.7965367965367965,
+        "Geopolitical": 0.9309664694280079,
+        "Other": 0.9763703584632696
+      },
+      "texts_per_s": 45.771173711893375,
+      "model_size_mb": 133.4708,
+      "peak_rss_mb": 688.40625
+    },
+    {
+      "model": "topic-finbert",
+      "n": 4117,
+      "accuracy": 0.9662375516152538,
+      "macro_f1": 0.9329863266311396,
+      "per_class_f1": {
+        "Macroeconomic": 0.9269442262372348,
+        "M&A": 0.8917748917748918,
+        "Geopolitical": 0.9336016096579477,
+        "Other": 0.9796245788544842
+      },
+      "texts_per_s": 12.21124985882377,
+      "model_size_mb": 437.99048,
+      "peak_rss_mb": 1106.7265625
     }
   ]
 }

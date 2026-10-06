@@ -7,15 +7,16 @@ import json
 import resource
 import time
 from collections.abc import Callable, Sequence
+from pathlib import Path
 
 import pandas as pd
 from sklearn.metrics import accuracy_score, classification_report, f1_score
 
-from riskengine.config import load_config
 from riskengine.eval.datasets import EVENT_TEST_CLASSES, tfns_test, topic_test
-from riskengine.nlp.events import classify_keywords
-from riskengine.nlp.sentiment import FinBert
-from riskengine.paths import DATA, ROOT
+from riskengine.nlp.classifier import TextClassifier
+from riskengine.nlp.events import classify_keywords, topic_to_event
+from riskengine.nlp.sentiment import FINBERT, TransformerSentiment
+from riskengine.paths import DATA, MODELS, ROOT
 
 RESULTS_MD = ROOT / "docs" / "RESULTS.md"
 RESULTS_JSON = DATA / "outputs" / "eval_results.json"
@@ -67,31 +68,47 @@ def to_markdown(results: dict) -> str:
     return "\n".join(lines)
 
 
+def trained(task: str) -> list[Path]:
+    """Fine-tuned model folders from notebooks/train_classifiers.py, e.g. models/*/topic-*."""
+    return sorted(p.parent for p in MODELS.glob(f"**/{task}-*/model.safetensors"))
+
+
 def main() -> None:
-    config = load_config()
-    results: dict[str, list[dict]] = {"Sentiment (TFNS, 3 classes)": [], "Events (TFN-topic)": []}
+    sentiment_key, events_key = "Sentiment (TFNS, 3 classes)", "Events (TFN-topic)"
+    results: dict[str, list[dict]] = {sentiment_key: [], events_key: []}
 
     events = topic_test()
-    results["Events (TFN-topic)"].append(
+    results[events_key].append(
         evaluate(
-            config.events,
+            "keywords (baseline)",
             events,
             lambda ts: [classify_keywords(t) for t in ts],
             EVENT_TEST_CLASSES,
             0.0,
         )
     )
-
-    finbert = FinBert()
-    results["Sentiment (TFNS, 3 classes)"].append(
-        evaluate(
-            "finbert",
-            tfns_test(),
-            finbert.classify,
-            ["negative", "neutral", "positive"],
-            model_size_mb(finbert.model),
+    for path in trained("topic"):
+        clf = TextClassifier(str(path))
+        results[events_key].append(
+            evaluate(
+                path.name,
+                events,
+                lambda ts, clf=clf: [topic_to_event(t) for t in clf.predict(ts)],
+                EVENT_TEST_CLASSES,
+                model_size_mb(clf.model),
+            )
         )
-    )
+
+    sentiment = tfns_test()
+    labels = ["negative", "neutral", "positive"]
+    for name, model in [
+        ("finbert (baseline)", FINBERT),
+        *[(p.name, p) for p in trained("sentiment")],
+    ]:
+        clf = TransformerSentiment(model, name=name)
+        results[sentiment_key].append(
+            evaluate(name, sentiment, clf.classify, labels, model_size_mb(clf.model))
+        )
 
     RESULTS_JSON.parent.mkdir(parents=True, exist_ok=True)
     RESULTS_JSON.write_text(json.dumps(results, indent=2))

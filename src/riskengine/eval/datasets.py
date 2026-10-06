@@ -5,6 +5,7 @@ Mappings follow docs/DECISIONS.md (E1, E2) and must not change after scoring.
 
 import pandas as pd
 
+from riskengine.nlp.events import TOPIC_TO_EVENT  # same table the engine uses
 from riskengine.paths import DATA
 
 EVAL_DIR = DATA / "eval"
@@ -19,12 +20,6 @@ TOPIC_NAMES = [
     "Legal | Regulation", "M&A | Investments", "Macro", "Markets", "Politics",
     "Personnel Change", "Stock Commentary", "Stock Movement",
 ]  # fmt: skip
-TOPIC_TO_EVENT = {
-    "Fed | Central Banks": "Macroeconomic",
-    "Macro": "Macroeconomic",
-    "M&A | Investments": "M&A",
-    "Politics": "Geopolitical",
-}  # every other topic -> "Other"
 EVENT_TEST_CLASSES = ["Macroeconomic", "M&A", "Geopolitical", "Other"]
 
 
