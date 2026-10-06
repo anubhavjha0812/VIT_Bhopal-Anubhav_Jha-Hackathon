@@ -1,12 +1,17 @@
 """Sentiment in [-1, 1] = P(positive) - P(negative).
 
-Baseline: off-the-shelf FinBERT (ProsusAI/finbert), CPU only.
+- finbert: off-the-shelf FinBERT (ProsusAI/finbert), the baseline.
+- own: our model fine-tuned on Twitter Financial News Sentiment (notebooks/train_classifiers.py).
 """
 
 from collections.abc import Sequence
 from typing import Protocol
 
+from riskengine.nlp.classifier import TextClassifier
+from riskengine.paths import MODELS
+
 FINBERT = "ProsusAI/finbert"
+OWN_SENTIMENT = MODELS / "sentiment"
 
 
 class SentimentScorer(Protocol):
@@ -15,42 +20,29 @@ class SentimentScorer(Protocol):
     def score(self, texts: Sequence[str]) -> list[float]: ...
 
 
-class FinBert:
-    name = "finbert"
-
-    def __init__(self, model: str = FINBERT, batch_size: int = 64, max_length: int = 64):
-        # Imported here, not at the top: replaying stored signals never pays torch's load time.
-        import torch
-        from transformers import AutoModelForSequenceClassification, AutoTokenizer
-
-        self._torch = torch
-        self.tokenizer = AutoTokenizer.from_pretrained(model)
-        self.model = AutoModelForSequenceClassification.from_pretrained(model).eval()
-        self.labels = [self.model.config.id2label[i].lower() for i in range(3)]
+class TransformerSentiment(TextClassifier):
+    def __init__(self, model: str = FINBERT, name: str = "finbert", **kw):
+        super().__init__(str(model), **kw)
+        self.name = name
+        self.labels = [label.lower() for label in self.labels]
         self.pos, self.neg = self.labels.index("positive"), self.labels.index("negative")
-        self.batch_size, self.max_length = batch_size, max_length
-
-    def _probs(self, texts: Sequence[str]):
-        with self._torch.inference_mode():
-            for i in range(0, len(texts), self.batch_size):
-                batch = self.tokenizer(
-                    list(texts[i : i + self.batch_size]),
-                    padding=True,
-                    truncation=True,
-                    max_length=self.max_length,
-                    return_tensors="pt",
-                )
-                yield self.model(**batch).logits.softmax(-1)
 
     def score(self, texts: Sequence[str]) -> list[float]:
-        return [s for p in self._probs(texts) for s in (p[:, self.pos] - p[:, self.neg]).tolist()]
+        return [s for p in self.probs(texts) for s in (p[:, self.pos] - p[:, self.neg]).tolist()]
 
     def classify(self, texts: Sequence[str]) -> list[str]:
         """Most likely label per text: positive, negative or neutral."""
-        return [self.labels[i] for p in self._probs(texts) for i in p.argmax(-1).tolist()]
+        return self.predict(texts)
+
+
+FinBert = TransformerSentiment  # the baseline is the default model
 
 
 def get_scorer(kind: str) -> SentimentScorer:
     if kind == "finbert":
-        return FinBert()
+        return TransformerSentiment()
+    if kind == "own":
+        if not OWN_SENTIMENT.exists():
+            raise FileNotFoundError(f"own sentiment model not found at {OWN_SENTIMENT}")
+        return TransformerSentiment(OWN_SENTIMENT, name="own")
     raise NotImplementedError(f"sentiment model {kind!r} is not built yet")

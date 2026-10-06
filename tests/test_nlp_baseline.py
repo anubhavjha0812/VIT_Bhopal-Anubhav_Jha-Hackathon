@@ -39,3 +39,21 @@ def test_impact_always_1_to_10(event, sentiment, source):
 def test_strong_default_news_crosses_module_b_trigger():
     assert impact_formula("Default", -0.9, "news") > 7
     assert impact_formula("Other", -0.9, "tweets") <= 7
+
+
+def test_model_events_keep_credit_rules(monkeypatch, tmp_path):
+    from riskengine.nlp import classifier, events
+
+    class FakeTopics:
+        def __init__(self, path):
+            pass
+
+        def predict(self, texts):
+            return ["Politics", "Earnings"]
+
+    monkeypatch.setattr(classifier, "TextClassifier", FakeTopics)
+    monkeypatch.setattr(events, "OWN_TOPIC", tmp_path)  # exists
+    classify = events.get_event_classifier("model")
+    out = classify(["Senate passes China bill", "Hertz files for Chapter 11"])
+    # model decides normal classes; credit rules still win until credit classes are trained
+    assert out == ["Geopolitical", "Default"]
