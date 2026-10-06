@@ -1,0 +1,80 @@
+{
+  "validation_spearman": {
+    "ridge": 0.1483226299453711,
+    "gbm": 0.16556986351361358,
+    "formula": 0.015871962585618266
+  },
+  "chosen": "gbm",
+  "splits": {
+    "test_2019": [
+      {
+        "model": "formula (baseline)",
+        "n": 6214,
+        "spearman": 0.005554914490336849,
+        "ci95": [
+          -0.018128608054602327,
+          0.030287368602683027
+        ],
+        "mean_abs_car_pct_impact_ge8": 2.508439503931713,
+        "mean_abs_car_pct_impact_le3": 2.0281961330657525
+      },
+      {
+        "model": "ridge",
+        "n": 6214,
+        "spearman": 0.3470981115178173,
+        "ci95": [
+          0.3265266602267747,
+          0.368103901196163
+        ],
+        "mean_abs_car_pct_impact_ge8": 3.3421716522891742,
+        "mean_abs_car_pct_impact_le3": 1.1261915200812451
+      },
+      {
+        "model": "gbm (chosen)",
+        "n": 6214,
+        "spearman": 0.17048962338719167,
+        "ci95": [
+          0.14647809062878284,
+          0.19477278886453087
+        ],
+        "mean_abs_car_pct_impact_ge8": 2.652834658134172,
+        "mean_abs_car_pct_impact_le3": 1.5347793668964513
+      }
+    ],
+    "test_2020": [
+      {
+        "model": "formula (baseline)",
+        "n": 6454,
+        "spearman": -0.07113134804538833,
+        "ci95": [
+          -0.09488239218906377,
+          -0.04586569033571759
+        ],
+        "mean_abs_car_pct_impact_ge8": 4.038131325842829,
+        "mean_abs_car_pct_impact_le3": 3.4593157548498987
+      },
+      {
+        "model": "ridge",
+        "n": 6454,
+        "spearman": 0.34394112263495213,
+        "ci95": [
+          0.322362203864675,
+          0.3644555296235285
+        ],
+        "mean_abs_car_pct_impact_ge8": 4.678417068678665,
+        "mean_abs_car_pct_impact_le3": 1.827450318596769
+      },
+      {
+        "model": "gbm (chosen)",
+        "n": 6454,
+        "spearman": 0.16831379893506943,
+        "ci95": [
+          0.14356206249870834,
+          0.19232792592128398
+        ],
+        "mean_abs_car_pct_impact_ge8": 4.015197429716897,
+        "mean_abs_car_pct_impact_le3": 1.8223854962071981
+      }
+    ]
+  }
+}
