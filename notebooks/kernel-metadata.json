@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-train-classifiers",
+  "title": "sp-riskengine-train-classifiers",
+  "code_file": "train_classifiers.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}
