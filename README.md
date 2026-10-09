@@ -102,6 +102,16 @@ uv run uvicorn riskengine.api:app --port 8000   # API; docs at http://localhost:
 cd web && npm install && npm run dev            # dashboard at http://localhost:5173
 ```
 
+Or as one server (what gets deployed): build once, then the dashboard and the API share one URL.
+
+```bash
+cd web && npm install && npm run build && cd ..
+uv run uvicorn riskengine.site:app --port 8000   # dashboard at /, API at /api, docs at /api/docs
+```
+
+Pages: Overview (scoreboard), Engine (per stock), Analyze (live scoring), Live replay (the window
+streamed in time order, with alerts and Module A weights), Module A.
+
 ## 5. Key Results & Domain Impact
 
 All test rules were written down before scoring ([DECISIONS.md](docs/DECISIONS.md)); each model
