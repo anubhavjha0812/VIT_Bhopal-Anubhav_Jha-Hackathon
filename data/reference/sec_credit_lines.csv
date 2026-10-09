@@ -1,0 +1,9 @@
+ticker,credit_line,accn,report_date,sentence,note
+AMZN,7000000000.0,0001018724-20-000004,2019-12-31,"In April 2018, in connection with our Commercial Paper Program, we amended and restated our unsecured revolving credit facility (the “Credit Agreement”) with a syndicate of lenders to increase our borrowing capacity thereunder to $ 7.0 billion .",unsecured syndicated revolver; the $740m secured seller-receivables facility is one lender and already in long-term debt
+GOOGL,4000000000.0,0001652044-20-000008,2019-12-31,"We have $4.0 billion of revolving credit facilities expiring in July 2023 with no amounts outstanding as of December 31, 2019 .",
+META,2000000000.0,0001326801-20-000013,2019-12-31,"In May 2016, we entered into a $2.0 billion senior unsecured revolving credit facility, and any amounts outstanding under the facility will be due and payable on May 20, 2021.",
+NFLX,750000000.0,0001065280-20-000040,2019-12-31,"As of December 31, 2019 , no amounts had been borrowed under our $750 million Revolving Credit Agreement.",amended Mar 2019 from $500m to $750m
+NVDA,575000000.0,0001045810-19-000023,2019-01-27,Revolving Credit Facility We have a Credit Agreement under which we may borrow up to $575 million for general corporate purposes and can obtain revolving loan commitments up to $425 million.,"fiscal year ending 27 Jan 2019, the last 10-K before the book date"
+AMD,500000000.0,0000002488-20-000008,2019-12-28,"The Secured Revolving Facility consists of a $ 500 million , five-year secured revolving loan facility, including a $ 50 million swingline subfacility and a $ 75 million sublimit for letters of credit.","secured by receivables; LGD kept at 45% (E14), stated"
+AAPL,,,,,no credit-line sentence in the 10-K; revolver falls back to short-term debt (E14)
+MSFT,,,,,no credit-line sentence in the 10-K; revolver falls back to short-term debt (E14)

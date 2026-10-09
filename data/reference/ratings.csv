@@ -1,0 +1,16 @@
+ticker,rating,basis,evidence,source
+AAPL,AA+,S&P,"Pricing term sheet 5 Sep 2019: AA+ (stable) by Standard & Poor's",https://www.sec.gov/Archives/edgar/data/320193/000119312519237993/d777130dfwp.htm
+MSFT,AAA,S&P,"Pricing term sheet 31 Jan 2017: S&P AAA (stable); last bond sale before the book date",https://www.sec.gov/Archives/edgar/data/789019/000119312517024075/d336950dfwp.htm
+GOOGL,AA,S&P,"Pricing term sheets Aug 2016 and Aug 2020 both S&P AA (stable)",https://www.sec.gov/Archives/edgar/data/1652044/000119312520208301/d21098dfwp.htm
+META,AA-,proxy,"Not rated by S&P at the book date (no debt); proxy = S&P's first rating AA- (Aug 2022), a later rating, stated",https://www.advisorperspectives.com/articles/2022/08/07/meta-makes-bond-market-debut-with-10-billion-jumbo-deal
+NVDA,A-,S&P,"Pricing term sheet 26 Mar 2020: S&P A- (stable)",https://www.sec.gov/Archives/edgar/data/1045810/000119312520087125/d895732dfwp.htm
+AMD,BB-,Moody's,"S&P rating at the book date not found; Moody's Ba3 (raised to Baa3 from Ba3 on 11 Sep 2020) mapped to BB-",https://ir.amd.com/news-events/press-releases/detail/967/amd-senior-unsecured-credit-rating-raised-to-investment-grade-by-moodys-investors-service
+NFLX,BB-,S&P,"S&P raised Netflix to BB from BB- in mid-2020",https://www.hollywoodreporter.com/news/netflix-gets-credit-rating-upgrade-at-s-p-global-pandemic-1304627
+DIS,A,S&P,"S&P cut Disney to A- from A on 23 Apr 2020",https://www.fool.com/investing/2020/04/23/coronavirus-walt-disneys-credit-rating-drops-one-n.aspx
+AMZN,AA-,S&P,"S&P raised Amazon to AA from AA- on 10 Jun 2021; AA- issue rating in Jun 2020",https://www.alacrastore.com/s-and-p-credit-research/Research-Update-Amazon-com-Inc-Upgraded-To-AA-From-AA-On-Sustained-Revenue-Profit-Expansion-Trajectory-Outlook-Stable-2664876
+TSLA,B-,S&P,"S&P raised Tesla to B+ from B- on 28 Jul 2020",https://www.tesmanian.com/blogs/tesmanian-blog/standard-poors-s-p-upgrades-teslas-rating-to-b-from-b
+KO,A+,S&P,"10-K FY2019: long-term debt rated A+ by Standard & Poor's at 31 Dec 2019",https://www.sec.gov/Archives/edgar/data/0000021344/000002134420000006/a2019123110-k.htm
+BA,A-,S&P,"S&P cut Boeing to BBB from A- in Mar 2020",https://asiatimes.com/2020/03/sp-cuts-boeing-rating-over-737-max-and-virus/
+XOM,AA+,S&P,"S&P cut Exxon to AA from AA+ on 16 Mar 2020",https://www.fool.com/investing/2020/03/16/exxon-mobils-credit-rating-downgraded-a-notch-by-s.aspx
+JPM,A-,S&P,"10-Q Q3 2019: parent long-term S&P A- (stable)",https://www.sec.gov/Archives/edgar/data/19617/000001961719000232/corpq32019.htm
+BAC,A-,S&P,"S&P raised the parent to A- from BBB+ in Nov 2017; 10-Q Q2 2019 says S&P ratings unchanged",https://www.sec.gov/Archives/edgar/data/70858/000007085819000042/bac-630201910xq.htm
