@@ -4,6 +4,7 @@ uv run python -m riskengine.impact.scores
 """
 
 import logging
+from pathlib import Path
 
 import pandas as pd
 import torch
@@ -18,8 +19,8 @@ log = logging.getLogger(__name__)
 SCORES_PATH = DATA / "cache" / "headline_scores.csv.gz"
 
 
-def score_headlines() -> pd.DataFrame:
-    news = load_fnspid()[0]
+def score_headlines(news: pd.DataFrame | None = None, path: Path = SCORES_PATH) -> pd.DataFrame:
+    news = load_fnspid()[0] if news is None else news
     texts = news["text"].tolist()
 
     log.info("sentiment for %d headlines", len(texts))
@@ -37,13 +38,13 @@ def score_headlines() -> pd.DataFrame:
     out = pd.concat([news[["doc_id"]], p], axis=1)
     out.insert(1, "sentiment", [round(s, 4) for s in sentiment])
     out.insert(2, "event", event)
-    SCORES_PATH.parent.mkdir(parents=True, exist_ok=True)
-    out.to_csv(SCORES_PATH, index=False, float_format="%.4f")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    out.to_csv(path, index=False, float_format="%.4f")
     return out
 
 
-def load_scores() -> pd.DataFrame:
-    return pd.read_csv(SCORES_PATH, dtype={"doc_id": str})
+def load_scores(path: Path = SCORES_PATH) -> pd.DataFrame:
+    return pd.read_csv(path, dtype={"doc_id": str})
 
 
 if __name__ == "__main__":

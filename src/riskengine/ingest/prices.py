@@ -20,8 +20,13 @@ START, END = "2019-01-01", "2021-01-01"  # pre-window history for baselines and 
 HISTORY_START = "2008-01-01"  # one year before the first headline, for market-model betas
 
 
-def fetch_prices(tickers: list[str], start: str = START, end: str = END) -> pd.DataFrame:
-    """Long table: date, ticker, close (split/dividend adjusted), volume."""
+def fetch_prices(
+    tickers: list[str], start: str = START, end: str = END, strict: bool = True
+) -> pd.DataFrame:
+    """Long table: date, ticker, close (split/dividend adjusted), volume.
+
+    strict: raise if any ticker has no prices; otherwise just leave it out.
+    """
     import yfinance as yf
 
     wide = yf.download(
@@ -31,7 +36,7 @@ def fetch_prices(tickers: list[str], start: str = START, end: str = END) -> pd.D
     long.columns = ["date", "ticker", "close", "volume"]
     long = long.dropna(subset=["close"])
     missing = set(tickers) - set(long["ticker"])
-    if missing:
+    if missing and strict:
         raise RuntimeError(f"no prices downloaded for {sorted(missing)}")
     return long.sort_values(["ticker", "date"]).reset_index(drop=True)
 
