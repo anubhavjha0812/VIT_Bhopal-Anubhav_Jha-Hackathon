@@ -71,3 +71,21 @@ def test_module_a_endpoints(client, monkeypatch):
         {"date": "2020-04-09", "AAPL": 0.5, "JPM": 0.5}
     ]
     assert client.get("/module-a/metrics").json() == {"equal": {"total_return": 0.25}}
+
+
+def test_replay_streams_signals_alerts_and_weights(client, monkeypatch):
+    weights = pd.DataFrame({"date": ["2020-05-04"], "JPM": [0.5], "BAC": [0.5]})
+    monkeypatch.setattr(api, "module_a_outputs", lambda: (weights, None))
+    body = client.get("/replay", params={"rate": 1000}).text
+    kinds = [line.removeprefix("event: ") for line in body.splitlines() if line.startswith("event")]
+    # a (1 May, impact 9), b (1 May), weights for 4 May, c (2 May), end
+    assert kinds == ["signal", "alert", "signal", "signal", "weights", "end"]
+
+
+def test_replay_limit_and_ticker_filter(client, monkeypatch):
+    weights = pd.DataFrame({"date": ["2020-05-04"], "JPM": [0.5], "BAC": [0.5]})
+    monkeypatch.setattr(api, "module_a_outputs", lambda: (weights, None))
+    body = client.get("/replay", params={"rate": 1000, "ticker": "bac", "limit": 1}).text
+    assert body.count("event: signal") == 1
+    assert '"doc_id": "c"' in body
+    assert body.rstrip().endswith('data: {"texts": 1}')

@@ -9,21 +9,28 @@ POST /analyze {"text": "..."}        score new text live
 GET  /tickers                        stocks that have signals
 GET  /module-a/weights               Module A weights per day (set at that day's close)
 GET  /module-a/metrics               equal weight vs sentiment tilt: return, vol, Sharpe, drawdown
+GET  /replay?rate=20&start=2020-05-01 Server-Sent Events: the window replayed in time order
 """
 
+import asyncio
+import json
+from datetime import date
 from functools import lru_cache
 
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from riskengine.config import load_config
 from riskengine.ingest.linking import Linker
+from riskengine.module_a import NY
 from riskengine.nlp.events import get_event_classifier
 from riskengine.nlp.impact import impact_formula
 from riskengine.nlp.sentiment import get_scorer
 from riskengine.paths import DATA
 from riskengine.pipeline import SIGNALS_PATH, load_signals
+from riskengine.replay import events, sse
 
 app = FastAPI(title="Risk Engine API")
 
@@ -134,3 +141,40 @@ def module_a_metrics() -> dict:
     """One entry per strategy, e.g. {"equal": {"total_return": 0.2552, "sharpe": 4.88, ...}}."""
     _, metrics = module_a_outputs()
     return metrics.round(4).to_dict(orient="index")
+
+
+@app.get("/replay")
+async def replay(
+    rate: float = Query(20.0, gt=0, le=1000, description="texts per second"),
+    start: date | None = None,
+    ticker: str | None = None,
+    limit: int | None = Query(None, ge=1, description="stop after this many texts"),
+) -> StreamingResponse:
+    """Events `signal`, `alert` (impact above the trigger), `weights` (Module A) and `end`.
+
+    `start` is the first New York date to replay; `ticker` keeps texts that mention it.
+    """
+    df = stored_signals()
+    weights, _ = module_a_outputs()
+    if start:
+        df = df[df["published_at"] >= pd.Timestamp(start, tz=NY)]
+        weights = weights[pd.to_datetime(weights["date"]) >= pd.Timestamp(start)]
+    if ticker:
+        # keep every ticker of a matching text, so the event shows who else it names
+        df = df[df["doc_id"].isin(df.loc[df["ticker"] == ticker.upper(), "doc_id"])]
+    trigger = load_config().impact_trigger
+
+    async def stream():
+        sent = 0
+        for kind, payload in events(df, weights, trigger):
+            if kind == "signal":
+                if limit and sent == limit:
+                    break
+                if sent:
+                    await asyncio.sleep(1 / rate)
+                sent += 1
+            yield sse(kind, json.dumps(payload))
+        yield sse("end", json.dumps({"texts": sent}))
+
+    headers = {"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
+    return StreamingResponse(stream(), media_type="text/event-stream", headers=headers)
