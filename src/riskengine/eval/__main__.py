@@ -9,12 +9,14 @@ import time
 from collections.abc import Callable, Sequence
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score, classification_report, f1_score
 
 from riskengine.eval.datasets import EVENT_TEST_CLASSES, tfns_test, topic_test
 from riskengine.nlp.classifier import TextClassifier
 from riskengine.nlp.events import classify_keywords, topic_to_event
+from riskengine.nlp.multihead import MultiHeadModel
 from riskengine.nlp.sentiment import FINBERT, TransformerSentiment
 from riskengine.paths import DATA, MODELS, ROOT
 
@@ -26,16 +28,25 @@ def peak_rss_mb() -> float:
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024  # Linux reports KB
 
 
-def model_size_mb(model) -> float:
-    """Weights in memory (parameters x bytes each), independent of what the disk cache holds."""
-    return sum(p.numel() * p.element_size() for p in model.parameters()) / 1e6
-
-
 def timed(predict: Callable[[Sequence[str]], list[str]], texts: list[str]) -> tuple[list, float]:
     predict(texts[:64])  # warm-up batch (DECISIONS E4)
     t0 = time.perf_counter()
     out = predict(texts)
     return out, len(texts) / (time.perf_counter() - t0)
+
+
+def bootstrap_ci(y, pred, classes, n_boot: int = 1000, seed: int = 0) -> dict:
+    """95% bootstrap intervals for accuracy and macro-F1 (DECISIONS E7)."""
+    y, pred = np.asarray(y), np.asarray(pred)
+    rng = np.random.default_rng(seed)
+    acc, f1 = [], []
+    for i in rng.integers(0, len(y), (n_boot, len(y))):
+        acc.append(accuracy_score(y[i], pred[i]))
+        f1.append(f1_score(y[i], pred[i], labels=classes, average="macro", zero_division=0))
+    return {
+        "accuracy_ci95": np.percentile(acc, [2.5, 97.5]).tolist(),
+        "macro_f1_ci95": np.percentile(f1, [2.5, 97.5]).tolist(),
+    }
 
 
 def evaluate(name, test, predict, classes, size_mb) -> dict:
@@ -48,6 +59,7 @@ def evaluate(name, test, predict, classes, size_mb) -> dict:
         "n": len(test),
         "accuracy": accuracy_score(test["label"], pred),
         "macro_f1": f1_score(test["label"], pred, labels=classes, average="macro", zero_division=0),
+        **bootstrap_ci(test["label"], pred, classes),
         "per_class_f1": {c: report[c]["f1-score"] for c in classes},
         "texts_per_s": speed,
         "model_size_mb": size_mb,
@@ -61,7 +73,10 @@ def to_markdown(results: dict) -> str:
     for task, rows in results.items():
         lines += [f"## {task}", ""]
         df = pd.DataFrame(rows)
-        table = df[["model", "n", "accuracy", "macro_f1", "texts_per_s", "model_size_mb"]]
+        for col in ("accuracy_ci95", "macro_f1_ci95"):
+            df[col] = df[col].map(lambda c: f"[{c[0]:.3f}, {c[1]:.3f}]")
+        table = df[["model", "n", "accuracy", "accuracy_ci95", "macro_f1", "macro_f1_ci95",
+                    "texts_per_s", "model_size_mb"]]  # fmt: skip
         lines += [table.round(3).to_markdown(index=False), ""]
         per_class = pd.DataFrame({r["model"]: r["per_class_f1"] for r in rows}).round(3)
         lines += ["Per-class F1:", "", per_class.to_markdown(), ""]
@@ -69,8 +84,11 @@ def to_markdown(results: dict) -> str:
 
 
 def trained(task: str) -> list[Path]:
-    """Fine-tuned model folders from notebooks/train_classifiers.py, e.g. models/*/topic-*."""
-    return sorted(p.parent for p in MODELS.glob(f"**/{task}-*/model.safetensors"))
+    """Fine-tuned model folders, torch or ONNX, e.g. models/*/topic-*, models/*/*-int8."""
+    found = {
+        p.parent for ext in ("safetensors", "onnx") for p in MODELS.glob(f"**/{task}-*/model.{ext}")
+    }
+    return sorted(found)
 
 
 def main() -> None:
@@ -95,7 +113,7 @@ def main() -> None:
                 events,
                 lambda ts, clf=clf: [topic_to_event(t) for t in clf.predict(ts)],
                 EVENT_TEST_CLASSES,
-                model_size_mb(clf.model),
+                clf.size_mb,
             )
         )
 
@@ -106,8 +124,28 @@ def main() -> None:
         *[(p.name, p) for p in trained("sentiment")],
     ]:
         clf = TransformerSentiment(model, name=name)
+        results[sentiment_key].append(evaluate(name, sentiment, clf.classify, labels, clf.size_mb))
+
+    # E10: one encoder, two heads. Each test runs the full pass, so speed covers both heads.
+    for path in sorted(p.parent for p in MODELS.glob("**/multihead-*/heads.pt")):
+        mh = MultiHeadModel(path)
         results[sentiment_key].append(
-            evaluate(name, sentiment, clf.classify, labels, model_size_mb(clf.model))
+            evaluate(
+                f"{path.name} (sentiment head)",
+                sentiment,
+                lambda ts, mh=mh: mh.predict(ts)[0],
+                labels,
+                mh.size_mb,
+            )  # fmt: skip
+        )
+        results[events_key].append(
+            evaluate(
+                f"{path.name} (topic head)",
+                events,
+                lambda ts, mh=mh: [topic_to_event(t) for t in mh.predict(ts)[1]],
+                EVENT_TEST_CLASSES,
+                mh.size_mb,
+            )  # fmt: skip
         )
 
     RESULTS_JSON.parent.mkdir(parents=True, exist_ok=True)
