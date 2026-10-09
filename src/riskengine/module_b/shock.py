@@ -99,14 +99,16 @@ def _on_or_before(df: pd.DataFrame, day: str) -> pd.Series:
 
 
 @cache
-def market(episode: str = DEFAULT_EPISODE) -> Market:
-    start, end = EPISODES[episode]
+def market(episode: str | tuple[str, str] = DEFAULT_EPISODE) -> Market:
+    """Real moves between two dates: a named episode or any (start, end)."""
+    start, end = EPISODES[episode] if isinstance(episode, str) else episode
     m = market_history()
     book, a, b = _on_or_before(m, BOOK_DATE), _on_or_before(m, start), _on_or_before(m, end)
     ew = returns().mean(axis=1)  # equal weight over the names listed that day
     sigma_1y = ew.loc[CALM[0] : CALM[1]].std() * math.sqrt(TRADING_DAYS)
     z = -ew.loc[start:end].iloc[1:].sum() / sigma_1y
-    return Market(episode, book["aaa"], book["baa"], b["aaa"] - a["aaa"], b["baa"] - a["baa"],
+    name = episode if isinstance(episode, str) else f"{start} to {end}"
+    return Market(name, book["aaa"], book["baa"], b["aaa"] - a["aaa"], b["baa"] - a["baa"],
                   float(z), book["usdinr"], b["usdinr"] / a["usdinr"] - 1,
                   book["ust10y"])  # fmt: skip
 
@@ -115,14 +117,15 @@ def scenario(
     ratings: pd.Series,
     obligor: str | None = None,
     notches: int = 0,
-    episode: str = DEFAULT_EPISODE,
+    episode: str | tuple[str, str] | Market = DEFAULT_EPISODE,
     multiple: float = 1.0,
 ) -> tuple[pd.DataFrame, Market, float]:
     """Per ticker: rating, spread (% points) and PD before and after; plus the market and FX after.
 
     ratings: ticker -> S&P rating at the book date. obligor/notches: the alert (None = market only).
+    episode: a name, a (start, end) pair of dates, or a ready Market (the backtest builds its own).
     """
-    mk = market(episode)
+    mk = episode if isinstance(episode, Market) else market(episode)
     aaa1 = max(mk.aaa0 + multiple * mk.d_aaa, 0.01)
     baa1 = max(mk.baa0 + multiple * mk.d_baa, aaa1 + 0.01)
     z = multiple * mk.z

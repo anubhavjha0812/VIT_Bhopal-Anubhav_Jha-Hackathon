@@ -1,0 +1,7 @@
+published_at,ticker,notches,impact,text,window,predicted_loss,naive_loss,realised_loss,sign_match,error,naive_error
+2020-04-10 17:10:42+00:00,BA,1,8,"Moodys downgrading #Boeing to Baa2 from Baa1.
+📌cites impact of #COVIDー19 in combo with 737Max fiasco
+📌says it could down",2020-04-09 to 2020-05-08,300440381.28770316,291926860.6296329,4016285.3676023413,True,296424095.9201008,287910575.26203054
+2020-04-23 14:42:34+00:00,DIS,1,8,$DIS - Disney's credit rating lowered at S&P https://t.co/wisBVzGHlT,2020-04-23 to 2020-05-21,300884972.6302828,291926860.6296329,17240150.527027372,True,283644822.10325545,274686710.1026055
+2020-05-06 21:50:25+00:00,DIS,1,9,Fitch downgrades Disney's IDR to 'A-' from 'A' and maintains negative outlook  $DIS,2020-05-06 to 2020-06-04,300884972.6302828,291926860.6296329,-24040201.220699746,False,324925173.85098255,315967061.8503326
+2020-06-01 17:15:40+00:00,BAC,1,8,"India Stocks, Rupee Shrug Off Moody’s Rate Cut in Offshore Trade $BAC $MCO https://t.co/icQ47Zspte",2020-06-01 to 2020-06-29,302213158.6491752,291926860.6296329,-4025711.676368841,False,306238870.32554406,295952572.3060017

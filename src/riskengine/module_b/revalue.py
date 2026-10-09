@@ -28,6 +28,8 @@ from scipy.stats import norm
 from riskengine.module_b.params import DEFAULT, basel_rho, lifetime_pd, notch, pd_1y
 from riskengine.module_b.shock import DEFAULT_EPISODE, Market, scenario
 
+Episode = str | tuple[str, str] | Market
+
 CET1_START = 0.13
 CET1_FLOOR = 0.08  # RBI: CET1 5.5% + capital conservation buffer 2.5%
 TAX = 0.25
@@ -165,7 +167,7 @@ def revalue(
     book: pd.DataFrame,
     obligor: str | None = None,
     notches: int = 0,
-    episode: str = DEFAULT_EPISODE,
+    episode: Episode = DEFAULT_EPISODE,
     multiple: float = 1.0,
 ) -> Result:
     ratings = book.drop_duplicates("ticker").set_index("ticker")["rating"]
@@ -190,7 +192,7 @@ def reverse_stress(
     book: pd.DataFrame,
     obligor: str | None = None,
     notches: int = 0,
-    episode: str = DEFAULT_EPISODE,
+    episode: Episode = DEFAULT_EPISODE,
     floor: float = CET1_FLOOR,
     high: float = 20.0,
     tol: float = 1e-3,
