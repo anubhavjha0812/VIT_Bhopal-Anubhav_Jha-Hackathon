@@ -127,12 +127,32 @@ CPU), batch 64. 95% intervals from 1,000 bootstrap resamples.
 | bge-small topic model | 0.960 | [0.954, 0.966] | 0.907 | [0.889, 0.923] | 133 MB | 39 |
 | FinBERT topic model | **0.966** | [0.961, 0.972] | **0.933** | [0.919, 0.946] | 438 MB | 11 |
 | bge-small shared encoder, topic head | 0.950 | [0.943, 0.956] | 0.900 | [0.882, 0.915] | 133 MB | 41 |
+| bge-small topic model, **int8 ONNX** (engine default) | 0.951 | [0.944, 0.957] | 0.886 | [0.866, 0.903] | **34 MB** | 44 |
 
 - Geopolitical F1 rises from 0.14 (keywords) to 0.93.
 - The shared encoder gives sentiment and event type in **one pass** (half the compute of two
   models). Its topic head is 1.04 points below the single bge-small model, just outside our
   1-point limit. The single-task topic models were trained with 999 texts that also appear in
   the test set; the shared encoder was not (see below).
+
+- The engine uses the int8 bge-small topic model: 0.97 points below its torch version (inside
+  our 1-point limit) and 1.6 points below FinBERT, for 1/13 of FinBERT's size
+  ([DECISIONS.md](docs/DECISIONS.md) E11).
+
+### Demo window re-scored with our models (14,169 texts, 9 Apr – 10 Jun 2020)
+
+| | Baselines (FinBERT + keywords) | Our int8 models |
+|---|---|---|
+| Time to score on CPU | — | 9 min 54 s, 1.0 GB RAM |
+| Texts tagged M&A / Macro / Geopolitical | 245 / 229 / 220 | 612 / 186 / 67 |
+| High-impact texts (> 7) | 48 | 41 |
+| Module A sentiment tilt: return / Sharpe | 23.4% / 4.41 | 24.1% / 4.55 |
+| Equal weight (benchmark): return / Sharpe | 25.5% / 4.88 | 25.5% / 4.88 |
+
+- Same event class on 89.7% of texts; sentiment correlation 0.61 between the two runs.
+- The tilt improves a little with our models but still trails equal weight in this 2-month window.
+- The topic data has no product-launch class, so "Product launch" (134 texts by keywords) is not
+  produced by the model.
 
 ### Impact score 1–10 (does it rank real price moves?) — [IMPACT_V2.md](docs/IMPACT_V2.md)
 

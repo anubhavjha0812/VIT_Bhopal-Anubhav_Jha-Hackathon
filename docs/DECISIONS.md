@@ -185,6 +185,19 @@ afterwards to improve a score. Dates are when the rule was fixed.
   for sentiment, E5 bge-small topic model).
 - **Success:** accuracy within 1 point of the single-task model on both tests. Reported either way.
 
+## E11. Engine switch to our models (fixed 2026-10-09, before the topic int8 model is scored)
+
+- **Sentiment:** the E9 int8 model (bge-small fine-tuned, int8 ONNX).
+- **Events:** the E5 bge-small topic model, exported to int8 as in E9, replaces the E5 choice
+  (FinBERT topic). This choice is made after the E2 test scores were seen (0.960 vs 0.966), so
+  it is stated as a trade: 0.6 points of accuracy for a model about 1/13 the size and ~3.5×
+  the speed, which the engine needs on CPU. Both stay reported.
+- **Topic int8 test:** scored once on E2 with E9 metrics. It is used only if its E2 accuracy is
+  within 1 point of the bge-small torch topic model; otherwise the torch model is used.
+- **Impact:** stays the formula (E8 v2 is not used; it failed the 2020 test).
+- **Demo:** the committed sample is re-scored once with the new models; signal counts, event
+  mix, high-impact count and Module A metrics are reported next to the baseline run.
+
 ## E4. Efficiency (fixed 2026-10-06)
 
 Next to every accuracy figure: CPU throughput (texts per second, batch 64, after a warm-up

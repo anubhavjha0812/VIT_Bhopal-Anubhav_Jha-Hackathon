@@ -3,8 +3,9 @@ import pytest
 from riskengine.config import Config, load_config
 
 
-def test_default_config_is_baseline():
-    assert load_config() == Config()
+def test_default_config_runs_our_models():
+    # The file switches on our models (DECISIONS E11); Config() itself stays the baseline.
+    assert load_config() == Config(sentiment="own", events="model")
 
 
 def test_bad_switch_value_is_rejected():

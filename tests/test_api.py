@@ -3,6 +3,8 @@ import pytest
 from fastapi.testclient import TestClient
 
 from riskengine import api
+from riskengine.config import Config
+from riskengine.nlp.events import get_event_classifier
 
 
 class FakeScorer:
@@ -31,6 +33,9 @@ def client(monkeypatch):
     )
     monkeypatch.setattr(api, "stored_signals", lambda: rows)
     monkeypatch.setattr(api, "scorer", lambda: FakeScorer())
+    # keyword rules: no model download in tests
+    monkeypatch.setattr(api, "load_config", lambda: Config())
+    monkeypatch.setattr(api, "event_classifier", lambda: get_event_classifier("keywords"))
     return TestClient(api.app)
 
 

@@ -16,7 +16,7 @@ from pydantic import BaseModel
 
 from riskengine.config import load_config
 from riskengine.ingest.linking import Linker
-from riskengine.nlp.events import classify_keywords
+from riskengine.nlp.events import get_event_classifier
 from riskengine.nlp.impact import impact_formula
 from riskengine.nlp.sentiment import get_scorer
 from riskengine.pipeline import SIGNALS_PATH, load_signals
@@ -34,6 +34,11 @@ def stored_signals() -> pd.DataFrame:
 @lru_cache
 def scorer():
     return get_scorer(load_config().sentiment)
+
+
+@lru_cache
+def event_classifier():
+    return get_event_classifier(load_config().events)
 
 
 @lru_cache
@@ -86,11 +91,11 @@ def daily(ticker: str | None = None) -> list[dict]:
 @app.post("/analyze")
 def analyze(item: AnalyzeIn) -> dict:
     s = scorer().score([item.text])[0]
-    event = classify_keywords(item.text)
+    event = event_classifier()([item.text])[0]
     return {
         "tickers": list(linker().link(item.text)),
         "sentiment": round(s, 4),
         "event": event,
         "impact": impact_formula(event, s, item.source),
-        "model": f"{scorer().name}+keywords+formula",
+        "model": f"{scorer().name}+{load_config().events}+formula",
     }

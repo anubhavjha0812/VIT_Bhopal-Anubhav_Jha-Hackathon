@@ -1,7 +1,8 @@
 """Sentiment in [-1, 1] = P(positive) - P(negative).
 
 - finbert: off-the-shelf FinBERT (ProsusAI/finbert), the baseline.
-- own: our model fine-tuned on Twitter Financial News Sentiment (notebooks/train_classifiers.py).
+- own: our model fine-tuned on Twitter Financial News Sentiment (notebooks/train_classifiers.py),
+  int8 ONNX in models/sentiment (DECISIONS E9, E11).
 """
 
 from collections.abc import Sequence

@@ -2,7 +2,8 @@
 
 - keywords: rules, first match wins (most severe first). The baseline.
 - model: our topic classifier fine-tuned on Twitter Financial News Topic; its 20 topics are
-  mapped to our classes with TOPIC_TO_EVENT (docs/DECISIONS.md, E2/E5).
+  mapped to our classes with TOPIC_TO_EVENT (docs/DECISIONS.md, E2/E5). bge-small, int8 ONNX in
+  models/topic (E11).
 """
 
 import re

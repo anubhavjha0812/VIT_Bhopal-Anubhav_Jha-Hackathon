@@ -1,8 +1,8 @@
 # Which version of each part to run.
-# Defaults are the simple baselines; upgrades are switched on as they are built.
+# Defaults are our fine-tuned int8 models (DECISIONS E11); set finbert / keywords for the baselines.
 
-sentiment = "finbert"    # finbert | own
-events = "keywords"      # keywords | model
+sentiment = "own"        # finbert | own
+events = "model"         # keywords | model
 impact = "formula"       # formula | learned
 rebalancer = "sentiment" # equal | sentiment (equal weight is always run as the benchmark)
 shock = "flat"           # flat | scaled

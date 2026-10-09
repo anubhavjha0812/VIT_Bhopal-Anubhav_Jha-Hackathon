@@ -1,8 +1,11 @@
 """Score the configured models on the public test sets and write docs/RESULTS.md.
 
 uv run python -m riskengine.eval
+uv run python -m riskengine.eval --only topic-bge-small-en-v1.5-int8   # score one new model,
+    keep the stored rows of all others (each test is touched once per model)
 """
 
+import argparse
 import json
 import resource
 import time
@@ -91,7 +94,35 @@ def trained(task: str) -> list[Path]:
     return sorted(found)
 
 
-def main() -> None:
+def score_only(names: list[str]) -> dict[str, list[dict]]:
+    """Score just the named model folders and merge them into the stored results."""
+    results = json.loads(RESULTS_JSON.read_text())
+    sentiment_key, events_key = list(results)
+    for name in names:
+        path = next((p for p in trained("topic") + trained("sentiment") if p.name == name), None)
+        if path is None:
+            raise FileNotFoundError(f"no model folder named {name!r} under {MODELS}")
+        if name.startswith("topic-"):
+            clf = TextClassifier(str(path))
+            key, row = (
+                events_key,
+                evaluate(
+                    name,
+                    topic_test(),
+                    lambda ts, clf=clf: [topic_to_event(t) for t in clf.predict(ts)],
+                    EVENT_TEST_CLASSES,
+                    clf.size_mb,
+                ),
+            )
+        else:
+            clf = TransformerSentiment(path, name=name)
+            labels = ["negative", "neutral", "positive"]
+            key, row = sentiment_key, evaluate(name, tfns_test(), clf.classify, labels, clf.size_mb)
+        results[key] = [r for r in results[key] if r["model"] != name] + [row]
+    return results
+
+
+def score_all() -> dict[str, list[dict]]:
     sentiment_key, events_key = "Sentiment (TFNS, 3 classes)", "Events (TFN-topic)"
     results: dict[str, list[dict]] = {sentiment_key: [], events_key: []}
 
@@ -147,7 +178,14 @@ def main() -> None:
                 mh.size_mb,
             )  # fmt: skip
         )
+    return results
 
+
+def main() -> None:
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--only", nargs="+", metavar="FOLDER", help="model folder names to score")
+    args = p.parse_args()
+    results = score_only(args.only) if args.only else score_all()
     RESULTS_JSON.parent.mkdir(parents=True, exist_ok=True)
     RESULTS_JSON.write_text(json.dumps(results, indent=2))
     RESULTS_MD.write_text(to_markdown(results))
