@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-multihead",
+  "title": "sp-riskengine-multihead",
+  "code_file": "train_teacher.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["anubhavjha0812/sp-riskengine-sentiment-teacher"]
+}
