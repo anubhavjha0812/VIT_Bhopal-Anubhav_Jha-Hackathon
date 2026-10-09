@@ -323,6 +323,17 @@ afterwards to improve a score. Dates are when the rule was fixed.
   factor belongs to the one-year PD. The first draft used the episode's own length (COVID z = 5.8)
   and gave an AAA name a 25% stressed PD; now COVID z = 1.83, GFC 1.72, euro 2011 0.94. The
   stressed PD is never below the rating's normal one-year PD.
+- **Amended after the first run (2026-10-10, after seeing losses and CET1; before the checks):**
+  the first run gave COVID CET1 13% → −4%, for two reasons, both fixed by Basel's own rules, not
+  by tuning. (1) RWA rose 2.4× because the IRB formula was fed the Vasicek stressed PD; Basel IRB
+  uses the long-run PD of the rating, so a downgrade raises RWA and a bad market alone does not.
+  The stressed PD now drives IFRS 9 ECL only. (2) The book is 85% bonds ($2.6bn against $139m of
+  capital), because the bank holds 0.5% of each company's long-term debt; a bank with a bond book
+  also holds market-risk capital for it. Bonds now add Basel standardised market-risk RWA
+  (specific risk: investment grade 0.25% / 1.0% / 1.6% by maturity, BB 8%, below BB- 12%;
+  general interest-rate risk by maturity band, 0.7%–6%). The user chose this over holding the
+  bonds at amortised cost or keeping the first result. Market risk of CDS and swaps is not
+  modelled. Rejected runs and their numbers are kept in STEPS.md.
 
 ## E4. Efficiency (fixed 2026-10-06)
 
