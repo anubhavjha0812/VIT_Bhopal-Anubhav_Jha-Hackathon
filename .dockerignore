@@ -10,3 +10,5 @@ models
 PLAN.md
 STEPS.md
 illegal_docs
+web/node_modules
+web/dist

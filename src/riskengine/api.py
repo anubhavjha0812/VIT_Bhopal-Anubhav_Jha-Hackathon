@@ -10,10 +10,13 @@ GET  /tickers                        stocks that have signals
 GET  /module-a/weights               Module A weights per day (set at that day's close)
 GET  /module-a/metrics               equal weight vs sentiment tilt: return, vol, Sharpe, drawdown
 GET  /replay?rate=20&start=2020-05-01 Server-Sent Events: the window replayed in time order
+GET  /overview                       engine run at a glance: config, counts, event mix, alerts
+GET  /scoreboard                     held-out test scores of every model (docs/RESULTS.md)
 """
 
 import asyncio
 import json
+from dataclasses import asdict
 from datetime import date
 from functools import lru_cache
 
@@ -25,9 +28,9 @@ from pydantic import BaseModel
 from riskengine.config import load_config
 from riskengine.ingest.linking import Linker
 from riskengine.module_a import NY
-from riskengine.nlp.events import get_event_classifier
+from riskengine.nlp.events import OWN_TOPIC, get_event_classifier
 from riskengine.nlp.impact import impact_formula
-from riskengine.nlp.sentiment import get_scorer
+from riskengine.nlp.sentiment import OWN_SENTIMENT, get_scorer
 from riskengine.paths import DATA
 from riskengine.pipeline import SIGNALS_PATH, load_signals
 from riskengine.replay import events, sse
@@ -35,6 +38,10 @@ from riskengine.replay import events, sse
 app = FastAPI(title="Risk Engine API")
 
 OUTPUTS = DATA / "outputs"
+SCORE_FIELDS = [
+    "model", "n", "accuracy", "accuracy_ci95", "macro_f1", "macro_f1_ci95",
+    "texts_per_s", "model_size_mb",
+]  # fmt: skip
 
 
 @lru_cache
@@ -67,6 +74,21 @@ def module_a_outputs() -> tuple[pd.DataFrame, pd.DataFrame]:
     if not weights_path.exists():
         raise HTTPException(503, "no Module A output yet: run ` uv run python run_demo.py ` first")
     return pd.read_csv(weights_path), pd.read_csv(metrics_path, index_col=0)
+
+
+@lru_cache
+def eval_results() -> dict:
+    path = OUTPUTS / "eval_results.json"
+    if not path.exists():
+        raise HTTPException(503, "no test scores yet: run `uv run python -m riskengine.eval` first")
+    return json.loads(path.read_text())
+
+
+def engine_models(config) -> dict[str, str]:
+    """Scoreboard names of the models the engine runs, so the dashboard can mark them."""
+    sentiment = OWN_SENTIMENT.resolve().name if config.sentiment == "own" else "finbert (baseline)"
+    events = OWN_TOPIC.resolve().name if config.events == "model" else "keywords (baseline)"
+    return {"sentiment": sentiment, "events": events}
 
 
 class AnalyzeIn(BaseModel):
@@ -178,3 +200,31 @@ async def replay(
 
     headers = {"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
     return StreamingResponse(stream(), media_type="text/event-stream", headers=headers)
+
+
+@app.get("/overview")
+def overview() -> dict:
+    """Engine run at a glance: config, models, counts per source and event class, alerts."""
+    config = load_config()
+    df = stored_signals()
+    texts = df.drop_duplicates("doc_id")
+    return {
+        "config": asdict(config),
+        "engine_models": engine_models(config),
+        "signal_models": df["model"].unique().tolist(),
+        "texts": len(texts),
+        "signals": len(df),
+        "texts_by_source": {k: int(v) for k, v in texts["source"].value_counts().items()},
+        "events": {k: int(v) for k, v in texts["event"].value_counts().items()},
+        "alerts": int((texts["impact"] > config.impact_trigger).sum()),
+        "trading_days": len(module_a_outputs()[0]),
+    }
+
+
+@app.get("/scoreboard")
+def scoreboard() -> dict:
+    """Held-out test scores per task, without the per-class detail."""
+    return {
+        task: [{k: row[k] for k in SCORE_FIELDS} for row in rows]
+        for task, rows in eval_results().items()
+    }

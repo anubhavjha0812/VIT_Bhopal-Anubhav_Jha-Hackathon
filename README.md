@@ -92,7 +92,15 @@ pip install -r requirements.txt
 python run_demo.py
 ```
 
-_The demo currently loads the config and shows which version of each part is active; the pipeline is added step by step._
+The demo replays the stored engine signals for the window and runs Module A; `--rescore`
+re-scores the sample with the configured models.
+
+**Dashboard** (React + TypeScript, needs Node 22):
+
+```bash
+uv run uvicorn riskengine.api:app --port 8000   # API; docs at http://localhost:8000/docs
+cd web && npm install && npm run dev            # dashboard at http://localhost:5173
+```
 
 ## 5. Key Results & Domain Impact
 

@@ -89,3 +89,31 @@ def test_replay_limit_and_ticker_filter(client, monkeypatch):
     assert body.count("event: signal") == 1
     assert '"doc_id": "c"' in body
     assert body.rstrip().endswith('data: {"texts": 1}')
+
+
+def test_overview_counts_texts_events_and_alerts(client, monkeypatch):
+    weights = pd.DataFrame({"date": ["2020-05-01", "2020-05-04"], "JPM": [1.0, 1.0]})
+    monkeypatch.setattr(api, "module_a_outputs", lambda: (weights, None))
+    out = client.get("/overview").json()
+    assert out["texts"] == 3
+    assert out["texts_by_source"] == {"news": 2, "tweets": 1}
+    assert out["events"] == {"Default": 1, "Other": 1, "M&A": 1}
+    assert out["alerts"] == 1  # only "a" has impact above 7
+    assert out["trading_days"] == 2
+    assert out["engine_models"] == {
+        "sentiment": "finbert (baseline)",
+        "events": "keywords (baseline)",
+    }
+
+
+def test_scoreboard_keeps_summary_fields_only(client, monkeypatch):
+    row = {
+        "model": "m", "n": 10, "accuracy": 0.9, "accuracy_ci95": [0.8, 0.95], "macro_f1": 0.85,
+        "macro_f1_ci95": [0.7, 0.9], "texts_per_s": 50.0, "model_size_mb": 34.0,
+        "per_class_f1": {"positive": 0.9}, "peak_rss_mb": 900.0,
+    }  # fmt: skip
+    monkeypatch.setattr(api, "eval_results", lambda: {"Sentiment": [row]})
+    out = client.get("/scoreboard").json()
+    assert list(out) == ["Sentiment"]
+    assert "per_class_f1" not in out["Sentiment"][0]
+    assert out["Sentiment"][0]["accuracy"] == 0.9
