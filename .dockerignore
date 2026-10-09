@@ -9,6 +9,6 @@ data/raw
 models
 PLAN.md
 STEPS.md
-illegal_docs
+private_notes
 web/node_modules
 web/dist

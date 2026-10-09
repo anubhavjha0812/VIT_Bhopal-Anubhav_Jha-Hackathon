@@ -1,7 +1,7 @@
 # Private (never public)
 PLAN.md
 STEPS.md
-illegal_docs/
+private_notes/
 
 # Python
 __pycache__/
