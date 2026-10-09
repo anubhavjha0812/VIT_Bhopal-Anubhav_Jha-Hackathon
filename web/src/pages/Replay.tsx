@@ -5,6 +5,7 @@ import { useApi } from '../api'
 import ErrorBox from '../components/ErrorBox'
 import EventBadge, { ImpactPill } from '../components/EventBadge'
 import WeightBars from '../components/WeightBars'
+import Tickers from '../components/Tickers'
 import type { Overview } from '../types'
 
 interface ReplaySignal {
@@ -13,9 +14,12 @@ interface ReplaySignal {
   source: string
   text: string
   tickers: string[]
+  analysts: string[]
   sentiment: number
   event: string
   impact: number
+  obligors?: string[] // on alerts: companies the gate passed to Module B
+  gate?: string
 }
 
 interface WeightsEvent {
@@ -191,7 +195,9 @@ export default function Replay() {
               {r.feed.map((s) => (
                 <li key={s.doc_id} className="flex items-start gap-3 border-t border-slate-100 px-4 py-2 text-sm first:border-t-0 dark:border-slate-800">
                   <span className="w-24 shrink-0 font-mono text-xs text-slate-500">{nyTime(s.published_at)}</span>
-                  <span className="w-28 shrink-0 font-mono text-xs">{s.tickers.join(' ')}</span>
+                  <span className="w-28 shrink-0">
+                    <Tickers subjects={s.tickers} analysts={s.analysts} />
+                  </span>
                   <span
                     className={`w-12 shrink-0 text-right font-mono tabular-nums ${
                       s.sentiment > 0.2 ? 'text-teal-700 dark:text-teal-400' : s.sentiment < -0.2 ? 'text-rose-600 dark:text-rose-400' : ''
@@ -217,7 +223,7 @@ export default function Replay() {
         <div className="space-y-6">
           <section className={card}>
             <h2 className={head}>
-              Alerts · impact &gt; {trigger} <span className="font-normal text-rose-600">({r.alerts.length})</span>
+              Credit alerts · Credit Chhanni <span className="font-normal text-rose-600">({r.alerts.length})</span>
             </h2>
             {r.alerts.length === 0 ? (
               <p className="p-4 text-sm text-slate-500">None yet.</p>
@@ -228,10 +234,15 @@ export default function Replay() {
                     <div className="flex items-center gap-2 text-xs">
                       <ImpactPill impact={s.impact} trigger={trigger} />
                       <EventBadge event={s.event} />
-                      <span className="font-mono">{s.tickers.join(' ')}</span>
+                      <Tickers subjects={s.tickers} analysts={s.analysts} />
                       <span className="ml-auto text-slate-500">{nyTime(s.published_at)}</span>
                     </div>
                     <div className="mt-1">{s.text}</div>
+                    {s.obligors && (
+                      <div className="mt-1 text-xs text-rose-700 dark:text-rose-400">
+                        → Module B: <span className="font-mono">{s.obligors.join(' ')}</span> · {s.gate}
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>

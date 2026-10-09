@@ -3,6 +3,7 @@ import { signed } from '../format'
 import { postJSON } from '../api'
 import ErrorBox from '../components/ErrorBox'
 import EventBadge, { ImpactPill } from '../components/EventBadge'
+import Tickers from '../components/Tickers'
 import type { Analysis } from '../types'
 
 const EXAMPLES = [
@@ -121,6 +122,9 @@ export default function Analyze() {
                 <div className="text-xs uppercase tracking-wide text-slate-500">Event</div>
                 <div className="mt-2">
                   <EventBadge event={latest.event} />
+                  {latest.analyst_rating && (
+                    <span className="ml-2 text-xs text-slate-500 dark:text-slate-400">analyst rating, not credit</span>
+                  )}
                 </div>
               </div>
               <div>
@@ -131,7 +135,13 @@ export default function Analyze() {
               </div>
             </div>
             <div className="text-xs text-slate-500 dark:text-slate-400">
-              Companies: {latest.tickers.length ? latest.tickers.join(', ') : 'none of the 15 found'} · model{' '}
+              Companies:{' '}
+              {latest.tickers.length || latest.analysts.length ? (
+                <Tickers subjects={latest.tickers} analysts={latest.analysts} />
+              ) : (
+                'none of the 15 found'
+              )}{' '}
+              · model{' '}
               <span className="font-mono">{latest.model}</span> · {Math.round(latest.ms)} ms round trip
             </div>
           </section>

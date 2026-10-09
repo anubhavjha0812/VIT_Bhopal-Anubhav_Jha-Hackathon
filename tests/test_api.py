@@ -26,7 +26,7 @@ def client(monkeypatch):
             ),
             "source": ["news", "tweets", "news"],
             "ticker": ["JPM", "JPM", "BAC"],
-            "text": ["x", "y", "z"],
+            "text": ["Fitch says JPMorgan defaulted on its bonds", "y", "z"],
             "sentiment": [-0.5, 0.1, 0.3],
             "event": ["Default", "Other", "M&A"],
             "impact": [9, 3, 6],
@@ -100,7 +100,8 @@ def test_overview_counts_texts_events_and_alerts(client, monkeypatch):
     assert out["texts"] == 3
     assert out["texts_by_source"] == {"news": 2, "tweets": 1}
     assert out["events"] == {"Default": 1, "Other": 1, "M&A": 1}
-    assert out["alerts"] == 1  # only "a" has impact above 7
+    assert out["alerts_naive"] == 1  # only "a" has impact above 7
+    assert out["alerts"] == 1  # and the gate passes it: JPM is the obligor, Fitch is named
     assert out["trading_days"] == 2
     assert out["engine_models"] == {
         "sentiment": "finbert (baseline)",
@@ -163,3 +164,28 @@ def test_replay_resumes_after_a_time(client, monkeypatch):
         if line.startswith("data: ") and "texts" not in line
     ]
     assert sent == ["2020-05-01", "b", "c", "2020-05-04"]
+
+
+def test_analyst_rows_count_for_no_alert_or_daily_mean(client, monkeypatch):
+    rows = api.stored_signals().assign(role=["analyst", "subject", "subject"])
+    monkeypatch.setattr(api, "stored_signals", lambda: rows)
+    weights = pd.DataFrame({"date": ["2020-05-01"], "JPM": [1.0]})
+    monkeypatch.setattr(api, "module_a_outputs", lambda: (weights, None))
+    out = client.get("/overview").json()
+    assert (out["alerts_naive"], out["alerts"]) == (1, 0)  # "a" names JPM only as analyst
+    daily = client.get("/daily", params={"ticker": "JPM"}).json()
+    assert [d["texts"] for d in daily] == [1]
+    assert client.get("/signals", params={"ticker": "JPM"}).json()[0]["role"] == "analyst"
+
+
+def test_gate_table_says_why_each_row_fired_or_not(client):
+    rows = client.get("/gate").json()
+    assert [(r["doc_id"], r["fired"], r["reason"]) for r in rows] == [
+        ("a", True, "fired: rating agency")
+    ]
+
+
+def test_analyze_lists_an_analyst_bank_apart(client):
+    out = client.post("/analyze", json={"text": "BofA Downgrades Tesla to Underperform"}).json()
+    assert out["tickers"] == ["TSLA"]
+    assert out["analysts"] == ["BAC"]

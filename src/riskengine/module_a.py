@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 
 from riskengine.config import Config
+from riskengine.pipeline import subjects
 
 TILT = 0.5  # weight multiplier per 1 cross-sectional z-score of sentiment
 MAX_WEIGHT = 0.15
@@ -95,7 +96,9 @@ def run_module_a(
     )
     start, end = pd.Timestamp(config.window_start), pd.Timestamp(config.window_end)
     closes = closes.loc[(closes.index >= start) & (closes.index <= end)]
-    signal = daily_signal(signals, closes.index).reindex(columns=closes.columns, fill_value=0.0)
+    signal = daily_signal(subjects(signals), closes.index).reindex(
+        columns=closes.columns, fill_value=0.0
+    )
 
     kinds = dict.fromkeys(["equal", config.rebalancer])
     return {k: backtest(target_weights(signal, k), closes) for k in kinds}

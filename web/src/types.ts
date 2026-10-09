@@ -19,7 +19,8 @@ export interface Overview {
   signals: number
   texts_by_source: Record<string, number>
   events: Record<string, number>
-  alerts: number
+  alerts_naive: number // texts with impact above the trigger
+  alerts: number // texts the Credit Chhanni gate passes to Module B
   trading_days: number
 }
 
@@ -49,11 +50,15 @@ export interface Signal {
   published_at: string
   source: string
   ticker: string
+  role?: 'subject' | 'analyst' // missing in signal files made before DECISIONS E12
   text: string
   sentiment: number
   event: string
+  analyst_rating?: boolean
   impact: number
   model: string
+  fired?: boolean // Credit Chhanni passed it to Module B
+  reason?: string
 }
 
 export interface PricePoint {
@@ -63,6 +68,8 @@ export interface PricePoint {
 
 export interface Analysis {
   tickers: string[]
+  analysts: string[]
+  analyst_rating: boolean
   sentiment: number
   event: string
   impact: number

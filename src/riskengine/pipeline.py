@@ -11,9 +11,10 @@ import pandas as pd
 
 from riskengine.config import Config
 from riskengine.ingest.coverage import in_window
+from riskengine.ingest.linking import Linker
 from riskengine.ingest.news import load_fnspid
 from riskengine.ingest.tweets import load_akkerman
-from riskengine.nlp.events import get_event_classifier
+from riskengine.nlp.events import get_event_classifier, is_analyst_rating, names_agency
 from riskengine.nlp.impact import impact_formula
 from riskengine.nlp.sentiment import SentimentScorer, get_scorer
 from riskengine.paths import DATA
@@ -58,23 +59,33 @@ def score_docs(
     config: Config,
     scorer: SentimentScorer,
     classify_events: Callable[[Sequence[str]], list[str]] | None = None,
+    linker: Linker | None = None,
 ) -> pd.DataFrame:
     """One row per (doc, company): sentiment, event, impact and which models produced them."""
     if config.impact != "formula":
         raise NotImplementedError("only the baseline impact formula exists so far")
     classify_events = classify_events or get_event_classifier(config.events)
+    linker = linker or Linker.from_csv()
     docs = docs.copy()
     texts = docs["text"].tolist()
     docs["sentiment"] = [round(s, 4) for s in scorer.score(texts)]
     docs["event"] = classify_events(texts)
+    docs["analyst_rating"] = [is_analyst_rating(t) for t in texts]
     docs["impact"] = [
-        impact_formula(e, s, src)
-        for e, s, src in zip(docs["event"], docs["sentiment"], docs["source"], strict=True)
+        impact_formula(e, s, src, names_agency(t))
+        for e, s, src, t in zip(
+            docs["event"], docs["sentiment"], docs["source"], texts, strict=True
+        )
     ]
     docs["model"] = f"{scorer.name}+{config.events}+{config.impact}"
     rows = docs.explode("tickers").rename(columns={"tickers": "ticker"})
-    cols = ["doc_id", "published_at", "source", "ticker", "text", "sentiment", "event"]
-    return rows[[*cols, "impact", "model"]].reset_index(drop=True)
+    # A bank that only gives a stock rating is kept but is not the subject (DECISIONS E12).
+    rows["role"] = [
+        "analyst" if tk in linker.analyst_only(text) else "subject"
+        for tk, text in zip(rows["ticker"], rows["text"], strict=True)
+    ]
+    cols = ["doc_id", "published_at", "source", "ticker", "role", "text", "sentiment", "event"]
+    return rows[[*cols, "analyst_rating", "impact", "model"]].reset_index(drop=True)
 
 
 def run(config: Config, docs: pd.DataFrame | None = None) -> pd.DataFrame:
@@ -84,6 +95,13 @@ def run(config: Config, docs: pd.DataFrame | None = None) -> pd.DataFrame:
     SIGNALS_PATH.parent.mkdir(parents=True, exist_ok=True)
     signals.to_json(SIGNALS_PATH, orient="records", lines=True, date_format="iso")
     return signals
+
+
+def subjects(signals: pd.DataFrame) -> pd.DataFrame:
+    """Rows where the company is what the text is about; files without `role` count as all."""
+    if "role" not in signals:
+        return signals
+    return signals[signals["role"] == "subject"]
 
 
 def load_signals(path=SIGNALS_PATH) -> pd.DataFrame:

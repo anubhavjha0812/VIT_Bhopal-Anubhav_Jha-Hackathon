@@ -22,6 +22,9 @@ def signals() -> pd.DataFrame:
             "sentiment": [0.1, -0.8, -0.8, 0.3],
             "event": ["Other", "Default", "Default", "M&A"],
             "impact": [3, 9, 9, 6],
+            # as gate.py would mark them: a fires for JPM only
+            "fired": [False, True, False, False],
+            "reason": ["not credit", "fired: rating agency", "not the obligor", "not credit"],
         }
     )
 
@@ -43,11 +46,11 @@ def test_texts_are_one_row_each_in_time_order():
 
 
 def test_weights_never_come_before_the_texts_they_use():
-    kinds = [(k, p.get("doc_id") or p.get("date")) for k, p in events(signals(), weights(), 7)]
+    kinds = [(k, p.get("doc_id") or p.get("date")) for k, p in events(signals(), weights())]
     assert kinds == [
         ("weights", "2020-05-01"),  # uses texts before 1 May: none in this sample
         ("signal", "a"),
-        ("alert", "a"),  # impact 9 > 7
+        ("alert", "a"),  # the gate fired for one of its companies
         ("weights", "2020-05-04"),  # sent only after every text dated before 4 May
         ("signal", "b"),
         ("signal", "c"),
@@ -57,3 +60,15 @@ def test_weights_never_come_before_the_texts_they_use():
 
 def test_sse_message_format():
     assert sse("signal", '{"a": 1}') == 'event: signal\ndata: {"a": 1}\n\n'
+
+
+def test_analyst_bank_is_listed_apart_and_alerts_name_the_obligor():
+    # "iRobot downgraded by JPMorgan": JPM is only the analyst, no subject in our universe
+    s = signals().assign(role=["subject", "subject", "analyst", "analyst"])
+    out = texts(s)
+    assert out.loc[0, "tickers"] == ["JPM"] and out.loc[0, "analysts"] == ["BAC"]
+    assert out.loc[2, "tickers"] == [] and out.loc[2, "analysts"] == ["BAC"]
+    alerts = [p for k, p in events(s, weights()) if k == "alert"]
+    assert [(p["doc_id"], p["obligors"], p["gate"]) for p in alerts] == [
+        ("a", ["JPM"], "fired: rating agency")
+    ]

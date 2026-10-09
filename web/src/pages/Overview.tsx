@@ -24,9 +24,9 @@ export default function Overview() {
           note="FNSPID headlines · 2020 stock tweets"
         />
         <StatCard
-          label={`High impact (> ${o.config.impact_trigger})`}
+          label="Credit alerts → Module B"
           value={o.alerts.toLocaleString()}
-          note="impact on a 1–10 scale"
+          note={`Credit Chhanni passed ${o.alerts} of ${o.alerts_naive} texts with impact > ${o.config.impact_trigger}`}
           tone="alert"
         />
         <StatCard label="Trading days" value={String(o.trading_days)} note={`${o.config.window_start} → ${o.config.window_end}`} />

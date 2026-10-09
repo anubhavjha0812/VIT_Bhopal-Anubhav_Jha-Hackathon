@@ -159,18 +159,52 @@ CPU), batch 64. 95% intervals from 1,000 bootstrap resamples.
 
 ### Demo window re-scored with our models (14,169 texts, 9 Apr – 10 Jun 2020)
 
-| | Baselines (FinBERT + keywords) | Our int8 models |
-|---|---|---|
-| Time to score on CPU | — | 9 min 54 s, 1.0 GB RAM |
-| Texts tagged M&A / Macro / Geopolitical | 245 / 229 / 220 | 612 / 186 / 67 |
-| High-impact texts (> 7) | 48 | 41 |
-| Module A sentiment tilt: return / Sharpe | 23.4% / 4.41 | 24.1% / 4.55 |
-| Equal weight (benchmark): return / Sharpe | 25.5% / 4.88 | 25.5% / 4.88 |
+| | Baselines (FinBERT + keywords) | Our int8 models | + credit rules and gate (E12, E13) |
+|---|---|---|---|
+| Time to score on CPU | — | 9 min 54 s, 1.0 GB RAM | 11 min 43 s, 1.0 GB RAM |
+| Texts tagged M&A / Macro / Geopolitical | 245 / 229 / 220 | 612 / 186 / 67 | 612 / 186 / 67 |
+| Texts tagged Credit downgrade / Default | — | 69 / 17 | 7 / 10 |
+| High-impact texts (> 7) | 48 | 41 | 6 |
+| Credit alerts sent to Module B | — | — | 4 (3 real) |
+| Module A sentiment tilt: return / Sharpe | 23.4% / 4.41 | 24.1% / 4.55 | 24.4% / 4.61 |
+| Equal weight (benchmark): return / Sharpe | 25.5% / 4.88 | 25.5% / 4.88 | 25.5% / 4.88 |
 
 - Same event class on 89.7% of texts; sentiment correlation 0.61 between the two runs.
 - The tilt improves a little with our models but still trails equal weight in this 2-month window.
 - The topic data has no product-launch class, so "Product launch" (134 texts by keywords) is not
   produced by the model.
+
+### Credit alerts: which news may trigger Module B ([DECISIONS.md](docs/DECISIONS.md) E12, E13)
+
+A hand check of the 41 high-impact texts above found **1 real credit event**. The rest were
+stock-analyst rating changes ("Goldman Downgrades Apple to Sell"), banks linked as the analyst
+("iRobot Downgraded by JPMorgan" → JPM), and noise ("Google pays Apple to be the default search
+engine"). Three fixes, all rules, written down before the code:
+
+- **Who is the news about:** a bank named only as the analyst of a stock rating is tagged
+  `analyst`, kept on the dashboard, and ignored by both modules. All 126 tagged links in the
+  demo were read: 126 correct. In 30 bank rating texts left as subject, 6 were misses (none
+  high-impact).
+- **What is a credit event:** credit downgrade needs a rating agency (Moody's, Fitch, S&P, DBRS;
+  not the S&P index) or a credit word (junk, credit rating, bonds…); stock ratings are flagged
+  "analyst rating" and never credit; "default" needs a debt word next to it. +1 impact when an
+  agency is named.
+- **Gate (Credit Chhanni):** Module B fires only for a credit event on the company the news is
+  about (first cashtag), with impact > 7, confirmed by a named agency or a second text within
+  24 hours. Every row gets the reason it passed or was blocked (`GET /gate`).
+
+| Real credit events on our stocks in the window | Impact | Before: impact > 7 | After: gate |
+|---|---|---|---|
+| Moody's downgrades Boeing to Baa2 (10 Apr) | 8 | missed (was 7) | fired |
+| S&P lowers Disney's credit rating (23 Apr) | 8 | missed (was 7) | fired |
+| Fitch downgrades Disney's IDR to A- (6 May) | 9 | fired | fired |
+| **Alerts in total** | | **41 (1 real)** | **4 (3 real)** |
+
+- The one false alert: "India Stocks, Rupee Shrug Off Moody's Rate Cut … $BAC $MCO" fires on BAC
+  (India's sovereign rating; $BAC is only the first cashtag). Left as it is: the rules are frozen.
+- These demo numbers are a **design check**, not a test: the texts were read while writing the
+  rules, and the rules were amended once after the first check (E13). The test is the hand
+  labelled gold set (E3), scored once; a learned credit model will be compared with these rules.
 
 ### Impact score 1–10 (does it rank real price moves?) — [IMPACT_V2.md](docs/IMPACT_V2.md)
 
@@ -195,6 +229,8 @@ Spearman correlation between impact and the stock's real abnormal move over two 
 - **Test leaks:** 84 sentiment and 999 topic training texts also appear in the public test sets.
   New models were trained without them; older scores are kept, marked.
 - **Dataset bug:** the Kaggle tweet file gives AMZN, MSFT and PG the same tweets.
+- **False credit alerts:** 40 of the first 41 high-impact alerts were not credit events (see
+  "Credit alerts" above); now 1 of 4.
 - **Code bug:** pandas 3 stores time in microseconds; one v1 impact feature counted the last
   ~1,000 days instead of 24 hours. Fixed and tested; v1 results are kept as reported.
 

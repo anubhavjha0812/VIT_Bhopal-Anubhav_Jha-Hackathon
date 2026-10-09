@@ -6,6 +6,7 @@ import Chart from '../components/Chart'
 import ErrorBox from '../components/ErrorBox'
 import EventBadge, { ImpactPill } from '../components/EventBadge'
 import StatCard from '../components/StatCard'
+import { AnalystTag } from '../components/Tickers'
 import { chartColors, useTheme } from '../theme'
 import type { DailyRow, PricePoint, Signal } from '../types'
 
@@ -107,6 +108,12 @@ function SignalTable({ rows }: { rows: Signal[] }) {
               <td className="px-4 py-2 text-xs">{s.source}</td>
               <td className="px-4 py-2">
                 <EventBadge event={s.event} />
+                {s.analyst_rating && <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">analyst rating</div>}
+                {s.fired && (
+                  <div className="mt-1 text-xs font-medium text-rose-700 dark:text-rose-400" title={s.reason}>
+                    → Module B
+                  </div>
+                )}
               </td>
               <td className="px-4 py-2 text-right">
                 <ImpactPill impact={s.impact} />
@@ -118,7 +125,14 @@ function SignalTable({ rows }: { rows: Signal[] }) {
               >
                 {signed(s.sentiment)}
               </td>
-              <td className="min-w-72 px-4 py-2">{s.text}</td>
+              <td className="min-w-72 px-4 py-2">
+                {s.role === 'analyst' && (
+                  <span className="mr-2">
+                    <AnalystTag ticker={s.ticker} />
+                  </span>
+                )}
+                {s.text}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -152,7 +166,7 @@ function TickerPanel({ ticker, minImpact, setMinImpact }: { ticker: string; minI
 
   const stats = useMemo(() => {
     if (!signals.data || !prices.data?.length) return null
-    const s = signals.data
+    const s = signals.data.filter((r) => r.role !== 'analyst')
     const first = prices.data[0].close
     const last = prices.data[prices.data.length - 1].close
     return {

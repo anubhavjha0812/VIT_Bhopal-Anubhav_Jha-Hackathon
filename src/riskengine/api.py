@@ -11,6 +11,7 @@ GET  /module-a/weights               Module A weights per day (set at that day's
 GET  /module-a/metrics               equal weight vs sentiment tilt: return, vol, Sharpe, drawdown
 GET  /replay?rate=20&start=2020-05-01 Server-Sent Events: the window replayed in time order
 GET  /overview                       engine run at a glance: config, counts, event mix, alerts
+GET  /gate                           Credit Chhanni: credit / high-impact rows, fired or why not
 GET  /scoreboard                     held-out test scores of every model (docs/RESULTS.md)
 GET  /prices?ticker=JPM              daily closes in the replay window
 GET  /module-a/equity                growth of $1 per strategy, after costs
@@ -30,14 +31,21 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from riskengine.config import load_config
+from riskengine.gate import gate
 from riskengine.ingest.linking import Linker
 from riskengine.ingest.prices import load_prices
 from riskengine.module_a import NY, Backtest, run_module_a
-from riskengine.nlp.events import OWN_TOPIC, get_event_classifier
+from riskengine.nlp.events import (
+    CREDIT_CLASSES,
+    OWN_TOPIC,
+    get_event_classifier,
+    is_analyst_rating,
+    names_agency,
+)
 from riskengine.nlp.impact import impact_formula
 from riskengine.nlp.sentiment import OWN_SENTIMENT, get_scorer
 from riskengine.paths import DATA
-from riskengine.pipeline import SIGNALS_PATH, load_signals
+from riskengine.pipeline import SIGNALS_PATH, load_signals, subjects
 from riskengine.replay import events, sse
 
 log = logging.getLogger(__name__)
@@ -72,6 +80,11 @@ def stored_signals() -> pd.DataFrame:
     if not SIGNALS_PATH.exists():
         raise HTTPException(503, "no signals yet: run `uv run python run_demo.py` first")
     return load_signals()  # load_signals returns df
+
+
+def gated_signals() -> pd.DataFrame:
+    """Stored signals with the Credit Chhanni decision per row (`fired`, `reason`)."""
+    return gate(stored_signals(), load_config().impact_trigger, linker())
 
 
 @lru_cache
@@ -145,7 +158,7 @@ def signals(
     min_impact: int = Query(1, ge=1, le=10),
     limit: int = Query(100, ge=1, le=5000),
 ) -> list[dict]:
-    df = stored_signals()
+    df = gated_signals()
     if ticker:
         df = df[df["ticker"] == ticker.upper()]
     df = df[df["impact"] >= min_impact].sort_values("published_at").head(limit)
@@ -154,7 +167,7 @@ def signals(
 
 @app.get("/daily")
 def daily(ticker: str | None = None) -> list[dict]:
-    df = stored_signals()
+    df = subjects(stored_signals())
     if ticker:
         df = df[df["ticker"] == ticker.upper()]
     day = df["published_at"].dt.date.astype(str)
@@ -174,11 +187,14 @@ def daily(ticker: str | None = None) -> list[dict]:
 def analyze(item: AnalyzeIn) -> dict:
     s = scorer().score([item.text])[0]
     event = event_classifier()([item.text])[0]
+    analysts = linker().analyst_only(item.text) & set(linker().link(item.text))
     return {
-        "tickers": list(linker().link(item.text)),
+        "tickers": [t for t in linker().link(item.text) if t not in analysts],
+        "analysts": sorted(analysts),
         "sentiment": round(s, 4),
         "event": event,
-        "impact": impact_formula(event, s, item.source),
+        "analyst_rating": is_analyst_rating(item.text),
+        "impact": impact_formula(event, s, item.source, names_agency(item.text)),
         "model": f"{scorer().name}+{load_config().events}+formula",
     }
 
@@ -214,9 +230,9 @@ async def replay(
 
     `start` is the first New York date to replay. `after` resumes a paused replay from that
     time (texts at exactly that time are sent again; the client skips ids it has seen).
-    `ticker` keeps texts that mention it.
+    `ticker` keeps texts that mention it. Alerts are the Credit Chhanni's (gate.py).
     """
-    df = stored_signals()
+    df = gated_signals()
     weights, _ = module_a_outputs()
     begin = pd.Timestamp(start, tz=NY) if start else None
     if after:
@@ -230,11 +246,10 @@ async def replay(
     if ticker:
         # keep every ticker of a matching text, so the event shows who else it names
         df = df[df["doc_id"].isin(df.loc[df["ticker"] == ticker.upper(), "doc_id"])]
-    trigger = load_config().impact_trigger
 
     async def stream():
         sent = 0
-        for kind, payload in events(df, weights, trigger):
+        for kind, payload in events(df, weights):
             if kind == "signal":
                 if limit and sent == limit:
                     break
@@ -252,7 +267,7 @@ async def replay(
 def overview() -> dict:
     """Engine run at a glance: config, models, counts per source and event class, alerts."""
     config = load_config()
-    df = stored_signals()
+    df = gated_signals()
     texts = df.drop_duplicates("doc_id")
     return {
         "config": asdict(config),
@@ -262,9 +277,23 @@ def overview() -> dict:
         "signals": len(df),
         "texts_by_source": {k: int(v) for k, v in texts["source"].value_counts().items()},
         "events": {k: int(v) for k, v in texts["event"].value_counts().items()},
-        "alerts": int((texts["impact"] > config.impact_trigger).sum()),
+        # before the gate: any text above the trigger; after: texts the Credit Chhanni passes
+        "alerts_naive": int((texts["impact"] > config.impact_trigger).sum()),
+        "alerts": int(df.loc[df["fired"], "doc_id"].nunique()),
         "trading_days": len(module_a_outputs()[0]),
     }
+
+
+@app.get("/gate")
+def gate_table() -> list[dict]:
+    """Every row the naive trigger (impact > 7) or the gate looks at: credit class or high
+    impact, with `fired` and the `reason` (the first check that failed, or how it passed)."""
+    config = load_config()
+    df = gated_signals()
+    df = df[df["event"].isin(CREDIT_CLASSES) | (df["impact"] > config.impact_trigger)]
+    cols = ["doc_id", "published_at", "source", "ticker", "role", "text", "event", "impact"]
+    df = df[[*cols, "fired", "reason"]].sort_values("published_at")
+    return df.assign(published_at=df["published_at"].astype(str)).to_dict("records")
 
 
 @app.get("/scoreboard")

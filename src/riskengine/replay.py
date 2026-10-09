@@ -1,8 +1,9 @@
 """Replay the stored window as a time-ordered event stream (served by the API as SSE).
 
 Events, in the order a live desk would have seen them:
-- signal: one text with its tickers, sentiment, event class and impact
-- alert: the same text again when its impact is above the trigger (Module B input)
+- signal: one text with its tickers (subjects), analysts, sentiment, event class and impact
+- alert: the same text again when the Credit Chhanni gate fires for one of its companies
+  (Module B input; `signals` must carry the gate's `fired` and `reason`, see gate.py)
 - weights: Module A weights for a trading day, sent once every text they use has been sent
 
 Module A's no-look-ahead rule decides the order: weights for trading day T use only texts
@@ -20,13 +21,20 @@ Event = tuple[str, dict]
 
 def texts(signals: pd.DataFrame) -> pd.DataFrame:
     """One row per text (signals have one row per text and ticker), in time order."""
-    return (
+    if "role" not in signals:
+        signals = signals.assign(role="subject")
+    if "fired" not in signals:
+        signals = signals.assign(fired=False, reason="")
+    out = (
         signals.groupby("doc_id", sort=False)
         .agg(
             published_at=("published_at", "first"),
             source=("source", "first"),
             text=("text", "first"),
             tickers=("ticker", list),
+            roles=("role", list),
+            fired=("fired", list),
+            reasons=("reason", list),
             sentiment=("sentiment", "first"),
             event=("event", "first"),
             impact=("impact", "first"),
@@ -35,9 +43,22 @@ def texts(signals: pd.DataFrame) -> pd.DataFrame:
         .sort_values(["published_at", "doc_id"], kind="stable")
         .reset_index(drop=True)
     )
+    # per text: (ticker, role, fired, reason) for each company it names
+    per_text = [
+        list(zip(*cols, strict=True))
+        for cols in zip(
+            out.pop("tickers"), out.pop("roles"), out.pop("fired"), out.pop("reasons"), strict=True
+        )
+    ]
+    # A bank that only gave a stock rating is shown apart, not as a subject (DECISIONS E12).
+    out["tickers"] = [[t for t, role, _, _ in rows if role == "subject"] for rows in per_text]
+    out["analysts"] = [[t for t, role, _, _ in rows if role == "analyst"] for rows in per_text]
+    out["obligors"] = [[t for t, _, fired, _ in rows if fired] for rows in per_text]
+    out["gate"] = [next((why for _, _, f, why in rows if f), "") for rows in per_text]
+    return out
 
 
-def events(signals: pd.DataFrame, weights: pd.DataFrame, trigger: int) -> Iterator[Event]:
+def events(signals: pd.DataFrame, weights: pd.DataFrame) -> Iterator[Event]:
     """`weights` has a `date` column (trading day) and one column per ticker."""
     days = pd.to_datetime(weights["date"])
     by_day = weights.drop(columns="date").round(4)
@@ -59,13 +80,14 @@ def events(signals: pd.DataFrame, weights: pd.DataFrame, trigger: int) -> Iterat
             "source": t.source,
             "text": t.text,
             "tickers": t.tickers,
+            "analysts": t.analysts,
             "sentiment": t.sentiment,
             "event": t.event,
             "impact": int(t.impact),
         }
         yield "signal", payload
-        if t.impact > trigger:
-            yield "alert", payload
+        if t.obligors:
+            yield "alert", {**payload, "obligors": t.obligors, "gate": t.gate}
     yield from weights_until(None)
 
 
