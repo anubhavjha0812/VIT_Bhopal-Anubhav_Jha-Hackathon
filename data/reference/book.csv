@@ -1,0 +1,86 @@
+position,ticker,rating,instrument,notional,ead,lgd,years,source
+P001,AAPL,AA+,revolver,76070000.00,57052500.00,0.45,5.00,short-term debt (no credit line)
+P002,AAPL,AA+,bond,44548813.57,44548813.57,0.45,2.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0000320193-20-000010
+P003,AAPL,AA+,bond,48509839.51,48509839.51,0.45,3.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0000320193-20-000010
+P004,AAPL,AA+,bond,47298111.78,47298111.78,0.45,4.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0000320193-20-000010
+P005,AAPL,AA+,bond,51111490.23,51111490.23,0.45,5.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0000320193-20-000010
+P006,AAPL,AA+,bond,273921744.90,273921744.90,0.45,10.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0000320193-20-000010
+P007,MSFT,AAA,revolver,31235000.00,23426250.00,0.45,5.00,short-term debt (no credit line)
+P008,MSFT,AAA,bond,17679902.82,17679902.82,0.45,2.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-Q 0001564590-20-002450
+P009,MSFT,AAA,bond,37547398.95,37547398.95,0.45,3.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-Q 0001564590-20-002450
+P010,MSFT,AAA,bond,12965262.07,12965262.07,0.45,4.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-Q 0001564590-20-002450
+P011,MSFT,AAA,bond,24751863.95,24751863.95,0.45,5.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-Q 0001564590-20-002450
+P012,MSFT,AAA,bond,223860572.21,223860572.21,0.45,10.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-Q 0001564590-20-002450
+P013,GOOGL,AA,revolver,20000000.00,15000000.00,0.45,5.00,10-K sentence 0001652044-20-000008
+P014,GOOGL,AA,bond,4418429.03,4418429.03,0.45,2.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001652044-20-000008
+P015,GOOGL,AA,bond,194309.50,194309.50,0.45,3.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001652044-20-000008
+P016,GOOGL,AA,bond,194309.50,194309.50,0.45,4.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001652044-20-000008
+P017,GOOGL,AA,bond,4422653.15,4422653.15,0.45,5.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001652044-20-000008
+P018,GOOGL,AA,bond,10560298.83,10560298.83,0.45,10.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001652044-20-000008
+P019,META,AA-,revolver,10000000.00,7500000.00,0.45,5.00,10-K sentence 0001326801-20-000013
+P020,NVDA,A-,revolver,2875000.00,2156250.00,0.45,5.00,10-K sentence 0001045810-19-000023
+P021,NVDA,A-,bond,9950000.00,9950000.00,0.45,10.00,long-term debt LongTermDebt 2019-10-27 10-Q 0001045810-19-000170
+P022,AMD,BB-,revolver,2500000.00,1875000.00,0.45,5.00,10-K sentence 0000002488-20-000008
+P023,AMD,BB-,bond,1346642.98,1346642.98,0.45,3.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-K 0000002488-20-000008
+P024,AMD,BB-,bond,1083357.02,1083357.02,0.45,10.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-K 0000002488-20-000008
+P025,NFLX,BB-,revolver,3750000.00,2812500.00,0.45,5.00,10-K sentence 0001065280-20-000040
+P026,NFLX,BB-,bond,73796300.00,73796300.00,0.45,10.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001065280-20-000040
+P027,DIS,A,revolver,61250000.00,45937500.00,0.45,5.00,XBRL LineOfCreditFacilityMaximumBorrowingCapacity 2019-12-28 10-Q 0001744489-20-000046
+P028,DIS,A,bond,18777281.04,18777281.04,0.45,2.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0001744489-20-000046
+P029,DIS,A,bond,20674785.96,20674785.96,0.45,3.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0001744489-20-000046
+P030,DIS,A,bond,6766876.69,6766876.69,0.45,4.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0001744489-20-000046
+P031,DIS,A,bond,15490054.21,15490054.21,0.45,5.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0001744489-20-000046
+P032,DIS,A,bond,128576002.11,128576002.11,0.45,10.00,long-term debt LongTermDebtNoncurrent 2019-12-28 10-Q 0001744489-20-000046
+P033,AMZN,AA-,revolver,35000000.00,26250000.00,0.45,5.00,10-K sentence 0001018724-20-000004
+P034,AMZN,AA-,bond,5680979.46,5680979.46,0.45,2.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001018724-20-000004
+P035,AMZN,AA-,bond,8827674.48,8827674.48,0.45,3.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001018724-20-000004
+P036,AMZN,AA-,bond,7518211.20,7518211.20,0.45,4.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001018724-20-000004
+P037,AMZN,AA-,bond,16624706.76,16624706.76,0.45,5.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001018724-20-000004
+P038,AMZN,AA-,bond,78418428.10,78418428.10,0.45,10.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0001018724-20-000004
+P039,TSLA,B-,revolver,14900000.00,11175000.00,0.45,5.00,XBRL DebtInstrumentUnusedBorrowingCapacityAmount 2019-12-31 10-K 0001564590-20-004475
+P040,TSLA,B-,bond,9309384.82,9309384.82,0.45,2.00,long-term debt LongTermDebt 2019-12-31 10-K 0001564590-20-004475 - DebtCurrent 2019-12-31 10-K 0001564590-20-004475
+P041,TSLA,B-,bond,8277266.20,8277266.20,0.45,3.00,long-term debt LongTermDebt 2019-12-31 10-K 0001564590-20-004475 - DebtCurrent 2019-12-31 10-K 0001564590-20-004475
+P042,TSLA,B-,bond,7253274.51,7253274.51,0.45,4.00,long-term debt LongTermDebt 2019-12-31 10-K 0001564590-20-004475 - DebtCurrent 2019-12-31 10-K 0001564590-20-004475
+P043,TSLA,B-,bond,9744174.94,9744174.94,0.45,5.00,long-term debt LongTermDebt 2019-12-31 10-K 0001564590-20-004475 - DebtCurrent 2019-12-31 10-K 0001564590-20-004475
+P044,TSLA,B-,bond,10430899.53,10430899.53,0.45,10.00,long-term debt LongTermDebt 2019-12-31 10-K 0001564590-20-004475 - DebtCurrent 2019-12-31 10-K 0001564590-20-004475
+P045,KO,A+,revolver,59555000.00,44666250.00,0.45,5.00,XBRL LineOfCreditFacilityMaximumBorrowingCapacity 2019-12-31 10-K 0000021344-20-000006
+P046,KO,A+,bond,18835000.00,18835000.00,0.45,2.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0000021344-20-000006
+P047,KO,A+,bond,18940000.00,18940000.00,0.45,3.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0000021344-20-000006
+P048,KO,A+,bond,20485000.00,20485000.00,0.45,4.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0000021344-20-000006
+P049,KO,A+,bond,9870000.00,9870000.00,0.45,5.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0000021344-20-000006
+P050,KO,A+,bond,69450000.00,69450000.00,0.45,10.00,long-term debt LongTermDebtNoncurrent 2019-12-31 10-K 0000021344-20-000006
+P051,BA,A-,revolver,33100000.00,24825000.00,0.45,5.00,XBRL DebtInstrumentUnusedBorrowingCapacityAmount 2019-09-30 10-Q 0000012927-19-000077
+P052,BA,A-,bond,7420000.00,7420000.00,0.45,2.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000012927-20-000014
+P053,BA,A-,bond,6070000.00,6070000.00,0.45,3.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000012927-20-000014
+P054,BA,A-,bond,3900000.00,3900000.00,0.45,4.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000012927-20-000014
+P055,BA,A-,bond,5000000.00,5000000.00,0.45,5.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000012927-20-000014
+P056,BA,A-,bond,77420000.00,77420000.00,0.45,10.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000012927-20-000014
+P057,XOM,AA+,revolver,39500000.00,29625000.00,0.45,5.00,XBRL LineOfCreditFacilityRemainingBorrowingCapacity 2019-12-31 10-Q 0000034088-20-000037
+P058,XOM,AA+,bond,14015000.00,14015000.00,0.45,2.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000034088-20-000016
+P059,XOM,AA+,bond,16580000.00,16580000.00,0.45,3.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000034088-20-000016
+P060,XOM,AA+,bond,6305000.00,6305000.00,0.45,4.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000034088-20-000016
+P061,XOM,AA+,bond,10650000.00,10650000.00,0.45,5.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000034088-20-000016
+P062,XOM,AA+,bond,84160000.00,84160000.00,0.45,10.00,long-term debt LongTermDebtAndCapitalLeaseObligations 2019-12-31 10-K 0000034088-20-000016
+P063,JPM,A-,revolver,66652657.80,49989493.35,0.45,5.00,short-term debt (no credit line) (capped at largest non-bank)
+P064,JPM,A-,bond,85891139.11,85891139.11,0.45,2.00,long-term debt LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities 2019-12-31 10-K 0000019617-20-000257 (capped at largest non-bank)
+P065,JPM,A-,bond,36756906.69,36756906.69,0.45,3.00,long-term debt LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities 2019-12-31 10-K 0000019617-20-000257 (capped at largest non-bank)
+P066,JPM,A-,bond,55697965.75,55697965.75,0.45,4.00,long-term debt LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities 2019-12-31 10-K 0000019617-20-000257 (capped at largest non-bank)
+P067,JPM,A-,bond,48571626.70,48571626.70,0.45,5.00,long-term debt LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities 2019-12-31 10-K 0000019617-20-000257 (capped at largest non-bank)
+P068,JPM,A-,bond,247889703.95,247889703.95,0.45,10.00,long-term debt LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities 2019-12-31 10-K 0000019617-20-000257 (capped at largest non-bank)
+P069,BAC,A-,revolver,49443514.07,37082635.55,0.45,5.00,short-term debt (no credit line) (capped at largest non-bank)
+P070,BAC,A-,bond,59737642.24,59737642.24,0.45,2.00,long-term debt LongTermDebt 2019-12-31 10-K 0000070858-20-000011 (capped at largest non-bank)
+P071,BAC,A-,bond,44814016.29,44814016.29,0.45,3.00,long-term debt LongTermDebt 2019-12-31 10-K 0000070858-20-000011 (capped at largest non-bank)
+P072,BAC,A-,bond,57567098.13,57567098.13,0.45,4.00,long-term debt LongTermDebt 2019-12-31 10-K 0000070858-20-000011 (capped at largest non-bank)
+P073,BAC,A-,bond,49361714.87,49361714.87,0.45,5.00,long-term debt LongTermDebt 2019-12-31 10-K 0000070858-20-000011 (capped at largest non-bank)
+P074,BAC,A-,bond,280536014.40,280536014.40,0.45,10.00,long-term debt LongTermDebt 2019-12-31 10-K 0000070858-20-000011 (capped at largest non-bank)
+P075,TSLA,B-,cds_bought,14978750.00,0.00,0.45,5.00,25% of exposure (E14)
+P076,NFLX,BB-,cds_bought,19386575.00,0.00,0.45,5.00,25% of exposure (E14)
+P077,AMD,BB-,cds_bought,1232500.00,0.00,0.45,5.00,25% of exposure (E14)
+P078,MSFT,AAA,cds_sold,34804000.00,0.00,0.45,5.00,10% of exposure (E14)
+P079,AAPL,AA+,cds_sold,54146000.00,0.00,0.45,5.00,10% of exposure (E14)
+P080,XOM,AA+,cds_sold,17121000.00,0.00,0.45,5.00,10% of exposure (E14)
+P081,AAPL,AA+,irs_pay_fixed,108292000.00,0.00,0.45,5.00,20% of exposure (E14)
+P082,BAC,A-,irs_pay_fixed,108292000.00,0.00,0.45,5.00,20% of exposure (E14)
+P083,JPM,A-,irs_pay_fixed,108292000.00,0.00,0.45,5.00,20% of exposure (E14)
+P084,MSFT,AAA,irs_pay_fixed,69608000.00,0.00,0.45,5.00,20% of exposure (E14)
+P085,DIS,A,irs_pay_fixed,50307000.00,0.00,0.45,5.00,20% of exposure (E14)
