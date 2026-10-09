@@ -6,6 +6,9 @@ GET  /health                         status + which models produced the stored s
 GET  /signals?ticker=JPM&min_impact=8 stored per-text signals (replay)
 GET  /daily?ticker=JPM               daily mean sentiment, count and max impact per stock
 POST /analyze {"text": "..."}        score new text live
+GET  /tickers                        stocks that have signals
+GET  /module-a/weights               Module A weights per day (set at that day's close)
+GET  /module-a/metrics               equal weight vs sentiment tilt: return, vol, Sharpe, drawdown
 """
 
 from functools import lru_cache
@@ -19,16 +22,19 @@ from riskengine.ingest.linking import Linker
 from riskengine.nlp.events import get_event_classifier
 from riskengine.nlp.impact import impact_formula
 from riskengine.nlp.sentiment import get_scorer
+from riskengine.paths import DATA
 from riskengine.pipeline import SIGNALS_PATH, load_signals
 
 app = FastAPI(title="Risk Engine API")
+
+OUTPUTS = DATA / "outputs"
 
 
 @lru_cache
 def stored_signals() -> pd.DataFrame:
     if not SIGNALS_PATH.exists():
         raise HTTPException(503, "no signals yet: run `uv run python run_demo.py` first")
-    return load_signals()
+    return load_signals()  # load_signals returns df
 
 
 @lru_cache
@@ -44,6 +50,16 @@ def event_classifier():
 @lru_cache
 def linker() -> Linker:
     return Linker.from_csv()
+
+
+@lru_cache
+def module_a_outputs() -> tuple[pd.DataFrame, pd.DataFrame]:
+    weights_path = OUTPUTS / "weights_history.csv"
+    metrics_path = OUTPUTS / "module_a_metrics.csv"
+
+    if not weights_path.exists():
+        raise HTTPException(503, "no Module A output yet: run ` uv run python run_demo.py ` first")
+    return pd.read_csv(weights_path), pd.read_csv(metrics_path, index_col=0)
 
 
 class AnalyzeIn(BaseModel):
@@ -99,3 +115,22 @@ def analyze(item: AnalyzeIn) -> dict:
         "impact": impact_formula(event, s, item.source),
         "model": f"{scorer().name}+{load_config().events}+formula",
     }
+
+
+@app.get("/tickers")
+def tickers() -> list[str]:
+    return sorted(stored_signals()["ticker"].unique().tolist())
+
+
+@app.get("/module-a/weights")
+def module_a_weights() -> list[dict]:
+    """One row per day, e.g. [{"date": "2020-04-09", "AAPL": 0.0937, ...}, ...]."""
+    weights, _ = module_a_outputs()  # it returns two df
+    return weights.to_dict(orient="records")  # gives json like op of the df inside a list
+
+
+@app.get("/module-a/metrics")
+def module_a_metrics() -> dict:
+    """One entry per strategy, e.g. {"equal": {"total_return": 0.2552, "sharpe": 4.88, ...}}."""
+    _, metrics = module_a_outputs()
+    return metrics.round(4).to_dict(orient="index")

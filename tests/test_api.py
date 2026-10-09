@@ -57,3 +57,17 @@ def test_analyze_links_scores_and_classifies(client):
     assert out["event"] == "Default"
     assert out["impact"] > 7
     assert out["model"] == "fake+keywords+formula"
+
+
+def test_tickers_are_sorted_and_unique(client):
+    assert client.get("/tickers").json() == ["BAC", "JPM"]
+
+
+def test_module_a_endpoints(client, monkeypatch):
+    weights = pd.DataFrame({"date": ["2020-04-09"], "AAPL": [0.5], "JPM": [0.5]})
+    metrics = pd.DataFrame({"total_return": [0.25]}, index=["equal"])
+    monkeypatch.setattr(api, "module_a_outputs", lambda: (weights, metrics))
+    assert client.get("/module-a/weights").json() == [
+        {"date": "2020-04-09", "AAPL": 0.5, "JPM": 0.5}
+    ]
+    assert client.get("/module-a/metrics").json() == {"equal": {"total_return": 0.25}}
