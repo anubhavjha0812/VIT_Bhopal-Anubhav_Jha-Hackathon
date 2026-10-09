@@ -318,6 +318,11 @@ afterwards to improve a score. Dates are when the rule was fixed.
   predicted and at the realised 60-day moves. Reported: sign match and mean absolute error in
   P&L and CET1, against a naive prediction (the average of all other episodes). Scored once.
 - **Later, if time:** equity puts (Black-Scholes, VIX as volatility) as a non-linear hedge.
+- **Clarified while coding (2026-10-10, before any loss or capital number was computed):** z is
+  measured in one-year standard deviations (2008–2019 daily vol × √252), because Vasicek's market
+  factor belongs to the one-year PD. The first draft used the episode's own length (COVID z = 5.8)
+  and gave an AAA name a 25% stressed PD; now COVID z = 1.83, GFC 1.72, euro 2011 0.94. The
+  stressed PD is never below the rating's normal one-year PD.
 
 ## E4. Efficiency (fixed 2026-10-06)
 
