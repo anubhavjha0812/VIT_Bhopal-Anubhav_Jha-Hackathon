@@ -12,10 +12,13 @@ GET  /module-a/metrics               equal weight vs sentiment tilt: return, vol
 GET  /replay?rate=20&start=2020-05-01 Server-Sent Events: the window replayed in time order
 GET  /overview                       engine run at a glance: config, counts, event mix, alerts
 GET  /scoreboard                     held-out test scores of every model (docs/RESULTS.md)
+GET  /prices?ticker=JPM              daily closes in the replay window
 """
 
 import asyncio
 import json
+import logging
+from contextlib import asynccontextmanager
 from dataclasses import asdict
 from datetime import date
 from functools import lru_cache
@@ -27,6 +30,7 @@ from pydantic import BaseModel
 
 from riskengine.config import load_config
 from riskengine.ingest.linking import Linker
+from riskengine.ingest.prices import load_prices
 from riskengine.module_a import NY
 from riskengine.nlp.events import OWN_TOPIC, get_event_classifier
 from riskengine.nlp.impact import impact_formula
@@ -35,7 +39,25 @@ from riskengine.paths import DATA
 from riskengine.pipeline import SIGNALS_PATH, load_signals
 from riskengine.replay import events, sse
 
-app = FastAPI(title="Risk Engine API")
+log = logging.getLogger(__name__)
+
+
+def warm_up() -> None:
+    """Load the live models once, so the first /analyze answers in milliseconds, not ~20 s."""
+    try:
+        scorer().score(["warm up"])
+        event_classifier()(["warm up"])
+    except Exception as e:  # a missing model must not stop the API; /analyze reports it
+        log.warning("model warm-up failed: %s", e)
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    asyncio.get_running_loop().run_in_executor(None, warm_up)  # in the background
+    yield
+
+
+app = FastAPI(title="Risk Engine API", lifespan=lifespan)
 
 OUTPUTS = DATA / "outputs"
 SCORE_FIELDS = [
@@ -82,6 +104,14 @@ def eval_results() -> dict:
     if not path.exists():
         raise HTTPException(503, "no test scores yet: run `uv run python -m riskengine.eval` first")
     return json.loads(path.read_text())
+
+
+@lru_cache
+def window_prices() -> pd.DataFrame:
+    config = load_config()
+    df = load_prices()
+    start, end = pd.Timestamp(config.window_start), pd.Timestamp(config.window_end)
+    return df[(df["date"] >= start) & (df["date"] <= end)]
 
 
 def engine_models(config) -> dict[str, str]:
@@ -228,3 +258,16 @@ def scoreboard() -> dict:
         task: [{k: row[k] for k in SCORE_FIELDS} for row in rows]
         for task, rows in eval_results().items()
     }
+
+
+@app.get("/prices")
+def prices(ticker: str) -> list[dict]:
+    """Daily closes in the replay window, e.g. [{"date": "2020-04-09", "close": 66.99}, ...]."""
+    df = window_prices()
+    df = df[df["ticker"] == ticker.upper()]
+    if df.empty:
+        raise HTTPException(404, f"no prices for {ticker!r}")
+    return [
+        {"date": d.date().isoformat(), "close": round(float(c), 4)}
+        for d, c in zip(df["date"], df["close"], strict=True)
+    ]

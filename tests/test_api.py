@@ -117,3 +117,17 @@ def test_scoreboard_keeps_summary_fields_only(client, monkeypatch):
     assert list(out) == ["Sentiment"]
     assert "per_class_f1" not in out["Sentiment"][0]
     assert out["Sentiment"][0]["accuracy"] == 0.9
+
+
+def test_prices_for_one_ticker_and_404_for_unknown(client, monkeypatch):
+    rows = pd.DataFrame(
+        {
+            "date": pd.to_datetime(["2020-05-01", "2020-05-04", "2020-05-01"]),
+            "ticker": ["JPM", "JPM", "BAC"],
+            "close": [90.0, 91.5, 22.0],
+        }
+    )
+    monkeypatch.setattr(api, "window_prices", lambda: rows)
+    out = client.get("/prices", params={"ticker": "jpm"}).json()
+    assert out == [{"date": "2020-05-01", "close": 90.0}, {"date": "2020-05-04", "close": 91.5}]
+    assert client.get("/prices", params={"ticker": "XYZ"}).status_code == 404

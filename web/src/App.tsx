@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import { useApi } from './api'
 import ThemeToggle from './components/ThemeToggle'
+import Analyze from './pages/Analyze'
+import Engine from './pages/Engine'
 import Overview from './pages/Overview'
 import { applyTheme, initialTheme, ThemeContext, type Theme } from './theme'
 import type { Overview as OverviewData } from './types'
@@ -9,6 +11,8 @@ import type { Overview as OverviewData } from './types'
 // A page gets a link here only once it exists (no empty sections).
 const PAGES = [
   { path: '/', label: 'Overview' },
+  { path: '/engine', label: 'Engine' },
+  { path: '/analyze', label: 'Analyze' },
 ]
 
 function Header({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void }) {
@@ -69,6 +73,8 @@ export default function App() {
             <main className="p-4 sm:p-6">
               <Routes>
                 <Route path="/" element={<Overview />} />
+                <Route path="/engine" element={<Engine />} />
+                <Route path="/analyze" element={<Analyze />} />
               </Routes>
             </main>
           </div>
