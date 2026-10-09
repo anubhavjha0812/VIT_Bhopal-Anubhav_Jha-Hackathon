@@ -4,7 +4,9 @@ import { useApi } from './api'
 import ThemeToggle from './components/ThemeToggle'
 import Analyze from './pages/Analyze'
 import Engine from './pages/Engine'
+import ModuleA from './pages/ModuleA'
 import Overview from './pages/Overview'
+import Replay from './pages/Replay'
 import { applyTheme, initialTheme, ThemeContext, type Theme } from './theme'
 import type { Overview as OverviewData } from './types'
 
@@ -13,6 +15,8 @@ const PAGES = [
   { path: '/', label: 'Overview' },
   { path: '/engine', label: 'Engine' },
   { path: '/analyze', label: 'Analyze' },
+  { path: '/replay', label: 'Live replay' },
+  { path: '/module-a', label: 'Module A' },
 ]
 
 function Header({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void }) {
@@ -75,6 +79,8 @@ export default function App() {
                 <Route path="/" element={<Overview />} />
                 <Route path="/engine" element={<Engine />} />
                 <Route path="/analyze" element={<Analyze />} />
+                <Route path="/replay" element={<Replay />} />
+                <Route path="/module-a" element={<ModuleA />} />
               </Routes>
             </main>
           </div>

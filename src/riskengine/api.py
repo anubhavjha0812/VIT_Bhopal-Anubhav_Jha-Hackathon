@@ -13,6 +13,7 @@ GET  /replay?rate=20&start=2020-05-01 Server-Sent Events: the window replayed in
 GET  /overview                       engine run at a glance: config, counts, event mix, alerts
 GET  /scoreboard                     held-out test scores of every model (docs/RESULTS.md)
 GET  /prices?ticker=JPM              daily closes in the replay window
+GET  /module-a/equity                growth of $1 per strategy, after costs
 """
 
 import asyncio
@@ -20,7 +21,7 @@ import json
 import logging
 from contextlib import asynccontextmanager
 from dataclasses import asdict
-from datetime import date
+from datetime import date, datetime
 from functools import lru_cache
 
 import pandas as pd
@@ -31,7 +32,7 @@ from pydantic import BaseModel
 from riskengine.config import load_config
 from riskengine.ingest.linking import Linker
 from riskengine.ingest.prices import load_prices
-from riskengine.module_a import NY
+from riskengine.module_a import NY, Backtest, run_module_a
 from riskengine.nlp.events import OWN_TOPIC, get_event_classifier
 from riskengine.nlp.impact import impact_formula
 from riskengine.nlp.sentiment import OWN_SENTIMENT, get_scorer
@@ -112,6 +113,12 @@ def window_prices() -> pd.DataFrame:
     df = load_prices()
     start, end = pd.Timestamp(config.window_start), pd.Timestamp(config.window_end)
     return df[(df["date"] >= start) & (df["date"] <= end)]
+
+
+@lru_cache
+def module_a_run() -> dict[str, Backtest]:
+    """Module A re-run on the stored signals (43 days, well under a second)."""
+    return run_module_a(stored_signals(), load_prices(), load_config())
 
 
 def engine_models(config) -> dict[str, str]:
@@ -199,18 +206,27 @@ def module_a_metrics() -> dict:
 async def replay(
     rate: float = Query(20.0, gt=0, le=1000, description="texts per second"),
     start: date | None = None,
+    after: datetime | None = None,
     ticker: str | None = None,
     limit: int | None = Query(None, ge=1, description="stop after this many texts"),
 ) -> StreamingResponse:
     """Events `signal`, `alert` (impact above the trigger), `weights` (Module A) and `end`.
 
-    `start` is the first New York date to replay; `ticker` keeps texts that mention it.
+    `start` is the first New York date to replay. `after` resumes a paused replay from that
+    time (texts at exactly that time are sent again; the client skips ids it has seen).
+    `ticker` keeps texts that mention it.
     """
     df = stored_signals()
     weights, _ = module_a_outputs()
-    if start:
-        df = df[df["published_at"] >= pd.Timestamp(start, tz=NY)]
-        weights = weights[pd.to_datetime(weights["date"]) >= pd.Timestamp(start)]
+    begin = pd.Timestamp(start, tz=NY) if start else None
+    if after:
+        resume = pd.Timestamp(after)
+        resume = resume.tz_localize("UTC") if resume.tzinfo is None else resume
+        begin = max(begin, resume) if begin is not None else resume
+    if begin is not None:
+        df = df[df["published_at"] >= begin]
+        first_day = begin.tz_convert(NY).tz_localize(None).normalize()
+        weights = weights[pd.to_datetime(weights["date"]) >= first_day]
     if ticker:
         # keep every ticker of a matching text, so the event shows who else it names
         df = df[df["doc_id"].isin(df.loc[df["ticker"] == ticker.upper(), "doc_id"])]
@@ -270,4 +286,20 @@ def prices(ticker: str) -> list[dict]:
     return [
         {"date": d.date().isoformat(), "close": round(float(c), 4)}
         for d, c in zip(df["date"], df["close"], strict=True)
+    ]
+
+
+@app.get("/module-a/equity")
+def module_a_equity() -> list[dict]:
+    """Growth of $1 after costs, e.g. [{"date": "2020-04-09", "equal": 1.0, "sentiment": 1.0}, ...].
+
+    Weights set at a day's close earn the next day's return, so each value is dated the day
+    the return is known.
+    """
+    runs = module_a_run()
+    days = next(iter(runs.values())).weights.index
+    curves = {k: [1.0, *(1 + bt.returns).cumprod().round(5).tolist()] for k, bt in runs.items()}
+    return [
+        {"date": d.date().isoformat(), **{k: v[i] for k, v in curves.items()}}
+        for i, d in enumerate(days)
     ]

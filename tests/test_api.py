@@ -1,3 +1,5 @@
+import json
+
 import pandas as pd
 import pytest
 from fastapi.testclient import TestClient
@@ -131,3 +133,33 @@ def test_prices_for_one_ticker_and_404_for_unknown(client, monkeypatch):
     out = client.get("/prices", params={"ticker": "jpm"}).json()
     assert out == [{"date": "2020-05-01", "close": 90.0}, {"date": "2020-05-04", "close": 91.5}]
     assert client.get("/prices", params={"ticker": "XYZ"}).status_code == 404
+
+
+def test_module_a_equity_starts_at_one_and_is_dated_when_known(client, monkeypatch):
+    days = pd.to_datetime(["2020-05-01", "2020-05-04", "2020-05-05"])
+    weights = pd.DataFrame(0.5, index=days, columns=["JPM", "BAC"])
+    returns = pd.Series([0.10, -0.05], index=days[:-1])  # earned on the next day
+    runs = {
+        "equal": api.Backtest(weights, returns, {}),
+        "sentiment": api.Backtest(weights, returns * 0, {}),
+    }
+    monkeypatch.setattr(api, "module_a_run", lambda: runs)
+    out = client.get("/module-a/equity").json()
+    assert [r["date"] for r in out] == ["2020-05-01", "2020-05-04", "2020-05-05"]
+    assert [r["equal"] for r in out] == [1.0, 1.1, 1.045]
+    assert [r["sentiment"] for r in out] == [1.0, 1.0, 1.0]
+
+
+def test_replay_resumes_after_a_time(client, monkeypatch):
+    weights = pd.DataFrame(
+        {"date": ["2020-05-01", "2020-05-04"], "JPM": [0.5, 0.5], "BAC": [0.5, 0.5]}
+    )
+    monkeypatch.setattr(api, "module_a_outputs", lambda: (weights, None))
+    # b was published at 13:00 UTC on 1 May; c on 2 May. Resuming at 13:00 resends b.
+    body = client.get("/replay", params={"rate": 1000, "after": "2020-05-01T13:00:00Z"}).text
+    sent = [
+        json.loads(line.removeprefix("data: ")).get("doc_id") or json.loads(line[6:]).get("date")
+        for line in body.splitlines()
+        if line.startswith("data: ") and "texts" not in line
+    ]
+    assert sent == ["2020-05-01", "b", "c", "2020-05-04"]
