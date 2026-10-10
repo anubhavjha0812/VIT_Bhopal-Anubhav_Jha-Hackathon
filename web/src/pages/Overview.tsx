@@ -26,7 +26,7 @@ export default function Overview() {
         <StatCard
           label="Credit alerts → Module B"
           value={o.alerts.toLocaleString()}
-          note={`Credit Chhanni passed ${o.alerts} of ${o.alerts_naive} texts with impact > ${o.config.impact_trigger}`}
+          note={`Credit gate passed ${o.alerts} of ${o.alerts_naive} texts with impact > ${o.config.impact_trigger}`}
           tone="alert"
         />
         <StatCard label="Trading days" value={String(o.trading_days)} note={`${o.config.window_start} → ${o.config.window_end}`} />

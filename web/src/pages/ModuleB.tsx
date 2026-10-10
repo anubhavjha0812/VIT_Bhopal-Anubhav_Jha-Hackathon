@@ -258,7 +258,7 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
       <h2 className={head}>Scenario</h2>
       <div className="space-y-4 p-4">
         <div>
-          <div className={`mb-2 ${muted}`}>Real alerts the Credit Chhanni passed (Apr–Jun 2020)</div>
+          <div className={`mb-2 ${muted}`}>Real alerts the credit gate passed (Apr–Jun 2020)</div>
           <div className="grid gap-2 sm:grid-cols-2">
             {alerts.map((a) => (
               <button
@@ -572,7 +572,7 @@ export default function ModuleB() {
   return (
     <div className="space-y-6">
       <div className="max-w-3xl space-y-2">
-        <h2 className="text-xl font-semibold">🫕 Stress Pressure Cooker</h2>
+        <h2 className="text-xl font-semibold">Module B · Credit stress test</h2>
         <p className="text-sm text-slate-600 dark:text-slate-300">
           An Indian bank (capital in rupees, RBI 8% CET1 floor) lends to our 15 companies: 0.5% of each one's real debt
           from its SEC filing at 31 Dec 2019, as revolvers and bonds, with CDS and swap hedges. A credit alert cuts the

@@ -18,7 +18,7 @@ const PAGES = [
   { path: '/analyze', label: 'Analyze' },
   { path: '/replay', label: 'Live replay' },
   { path: '/module-a', label: 'Module A' },
-  { path: '/module-b', label: 'Module B 🫕' },
+  { path: '/module-b', label: 'Module B' },
 ]
 
 function Header({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void }) {

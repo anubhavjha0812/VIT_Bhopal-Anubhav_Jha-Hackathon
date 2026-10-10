@@ -225,7 +225,7 @@ export default function Replay() {
         <div className="space-y-6">
           <section className={card}>
             <h2 className={head}>
-              Credit alerts · Credit Chhanni <span className="font-normal text-rose-600">({r.alerts.length})</span>
+              Credit alerts · credit gate <span className="font-normal text-rose-600">({r.alerts.length})</span>
             </h2>
             {r.alerts.length === 0 ? (
               <p className="p-4 text-sm text-slate-500">None yet.</p>
@@ -253,7 +253,7 @@ export default function Replay() {
                           to={`/module-b?doc=${encodeURIComponent(s.doc_id)}&ticker=${o}`}
                           className="mt-1 block text-xs text-teal-700 hover:underline dark:text-teal-400"
                         >
-                          🫕 {o} + COVID episode: CET1 {(100 * b.cet1_before).toFixed(1)}% →{' '}
+                          Stress test: {o} + COVID episode: CET1 {(100 * b.cet1_before).toFixed(1)}% →{' '}
                           {(100 * b.cet1_after).toFixed(1)}%, loss ${(b.loss_usd / 1e6).toFixed(0)}m →
                         </Link>
                       )

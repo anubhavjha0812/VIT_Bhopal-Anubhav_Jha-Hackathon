@@ -20,7 +20,7 @@ export interface Overview {
   texts_by_source: Record<string, number>
   events: Record<string, number>
   alerts_naive: number // texts with impact above the trigger
-  alerts: number // texts the Credit Chhanni gate passes to Module B
+  alerts: number // texts the credit gate passes to Module B
   trading_days: number
 }
 
@@ -57,7 +57,7 @@ export interface Signal {
   analyst_rating?: boolean
   impact: number
   model: string
-  fired?: boolean // Credit Chhanni passed it to Module B
+  fired?: boolean // the credit gate passed it to Module B
   reason?: string
 }
 
