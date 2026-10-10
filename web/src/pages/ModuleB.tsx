@@ -455,87 +455,151 @@ function ReportView({ rep }: { rep: Report }) {
   )
 }
 
+const box = 'min-w-0 rounded-lg border border-slate-200 p-4 dark:border-slate-800'
+
+const TONES = {
+  good: 'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300',
+  bad: 'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300',
+  neutral: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
+}
+
+function Verdict({ tone, text }: { tone: keyof typeof TONES; text: string }) {
+  return (
+    <span className={`rounded px-2 py-0.5 text-xs font-semibold whitespace-nowrap ${TONES[tone]}`}>
+      {text}
+    </span>
+  )
+}
+
+/** Our prediction vs the naive one, one row per measure (lower error is better). */
+function Compare({ ours, rows }: { ours: string; rows: [string, string, string][] }) {
+  return (
+    <table className="w-full text-sm">
+      <thead className={`text-left ${muted}`}>
+        <tr>
+          <th className="py-1.5 font-normal" />
+          <th className="py-1.5 text-right font-normal">{ours}</th>
+          <th className="py-1.5 text-right font-normal">Naive</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(([label, a, b]) => (
+          <tr key={label} className="border-t border-slate-100 dark:border-slate-800">
+            <td className="py-1.5">{label}</td>
+            <td className="py-1.5 text-right font-mono tabular-nums whitespace-nowrap">{a}</td>
+            <td className="py-1.5 text-right font-mono tabular-nums whitespace-nowrap">{b}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
 function ChecksView({ checks }: { checks: Checks }) {
   const m = checks.monthly.summary
   const cr = checks.crises.mae
   const gainShare = checks.monthly.rows.filter((r) => r.realised_loss < 0).length / checks.monthly.rows.length
+  const signs = checks.alerts.filter((a) => a.sign_match).length
+  const pt = (x: number) => `${(100 * x).toFixed(2)} pt`
   return (
     <section className={card}>
       <h2 className={head}>Predicted vs actual (each test scored once, rules fixed before the run)</h2>
-      <div className="grid gap-6 p-4 xl:grid-cols-3">
-        <div className="min-w-0">
-          <h3 className="text-sm font-semibold">Real alerts: next 20 trading days</h3>
-          <div className="overflow-x-auto">
-            <table className="mt-2 w-full text-sm">
-              <thead className={`text-left ${muted}`}>
-                <tr>
-                  <th className="py-1">Alert</th>
-                  <th className="py-1 text-right">Predicted</th>
-                  <th className="py-1 text-right">Realised</th>
-                  <th className="py-1 text-right">Sign</th>
-                </tr>
-              </thead>
-              <tbody>
-                {checks.alerts.map((a) => (
-                  <tr key={a.window + a.ticker} className="border-t border-slate-100 dark:border-slate-800">
-                    <td className="py-1 font-mono">
-                      {a.ticker} <span className="text-xs text-slate-500">{a.window.slice(0, 10)}</span>
-                    </td>
-                    <td className="py-1 text-right font-mono tabular-nums">{usd(a.predicted_loss)}</td>
-                    <td className="py-1 text-right font-mono tabular-nums">{usd(a.realised_loss)}</td>
-                    <td className="py-1 text-right">{a.sign_match ? '✓' : '✗'}</td>
+      <div className="space-y-6 p-4">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className={box}>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="text-sm font-semibold">Test 1 · Real alerts: next 20 trading days</h3>
+              <Verdict tone="neutral" text={`direction right ${signs} of ${checks.alerts.length}`} />
+            </div>
+            <div className="mt-3 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className={`text-left ${muted}`}>
+                  <tr>
+                    <th className="py-1.5 font-normal">Alert</th>
+                    <th className="py-1.5 text-right font-normal">Predicted</th>
+                    <th className="py-1.5 text-right font-normal">Realised</th>
+                    <th className="py-1.5 text-right font-normal">Direction</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {checks.alerts.map((a) => (
+                    <tr key={a.window + a.ticker} className="border-t border-slate-100 dark:border-slate-800">
+                      <td className="py-1.5 whitespace-nowrap">
+                        <span className="font-mono font-semibold">{a.ticker}</span>{' '}
+                        <span className="text-xs text-slate-500">{a.window.slice(0, 10)}</span>
+                      </td>
+                      <td className="py-1.5 text-right font-mono tabular-nums">{usd(a.predicted_loss)}</td>
+                      <td className="py-1.5 text-right font-mono tabular-nums">{usd(a.realised_loss)}</td>
+                      <td className={`py-1.5 text-right ${a.sign_match ? 'text-teal-600' : 'text-rose-600'}`}>
+                        {a.sign_match ? '✓' : '✗'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className={`mt-3 ${muted}`}>
+              Direction mostly right, size far too big: the full COVID episode is applied after the crash had already
+              happened (spreads were falling in Apr–Jun 2020).
+            </p>
           </div>
-          <p className={`mt-2 ${muted}`}>
-            Direction mostly right, size far too big: the full COVID episode is applied after the crash had already
-            happened (spreads were falling in Apr–Jun 2020).
-          </p>
+
+          <div className={box}>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="text-sm font-semibold">Test 2 · 12 credit crises 1990–2023: next 60 days</h3>
+              <Verdict tone="neutral" text="about the same as naive" />
+            </div>
+            <p className={`mt-1 ${muted}`}>
+              Crisis = Baa widens 75 bp within 60 days. Prediction = the 3 most similar past crises on their first 5
+              days. Naive = the average of all other crises.
+            </p>
+            <div className="mt-3">
+              <Compare
+                ours="Similar crises"
+                rows={[
+                  ['Loss error', usd(cr.predicted.loss), usd(cr.naive.loss)],
+                  ['CET1 error', pt(cr.predicted.cet1), pt(cr.naive.cet1)],
+                  ['Direction right', pct(cr.predicted.sign, 0), pct(cr.naive.sign, 0)],
+                ]}
+              />
+            </div>
+            <p className={`mt-3 ${muted}`}>No better than the average: a crisis' first week does not tell how it ends.</p>
+          </div>
         </div>
-        <div>
-          <h3 className="text-sm font-semibold">12 credit crises 1990–2023: next 60 days</h3>
-          <p className={`mt-1 ${muted}`}>Baa +75 bp within 60 days; 3 nearest past crises on the first 5 days.</p>
-          <dl className="mt-3 grid grid-cols-3 gap-2 text-sm">
-            <dt />
-            <dt className={muted}>Analogs</dt>
-            <dt className={muted}>Naive</dt>
-            <dd className={muted}>Loss error</dd>
-            <dd className="font-mono">{usd(cr.predicted.loss)}</dd>
-            <dd className="font-mono">{usd(cr.naive.loss)}</dd>
-            <dd className={muted}>CET1 error</dd>
-            <dd className="font-mono">{(100 * cr.predicted.cet1).toFixed(2)} pt</dd>
-            <dd className="font-mono">{(100 * cr.naive.cet1).toFixed(2)} pt</dd>
-            <dd className={muted}>Sign right</dd>
-            <dd className="font-mono">{pct(cr.predicted.sign, 0)}</dd>
-            <dd className="font-mono">{pct(cr.naive.sign, 0)}</dd>
-          </dl>
-          <p className={`mt-3 ${muted}`}>No better than the average: a crisis' first week does not tell how it ends.</p>
-        </div>
-        <div className="min-w-0">
-          <h3 className="text-sm font-semibold">
-            {m.origins} month-ends 1995–2023: state model{' '}
-            <span className={m.passed ? 'text-teal-600' : 'text-rose-600 dark:text-rose-400'}>
-              {m.passed ? 'PASS' : 'FAIL'}
-            </span>
-          </h3>
-          <p className={`mt-1 ${muted}`}>
-            Loss error {usd(m.model_mae)} vs naive {usd(m.naive_mae)} (ratio {m.ratio.toFixed(2)}, pass ≤{' '}
-            {m.pass_ratio}); Diebold–Mariano p = {m.dm_p.toFixed(2)}.
-          </p>
-          <p className="mt-2 text-sm">
-            Direction right: <span className="font-mono font-semibold text-teal-600">{pct(m.model_sign, 0)}</span> state
-            model vs <span className="font-mono">{pct(m.naive_sign, 0)}</span> naive{' '}
-            <span className={muted}>
-              (always guessing "gain" would get {pct(gainShare, 0)}; reported, not part of the pass rule)
-            </span>
-          </p>
-          <MonthlyChart rows={checks.monthly.rows} />
-          <p className={muted}>
-            Crashes from calm levels (2008, 2020) are not predictable from today's spreads and VIX. That is why capital is
-            set on severe stress episodes, not on a forecast.
-          </p>
+
+        <div className={box}>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h3 className="text-sm font-semibold">
+              Test 3 · {m.origins} month-ends 1995–2023: next 60 days from today's spreads and VIX
+            </h3>
+            <Verdict tone={m.passed ? 'good' : 'bad'} text={m.passed ? 'PASS' : `FAIL · ratio ${m.ratio.toFixed(2)}, pass ≤ ${m.pass_ratio}`} />
+          </div>
+          <div className="mt-3 grid gap-6 lg:grid-cols-3">
+            <div className="min-w-0 space-y-3">
+              <Compare
+                ours="State model"
+                rows={[
+                  ['Loss error', usd(m.model_mae), usd(m.naive_mae)],
+                  ['Direction right', pct(m.model_sign, 0), pct(m.naive_sign, 0)],
+                ]}
+              />
+              <p className="text-sm">
+                Direction: <span className="font-mono font-semibold text-teal-600">{pct(m.model_sign, 0)}</span> vs naive{' '}
+                {pct(m.naive_sign, 0)}.{' '}
+                <span className={muted}>
+                  Always guessing "gain" would get {pct(gainShare, 0)}. Reported, not part of the pass rule.
+                </span>
+              </p>
+              <p className={muted}>
+                Diebold–Mariano p = {m.dm_p.toFixed(2)}: no real difference in loss error. Crashes from calm levels
+                (2008, 2020) cannot be seen coming in today's spreads and VIX. That is why capital is set on severe stress
+                episodes, not on a forecast.
+              </p>
+            </div>
+            <div className="min-w-0 lg:col-span-2">
+              <MonthlyChart rows={checks.monthly.rows} />
+            </div>
+          </div>
         </div>
       </div>
     </section>
