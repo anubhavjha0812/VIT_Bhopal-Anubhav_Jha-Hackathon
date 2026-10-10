@@ -3,20 +3,22 @@
 Events, in the order a live desk would have seen them:
 - signal: one text with its tickers (subjects), analysts, sentiment, event class and impact
 - alert: the same text again when the Credit Chhanni gate fires for one of its companies
-  (Module B input; `signals` must carry the gate's `fired` and `reason`, see gate.py)
+  (Module B input; `signals` must carry the gate's `fired` and `reason`, see gate.py), with
+  Module B's result per obligor when `on_alert` is given
 - weights: Module A weights for a trading day, sent once every text they use has been sent
 
 Module A's no-look-ahead rule decides the order: weights for trading day T use only texts
 with a New York date before T, so they are sent just before the first text dated T or later.
 """
 
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 
 import pandas as pd
 
 from riskengine.module_a import NY
 
 Event = tuple[str, dict]
+OnAlert = Callable[[str, str, str, int], dict]  # (ticker, text, event, impact) -> Module B result
 
 
 def texts(signals: pd.DataFrame) -> pd.DataFrame:
@@ -58,7 +60,9 @@ def texts(signals: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def events(signals: pd.DataFrame, weights: pd.DataFrame) -> Iterator[Event]:
+def events(
+    signals: pd.DataFrame, weights: pd.DataFrame, on_alert: OnAlert | None = None
+) -> Iterator[Event]:
     """`weights` has a `date` column (trading day) and one column per ticker."""
     days = pd.to_datetime(weights["date"])
     by_day = weights.drop(columns="date").round(4)
@@ -87,7 +91,12 @@ def events(signals: pd.DataFrame, weights: pd.DataFrame) -> Iterator[Event]:
         }
         yield "signal", payload
         if t.obligors:
-            yield "alert", {**payload, "obligors": t.obligors, "gate": t.gate}
+            alert = {**payload, "obligors": t.obligors, "gate": t.gate}
+            if on_alert:
+                alert["module_b"] = {
+                    o: on_alert(o, t.text, t.event, int(t.impact)) for o in t.obligors
+                }
+            yield "alert", alert
     yield from weights_until(None)
 
 

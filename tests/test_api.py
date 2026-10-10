@@ -189,3 +189,31 @@ def test_analyze_lists_an_analyst_bank_apart(client):
     out = client.post("/analyze", json={"text": "BofA Downgrades Tesla to Underperform"}).json()
     assert out["tickers"] == ["TSLA"]
     assert out["analysts"] == ["BAC"]
+
+
+def test_module_b_alerts_and_report(client):
+    rows = client.get("/module-b/alerts").json()
+    assert [(r["doc_id"], r["ticker"], r["notches"]) for r in rows] == [("a", "JPM", 99)]
+    assert rows[0]["cet1_after"] < rows[0]["cet1_before"]
+    rep = client.get("/module-b", params={"doc_id": "a"}).json()
+    assert rep["alert"]["matched"] == ["Fitch", "defaulted on"]
+    assert rep["scenario"]["rating_after"] == "D"
+    assert "Fitch says JPMorgan defaulted on its bonds" in rep["memo"]
+    assert client.get("/module-b", params={"doc_id": "b"}).status_code == 404  # did not fire
+
+
+def test_module_b_what_if_and_book(client):
+    rep = client.get("/module-b", params={"ticker": "ba", "notches": 3, "episode": "gfc2008"})
+    assert rep.json()["scenario"]["rating_after"] == "BBB-"
+    assert client.get("/module-b", params={"ticker": "XYZ"}).status_code == 404
+    assert client.get("/module-b", params={"episode": "dotcom"}).status_code == 422
+    assert len(client.get("/module-b/book").json()) == 85
+
+
+def test_replay_alert_carries_cet1(client, monkeypatch):
+    weights = pd.DataFrame({"date": ["2020-05-04"], "JPM": [0.5], "BAC": [0.5]})
+    monkeypatch.setattr(api, "module_a_outputs", lambda: (weights, None))
+    body = client.get("/replay", params={"rate": 1000}).text
+    alert = next(b for b in body.split("\n\n") if b.startswith("event: alert"))
+    cap = json.loads(alert.split("data: ", 1)[1])["module_b"]["JPM"]
+    assert cap["cet1_after"] < cap["cet1_before"]

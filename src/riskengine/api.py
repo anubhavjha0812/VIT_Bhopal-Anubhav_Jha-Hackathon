@@ -15,6 +15,11 @@ GET  /gate                           Credit Chhanni: credit / high-impact rows, 
 GET  /scoreboard                     held-out test scores of every model (docs/RESULTS.md)
 GET  /prices?ticker=JPM              daily closes in the replay window
 GET  /module-a/equity                growth of $1 per strategy, after costs
+GET  /module-b/alerts?episode=covid2020 gated alerts with loss and CET1 before → after
+GET  /module-b?doc_id=...            one alert through Module B: capital, Monte Carlo, memo
+GET  /module-b?ticker=BA&notches=2   a what-if downgrade (no ticker: the market episode alone)
+GET  /module-b/book                  the 31 Dec 2019 book, one row per position
+GET  /module-b/checks                predicted vs actual: real alerts, crises, monthly (E14, E15)
 """
 
 import asyncio
@@ -24,6 +29,7 @@ from contextlib import asynccontextmanager
 from dataclasses import asdict
 from datetime import date, datetime
 from functools import lru_cache
+from typing import Literal
 
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
@@ -35,6 +41,12 @@ from riskengine.gate import gate
 from riskengine.ingest.linking import Linker
 from riskengine.ingest.prices import load_prices
 from riskengine.module_a import NY, Backtest, run_module_a
+from riskengine.module_b import report as module_b
+from riskengine.module_b.backtest import ALERTS_PATH, CRISES_PATH
+from riskengine.module_b.book import load_book
+from riskengine.module_b.outlook import MONTHLY_PATH
+from riskengine.module_b.outlook import summary as monthly_summary
+from riskengine.module_b.shock import DEFAULT_EPISODE, parse_notches
 from riskengine.nlp.events import (
     CREDIT_CLASSES,
     OWN_TOPIC,
@@ -139,6 +151,54 @@ def engine_models(config) -> dict[str, str]:
     sentiment = OWN_SENTIMENT.resolve().name if config.sentiment == "own" else "finbert (baseline)"
     events = OWN_TOPIC.resolve().name if config.events == "model" else "keywords (baseline)"
     return {"sentiment": sentiment, "events": events}
+
+
+Episode = Literal["gfc2008", "euro2011", "covid2020"]
+
+
+@lru_cache
+def book() -> pd.DataFrame:
+    return load_book()
+
+
+def fired_alerts() -> pd.DataFrame:
+    df = gated_signals()
+    return df[df["fired"]].sort_values("published_at")
+
+
+def alert_row(row: pd.Series) -> dict:
+    """A fired (text, obligor) row as the memo quotes it, with the parsed notches."""
+    return {
+        "doc_id": row["doc_id"],
+        "published_at": str(row["published_at"]),
+        "source": row["source"],
+        "ticker": row["ticker"],
+        "text": row["text"],
+        "event": row["event"],
+        "impact": int(row["impact"]),
+        "gate": row["reason"],
+        "notches": parse_notches(row["text"], row["event"]),
+        "matched": module_b.matched_words(row["text"]),
+    }
+
+
+@lru_cache(maxsize=256)
+def module_b_summary(ticker: str, notches: int, episode: str, multiple: float) -> dict:
+    return module_b.summary(book(), ticker, notches, episode, multiple)
+
+
+@lru_cache(maxsize=64)
+def module_b_run(ticker: str | None, notches: int, episode: str, multiple: float) -> dict:
+    return module_b.run(book(), ticker, notches, episode, multiple)
+
+
+def alert_capital(ticker: str, text: str, event: str, impact: int) -> dict:
+    """Module B in the replay: loss and CET1 before → after on the default episode."""
+    if ticker not in set(book()["ticker"]):
+        return {}
+    multiple = module_b.alert_multiple(impact, load_config().shock)
+    c = module_b_summary(ticker, parse_notches(text, event), DEFAULT_EPISODE, multiple)
+    return {k: c[k] for k in ("loss_usd", "cet1_before", "cet1_after")}
 
 
 class AnalyzeIn(BaseModel):
@@ -249,7 +309,7 @@ async def replay(
 
     async def stream():
         sent = 0
-        for kind, payload in events(df, weights):
+        for kind, payload in events(df, weights, alert_capital):
             if kind == "signal":
                 if limit and sent == limit:
                     break
@@ -332,3 +392,86 @@ def module_a_equity() -> list[dict]:
         {"date": d.date().isoformat(), **{k: v[i] for k, v in curves.items()}}
         for i, d in enumerate(days)
     ]
+
+
+@app.get("/module-b/alerts")
+def module_b_alerts(episode: Episode = DEFAULT_EPISODE) -> list[dict]:
+    """Every gated alert with its loss and CET1 before → after on the episode."""
+    shock = load_config().shock
+    out = []
+    for _, row in fired_alerts().iterrows():
+        a = alert_row(row)
+        multiple = module_b.alert_multiple(a["impact"], shock)
+        c = module_b_summary(a["ticker"], a["notches"], episode, multiple)
+        out.append({**a, "episode": episode, "multiple": multiple, **c})
+    return out
+
+
+@app.get("/module-b")
+def module_b_report(
+    doc_id: str | None = None,
+    ticker: str | None = None,
+    notches: int = Query(1, ge=0, le=99, description="what-if cut; 99 = default"),
+    episode: Episode = DEFAULT_EPISODE,
+    multiple: float | None = Query(None, ge=0, le=5, description="× the episode"),
+) -> dict:
+    """An alert (`doc_id`, plus `ticker` if it fired for several) or a what-if (`ticker`,
+    `notches`; no ticker = the market episode alone). The multiple defaults to config.shock."""
+    alert = None
+    if doc_id:
+        rows = fired_alerts()
+        rows = rows[rows["doc_id"] == doc_id]
+        if ticker:
+            rows = rows[rows["ticker"] == ticker.upper()]
+        if rows.empty:
+            raise HTTPException(404, f"no gated alert {doc_id!r}")
+        alert = alert_row(rows.iloc[0])
+        ticker, notches = alert["ticker"], alert["notches"]
+        if multiple is None:
+            multiple = module_b.alert_multiple(alert["impact"], load_config().shock)
+    elif ticker:
+        ticker = ticker.upper()
+        if ticker not in set(book()["ticker"]):
+            raise HTTPException(404, f"{ticker} is not in the book")
+    if not ticker:
+        notches = 0
+    rep = module_b_run(ticker, notches, episode, 1.0 if multiple is None else multiple)
+    return {**rep, "alert": alert, "memo": module_b.memo(rep, alert)}
+
+
+@app.get("/module-b/book")
+def module_b_book() -> list[dict]:
+    return book().to_dict("records")
+
+
+@lru_cache
+def module_b_checks() -> dict:
+    paths = (ALERTS_PATH, CRISES_PATH, MONTHLY_PATH)
+    if not all(p.exists() for p in paths):
+        raise HTTPException(
+            503, "no checks yet: run `uv run python -m riskengine.module_b.backtest` and `.outlook`"
+        )
+    alerts, crises, monthly = (pd.read_csv(p) for p in paths)
+    mae = {
+        k: {
+            "loss": crises[f"{k}_loss_error"].mean(),
+            "cet1": crises[f"{k}_cet1_error"].mean(),
+            "sign": crises[f"{k}_sign_match"].mean(),
+        }
+        for k in ("predicted", "naive")
+    }
+    loss_cols = ["realised_loss", "model_loss", "naive_loss"]
+    return {
+        "alerts": alerts.drop(columns="published_at").to_dict("records"),
+        "crises": {"rows": crises.to_dict("records"), "mae": mae},
+        "monthly": {
+            "summary": monthly_summary(monthly),
+            "rows": monthly[["origin", "baa", *loss_cols]].round(1).to_dict("records"),
+        },
+    }
+
+
+@app.get("/module-b/checks")
+def module_b_checks_endpoint() -> dict:
+    """Predicted vs actual, each scored once: real alerts and 12 crises (E14), 345 months (E15)."""
+    return module_b_checks()

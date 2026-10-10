@@ -109,7 +109,7 @@ def summary(df: pd.DataFrame) -> dict:
     model, naive = df["model_loss_error"].mean(), df["naive_loss_error"].mean()
     stat, p = diebold_mariano(df["model_loss_error"] - df["naive_loss_error"])
     return {"origins": len(df), "model_mae": model, "naive_mae": naive, "ratio": model / naive,
-            "passed": model <= PASS * naive,
+            "passed": bool(model <= PASS * naive), "pass_ratio": PASS,
             "model_cet1_mae": df["model_cet1_error"].mean(),
             "naive_cet1_mae": df["naive_cet1_error"].mean(),
             "model_sign": df["model_sign_match"].mean(),
