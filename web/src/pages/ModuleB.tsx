@@ -423,7 +423,7 @@ function ReportView({ rep }: { rep: Report }) {
                 <tr>
                   <th className="px-3 py-2">Name</th>
                   <th className="px-3 py-2">Rating</th>
-                  <th className="px-3 py-2 text-right">Spread bp</th>
+                  <th className="min-w-28 px-3 py-2 text-right whitespace-nowrap">Spread bp</th>
                   <th className="px-3 py-2 text-right">PD</th>
                   <th className="px-3 py-2 text-right">Loss</th>
                 </tr>
@@ -434,13 +434,13 @@ function ReportView({ rep }: { rep: Report }) {
                   .map((o) => (
                     <tr key={o.ticker} className="border-t border-slate-100 dark:border-slate-800">
                       <td className="px-3 py-1.5 font-mono">{o.ticker}</td>
-                      <td className="px-3 py-1.5 font-mono text-xs">
+                      <td className="px-3 py-1.5 font-mono text-xs whitespace-nowrap">
                         {o.rating_before === o.rating_after ? o.rating_before : `${o.rating_before} → ${o.rating_after}`}
                       </td>
-                      <td className="px-3 py-1.5 text-right font-mono tabular-nums">
+                      <td className="min-w-28 px-3 py-1.5 text-right font-mono tabular-nums whitespace-nowrap">
                         {Math.round(100 * o.spread_before)} → {Math.round(100 * o.spread_after)}
                       </td>
-                      <td className="px-3 py-1.5 text-right font-mono tabular-nums">
+                      <td className="px-3 py-1.5 text-right font-mono tabular-nums whitespace-nowrap">
                         {pct(o.pd_before)} → {pct(o.pd_after)}
                       </td>
                       <td className="px-3 py-1.5 text-right font-mono tabular-nums">{usd(o.loss)}</td>
