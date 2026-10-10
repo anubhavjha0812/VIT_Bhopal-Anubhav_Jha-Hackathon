@@ -1,1 +1,1 @@
-"""Module B, Stress Pressure Cooker: credit stress test on a gated alert (DECISIONS.md, E14)."""
+"""Module B: credit stress test on a gated alert (DECISIONS.md, E14)."""

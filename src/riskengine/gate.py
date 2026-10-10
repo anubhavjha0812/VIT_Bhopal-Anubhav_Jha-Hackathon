@@ -1,4 +1,4 @@
-"""Credit Chhanni: which (text, company) rows may trigger Module B (docs/DECISIONS.md, E13).
+"""Credit gate: which (text, company) rows may trigger Module B (docs/DECISIONS.md, E13).
 
 A row fires only if all hold:
 1. the event is a credit class (Default, Credit downgrade, Covenant breach)

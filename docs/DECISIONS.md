@@ -242,7 +242,7 @@ afterwards to improve a score. Dates are when the rule was fixed.
   for news). Chosen after seeing that the two missed real events scored 7.
 - **E12 addition:** "<bank> analysts / strategists / economists" makes the bank an analyst even
   without rating words ("Bank of America analysts see oil at $40").
-- **Gate (Credit Chhanni):** a (text, company) row triggers Module B only if (1) the company is
+- **Credit gate:** a (text, company) row triggers Module B only if (1) the company is
   the subject (E12); (2) it is the obligor: named in the text and, if the text has cashtags,
   the first cashtag is its own; (3) the event is a credit class; (4) impact > 7 (case study);
   (5) a rating agency is named, or a different text on the same company and credit class

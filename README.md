@@ -189,7 +189,7 @@ engine"). Three fixes, all rules, written down before the code:
   not the S&P index) or a credit word (junk, credit rating, bonds…); stock ratings are flagged
   "analyst rating" and never credit; "default" needs a debt word next to it. +1 impact when an
   agency is named.
-- **Gate (Credit Chhanni):** Module B fires only for a credit event on the company the news is
+- **Credit gate:** Module B fires only for a credit event on the company the news is
   about (first cashtag), with impact > 7, confirmed by a named agency or a second text within
   24 hours. Every row gets the reason it passed or was blocked (`GET /gate`).
 

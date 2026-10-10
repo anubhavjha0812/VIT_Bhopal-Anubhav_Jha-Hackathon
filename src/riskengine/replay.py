@@ -2,7 +2,7 @@
 
 Events, in the order a live desk would have seen them:
 - signal: one text with its tickers (subjects), analysts, sentiment, event class and impact
-- alert: the same text again when the Credit Chhanni gate fires for one of its companies
+- alert: the same text again when the credit gate fires for one of its companies
   (Module B input; `signals` must carry the gate's `fired` and `reason`, see gate.py), with
   Module B's result per obligor when `on_alert` is given
 - weights: Module A weights for a trading day, sent once every text they use has been sent

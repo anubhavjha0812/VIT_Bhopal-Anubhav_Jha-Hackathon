@@ -11,7 +11,7 @@ GET  /module-a/weights               Module A weights per day (set at that day's
 GET  /module-a/metrics               equal weight vs sentiment tilt: return, vol, Sharpe, drawdown
 GET  /replay?rate=20&start=2020-05-01 Server-Sent Events: the window replayed in time order
 GET  /overview                       engine run at a glance: config, counts, event mix, alerts
-GET  /gate                           Credit Chhanni: credit / high-impact rows, fired or why not
+GET  /gate                           credit gate: credit / high-impact rows, fired or why not
 GET  /scoreboard                     held-out test scores of every model (docs/RESULTS.md)
 GET  /prices?ticker=JPM              daily closes in the replay window
 GET  /module-a/equity                growth of $1 per strategy, after costs
@@ -95,7 +95,7 @@ def stored_signals() -> pd.DataFrame:
 
 
 def gated_signals() -> pd.DataFrame:
-    """Stored signals with the Credit Chhanni decision per row (`fired`, `reason`)."""
+    """Stored signals with the credit gate decision per row (`fired`, `reason`)."""
     return gate(stored_signals(), load_config().impact_trigger, linker())
 
 
@@ -290,7 +290,7 @@ async def replay(
 
     `start` is the first New York date to replay. `after` resumes a paused replay from that
     time (texts at exactly that time are sent again; the client skips ids it has seen).
-    `ticker` keeps texts that mention it. Alerts are the Credit Chhanni's (gate.py).
+    `ticker` keeps texts that mention it. Alerts are the credit gate's (gate.py).
     """
     df = gated_signals()
     weights, _ = module_a_outputs()
@@ -337,7 +337,7 @@ def overview() -> dict:
         "signals": len(df),
         "texts_by_source": {k: int(v) for k, v in texts["source"].value_counts().items()},
         "events": {k: int(v) for k, v in texts["event"].value_counts().items()},
-        # before the gate: any text above the trigger; after: texts the Credit Chhanni passes
+        # before the gate: any text above the trigger; after: texts the credit gate passes
         "alerts_naive": int((texts["impact"] > config.impact_trigger).sum()),
         "alerts": int(df.loc[df["fired"], "doc_id"].nunique()),
         "trading_days": len(module_a_outputs()[0]),
