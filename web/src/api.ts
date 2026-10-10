@@ -30,10 +30,11 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 
 type State<T> = { data: T | null; error: string | null }
 
-/** Fetch once on mount: { data, error }, both null while loading. */
-export function useApi<T>(path: string): State<T> {
+/** Fetch once on mount: { data, error }, both null while loading. A null path waits. */
+export function useApi<T>(path: string | null): State<T> {
   const [state, setState] = useState<State<T>>({ data: null, error: null })
   useEffect(() => {
+    if (path == null) return
     let live = true
     getJSON<T>(path).then(
       (data) => live && setState({ data, error: null }),

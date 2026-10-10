@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { signed } from '../format'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useApi } from '../api'
 import ErrorBox from '../components/ErrorBox'
 import EventBadge, { ImpactPill } from '../components/EventBadge'
@@ -20,6 +20,7 @@ interface ReplaySignal {
   impact: number
   obligors?: string[] // on alerts: companies the gate passed to Module B
   gate?: string
+  module_b?: Record<string, { loss_usd: number; cet1_before: number; cet1_after: number }>
 }
 
 interface WeightsEvent {
@@ -243,6 +244,19 @@ export default function Replay() {
                         → Module B: <span className="font-mono">{s.obligors.join(' ')}</span> · {s.gate}
                       </div>
                     )}
+                    {s.obligors?.map((o) => {
+                      const b = s.module_b?.[o]
+                      return b?.cet1_after == null ? null : (
+                        <Link
+                          key={o}
+                          to={`/module-b?doc=${encodeURIComponent(s.doc_id)}&ticker=${o}`}
+                          className="mt-1 block text-xs text-teal-700 hover:underline dark:text-teal-400"
+                        >
+                          🫕 {o} + COVID episode: CET1 {(100 * b.cet1_before).toFixed(1)}% →{' '}
+                          {(100 * b.cet1_after).toFixed(1)}%, loss ${(b.loss_usd / 1e6).toFixed(0)}m →
+                        </Link>
+                      )
+                    })}
                   </li>
                 ))}
               </ul>
