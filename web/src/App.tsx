@@ -103,6 +103,8 @@ function Island({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void 
           open ? 'shadow-2xl' : ''
         } ${glass ? 'bg-slate-950/35 backdrop-blur-2xl dark:bg-black/30' : 'bg-slate-950/90 backdrop-blur-xl dark:bg-black/85'}`}
       >
+        {/* a teal light circles the border while the island is closed (index.css) */}
+        <div className="island-ring" style={{ opacity: open ? 0 : 1, transition: `opacity 500ms ${EASE}` }} aria-hidden />
         {/* each face is centred, so a face wider than the pill overflows both sides evenly */}
         <div className={`absolute inset-0 flex items-center justify-center ${open ? 'pointer-events-none' : ''}`}>
           <div

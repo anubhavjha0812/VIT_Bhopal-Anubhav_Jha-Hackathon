@@ -20,11 +20,51 @@ body {
   @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
 }
 
+/* The island's border light: a conic gradient with one short bright arc (a comet with a fading
+   tail), turned by animating its start angle, and masked so only a thin ring shows. */
+@property --ring-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes ring-turn {
+  to {
+    --ring-angle: 360deg;
+  }
+}
+
+.island-ring {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 1.5px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--ring-angle),
+    transparent 0deg 270deg,
+    rgb(45 212 191 / 0.25) 310deg,
+    rgb(45 212 191) 350deg,
+    rgb(240 253 250) 358deg,
+    transparent 360deg
+  );
+  filter: drop-shadow(0 0 3px rgb(45 212 191 / 0.9));
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  animation: ring-turn 7s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .island,
   .island * {
     animation: none !important;
     transition: none !important;
+  }
+
+  .island-ring {
+    display: none;
   }
 }
 
