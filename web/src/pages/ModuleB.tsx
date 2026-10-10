@@ -152,52 +152,59 @@ function Cet1Gauge({ c }: { c: Capital }) {
 function LossHistogram({ mc }: { mc: Report['monte_carlo'] }) {
   const c = chartColors(useTheme())
   const { edges } = mc.histogram
-  const mid = edges.slice(1).map((e, i) => (e + edges[i]) / 2 / 1e6)
-  const share = (n: number) => (n > 0 ? n / mc.draws : null) // log axis: empty bins drawn as gaps
+  // Default losses come in a few big lumps (whole companies), so most bins are empty: bars, not lines.
+  const labels = edges.slice(1).map((e, i) => `${Math.round((e + edges[i]) / 2 / 1e6)}`)
+  // Share of draws on a log scale, computed here (decades above the floor): bars cannot start
+  // from 0 on an ECharts log axis.
+  const floor = Math.floor(Math.log10(1 / mc.draws / 2)) // a whole decade, so ticks are 0.001%, 0.01%, …
+  const share = (n: number) => (n > 0 ? Math.log10(n / mc.draws) - floor : null)
+  const asPct = (v: number) => `${+(100 * 10 ** (v + floor)).toPrecision(2)}%`
+  const bin = (x: number) => Math.min(edges.findIndex((e) => e > x) - 1, labels.length - 1)
   const line = (name: string, x: number, color: string) => ({
-    xAxis: x / 1e6,
-    name,
+    xAxis: Math.max(bin(x), 0),
     lineStyle: { color, type: 'dashed' },
-    label: { formatter: name, color },
+    label: { formatter: `${name} ${usd(x)}`, color },
   })
   const option = {
     backgroundColor: 'transparent',
     legend: { top: 0, textStyle: { color: c.text } },
-    grid: { left: 56, right: 24, top: 36, bottom: 40 },
-    tooltip: { trigger: 'axis', valueFormatter: (v: number | null) => (v == null ? '0' : `${(100 * v).toFixed(3)}%`) },
+    animation: false,
+    grid: { left: 56, right: 24, top: 44, bottom: 40 },
+    tooltip: {
+      trigger: 'axis',
+      valueFormatter: (v: number | null) => (v == null ? 'none' : `${asPct(v)} of draws`),
+    },
     xAxis: {
-      type: 'value',
+      type: 'category',
+      data: labels,
       name: 'default loss, $m',
       nameLocation: 'middle',
       nameGap: 26,
+      nameTextStyle: { color: c.text },
       axisLabel: { color: c.text },
       axisLine: { lineStyle: { color: c.grid } },
-      splitLine: { show: false },
     },
     yAxis: {
-      type: 'log',
-      min: 1 / mc.draws / 2,
-      axisLabel: { color: c.text, formatter: (v: number) => `${+(100 * v).toPrecision(2)}%` },
+      type: 'value',
+      min: 0,
+      max: -floor,
+      interval: 1,
+      axisLabel: { color: c.text, formatter: asPct },
       splitLine: { lineStyle: { color: c.grid } },
     },
     series: [
       {
         name: 'Before',
-        type: 'line',
-        step: 'middle',
-        showSymbol: false,
-        itemStyle: { color: c.text },
-        lineStyle: { width: 1.5 },
-        data: mid.map((x, i) => [x, share(mc.histogram.before[i])]),
+        type: 'bar',
+        barGap: '0%',
+        itemStyle: { color: c.text, opacity: 0.55 },
+        data: mc.histogram.before.map(share),
       },
       {
         name: 'After',
-        type: 'line',
-        step: 'middle',
-        showSymbol: false,
+        type: 'bar',
         itemStyle: { color: c.down },
-        areaStyle: { opacity: 0.15 },
-        data: mid.map((x, i) => [x, share(mc.histogram.after[i])]),
+        data: mc.histogram.after.map(share),
         markLine: {
           symbol: 'none',
           data: [line('VaR 99%', mc.after.var, c.down), line('ES 99%', mc.after.es, c.line)],
@@ -635,7 +642,7 @@ export default function ModuleB() {
   const tickers = [...new Set(book.data.map((p) => p.ticker))].sort()
   return (
     <div className="space-y-6">
-      <div className="max-w-3xl space-y-2">
+      <div className="space-y-2">
         <h2 className="text-xl font-semibold">Module B · Credit stress test</h2>
         <p className="text-sm text-slate-600 dark:text-slate-300">
           An Indian bank (capital in rupees, RBI 8% CET1 floor) lends to our 15 companies: 0.5% of each one's real debt

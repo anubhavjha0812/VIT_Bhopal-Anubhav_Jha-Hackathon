@@ -3,9 +3,13 @@ import type { Theme } from '../theme'
 interface Props {
   theme: Theme
   onChange: (theme: Theme) => void
+  className?: string
 }
 
-export default function ThemeToggle({ theme, onChange }: Props) {
+const BORDERED =
+  'rounded-lg border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800'
+
+export default function ThemeToggle({ theme, onChange, className = BORDERED }: Props) {
   const next = theme === 'dark' ? 'light' : 'dark'
   return (
     <button
@@ -13,7 +17,7 @@ export default function ThemeToggle({ theme, onChange }: Props) {
       onClick={() => onChange(next)}
       aria-label={`Switch to ${next} mode`}
       title={`Switch to ${next} mode`}
-      className="rounded-lg border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+      className={className}
     >
       {theme === 'dark' ? (
         // sun: click for light

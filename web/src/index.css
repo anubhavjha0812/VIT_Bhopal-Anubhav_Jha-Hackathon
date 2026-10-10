@@ -19,3 +19,25 @@ html.dark {
 body {
   @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
 }
+
+/* the floating page switcher (App.tsx) grows out of its pill */
+@keyframes island-in {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(-3px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .island,
+  .island * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

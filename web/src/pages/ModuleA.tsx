@@ -88,7 +88,7 @@ export default function ModuleA() {
   const latest = weights.data[weights.data.length - 1]
   return (
     <div className="space-y-6">
-      <p className="max-w-3xl text-sm text-slate-600 dark:text-slate-300">
+      <p className="text-sm text-slate-600 dark:text-slate-300">
         A mock index of 15 S&amp;P 100 stocks. Each day the sentiment tilt moves weight toward stocks with better recent
         news (3-day mean sentiment), long only, capped at 15% per stock, and trades at the <em>next</em> close so no
         future news is used. 5 bp cost on every trade. Equal weight is the benchmark.
