@@ -41,3 +41,13 @@ body {
     transition: none !important;
   }
 }
+
+/* still scrolls sideways on a narrow phone, but never shows a bar (the island grows over 750 ms,
+   and while it grows the links overflow for a moment) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

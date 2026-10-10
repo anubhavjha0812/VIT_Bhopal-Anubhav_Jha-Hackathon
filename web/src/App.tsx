@@ -51,7 +51,7 @@ function Island({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void 
       >
         {open ? (
           <div className="flex animate-[island-in_550ms_cubic-bezier(0.32,0.72,0,1)_120ms_both] items-center p-1.5">
-            <ul className="flex min-w-0 gap-1 overflow-x-auto whitespace-nowrap">
+            <ul className="no-scrollbar flex min-w-0 gap-1 overflow-x-auto whitespace-nowrap">
               {PAGES.map((p) => (
                 <li key={p.path}>
                   <NavLink
