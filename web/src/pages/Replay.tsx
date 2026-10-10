@@ -35,6 +35,7 @@ type Status = 'idle' | 'playing' | 'paused' | 'done' | 'error'
 const nyTime = (iso: string) =>
   new Date(iso).toLocaleString('en-US', {
     timeZone: 'America/New_York',
+    year: 'numeric',
     month: 'short',
     day: 'numeric',
     hour: '2-digit',
