@@ -1,5 +1,6 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom'
+import Intro from './components/Intro'
 import ThemeToggle from './components/ThemeToggle'
 import Analyze from './pages/Analyze'
 import Engine from './pages/Engine'
@@ -7,6 +8,7 @@ import ModuleA from './pages/ModuleA'
 import ModuleB from './pages/ModuleB'
 import Overview from './pages/Overview'
 import Replay from './pages/Replay'
+import { shouldShowIntro } from './intro'
 import { applyTheme, initialTheme, ThemeContext, type Theme } from './theme'
 
 // A page gets a link here only once it exists (no empty sections).
@@ -29,7 +31,7 @@ const CLOSE_DELAY_MS = 280
  *
  *  Both faces sit centred on top of each other and the pill animates its exact size between them,
  *  growing from the centre while the closed face fades out and the links fade in one by one. */
-function Island({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void }) {
+function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) => void; ready: boolean }) {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -58,6 +60,18 @@ function Island({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void 
   }, [])
 
   useEffect(() => () => window.clearTimeout(timer.current), [])
+
+  // After the intro, the island appears and opens once on its own to show every page.
+  const hidden = useRef(!ready)
+  useEffect(() => {
+    if (!ready || !hidden.current) return
+    const show = window.setTimeout(() => setOpen(true), 700)
+    const hide = window.setTimeout(() => {
+      hidden.current = false // once only (set here, not above, so a re-run effect still peeks)
+      setOpen(false)
+    }, 2600)
+    return () => [show, hide].forEach((t) => window.clearTimeout(t))
+  }, [ready])
   const later = (next: boolean, ms: number) => {
     window.clearTimeout(timer.current)
     timer.current = window.setTimeout(() => setOpen(next), ms)
@@ -95,7 +109,9 @@ function Island({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void 
           width: sizes?.[open ? 'open' : 'closed'][0],
           height: sizes?.[open ? 'open' : 'closed'][1],
           maxWidth: 'calc(100vw - 24px)',
-          transition: ['width', 'height', 'background-color', 'backdrop-filter', 'box-shadow']
+          opacity: ready ? 1 : 0,
+          transform: ready ? 'none' : 'translateY(-6px) scale(0.9)',
+          transition: ['width', 'height', 'background-color', 'backdrop-filter', 'box-shadow', 'opacity', 'transform']
             .map((k) => `${k} ${k === 'width' || k === 'height' ? GROW_MS : 700}ms ${EASE}`)
             .join(', '),
         }}
@@ -163,6 +179,8 @@ function Island({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void 
 
 export default function App() {
   const [theme, setTheme] = useState<Theme>(initialTheme)
+  const [intro, setIntro] = useState(shouldShowIntro)
+  const endIntro = useCallback(() => setIntro(false), [])
   const changeTheme = (t: Theme) => {
     applyTheme(t)
     setTheme(t)
@@ -171,7 +189,8 @@ export default function App() {
   return (
     <ThemeContext.Provider value={theme}>
       <BrowserRouter>
-        <Island theme={theme} onTheme={changeTheme} />
+        {intro && <Intro onDone={endIntro} />}
+        <Island theme={theme} onTheme={changeTheme} ready={!intro} />
         <main className="min-h-screen px-4 pt-6 pb-28 sm:px-6 md:pt-[4.5rem] md:pb-8">
           <Routes>
             <Route path="/" element={<Overview />} />
