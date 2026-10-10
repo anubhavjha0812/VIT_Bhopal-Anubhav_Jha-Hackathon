@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { SEEN_KEY } from '../intro'
 
 const EXIT_AT_MS = 4600 // everything is on screen by 2.2 s, then held ~2.4 s so it can be read
 const EXIT_MS = 700
@@ -10,11 +9,6 @@ export default function Intro({ onDone }: { onDone: () => void }) {
   const [leaving, setLeaving] = useState(false)
 
   useEffect(() => {
-    try {
-      sessionStorage.setItem(SEEN_KEY, '1')
-    } catch {
-      // private window: the intro may show again next time
-    }
     const leave = () => setLeaving(true)
     const exit = window.setTimeout(leave, EXIT_AT_MS)
     window.addEventListener('keydown', leave)

@@ -16,10 +16,7 @@
         document.documentElement.classList.toggle('dark', matchMedia('(prefers-color-scheme: dark)').matches)
       }
       // The intro (src/intro.ts) opens on a dark screen: start dark so there is no white flash.
-      try {
-        if (!sessionStorage.getItem('intro-seen') && !matchMedia('(prefers-reduced-motion: reduce)').matches)
-          document.documentElement.style.background = '#020617'
-      } catch {}
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.style.background = '#020617'
     </script>
   </head>
   <body>
