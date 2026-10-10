@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import ThemeToggle from './components/ThemeToggle'
 import Analyze from './pages/Analyze'
@@ -24,7 +24,18 @@ const PAGES = [
 function Island({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void }) {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const current = PAGES.find((p) => p.path === pathname) ?? PAGES[0]
+
+  // Once the page scrolls, the closed island turns to frosted glass so the content shows through.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  const glass = scrolled && !open
+
   const toggle = (
     <>
       <span className="mx-1 h-4 w-px shrink-0 bg-white/15" aria-hidden />
@@ -47,7 +58,9 @@ function Island({ theme, onTheme }: { theme: Theme; onTheme: (t: Theme) => void 
         onBlur={(e) => !e.currentTarget.contains(e.relatedTarget) && setOpen(false)}
         onKeyDown={(e) => e.key === 'Escape' && setOpen(false)}
         style={{ maxWidth: open ? '60rem' : '23rem' }}
-        className="island pointer-events-auto w-max overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/90 text-white shadow-xl shadow-slate-900/25 backdrop-blur-xl transition-[max-width,box-shadow] duration-[750ms] ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-2xl dark:bg-black/85 dark:shadow-black/50"
+        className={`island pointer-events-auto w-max overflow-hidden rounded-[28px] border border-white/10 text-white shadow-xl shadow-slate-900/25 transition-[max-width,box-shadow,background-color,backdrop-filter] duration-[750ms] ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-2xl dark:shadow-black/50 ${
+          glass ? 'bg-slate-950/55 backdrop-blur-2xl dark:bg-black/45' : 'bg-slate-950/90 backdrop-blur-xl dark:bg-black/85'
+        }`}
       >
         {open ? (
           <div className="flex animate-[island-in_550ms_cubic-bezier(0.32,0.72,0,1)_120ms_both] items-center p-1.5">
@@ -108,7 +121,7 @@ export default function App() {
     <ThemeContext.Provider value={theme}>
       <BrowserRouter>
         <Island theme={theme} onTheme={changeTheme} />
-        <main className="min-h-screen px-4 pt-6 pb-28 sm:px-6 md:pt-24 md:pb-8">
+        <main className="min-h-screen px-4 pt-6 pb-28 sm:px-6 md:pt-[4.5rem] md:pb-8">
           <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/engine" element={<Engine />} />
