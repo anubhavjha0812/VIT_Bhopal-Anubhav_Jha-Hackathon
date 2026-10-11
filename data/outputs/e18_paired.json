@@ -1,0 +1,146 @@
+[
+  {
+    "a": "sentiment-bge-small-en-v1.5",
+    "b": "sentiment-bge-small-en-v1.5-int8",
+    "test_set": "PhraseBank 50Agree",
+    "n": 4846,
+    "diff": 0.016289769248481023,
+    "ci95": [
+      0.009631621412804306,
+      0.02338781337860393
+    ],
+    "verdict": "higher"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5",
+    "b": "sentiment-bge-small-en-v1.5-int8",
+    "test_set": "PhraseBank AllAgree",
+    "n": 2264,
+    "diff": 0.014967581892096127,
+    "ci95": [
+      0.00793707027368119,
+      0.02287224870357798
+    ],
+    "verdict": "higher"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5",
+    "b": "sentiment-bge-small-en-v1.5-int8",
+    "test_set": "FiQA-2018 test",
+    "n": 150,
+    "diff": 0.02918738910937624,
+    "ci95": [
+      -0.020608754009174224,
+      0.08184860621626862
+    ],
+    "verdict": "tie"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5",
+    "b": "sentiment-bge-small-en-v1.5-int8",
+    "test_set": "NWGI test",
+    "n": 4047,
+    "diff": 0.008072735759650673,
+    "ci95": [
+      0.0009799272144239647,
+      0.015128698996994398
+    ],
+    "verdict": "higher"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5-int8",
+    "b": "finbert (baseline)",
+    "test_set": "FiQA-2018 test",
+    "n": 150,
+    "diff": 0.011079223985626552,
+    "ci95": [
+      -0.07980582303078188,
+      0.09705933291451217
+    ],
+    "verdict": "tie"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5-int8",
+    "b": "finbert (baseline)",
+    "test_set": "NWGI test",
+    "n": 4047,
+    "diff": -0.14825326794328658,
+    "ci95": [
+      -0.1622031952456131,
+      -0.1332860193083345
+    ],
+    "verdict": "lower"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5-int8",
+    "b": "sentiment-finbert",
+    "test_set": "FiQA-2018 test",
+    "n": 150,
+    "diff": -0.043616423239497326,
+    "ci95": [
+      -0.11713136674532615,
+      0.029088454584951465
+    ],
+    "verdict": "tie"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5-int8",
+    "b": "sentiment-finbert",
+    "test_set": "NWGI test",
+    "n": 4047,
+    "diff": -0.06858619141608935,
+    "ci95": [
+      -0.08006533697607408,
+      -0.0577442990326799
+    ],
+    "verdict": "lower"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5-int8",
+    "b": "sentiment-teacher-deberta-v3-base",
+    "test_set": "FiQA-2018 test",
+    "n": 149,
+    "diff": -0.13535169109060197,
+    "ci95": [
+      -0.22483346651595046,
+      -0.04301605918760784
+    ],
+    "verdict": "lower"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5-int8",
+    "b": "sentiment-teacher-deberta-v3-base",
+    "test_set": "NWGI test",
+    "n": 4047,
+    "diff": -0.16853551092421099,
+    "ci95": [
+      -0.18066130805139116,
+      -0.1574553750501104
+    ],
+    "verdict": "lower"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5-int8",
+    "b": "sentiment-distil-bge-small-en-v1.5",
+    "test_set": "FiQA-2018 test",
+    "n": 149,
+    "diff": -0.10627938490383615,
+    "ci95": [
+      -0.19043756990898553,
+      -0.015116861299210091
+    ],
+    "verdict": "lower"
+  },
+  {
+    "a": "sentiment-bge-small-en-v1.5-int8",
+    "b": "sentiment-distil-bge-small-en-v1.5",
+    "test_set": "NWGI test",
+    "n": 4047,
+    "diff": -0.1347505878379313,
+    "ci95": [
+      -0.14649149681512955,
+      -0.12275889411861884
+    ],
+    "verdict": "lower"
+  }
+]

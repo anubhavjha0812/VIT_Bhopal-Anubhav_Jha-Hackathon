@@ -1,0 +1,68 @@
+{
+  "dev": {
+    "dev_rows": {
+      "tweets (TFNS dev)": 937,
+      "news (NWGI train sample)": 2000
+    },
+    "dev_macro_f1": {
+      "sentiment-bge-small-en-v1.5-int8": {
+        "tweets (TFNS dev)": 0.8635757524661751,
+        "news (NWGI train sample)": 0.4040544690276624
+      },
+      "sentiment-distil-bge-small-en-v1.5-int8": {
+        "tweets (TFNS dev)": 0.8288301541792152,
+        "news (NWGI train sample)": 0.5231141388389685
+      }
+    },
+    "dev_mean": {
+      "sentiment-bge-small-en-v1.5-int8": 0.6338151107469188,
+      "sentiment-distil-bge-small-en-v1.5-int8": 0.6759721465090919
+    },
+    "choice": "sentiment-bge-small-en-v1.5-int8"
+  },
+  "confirm": {
+    "test": "SEntFiN 1.1, single-entity headlines",
+    "rows": 7903,
+    "dropped_seen": 0,
+    "labels": {
+      "positive": 2838,
+      "neutral": 2689,
+      "negative": 2376
+    },
+    "scores": {
+      "sentiment-bge-small-en-v1.5-int8": {
+        "macro_f1": 0.7448695843434575,
+        "accuracy_ci95": [
+          0.7304820954068075,
+          0.7497184613437935
+        ],
+        "macro_f1_ci95": [
+          0.7356731377562828,
+          0.7547435620248512
+        ],
+        "accuracy": 0.7399721624699481
+      },
+      "sentiment-distil-bge-small-en-v1.5-int8": {
+        "macro_f1": 0.7647012190863807,
+        "accuracy_ci95": [
+          0.751104011135012,
+          0.7697077059344553
+        ],
+        "macro_f1_ci95": [
+          0.7557841421083111,
+          0.7741597534154782
+        ],
+        "accuracy": 0.7600911046438061
+      }
+    },
+    "paired_b_minus_a": {
+      "b_minus_a": 0.019831634742923154,
+      "ci95": [
+        0.012887067577748585,
+        0.027020007024639955
+      ],
+      "verdict": "higher"
+    },
+    "engine": "sentiment-bge-small-en-v1.5-int8"
+  }
+}

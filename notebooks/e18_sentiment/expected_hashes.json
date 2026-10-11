@@ -1,0 +1,9 @@
+{
+ "sentiment-bge-small-en-v1.5/model.safetensors": "cebbfa091195fcba491a700d24eaed2eee1c3abc654782a72686fd597b2278f6",
+ "sentiment-bge-small-en-v1.5-int8/model.onnx": "abcbe1a81754528b8a75b1337171867a64e5a97b846f291d64a42f52e7d78de6",
+ "sentiment-finbert/model.safetensors": "eddd85d859a814f45f1a0f4c7fd13f5571f021416c345416bcf22b647ad031ee",
+ "sentiment-distil-bge-small-en-v1.5/model.safetensors": "6214d1e08d29b9db41e7d4f145b585924f0b5e97a2018ccf20ebabce34a4eed1",
+ "sentiment-teacher-deberta-v3-base/model.safetensors": "9b5ccc78f0a6b433f9b5292e89e3512127e66852be24ccc0449f544fa2ab0249",
+ "multihead-bge-small-en-v1.5/model.safetensors": "f6c1c76bd555ab5ba9e85c14b287c0d958fc53631c4b343eb930e7645f7dbfe4",
+ "multihead-bge-small-en-v1.5/heads.pt": "dd20af2bae1d71379b8292a59a50327d5a8c7346707f7e8d813498fb372ce3ec"
+}

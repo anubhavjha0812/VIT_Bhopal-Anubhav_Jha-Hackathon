@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-e21-sentiment",
+  "title": "sp-riskengine-e21-sentiment",
+  "code_file": "train_e21.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": ["anubhavjha0812/sp-riskengine-e21"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

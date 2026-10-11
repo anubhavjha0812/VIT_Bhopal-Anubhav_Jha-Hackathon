@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-events9",
+  "title": "sp-riskengine-events9",
+  "code_file": "train_events.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

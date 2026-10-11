@@ -1,0 +1,1560 @@
+{
+  "rule": "docs/DECISIONS.md E21",
+  "eligible": 41229,
+  "eligible_by_company": {
+    "TSLA": 32904,
+    "AAPL": 2230,
+    "AMZN": 1645,
+    "META": 1451,
+    "AMD": 1050,
+    "NFLX": 939,
+    "GOOGL": 357,
+    "DIS": 347,
+    "BA": 131,
+    "KO": 58,
+    "NVDA": 49,
+    "BAC": 29,
+    "MSFT": 20,
+    "JPM": 10,
+    "XOM": 9
+  },
+  "companies": [
+    "AAPL",
+    "AMD",
+    "AMZN",
+    "BA",
+    "DIS",
+    "GOOGL",
+    "KO",
+    "META",
+    "NFLX",
+    "TSLA"
+  ],
+  "skipped_overlap": {
+    "AAPL": 0,
+    "AMD": 0,
+    "AMZN": 0,
+    "BA": 0,
+    "DIS": 0,
+    "GOOGL": 0,
+    "KO": 1,
+    "META": 0,
+    "NFLX": 0,
+    "TSLA": 0
+  },
+  "rows": 300,
+  "near_threshold": 0.9,
+  "row_ids": {
+    "t000": {
+      "ticker": "AMZN",
+      "published_at": "2022-05-11 19:42:10+00:00",
+      "text_sha256": "92c648ddf8843e01d1a3ee88eb44d3c60ef1084a196db3a843b629f4f968c71f"
+    },
+    "t001": {
+      "ticker": "META",
+      "published_at": "2021-10-23 18:07:43+00:00",
+      "text_sha256": "d1fb0535d7bc42e557131048e0839600c49b9ba4c8c64ba3811f769f3c29a9ab"
+    },
+    "t002": {
+      "ticker": "AMD",
+      "published_at": "2021-10-18 17:09:02+00:00",
+      "text_sha256": "8d5c44161fa37c4cb88e5b847332801ed4ff4ba78d927f7a5e158a857dddc632"
+    },
+    "t003": {
+      "ticker": "NFLX",
+      "published_at": "2022-01-21 14:36:24+00:00",
+      "text_sha256": "535d0f3727a2967fe05322a6f394f9bdc13ca4458817e083bd467a8248a65521"
+    },
+    "t004": {
+      "ticker": "BA",
+      "published_at": "2021-11-15 18:45:09+00:00",
+      "text_sha256": "b58d8166b34ff4f173b724bc22d0ca01a737d40e0817af8e782cf24d89efef70"
+    },
+    "t005": {
+      "ticker": "DIS",
+      "published_at": "2021-11-11 14:25:12+00:00",
+      "text_sha256": "6da5a5d3bb39b7351b02b696a8bf2587e8e7deff0af918e523228960d2416a69"
+    },
+    "t006": {
+      "ticker": "TSLA",
+      "published_at": "2022-06-08 16:25:42+00:00",
+      "text_sha256": "a00742d86a9cc9fba592af087a849af22c3894c55f2d8f976aca7059d3d7b734"
+    },
+    "t007": {
+      "ticker": "GOOGL",
+      "published_at": "2022-01-20 13:30:00+00:00",
+      "text_sha256": "ec880e9f1371094866ceab139a46289e7b87597736c95523a08ce540bfdf07f6"
+    },
+    "t008": {
+      "ticker": "KO",
+      "published_at": "2022-05-08 12:30:28+00:00",
+      "text_sha256": "ecb96f1958dfdb8d08cb3409d030210dcec4df52967c2ba04087231e43854951"
+    },
+    "t009": {
+      "ticker": "META",
+      "published_at": "2022-02-11 01:11:49+00:00",
+      "text_sha256": "c90146b4f4966aa84b5c262954f4961cf1bba447713f0d86dd15375908b06488"
+    },
+    "t010": {
+      "ticker": "GOOGL",
+      "published_at": "2022-01-02 01:10:31+00:00",
+      "text_sha256": "997859408f83bbdf55bd8664c332db36ca0b5af38d0641fbe6b2f894df9e19a6"
+    },
+    "t011": {
+      "ticker": "KO",
+      "published_at": "2022-06-25 02:45:02+00:00",
+      "text_sha256": "cfe63571d77849cfa83304a5bb833e47108da466033360c0c3877e4a2ca02def"
+    },
+    "t012": {
+      "ticker": "TSLA",
+      "published_at": "2022-03-08 11:49:39+00:00",
+      "text_sha256": "b35fa501350f59449b135ce154909cbfb8edd7ad0c01810e5d9fbec78d627e28"
+    },
+    "t013": {
+      "ticker": "META",
+      "published_at": "2022-05-18 19:44:08+00:00",
+      "text_sha256": "7e5ff4857a8ee00ab946f3db10845204b631d4922ef4726b7c0d45ecb34f7986"
+    },
+    "t014": {
+      "ticker": "NFLX",
+      "published_at": "2022-06-15 13:38:01+00:00",
+      "text_sha256": "3d1a590be8a31bf58d841da66180bf92d03cdd914392ba40df66db2039d88fb5"
+    },
+    "t015": {
+      "ticker": "KO",
+      "published_at": "2022-09-18 16:42:01+00:00",
+      "text_sha256": "5eb670a6086bdc42293576511a355603beace18f1c9d87d81775b021ede6b74e"
+    },
+    "t016": {
+      "ticker": "AAPL",
+      "published_at": "2021-11-22 13:00:00+00:00",
+      "text_sha256": "fd3c3dea985fff4ceb4cda784f5d82cd52d5693fae977a78f4312154bcd0334a"
+    },
+    "t017": {
+      "ticker": "DIS",
+      "published_at": "2021-11-03 12:06:29+00:00",
+      "text_sha256": "aafa71d161e88a1c7fa493c58e899b68d193bcf7633efa4019e6576ffbf41b74"
+    },
+    "t018": {
+      "ticker": "TSLA",
+      "published_at": "2022-04-14 11:08:15+00:00",
+      "text_sha256": "3b77085d6d3a311e57ba661a6f2df9b6b720c1edbdd96bdf313e46781ee0153d"
+    },
+    "t019": {
+      "ticker": "META",
+      "published_at": "2021-10-28 17:22:43+00:00",
+      "text_sha256": "58751fc6c25f379f35f097e2d1bee0b13b89bed63fed89e9fdc7362f092a2261"
+    },
+    "t020": {
+      "ticker": "TSLA",
+      "published_at": "2021-11-29 22:11:39+00:00",
+      "text_sha256": "f0ec781be2ef04b6e6117844e5c85bf0812b10517f74182ee03688fe85333b37"
+    },
+    "t021": {
+      "ticker": "NFLX",
+      "published_at": "2022-06-23 23:47:00+00:00",
+      "text_sha256": "4dd523ae9b8d02d631737eb00ea0a617129e356c7b053826eece14cf22267311"
+    },
+    "t022": {
+      "ticker": "AMD",
+      "published_at": "2022-01-31 14:15:00+00:00",
+      "text_sha256": "05a34bd0c38a52f9abff13aee315b8c7c6aa171e52da543a00007e6b960dc9d3"
+    },
+    "t023": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-20 13:32:04+00:00",
+      "text_sha256": "1d157a728b519080db8184bc73e1f2604e6128e0798f15690140bda4071b837c"
+    },
+    "t024": {
+      "ticker": "TSLA",
+      "published_at": "2022-08-30 09:56:33+00:00",
+      "text_sha256": "3e7ffd87ad1ac185c30fa1e8504899f97f77b328f8b3dfcd18743f40f0e56c77"
+    },
+    "t025": {
+      "ticker": "DIS",
+      "published_at": "2021-11-28 00:17:48+00:00",
+      "text_sha256": "a3553d0621418f2e2a990f23c1bd89f881b47044f444aa606ffc5cc85e819ace"
+    },
+    "t026": {
+      "ticker": "META",
+      "published_at": "2021-11-01 01:15:51+00:00",
+      "text_sha256": "5a0da6861bd990ae1ca719ab23d166fed31332eab0731f9f56c6e5dc8eada676"
+    },
+    "t027": {
+      "ticker": "AAPL",
+      "published_at": "2021-11-18 23:16:15+00:00",
+      "text_sha256": "cc638828fdcb7041012af501c85e53cb8e3f6f414d6b6cb56cefa551c6d7c32f"
+    },
+    "t028": {
+      "ticker": "GOOGL",
+      "published_at": "2022-03-12 18:00:02+00:00",
+      "text_sha256": "c00bb865091564f52b639a14798935f1039a8c420222bbe0ae698a96c12385ae"
+    },
+    "t029": {
+      "ticker": "AMD",
+      "published_at": "2022-01-28 18:29:42+00:00",
+      "text_sha256": "c3b9885873251b528c81eba0483e5d0fc9c875c4e22b11a116034c0d23a856ed"
+    },
+    "t030": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-15 17:00:29+00:00",
+      "text_sha256": "e7d2a88b2451385ef9de747ace068d26d300151a44f8fe62e7091e3fbc64e3b2"
+    },
+    "t031": {
+      "ticker": "GOOGL",
+      "published_at": "2021-12-18 19:51:56+00:00",
+      "text_sha256": "52800eef2d1d06dd5d80e846a725f056163fca2eb7fddd733bd3453eb6c2b2cb"
+    },
+    "t032": {
+      "ticker": "BA",
+      "published_at": "2021-10-13 14:37:50+00:00",
+      "text_sha256": "a54a05b07ba1e6cd6c971c1cf789723fce1c64f84bb2bc65129a6a619b53a6a2"
+    },
+    "t033": {
+      "ticker": "GOOGL",
+      "published_at": "2022-03-15 23:29:01+00:00",
+      "text_sha256": "0c469f91c48f07bcd2fe68d18a270c934a7bd981ca7017a98d9f82477aec51e4"
+    },
+    "t034": {
+      "ticker": "TSLA",
+      "published_at": "2022-01-30 14:27:41+00:00",
+      "text_sha256": "9a286050587bd195ae3a1d2d6ed0e837676ca784688f5c8eac201f5dfebd06dc"
+    },
+    "t035": {
+      "ticker": "KO",
+      "published_at": "2022-01-07 20:48:43+00:00",
+      "text_sha256": "38ca07e3d6a9aa42df19442a4ae13428c8e4755032d78d4256235cdf32a34f12"
+    },
+    "t036": {
+      "ticker": "META",
+      "published_at": "2022-02-15 06:52:11+00:00",
+      "text_sha256": "83a4908ea2aa76b711777aefc94c87080e857e8e51441265287bdd42ac1f148f"
+    },
+    "t037": {
+      "ticker": "KO",
+      "published_at": "2022-09-23 01:51:29+00:00",
+      "text_sha256": "3096c8f5005e90a49333a86f5392f95094f8361db87cb5b9a874f6149e9844fa"
+    },
+    "t038": {
+      "ticker": "KO",
+      "published_at": "2022-03-05 01:38:30+00:00",
+      "text_sha256": "5164eaa7cca10ec656c769e731ee03feef20edd5287d187a8c66b03340f992a1"
+    },
+    "t039": {
+      "ticker": "NFLX",
+      "published_at": "2022-07-19 19:53:26+00:00",
+      "text_sha256": "43fa5cd017f77c56c16451c77fcd750d4634485adffb04ec6467e7d84175ef28"
+    },
+    "t040": {
+      "ticker": "AMD",
+      "published_at": "2021-10-20 15:11:31+00:00",
+      "text_sha256": "17a6e58e6a8167427f6c87bae5fdcaaa14d202f2448a751afaef61829c13d31f"
+    },
+    "t041": {
+      "ticker": "DIS",
+      "published_at": "2022-02-04 17:08:33+00:00",
+      "text_sha256": "ca264043792912701dbe1725e62d7c7ed1f6362456810d9b29b44502dfa1f025"
+    },
+    "t042": {
+      "ticker": "NFLX",
+      "published_at": "2022-07-20 13:52:51+00:00",
+      "text_sha256": "8d560533643ceff6080c8356a3b7ac2d150a5d1fd4dbeb70bfa93ee97c328075"
+    },
+    "t043": {
+      "ticker": "DIS",
+      "published_at": "2021-12-07 16:04:41+00:00",
+      "text_sha256": "7fe229d8c04ff313c683cad5ab91a6f67bdbe1b5e468d20fba1ec0aa8257cd36"
+    },
+    "t044": {
+      "ticker": "AMZN",
+      "published_at": "2022-04-08 22:50:38+00:00",
+      "text_sha256": "340cefa3e3a2c0806a39f7b99cbd59f61e8e16b454f92af7216b98511dd75e3f"
+    },
+    "t045": {
+      "ticker": "BA",
+      "published_at": "2022-05-19 15:03:37+00:00",
+      "text_sha256": "038a7e967ed76caaad18ecad0e5e74106a460ed6a9d202d7c8e9665d1a2f4172"
+    },
+    "t046": {
+      "ticker": "AAPL",
+      "published_at": "2022-05-16 18:49:58+00:00",
+      "text_sha256": "a9e6bfe9aea7f7ff4130df1058a085347e8b512764f2d1f06ca675d58cf42fcc"
+    },
+    "t047": {
+      "ticker": "GOOGL",
+      "published_at": "2022-07-10 18:23:03+00:00",
+      "text_sha256": "a219024dfbae082e7a8c21faa0ccb8106d9e3d7776e251698a7d65b986ac7281"
+    },
+    "t048": {
+      "ticker": "AMZN",
+      "published_at": "2021-10-27 15:33:10+00:00",
+      "text_sha256": "e9d640682e09d7c41a6cf5c72d1fb59a3445baa7cf42f52a2a496314bae1b42f"
+    },
+    "t049": {
+      "ticker": "BA",
+      "published_at": "2022-03-28 21:14:45+00:00",
+      "text_sha256": "c546d6f9ccb69d91a1d69d85c7574e680a4a946cdef6864e9fd3bbb4eac1eca0"
+    },
+    "t050": {
+      "ticker": "AMZN",
+      "published_at": "2022-02-03 21:31:52+00:00",
+      "text_sha256": "a6ff3ddb39ca1d6f695293f0a10d8ad02cd3907de6d6376376285f6f210e14c5"
+    },
+    "t051": {
+      "ticker": "AAPL",
+      "published_at": "2022-04-19 18:11:10+00:00",
+      "text_sha256": "43551c29446f2ee31f2b9bdc4e32488fd2950789d7301fc39b2aecd51dcaeea2"
+    },
+    "t052": {
+      "ticker": "AMD",
+      "published_at": "2021-12-11 16:41:26+00:00",
+      "text_sha256": "964d0fe4de6fd3453195919f2a2fe75f375e9e28d701d8aa308320b6c3774ad1"
+    },
+    "t053": {
+      "ticker": "BA",
+      "published_at": "2022-01-17 21:15:00+00:00",
+      "text_sha256": "9723f7d41692b322f7bde8a4e943acdb24408537c6e11caf78b60963723b85ad"
+    },
+    "t054": {
+      "ticker": "TSLA",
+      "published_at": "2022-01-21 03:00:21+00:00",
+      "text_sha256": "82dcbf33704222d36ed94f2f58856b88b756d4602a9380c888fd18f972072a7c"
+    },
+    "t055": {
+      "ticker": "AAPL",
+      "published_at": "2022-02-09 15:17:59+00:00",
+      "text_sha256": "06bfa36cc644b9f180f8b0f55ef21ba485b5f72d1ffd6cb6c70b01d1aa5d2c37"
+    },
+    "t056": {
+      "ticker": "TSLA",
+      "published_at": "2022-08-09 11:31:00+00:00",
+      "text_sha256": "8a95513fa56f8608283e7eb1d8db9ad855e548140fd6a64e44d0ee1dd5a0f0b0"
+    },
+    "t057": {
+      "ticker": "META",
+      "published_at": "2022-02-03 18:05:49+00:00",
+      "text_sha256": "bc078cfa1b418e6b8829256ba9a1fcc9e9aa1ca25a4e0eb2ac3b6fa318670b07"
+    },
+    "t058": {
+      "ticker": "DIS",
+      "published_at": "2022-01-14 07:19:04+00:00",
+      "text_sha256": "a19c518b002f5b04ca24358040c1721ebd21e4d32b6cddc2e39b9661a98128dc"
+    },
+    "t059": {
+      "ticker": "META",
+      "published_at": "2022-03-08 02:45:00+00:00",
+      "text_sha256": "d172a01132b752f0ad5e5cdec3ff54634d3cd38ee087e802003d900102ef5121"
+    },
+    "t060": {
+      "ticker": "AMZN",
+      "published_at": "2022-01-29 18:44:29+00:00",
+      "text_sha256": "ba49869a1bc0c0008f40cdcfdf876443f0f6a8f1ab6196502f1d1ecb61aa2407"
+    },
+    "t061": {
+      "ticker": "AMD",
+      "published_at": "2022-07-21 20:28:01+00:00",
+      "text_sha256": "b7411aac3efea38c798746388ccbcf5f5a1d42b5aecd4fdb2df062eac5da175c"
+    },
+    "t062": {
+      "ticker": "NFLX",
+      "published_at": "2022-05-18 13:38:24+00:00",
+      "text_sha256": "ac38b342cc015a70e1aa7bd4acef59cdbc3f08d1393231a03f16e1ad279ca66a"
+    },
+    "t063": {
+      "ticker": "GOOGL",
+      "published_at": "2022-07-18 10:27:55+00:00",
+      "text_sha256": "71d1263dfcefbec1195ec4ee4ef868e75009651829062148cd7b0b183f682436"
+    },
+    "t064": {
+      "ticker": "BA",
+      "published_at": "2022-03-21 22:53:29+00:00",
+      "text_sha256": "6642ee8df778effbef1e415dcbe260ac25e70585de514f7ec831033f2ce24f6c"
+    },
+    "t065": {
+      "ticker": "AMD",
+      "published_at": "2022-02-24 21:07:37+00:00",
+      "text_sha256": "1767b637eef616d81cbf9d531d0d312e3ea37b2dff80151b88366cdef57b7fde"
+    },
+    "t066": {
+      "ticker": "DIS",
+      "published_at": "2021-12-07 10:26:16+00:00",
+      "text_sha256": "08fb135d384cd4c4d098885d51f57917e8ce5b12f2cd00f160504d930ae9d9d6"
+    },
+    "t067": {
+      "ticker": "DIS",
+      "published_at": "2022-02-22 16:38:46+00:00",
+      "text_sha256": "a555adfc8a45ab081b08098e900c8f0321f79ba4f48787fda3147493baf6b417"
+    },
+    "t068": {
+      "ticker": "AAPL",
+      "published_at": "2022-09-29 13:45:47+00:00",
+      "text_sha256": "7ec2ab05e86fc90aa738202b0b95ef748be4dce9a99b0dbcd9242e9a37786264"
+    },
+    "t069": {
+      "ticker": "KO",
+      "published_at": "2022-03-08 20:47:19+00:00",
+      "text_sha256": "a14dfe28656e6ca4f1b37240345b78f03e6f383458b7d8dac011ff412e85b335"
+    },
+    "t070": {
+      "ticker": "BA",
+      "published_at": "2022-03-18 09:09:11+00:00",
+      "text_sha256": "b687a60c71fe60c15a871952ecd49cfaf89a96942fc6ec17eb3e87a828c1b2ed"
+    },
+    "t071": {
+      "ticker": "META",
+      "published_at": "2022-02-25 16:27:20+00:00",
+      "text_sha256": "9afcc32b6e3f6491deed375974d7cd648e5f2fb324fba9452ae4222860e1eb80"
+    },
+    "t072": {
+      "ticker": "TSLA",
+      "published_at": "2022-08-06 16:56:44+00:00",
+      "text_sha256": "089c15940377b93a45166eef11e58abfce3dc0a34b610513dc5f24e729a64561"
+    },
+    "t073": {
+      "ticker": "KO",
+      "published_at": "2022-02-20 20:31:06+00:00",
+      "text_sha256": "7024a09e6e1e5ef58ed37ff5b2db5756ed1f1ab5ef6e94f49e2c567f0c5394a4"
+    },
+    "t074": {
+      "ticker": "BA",
+      "published_at": "2022-05-25 22:50:24+00:00",
+      "text_sha256": "a36170977d2f6f7befac8a899e7733485d3f16427d7f4afcbf67375254ef0425"
+    },
+    "t075": {
+      "ticker": "AMD",
+      "published_at": "2021-11-22 00:52:09+00:00",
+      "text_sha256": "9c963a8166414a1a3ddf79594becb42f8ce20ef2a3711adf71d22823e9898dee"
+    },
+    "t076": {
+      "ticker": "DIS",
+      "published_at": "2022-07-25 05:01:00+00:00",
+      "text_sha256": "84897f95599f24e4798c3f23ee9632b5d8e66e9d948e7b6bd9efc5a647fad96b"
+    },
+    "t077": {
+      "ticker": "DIS",
+      "published_at": "2021-11-08 01:57:02+00:00",
+      "text_sha256": "ceccd1347932f1b9db8f63ae2a1a26a6270a4daee8701eadbd314742f55ced9b"
+    },
+    "t078": {
+      "ticker": "TSLA",
+      "published_at": "2022-08-10 10:47:05+00:00",
+      "text_sha256": "d2fdf1165771e1f09f92e258ef8c7f6ecdff83a9ea80c91364ca543fe0df3320"
+    },
+    "t079": {
+      "ticker": "AAPL",
+      "published_at": "2022-02-09 13:28:47+00:00",
+      "text_sha256": "26a5bdde572efa105e9092fdbbcdb9df4121ad6192cbb6257b0c86066baec761"
+    },
+    "t080": {
+      "ticker": "AMD",
+      "published_at": "2022-08-01 22:43:21+00:00",
+      "text_sha256": "117a1cfcbb0c8d95817376c98ad1a742ff568406c16d4243a179ca77a471e9aa"
+    },
+    "t081": {
+      "ticker": "AMD",
+      "published_at": "2021-10-13 13:35:51+00:00",
+      "text_sha256": "d5a140c86a8cb9ddfbc07ba9730ec1e023aa82e62655177fa8c46625fd021e56"
+    },
+    "t082": {
+      "ticker": "KO",
+      "published_at": "2022-08-08 03:35:05+00:00",
+      "text_sha256": "590e0ccfa6ac8378d404df79ba4d94a64c74f7a4a4f26b9010003ab15f565d22"
+    },
+    "t083": {
+      "ticker": "KO",
+      "published_at": "2022-09-18 00:40:21+00:00",
+      "text_sha256": "b949554296d0e92907fc206665e745cafaf01e3eb1b7146bab8e8c137a73e0ac"
+    },
+    "t084": {
+      "ticker": "AMZN",
+      "published_at": "2022-05-03 22:35:46+00:00",
+      "text_sha256": "8ffbffe89b3525575bc50b9ec82651f032743c7a46b2685047383b98249b4f37"
+    },
+    "t085": {
+      "ticker": "BA",
+      "published_at": "2022-04-20 01:41:41+00:00",
+      "text_sha256": "64671c7e505d9e8d4f7f032cfe54722c64079b140d765db0f1c0be232602556f"
+    },
+    "t086": {
+      "ticker": "BA",
+      "published_at": "2022-08-19 15:22:05+00:00",
+      "text_sha256": "158f44d4a2d8407737eb2290bac672f3a4de49621e74903b86a0c7a6d62b2c30"
+    },
+    "t087": {
+      "ticker": "META",
+      "published_at": "2021-10-19 18:23:10+00:00",
+      "text_sha256": "6398d6a1761b114c7702eddfdfc9060592ded2405cd93d1bda453f629628025e"
+    },
+    "t088": {
+      "ticker": "META",
+      "published_at": "2022-08-25 19:04:35+00:00",
+      "text_sha256": "b42629c6f8dc2e2590957c4e13252cf41e068176c46d82996c8b18b3c8f54ace"
+    },
+    "t089": {
+      "ticker": "META",
+      "published_at": "2021-11-02 10:38:34+00:00",
+      "text_sha256": "6a2ed42097d6193a6e91b4ff9738b69175e4d1a276d6d5bae89b283fbaa63b66"
+    },
+    "t090": {
+      "ticker": "NFLX",
+      "published_at": "2022-06-19 19:01:00+00:00",
+      "text_sha256": "5e7447d35db3ec5966cf9f5bc9ce95172ffa3dda537993aae3a83d439eb54886"
+    },
+    "t091": {
+      "ticker": "META",
+      "published_at": "2022-04-18 21:26:35+00:00",
+      "text_sha256": "dc5f64ef7c2d3968fcab32b55b1253cc247cf5f6127f9463e6fd93b13d0d2a56"
+    },
+    "t092": {
+      "ticker": "KO",
+      "published_at": "2022-01-17 02:14:17+00:00",
+      "text_sha256": "47bd65ba615cbd413252e18383a9042034c0d372fae2b89142a62d0e1cd12958"
+    },
+    "t093": {
+      "ticker": "AMZN",
+      "published_at": "2022-03-07 03:01:46+00:00",
+      "text_sha256": "1d4ea7fe9a956de26df82e43d0064aea5d7ad13dd5581cc0d277f49f234e5ccc"
+    },
+    "t094": {
+      "ticker": "AAPL",
+      "published_at": "2022-05-11 17:15:23+00:00",
+      "text_sha256": "c8f77245f65305f981140df639fa91651cd63d9d7703d6b993268ffabc8e06ee"
+    },
+    "t095": {
+      "ticker": "TSLA",
+      "published_at": "2022-05-14 13:10:01+00:00",
+      "text_sha256": "8072f57c6427693a904942afed54740be9a7eccb503449f18a8fc59e3a76f033"
+    },
+    "t096": {
+      "ticker": "META",
+      "published_at": "2021-12-04 11:53:22+00:00",
+      "text_sha256": "1a2cf5e65fbee06eed622696586b4e0fcd8e763b1c98bb7eb1e1bfc66930f3f3"
+    },
+    "t097": {
+      "ticker": "AAPL",
+      "published_at": "2022-02-22 21:38:52+00:00",
+      "text_sha256": "020e22d3352c0b4d3d4328b421d65f2611428d2aa415b6226404d9f49204e7dc"
+    },
+    "t098": {
+      "ticker": "META",
+      "published_at": "2022-02-08 00:05:41+00:00",
+      "text_sha256": "9c3df2befddc5a4b20c474376749ed96e92792e51ecd57830b1733cec838e2d6"
+    },
+    "t099": {
+      "ticker": "DIS",
+      "published_at": "2022-02-07 13:43:21+00:00",
+      "text_sha256": "559b6b72c9a599953b2793761e99ff1c4024c912e8b02511ecefb0c32475f681"
+    },
+    "t100": {
+      "ticker": "DIS",
+      "published_at": "2022-03-01 00:21:54+00:00",
+      "text_sha256": "4a6c85a233e9ce0069750a569e2a27c17358df55bdbdda03dc9e6fa9b9aa1b13"
+    },
+    "t101": {
+      "ticker": "GOOGL",
+      "published_at": "2022-02-22 19:54:22+00:00",
+      "text_sha256": "21d563c642f673eee5352da2b9840c4549afe8458eab48112029a7af58f23172"
+    },
+    "t102": {
+      "ticker": "AAPL",
+      "published_at": "2022-06-03 17:46:24+00:00",
+      "text_sha256": "e6501a30b053cac1b850794c962e434ae5d625198b04f5cf1c486d61ddcf5498"
+    },
+    "t103": {
+      "ticker": "NFLX",
+      "published_at": "2022-09-19 15:24:25+00:00",
+      "text_sha256": "974b4b4d4d69cbafbf09e89cff47b31d4c77ef95325f1b6414bbc8ee37c50a1c"
+    },
+    "t104": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-21 12:07:04+00:00",
+      "text_sha256": "8e42d8cb7563833c2970f795c462da9e8a0d9312228e8139a3e63b65191560bb"
+    },
+    "t105": {
+      "ticker": "KO",
+      "published_at": "2022-06-13 11:55:58+00:00",
+      "text_sha256": "ed09113de27191068403f39bbd3ffb4c71a8521c3463684ac6fde14fd686a96f"
+    },
+    "t106": {
+      "ticker": "TSLA",
+      "published_at": "2022-08-02 16:51:44+00:00",
+      "text_sha256": "f1963d0eac306446ce109386924706ea271a7550b12401afe438d7263e047068"
+    },
+    "t107": {
+      "ticker": "GOOGL",
+      "published_at": "2022-04-26 20:04:56+00:00",
+      "text_sha256": "f72de1b7ebca5ae15f80d686bdaa629f832263a246c4c384d49c00317a642297"
+    },
+    "t108": {
+      "ticker": "BA",
+      "published_at": "2021-11-06 04:03:54+00:00",
+      "text_sha256": "57fd9a2e2760a9d381015d5c6db9e61ae3e43c4c32750379321712365c39b2ee"
+    },
+    "t109": {
+      "ticker": "AMD",
+      "published_at": "2022-03-07 20:51:01+00:00",
+      "text_sha256": "f53b8249dfdb63b5ec2f73cd70ce4c513113cebec1e3c6e094c6b282edbe172b"
+    },
+    "t110": {
+      "ticker": "BA",
+      "published_at": "2021-10-06 16:18:10+00:00",
+      "text_sha256": "47a29e07edc718a114b8f73179001e0a8a351ec0628d260da2994a6efb199d1d"
+    },
+    "t111": {
+      "ticker": "BA",
+      "published_at": "2022-04-11 18:52:09+00:00",
+      "text_sha256": "3dbd9ad219a6ea395e59d71057f1861fabf028915c42265f580f9e7aeaee5b56"
+    },
+    "t112": {
+      "ticker": "GOOGL",
+      "published_at": "2022-07-24 20:15:00+00:00",
+      "text_sha256": "1e7ca4c6772043d72857a892148b349e275d4dcd3be7bf55fecb77e00c5b2a59"
+    },
+    "t113": {
+      "ticker": "GOOGL",
+      "published_at": "2022-04-26 11:32:38+00:00",
+      "text_sha256": "c1ab8dd5d35330da1c5a466b7a9d83f54fba01dc889755161c1183acd5c5767e"
+    },
+    "t114": {
+      "ticker": "KO",
+      "published_at": "2021-11-10 14:35:00+00:00",
+      "text_sha256": "93833d7f47e31f2ad8081132381bb7026136772e463ef27c1964cb3c4954eaa1"
+    },
+    "t115": {
+      "ticker": "META",
+      "published_at": "2022-02-07 22:36:21+00:00",
+      "text_sha256": "3001b27b69a4704ae427ea3ed4902e8fe0d54dfd8d39cd91645cbf7a521e59a4"
+    },
+    "t116": {
+      "ticker": "DIS",
+      "published_at": "2022-05-11 20:20:16+00:00",
+      "text_sha256": "9694229044fb43e6ee2ca4852268b4bcbc0830c214d05f2d7b7e2ffc191b4227"
+    },
+    "t117": {
+      "ticker": "AMZN",
+      "published_at": "2022-07-28 23:30:07+00:00",
+      "text_sha256": "46f086b230f6c0c6b243c5f4da7ab61d71f1a1922751708aa637d9c501ee4c7d"
+    },
+    "t118": {
+      "ticker": "BA",
+      "published_at": "2021-11-12 21:56:22+00:00",
+      "text_sha256": "3be4a308ad280b7c2c8b2bfb78ea205434d9fb217a7070be71a0835ae9b9a81b"
+    },
+    "t119": {
+      "ticker": "AMZN",
+      "published_at": "2021-10-02 15:03:25+00:00",
+      "text_sha256": "e610c3f498967ae1faa3a221046fa15226708e799d17c09c252a1dad6b6c8be1"
+    },
+    "t120": {
+      "ticker": "AMZN",
+      "published_at": "2022-07-29 19:28:45+00:00",
+      "text_sha256": "9d4ed8724685b45ca398ac6b918b19c49951ae7f79756adee06f2d0b9e731550"
+    },
+    "t121": {
+      "ticker": "GOOGL",
+      "published_at": "2022-05-23 17:36:53+00:00",
+      "text_sha256": "53aae53f7ebfc23ccea5db48637833afbc333401b33652518753b40d52084623"
+    },
+    "t122": {
+      "ticker": "GOOGL",
+      "published_at": "2022-03-19 17:06:15+00:00",
+      "text_sha256": "ecacba9f56492d31d00ef9a568b663478e779b51624821a8aa6bc55f22465b64"
+    },
+    "t123": {
+      "ticker": "AMZN",
+      "published_at": "2022-04-30 14:32:33+00:00",
+      "text_sha256": "e635f8bb791cf8eb21884a86a15198e4377e7e4114ba8c60d189a1d629a352e8"
+    },
+    "t124": {
+      "ticker": "TSLA",
+      "published_at": "2022-05-27 12:35:36+00:00",
+      "text_sha256": "0a07df8baf4a0cb9cb8e86a48df26eaa8b4ea4963b9c07db926867eb3b1f15d8"
+    },
+    "t125": {
+      "ticker": "DIS",
+      "published_at": "2022-05-20 17:15:40+00:00",
+      "text_sha256": "08d45050fa62ff7bbfde0ba7c9bb1461e42f7a334bb86df305079ffb8369799c"
+    },
+    "t126": {
+      "ticker": "AAPL",
+      "published_at": "2022-06-28 14:15:03+00:00",
+      "text_sha256": "afe6674df14948c2e928c5e09e2ae757da4801939088da6c2d91c73e341abcd4"
+    },
+    "t127": {
+      "ticker": "AAPL",
+      "published_at": "2022-09-25 12:06:57+00:00",
+      "text_sha256": "395ba0084b8738fc0349def494fe4c6202a90e2e9f0ddf2e818c157f6d2c3c1f"
+    },
+    "t128": {
+      "ticker": "AMD",
+      "published_at": "2021-12-12 07:31:42+00:00",
+      "text_sha256": "a40d1f6642c8cdfb35180eb3edf5f43aa404b3107529714b99c146c5da5994e4"
+    },
+    "t129": {
+      "ticker": "AMZN",
+      "published_at": "2022-05-02 04:17:56+00:00",
+      "text_sha256": "56278a6034ead5e38db325a4e7e3cb156236f244925d79f45c0d8df691a4f569"
+    },
+    "t130": {
+      "ticker": "AAPL",
+      "published_at": "2022-01-09 21:22:30+00:00",
+      "text_sha256": "c76bb408e20d83487281c9afe3e82e2da0b29dddd79d83e58f5241b18f216088"
+    },
+    "t131": {
+      "ticker": "AMZN",
+      "published_at": "2022-07-26 19:42:51+00:00",
+      "text_sha256": "72efe37db2a7c1647d69af27e7c99bbaa7e495b7d155715d18e875b52740d183"
+    },
+    "t132": {
+      "ticker": "KO",
+      "published_at": "2021-12-29 16:20:14+00:00",
+      "text_sha256": "fe284901736e48938caa5ae1408d61e695a4bcfb7a6e51bc606332dbc875a7a1"
+    },
+    "t133": {
+      "ticker": "DIS",
+      "published_at": "2022-03-22 16:12:50+00:00",
+      "text_sha256": "a277c4f4767dbee5f81139d87789a2f2477829a8eae7c9acc0d5a52013bc396b"
+    },
+    "t134": {
+      "ticker": "GOOGL",
+      "published_at": "2022-06-16 13:33:19+00:00",
+      "text_sha256": "5eeb0ec1a2c170c1e8875378f1c4758149c3243147d543da7f3d6b72674b7481"
+    },
+    "t135": {
+      "ticker": "TSLA",
+      "published_at": "2022-05-17 13:53:34+00:00",
+      "text_sha256": "d13f66ad5f2fa1c5adccbbcad04c2f627342eee5943e6b76f47c789383b399bb"
+    },
+    "t136": {
+      "ticker": "NFLX",
+      "published_at": "2022-05-10 13:53:31+00:00",
+      "text_sha256": "98635c8cdd1493590b8134605db1078ad7d08d284b6ffcf1f7a06fefefd7a606"
+    },
+    "t137": {
+      "ticker": "AAPL",
+      "published_at": "2021-11-18 22:02:23+00:00",
+      "text_sha256": "c51fb41e2a44d785f38ed779f21a82f13b829d85b3c29c570564ac7e0a245f2c"
+    },
+    "t138": {
+      "ticker": "NFLX",
+      "published_at": "2022-07-05 00:15:00+00:00",
+      "text_sha256": "69e21fbe04dfe35659fdfd2f6b70a9b2f218c1ef275ff3fcd8154764ec6cbba7"
+    },
+    "t139": {
+      "ticker": "BA",
+      "published_at": "2022-02-08 02:29:52+00:00",
+      "text_sha256": "244c8ab9dcc025a6652761a75fd51356731276bff3ca41753f71e8e4b56dfd14"
+    },
+    "t140": {
+      "ticker": "KO",
+      "published_at": "2022-06-28 01:54:41+00:00",
+      "text_sha256": "38a527bc7dfd0f5af0561ac9a32484742f597100df2fb8e8bf5b399098e3a8ce"
+    },
+    "t141": {
+      "ticker": "AMD",
+      "published_at": "2021-11-01 17:49:54+00:00",
+      "text_sha256": "b2aea4fc68b1ca56b4c1de2efd47b4252f49add7224c039e6c8aba874805f2fb"
+    },
+    "t142": {
+      "ticker": "AMZN",
+      "published_at": "2022-05-07 15:29:52+00:00",
+      "text_sha256": "e8d6a748ff84bbdfbfb4c4dba217d2fc851f2d48b851ac3c43bfcbc981451cac"
+    },
+    "t143": {
+      "ticker": "KO",
+      "published_at": "2022-01-23 16:57:10+00:00",
+      "text_sha256": "286fa26c3e3214688385a9e0e53ae94cb4e61af4f69611a905b89368380b1e9b"
+    },
+    "t144": {
+      "ticker": "AAPL",
+      "published_at": "2022-03-03 18:55:55+00:00",
+      "text_sha256": "39bd4b2f479f8d52bc20484e3d9dd05cdb27945e15c38c2a7ebbaf6a0ab980d2"
+    },
+    "t145": {
+      "ticker": "GOOGL",
+      "published_at": "2022-07-27 00:52:21+00:00",
+      "text_sha256": "d8aef0f9d0e4f67c0e5263a658db393932977361b615384473dce2147d6b162b"
+    },
+    "t146": {
+      "ticker": "DIS",
+      "published_at": "2022-05-12 15:41:25+00:00",
+      "text_sha256": "2825eb79d08f5dbab76fbf4a97c227b290a5ed6e1037d5f9e61ba8f3406099ef"
+    },
+    "t147": {
+      "ticker": "GOOGL",
+      "published_at": "2022-02-01 21:33:00+00:00",
+      "text_sha256": "6df766e1ef18c8b56fe25206b2f9d6029da6dd841703ec48eeea4e1c832b50f8"
+    },
+    "t148": {
+      "ticker": "AAPL",
+      "published_at": "2022-01-27 16:33:58+00:00",
+      "text_sha256": "d0cb04a9f91db81d22cb32a53eb52ff27df72371b906a56b7bd50e6f4fb3f6ce"
+    },
+    "t149": {
+      "ticker": "BA",
+      "published_at": "2022-09-22 21:09:08+00:00",
+      "text_sha256": "e7aae80601c9cd45102b9dc8ee88d811069ac55bec9b72d417af436cc1520954"
+    },
+    "t150": {
+      "ticker": "DIS",
+      "published_at": "2021-11-22 02:41:13+00:00",
+      "text_sha256": "5f53cc49327757720a85114febe018272292096c09e84ca41c9971b30b914bb6"
+    },
+    "t151": {
+      "ticker": "TSLA",
+      "published_at": "2022-07-26 02:07:04+00:00",
+      "text_sha256": "da631cb2e1987246130083ca99c2706de0be42ab34713c92dffec8dd0d773daa"
+    },
+    "t152": {
+      "ticker": "META",
+      "published_at": "2022-03-20 20:23:07+00:00",
+      "text_sha256": "5fa275cb2fff75a9c1295f300a1893307f570605f76c69b43f9f4dcfa59c34da"
+    },
+    "t153": {
+      "ticker": "BA",
+      "published_at": "2022-01-12 14:58:07+00:00",
+      "text_sha256": "7b8cbdd732917911be2cd4121894bd647765eb2533fe423ba4160303ceffd16c"
+    },
+    "t154": {
+      "ticker": "AMD",
+      "published_at": "2021-11-11 18:22:59+00:00",
+      "text_sha256": "b08a09a45b9610e1854cee622648a4f9266eced077c7d3d003a0a790422895a1"
+    },
+    "t155": {
+      "ticker": "DIS",
+      "published_at": "2022-05-02 00:32:25+00:00",
+      "text_sha256": "23ecfec12a28e37628bf88fdc140a6bfc68b3ce608140d9530c19380d10c3d87"
+    },
+    "t156": {
+      "ticker": "BA",
+      "published_at": "2022-04-27 14:18:27+00:00",
+      "text_sha256": "e1b69faa667d44ae3399be33bc31e1cc71a7e14125e64b12a4aa47f77d84d550"
+    },
+    "t157": {
+      "ticker": "META",
+      "published_at": "2021-12-17 15:22:26+00:00",
+      "text_sha256": "977f2043755dd759eccf408a0e18cd00702b0863285d917e52c0dcfff9ccbbc1"
+    },
+    "t158": {
+      "ticker": "AMD",
+      "published_at": "2022-02-11 22:40:53+00:00",
+      "text_sha256": "cbfee987612abb1f09c20f20b3504652fb2bf1c4916d27b1f937f77f2d4aa400"
+    },
+    "t159": {
+      "ticker": "GOOGL",
+      "published_at": "2022-01-31 18:01:09+00:00",
+      "text_sha256": "3a89d5e483e72a1b0ce81eec5a6a67a598ae360beedf22abc2340b9b24afbb85"
+    },
+    "t160": {
+      "ticker": "KO",
+      "published_at": "2022-04-24 09:48:01+00:00",
+      "text_sha256": "fa9abd36e5648c4f56f8218edf491b402ab75c91a927c652235a670725ff7b06"
+    },
+    "t161": {
+      "ticker": "BA",
+      "published_at": "2021-10-19 18:31:00+00:00",
+      "text_sha256": "4423b2e7cfd7297e3b936f98b75c117126b2ec148c9a155f585fde448575cb2b"
+    },
+    "t162": {
+      "ticker": "KO",
+      "published_at": "2022-08-10 23:13:22+00:00",
+      "text_sha256": "ed237143618ec324931234c2dcddce71ca0b9629130b42b03602d5e2790263a1"
+    },
+    "t163": {
+      "ticker": "BA",
+      "published_at": "2022-05-19 23:01:39+00:00",
+      "text_sha256": "79a6e50948bc49ac3979d1c1a34938b9ec00279450206c626497f01d6c9acf27"
+    },
+    "t164": {
+      "ticker": "AMZN",
+      "published_at": "2021-11-21 20:40:10+00:00",
+      "text_sha256": "ea7812cd933c992a6ca4b361e10233af30a5cfe4782afd0ebc74bf88dcd1285e"
+    },
+    "t165": {
+      "ticker": "NFLX",
+      "published_at": "2022-01-20 23:11:12+00:00",
+      "text_sha256": "d8834a852d6ce9cb94986524f8ed341507997c7ac39c43fb4cdeb3a626372335"
+    },
+    "t166": {
+      "ticker": "AAPL",
+      "published_at": "2022-06-24 17:44:26+00:00",
+      "text_sha256": "232d5c11b09522de0c44b5db5bfb296aaf5e3a66f63a956cdac967dfeb830a7c"
+    },
+    "t167": {
+      "ticker": "META",
+      "published_at": "2022-06-08 14:17:04+00:00",
+      "text_sha256": "e41b4641e63d96521f97c45effa3acd4e356f1a30c29dbda296d66953b4e2f41"
+    },
+    "t168": {
+      "ticker": "DIS",
+      "published_at": "2021-12-06 18:09:12+00:00",
+      "text_sha256": "583114d5b6d96a047306994c58a50b764fcdc3feb6044212caa0d31bbab64259"
+    },
+    "t169": {
+      "ticker": "TSLA",
+      "published_at": "2021-12-11 19:23:42+00:00",
+      "text_sha256": "59967c89cac07037c9bb9c34f674e2e6f3aad6441551c1a61e1de4d93c4d7089"
+    },
+    "t170": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-21 02:14:44+00:00",
+      "text_sha256": "45986c5cc0e8e98cb9c6f730dcf34d11af0caf857c0ee2792ebf11648c81cccd"
+    },
+    "t171": {
+      "ticker": "AMD",
+      "published_at": "2022-06-02 17:30:00+00:00",
+      "text_sha256": "c6619a01da5c9e3562fe5df3d8b5207ec452c7915e7557a1cdac8ac2c51f8a75"
+    },
+    "t172": {
+      "ticker": "AMZN",
+      "published_at": "2022-04-14 12:53:24+00:00",
+      "text_sha256": "c6a0a58267c31bc3cd46602c46897779a4aa021366d914a45329e94a5e837ac3"
+    },
+    "t173": {
+      "ticker": "KO",
+      "published_at": "2022-04-01 15:44:39+00:00",
+      "text_sha256": "94fcadebcdf9510067907086c5685acf2329f2f732ce39777ffecaed296e7309"
+    },
+    "t174": {
+      "ticker": "GOOGL",
+      "published_at": "2022-08-03 16:30:51+00:00",
+      "text_sha256": "d9f0bf8c7fff54a57babf70233865d2588e58331bae0241a3c32b45e410841e8"
+    },
+    "t175": {
+      "ticker": "AAPL",
+      "published_at": "2022-04-30 13:35:36+00:00",
+      "text_sha256": "35b6ca233f81620c850ebb53d59717d92b7b168caf889e503ac2740852651ca5"
+    },
+    "t176": {
+      "ticker": "TSLA",
+      "published_at": "2022-08-14 16:08:38+00:00",
+      "text_sha256": "b1efa9f8992c89d37414db5d0f186a868fe5cc4f0dbb67cdc23c7a53d501fc6a"
+    },
+    "t177": {
+      "ticker": "AMD",
+      "published_at": "2022-02-02 14:43:18+00:00",
+      "text_sha256": "d4007ab4d9163bb865f3c349c6848a079104da231e15eb34f404559c5141e12c"
+    },
+    "t178": {
+      "ticker": "META",
+      "published_at": "2022-04-28 14:37:59+00:00",
+      "text_sha256": "2be403cd710ade6c10785629d9fddd52c2adce0db2bc6e75a20b80542551f13e"
+    },
+    "t179": {
+      "ticker": "TSLA",
+      "published_at": "2022-04-02 21:09:12+00:00",
+      "text_sha256": "32514231230fb71197be852cf0f677e5e60a79c86284b7f8a0786d245c24ab6b"
+    },
+    "t180": {
+      "ticker": "AMZN",
+      "published_at": "2022-06-06 07:03:21+00:00",
+      "text_sha256": "37072f7774ed60ea85e4a8d79fb68982df1468f934d7bd497c7b1b57eba23087"
+    },
+    "t181": {
+      "ticker": "AMZN",
+      "published_at": "2022-07-11 20:03:06+00:00",
+      "text_sha256": "87896d6e17817df85898194aa424bffde7b5d0e14602906e34939ae3208adf0f"
+    },
+    "t182": {
+      "ticker": "AAPL",
+      "published_at": "2022-01-27 21:33:37+00:00",
+      "text_sha256": "580fe2ff058c9ac837380927e2e22d6cc791b0701dd64fc14e62e34d6ba0c227"
+    },
+    "t183": {
+      "ticker": "GOOGL",
+      "published_at": "2022-08-03 03:33:25+00:00",
+      "text_sha256": "1092ce989fdaedac1bb642a7660d0bef0aef7f523c858b10ca677592820cc23b"
+    },
+    "t184": {
+      "ticker": "TSLA",
+      "published_at": "2021-10-27 02:35:46+00:00",
+      "text_sha256": "8f3e9e57429ee40299384655ebfd0cc8b0211b81b303b025f76bf9348a323e82"
+    },
+    "t185": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-20 15:10:25+00:00",
+      "text_sha256": "4cfbf0f613fbc35629c4107396064f3ac3f2d5ddc4380d2cba9cd55be9b5e3bf"
+    },
+    "t186": {
+      "ticker": "TSLA",
+      "published_at": "2022-04-07 20:18:50+00:00",
+      "text_sha256": "d034e3077959499c2d904aac40d3fd537e034c7466e2573d7677c510942e0e10"
+    },
+    "t187": {
+      "ticker": "KO",
+      "published_at": "2022-03-13 12:34:17+00:00",
+      "text_sha256": "a5a4f70a6ef2c03075d4b021c1535857698762ef4a4613163bd89ec5c7f5d11d"
+    },
+    "t188": {
+      "ticker": "AMD",
+      "published_at": "2021-11-14 15:01:30+00:00",
+      "text_sha256": "191ed9f05e28c4c575d8351597a8afe33fe2def573875a16778e42be40cac597"
+    },
+    "t189": {
+      "ticker": "GOOGL",
+      "published_at": "2021-12-28 14:18:24+00:00",
+      "text_sha256": "b270fbad6aff495168c8d8aaca96b06ade488ff86c850b0363880f6d7ae564e8"
+    },
+    "t190": {
+      "ticker": "BA",
+      "published_at": "2022-01-26 01:12:13+00:00",
+      "text_sha256": "610c10207b966898a472c157cf02170cd28f3cafde304a6757011f442220aa3b"
+    },
+    "t191": {
+      "ticker": "GOOGL",
+      "published_at": "2022-02-02 17:12:02+00:00",
+      "text_sha256": "4efcdaa145ce72f9098ad01754c287623184d678914fa3c462e6f3309ce138bb"
+    },
+    "t192": {
+      "ticker": "AMD",
+      "published_at": "2022-05-03 20:19:26+00:00",
+      "text_sha256": "6c9392aea185514105da1bf670ed088d43461dc3cd5f76d0bee80db2549c9d8e"
+    },
+    "t193": {
+      "ticker": "BA",
+      "published_at": "2022-05-31 19:46:06+00:00",
+      "text_sha256": "1ed4cb727ed28bef3adda12fc59f50c265c409a6473d509a90fed542b280d41d"
+    },
+    "t194": {
+      "ticker": "AAPL",
+      "published_at": "2022-02-14 03:11:15+00:00",
+      "text_sha256": "9910b12a6a1984e4da3621ac230c7ee77cbec83a2c81d4c385eda05358a365c9"
+    },
+    "t195": {
+      "ticker": "DIS",
+      "published_at": "2022-02-09 16:49:31+00:00",
+      "text_sha256": "fb50633ed8d22573a707c77d78762bfcc89d4ad3c29d15e1251871fa784776a8"
+    },
+    "t196": {
+      "ticker": "TSLA",
+      "published_at": "2022-09-23 21:47:27+00:00",
+      "text_sha256": "5a8f6845b4965ec341e3233a87e20e899a1b91b8d9b471d8c381c188bb93165f"
+    },
+    "t197": {
+      "ticker": "AAPL",
+      "published_at": "2022-01-28 00:57:46+00:00",
+      "text_sha256": "497fb54243e83906da2eb2c1bde67feadca05221481ed6128741d82e07650ce4"
+    },
+    "t198": {
+      "ticker": "META",
+      "published_at": "2022-02-12 21:41:11+00:00",
+      "text_sha256": "c42bc4d571d48a0300c1b70935fe2099203f35d5a4da06d0bb46ce639c66b8cb"
+    },
+    "t199": {
+      "ticker": "DIS",
+      "published_at": "2022-08-10 20:40:04+00:00",
+      "text_sha256": "fcfed976382bb65025b80988858d526f6bdca73db52f61e1b3f47acb4172f062"
+    },
+    "t200": {
+      "ticker": "GOOGL",
+      "published_at": "2022-01-09 17:50:53+00:00",
+      "text_sha256": "c9fb8f7c415dc0712baeb98c719b330cc0c80dfce295817433859a323691c1cc"
+    },
+    "t201": {
+      "ticker": "KO",
+      "published_at": "2022-07-28 14:41:22+00:00",
+      "text_sha256": "bb6625fae7a7fbfb155055539eed2533a4271dfdf8b98f42989cd4b7f8fdc30a"
+    },
+    "t202": {
+      "ticker": "KO",
+      "published_at": "2022-05-05 00:32:04+00:00",
+      "text_sha256": "016afc2de4347a5e5c2bc01a5e0f9842ec77b71bacaf98b1d6828610cb5d8138"
+    },
+    "t203": {
+      "ticker": "AAPL",
+      "published_at": "2022-07-28 20:38:20+00:00",
+      "text_sha256": "caa2a1a7445ae17cf664d57c2d14b92a43f50e8f1fcfbbe6b421abb82b7bba4e"
+    },
+    "t204": {
+      "ticker": "NFLX",
+      "published_at": "2022-07-10 23:01:00+00:00",
+      "text_sha256": "46b37e7547a71876be218141bec4b21e86d91dafabd3db2bfc686a84ae3f616e"
+    },
+    "t205": {
+      "ticker": "AMD",
+      "published_at": "2021-11-11 10:22:46+00:00",
+      "text_sha256": "09604606a32eb33c2e30131af23c68d756ef043f798b3f52a24fa81def24d0e2"
+    },
+    "t206": {
+      "ticker": "TSLA",
+      "published_at": "2022-07-16 12:06:27+00:00",
+      "text_sha256": "86698e80a3b138e7cd2b2ac14d4e70745579786ddc80b9b0c6a097ee76f6aa1d"
+    },
+    "t207": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-19 20:21:19+00:00",
+      "text_sha256": "fa189e3b84525352aafc9d47cf1d35ef9ce80a759918ec23d802602e20d02275"
+    },
+    "t208": {
+      "ticker": "AMZN",
+      "published_at": "2022-05-27 11:53:44+00:00",
+      "text_sha256": "f732f1dd0ecc311f47cd5d32055a334d48e63828b8df28d6a3b6055b9aa1e6c3"
+    },
+    "t209": {
+      "ticker": "TSLA",
+      "published_at": "2022-02-12 01:16:27+00:00",
+      "text_sha256": "f55ea5715af8dbba3030bddb104826db31933c8a6d615c2fe8c86f35f61f977f"
+    },
+    "t210": {
+      "ticker": "AMZN",
+      "published_at": "2022-04-29 17:17:40+00:00",
+      "text_sha256": "d561ad4d014a5534df032b07019eb9ada1fedfef676d90d34960cfc096702066"
+    },
+    "t211": {
+      "ticker": "AMZN",
+      "published_at": "2022-02-03 21:42:49+00:00",
+      "text_sha256": "2f0b80c648dd9f1f67e6de6b0f376ce707f5fa1ed1fba31c2087ec894beec2d0"
+    },
+    "t212": {
+      "ticker": "AMZN",
+      "published_at": "2022-04-14 02:48:57+00:00",
+      "text_sha256": "5ba6963180b198a474bb228bdfd4d9f83cc06255b75783aa505dafe1cf82fc12"
+    },
+    "t213": {
+      "ticker": "AMZN",
+      "published_at": "2022-06-02 02:27:56+00:00",
+      "text_sha256": "0260b09a42a92391decf91d042ec98605c91a05eb7767b12ae3e417658e53d80"
+    },
+    "t214": {
+      "ticker": "AMZN",
+      "published_at": "2022-07-25 21:16:39+00:00",
+      "text_sha256": "f57a3b155a87000458e1599ce6bfdbab39818e23de0cdb8857334bb4514f16b4"
+    },
+    "t215": {
+      "ticker": "KO",
+      "published_at": "2022-05-17 12:30:01+00:00",
+      "text_sha256": "497d8e95dc9969a392ee15375e074c05abc0cd9a6298a876f551ce00374f9cc1"
+    },
+    "t216": {
+      "ticker": "AMD",
+      "published_at": "2022-05-20 22:12:53+00:00",
+      "text_sha256": "32aa3686b66159d626ce86770b835fb8cb8ee3482cccbb0ef6792783a48da524"
+    },
+    "t217": {
+      "ticker": "AMD",
+      "published_at": "2022-03-08 17:19:17+00:00",
+      "text_sha256": "f072f7d56a4ecbd2db4f70d72ae3c324c87da6d9bfc85d879fba5ffbaa0851d5"
+    },
+    "t218": {
+      "ticker": "GOOGL",
+      "published_at": "2022-05-25 14:28:00+00:00",
+      "text_sha256": "aa04d39cc9fa6df2bea22345dfe0157fee363644b3db14e4fadc46e0abea1620"
+    },
+    "t219": {
+      "ticker": "AAPL",
+      "published_at": "2021-12-02 05:05:00+00:00",
+      "text_sha256": "c8162a95d23dec2b936fce34b82cfcb70cef9dcebe23ce1a54df1119693677d8"
+    },
+    "t220": {
+      "ticker": "NFLX",
+      "published_at": "2022-03-18 17:47:47+00:00",
+      "text_sha256": "c42116ea012aff50fa4f1031e84a9a9dbe590455394550f969084a1f71da0d30"
+    },
+    "t221": {
+      "ticker": "AMD",
+      "published_at": "2022-05-03 20:11:55+00:00",
+      "text_sha256": "0c1086f07f02698df3ae05e12c23e1fc817282e09fb9dff56784782317e1b209"
+    },
+    "t222": {
+      "ticker": "AAPL",
+      "published_at": "2022-07-22 21:55:59+00:00",
+      "text_sha256": "53c305f19a402606ab325b965c54319fba482867466fb8a30f64a3145f53ae7a"
+    },
+    "t223": {
+      "ticker": "DIS",
+      "published_at": "2022-05-06 16:20:56+00:00",
+      "text_sha256": "aad77116e03bd01f3ea8cadb2beb34ea5de7be67b6cd305fb11a0469bd44d5a9"
+    },
+    "t224": {
+      "ticker": "BA",
+      "published_at": "2022-04-29 03:24:45+00:00",
+      "text_sha256": "5842023db2c7eb1471b872f69069a54dc4920aa8ee28f9c627e0db3514d97f84"
+    },
+    "t225": {
+      "ticker": "AMD",
+      "published_at": "2021-10-21 13:01:22+00:00",
+      "text_sha256": "eea9b7aaa2c7366e7a4f488b962211bce802d0223727a765631bd87cdec88cf7"
+    },
+    "t226": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-20 01:31:36+00:00",
+      "text_sha256": "664de5d701de879d49bfb32ca05c1512de921d4bab9bdbf7874f9311e07fc81b"
+    },
+    "t227": {
+      "ticker": "TSLA",
+      "published_at": "2022-01-02 19:56:01+00:00",
+      "text_sha256": "287013e947656ac6341b8cd7d40381e2d41285648166a55dad748a01010837a8"
+    },
+    "t228": {
+      "ticker": "GOOGL",
+      "published_at": "2022-02-01 21:21:40+00:00",
+      "text_sha256": "e20a05c69cd0fe0db64f60854c0d6da9be401513364c2572c0061d1594055c85"
+    },
+    "t229": {
+      "ticker": "DIS",
+      "published_at": "2022-08-10 20:07:03+00:00",
+      "text_sha256": "c845cc007140108bbd99ffa218b6013da99d49fa2c14ee5f78289587676f3d44"
+    },
+    "t230": {
+      "ticker": "BA",
+      "published_at": "2021-11-19 23:00:02+00:00",
+      "text_sha256": "ee57ba784819edbcfbe409f71c5cbf04d8a07f91caa1ce4aeb6dbe6cfebc4be7"
+    },
+    "t231": {
+      "ticker": "AMD",
+      "published_at": "2022-05-30 11:48:58+00:00",
+      "text_sha256": "9f5922a6d91f97f4885fa6dd52dcb64fcbc25124f7986c6d67448c6cb2c0ba6a"
+    },
+    "t232": {
+      "ticker": "AAPL",
+      "published_at": "2022-01-27 22:47:41+00:00",
+      "text_sha256": "8e573c2c8f642e73e5822da47aad8ea74444287ada6f78806532fe6f9ed8a7b4"
+    },
+    "t233": {
+      "ticker": "GOOGL",
+      "published_at": "2022-02-13 22:57:36+00:00",
+      "text_sha256": "1a8567463f03c4adf9b9cad862023d797828683ad4c6cbbb2d7ef74e1a437fe2"
+    },
+    "t234": {
+      "ticker": "AAPL",
+      "published_at": "2022-01-04 11:35:34+00:00",
+      "text_sha256": "dddad00be4a409d1713eee77374fd10a724d0daef2d75a800fc7426724593fb6"
+    },
+    "t235": {
+      "ticker": "GOOGL",
+      "published_at": "2022-02-02 19:39:40+00:00",
+      "text_sha256": "d401020ed799b7d78fccd8975e448217c1bd662ad8bc46ee42d8f47e91b11b23"
+    },
+    "t236": {
+      "ticker": "AMD",
+      "published_at": "2021-11-11 23:49:00+00:00",
+      "text_sha256": "d4d7b938dabc5183278ac7fb3bed18edfc463af35e2927f3fe92253740c4d8d8"
+    },
+    "t237": {
+      "ticker": "KO",
+      "published_at": "2022-05-09 15:47:54+00:00",
+      "text_sha256": "d5f1102147881a106725ef52c4e325b6c9397337c789675901181f00689cc0ab"
+    },
+    "t238": {
+      "ticker": "META",
+      "published_at": "2022-02-04 18:53:21+00:00",
+      "text_sha256": "8bec8528bddd930fa5ceae1d2efa423b9585cc9442e375e8a340572462d2da62"
+    },
+    "t239": {
+      "ticker": "GOOGL",
+      "published_at": "2022-09-16 15:33:27+00:00",
+      "text_sha256": "32c882b3d7d01fe989c34e38d5f59138ecdde2150f7a50c59ba0ada1cb7348e7"
+    },
+    "t240": {
+      "ticker": "AMZN",
+      "published_at": "2022-03-28 11:41:35+00:00",
+      "text_sha256": "1377b6461f6b60901e819df4dbd32386776c040f60cbe786723e7b0a5844bece"
+    },
+    "t241": {
+      "ticker": "BA",
+      "published_at": "2022-04-03 20:13:39+00:00",
+      "text_sha256": "1e33965c3bd2a8f128aed90a64621551d7b81e178bfd35459c94a90109bbbfcf"
+    },
+    "t242": {
+      "ticker": "DIS",
+      "published_at": "2021-12-08 18:48:25+00:00",
+      "text_sha256": "12d98035f192117c9e7e15faf8468e8603a54e84e992f9cb3dda3bb25ca85f9d"
+    },
+    "t243": {
+      "ticker": "AAPL",
+      "published_at": "2022-02-23 23:31:48+00:00",
+      "text_sha256": "070a081475e3fdf119005d17d99b4764be76acd29d45b0795276444015414a72"
+    },
+    "t244": {
+      "ticker": "AAPL",
+      "published_at": "2022-09-07 17:51:23+00:00",
+      "text_sha256": "7e29f103530a4d5ed6842a4a837ec1524a2a3573f3eefe0a2563131e7cfbd49d"
+    },
+    "t245": {
+      "ticker": "META",
+      "published_at": "2022-05-04 19:34:23+00:00",
+      "text_sha256": "5cd964d0441cf990cced398b3f20105d35982ce152c65153422be9a2a9ca947c"
+    },
+    "t246": {
+      "ticker": "BA",
+      "published_at": "2022-04-02 15:51:29+00:00",
+      "text_sha256": "7acea56f66c6a4c162f426710fc0bc51e2c8ec84307230f5c76f30c45c73217b"
+    },
+    "t247": {
+      "ticker": "GOOGL",
+      "published_at": "2022-07-27 16:26:50+00:00",
+      "text_sha256": "98f8d3009ec3c0ceeeddad8bd41b277e5e0ebfe4994637bac21348247775f303"
+    },
+    "t248": {
+      "ticker": "AMD",
+      "published_at": "2022-05-25 19:01:25+00:00",
+      "text_sha256": "afcfa2d4915d93c9c7a0daefc139d81eb928cce33ed85d6d3ccc4a975a9b1879"
+    },
+    "t249": {
+      "ticker": "AAPL",
+      "published_at": "2022-04-26 20:51:24+00:00",
+      "text_sha256": "6e321f0d4ef01bc1634d2d6e4a768d966a6c7ed9f9aac6967d60ff9c82b56bd2"
+    },
+    "t250": {
+      "ticker": "AMD",
+      "published_at": "2022-05-23 13:10:00+00:00",
+      "text_sha256": "00763417449b39aaba9c8f1194934d8276b0e64c5339e38a20aab4af62ec0232"
+    },
+    "t251": {
+      "ticker": "AMZN",
+      "published_at": "2022-02-03 21:55:16+00:00",
+      "text_sha256": "fafc42be6865c4faf1b9f91e4be6596bf86e970908aba8723305ee42af1ed89d"
+    },
+    "t252": {
+      "ticker": "DIS",
+      "published_at": "2022-02-09 21:06:38+00:00",
+      "text_sha256": "0a548e2cd1eb53c4eb3494604bf3334b85fd815730822b9198338298f021fdc0"
+    },
+    "t253": {
+      "ticker": "AMZN",
+      "published_at": "2022-07-29 20:18:18+00:00",
+      "text_sha256": "1d8167847d29c4659c3e6f47638685e5c8204e4aed7c82b4f15fe593a4e6aadd"
+    },
+    "t254": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-21 20:55:35+00:00",
+      "text_sha256": "553df7f816aa5951f3eb4ebd514680b16c2b8b566e609a13739911b38d581937"
+    },
+    "t255": {
+      "ticker": "KO",
+      "published_at": "2022-03-08 20:59:00+00:00",
+      "text_sha256": "a9e77711374d3b8e170c39c2c37ccb4cc0d274fec51cba7a17891e774cb2075b"
+    },
+    "t256": {
+      "ticker": "TSLA",
+      "published_at": "2021-10-12 17:53:24+00:00",
+      "text_sha256": "137dda247e6a677e8f9abd8fbc529250b7ab9240ded5dcd3cb05eda0572d074e"
+    },
+    "t257": {
+      "ticker": "AMZN",
+      "published_at": "2022-04-28 23:02:08+00:00",
+      "text_sha256": "389719da8c97294922fd873f07ac20d09bacd2afba4063fd509a12d4e2e2c55f"
+    },
+    "t258": {
+      "ticker": "BA",
+      "published_at": "2021-12-17 02:22:18+00:00",
+      "text_sha256": "8d86937a1cdff20bc83a15a33f3e03fe27a9e055a27dd47596dc9a066b55937d"
+    },
+    "t259": {
+      "ticker": "GOOGL",
+      "published_at": "2022-05-24 14:27:53+00:00",
+      "text_sha256": "2733614435ad96dbcb9e447a1ac8bcf44e49d0581cbd05fe40754852bc17167b"
+    },
+    "t260": {
+      "ticker": "TSLA",
+      "published_at": "2022-08-07 17:27:56+00:00",
+      "text_sha256": "53b29cdcca9c179a066e70345caa70fa2c6e7c2d9f74ecc986aa0d528af61ccf"
+    },
+    "t261": {
+      "ticker": "META",
+      "published_at": "2022-02-27 20:58:30+00:00",
+      "text_sha256": "c9e05b2681cb9ece4272ddb1de3d0d65453a40198303d30a9b4074f6a16e8d8c"
+    },
+    "t262": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-20 15:04:32+00:00",
+      "text_sha256": "eeb24ceee028d4db10b0db6d327b0ab019d41ba4f2e4a3e2c653dc5ba67ae7eb"
+    },
+    "t263": {
+      "ticker": "META",
+      "published_at": "2022-08-03 23:47:41+00:00",
+      "text_sha256": "e1616d83d1cf04b22a20dce25a74d931e7629c90b7d55f385d9327cdb5582150"
+    },
+    "t264": {
+      "ticker": "BA",
+      "published_at": "2022-05-11 21:34:55+00:00",
+      "text_sha256": "aa0db485deb2dd35d2e2362973c9e5104845f4b7bc6aa7b98fcb0865440225d8"
+    },
+    "t265": {
+      "ticker": "META",
+      "published_at": "2022-06-05 11:44:44+00:00",
+      "text_sha256": "3a95227963fc61eb582c55ff9e52e625ed6a9247e02d562b3ec12b3bc725431b"
+    },
+    "t266": {
+      "ticker": "TSLA",
+      "published_at": "2021-10-09 18:46:10+00:00",
+      "text_sha256": "2f0edb830505760e72cfeb705a72a3c320671537b5f5831474ef269f0c27e593"
+    },
+    "t267": {
+      "ticker": "DIS",
+      "published_at": "2022-05-11 22:18:50+00:00",
+      "text_sha256": "d1ff81978c18df5e4f0c205c609165045031507add4a2d689926d45285f4278e"
+    },
+    "t268": {
+      "ticker": "AAPL",
+      "published_at": "2021-12-01 15:11:46+00:00",
+      "text_sha256": "281dd49844506c2f89e77fa8ba68414ea59789f83f6520343579b2fdc8999600"
+    },
+    "t269": {
+      "ticker": "NFLX",
+      "published_at": "2022-06-23 16:33:04+00:00",
+      "text_sha256": "dd0834bccf63b5ad5a47d166ed28a1c7c993b845ab65931fa391313e2ac5705a"
+    },
+    "t270": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-19 21:43:22+00:00",
+      "text_sha256": "e43e590451f611eba9ed9aca1703753f5cdfde67664e886e7a0ed5fae3d6e891"
+    },
+    "t271": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-21 22:12:08+00:00",
+      "text_sha256": "d3f8df1432d1cb1e96983a8baf983ae139b2f52c6a5274ed73b5806a3faa8db5"
+    },
+    "t272": {
+      "ticker": "AMZN",
+      "published_at": "2022-09-13 12:31:38+00:00",
+      "text_sha256": "37a82a616f0d3cc62d6374e9dcd4e6759cea579492743732e0fbed8bb292ab94"
+    },
+    "t273": {
+      "ticker": "NFLX",
+      "published_at": "2022-07-19 22:45:39+00:00",
+      "text_sha256": "d85594843cca364fa0241f5315715f6ddfb0f789bde153d841697134f108f09e"
+    },
+    "t274": {
+      "ticker": "TSLA",
+      "published_at": "2021-11-09 20:57:23+00:00",
+      "text_sha256": "f7b0dc6b7c018901ea820998a3373ecc72bfc256a7c866734ca9172e3fc27b33"
+    },
+    "t275": {
+      "ticker": "META",
+      "published_at": "2022-05-24 04:50:55+00:00",
+      "text_sha256": "bf0c77cd25799941582eca6c7380ea654b3d36d53ed6aa3b141bf3486128b10a"
+    },
+    "t276": {
+      "ticker": "AMD",
+      "published_at": "2022-05-03 20:36:08+00:00",
+      "text_sha256": "4780b68ed017a4123e90fc4c8d44682d6e49069ed5c57c249dc9874337ccc3cf"
+    },
+    "t277": {
+      "ticker": "TSLA",
+      "published_at": "2022-07-26 02:08:02+00:00",
+      "text_sha256": "de51d5c38b6b1174f8b57bf318297ee18782a59c452d40026da17d8b3e9acf16"
+    },
+    "t278": {
+      "ticker": "META",
+      "published_at": "2022-02-03 14:29:49+00:00",
+      "text_sha256": "b5df0fe3b92a88882c69048ee7242c32da017752be821c2cb0035886699819ef"
+    },
+    "t279": {
+      "ticker": "DIS",
+      "published_at": "2022-01-19 17:31:34+00:00",
+      "text_sha256": "ea27a722027e6c286b534b89a184db24c34e8488529d0f9e77cd611cfcbef22a"
+    },
+    "t280": {
+      "ticker": "GOOGL",
+      "published_at": "2021-10-27 17:24:21+00:00",
+      "text_sha256": "4380b76620def4aea12a559d3b7347edeecb3f493987d67e1d31093e4deb6592"
+    },
+    "t281": {
+      "ticker": "KO",
+      "published_at": "2022-06-13 15:55:57+00:00",
+      "text_sha256": "9b1be04cd6bc163888de1c3f8f516a2c70ffe958d90b747f9189a39adc6a92f4"
+    },
+    "t282": {
+      "ticker": "KO",
+      "published_at": "2022-07-12 11:57:41+00:00",
+      "text_sha256": "161efb873cf40dcdb6ebbcb160c27b16563d3a46a95bd3afaada5045e351726d"
+    },
+    "t283": {
+      "ticker": "DIS",
+      "published_at": "2022-07-14 18:34:54+00:00",
+      "text_sha256": "317f2dc29bf56d6966a42537e5fd436c6d7ea254317566e0a07767c3bcbc17c0"
+    },
+    "t284": {
+      "ticker": "AMZN",
+      "published_at": "2022-02-03 15:12:00+00:00",
+      "text_sha256": "8f33bf35af3bbd3e14fcefad2fb9f0df9e95676ab2e2ab9ef095140cff90bf85"
+    },
+    "t285": {
+      "ticker": "META",
+      "published_at": "2021-10-20 04:13:41+00:00",
+      "text_sha256": "e138d25fb4481b77c97ead98b55f9629f35f4d91579be604b707531c2cc7823e"
+    },
+    "t286": {
+      "ticker": "DIS",
+      "published_at": "2022-03-07 19:46:44+00:00",
+      "text_sha256": "a2e7aabf14f6ba1d3ffb41a5b8457d7d3760b497637eca44a9669ebcbcdb71a8"
+    },
+    "t287": {
+      "ticker": "NFLX",
+      "published_at": "2022-01-20 22:46:00+00:00",
+      "text_sha256": "32de677f28f6a03d350c18d3fcca7253c32ace262a9637ddc7ad3f47bcf55362"
+    },
+    "t288": {
+      "ticker": "TSLA",
+      "published_at": "2022-08-09 03:35:05+00:00",
+      "text_sha256": "ac0ab788348b5c3f17351cdbeb7c1bbbf870a10b394509a4d777cceebb1ce3d9"
+    },
+    "t289": {
+      "ticker": "META",
+      "published_at": "2022-04-27 20:47:35+00:00",
+      "text_sha256": "99ae1b368402ff4092f8552c7c23b5351d5a4b760015099b5df8f075e0cec179"
+    },
+    "t290": {
+      "ticker": "NFLX",
+      "published_at": "2022-04-25 13:52:34+00:00",
+      "text_sha256": "6bd828e3bcee0e58728351d09b6efe4d9b280f3302cbf3494b4cb5a408d0ac98"
+    },
+    "t291": {
+      "ticker": "BA",
+      "published_at": "2021-12-21 00:35:00+00:00",
+      "text_sha256": "2ee8b0df423952c9726cdeee7abba8e921243711482b33281e7aaf646854bfd9"
+    },
+    "t292": {
+      "ticker": "KO",
+      "published_at": "2022-04-01 14:41:26+00:00",
+      "text_sha256": "41da1b211a8746ef28442682b77c8461ebf435f5b8b9d104067b8eb7d8fe6a26"
+    },
+    "t293": {
+      "ticker": "NFLX",
+      "published_at": "2022-07-15 22:43:49+00:00",
+      "text_sha256": "29d44225a9158390db8df675f72b881a69e22da94f2e12433381b10f0ec7efea"
+    },
+    "t294": {
+      "ticker": "BA",
+      "published_at": "2022-02-06 22:12:30+00:00",
+      "text_sha256": "8103c410806ae7ddfd80a36055e4d88fe2ce34f4a06cb49ee8fc626ab3c70973"
+    },
+    "t295": {
+      "ticker": "KO",
+      "published_at": "2022-07-08 11:31:00+00:00",
+      "text_sha256": "1c17a752af344ad74949199ce69be7ac36678d0abe80dda7f46fd3c44c769ed3"
+    },
+    "t296": {
+      "ticker": "DIS",
+      "published_at": "2021-11-03 20:21:30+00:00",
+      "text_sha256": "854f17632bb7dd2a07e81c57d3a8c248db8e203be5ebe4d173eba595a5c13f55"
+    },
+    "t297": {
+      "ticker": "AMD",
+      "published_at": "2022-03-16 22:18:33+00:00",
+      "text_sha256": "fb08110fc7af9adbf86d3c45dbdcab11c0937d52a2897ef0ede5fce28b9418cb"
+    },
+    "t298": {
+      "ticker": "NFLX",
+      "published_at": "2022-01-20 22:10:22+00:00",
+      "text_sha256": "21351401e306ec63285171b2ec0cbf3a57e61b02a6d645b1207ffb4b4d7c2f41"
+    },
+    "t299": {
+      "ticker": "KO",
+      "published_at": "2022-07-03 20:03:32+00:00",
+      "text_sha256": "060150493e335cf8d4d0bab012f5ea332980135c2e82935ea68dea35b176c88e"
+    }
+  },
+  "annotation_file_sha256": "8ae311704b6cc82e7acad33189200d0cc458acb3ae6d68c494866893f0d469fc",
+  "finentity": {
+    "revision": "e86e5451a1fce4731fe07c710649a229d92e5cab",
+    "file_sha256": "3208667de69383120b0380aebeaabe360669eda72269c33e1c8b09d63df55463",
+    "rows": 851,
+    "labels": {
+      "neutral": 490,
+      "positive": 181,
+      "negative": 180
+    }
+  }
+}

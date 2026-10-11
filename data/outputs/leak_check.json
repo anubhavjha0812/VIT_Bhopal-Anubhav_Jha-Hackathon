@@ -1,0 +1,126 @@
+{
+  "E5 models (TFNS train)": {
+    "PhraseBank 50Agree": {
+      "rows": 4846,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 4846,
+      "examples": []
+    },
+    "PhraseBank AllAgree": {
+      "rows": 2264,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 2264,
+      "examples": []
+    },
+    "FiQA-2018 test": {
+      "rows": 150,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 150,
+      "examples": []
+    },
+    "NWGI test": {
+      "rows": 4047,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 4047,
+      "examples": []
+    }
+  },
+  "E7/E10 models (TFNS + PhraseBank 75Agree + FiQA train/val)": {
+    "PhraseBank 50Agree": {
+      "rows": 4846,
+      "exact": 3455,
+      "near_only": 6,
+      "clean": 1385,
+      "examples": [
+        "Press release 9 October 2009 Ruukki has signed a contract to deliver and install the steel structures for a bridge over the Kyronsalmi strait in Savonlinna , Finland .",
+        "The new policy was also aimed at making the companies more profitable and competitive .",
+        "19 May 2010 - Finnish company Lemminkainen Oyj ( HEL : LEM1S ) said today that it will construct an office building at Toolonlahti in downtown Helsinki , without disclosing financial details ."
+      ]
+    },
+    "PhraseBank AllAgree": {
+      "rows": 2264,
+      "exact": 2264,
+      "near_only": 0,
+      "clean": 0,
+      "examples": []
+    },
+    "FiQA-2018 test": {
+      "rows": 150,
+      "exact": 1,
+      "near_only": 0,
+      "clean": 149,
+      "examples": []
+    },
+    "NWGI test": {
+      "rows": 4047,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 4047,
+      "examples": []
+    }
+  },
+  "FinBERT baseline (PhraseBank)": {
+    "PhraseBank 50Agree": {
+      "rows": 4846,
+      "exact": 4846,
+      "near_only": 0,
+      "clean": 0,
+      "examples": []
+    },
+    "PhraseBank AllAgree": {
+      "rows": 2264,
+      "exact": 2264,
+      "near_only": 0,
+      "clean": 0,
+      "examples": []
+    },
+    "FiQA-2018 test": {
+      "rows": 150,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 150,
+      "examples": []
+    },
+    "NWGI test": {
+      "rows": 4047,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 4047,
+      "examples": []
+    }
+  },
+  "E5 FinBERT (TFNS train + PhraseBank)": {
+    "PhraseBank 50Agree": {
+      "rows": 4846,
+      "exact": 4846,
+      "near_only": 0,
+      "clean": 0,
+      "examples": []
+    },
+    "PhraseBank AllAgree": {
+      "rows": 2264,
+      "exact": 2264,
+      "near_only": 0,
+      "clean": 0,
+      "examples": []
+    },
+    "FiQA-2018 test": {
+      "rows": 150,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 150,
+      "examples": []
+    },
+    "NWGI test": {
+      "rows": 4047,
+      "exact": 0,
+      "near_only": 0,
+      "clean": 4047,
+      "examples": []
+    }
+  }
+}

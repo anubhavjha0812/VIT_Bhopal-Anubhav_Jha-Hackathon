@@ -1,0 +1,37 @@
+{
+  "rows_in": {
+    "tfns": 9543,
+    "sentfin": 7112,
+    "phrasebank": 3453,
+    "fiqa": 1213
+  },
+  "dropped_overlap_with_dev_or_test": {
+    "tfns": 1067,
+    "sentfin": 11
+  },
+  "dropped_label_conflict": {
+    "sentfin": 12,
+    "tfns": 8
+  },
+  "dropped_duplicates": {
+    "fiqa": 108,
+    "tfns": 82,
+    "sentfin": 39,
+    "phrasebank": 6
+  },
+  "rows_used": {
+    "tfns": 8386,
+    "sentfin": 7050,
+    "phrasebank": 3447,
+    "fiqa": 1105
+  },
+  "dev_rows": {
+    "tweets": 937,
+    "news": 791
+  },
+  "files_sha256": {
+    "train.csv": "517347179466e6883818a45d1290843dafd78f0c04aa8eec140eb1d62ae77455",
+    "dev_tweets.csv": "3ebcd849d6ba175c6a84b9531df4c6480b348eb95bd8d8dea157110ce82ebe1c",
+    "dev_news.csv": "f04e2c5ac5b51e52cfe6fa36374b9e3805d96cd9fc2a6cf48a1efb3e2cbb8180"
+  }
+}

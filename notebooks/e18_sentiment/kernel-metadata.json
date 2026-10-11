@@ -1,0 +1,17 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-e18-sentiment",
+  "title": "sp-riskengine-e18-sentiment",
+  "code_file": "score_e18.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": ["anubhavjha0812/sp-riskengine-e18"],
+  "competition_sources": [],
+  "kernel_sources": [
+    "anubhavjha0812/sp-riskengine-train-classifiers",
+    "anubhavjha0812/sp-riskengine-sentiment-teacher",
+    "anubhavjha0812/sp-riskengine-multihead"
+  ]
+}

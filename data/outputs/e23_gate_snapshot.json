@@ -1,0 +1,11 @@
+{
+  "rule": "docs/DECISIONS.md E23",
+  "files_sha256": {
+    "src/riskengine/gate.py": "13d85491ddcd8e8725a94efd97a96adb597015cac5acf662f3e41569fd77d3d1",
+    "src/riskengine/nlp/events.py": "8d4fbb569cbd72eb1df12cad71f1c7f0fc8fc7520c0d6a029616174a7e58a1a6",
+    "src/riskengine/nlp/impact.py": "19d59d26c4aafcd5827fcfa6b352c0cd6a74bcf6cf61b6aeeb7c615a2fad9005",
+    "src/riskengine/ingest/linking.py": "6b8beff83e4cbc3eb0f8360673e3293eed3dca946b5f90fe657b5d097572f54b",
+    "src/riskengine/ingest/relevance.py": "adc911bc335fd87d2a2c0ef5b91cc0cb386e613e845b45148dc3133e08dfdd94"
+  },
+  "impact_trigger": 7
+}

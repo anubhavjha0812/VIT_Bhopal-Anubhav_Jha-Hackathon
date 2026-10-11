@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-relevance-labels",
+  "title": "sp-riskengine-relevance-labels",
+  "code_file": "label_relevance.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": ["anubhavjha0812/sp-riskengine-relevance"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

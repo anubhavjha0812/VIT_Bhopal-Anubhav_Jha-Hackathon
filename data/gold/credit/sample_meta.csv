@@ -1,0 +1,244 @@
+headline_id,event_date,target_company,source,source_set,period,rule_class,impact,fired,gate_reason,stratum
+563b9f516a90604c,2020-06-01,BAC,tweets,replay,replay window 2020,Credit downgrade,8,True,fired: rating agency,S1
+1b1c58e7a280ba5e,2010-09-23,NFLX,news,history,2010-2016,Default,10,True,fired: 2 sources in 24 h,S1
+16bd4255e47faced,2020-06-02,GOOGL,tweets,replay,replay window 2020,Default,6,False,not the obligor,S2
+0fb219e184c76b91,2012-08-09,BAC,news,history,2010-2016,,4,False,not credit,S3
+a1c1c7a0f67f725c,2012-05-11,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+9d9b6f43ad673c7a,2014-03-04,KO,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+4f061aba9f55a20b,2011-05-03,BAC,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+9b137f6202d8c085,2012-10-09,NFLX,news,history,2010-2016,Credit downgrade,8,True,fired: rating agency,S1
+642d285b6b492309,2012-05-11,JPM,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+b35e4cfcc2b65449,2012-08-02,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+1cbb04ec6794e2f7,2010-03-18,JPM,news,history,2010-2016,,3,False,not credit,S3
+a650dc0ef41d8c67,2011-08-08,BAC,news,history,2010-2016,,3,False,not credit,S4
+6ccad44924280456,2012-07-26,AAPL,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+6e964557351779f7,2016-06-14,MSFT,news,history,2010-2016,Credit downgrade,8,True,fired: rating agency,S1
+3b150d8cb80efcac,2011-05-03,BAC,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+df36a3ea94ed87ff,2020-05-21,AAPL,news,replay,replay window 2020,,3,False,not credit,S4
+6863ee8d0cbb94d3,2014-11-22,NFLX,news,history,2010-2016,,3,False,not credit,S4
+aecbe397aa86ad19,2012-02-13,MSFT,news,history,2010-2016,,4,False,not credit,S4
+c3be3dc786f9b818,2011-06-02,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+f31609f2e7643476,2020-04-12,AMD,tweets,replay,replay window 2020,Default,8,False,not the obligor,S2
+818b0d7bdea8c72f,2016-06-14,MSFT,news,history,2010-2016,Credit downgrade,8,True,fired: rating agency,S1
+835d9665f5b6c16e,2015-02-27,KO,news,history,2010-2016,Credit downgrade,8,True,fired: rating agency,S1
+bff832225bac359a,2011-09-30,JPM,news,history,2010-2016,,4,False,not credit,S3
+3319ec9a5db856c1,2013-01-30,AMD,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+6eccd6147ba3688d,2011-10-21,BAC,news,history,2010-2016,,3,False,not credit,S4
+5f48d6b06211390a,2011-05-27,BAC,news,history,2010-2016,,4,False,not credit,S4
+559ca0b996b2130a,2012-06-07,MSFT,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+ec370984ff57ce2d,2020-04-21,KO,tweets,replay,replay window 2020,,3,False,not credit,S4
+172fcc618c87b124,2014-10-16,AAPL,news,history,2010-2016,Default,7,False,impact ≤ 7,S2
+3465a9f2b33ec333,2011-09-21,BAC,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+8b4981600b6242d0,2014-10-10,AAPL,news,history,2010-2016,Default,7,False,impact ≤ 7,S2
+b6fd3ef031a76a0d,2012-05-11,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+a10ad25cd9bb87f2,2012-02-01,JPM,news,history,2010-2016,Default,9,False,"1 source, no agency",S2
+e420202b18513af3,2010-10-22,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+df605783b65ef853,2016-05-26,KO,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+1642584679054c9f,2013-02-28,JPM,news,history,2010-2016,Default,7,False,impact ≤ 7,S2
+803c47868783b187,2012-10-19,AMD,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+63f57c0a683422b4,2018-10-18,NFLX,news,history,2017 - 8 Apr 2020,Credit downgrade,10,True,fired: rating agency,S1
+e62813e47030846b,2020-06-06,BAC,tweets,replay,replay window 2020,,4,False,not credit,S3
+1549629efa0ed4e4,2016-06-13,MSFT,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+83c33078f2ad30ef,2014-07-01,JPM,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+ca224c8633b3e048,2012-07-31,MSFT,news,history,2010-2016,,3,False,not credit,S3
+33e033c58615095f,2013-12-10,BA,news,history,2010-2016,,4,False,not credit,S4
+8d371c2e845d3e73,2011-10-19,BAC,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+f9f44610acbb434f,2014-10-09,AAPL,news,history,2010-2016,Default,9,True,fired: 2 sources in 24 h,S1
+f06ef0a4ea91ac15,2013-10-23,JPM,news,history,2010-2016,Default,8,False,"1 source, no agency",S2
+e93853d5185a3ca2,2016-03-02,JPM,news,history,2010-2016,Default,9,False,"1 source, no agency",S2
+24025b19a775623e,2011-06-02,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+453abba74ce25188,2014-03-24,JPM,news,history,2010-2016,,3,False,not credit,S4
+25cb51ce83b3b4e1,2020-06-07,AMZN,tweets,replay,replay window 2020,,2,False,not credit,S4
+ada7fd301ce92c1d,2012-04-17,KO,news,history,2010-2016,,4,False,not credit,S4
+aff444af1ed913dc,2013-09-26,JPM,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+2a828213ca8f39bf,2015-10-05,XOM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+1bcbe2ec341f87e2,2016-07-26,MSFT,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+2f28115a866496e5,2020-04-29,AMZN,tweets,replay,replay window 2020,,2,False,not credit,S4
+e0d9f0410f8a18f7,2020-03-06,GOOGL,news,history,2017 - 8 Apr 2020,Default,9,False,"1 source, no agency",S2
+75c584ecf1e391f6,2012-01-12,BAC,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+5f96d5fca16ec06f,2011-08-03,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+24c5d870d59916ca,2020-04-18,JPM,tweets,replay,replay window 2020,Default,6,False,impact ≤ 7,S2
+fdc1158bb2d392fc,2012-10-18,XOM,news,history,2010-2016,,3,False,not credit,S4
+82594be29e87a889,2020-04-15,JPM,tweets,replay,replay window 2020,Default,5,False,impact ≤ 7,S2
+5afa2fe04825a04e,2012-01-13,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+dbfe48721383cdc4,2011-01-27,JPM,news,history,2010-2016,Default,10,False,"1 source, no agency",S2
+664a662ae5e58510,2015-03-25,KO,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+36be63c76d3907f9,2012-08-13,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+2334a506853bd71c,2011-09-21,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+671d0a2d78d91e2a,2016-06-14,MSFT,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+845aee75463fb9de,2014-09-04,TSLA,news,history,2010-2016,,3,False,not credit,S4
+d90841f041e8dc24,2020-03-06,GOOGL,news,history,2017 - 8 Apr 2020,,3,False,not credit,S4
+06c615d9f69637ad,2012-01-24,NVDA,news,history,2010-2016,,3,False,not credit,S4
+f706d46ca2f70c1d,2011-07-14,JPM,news,history,2010-2016,,3,False,not credit,S3
+8acdaf646e4651fe,2011-04-27,META,news,history,2010-2016,,3,False,not credit,S4
+a6de69885b7d1490,2014-10-16,BAC,news,history,2010-2016,,4,False,not credit,S3
+3596b1f50236324c,2011-06-02,BAC,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+788898580a7ebd5c,2016-03-15,AMD,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+cf9be19293ab4e26,2011-11-29,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+93a9ad1e5f6eb5e0,2011-06-02,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+46f8c127b5309a5c,2020-06-09,BA,news,replay,replay window 2020,,4,False,not credit,S3
+d4a7daf37afee533,2011-01-28,BA,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+c88009f871394fd8,2020-02-27,BAC,news,history,2017 - 8 Apr 2020,,4,False,not credit,S3
+0d60111bd85036a7,2014-07-21,JPM,news,history,2010-2016,,3,False,not credit,S3
+53dca86fa940b52d,2013-08-07,JPM,news,history,2010-2016,,4,False,not credit,S3
+686b8174344e4e8e,2020-05-06,DIS,tweets,replay,replay window 2020,Credit downgrade,9,True,fired: rating agency,S1
+9d4909c2deacfd31,2014-02-21,KO,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+1cae8f32b44a7346,2010-11-30,MSFT,news,history,2010-2016,,3,False,not credit,S4
+221b8dd8b5f2fd5b,2014-10-21,AAPL,news,history,2010-2016,,4,False,not credit,S3
+b35e5ae648ad19e8,2018-10-15,JPM,news,history,2017 - 8 Apr 2020,Default,9,False,not the obligor,S2
+f95b3d73db297da9,2020-04-25,AAPL,tweets,replay,replay window 2020,,2,False,not credit,S3
+3a194369174837c6,2015-09-10,AMZN,news,history,2010-2016,,3,False,not credit,S4
+9c57d8fbc90b14d9,2010-06-11,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+f7556d670673b91c,2013-07-18,AAPL,news,history,2010-2016,,3,False,not credit,S3
+a97bcb15f8daee39,2015-10-23,KO,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+219a658771ea9986,2010-02-25,JPM,news,history,2010-2016,,4,False,not credit,S3
+0cea0b73b1a71f6c,2011-03-07,KO,news,history,2010-2016,Credit downgrade,7,False,not the obligor,S2
+1ec53c2c80a4a8ce,2011-12-20,JPM,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+df5cab0a689784e7,2011-07-15,BAC,news,history,2010-2016,,3,False,not credit,S3
+1eff5f9ea0dc4c66,2012-05-11,JPM,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+343171c8fde819bd,2013-04-21,JPM,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+856e4c1a2817270c,2014-10-07,AAPL,news,history,2010-2016,Default,10,False,"1 source, no agency",S2
+37dc24db11d3fda6,2017-04-18,NFLX,news,history,2017 - 8 Apr 2020,,3,False,not credit,S4
+f2c3be9c22896713,2011-02-23,AAPL,news,history,2010-2016,Default,9,False,"1 source, no agency",S2
+5f5b71e3ee7dc3c6,2010-07-19,JPM,news,history,2010-2016,Default,9,False,"1 source, no agency",S2
+96656720d24fda27,2019-11-12,DIS,news,history,2017 - 8 Apr 2020,Default,6,False,impact ≤ 7,S2
+c5853273c27c6b4c,2014-10-07,AAPL,news,history,2010-2016,Default,10,True,fired: 2 sources in 24 h,S1
+070fca00c3717020,2016-04-27,AAPL,news,history,2010-2016,,3,False,not credit,S3
+569517914c15d06c,2012-08-16,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+baaa2e0b20ab3d32,2016-04-28,BA,news,history,2010-2016,,4,False,not credit,S3
+99ceb1ddc09a80ad,2012-12-21,AAPL,news,history,2010-2016,,3,False,not credit,S3
+aaee5be07b88b0a4,2011-04-01,JPM,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+10ffac2bdf2763fa,2018-03-26,KO,news,history,2017 - 8 Apr 2020,,3,False,not credit,S3
+8a41b9ea3ed2ecb8,2015-08-25,BAC,news,history,2010-2016,,4,False,not credit,S3
+12c50ad29e9a3897,2019-07-15,NFLX,news,history,2017 - 8 Apr 2020,,4,False,not credit,S3
+e76279598f6c0f32,2014-09-16,NFLX,news,history,2010-2016,,3,False,not credit,S4
+86ec7b64c084fa35,2011-11-29,BA,news,history,2010-2016,Default,9,True,fired: 2 sources in 24 h,S1
+7d2f256a94593140,2015-03-28,BAC,news,history,2010-2016,Default,7,False,impact ≤ 7,S2
+d25452b4fd6993b5,2013-06-11,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+47944230437761c8,2015-03-25,JPM,news,history,2010-2016,Credit downgrade,9,False,"1 source, no agency",S2
+8a3f3bcea0c3d909,2016-12-02,NFLX,news,history,2010-2016,Default,7,False,not the obligor,S2
+ef1c83354b41a3f9,2010-06-17,JPM,news,history,2010-2016,,4,False,not credit,S3
+4e366acaa00df9df,2020-04-30,META,news,replay,replay window 2020,,4,False,not credit,S4
+3830262f3fc4c2a9,2020-04-24,BAC,news,replay,replay window 2020,Default,6,False,not the obligor,S2
+cd64e755e8863a26,2010-05-24,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+033935d821021237,2020-06-04,NFLX,tweets,replay,replay window 2020,,2,False,not credit,S4
+8d68d2feedba5ac0,2016-01-12,GOOGL,news,history,2010-2016,,3,False,not credit,S3
+b023eea767d0b89a,2013-08-20,JPM,news,history,2010-2016,,3,False,not credit,S3
+f8b5ab8b5f87d812,2020-04-23,DIS,tweets,replay,replay window 2020,Credit downgrade,7,False,impact ≤ 7,S2
+538577d6597ee744,2014-04-02,KO,news,history,2010-2016,,4,False,not credit,S3
+e539c2f59890dc46,2014-05-27,AMD,news,history,2010-2016,Default,8,False,"1 source, no agency",S2
+12affbf7ad784071,2013-01-17,NFLX,news,history,2010-2016,,3,False,not credit,S4
+0d5946fa141de9a2,2012-02-16,BAC,news,history,2010-2016,,3,False,not credit,S3
+7925e6cb4c949706,2010-12-01,DIS,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+c2e0ba312e76f655,2012-07-27,AAPL,news,history,2010-2016,Default,7,False,impact ≤ 7,S2
+af0b8c640b8ca45d,2011-02-16,BAC,news,history,2010-2016,,4,False,not credit,S3
+23630a5a98c07462,2010-10-22,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+91796aef2a1d7e13,2020-04-12,AAPL,tweets,replay,replay window 2020,Default,8,False,not the obligor,S2
+f18f00392aed3f70,2012-10-16,KO,news,history,2010-2016,,4,False,not credit,S3
+427f53d36f01fd55,2014-07-01,JPM,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+b3cd207d4ebe8fa4,2020-05-05,AAPL,tweets,replay,replay window 2020,,2,False,not credit,S3
+17afb4bd4ae22b54,2016-02-19,JPM,news,history,2010-2016,,4,False,not credit,S4
+180ab69a0d00dad1,2020-04-23,DIS,tweets,replay,replay window 2020,Credit downgrade,6,False,impact ≤ 7,S2
+38b7fc27ae659d47,2020-05-29,XOM,tweets,replay,replay window 2020,,2,False,not credit,S3
+beaa9de0786c9181,2020-04-10,AMZN,tweets,replay,replay window 2020,,4,False,not credit,S4
+cf54a851acac5bb0,2012-12-11,NFLX,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+b788a28739b2488d,2015-07-14,JPM,news,history,2010-2016,,4,False,not credit,S3
+603e6e894177896a,2010-09-23,NFLX,news,history,2010-2016,Default,10,False,"1 source, no agency",S2
+230d2b594c564338,2012-07-13,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+9081769b130dd2e1,2018-05-02,AAPL,news,history,2017 - 8 Apr 2020,,3,False,not credit,S3
+3b06c4352c4204b1,2011-11-29,BA,news,history,2010-2016,Default,7,False,impact ≤ 7,S2
+127e05b49523943c,2010-09-23,NFLX,news,history,2010-2016,Default,10,True,fired: 2 sources in 24 h,S1
+59140fe9d480a0d2,2012-02-17,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+25d48ca2f4e77cfa,2011-09-21,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+f560fe3ed0f37a50,2013-06-11,BAC,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+1542952d31e7e013,2011-07-27,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+856c4c99cda38343,2020-05-04,BA,tweets,replay,replay window 2020,,5,False,not credit,S3
+0d8e46c23ac47777,2011-08-03,AAPL,news,history,2010-2016,,3,False,not credit,S4
+0ec1c626f0581682,2020-04-17,MSFT,tweets,replay,replay window 2020,,3,False,not credit,S3
+9cb9be1c40cc1dd3,2011-11-30,BA,news,history,2010-2016,Default,9,True,fired: 2 sources in 24 h,S1
+bee1488a7d606bad,2011-08-09,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+d9a1d2ee29517ff4,2012-10-18,AMD,news,history,2010-2016,,3,False,not credit,S4
+015d7ecfbc1848d3,2010-04-21,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+985a9e5ac8067f84,2011-01-28,BA,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+31d46de6d2a09528,2012-07-24,AAPL,news,history,2010-2016,Default,8,False,"1 source, no agency",S2
+b704a748e00259c1,2020-03-19,DIS,news,history,2017 - 8 Apr 2020,,3,False,not credit,S3
+475209bebb35156f,2013-05-03,BAC,news,history,2010-2016,,3,False,not credit,S3
+0763ace7a971972e,2020-04-18,JPM,tweets,replay,replay window 2020,Default,6,False,impact ≤ 7,S2
+81285eadd7745990,2015-04-14,AAPL,news,history,2010-2016,,3,False,not credit,S3
+fd3460a355332483,2011-06-09,JPM,news,history,2010-2016,,4,False,not credit,S3
+3f995a5fead5cb25,2015-04-21,AMD,news,history,2010-2016,Credit downgrade,8,True,fired: rating agency,S1
+29afc3a2c65c02e1,2019-01-11,NFLX,news,history,2017 - 8 Apr 2020,,4,False,not credit,S3
+1666d76183c89277,2013-08-12,AAPL,news,history,2010-2016,,4,False,not credit,S4
+b184cadf200617d5,2015-02-06,JPM,news,history,2010-2016,,4,False,not credit,S3
+099f03c3034a1c98,2015-12-02,BAC,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+0d474efdac047a09,2012-02-23,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+d4977ccac4584fb7,2014-04-08,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+3ae9c3730e893225,2011-08-16,GOOGL,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+25833e11d99ca516,2014-11-26,BAC,news,history,2010-2016,Credit downgrade,8,True,fired: rating agency,S1
+62c65c1ed1fa57ee,2015-11-20,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+70ad22d166e12df1,2020-04-23,DIS,tweets,replay,replay window 2020,Credit downgrade,8,True,fired: rating agency,S1
+39d41760e75b6fc8,2019-07-29,BA,news,history,2017 - 8 Apr 2020,Credit downgrade,10,True,fired: rating agency,S1
+92efe2ce0415aaa6,2020-01-21,JPM,news,history,2017 - 8 Apr 2020,,3,False,not credit,S3
+f12230dbdd75079d,2020-06-02,MSFT,tweets,replay,replay window 2020,Default,6,False,not the obligor,S2
+798b0672e81aba40,2019-01-10,NVDA,news,history,2017 - 8 Apr 2020,,3,False,not credit,S3
+407b7f2116cc777a,2012-02-15,AAPL,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+4f5f0052c11c4481,2011-11-29,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+0acdd86d2efbcd33,2019-08-19,NFLX,news,history,2017 - 8 Apr 2020,,4,False,not credit,S4
+413e335287f6fd35,2011-04-05,JPM,news,history,2010-2016,,3,False,not credit,S3
+fa93258fbf1e6484,2010-04-14,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+890051a277dc1607,2011-11-30,BA,news,history,2010-2016,Default,7,False,impact ≤ 7,S2
+4eee89cae506d200,2020-04-22,XOM,tweets,replay,replay window 2020,,2,False,not credit,S4
+93ff4106e9550b9c,2014-04-08,BA,news,history,2010-2016,,3,False,not credit,S3
+ac8f86dcead6b002,2011-07-08,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+2fee01e304fb56d4,2013-06-11,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+61379bdba4bc6d3e,2011-03-11,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+ec1b2470d728ed62,2012-10-26,AMD,news,history,2010-2016,Credit downgrade,8,True,fired: rating agency,S1
+69b40720e1998e5c,2011-11-30,BA,news,history,2010-2016,Default,9,True,fired: 2 sources in 24 h,S1
+37d0894daf124ce4,2016-04-27,XOM,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+94e870846d99f06f,2014-12-15,KO,news,history,2010-2016,,3,False,not credit,S4
+15b19b933c78814a,2011-08-05,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+06bba038d52c550a,2014-10-16,AAPL,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+8513543d010eff0a,2019-10-15,JPM,news,history,2017 - 8 Apr 2020,,3,False,not credit,S3
+a4d3637432136e3a,2012-10-26,AMD,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2
+3caf5602cef228d3,2011-05-03,BAC,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+4391b6c6eafee3a0,2015-04-10,MSFT,news,history,2010-2016,,4,False,not credit,S3
+35d1cc4e19a32a16,2014-10-10,AAPL,news,history,2010-2016,Default,7,False,impact ≤ 7,S2
+ef324d62320b045d,2018-09-17,JPM,news,history,2017 - 8 Apr 2020,Default,6,False,not the obligor,S2
+e6905e2b7e6423a6,2014-10-09,AAPL,news,history,2010-2016,Default,9,True,fired: 2 sources in 24 h,S1
+6b31b1fd5393a9e9,2011-11-30,BA,news,history,2010-2016,Default,9,True,fired: 2 sources in 24 h,S1
+9a873ccbd674c646,2010-01-14,JPM,news,history,2010-2016,,4,False,not credit,S3
+bbaa41a59e48bdb8,2020-04-09,GOOGL,tweets,replay,replay window 2020,,3,False,not credit,S4
+4a86fe34716bbd1e,2020-01-09,AMD,news,history,2017 - 8 Apr 2020,,4,False,not credit,S3
+516e930cd6d4678c,2013-05-24,JPM,news,history,2010-2016,,3,False,not credit,S3
+0325c4cee26d7b11,2010-12-20,BAC,news,history,2010-2016,,4,False,not credit,S3
+4277ec5f01efe2ba,2012-12-14,BAC,news,history,2010-2016,Default,9,True,fired: 2 sources in 24 h,S1
+a70c474eca7e7086,2020-03-19,TSLA,news,history,2017 - 8 Apr 2020,,3,False,not credit,S3
+a1d9ef661ffe5d19,2020-04-26,AAPL,tweets,replay,replay window 2020,,2,False,not credit,S4
+231e0c937a5d6aad,2020-04-10,BA,tweets,replay,replay window 2020,Credit downgrade,8,True,fired: rating agency,S1
+75b91b0e4ca12f3b,2012-02-17,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+a0807ce672195362,2012-05-11,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+1c908afa91e9e4aa,2011-07-01,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+bc1253e6f0b53e3f,2015-11-03,AMZN,news,history,2010-2016,,3,False,not credit,S4
+a3693177caa49d30,2020-04-15,AMZN,tweets,replay,replay window 2020,,2,False,not credit,S3
+a3969694778d7ee5,2020-05-05,BAC,tweets,replay,replay window 2020,,4,False,not credit,S3
+64254cadb36b7334,2012-04-16,GOOGL,news,history,2010-2016,,3,False,not credit,S4
+f93d479e4ef81b29,2010-03-01,AMD,news,history,2010-2016,,3,False,not credit,S4
+9b80e0d12ef9114b,2020-04-25,BAC,tweets,replay,replay window 2020,,3,False,not credit,S3
+f1bc22290d730bba,2012-05-11,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+7efc2389cddc963b,2011-02-22,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+6caf766c390fbb8f,2015-05-12,GOOGL,news,history,2010-2016,,3,False,not credit,S3
+df1957eba6ee1830,2016-02-09,BAC,news,history,2010-2016,Default,7,False,not the obligor,S2
+6042be7acbbfb842,2010-09-24,NFLX,news,history,2010-2016,Default,10,True,fired: 2 sources in 24 h,S1
+7786f3da37578ba5,2016-10-13,BAC,news,history,2010-2016,,4,False,not credit,S3
+18d3331ad24b9417,2011-08-23,BAC,news,history,2010-2016,,3,False,not credit,S3
+9f4a55cd4158a34f,2011-06-23,JPM,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+224f533318d24547,2012-02-01,JPM,news,history,2010-2016,Credit downgrade,10,True,fired: rating agency,S1
+068a9babd75222b6,2011-09-16,BAC,news,history,2010-2016,Default,6,False,impact ≤ 7,S2
+cd1324aa7013e813,2010-06-29,KO,news,history,2010-2016,,3,False,not credit,S4
+c1a1a51b61d2d1cf,2011-09-21,BAC,news,history,2010-2016,Credit downgrade,9,True,fired: rating agency,S1
+4e15fcfb841a2fd2,2020-04-09,DIS,tweets,replay,replay window 2020,,3,False,not credit,S4
+d1c02eec4e14783f,2019-01-07,JPM,news,history,2017 - 8 Apr 2020,,4,False,not credit,S3
+2c275f69a1e10027,2020-06-08,KO,tweets,replay,replay window 2020,,2,False,not credit,S3
+fe5530dd64b9c66a,2012-02-02,JPM,news,history,2010-2016,Default,10,True,fired: 2 sources in 24 h,S1
+cc420ff4be9cfebc,2019-08-26,JPM,news,history,2017 - 8 Apr 2020,,3,False,not credit,S4
+9864205e26343252,2010-06-03,BA,news,history,2010-2016,Credit downgrade,7,False,impact ≤ 7,S2

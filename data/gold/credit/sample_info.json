@@ -1,0 +1,20 @@
+{
+  "rule": "docs/DECISIONS.md E23",
+  "seed": 23,
+  "pool_pairs": 126735,
+  "stratum_population": {
+    "S1": 83,
+    "S2": 107,
+    "S3": 5278,
+    "S4": 121267
+  },
+  "stratum_sampled": {
+    "S1": 83,
+    "S2": 60,
+    "S3": 60,
+    "S4": 40
+  },
+  "e3_headlines_excluded": 300,
+  "gate_snapshot": "data/outputs/e23_gate_snapshot.json",
+  "blind_sha256": "67936b4f8634c2818a6c63fe74a128d5aa70a00c18905dfd567f76f55c60b01d"
+}

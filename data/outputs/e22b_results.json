@@ -1,0 +1,107 @@
+{
+  "rule": "docs/DECISIONS.md E22b",
+  "horizon_trading_days": 20,
+  "samples": {
+    "primary (history 2010 \u2013 8 Apr 2020)": {
+      "alerts_fired": 79,
+      "dropped": {
+        "within 20 trading days of an earlier alert": 39
+      },
+      "n": 40,
+      "negative": 22,
+      "share_negative": 0.55,
+      "base_rate_p0": 0.47835719814241495,
+      "binomial_p_one_sided": 0.2269003134605383,
+      "mean_adj_return": -0.016939634991895235,
+      "mean_adj_return_ci95": [
+        -0.04125284290035677,
+        0.006053536720266416
+      ],
+      "baseline_mean_adj_return": 0.0027926803295863856,
+      "spearman_predicted_loss_vs_return": 0.04873157408893549,
+      "spearman_p": 0.7652377995119046,
+      "verdict": "FAIL"
+    },
+    "secondary (replay window, seen)": {
+      "alerts_fired": 4,
+      "dropped": {
+        "within 20 trading days of an earlier alert": 1
+      },
+      "n": 3,
+      "negative": 2,
+      "share_negative": 0.6666666666666666,
+      "base_rate_p0": 0.481811145510836,
+      "binomial_p_one_sided": 0.47272875326478225,
+      "mean_adj_return": -0.02950372180156836,
+      "mean_adj_return_ci95": [
+        -0.17813244409712092,
+        0.11207212869125756
+      ],
+      "baseline_mean_adj_return": 0.00031815582048806153,
+      "spearman_predicted_loss_vs_return": 0.5,
+      "spearman_p": 0.6666666666666666
+    }
+  },
+  "baseline_by_company": {
+    "AAPL": {
+      "base_rate": 0.3924,
+      "base_mean": 0.0114
+    },
+    "AMD": {
+      "base_rate": 0.4702,
+      "base_mean": 0.0069
+    },
+    "AMZN": {
+      "base_rate": 0.3998,
+      "base_mean": 0.0153
+    },
+    "BA": {
+      "base_rate": 0.4439,
+      "base_mean": 0.0011
+    },
+    "BAC": {
+      "base_rate": 0.5286,
+      "base_mean": -0.0035
+    },
+    "DIS": {
+      "base_rate": 0.4729,
+      "base_mean": 0.0033
+    },
+    "GOOGL": {
+      "base_rate": 0.4567,
+      "base_mean": 0.0044
+    },
+    "JPM": {
+      "base_rate": 0.4787,
+      "base_mean": 0.001
+    },
+    "KO": {
+      "base_rate": 0.5085,
+      "base_mean": -0.0008
+    },
+    "META": {
+      "base_rate": 0.4166,
+      "base_mean": 0.011
+    },
+    "MSFT": {
+      "base_rate": 0.4102,
+      "base_mean": 0.0083
+    },
+    "NFLX": {
+      "base_rate": 0.4056,
+      "base_mean": 0.0239
+    },
+    "NVDA": {
+      "base_rate": 0.4238,
+      "base_mean": 0.0152
+    },
+    "TSLA": {
+      "base_rate": 0.4675,
+      "base_mean": 0.0215
+    },
+    "XOM": {
+      "base_rate": 0.5944,
+      "base_mean": -0.0081
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-history-sentiment",
+  "title": "sp-riskengine-history-sentiment",
+  "code_file": "score_history.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": ["anubhavjha0812/sp-riskengine-history"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

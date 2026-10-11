@@ -365,6 +365,680 @@ afterwards to improve a score. Dates are when the rule was fixed.
 - **Tests:** the training set never includes a window ending after the origin; the naive equals
   the mean of earlier moves; on a synthetic mean-reverting series the model beats the naive.
 
+## E16. Nine learned event classes (fixed 2026-10-10, before any training or scoring)
+
+- **Why:** with the E2 table the model learns only Geopolitical, Macroeconomic, M&A and Other.
+  "Product launch" is never predicted (the topic data has no such class: 134 launch texts in the
+  demo window by keywords, 0 by the model), and earnings, analyst, legal and personnel news all
+  fall into Other. The TFN topics already separate these, so the mapping is widened.
+- **Classes:** 9 learned + 3 credit rule classes = 12. "Product launch" is renamed
+  "Product news" (the TFN topic is any company or product news, not only launches).
+- **Mapping** (fixed now, never changed after seeing results; all 20 TFN topics):
+
+  | TFN-topic label | Our class |
+  |---|---|
+  | Politics | Geopolitical |
+  | Fed \| Central Banks, Macro, Treasuries \| Corporate Debt, Energy \| Oil, Gold \| Metals \| Materials, Currencies | Macroeconomic |
+  | M&A \| Investments, IPO | M&A |
+  | Company \| Product News | Product news |
+  | Earnings, Dividend | Earnings |
+  | Analyst Update | Analyst rating |
+  | Legal \| Regulation | Legal/Regulatory |
+  | Personnel Change | Management change |
+  | General News \| Opinion, Markets, Stock Commentary, Stock Movement, Financials | Other |
+
+- **Credit classes:** Default, Credit downgrade and Covenant breach stay the E13 rules (frozen)
+  and override the model, as now. They are scored later on the gold set.
+- **Gold set (E3):** not labelled yet, so its label list grows from 8 to these 12 classes. The
+  sample itself is unchanged.
+- **Impact severity** (E6 formula; old classes unchanged, fixed before anything is re-scored):
+  Product news 4 (as Product launch), Earnings 5, Analyst rating 4 (an opinion on the stock, not
+  on credit), Legal/Regulatory 6 (fines and lawsuits reach cash, like Geopolitical and Macro),
+  Management change 5. Only credit classes can trigger Module B, so these move impact and
+  Module A only.
+- **Keyword baseline:** rules for the new classes, written before scoring. Order (first match
+  wins): Default, Credit downgrade, Covenant breach, Analyst rating (the E13 stock-rating rule),
+  M&A, Legal/Regulatory (lawsuit, sues, SEC, antitrust, probe, fine, court, settlement),
+  Management change (CEO, CFO or chief executive with steps down, resigns, appoints or names),
+  Earnings (earnings, EPS, beats or misses estimates, quarterly results, dividend, guidance),
+  Geopolitical, Macroeconomic, Product news (the old launch rule), else Other.
+- **Training:** the E5 recipe (bge-small, max length 64, batch 32, AdamW lr 5e-5, 4 epochs, 10%
+  warm-up, seed 42, the E5 dev split) on `topic_train.csv` with the E10 leak filter (texts that
+  match an E2 test text, or repeat with different labels, are dropped). Two candidates:
+  (A) a 9-class head trained on the mapped labels; (B) a 20-topic head, mapped after prediction.
+  The higher dev 9-class macro-F1 wins; within 0.01, (A).
+- **int8:** the winner is exported as in E9 and used only if its test accuracy is within 1 point
+  of the full-precision model (as E11). Both are reported.
+- **Test:** the E2 test set (4,117) under this mapping, scored once per model: keyword baseline,
+  the current engine model (E11 int8, 20 topics remapped; it was trained with the 999 leaked
+  texts found in E10, so its scores flatter it), the new model and its int8 version. Metrics:
+  accuracy, macro-F1 over the 9 classes, per-class precision, recall and F1, with 95% bootstrap
+  intervals (1,000 resamples, seed 0) for accuracy, macro-F1 and each class's F1.
+- **Pass rule** (on the model the engine would use): (a) Product news F1 ≥ 0.85, and
+  (b) Geopolitical, Macroeconomic and M&A each lose at most 2 F1 points against the current
+  engine model under this same mapping. The 9-class macro-F1 is reported as it comes; it is not
+  comparable to the 4-class E2 figures.
+- **Engine:** if E16 passes, the new model replaces the E11 topic model. If it fails, the engine
+  keeps the E11 model with this 9-class mapping. Either way the result goes into the README.
+
+## E17. Longer history for Module A (fixed 2026-10-10, before any label or return is seen)
+
+- **Why:** Module A has only been tested on the 43-day replay window, the one period with both news
+  and tweets. That is too short to tell skill from luck. Our FNSPID slice (headlines filed under
+  our 15 symbols) is thin before 2017 (289 in 2010, 1,245 in 2016), but the same file has 17,000
+  to 37,000 headlines a year that name one of our companies under another symbol.
+- **Name-linked headlines:** `fetch_fnspid --by-name` keeps a headline filed under another symbol
+  when it names one of our companies (`Linker`): 262,927 such rows. A sample of 100 (seed 7) showed
+  about half only mention the company. The relevance rules in `ingest/relevance.py` (sha256
+  `adc911bc335fd87d…`) were written from that sample and frozen before the samples below were
+  drawn. In order: not English (or mis-encoded), another company carrying the name (per-company
+  veto list), fund notice, holdings list, market list, former employer, for JPM/BAC also bank
+  conference and bank as analyst (E12 rule plus research-desk patterns), and the company not named
+  within the first 6 words. Headlines filed under our own symbol keep only the language rule.
+- **Measuring the rules (labels never train anything):**
+  - S1: 200 (headline, company) pairs drawn at random from all name-linked pairs dated 2010-01-01
+    to 2020-06-10, before the rules, seed 17, excluding the 100 design headlines.
+  - S2: 100 pairs drawn the same way from headlines filed under our own symbol, excluding the
+    gold-set headlines (E3).
+  - The label file shows only id, company and headline: no rule outcome, no sentiment, no price.
+  - Label: is the headline about this company, news that matters for its stock (Y/N)? Three
+    open-licence models label each pair with one fixed prompt, scored by the next-token
+    probability of Y vs N: Qwen3-8B (Apache 2.0), OLMo-2-1124-7B-Instruct (Apache 2.0) and
+    Phi-4-mini-instruct (MIT). The majority is the label. No closed model is used, so anyone can
+    rebuild the labels with `notebooks/relevance_labels/`.
+  - Amended 2026-10-10, after the first labelling run and before any precision was computed:
+    OLMo-2 never answered Y (its Y probability was below 0.07 on all 300 pairs), so reading the
+    next-token probability failed for it. All three models now answer by greedy generation of up
+    to 4 tokens, read as the first Y or N; the next-token probability is the fallback when neither
+    appears. A labeller that answers Y on fewer than 5% or more than 95% of pairs is reported as
+    degenerate and left out; the label then needs both remaining models to agree, and pairs where
+    they disagree are marked unsure, reported, and added to the human audit.
+  - Human audit: 30 random labelled pairs (seed 0) checked by hand; agreement is reported.
+  - Metrics: precision before and after the rules, recall of the rules (correct pairs kept / all
+    correct pairs), each with a 95% Wilson interval, overall, by period (2010–2016, 2017–2020) and
+    for JPM+BAC vs the rest; S2 precision.
+  - Target: S1 precision after the rules ≥ 0.85, reported with its interval whatever it is. A
+    period is labelled "weak data" only if its precision after the rules is below 0.80.
+  - The rules do not change after the labels are seen. A change would need a new sample.
+- **History set:** headlines under our symbol (language rule only) plus name-linked pairs that pass
+  the rules, 2010-01-01 to 2020-06-10, rows where the company is the subject (E12). Sentiment from
+  the engine's fine-tuned bge-small sentiment model. A headline is usable from the first trading
+  day after its New York date (as Module A).
+  - Amended 2026-10-10, before any headline was scored: the ~172,000 headlines are scored on a
+    Kaggle GPU with the full-precision model (the engine runs its int8 copy, E9, which is CPU-only
+    and would take about an hour). The same job scores a random 5,000 with the int8 copy and
+    reports the correlation and sign agreement between the two (`notebooks/history_sentiment/`).
+- **Signal test (IC):** on each trading day with at least 5 companies that have a usable headline in
+  the last 3 trading days, the Spearman correlation across those companies between mean sentiment
+  and the next day's return. Mean daily IC per period, with a 95% moving-block bootstrap interval
+  (blocks of 20 days, 1,000 resamples, seed 0).
+- **Portfolio test:** Module A as now (tilt 0.5 per z-score, cap 15%, 3-day lookback, 5 bp
+  costs). Each day the universe is the companies with a close that day and the next; equal weight
+  is 1/n over that universe. Four candidates: rebalance every 1 or 5 trading days × weights moved
+  fully (λ = 1) or 20% of the way (λ = 0.2) to the target on rebalance days.
+- **Periods:** choose on 2010–2016 (dev), by Sharpe minus equal-weight Sharpe. Score the chosen
+  candidate once on 2017-01-01 to 2020-06-10 (test). The test period contains the replay window
+  (9 Apr – 10 Jun 2020) whose result was already seen, so the test is also reported without it.
+  Fresh test, scored once: equinxx tweets 30 Sep 2021 – 29 Sep 2022 (linked by their text),
+  prices from yfinance.
+- **Pass rules:** signal: test mean IC > 0 with the interval above 0. Portfolio: test Sharpe of the
+  chosen candidate above equal weight; the Sharpe difference is reported with a moving-block
+  interval, plus yearly return, volatility, drawdown and turnover.
+- **Effect of the rules:** IC and the chosen candidate are also run on symbol-only headlines and on
+  unfiltered name-linked headlines. Reported, never used to choose; the filtered set is primary.
+- **Engine:** if both tests pass, the chosen candidate becomes Module A's default and the replay is
+  re-reported. Otherwise Module A stays as it is and the README says the tilt has no proven edge.
+- **Leaks guarded:** no labels train a model; labellers never see returns; design and measure
+  samples are disjoint; gold-set headlines are excluded; dev and test years are separate.
+
+## E18. More public sentiment test sets (fixed 2026-10-11, before any of them is scored)
+
+- **Why:** E1 is one test set. Scores on the other widely used public sets let our engine be
+  compared with other published results on identical files, not only on our own choice of data.
+- **Sets** (each scored once per model, all rows unless dropped below):
+
+  | Set | File | Rows | Labels |
+  |---|---|---|---|
+  | Financial PhraseBank | `takala/financial_phrasebank` v1.0, `Sentences_50Agree` and `Sentences_AllAgree` | 4,846 / 2,264 | as given |
+  | FiQA-2018 sentiment | `pauri32/fiqa-2018`, test split | 150 | 0 → positive, 1 → neutral, 2 → negative (as E7) |
+  | NWGI | `oliverwang15/news_with_gpt_instructions`, test split, column `news` | 4,047 | any positive → positive, neutral, any negative → negative |
+
+- **Label caveat:** NWGI's labels were written by a GPT model, not by people. It is reported as
+  a check against a widely used set, never as human-verified accuracy.
+- **Models:** the engine model (E5 bge-small, int8, E9), its full-precision copy, the E5
+  fine-tuned FinBERT, the FinBERT baseline, and the E7 teacher, E7 student and E10 shared encoder. Prediction and metrics as E1
+  (argmax, accuracy, macro-F1, per-class F1, 95% bootstrap intervals with 1,000 resamples and
+  seed 0), plus E4 efficiency. Input is cut at the models' 64 tokens, as in the engine.
+- **Leak check (before any scoring):** each test text is compared with every text the model
+  was trained on: `sent_train.csv` for the E5 models; plus PhraseBank `Sentences_75Agree` and
+  FiQA train and validation for the E7 and E10 models; PhraseBank for both FinBERT models (their
+  base model was fine-tuned on it).
+  - Exact: the E7 normalised forms are equal.
+  - Near: cosine similarity of word 1–2-gram TF-IDF vectors (fit on the two sets) ≥ 0.9.
+  - Test rows with an exact or near match are counted, and the score is given on all rows and
+    on the clean rows. The clean rows are the primary figure.
+  - A model whose training set contains the test set itself is marked **in-sample**: the E7, E10
+    and both FinBERT models on PhraseBank. Their PhraseBank scores are shown with that mark and are
+    never counted as a result.
+- **Claims:** "higher than" another published figure is written only when the files, rows and
+  label mapping are the same and our 95% interval lies wholly above that figure. Otherwise the
+  result is "within the interval" (a tie), or the comparison is "not like for like".
+- **Engine:** these scores change nothing in the engine. They are reported as they come.
+- **Amendment (2026-10-11, after the engine rows, before any comparison with another
+  figure):** overlapping intervals are not by themselves a tie. When per-row predictions exist
+  for both sides (our own models, or a public model we can run on the same rows), the
+  comparison is a paired bootstrap of the macro-F1 difference on the same resampled rows
+  (1,000 resamples, seed 0): "higher" only if its 95% interval lies above 0, "lower" if below,
+  otherwise a tie. When only a published number exists, the rule above applies. Per-row
+  predictions are now saved (`data/outputs/e18_predictions.csv.gz`), and what was scored is
+  frozen in `data/outputs/e18_manifest.json` (dataset revisions, file and model hashes, library
+  versions). Changes to input length or training data are separate experiments, each fixed in
+  advance; E18 only measures.
+- **Results, engine models (2026-10-11).** Leak check: the E5 models saw 0 rows of all four
+  sets; the E7 and E10 models saw all of PhraseBank AllAgree, 3,461 of 4,846 PhraseBank 50Agree
+  rows and 1 FiQA test row; both FinBERT models saw all of PhraseBank. Macro-F1, 95% interval:
+
+  | Set | Engine (int8) | Full precision |
+  |---|---|---|
+  | PhraseBank AllAgree (2,264) | 0.866 [0.849, 0.881] | 0.880 [0.863, 0.895] |
+  | PhraseBank 50Agree (4,846) | 0.685 [0.670, 0.700] | 0.702 [0.686, 0.717] |
+  | FiQA-2018 test (150) | 0.573 [0.486, 0.649] | 0.602 [0.521, 0.676] |
+  | NWGI test (4,047, GPT labels) | 0.406 [0.390, 0.419] | 0.414 [0.399, 0.428] |
+
+  What this does and does not show:
+  - *Measured:* no training overlap, so these are clean held-out scores.
+  - *Reading:* a model trained only on tweets keeps 0.87 on the sentences annotators fully agree
+    on, a promising sign of transfer from tweets to news sentences.
+  - *Limitation:* long texts. NWGI is news paragraphs and the model reads 64 tokens; its
+    neutral class scores 0.28 F1.
+  - *Limitation:* FiQA has 150 rows, so its interval is about 16 points wide.
+  - *Limitation:* NWGI labels come from a GPT model; they are not a human-labelled benchmark.
+  - *Reading:* int8 costs 1–3 macro-F1 points against full precision on every set, for a
+    smaller CPU-only model.
+- **Results, all models (2026-10-11, Kaggle job `notebooks/e18_sentiment`, per-row predictions
+  saved; model weights checked against the repo's sha256).** The int8 rows were re-run there on
+  CPU and agree with the laptop run within 0.001 macro-F1; speed figures are the laptop's.
+  Macro-F1 on rows each model never saw in training (all rows unless a count is given):
+
+  | Model | PhraseBank AllAgree | PhraseBank 50Agree | FiQA test | NWGI test |
+  |---|---|---|---|---|
+  | Engine, int8 (E5, TFNS only) | 0.865 | 0.685 | 0.573 | 0.406 |
+  | Same, full precision | 0.880 | 0.702 | 0.602 | 0.414 |
+  | E5 fine-tuned FinBERT | in-sample | in-sample | 0.617 | 0.474 |
+  | FinBERT off the shelf | in-sample | in-sample | 0.562 | 0.554 |
+  | E7 distilled bge-small | in-sample | 0.637 (1,385) | 0.676 (149) | 0.541 |
+  | E7 DeBERTa teacher | in-sample | 0.657 (1,385) | 0.705 (149) | 0.574 |
+  | E10 shared encoder | in-sample | 0.652 (1,385) | 0.641 (149) | 0.558 |
+
+  Paired bootstrap, macro-F1 difference on the same clean rows (`data/outputs/e18_paired.json`):
+  - Full precision vs int8: +0.016 [0.010, 0.023] on 50Agree, +0.015 [0.008, 0.023] on AllAgree,
+    +0.008 [0.001, 0.015] on NWGI (all **higher**); FiQA +0.029 [−0.021, 0.082], a tie.
+  - Engine vs FinBERT off the shelf: FiQA tie (+0.011 [−0.080, 0.097]); NWGI **lower**
+    (−0.148 [−0.162, −0.133]).
+  - Engine vs the E7 distilled model, same size: FiQA **lower** (−0.106 [−0.190, −0.015]), NWGI
+    **lower** (−0.135 [−0.146, −0.123]). Engine vs teacher: lower on both.
+  - *Reading:* the engine model, trained on tweets only, transfers worse to news text than the
+    models that also saw PhraseBank and FiQA training rows. These test sets are not used to pick
+    a new engine model: any switch is a new experiment, chosen on a dev set fixed in advance.
+
+## E20. Choosing the engine sentiment model on news as well as tweets (fixed 2026-10-11, before any dev or new test row is scored)
+
+- **Why:** E7 chose the engine model on a tweet-only dev set, and the E5 model stayed. E18 then
+  showed it transfers worse to news than the E7 distilled model. The E18 sets have been seen,
+  so they cannot choose the model; this rule chooses on dev sets and confirms on a fresh test.
+- **Candidates** (no new training; both bge-small, so engine size and speed stay):
+  (A) the current engine model, E5, int8; (B) the E7 distilled student, exported to int8 with the
+  E9 recipe (opset 17, dynamic quantisation, no calibration). Decisions use the int8 versions,
+  because the engine runs int8.
+- **Dev sets** (never used for training or testing by either candidate):
+  - Tweets: the E7 dev split of `sent_train.csv` (10%, stratified, seed 42, minus the E7 drops).
+  - News: 2,000 rows drawn at random (seed 0) from the NWGI *train* split, labels folded as E18.
+    Rows that match either candidate's training texts (E18 leak check) are dropped first. Its
+    labels were written by a GPT model; it only steers the choice and is never reported as a
+    result.
+- **Rule:** score = mean of the two dev macro-F1s. B replaces A only if its score is higher by
+  more than 0.01 **and** its tweet-dev macro-F1 is no more than 0.01 below A's. Otherwise A stays.
+- **Confirmation (fresh test, scored once, after the choice):** SEntFiN 1.1 (Kaggle
+  `ankurzing/aspect-based-sentiment-analysis-for-financial-news`, `SEntFiN-v1.1.csv`), every
+  headline with exactly one entity, labelled with that entity's sentiment (positive, neutral,
+  negative). Human-labelled news headlines, never scored by us. Leak check as E18 first; seen
+  rows are dropped. Metrics as E18, plus the paired bootstrap of B − A.
+- **Switch:** the engine changes to B only if the rule picks B **and** the SEntFiN paired
+  difference is not "lower" (its interval is not wholly below 0). If the rule picks B but SEntFiN
+  says lower, A stays and both results are reported.
+- **Also reported, marked as already seen:** E1 (TFNS test) and the four E18 sets for B int8.
+- **Compute:** int8 export and scoring are small CPU jobs (about 6,000 texts per model).
+- **Results (2026-10-11, `data/outputs/e20_results.json`).** Dev macro-F1, int8:
+
+  | Dev set | A (engine) | B (distilled) |
+  |---|---|---|
+  | Tweets, TFNS dev (937) | 0.864 | 0.829 |
+  | News, NWGI train sample (2,000) | 0.404 | 0.523 |
+  | Mean | 0.634 | 0.676 |
+
+  B's mean is higher by 0.042, but it loses 0.035 on tweets (limit 0.01), so **A stays**.
+  Confirmation, SEntFiN single-entity headlines (7,903, 0 seen in training): A 0.745
+  [0.736, 0.755], B 0.765 [0.756, 0.774] macro-F1; paired B − A +0.020 [0.013, 0.027], higher.
+  The engine stays A, as the rule fixed before the test. Neither model is better on both tweets
+  and news; a model that is would be a new experiment.
+
+## E21. One sentiment model for tweets and news (fixed 2026-10-11, before any training, labelling or scoring)
+
+- **Why:** E20 showed a trade-off: the engine model (A) is better on tweets, the E7 distilled
+  model on news. E21 trains one bge-small model on both and confirms it on fresh tests.
+- **Fresh tests** (scored once, after the choice):
+  - **News, primary:** FinEntity (`yixuantt/FinEntity`, revision `e86e5451a1`, ODC-BY; Reuters
+    paragraphs with entity-level sentiment by human annotators). Kept: the 851 paragraphs whose
+    entities all carry the same label; that label is the paragraph's (Positive / Neutral /
+    Negative → positive / neutral / negative; the `tag` and `label` fields agree on every
+    entity). Leak check done before this rule was written: 0 exact and 0 near matches against
+    every set below (highest cosine 0.66).
+  - **Tweets, primary:** 300 tweets from the equinxx set (30 Sep 2021 – 29 Sep 2022), hand
+    labelled blind under the rules below. Eligible: after the engine's cleaning
+    (`load_equinxx`), linked to exactly one of our companies, at least 5 words. Sample: 30 per
+    company for the 10 companies with at least 50 eligible tweets (TSLA, AAPL, AMZN, META, AMD,
+    NFLX, GOOGL, DIS, BA, KO). Within a company, tweets are taken in a random order (seed 21),
+    skipping a tweet that matches (exact or cosine ≥ 0.9) any text in the sets below or a tweet
+    already taken. The engine scored these tweets' sentiment in E17 only as daily averages;
+    no per-tweet score is shown to the annotator.
+  - **Tweets, secondary, already observed:** the E1 TFNS test (2,388). Never used to train or
+    choose a model, but its scores for many models have been seen, so it is not a fresh test.
+- **Sets checked for overlap:** TFNS train and test, PhraseBank (all sentences), FiQA-2018 (all
+  splits), NWGI train and test, SEntFiN, FinEntity, and the E21 training and dev rows.
+- **Annotation rules (tweets):** one label per row for the named company:
+  - *positive:* the tweet says or implies good news, a rise, or a bullish view for that company
+    or its stock (for example "TSLA up 5% on deliveries", "loading more AAPL").
+  - *negative:* bad news, a fall, or a bearish view ("shorting NFLX", "Disney misses").
+  - *neutral:* no clear direction: plain facts without good or bad meaning, questions, links,
+    mixed views with no dominant side.
+  - *skip:* not about this company, not English, spam or an advert, or unreadable. Skipped rows
+    are left out and counted.
+  - Sarcasm gets its intended meaning. The annotator labels from the text alone: no prices, no
+    model outputs, no other tools. Notes are optional. One annotator (the author); this is
+    reported. The file holds no model predictions or suggested labels.
+- **Training data** (human labels only; leak-filtered against every test and dev row above):
+  TFNS train minus the E7 dev split; PhraseBank `Sentences_75Agree`; FiQA-2018 all splits
+  (FiQA is no longer a test); SEntFiN single-entity headlines minus the news dev split.
+  **NWGI is not used for training** (its labels come from a proprietary model) and is not used
+  in E21 at all.
+- **Dev sets:** tweets: the E7 TFNS dev split (937). News: 10% of SEntFiN single-entity
+  headlines, stratified by label, seed 21. SEntFiN was the E20 confirmation test; from E21 on
+  it is training and dev data and is no longer reported as held out.
+- **Candidates:** `BAAI/bge-small-en-v1.5`, E5 recipe (max length 64, batch 32, AdamW lr 5e-5,
+  4 epochs, 10% warm-up), seeds 42, 43, 44, trained on Kaggle. Two weightings: (C1) every row
+  weight 1; (C2) TFNS rows weight 2 in the loss. Dev score = mean of tweet-dev and news-dev
+  macro-F1; each run keeps its best epoch by dev score; the best run over both weightings and
+  all seeds is the candidate C. C is exported to int8 (E9 recipe).
+- **Choice (on dev, int8 for both):** C replaces the engine model A only if C's dev score is
+  higher than A's by more than 0.01 **and** C's tweet-dev macro-F1 is no more than 0.01 below A's.
+- **Confirmation (once, after the choice, A and C int8):** FinEntity, the 300 tweets, and TFNS
+  test (marked observed). Metrics: macro-F1 (primary), accuracy, per-class F1, each with a 95%
+  bootstrap interval (1,000 resamples, seed 0), and the paired bootstrap of C − A macro-F1 on
+  the same rows (higher / lower / tie as E18). The switch stands only if neither primary fresh
+  set says "lower". Nothing is tuned after these scores; they are reported as they come.
+- **Stored:** sample, labels, per-row predictions and a manifest (dataset revisions, file and
+  model hashes) in `data/outputs/` and the experiment register.
+- **Amendment (2026-10-11, after the dev choice, before any fresh test is scored):** the 300
+  tweet labels were not made blind by one person as planned. They were drafted by three
+  general-purpose AI assistants (ChatGPT and Gemini independently; Claude settled the rows where
+  they disagreed), then reviewed and finalised by the author, under the rules above. So:
+  - The tweet set is reported as **AI-assisted, human-reviewed**, and as **secondary**. It is
+    not a human-labelled blind test, and no claim rests on it alone.
+  - **FinEntity is the only primary fresh test.** The switch condition becomes: FinEntity's
+    paired difference is not "lower" (the engine choice was already A on dev, so this changes
+    no decision).
+  - The assistants were used only to label this test set; none is part of the engine.
+  - File: `data/annotation/e21_tweets_final_labels.csv` (hash in the results).
+- **Results (2026-10-11, `data/outputs/e21_results.json`, per-row predictions in
+  `e21_predictions.csv.gz`).** Training: best run C2 (TFNS weight 2), seed 42, epoch 4. Dev,
+  int8: A 0.864 tweets / 0.734 news, C 0.814 / 0.858; C loses 0.049 on tweets (limit 0.01), so
+  **A stays**. Confirmation, scored once, macro-F1 [95% interval], paired C − A:
+
+  | Set | A (engine) | C (E21 model) | C − A | |
+  |---|---|---|---|---|
+  | FinEntity, 851 (primary, human) | 0.765 [0.734, 0.794] | 0.700 [0.669, 0.731] | −0.065 [−0.094, −0.036] | lower |
+  | Tweets 2021–22, 251 of 300 (49 skipped; AI-assisted, human-reviewed) | 0.452 [0.385, 0.517] | 0.591 [0.530, 0.654] | +0.139 [0.079, 0.201] | higher |
+  | TFNS test, 2,388 (observed before) | 0.836 [0.818, 0.853] | 0.841 [0.823, 0.857] | +0.004 [−0.012, 0.021] | tie |
+
+  - The dev sets pointed the wrong way on both fresh sets: C was better on news dev (SEntFiN,
+    Indian headlines) but worse on FinEntity (Reuters paragraphs), and worse on tweet dev (TFNS)
+    but better on the 2021–22 tweets. Dev sets drawn from the training sources did not predict
+    performance on new sources.
+  - The engine model scores 0.45 on the 2021–22 tweets, far below its TFNS 0.84: retail tweets
+    from a later year are much harder than TFNS's news-style tweets.
+  - Engine unchanged; nothing tuned after these scores.
+
+## M1. Module B sensitivity checks (fixed 2026-10-11, before the checks are written or run)
+
+Consistency checks on the real book (`data/reference/book.csv`) and market data; they change
+no result. Expected behaviour, fixed now. If a check fails, the formula is investigated; the
+expectation is not changed to fit the result.
+
+1. **No shock, no loss:** no obligor, `multiple = 0` → loss 0, CET1 after = before, every
+   rating, spread and PD unchanged.
+2. **Bigger market shock, bigger loss:** for each episode (GFC 2008, euro 2011, COVID 2020) and
+   `multiple` 0, 0.5, 1, 1.5, 2 (no obligor): total loss does not fall and CET1 after does not
+   rise as the multiple grows; Baa spread after and z grow with it.
+3. **`multiple = 0` removes the episode:** with a downgrade, Aaa and Baa stay at their book-date
+   levels, z = 0 and USD/INR does not move; only the obligor's rating changes, and every other
+   name's spread moves by its contagion term only (≥ 0).
+4. **More notches, more credit risk:** one obligor, `multiple = 0`, 0 to 6 notches: its PD after,
+   its revolver ECL, the bank's total loss and RWA after do not fall as notches grow.
+5. **Stressed PD:** Vasicek PD rises with z, and is at least the normal one-year PD in the
+   scenario (z > 0).
+6. **Default:** `notches = 99` → rating D, revolver in stage 3 with ECL = LGD × EAD, bond worth
+   notional × (1 − LGD).
+7. **Reverse stress:** at the multiple it returns, CET1 is at the 8% floor (within 0.05 point),
+   and at 90% of that multiple CET1 is above the floor.
+
+## E22. Interest-rate shock in Module B (fixed 2026-10-11, before any code change or run)
+
+- **Why:** E14 holds the 10-year Treasury at its book-date level (1.92%), so only credit moves.
+  In real crises Treasury yields move too; leaving them out is Module B's largest modelling gap.
+  E22 adds a controlled rate shock. It is a stress scenario, not a forecast of rates.
+- **Shock (inputs read from `market_history.csv`, FRED `DGS10`; not results):** a **parallel
+  shift**: every tenor moves by the 10-year change.
+
+  | Scenario | Dates | UST10Y start → end | Δ (pp) |
+  |---|---|---|---|
+  | GFC 2008 | 15 Aug – 15 Dec 2008 | 3.84 → 2.53 | −1.31 |
+  | Euro 2011 | 1 Jul – 4 Oct 2011 | 3.22 → 1.81 | −1.41 |
+  | COVID 2020 | 14 Feb – 23 Mar 2020 | 1.59 → 0.76 | −0.83 |
+  | Rates up (controlled) | — | — | +2.00 (Basel IRRBB parallel-up shock for USD); no credit, equity or FX move |
+
+  In the three crises yields fell (a flight to safety), so fixed-rate assets gain on rates.
+- **Formulas** (yields and spreads stored in % points, divided by 100; `k` = the episode
+  multiple, as now):
+  - Rate after: `r1 = max(r0 + k·Δr, 0)`, with r0 = 1.92% at 31 Dec 2019. Negative US yields
+    are floored at 0 (stated).
+  - **Bonds (implemented repricing):** fixed coupon `c = r0 + s0` (par at the book date, as
+    now); value after `= N · P(c, r1 + s1, T)`, `P` = the existing annual-coupon `bond_price`.
+    Rates up → value down.
+  - **Pay-fixed interest rate swaps (new: mark-to-market added):** fixed rate `K = r0` (at par on
+    the book date, so value before = 0); value after `= N · (r1 − K) · A(r1, T)`, `A` = the
+    existing annuity. Rates up → the bank (paying fixed) gains. CVA stays as now: SA-CCR
+    exposure from the notional only, so CVA does **not** respond to the swap's new value
+    (stated limitation).
+  - **CDS:** the risky annuity is discounted at `r1 + s1` instead of `r0 + s1` (small effect).
+  - **Revolvers:** treated as floating-rate loans: no rate repricing; IFRS 9 ECL unchanged by
+    rates.
+  - **Capital:** rate gains and losses on bonds (fair value through OCI) and swaps (trading
+    book) flow into CET1 after 25% tax, as credit losses do. Market-risk RWA uses the new bond
+    value; its rate weights by maturity band are unchanged.
+- **Switch:** `config.rates = "fixed" | "moved"`. `fixed` must reproduce E14 exactly.
+- **Checks: pass criteria** (fixed now; a failure means the code is fixed, not the criterion):
+  1. `rates = "fixed"` (or Δr = 0) reproduces E14 to the cent for every position, all three
+     episodes at `k = 1`, and the stored E14 alert and crisis results.
+  2. Direction: for a rate-only shock (no credit, z, FX), every bond loses value when rates rise
+     and gains when they fall; every pay-fixed swap does the opposite.
+  3. Size: for ±100 bp, each bond's full repricing is within 5% of its duration + convexity
+     estimate (`duration_convexity`).
+  4. Swaps are worth 0 at the book date (Δr = 0).
+  5. Monotonic: rate-only shocks of +0, +100, +200, +300 bp give a total rate loss that does not
+     fall.
+  6. Floor: no scenario rate goes below 0.
+  If all six pass, the engine default becomes `rates = "moved"`. Nothing else decides it.
+- **Reported, never used to decide** (E14 and E15 files are kept unchanged; E22 writes new files):
+  - Per scenario, `rates` fixed vs moved: loss split into credit and rate parts, CET1 after,
+    reverse-stress multiple; plus the +200 bp scenario alone.
+  - Test 2 (12 crises) and Test 3 (monthly), re-run with the Treasury move in both the
+    prediction and the realised value: mean absolute loss error vs the naive, next to E14/E15.
+    Pass rules of those tests are not re-applied to choose anything.
+- **Limitations (stated with every result):** one 10-year rate for every tenor (a parallel
+  shift; real curves twist); the bank's USD funding is not modelled, so a rate gain or loss on
+  assets has no offsetting liability move (no full IRRBB / ALM); revolvers assumed floating;
+  swap CVA ignores mark-to-market; no basis or curve risk; market-risk capital for swaps and CDS
+  still not modelled; book still static at 31 Dec 2019.
+- **Results (2026-10-11, run once, `data/outputs/e22_rates.json`; E14/E15 files unchanged, hashes
+  checked).** All six checks pass (`tests/test_module_b_rates.py`, 13 tests, including the
+  exact reproduction of the stored E14 alert and crisis results), so the engine default is now
+  `rates = "moved"` (`config/default.toml`).
+
+  | Scenario (× 1, no alert) | Δ UST10Y | Loss, rates fixed → moved | Rate part (bonds / swaps) | CET1 after, fixed → moved |
+  |---|---|---|---|---|
+  | GFC 2008 | −131 bp | $271.5m → $107.2m | −$164.3m (−$192.8m / +$28.6m) | 4.37% → 8.91% |
+  | Euro 2011 | −141 bp | $47.8m → −$159.6m (a gain) | −$207.4m (−$238.2m / +$30.9m) | 10.58% → 15.57% |
+  | COVID 2020 | −83 bp | $294.0m → $193.8m | −$100.2m (−$118.2m / +$17.9m) | 4.22% → 7.05% |
+  | Rates up, controlled | +200 bp | $258.5m (bonds +$298.2m, swaps −$39.7m) | — | 13.00% → 6.18% |
+
+  Reverse stress (multiple of the episode that takes CET1 to 8%), fixed → moved: GFC 0.58 → 1.23,
+  euro 2.18 → 5.57, COVID 0.57 → 0.84.
+  - *Reading:* in all three crises Treasury yields fell, so the fixed-rate bonds gained and
+    offset a third to all of the credit loss; COVID still breaches the 8% floor. A pure
+    +200 bp rise, with no credit move, also takes CET1 below the floor (6.18%): the bond book
+    is the bank's main interest-rate risk.
+  - *Caution:* the bank's USD funding is not modelled, so these rate gains are not offset by
+    liabilities, as they would partly be in a real bank. The crisis results are therefore
+    less severe than a full balance-sheet view; the rates-up result is the clearer use of E22.
+  - *Reported only:* Test 2 (12 crises) loss error with rates moved: similar crises $31.0m vs
+    naive $28.2m (E14: $45.7m vs $47.0m). Test 3 (345 months): model $42.9m vs naive $41.4m,
+    ratio 1.04, direction 43% vs 52%, Diebold–Mariano p = 0.015 (E15: 1.00, p = 0.93). Errors
+    fall in Test 2 for both methods; neither forecast beats the naive. Nothing was chosen on
+    these numbers.
+
+## E22b. Does a credit alert itself carry information? (fixed 2026-10-11, before any alert is counted or any return computed)
+
+- **Why:** Test 1 (E14) compared "downgrade + full COVID episode" with "the same downgrade + the
+  real 20-day market moves", so both sides shared the assumed downgrade and the gap was the
+  episode. E22b asks only about the alert: after a gated credit alert, does the company's stock
+  do worse than usual, and does a larger predicted alert loss go with a worse reaction?
+- **Prediction (from the code, checked in M1 test 3):** `revalue(book, ticker, notches, episode,
+  multiple=0)`. With `multiple = 0`: Aaa, Baa, z, USD/INR and the Treasury stay at their
+  31 Dec 2019 levels; the obligor moves `notches` down (`parse_notches`, 1 if none found, D for
+  Default) and its spread widens to the new rating's spread; every other name widens by that
+  widening × its return correlation (contagion, ≥ 0); PDs: the obligor gets its new rating's
+  PD, all others keep theirs (the Vasicek PD at z = 0 is below the normal PD, so the max keeps
+  the normal one). The loss is the revalued change in the obligor's revolver ECL (stage changes
+  at 3+ notches or a fall below BBB−), its bonds, every name's bonds and CDS through contagion,
+  and swap CVA. The book and ratings are those of 31 Dec 2019 for every alert, so the USD size
+  is illustrative; the predicted direction is always "loss".
+- **Alerts:**
+  - **Primary sample, history:** the E17 history set (`data/cache/history_signals.csv.gz`,
+    FNSPID news headlines, 1 Jan 2010 – 8 Apr 2020), rows kept by the E17 relevance rules with
+    role `subject`. Event = the E13 credit rules (`credit_event`; the engine's model never
+    overrides them); impact = `impact_formula` with the stored E17 sentiment (full-precision
+    scores, as E17) and source `news`; then `gate(…, trigger = 7)` unchanged. These years were
+    never used to write the credit rules (E13 used the 2020 replay window), so they are out of
+    sample for the rules. No parameter is fitted in E22b.
+  - **Secondary, already seen:** the 4 alerts of the replay window (9 Apr – 10 Jun 2020), the
+    E14 Test 1 alerts, scored the same way and reported apart.
+- **Dates and window:** the publication timestamp's UTC calendar date is the alert date. Start =
+  the close of the last trading day strictly before that date (no part of the reaction is
+  missed, nothing after is used to place the start). End = the close 20 trading days after the
+  start. Prices: `data/prices/prices_history.csv` (Yahoo closes, adjusted).
+- **Observed outcome (a proxy, not a credit loss):** the obligor's market-adjusted 20-day
+  return: log(close_end / close_start) − the same for `^GSPC`. Company credit spreads and CDS
+  quotes are not available free, so the stock is used: equity falls when credit quality falls,
+  but it also moves on everything else. This measures the equity reaction, never the credit
+  loss, and no USD loss error is computed (the two are in different units).
+- **Independence and exclusions:** per company, an alert within 20 trading days of an earlier
+  counted alert of the same company is dropped (counted, not scored), so windows of one company
+  never overlap. Alerts on different companies may overlap in time (stated). Alerts whose start
+  or end close is missing are dropped and counted. A company not in the book cannot be revalued
+  and is dropped and counted.
+- **Baseline (naive):** the same company's market-adjusted 20-day return from every trading day
+  in 2010-01-01 – 2020-04-08 (start-day windows defined the same way), with no alert
+  information. Its share of negative windows per company is the base rate.
+- **Metrics:**
+  1. **Direction (primary):** k = alerts with a negative market-adjusted return, n = alerts
+     scored. p0 = the mean of the alerts' company base rates. One-sided exact binomial test of
+     k out of n against p0.
+  2. Mean market-adjusted return of the alerts with a 95% bootstrap interval (10,000 resamples,
+     seed 0), next to the baseline mean (reported).
+  3. Spearman correlation between the predicted alert loss (USD) and the market-adjusted return
+     across alerts, with its p-value (reported; expected negative if size matters).
+- **Pass rule (fixed now):** if n ≥ 20, E22b passes when the one-sided binomial p < 0.05 (alerts
+  are followed by a negative equity reaction more often than the company's base rate). If
+  n < 20, there is no pass or fail: the result is reported as descriptive and underpowered. The
+  Spearman correlation and the secondary sample never decide anything.
+- **Outputs:** `data/outputs/e22b_alerts.csv` (one row per alert: date, ticker, text, notches,
+  impact, gate reason, start/end dates, returns, predicted loss, kept or why dropped),
+  `data/outputs/e22b_results.json`; runner `src/riskengine/module_b/alert_check.py`. E14, E15
+  and E22 files are not touched.
+- **Limitations:** stock returns are a noisy proxy for credit stress; market-adjusted, not
+  beta-adjusted; the alert rules were written for 2020 social and news text and run here on
+  news headlines only; the sentiment behind the impact is the full-precision E17 score, not
+  the engine's int8; one book and one rating set (31 Dec 2019) for every year; FNSPID's date
+  stamps are dates, so same-day timing within a day is ignored.
+- **Results (2026-10-11, run once; `data/outputs/e22b_alerts.csv`, `e22b_results.json`; E14,
+  E15 and E22 files unchanged, hashes checked).**
+  - **Primary (history, 2010 – 8 Apr 2020):** 79 alerts fired; 39 dropped as within 20 trading
+    days of an earlier alert on the same company; **n = 40** scored. Negative market-adjusted
+    20-day return in 22 of 40 (55%) vs the companies' base rate 47.8%; one-sided binomial
+    p = 0.23. **Verdict: FAIL** (p ≥ 0.05).
+  - Mean market-adjusted return −1.7% [−4.1%, +0.6%] vs the baseline mean +0.3%. Spearman
+    between the predicted alert loss and the return: +0.05 (p = 0.77); no link between Module
+    B's predicted size and the reaction.
+  - Secondary (replay window, seen): 4 fired, 1 overlapping, n = 3, 2 negative; reported only.
+  - *Looked at afterwards (description only; the frozen E13 rules are not changed):* 23 of the
+    40 scored alerts are on JPM and BAC, and most of those are not about the bank's own credit:
+    commercial-mortgage securitisations named after the bank ("Fitch Downgrades J.P. Morgan
+    2001-CIBC3"), an affirmation ("Fitch Affirms Bank of America's IDR"), a counterparty
+    ("Bank of America Says MBIA Defaulted"). One NFLX alert is an upgrade (B+ to BB−) read as a
+    downgrade. The gate's precision on history news is low; the gold set (E3) is where it
+    would be measured. The failure is at least partly a trigger-precision problem, not only a
+    pricing one.
+
+## E23. Credit-event gold set for the frozen alert gate (fixed 2026-10-11, before any sample is drawn or label seen)
+
+- **Why:** E22b failed, and reading its alerts showed many that are not credit events for the
+  named company (bank-named securitisations, affirmations, a counterparty, an upgrade). The gate
+  (E12, E13) has never been measured against human labels. E23 measures it; it extends E3 (whose
+  300 class-labelling headlines stay as they are and are excluded from this sample).
+- **Gate snapshot:** before export, sha256 of `src/riskengine/gate.py`, `nlp/events.py`,
+  `nlp/impact.py`, `ingest/linking.py`, `ingest/relevance.py` and `impact_trigger` are written
+  to `data/outputs/e23_gate_snapshot.json`. The gate is not changed before it is evaluated.
+- **Unit:** a (headline, company) pair, as the gate sees it.
+- **Pool:** the E22b universe: E17 history headlines 1 Jan 2010 – 8 Apr 2020 kept by the E17
+  relevance rules with role `subject`, scored as in E22b (E13 credit rules, impact formula with
+  the stored sentiment, source news, gate with trigger 7), plus the replay-window signals
+  (9 Apr – 10 Jun 2020, news and tweets) through the same gate. Pairs whose headline is one of
+  the 300 E3 headlines are removed.
+- **Strata (seed 23):**
+  - **S1, gate fired:** every fired pair (a census).
+  - **S2, credit rule but gate silent:** 60 at random from pairs the E13 rules call a credit
+    class where the gate did not fire.
+  - **S3, hard negatives:** 60 at random from pairs the rules do *not* call credit whose
+    headline contains a credit-flavoured word or pattern: affirm, upgrade, outlook, rating,
+    Moody's, Fitch, S&P, DBRS, securiti, CMBS, mortgage trust, "Classes", a deal code such as
+    `2006-FL2`, bankrupt, default, liquidity, refinanc, covenant, waiver, junk, bond, debt,
+    lender, counterparty.
+  - **S4, random:** 40 at random from all other pairs (to find credit events the rules miss).
+  Each stratum's population size is stored, so recall can be weighted back to the pool.
+- **Blind file:** `data/gold/credit/credit_to_label.csv` shows headline id, headline, date and
+  target company only; no event class, impact, gate result or stratum. System outputs sit in
+  `data/gold/credit/sample_meta.csv`. AI suggestions, if ever added, go in a separate
+  `ai_suggestion` column and never count as labels; rows stay `unreviewed` until a person
+  reviews them.
+- **Labels:** defined in `data/gold/credit/GUIDE.md` (written before labelling): target match
+  correct, credit-event relevant, subtype (default, downgrade, upgrade, covenant, liquidity,
+  refinancing, affirmation, counterparty, securitization, other), materiality, whether the gate
+  should fire, rationale, adjudication status. Only rows with status `reviewed` or
+  `adjudicated` are scored; `unreviewed` and `excluded` are counted.
+- **Metrics (once labels are reviewed, scored once):**
+  1. **Gate:** precision on S1 with a Wilson 95% interval; recall weighted by stratum
+     population sizes, with a stratified bootstrap interval (1,000 resamples, seed 0).
+  2. **Credit-relevance rules (E13):** precision and weighted recall of "rules say credit"
+     against "credit-event relevant".
+  3. **Target matching:** precision of the linked (headline, company) pairs, overall and by
+     stratum. Recall of matching is **not measurable** here: only linked pairs are sampled.
+  4. Subtype confusion matrix: rule class (default / downgrade / covenant / none) vs human
+     subtype; the gate's false-positive share by human subtype.
+  5. Splits by source (history news; replay news; replay tweets) and period (2010–2016;
+     2017 – 8 Apr 2020; replay window), shown only with n ≥ 10, all with n.
+- **No pass rule:** E23 measures; it does not decide. Any change to the gate is a later,
+  separately pre-registered experiment, tuned on a part of the data that E23 does not use for
+  its final numbers. A small sample is reported as such.
+- **Amendment (2026-10-11, after the export, before any label exists; the author's decision):**
+  AI-made labels count as the ground truth. Rows labelled by AI carry `adjudication_status =
+  ai_labelled` (or `reviewed` if the author then checked them) and are scored. Every E23 result
+  states who labelled it (the models' names, and whether a person reviewed the rows), as E21
+  did. The AI tools only label this test set; none is part of the engine.
+
+## E24. Event classes on news the engine was not built on (fixed 2026-10-11, approved v4, before any sample is drawn or label made)
+
+- **Weaknesses addressed (from my own error analysis):** W1 "Product news" swallows any company
+  news; W3 earnings news without $/EPS is missed; W4 low-confidence model guesses still get an
+  event class; W5 news and tweets are measured together. **Deferred:** W2 (war and sanctions read
+  as Macroeconomic) needs a world-news source and goes to a separate experiment; E24 does not
+  change Geopolitical or Macroeconomic. E13 credit rules are unchanged. The other project's
+  gold-2 is a seen diagnostic only and decides nothing.
+- **Sets:**
+  - **Dev:** E3's 300 FNSPID headlines (2019 – 10 Jun 2020), split before labelling into D1 (150,
+    rule design and optional temperature) and D2 (150, candidate and threshold choice). The split
+    is **prediction-stratified** (by E3's design half and the engine's predicted class, seed 24),
+    not true-class stratified: no labels exist at split time. Real label support of D1 and D2 is
+    reported after annotation, before any performance number.
+  - **Final news (200):** FNSPID 2017-01-01 – 2018-12-31, E17 history kept by the relevance rules,
+    role subject, unique headlines. An **earlier-period evaluation**, not a future test: the dev
+    period and the model's training data are later.
+  - **Final tweets (100):** equinxx 2021–22 unique tweets. A **later-period, cross-source
+    evaluation**. News and tweets are never pooled.
+  - **Selection:** simple random sample, seed 24, from a stably sorted frame (published time,
+    text); no class, prediction or label is used. Frame bias (company-linked news, mostly Other)
+    is reported.
+  - **Excluded** (exact normalised match or cosine ≥ 0.9): TFN topic train+valid, TFNS
+    train+valid, E3, the E23 sample, E22b alerts, all E17 relevance samples, the E21 tweet
+    sample, FinEntity, the other project's gold-1, gold-2 and entity check, and near-duplicates
+    within the final sample.
+- **Taxonomy and metric:** the existing 12 classes (Default, Credit downgrade, Covenant breach,
+  Geopolitical, Macroeconomic, M&A, Product news, Earnings, Analyst rating, Legal/Regulatory,
+  Management change, Other), fixed now. "Product news" is labelled under a new narrow definition
+  (a product event: launch, unveiling, release, recall, product deal), written into the guide
+  before annotation; E16/TFN-topic results stay as they are. **Primary metric: macro-F1 over all
+  12 classes, `zero_division = 0`, never re-selected by support.** All candidates, **including
+  A**, are scored against the same new-definition labels; A's predictions are not changed.
+- **Annotation (AI-assisted, human-adjudicated; allowed by the organisers' "AI assistance … with
+  full honesty", no rule bans AI for labelling; no AI tool is part of the engine):**
+  - Labeller A = ChatGPT, labeller B = Gemini. Recorded: exact model/version, date, full prompt
+    (with the guide), settings, interface. Each sees only the blind file and the guide; neither
+    sees the other's output or any engine prediction. Their outputs are stored apart, hashed.
+  - **Primary-event rule:** the label is the main news fact the headline reports. Precedence only
+    for documented overlaps: agency credit action + stock rating → credit class; earnings +
+    guidance or dividend → Earnings; regulator decision on a deal → Legal/Regulatory if the
+    decision is the news, else M&A; recall + lawsuit → Legal/Regulatory, recall alone → Product
+    news; an executive leaving amid a probe → Management change if the departure is the news.
+  - A ≠ B, or either marks it ambiguous → a person adjudicates (`human_adjudicated`). A = B →
+    `ai_agreed`; a 20% random audit of agreed rows (seed 24) by a person, whose label replaces
+    the AI one (`ai_agreed_human_audited`); the audit correction rate is reported with a Wilson
+    95% interval. Undecidable → `excluded` (counted). Cohen's kappa of A vs B is reported. The
+    labels are described as AI-assisted, not independent human gold.
+- **Candidates:** A = current engine; B = A + narrow Product-news mapping (other company news →
+  Other); C = B + an earnings precedence rule; D = C + one global abstention threshold. Order:
+  E13 credit rules → earnings rule → product rule → model; abstention applies only to model
+  predictions (below threshold → Other, counted as a prediction, not dropped). Rules are written
+  from these definitions on D1 only. No code, keyword list, weights or labels of the other
+  project are used.
+- **Calibration and threshold:** temperature scaling (Guo et al., 2017) is fitted on D1 only, and
+  only if D1 has at least 5 classes with ≥ 10 labelled rows; else raw probabilities. Threshold
+  grid fixed: {0.30, 0.35, …, 0.70}, chosen on D2 only (ties → lowest); a boundary choice is
+  reported as a limitation, the grid is never widened. No class-specific tuning for a class with
+  < 10 D1 rows.
+- **Choice (D2 only):** highest 12-class macro-F1, provided no class with ≥ 10 D2 rows loses more
+  than 0.05 F1 against A; within 0.01 → the simpler candidate. The chosen candidate, its rules,
+  threshold and temperature are frozen (hashes) before the final set is labelled.
+- **Final evaluation (once):** paired bootstrap on the final rows: the same resampled row
+  indices for A and the chosen candidate, 1,000 resamples, seed 0, 95% percentile interval of
+  Δ = macro-F1(chosen) − macro-F1(A). **Every resample uses the fixed 12-class list with
+  `zero_division = 0`, even when a class is absent from that resample.**
+  - News: pass if the lower bound > 0; fail if the upper bound < 0; else, or if the interval is
+    wider than 0.20, **inconclusive**.
+  - Tweets (non-inferiority, margin 0.05): pass if the lower bound > −0.05; fail if the upper
+    bound < −0.05; else, or if wider than 0.20, **inconclusive**.
+  - The engine switches (`events_rules = on`) only if news **and** tweets pass; otherwise A
+    stays. No retest with a larger sample, no change of sample or threshold after the result.
+- **Reported, news and tweets apart:** rule coverage by rule, model coverage, abstention rate,
+  per-class precision, recall, F1 and support, confusion matrices. Classes with < 5 or no support
+  are named; no reliable per-class claim is made for them. TFN-topic and gold-2 scores are
+  reported only.
+- **Safeguards:** deterministic exclusion (two separate runs must give the same sha256 of the
+  blind file, or no freeze); provenance per row (source dataset, file and its sha256, original
+  id or timestamp, frame rule); final labels are read only when `e24_frozen.json` exists and the
+  blind-file hash matches, and only once; read-only backups of frozen artefacts in
+  `private_notes/e24_frozen/` with a sha256 manifest, checked before evaluation. Nothing existing
+  is changed; outputs are `e24_*`. Licences: FNSPID CC BY-NC 4.0, equinxx CC0 (tweet text under
+  platform terms, gitignored), TFN MIT; Guo et al. (2017) cited.
+
 ## E4. Efficiency (fixed 2026-10-06)
 
 Next to every accuracy figure: CPU throughput (texts per second, batch 64, after a warm-up

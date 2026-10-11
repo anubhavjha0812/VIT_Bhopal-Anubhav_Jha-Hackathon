@@ -1,0 +1,15 @@
+{
+  "labeller": "chatgpt | gemini",
+  "set": "D1 | D2 | final_news | final_tweets",
+  "model_as_shown_by_interface": null,
+  "interface": null,
+  "annotation_date_utc": null,
+  "settings": null,
+  "prompt_file": "data/gold/e24/prompts/<labeller>_prompt.md",
+  "prompt_sha256": null,
+  "guide_sha256": null,
+  "input_file_sha256": null,
+  "raw_output_file": null,
+  "raw_output_sha256": null,
+  "notes": "Fill every null from what actually happened; write \"not shown\" when the interface does not show a value. Never invent a version."
+}

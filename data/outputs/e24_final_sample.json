@@ -1,0 +1,46 @@
+{
+  "rule": "docs/DECISIONS.md E24",
+  "seed": 24,
+  "news": {
+    "frame": 8781,
+    "excluded_by_set": {
+      "training (TFN topic train+valid, TFNS train+valid)": 1,
+      "E3": 4,
+      "E23 sample": 8,
+      "E22b alerts": 1,
+      "E17 relevance samples": 36,
+      "E21 tweet sample": 0,
+      "FinEntity": 0,
+      "other project's gold-1, gold-2, entity check": 0
+    },
+    "excluded_total": 49,
+    "pool_after_exclusions": 8732,
+    "sampled": 200,
+    "label": "earlier-period evaluation (FNSPID 2017-2018)"
+  },
+  "tweets": {
+    "frame": 45311,
+    "excluded_by_set": {
+      "training (TFN topic train+valid, TFNS train+valid)": 30,
+      "E3": 0,
+      "E23 sample": 0,
+      "E22b alerts": 0,
+      "E17 relevance samples": 0,
+      "E21 tweet sample": 307,
+      "FinEntity": 0,
+      "other project's gold-1, gold-2, entity check": 105
+    },
+    "excluded_total": 442,
+    "pool_after_exclusions": 44869,
+    "sampled": 100,
+    "label": "later-period, cross-source evaluation (equinxx 2021-22)"
+  },
+  "files_sha256": {
+    "final_news_to_label.csv": "12ca737593a4a3eb718a185a3d0041c2d4d88778ebbe44d2910a37e1f5dff093",
+    "final_tweets_to_label.csv": "2b6b2e126f3c2f0dc2683380ad245f7c1e611e52a56b3d4a2fe056b36e56743f",
+    "final_provenance.csv": "c6fbd0d5f6efd2e44f8e30653185ce1ae16007351f3c30a5df787d80f1c98b2e",
+    "e3_split.csv": "9c4e069123d762e22ea6be19d1eab4a43ddd4ff7f6fa41a60a784ca30642270b"
+  },
+  "determinism": "3 runs, identical hashes",
+  "labels": "none made at freeze time"
+}

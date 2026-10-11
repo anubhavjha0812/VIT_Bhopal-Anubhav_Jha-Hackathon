@@ -1,0 +1,137 @@
+{
+  "rule": "docs/DECISIONS.md E18",
+  "test_sets": {
+    "PhraseBank 50Agree": {
+      "file": "data/eval/phrasebank_50Agree.csv",
+      "source": "huggingface.co/datasets/takala/financial_phrasebank",
+      "revision": "8d3fe0c36d5feec6b3cc5e455b0fcb4820fb9964",
+      "licence": "CC BY-NC-SA 3.0",
+      "rows": 4846,
+      "labels": {
+        "neutral": 2879,
+        "positive": 1363,
+        "negative": 604
+      },
+      "sha256": "979019ddb1882c0a5e6b7da4cf06603fd3dbcf413142f8dfb38c16966b462c2d"
+    },
+    "PhraseBank AllAgree": {
+      "file": "data/eval/phrasebank_AllAgree.csv",
+      "source": "huggingface.co/datasets/takala/financial_phrasebank",
+      "revision": "8d3fe0c36d5feec6b3cc5e455b0fcb4820fb9964",
+      "licence": "CC BY-NC-SA 3.0",
+      "rows": 2264,
+      "labels": {
+        "neutral": 1391,
+        "positive": 570,
+        "negative": 303
+      },
+      "sha256": "f5e3574acaf079b420170b3048bcba8f2a086e0096855c87d76d5da30b17fa86"
+    },
+    "FiQA-2018 test": {
+      "file": "data/eval/fiqa_test.csv",
+      "source": "huggingface.co/datasets/pauri32/fiqa-2018",
+      "revision": "74b7dd5d4fc61e0fa5d979bef2c53111ea69c58a",
+      "licence": "not stated",
+      "rows": 150,
+      "labels": {
+        "positive": 50,
+        "negative": 50,
+        "neutral": 50
+      },
+      "sha256": "751d420cec6baee971675d8b70fe4b99e780e3f6e2e21416b3d676895ab506c5"
+    },
+    "NWGI test": {
+      "file": "data/eval/nwgi_test.csv",
+      "source": "huggingface.co/datasets/oliverwang15/news_with_gpt_instructions",
+      "revision": "b7c333378679b2a74d7248b407c06021d3f26adb",
+      "licence": "not stated",
+      "rows": 4047,
+      "labels": {
+        "positive": 2214,
+        "negative": 1342,
+        "neutral": 491
+      },
+      "sha256": "0e984619299b90ef342fdaec58128b99c12ce833e6f3c9c6ef793600f68844ef"
+    }
+  },
+  "models": {
+    "sentiment-bge-small-en-v1.5-int8": {
+      "folder": "models/kaggle_v1/models/sentiment-bge-small-en-v1.5-int8",
+      "files": {
+        "config.json": "4fa7f87f62540f12f09ac224c38a44b3db571c26565eda118b9d6cfe21316b84",
+        "model.onnx": "abcbe1a81754528b8a75b1337171867a64e5a97b846f291d64a42f52e7d78de6",
+        "source_metrics.json": "9d97c1afe258bb289416c76fb0f65dee5855a8d4a72df83926180f90b738a464",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+      }
+    },
+    "sentiment-bge-small-en-v1.5": {
+      "folder": "models/kaggle_v1/models/sentiment-bge-small-en-v1.5",
+      "files": {
+        "config.json": "a475868e7a327f91da727b5d9846239f7d401a22df876f10a793821fde3add42",
+        "metrics.json": "9d97c1afe258bb289416c76fb0f65dee5855a8d4a72df83926180f90b738a464",
+        "model.safetensors": "cebbfa091195fcba491a700d24eaed2eee1c3abc654782a72686fd597b2278f6",
+        "tokenizer.json": "41b9d12a4c559e4098f30173bc0f76d092c43d7b1f873e7027da45a256f30f87",
+        "tokenizer_config.json": "649e41f8cf1cb1b67acc193795ccaef07bcaa3c4e0fc7d286ba8255fab79cffa"
+      }
+    },
+    "sentiment-finbert": {
+      "folder": "models/kaggle_v1/models/sentiment-finbert",
+      "files": {
+        "config.json": "2f849e30efbf5b86e81d62d6a23e425419a1d21f649587c82aebbc37942d6525",
+        "metrics.json": "def7d0867d6d5d56af99d6357e5a6545c7289a548bff0932602b2a47e7ee138a",
+        "model.safetensors": "eddd85d859a814f45f1a0f4c7fd13f5571f021416c345416bcf22b647ad031ee",
+        "tokenizer.json": "41b9d12a4c559e4098f30173bc0f76d092c43d7b1f873e7027da45a256f30f87",
+        "tokenizer_config.json": "e1c2a61a99bda00f6c55303a210b30e2f92dcf8b555e215812e2eb583e177ffd"
+      }
+    },
+    "finbert": {
+      "hub_id": "ProsusAI/finbert"
+    },
+    "sentiment-distil-bge-small-en-v1.5": {
+      "folder": "models/kaggle_v2/models/sentiment-distil-bge-small-en-v1.5",
+      "files": {
+        "config.json": "fa3dde0ef183cdb07327fe0c0b41b4280209d69b6f0c995100f044b623e9ab01",
+        "metrics.json": "d3fc43403005bcfcc46075265fa673e89e517f86d6d7da73cbb6a25d6efa6f9d",
+        "model.safetensors": "6214d1e08d29b9db41e7d4f145b585924f0b5e97a2018ccf20ebabce34a4eed1",
+        "tokenizer.json": "41b9d12a4c559e4098f30173bc0f76d092c43d7b1f873e7027da45a256f30f87",
+        "tokenizer_config.json": "649e41f8cf1cb1b67acc193795ccaef07bcaa3c4e0fc7d286ba8255fab79cffa"
+      }
+    },
+    "sentiment-teacher-deberta-v3-base": {
+      "folder": "models/kaggle_v2/models/sentiment-teacher-deberta-v3-base",
+      "files": {
+        "config.json": "8cc7726febed5ea5dd3978c06ac3a1c4784f593579b4716533dc7f4a15885c48",
+        "metrics.json": "4c641e31d4270f4cc5912d054ee6cc0d1c2f56f5a04b815cf21ca524d70c8592",
+        "model.safetensors": "9b5ccc78f0a6b433f9b5292e89e3512127e66852be24ccc0449f544fa2ab0249",
+        "tokenizer.json": "e7ce6a16c4fe3929f82e2afd5fb8fa3647f63d2049f939abc6006d9b7915e812",
+        "tokenizer_config.json": "0dbe41323167ba5f2e1e876ccd05068318dd2378b922bdfd924a389dba3bcc7a"
+      }
+    },
+    "multihead-bge-small-en-v1.5": {
+      "folder": "models/kaggle_v3/models/multihead-bge-small-en-v1.5",
+      "files": {
+        "config.json": "16f43d2b05f82be84df8b92f093d3741daa9dfd3eb65ddeea4ebc38211c9a9de",
+        "heads.json": "2a5e82e7fbdfc66e23a1135853128433455aff93183d6b79bedc4d08fb03faf3",
+        "heads.pt": "dd20af2bae1d71379b8292a59a50327d5a8c7346707f7e8d813498fb372ce3ec",
+        "metrics.json": "efb4c3758421c3c8f5c027d703f2673bead84ccab2fb3ec3534baa2e48e64b33",
+        "model.safetensors": "f6c1c76bd555ab5ba9e85c14b287c0d958fc53631c4b343eb930e7645f7dbfe4",
+        "tokenizer.json": "41b9d12a4c559e4098f30173bc0f76d092c43d7b1f873e7027da45a256f30f87",
+        "tokenizer_config.json": "649e41f8cf1cb1b67acc193795ccaef07bcaa3c4e0fc7d286ba8255fab79cffa"
+      }
+    }
+  },
+  "libraries": {
+    "torch": "2.14.1+cpu",
+    "transformers": "5.18.0",
+    "onnxruntime": "1.30.0",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6"
+  },
+  "code_commit": "a25b315290a0492c8a1583477491a198567b1fca",
+  "bootstrap": {
+    "resamples": 1000,
+    "seed": 0
+  }
+}

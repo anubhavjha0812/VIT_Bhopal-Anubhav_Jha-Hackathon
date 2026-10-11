@@ -1,0 +1,102 @@
+{
+  "rule": "docs/DECISIONS.md E22",
+  "scenarios": {
+    "covid2020": {
+      "d_ust10y_pp": -0.8300000000000001,
+      "treasury_after_pct": 1.0899999999999999,
+      "loss_rates_fixed": 293965141.1476497,
+      "loss_rates_moved": 193755121.0393253,
+      "rate_part": -100210020.10832441,
+      "rate_part_by_instrument": {
+        "bond": -118169958.95,
+        "cds_bought": -90231.24,
+        "cds_sold": 179923.77,
+        "irs_pay_fixed": 17870246.31,
+        "revolver": 0.0
+      },
+      "cet1_after_rates_fixed": 0.042221840678464954,
+      "cet1_after_rates_moved": 0.0704622258156061,
+      "reverse_stress_rates_fixed": 0.5694580078125,
+      "reverse_stress_rates_moved": 0.841064453125
+    },
+    "euro2011": {
+      "d_ust10y_pp": -1.4100000000000001,
+      "treasury_after_pct": 0.5099999999999997,
+      "loss_rates_fixed": 47795411.154058486,
+      "loss_rates_moved": -159588247.7545254,
+      "rate_part": -207383658.90858388,
+      "rate_part_by_instrument": {
+        "bond": -238186544.22,
+        "cds_bought": -94379.25,
+        "cds_sold": 13621.27,
+        "irs_pay_fixed": 30883643.29,
+        "revolver": 0.0
+      },
+      "cet1_after_rates_fixed": 0.10584708283664405,
+      "cet1_after_rates_moved": 0.1557284717584662,
+      "reverse_stress_rates_fixed": 2.1820068359375,
+      "reverse_stress_rates_moved": 5.565185546875
+    },
+    "gfc2008": {
+      "d_ust10y_pp": -1.31,
+      "treasury_after_pct": 0.6099999999999998,
+      "loss_rates_fixed": 271526296.09323674,
+      "loss_rates_moved": 107242521.9033267,
+      "rate_part": -164283774.18991005,
+      "rate_part_by_instrument": {
+        "bond": -192836045.12,
+        "cds_bought": -248982.05,
+        "cds_sold": 193094.3,
+        "irs_pay_fixed": 28608158.68,
+        "revolver": 0.0
+      },
+      "cet1_after_rates_fixed": 0.043661093772289675,
+      "cet1_after_rates_moved": 0.08910194626065827,
+      "reverse_stress_rates_fixed": 0.576171875,
+      "reverse_stress_rates_moved": 1.2298583984375
+    },
+    "rates_up_200bp": {
+      "d_ust10y_pp": 2.0,
+      "loss": 258473228.45169094,
+      "loss_by_instrument": {
+        "bond": 298164999.08,
+        "cds_bought": 0.0,
+        "cds_sold": 0.0,
+        "irs_pay_fixed": -39691770.63,
+        "revolver": 0.0
+      },
+      "cet1_before": 0.13,
+      "cet1_after": 0.06184199665811621
+    }
+  },
+  "reported_only": {
+    "test2_crises": {
+      "rates_fixed_E14": {
+        "predicted": 45678640.17801583,
+        "naive": 47015789.907699674
+      },
+      "rates_moved_E22": {
+        "predicted": 31012525.13276502,
+        "naive": 28245839.115241934
+      }
+    },
+    "test3_monthly": {
+      "rates_fixed_E15": {
+        "model_mae": 33303596.76541414,
+        "naive_mae": 33221890.90009758,
+        "ratio": 1.0024593983997558,
+        "model_sign": 0.5710144927536231,
+        "naive_sign": 0.4028985507246377,
+        "dm_p": 0.9326866069700026
+      },
+      "rates_moved_E22": {
+        "model_mae": 42902864.774770245,
+        "naive_mae": 41405022.44764989,
+        "ratio": 1.0361753777338036,
+        "model_sign": 0.4289855072463768,
+        "naive_sign": 0.5217391304347826,
+        "dm_p": 0.014911383868628964
+      }
+    }
+  }
+}

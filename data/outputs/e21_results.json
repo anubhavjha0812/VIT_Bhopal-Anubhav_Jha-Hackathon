@@ -1,0 +1,257 @@
+{
+  "dev": {
+    "rows": {
+      "tweets": 937,
+      "news": 791
+    },
+    "macro_f1": {
+      "sentiment-bge-small-en-v1.5-int8": {
+        "tweets": 0.8635757524661751,
+        "news": 0.7338834190408403
+      },
+      "sentiment-e21-bge-small-en-v1.5-int8": {
+        "tweets": 0.8143679359686761,
+        "news": 0.857915506737144
+      }
+    },
+    "dev_score": {
+      "sentiment-bge-small-en-v1.5-int8": 0.7987295857535077,
+      "sentiment-e21-bge-small-en-v1.5-int8": 0.8361417213529101
+    },
+    "choice": "sentiment-bge-small-en-v1.5-int8",
+    "rule": "C if dev score > A + 0.01 and tweet dev >= A - 0.01 (E21)"
+  },
+  "frozen": {
+    "candidate": "C2, seed 42, epoch 4 (summary: data/outputs/e21_training_summary.json)",
+    "kaggle_kernel": "anubhavjha0812/sp-riskengine-e21-sentiment v1",
+    "training_data": "data/outputs/e21_training_data.json",
+    "model_files_sha256": {
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5/config.json": "fa3dde0ef183cdb07327fe0c0b41b4280209d69b6f0c995100f044b623e9ab01",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5/metrics.json": "ea23cf9439ccb3b6f5c9c6f8b0826edd9a98b51819e390aa61def287c9461e3c",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5/model.safetensors": "c8dc4d34b046b0983451189e373f2bca9478409436bc8855af2b33b1a797441d",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5/tokenizer.json": "41b9d12a4c559e4098f30173bc0f76d092c43d7b1f873e7027da45a256f30f87",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5/tokenizer_config.json": "649e41f8cf1cb1b67acc193795ccaef07bcaa3c4e0fc7d286ba8255fab79cffa",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5-int8/config.json": "a26ede9389073789c23fc6c2f8b70b849a4d8b0f716f37289f0acfd4aab07f44",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5-int8/model.onnx": "f6b36e867ebb0a4af0195a9da86b8fbcf3b49d6edce1f18152dbbc1aaf8829a6",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5-int8/source_metrics.json": "ea23cf9439ccb3b6f5c9c6f8b0826edd9a98b51819e390aa61def287c9461e3c",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5-int8/tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "models/kaggle_v5/models/sentiment-e21-bge-small-en-v1.5-int8/tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e",
+      "models/kaggle_v1/models/sentiment-bge-small-en-v1.5-int8/config.json": "4fa7f87f62540f12f09ac224c38a44b3db571c26565eda118b9d6cfe21316b84",
+      "models/kaggle_v1/models/sentiment-bge-small-en-v1.5-int8/model.onnx": "abcbe1a81754528b8a75b1337171867a64e5a97b846f291d64a42f52e7d78de6",
+      "models/kaggle_v1/models/sentiment-bge-small-en-v1.5-int8/source_metrics.json": "9d97c1afe258bb289416c76fb0f65dee5855a8d4a72df83926180f90b738a464",
+      "models/kaggle_v1/models/sentiment-bge-small-en-v1.5-int8/tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "models/kaggle_v1/models/sentiment-bge-small-en-v1.5-int8/tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+    }
+  },
+  "confirm": {
+    "sets": {
+      "FinEntity (primary, human)": {
+        "rows": 851,
+        "labels": {
+          "neutral": 490,
+          "positive": 181,
+          "negative": 180
+        },
+        "sentiment-bge-small-en-v1.5-int8": {
+          "macro_f1": 0.7652063525190756,
+          "accuracy_ci95": [
+            0.7473560517038778,
+            0.8037602820211516
+          ],
+          "macro_f1_ci95": [
+            0.7340786997582206,
+            0.7941745637037897
+          ],
+          "per_class_f1_ci95": {
+            "negative": [
+              0.6985848611220394,
+              0.794044665012407
+            ],
+            "neutral": [
+              0.7695705431473943,
+              0.8270680607769423
+            ],
+            "positive": [
+              0.6968040282094191,
+              0.7934291363027353
+            ]
+          },
+          "accuracy": 0.7755581668625147
+        },
+        "sentiment-e21-bge-small-en-v1.5-int8": {
+          "macro_f1": 0.6997297255114834,
+          "accuracy_ci95": [
+            0.6685957696827263,
+            0.7297297297297297
+          ],
+          "macro_f1_ci95": [
+            0.6687079838184252,
+            0.7314366429677864
+          ],
+          "per_class_f1_ci95": {
+            "negative": [
+              0.6545325290822921,
+              0.7480022900763359
+            ],
+            "neutral": [
+              0.6537668739281642,
+              0.7272947925860547
+            ],
+            "positive": [
+              0.6608305458892028,
+              0.7478900709219858
+            ]
+          },
+          "accuracy": 0.6980023501762632
+        },
+        "paired_c_minus_a": {
+          "b_minus_a": -0.06547662700759227,
+          "ci95": [
+            -0.0940977342935069,
+            -0.03607722646824749
+          ],
+          "verdict": "lower"
+        }
+      },
+      "Tweets 2021-22 (secondary, AI-assisted, human-reviewed)": {
+        "rows": 251,
+        "labels": {
+          "positive": 104,
+          "neutral": 78,
+          "negative": 69
+        },
+        "sentiment-bge-small-en-v1.5-int8": {
+          "macro_f1": 0.45202803354265386,
+          "accuracy_ci95": [
+            0.40239043824701193,
+            0.5258964143426295
+          ],
+          "macro_f1_ci95": [
+            0.3850530019955465,
+            0.5171033149497795
+          ],
+          "per_class_f1_ci95": {
+            "negative": [
+              0.3461206896551724,
+              0.5952507598784195
+            ],
+            "neutral": [
+              0.43477369921596576,
+              0.5766707218167072
+            ],
+            "positive": [
+              0.26560202205882355,
+              0.4743705035971223
+            ]
+          },
+          "accuracy": 0.46215139442231074
+        },
+        "sentiment-e21-bge-small-en-v1.5-int8": {
+          "macro_f1": 0.5908119658119658,
+          "accuracy_ci95": [
+            0.5298804780876494,
+            0.649402390438247
+          ],
+          "macro_f1_ci95": [
+            0.5302146865877928,
+            0.6537553349295909
+          ],
+          "per_class_f1_ci95": {
+            "negative": [
+              0.5312430862831858,
+              0.7230769230769231
+            ],
+            "neutral": [
+              0.4556926863572433,
+              0.6237780729292441
+            ],
+            "positive": [
+              0.5066543209876544,
+              0.6779661016949152
+            ]
+          },
+          "accuracy": 0.5856573705179283
+        },
+        "paired_c_minus_a": {
+          "b_minus_a": 0.13878393226931196,
+          "ci95": [
+            0.07864570216828896,
+            0.20130451733478621
+          ],
+          "verdict": "higher"
+        }
+      },
+      "TFNS test (secondary, observed before)": {
+        "rows": 2388,
+        "labels": {
+          "neutral": 1566,
+          "positive": 475,
+          "negative": 347
+        },
+        "sentiment-bge-small-en-v1.5-int8": {
+          "macro_f1": 0.8363236483764603,
+          "accuracy_ci95": [
+            0.8634840871021775,
+            0.8886097152428811
+          ],
+          "macro_f1_ci95": [
+            0.8181785164278497,
+            0.8528415718301441
+          ],
+          "per_class_f1_ci95": {
+            "negative": [
+              0.7629497159688617,
+              0.8291988606017447
+            ],
+            "neutral": [
+              0.9060606279882992,
+              0.925017870621248
+            ],
+            "positive": [
+              0.7654839538774769,
+              0.8232866479925304
+            ]
+          },
+          "accuracy": 0.8768844221105527
+        },
+        "sentiment-e21-bge-small-en-v1.5-int8": {
+          "macro_f1": 0.840570306993421,
+          "accuracy_ci95": [
+            0.8601340033500837,
+            0.8860971524288107
+          ],
+          "macro_f1_ci95": [
+            0.8232743395241464,
+            0.8565180365923116
+          ],
+          "per_class_f1_ci95": {
+            "negative": [
+              0.7767721487766377,
+              0.8383082204844555
+            ],
+            "neutral": [
+              0.8996704203391298,
+              0.919751511276814
+            ],
+            "positive": [
+              0.775103168796726,
+              0.8305088945255413
+            ]
+          },
+          "accuracy": 0.873534338358459
+        },
+        "paired_c_minus_a": {
+          "b_minus_a": 0.004246658616960608,
+          "ci95": [
+            -0.011694098410534657,
+            0.021201334997662923
+          ],
+          "verdict": "tie"
+        }
+      }
+    },
+    "tweets_skipped_by_annotator": 49,
+    "labelled_file_sha256": "acc84face283569a1826931be0213040103572d1996c5d929c919a34c9aff0a9",
+    "engine": "sentiment-bge-small-en-v1.5-int8"
+  }
+}

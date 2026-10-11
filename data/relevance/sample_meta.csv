@@ -1,0 +1,301 @@
+id,set,by_symbol,ticker,Date,Stock_symbol,Article_title
+r001,S1,False,BAC,2012-11-26 10:21:00 UTC,,Parker Drilling to Present at Bank of America Merrill Lynch Conference
+r002,S1,False,XOM,2013-02-13 00:00:00 UTC,,"Rosneft Expands Cooperation With Exxon in Alaska, Arctic, LNG"
+r003,S1,False,JPM,2012-09-10 12:28:00 UTC,,REG - JPMorgan Japanese IT - Ten Largest Investments
+r004,S1,False,AMZN,2017-01-11 00:00:00 UTC,TMH,Amazon Offers 5% Off Of Everything
+r005,S2,True,KO,2010-03-05 00:00:00 UTC,KO,"Stock Market News for March 5, 2010 - Market News"
+r006,S2,True,AMD,2020-04-29 00:00:00 UTC,AMD,UPDATE: Mizuho On Advanced Micro Devices Notes 'we believe JunQ server share is on track for 10% and 2H/1H server growth'
+r007,S2,True,GOOGL,2019-02-06 00:00:00 UTC,GOOG,Survey: Smart Speakers Quickly Becoming Ubiquitous In American Households
+r008,S1,False,AMD,2014-06-03 07:16:00 UTC,,"Research and Markets: Global Micro Server IC Industry report 2013-2018: Processor (Intel, ARM, AMD), IC's (Analog, Digital) & Applications (Media Storage, Data Center, Cloud Computing, Analytics)"
+r009,S1,False,BAC,2014-03-12 08:35:00 UTC,,Puma Biotechnology to Present at Bank of America Merrill Lynch Smid Cap Conference
+r010,S2,True,TSLA,2019-12-10 00:00:00 UTC,TSLA,Technology Stocks Could Be In Focus Today As Trade Dominates The Headlines
+r011,S1,False,GOOGL,2012-08-27 12:05:00 UTC,,Punch Communications Advises Brands to Capitalise on Google+ Vanity URLs as Soon as They Are Available
+r012,S1,False,GOOGL,2012-08-06 13:00:00 UTC,,"TuneIn grabs $16M from General Catalyst, Google Ventures, others to dominate radio apps"
+r013,S1,False,GOOGL,2013-07-25 00:00:00 UTC,DTV,Google's $35 smart-TV gadget sells out fast
+r014,S1,False,JPM,2016-07-13 08:19:00 UTC,,"BRIEF-JPMorgan CEO Jamie Dimon in NYT says to raise minimum pay for 18,000 workers"
+r015,S1,False,BA,2012-07-10 08:30:00 UTC,,"Boeing, American Airlines 737-800 ecoDemonstrator Airplane Prepares for Flight Test Program"
+r016,S2,True,NVDA,2017-09-11 00:00:00 UTC,NVDA,AMD And Nvidia: How Vulnerable Are They To Cryptocurrency Concerns?
+r017,S1,False,JPM,2011-01-19 05:21:00 UTC,,"JP Morgan, Goldman Sachs raise Apple price target"
+r018,S1,False,KO,2011-12-15 00:00:00 UTC,CCE,Coca-Cola Enterprises Affirms FY2011 EPS Guidance of $2.14-2.18 vs $2.16 Est
+r019,S2,True,GOOGL,2019-05-01 00:00:00 UTC,GOOGL,"Benzinga's Top Upgrades, Downgrades For May 1, 2019"
+r020,S2,True,BAC,2017-09-19 00:00:00 UTC,BAC,"AMD, Bank Of America, Gilead, Intel: Fast Money Picks For September 19"
+r021,S1,False,JPM,2013-01-22 11:46:00 UTC,,Bridgepoint to hire JPMorgan to review Diaverum options
+r022,S1,False,AMD,2012-11-14 16:01:00 UTC,," AMD FirePro Server Graphics Redefining Supercomputing Performance Through Power Efficient, Sustainable Technology"
+r023,S2,True,NFLX,2019-07-18 00:00:00 UTC,NFLX,"Nomura Maintains Neutral on Netflix, Lowers Price Target to $310"
+r024,S1,False,META,2012-02-13 08:00:00 UTC,, BeKnown(TM) App from Monster Helps Emerging Workforce Present and Share a Professional Identity on Facebook Timeline(R)
+r025,S1,False,BA,2010-12-10 00:59:00 UTC,,Aviation regulators step-up Boeing 757 inspections - WSJ
+r026,S2,True,AAPL,2020-05-12 00:00:00 UTC,AAPL,Apple Unveils Update To Logic Pro
+r027,S2,True,XOM,2018-07-26 00:00:00 UTC,XOM,"ExxonMobil Starts Up New Ethane Cracker in Baytown, Texas To SUpply Co.'s Expanded Plastics Plant In Mont Belvieu With $1.5M Ton/Year Cracker"
+r028,S2,True,KO,2014-12-22 00:00:00 UTC,KO,"Argus Research Analyst John Staszak Says Coca-Cola, WhiteWave Partnership Is A 'Good Idea'"
+r029,S1,False,JPM,2010-08-12 07:57:00 UTC,,REG - JPMorgan Inc&Grwth; - Net Asset Value(s)
+r030,S1,False,BA,2014-07-31 12:05:00 UTC,,Boeing CFO to Speak at Jefferies 2014 Global Industrials Conference on Aug. 14
+r031,S1,False,BA,2016-02-25 19:28:00 UTC,,Boeing names Caret to replace head of defense unit
+r032,S2,True,TSLA,2020-04-08 00:00:00 UTC,TSLA,"Tesla Announces Pay Cuts, Furloughs; Aims to Get Back to Production By May 4"
+r033,S2,True,BAC,2016-01-07 00:00:00 UTC,BAC,"Keefe Bruyette Cuts Bank of America Q4 EPS From $0.36 To $0.30, Maintains Outperform And $19 PT"
+r034,S1,False,JPM,2011-02-09 00:00:00 UTC,AZPN,J.P. Morgan Maintains Overweight on Aspen Technology (AZPN)
+r035,S2,True,NVDA,2011-03-16 00:00:00 UTC,NVDA,"US Stock Futures Down, Economic Data In Focus; Japan's Nikkei Ends 5.7% Higher"
+r036,S1,False,GOOGL,2015-07-09 06:01:00 UTC,,"WebRTC Poised to Change the Testing Landscape Given Recent Adoption by Vendors like Facebook, Microsoft and Google"
+r037,S2,True,NVDA,2018-08-24 00:00:00 UTC,NVDA,"Stocks Which Set New 52-Week High Yesterday, August 23rd"
+r038,S1,False,GOOGL,2014-01-24 08:18:00 UTC,,German court orders Google to block Max Mosley sex pictures
+r039,S1,False,MSFT,2010-12-21 14:38:00 UTC,,ITC to take Motorola patent case against Microsoft
+r040,S1,False,AAPL,2012-07-07 00:00:00 UTC,INFA,Apple iPad Mini Rumors: Tech Weekly Recap
+r041,S1,False,AAPL,2010-05-18 08:00:00 UTC,,"PLX USB Duet Simplifies Apple iPad Photo, Keyboard, Audio Sharing"
+r042,S1,False,JPM,2011-01-05 08:00:00 UTC,,REG - JPMorgan Overseas - Net Asset Value(s)
+r043,S2,True,KO,2014-07-18 00:00:00 UTC,KO,Investors Focus On Earnings Rather Than Geopolitical Tensions
+r044,S1,False,BAC,2012-12-04 10:13:00 UTC,,"BRIEF-Bank of America CEO Brian Moynihan says bank will continue to ""rightsize"" the bank's debt footprint"
+r045,S1,False,META,2013-07-31 00:00:00 UTC,,Zynga подала в суд на создателей секс-приложения для Facebook
+r046,S1,False,MSFT,2010-10-26 06:01:00 UTC,,Bitrix Alerts About Trojan Program Disguising as Microsoft Silverlight Update and Bitrix Security Framework
+r047,S2,True,META,2020-05-14 00:00:00 UTC,FB,Apple Confirms Acquisition Of Virtual Reality Startup NextVR
+r048,S1,False,MSFT,2014-04-21 09:30:00 UTC,,"The Zacks Analyst Blog Highlights:Google, Yahoo, Microsoft, Facebook and iRobot"
+r049,S2,True,KO,2013-03-20 00:00:00 UTC,KO,These Four NCAA Tournament Sponsors Might Make Your Portfolio Some Serious Money
+r050,S1,False,GOOGL,2010-03-08 18:47:00 UTC,,"CORRECTED: Cyber-bullying cases put heat on Google, Facebook"
+r051,S1,False,AMZN,2010-05-03 15:29:00 UTC,, Amazon Consulting Unveils Results of 4th Annual State of Partnering Study
+r052,S1,False,DIS,2019-11-09 00:00:00 UTC,MDW,Stocks To Watch: Alibaba And Disney Step Out
+r053,S2,True,GOOGL,2020-01-31 00:00:00 UTC,GOOG,"Benzinga Pro's Top 5 Stocks To Watch For Fri., Jan. 31, 2020: AMZN, IBM, GOOGL, WWE, UBER"
+r054,S2,True,NVDA,2016-06-21 00:00:00 UTC,NVDA,"Machine Learning Conference Update: Amazon And NVIDIA Winning, IBM And Alphabet Losing"
+r055,S1,False,KO,2013-11-26 08:00:00 UTC,,"Before the Bell Scans: Kraft Foods Group Inc., Coca-Cola Enterprises Inc., Mattel Inc., and Thor Industries Inc."
+r056,S2,True,BAC,2017-06-14 00:00:00 UTC,BAC,Citigroup (C) Projects Q2 Trading Revenues to Descend Y/Y
+r057,S1,False,BAC,2018-05-02 00:00:00 UTC,EV,Bank of America Upgrades Eaton Vance to Buy
+r058,S1,False,META,2013-03-20 00:00:00 UTC,SVVC,UPDATE: Ascendiant Capital Raises PT on Firsthand Technology Value Fund on Facebook Rebound
+r059,S2,True,GOOGL,2018-08-28 00:00:00 UTC,GOOGL,"Hearing That Trump Warns Social Media Names Such As Google, Twitter, And Facebook That They Had Better Be Careful"
+r060,S1,False,JPM,2011-04-28 16:06:00 UTC,,MediaMind to Present at Upcoming Jefferies and J.P. Morgan Conferences
+r061,S1,False,AAPL,2014-12-08 00:00:00 UTC,RH,"Laszlo Birinyi Jr. Shares His Stock Picks: Apple, Blackstone Group And More"
+r062,S2,True,BAC,2020-01-03 00:00:00 UTC,BAC,"UPDATE: BMO Downgrades Bank Of America To Market Perform, Maintains $37 Target 'on the basis of valuation exclusively' As 'BAC shares now trade at a premium to their long-term historical average'"
+r063,S1,False,JPM,2011-03-24 06:24:00 UTC,,REG-J.P. Morgan Securities Ltd. Form 8.5 Mouchel Group Plc
+r064,S1,False,GOOGL,2017-02-21 00:00:00 UTC,TRIP,Tech/Earnings Update: From Google 'Raves' To BlackBerry 'Zero' And Verizon 'Drones'
+r065,S2,True,NFLX,2018-04-13 00:00:00 UTC,NFLX,"Benzinga's Top Upgrades, Downgrades For April 13, 2018"
+r066,S1,False,MSFT,2013-02-15 09:06:00 UTC,,National Minority Quality Forum to Launch the National Clinical Trial Network with Microsoft
+r067,S2,True,JPM,2020-01-15 00:00:00 UTC,JPM,"BofA (BAC) Q4 Earnings Top on Trading, Underwriting & Loans"
+r068,S1,False,GOOGL,2011-07-13 00:44:00 UTC,,"Google, Yahoo and Peabody eye investing in Indonesia-paper"
+r069,S2,True,NVDA,2014-04-03 00:00:00 UTC,NVDA,"NVIDIA Shares Rally Amid Rumor of Greenlight Stake, Einhorn Spokesperson Declines Comment"
+r070,S1,False,AMZN,2017-07-28 00:00:00 UTC,EA,Stocks Rebound From Weak Open Amid Q2 GDP; Amazon Earnings Badly Miss
+r071,S1,False,NVDA,2014-08-23 08:30:00 UTC,,NaviSite Introduces Desktop-as-a-Service Solution Leveraging NVIDIA GRID Technology for Enterprise Users
+r072,S1,False,DIS,2013-01-08 06:30:00 UTC,,DreamPlay Toys and Disney Consumer Products to Launch Next Generation Interactive Products Using NantWorks` Revolutionary iD Technology
+r073,S1,False,BAC,2016-04-19 00:00:00 UTC,ILMN,Bank of America Downgrades Illumina to Neutral
+r074,S1,False,TSLA,2016-07-29 00:00:00 UTC,SCTY,Tesla Stock Better Positioned For New All-Time Highs
+r075,S2,True,KO,2016-04-20 00:00:00 UTC,KO,Mid-Afternoon Market Update: Dow Up 0.5%; Argos Therapeutics Shares Drop
+r076,S1,False,JPM,2011-01-20 00:00:00 UTC,STI,"JPMorgan, Comerica: Winners & Losers"
+r077,S1,False,JPM,2011-08-03 00:00:00 UTC,LXK,J.P. Morgan Maintains Neutral on Lexmark International
+r078,S1,False,AAPL,2010-12-10 03:07:00 UTC,,UPDATE 3-Apple suppliers point to new camera-toting iPad in 2011
+r079,S1,False,JPM,2010-10-06 06:16:00 UTC,,REG-JPMorgan Asset Management Form 8.3 - Wellstream Holdings Plc
+r080,S1,False,BA,2015-01-07 14:40:00 UTC,,Boeing sets industry record for 2014 deliveries
+r081,S1,False,GOOGL,2012-10-23 11:00:00 UTC,,WebMetro Paid Search Lab Addresses Google Keyword Mapping Inefficiencies
+r082,S1,False,GOOGL,2017-12-08 00:00:00 UTC,DOV,"Daniel Loeb Buys DowDuPont Inc, Alibaba Group Holding, Vantiv Inc, Sells Alphabet Inc, General ..."
+r083,S1,False,KO,2010-02-08 16:10:00 UTC,,Alex Cummings Named to Coca-Cola Consolidated Board of Directors
+r084,S2,True,NVDA,2017-05-23 00:00:00 UTC,NVDA,"Companies Holding Annual Meetings Today Include Waste Connections, Eastman Kodak, Alarm.com, Amyris, Achillion Pharma, GNC, Amazon, Nokia, Merck, Nvidia, Pinnacle Foods, Wendy's, & Xerox"
+r085,S1,False,JPM,2012-02-08 10:32:00 UTC,,REG - JPMorgan Mid Cap - Ten Largest Investments
+r086,S1,False,AMZN,2012-07-23 14:03:00 UTC,,Amazon CEO uses Web front page to recruit workers
+r087,S1,False,GOOGL,2013-09-04 09:30:00 UTC,,"The Zacks Analyst Blog Highlights: Microsoft, Nokia, Google, Apple and Sony"
+r088,S2,True,KO,2012-04-26 00:00:00 UTC,KO,Pepsi & Dr. Pepper Spill Messy Results
+r089,S2,True,AAPL,2020-04-26 00:00:00 UTC,AAPL,Amazon Pilots Online Screening Of New Sellers During Pandemic
+r090,S2,True,JPM,2019-04-12 00:00:00 UTC,JPM,"Dow Jones Futures Jump: Chevron Buys Anadarko, Disney Takes On Netflix, JPMorgan Earnings Top"
+r091,S2,True,JPM,2019-06-05 00:00:00 UTC,JPM,JPMorgan brings back forced arbitration for credit-card customers
+r092,S1,False,JPM,2010-10-28 07:02:00 UTC,,REG-J.P. Morgan Securities Ltd. Form 8.5 SSL International Plc
+r093,S2,True,JPM,2019-07-16 00:00:00 UTC,JPM,"JPMorgan Chase EPS beats by $0.33, beats on revenue"
+r094,S1,False,GOOGL,2012-09-18 00:00:00 UTC,,Аудитория Google+ выросла за три месяца на 150 миллионов человек
+r095,S1,False,TSLA,2012-02-15 16:10:00 UTC,, Tesla Motors Releases Fourth Quarter & Full Year 2011 Financial Results
+r096,S1,False,AAPL,2010-12-08 15:00:00 UTC,,"Grant & Eisenhofer P.A. Provides Summary Notice of Proposed Settlement, Settlement Fairness Hearing, and Motion for Attorneys` Fees and Expenses in In Re Apple Inc. Securities Litigation"
+r097,S2,True,TSLA,2020-03-04 00:00:00 UTC,TSLA,'Tesla's quiet chip downgrade sparks anger in China' -Nikkei
+r098,S1,False,JPM,2010-12-01 00:00:00 UTC,AZO,J.P. Morgan Maintains Neutral Rating On Autozone (AZO)
+r099,S2,True,JPM,2020-03-27 00:00:00 UTC,JPM,"Zacks Value Trader Highlights: eBay, Pfizer, JPMorgan Chase, Intuitive Surgical and Edwards Lifesciences"
+r100,S1,False,JPM,2010-12-14 10:11:00 UTC,,REFILE-JPMorgan denies holds more than 90 pct of LME copper
+r101,S1,False,GOOGL,2010-03-03 12:14:00 UTC,,Apple goes after Google's Nexus One in patent actions
+r102,S2,True,KO,2017-10-25 00:00:00 UTC,KO,"Coca-Cola Q3 Adj. EPS $0.50 vs $0.49 Est., Sales $9.08M vs $8.72M Est."
+r103,S1,False,JPM,2013-01-04 07:00:00 UTC,,VIVUS to Present at the 2013 JP Morgan Healthcare Conference
+r104,S1,False,MSFT,2015-04-01 16:30:00 UTC,,Diamond Scratches the Surface with Microsoft
+r105,S2,True,KO,2014-02-21 00:00:00 UTC,KO,Market Wrap For February 21: Markets End The Week On A Negative Note
+r106,S2,True,JPM,2019-08-09 00:00:00 UTC,JPM,Wall Street Breakfast: Market's Roller Coaster Ride Continues
+r107,S1,False,BAC,2012-04-25 12:00:00 UTC,,BofA Merrill fills Europe corporate broking gaps
+r108,S1,False,BA,2010-04-21 00:00:00 UTC,TPX,"Afternoon-Market Update Abbott Labs (NYSE: ABT), Boeing (NYSE: BA), Tempur-Pedic (NYSE: TPX)"
+r109,S1,False,AMZN,2015-08-20 15:47:00 UTC,,Ant colony protests to save the Amazon rainforest
+r110,S1,False,AAPL,2011-06-02 09:22:00 UTC,,MicroVision`s SHOWWX+ Coming To Apple Stores in EMEA
+r111,S1,False,BAC,2010-05-10 00:00:00 UTC,NBG,Bank of America: Financial Winners & Losers
+r112,S2,True,KO,2010-08-18 00:00:00 UTC,KO,Tech Entrepreneurs Need More Than an Idea
+r113,S2,True,DIS,2020-04-23 00:00:00 UTC,DIS,Discovery Inc.-owned Eurosport signs content partnership with Torque Esports
+r114,S1,False,JPM,2011-11-30 06:16:00 UTC,,REG-J.P. Morgan Securities Ltd. Form 8.5 (EPT/RI)Â Charter International Plc
+r115,S2,True,KO,2015-05-11 00:00:00 UTC,KO,"Citi Upgrades Monster Beverage, Sees Pullback Offering An Opportunity"
+r116,S1,False,AAPL,2017-01-09 00:00:00 UTC,PEP,Why Rehiring Steve Jobs Was The Best Move Apple Ever Made
+r117,S2,True,BAC,2015-03-17 00:00:00 UTC,BAC,"Raymond James Initiates Coverage On Bank Of America, PNC And Wells Fargo"
+r118,S1,False,TSLA,2015-02-08 00:00:00 UTC,DO,"From Coca-Cola To Tesla, Here Are The 68 Most Important Earnings Expectations For The Week"
+r119,S1,False,AAPL,2011-08-25 00:00:00 UTC,,Mango Windows Phones Give Nokia Apps to Strike Back at Apple
+r120,S1,False,XOM,2016-01-27 00:00:00 UTC,CNQ,"Exxon looks ""relatively expensive,"" J.P. Morgan's Gresh says"
+r121,S1,False,XOM,2012-07-16 02:12:00 UTC,,Afghanistan may attract more energy firms as Exxon shows interest
+r122,S1,False,XOM,2016-02-03 17:24:00 UTC,,"US STOCKS-Wall St slides with Exxon, oil; Chipotle dips after close"
+r123,S2,True,TSLA,2020-03-01 00:00:00 UTC,TSLA,"Barron's Picks And Pans: COVID-19 Stocks, Intel, Tesla And More"
+r124,S2,True,NVDA,2020-02-14 00:00:00 UTC,NVDA,"Nvidia Analysts Maintain Bullish Outlook Following Q4 Data Center, Gaming Strength"
+r125,S1,False,META,2013-07-24 17:52:00 UTC,,"Facebook shares soar as users, mobile ads climb"
+r126,S2,True,BAC,2017-01-27 00:00:00 UTC,BAC,"JJ Kinahan Walks Us Through The Most Traded Stocks Among TDA Clients In 2016: Apple, Bank of America & More"
+r127,S1,False,JPM,2011-09-09 00:00:00 UTC,FITB,UPDATE: J.P. Morgan Lowers PT on Fifth Third Bancorp to $16
+r128,S1,False,JPM,2019-10-14 00:00:00 UTC,ETR,"JP Morgan Maintains Overweight on Entergy, Raises Price Target to $129"
+r129,S1,False,JPM,2011-05-18 00:00:00 UTC,,"JPMorgan Says Crude Oil, Gold to Drive Rebound in Commodities on Shortages"
+r130,S1,False,JPM,2013-08-16 00:00:00 UTC,,JPMorgan Suit With Bear Stearns Liquidators Is Ended
+r131,S2,True,XOM,2020-02-03 00:00:00 UTC,XOM,"Benzinga's Top Upgrades, Downgrades For February 3, 2020"
+r132,S2,True,TSLA,2019-10-14 00:00:00 UTC,TSLA,"Tesla shares are trading higher after Elon Musk gave hints about the company's pickup truck design, and called it the 'Cybertruck'. NOTE: Musk said that the company plans to unveil its electric pickup truck in November."
+r133,S1,False,JPM,2010-03-12 08:00:00 UTC,,"Cracker Barrel Old Country StoreÂ® To Participate In J.P. Morgan Gaming, Lodging, Restaurant & Leisure Management Access Forum"
+r134,S2,True,KO,2015-05-04 00:00:00 UTC,KO,Make The Most of Your 401(k) With Low-Cost Index Funds
+r135,S1,False,META,2017-05-04 00:00:00 UTC,FDN,Tech ETFs to Buy on Solid Facebook Q1 Results
+r136,S1,False,BAC,2016-02-06 16:03:00 UTC,,$8.5 billion payout remains elusive for BofA MBS investors
+r137,S1,False,AMZN,2019-07-24 00:00:00 UTC,SYY,"Somerville Kurt F Buys Becton, Dickinson and Co, Amazon. ..."
+r138,S2,True,TSLA,2019-12-21 00:00:00 UTC,TSLA,"Benzinga's Bulls And Bears Of The Week: Apple, Microsoft, Netflix, Peloton And More"
+r139,S2,True,NVDA,2018-06-18 00:00:00 UTC,NVDA,S&P Dow Jones Indices Announces 'NVIDIA Set to Join S&P 100; FleetCor Technologies to Join S&P 500; Penn Virginia to Join S&P SmallCap 600'
+r140,S1,False,DIS,2011-12-14 07:00:00 UTC,,"RealD Celebrates Disney`s ""Beauty and the Beast"" Theatrical Release in Disney Digital 3D with Special Edition 3D Kids Glasses"
+r141,S1,False,JPM,2010-09-30 05:56:00 UTC,,REG-J.P. Morgan Securities Ltd. Form 8.5 SSL International Plc
+r142,S2,True,AMD,2020-03-03 00:00:00 UTC,AMD,Spread of Coronavirus Beyond China to Impact 2020 Semiconductor Market
+r143,S1,False,BA,2011-12-13 17:04:00 UTC,,Boeing guns for more MAX orders next year: executive
+r144,S1,False,XOM,2012-06-25 09:41:00 UTC,,SABIC/Exxon JV awards Jubail elastomer project EPC contract
+r145,S1,False,JPM,2014-01-17 18:27:00 UTC,,"In wake of JPMorgan settlement, big banks add to defense funds"
+r146,S2,True,JPM,2019-10-15 00:00:00 UTC,JPM,"First Republic (FRC) Q3 Earnings Beat Estimates, Costs Rise"
+r147,S1,False,MSFT,2014-05-22 10:58:00 UTC,,Network Data Systems Recertifies Microsoft Gold Competency â 14 Years Running!
+r148,S1,False,NFLX,2016-01-15 00:00:00 UTC,FOXA,Netflix: Competitive Trend Accelerating?
+r149,S1,False,BA,2011-01-10 17:40:00 UTC,,Boeing Director William M. Daley Resigns Board Seat
+r150,S1,False,GOOGL,2012-05-31 12:59:00 UTC,, Mercent First Retail Technology Provider to Support the New Google Shopping Experience; Launches Mercent Retail(TM) for
+r151,S2,True,NFLX,2020-04-21 00:00:00 UTC,NFLX,Mike Khouw Sees Unusual Options Activity In Netflix
+r152,S1,False,AMD,2010-05-12 00:00:00 UTC,,AMD выпустила шесть новых бюджетных процессоров
+r153,S2,True,GOOGL,2019-08-16 00:00:00 UTC,GOOG,Shares of several large-cap companies are trading higher with the broader market on renewed optimism surrounding US-China trade talks after Donald Trump announced earlier in the week that he would delay additional tariffs on Chinese goods until December.
+r154,S2,True,NFLX,2018-07-17 00:00:00 UTC,NFLX,Mid-Morning Market Update: Markets Open Lower; Goldman Sachs Earnings Top Expectations
+r155,S1,False,NFLX,2018-07-18 00:00:00 UTC,WSM,You Can't Go Wrong Buying Netflix On Dips - Cramer's Mad Money (7/17/18)
+r156,S1,False,AAPL,2013-05-06 13:59:00 UTC,,"Techquity: Cosying up to Apple, Google living the high-life"
+r157,S1,False,BAC,2012-02-22 00:00:00 UTC,DDR,UPDATE: Bank of America Upgrades DDR to Buy
+r158,S2,True,NVDA,2016-12-28 00:00:00 UTC,NVDA,NVIDIA's Pullback Might Not Last Very Long
+r159,S1,False,AAPL,2019-03-26 00:00:00 UTC,CNC,Dow Jones Futures: Don't Catch A Falling Apple; These 4 Stocks Are Moving Late
+r160,S1,False,DIS,2011-05-26 06:00:00 UTC,,"Suit up, Power up and Team up in a Multiplayer Action-Adventure Game Featuring a Universe of Beloved Characters in Disney Universe"
+r161,S2,True,BAC,2015-10-13 00:00:00 UTC,BAC,"Big Banks, Old-School Tech Earnings Face Tough Quarterly Test"
+r162,S2,True,NFLX,2019-11-19 00:00:00 UTC,NFLX,"Disney+ Accounts Reportedly Hacked, Sold On The Dark Web"
+r163,S2,True,TSLA,2019-10-15 00:00:00 UTC,TSLA,Tesla expands Powerwall Installations To Japan
+r164,S2,True,NFLX,2018-12-17 00:00:00 UTC,NFLX,'Netflix's Movie Blitz Takes Aim at Hollywood's Heart' -Sunday Article From NY Times
+r165,S1,False,BAC,2012-09-20 00:00:00 UTC,ADBE,"Bank of America Maintains Adobe Systems at Buy, Lowers PO from $37 to $36"
+r166,S2,True,AAPL,2020-03-15 00:00:00 UTC,AAPL,"Starbucks Switches To 'To Go' Model As Coronavirus Spreads, Closes Some Stores"
+r167,S2,True,TSLA,2019-10-13 00:00:00 UTC,TSLA,"Tesla Ends Sale Commission, Increases Salaries and Stock Bonus After Compensation Cut"
+r168,S2,True,GOOGL,2018-08-16 00:00:00 UTC,GOOGL,'Google to release display-equipped speaker in time for holidays'-Nikkei Asian Review
+r169,S2,True,NFLX,2017-04-17 00:00:00 UTC,NFLX,Netflix Q1 Pre-Recorded Earnings Conference Call Can Be Found on Youtube; Page is Not Yet Updated
+r170,S1,False,GOOGL,2015-12-22 00:00:00 UTC,DDC,Google And Ford In Self-Driving Car Deal?
+r171,S2,True,JPM,2019-08-07 00:00:00 UTC,JPM,"Most Active Equity Options For Midday - Wednesday, August 7"
+r172,S1,False,JPM,2011-01-27 06:48:00 UTC,,REG - JPMorgan Amer InvTst - Net Asset Value(s)
+r173,S1,False,XOM,2012-03-30 00:00:00 UTC,TRP,"ExxonMobil, ConocoPhillips, BP and Alaska Pipeline Project Working Together to Commercialize North Slope Natural Gas"
+r174,S1,False,BA,2020-02-19 00:00:00 UTC,WBA,A Dow Without Boeing (BA)
+r175,S1,False,BA,2015-07-31 18:04:00 UTC,,WRAPUP 3-Indian Ocean debris almost certainly from Boeing 777
+r176,S2,True,KO,2011-12-14 00:00:00 UTC,KO,Deutsche Bank Maintains Hold on Coca-Cola After Aujan Industries Acquisition
+r177,S1,False,META,2014-06-24 00:00:00 UTC,ORLY,Nasdaq Hits 14-Year High; Facebook Breaks Out
+r178,S1,False,JPM,2010-10-19 07:26:00 UTC,,REG - JPMorgan Jap Smaller - Net Asset Value(s)
+r179,S1,False,TSLA,2014-07-15 00:00:00 UTC,GNTX,Tesla Gains on Mandate of 30% EV Purchases by China Gov - Analyst Blog
+r180,S2,True,DIS,2020-05-05 00:00:00 UTC,DIS,"Dow Jones Gets A Boost From Apple, Microsoft, Chevron As Economies Reopen"
+r181,S1,False,XOM,2010-02-26 05:06:00 UTC,,TABLE-Thai Exxon unit returns to net profit in 2009
+r182,S1,False,TSLA,2016-08-02 00:00:00 UTC,TWX,"Tesla, 3D Systems, TripAdvisor, Time Warner, Oil Data: Your Investing Action Plan"
+r183,S2,True,NFLX,2017-05-09 00:00:00 UTC,NFLX,A Look At David Einhorn's Recent Short Calls
+r184,S1,False,AAPL,2011-11-16 09:18:00 UTC,,"Protected Mobilityâ¢ is First to Achieve FIPS Government Certification for Cross-Platform, Mobile Encryption for Apple and Android"
+r185,S1,False,TSLA,2017-03-27 00:00:00 UTC,DGLY,"Nasdaq Leads Bullish Recovery; Viacom, Tesla, DuPont Show Strength"
+r186,S1,False,AMZN,2010-12-04 00:00:00 UTC,GSI,Amazon's Big Weekend: Weekly Tech Recap
+r187,S1,False,MSFT,2010-04-21 10:31:00 UTC,," Stratus Ultra-High Server Uptime With Microsoft SQL Server 2008 R2 Is DB Security, Availability and Performance at Its"
+r188,S1,False,AMZN,2013-02-13 15:56:00 UTC,,Amazon shares climb on Kindle e-book optimism
+r189,S2,True,NVDA,2015-01-29 00:00:00 UTC,NVDA,Option Alert: Nvidia Feb $20 Call; 8189 Contract Trade at Ask @$0.46; Now $19.48
+r190,S2,True,GOOGL,2019-09-06 00:00:00 UTC,GOOG,Google Parent Alphabet Received Civil Investigative Demand from DoJ on Aug. 30; Seeks Information and Documents Related to Prior Antitrust Investigations in U.S. and Elsewhere
+r191,S1,False,AAPL,2011-02-22 10:00:00 UTC,," TQL Freight Finder Now Available for Apple iPhone, iPad, and iPod Touch"
+r192,S1,False,DIS,2013-12-23 15:27:00 UTC,,Disney names Twitter co-founder Dorsey to board
+r193,S2,True,TSLA,2019-10-23 00:00:00 UTC,TSLA,UPDATE: Tesla Says Positive GAAP Net Income Going Forward Will Possibly Have Temporary Exceptions 'particularly around the launch and ramp of new products'
+r194,S1,False,JPM,2010-12-01 07:08:00 UTC,,REG - JPMorgan Inv. Trusts - Net Asset Value(s)
+r195,S1,False,META,2010-03-11 08:01:00 UTC,, Webtrends Adds Flash Tracking to Its Facebook Analytics Capabilities
+r196,S2,True,NVDA,2020-02-14 00:00:00 UTC,NVDA,Travel Stocks May Stay In Focus As Coronavirus Fears Linger
+r197,S2,True,KO,2020-05-07 00:00:00 UTC,KO,"Suncoast Equity Management Buys Abbott Laboratories, Intuit Inc, Alphabet Inc, Sells CBRE Group ..."
+r198,S2,True,JPM,2019-05-16 00:00:00 UTC,JPM,Wall Street Breakfast: A Protracted Trade Dispute
+r199,S1,False,AAPL,2013-01-24 00:00:00 UTC,BAX,US Stock Futures Mixed After Disappointing Apple Results
+r200,S1,False,DIS,2011-10-05 21:05:00 UTC,,"Robert A. Iger, President and CEO, The Walt Disney Company on Steve Jobs` Passing"
+r201,S1,False,META,2019-02-22 00:00:00 UTC,PACD,"Abrams Capital Management Buys Facebook Inc, Pacific Drilling SA, Akebia Therapeutics Inc, ..."
+r202,S1,False,JPM,2020-01-21 00:00:00 UTC,MLPA,"Baystate Wealth Management LLC Buys Vanguard Value ETF, JPMorgan Alerian MLP Index ETN, Global ..."
+r203,S2,True,NFLX,2020-01-11 00:00:00 UTC,NFLX,"Barron's Picks And Pans: Apple, Bank of America, Lockheed Martin And More"
+r204,S1,False,AMZN,2013-11-11 12:49:00 UTC,,Amazon launches Sunday deliveries
+r205,S1,False,GOOGL,2010-08-13 20:08:00 UTC,,"Analysis: Lawsuit may signal era of Oracle, Google tensions"
+r206,S2,True,BAC,2016-01-25 00:00:00 UTC,BAC,The (Blank) Crisis
+r207,S1,False,JPM,2012-10-11 00:00:00 UTC,AKR,"JP Morgan Maintains Acadia Realty Trust at Neutral, Raises PT from $22 to $24"
+r208,S2,True,JPM,2018-12-24 00:00:00 UTC,JPM,Advice For Adults Who Start Their Dividend Growth Portfolio
+r209,S1,False,AAPL,2015-05-14 08:00:00 UTC,,"Big Data in the Big Apple as Industry Leaders, Experts, and Practitioners Converge for 1010dataâs Second Annual Insight Summit"
+r210,S2,True,BAC,2018-07-16 00:00:00 UTC,BAC,Mid-Morning Market Update: Markets Mixed; Bank of America Profit Tops Expectations
+r211,S1,False,META,2020-02-13 00:00:00 UTC,HUN,"Farley Capital Ii L.p. Buys Facebook Inc, Booking Holdings Inc, Delta Air Lines Inc, Sells ..."
+r212,S1,False,GOOGL,2014-09-10 10:51:00 UTC,,Google Surprises Austin Teachers By Funding All Classroom Requests For Five Central Texas Counties On DonorsChoose.org
+r213,S2,True,JPM,2019-05-15 00:00:00 UTC,JPM,JPMorgan's investing app brings in newbies - Bloomberg
+r214,S2,True,JPM,2018-09-20 00:00:00 UTC,JPM,Biggest risks to the financial system?
+r215,S1,False,JPM,2020-06-08 05:53:32 UTC,GRMN,"JP Morgan Maintains Overweight on Garmin, Raises Price Target to $101"
+r216,S1,False,AMZN,2018-12-21 00:00:00 UTC,ATSG,Imperial Upgrades Air Transport Services To Outperform After Amazon Deal Inked
+r217,S1,False,JPM,2010-04-07 00:00:00 UTC,PRI,Analyst Says Break Up JPMorgan
+r218,S1,False,AAPL,2015-06-12 09:12:00 UTC,,iPhone maker Foxconn in talks to build first Apple plant in India
+r219,S1,False,JPM,2010-11-18 10:01:00 UTC,,"Zacks' Voice of the People highlights opportunities with Exxon Mobil Corporation, Amazon.com, Sachs Group, Inc.and JPMorgan Chase & Co."
+r220,S1,False,JPM,2014-12-31 09:00:00 UTC,,Masimo to Present at 33rd Annual J.P. Morgan Healthcare Conference
+r221,S1,False,JPM,2011-11-04 14:30:00 UTC,,MF Global client funds found at JPMorgan: report
+r222,S1,False,NFLX,2016-04-18 00:00:00 UTC,TRIP,"After-Hours Recap: IBM & Netflix's Earnings, Index Movers And Apple's Decline"
+r223,S2,True,NFLX,2018-01-05 00:00:00 UTC,NFLX,David Letterman's New Netflix Talk Show Kicks Things Off With Barack Obama
+r224,S1,False,META,2019-09-25 00:00:00 UTC,DUK,"The Zacks Analyst Blog Highlights: Facebook, UnitedHealth, GlaxoSmithKline, Duke and BlackRock"
+r225,S1,False,AAPL,2018-05-30 00:00:00 UTC,VHC,Hearing Apple Wins IPR Final Decision As VirnetX '163 Patent Claim Is 'Unpatentable' According To Scirbd IPR Document
+r226,S1,False,NFLX,2012-01-05 00:00:00 UTC,TWC,Barnes & Noble is the Netflix of 2012
+r227,S1,False,BAC,2010-07-02 14:20:00 UTC,,Fitch Dwngrs First Union Nat'l Bank-Bank of America Commercial Mtge Trust 2001-C1; Assigns Outlooks
+r228,S1,False,JPM,2010-11-30 08:29:00 UTC,,REG - JP Morgan Chin IT - Net Asset Value(s)
+r229,S1,False,BAC,2015-08-12 00:00:00 UTC,AHT,"Bank of America Downgrades Ashford Hospitality Trust to Underperform, Lowers PT to $10.00"
+r230,S1,False,JPM,2016-07-15 11:16:00 UTC,,Factbox: Wall Street and commodity risk - JPMorgan measure steady in first quarter
+r231,S1,False,NFLX,2011-09-27 14:52:00 UTC,,Amazon's Tablet Launch: Can the Kindle Fire Burn Apple and Netflix?
+r232,S1,False,AMZN,2017-07-31 00:00:00 UTC,ALGN,Chopping Through the Amazon Report
+r233,S1,False,AMZN,2016-03-23 00:00:00 UTC,ROVI,"How Apple, Comcast, Google, Amazon Have Skin In FCC Set-Top Game"
+r234,S2,True,KO,2019-01-25 00:00:00 UTC,KO,The 'Amazon Effect' And How Bringg Helps Companies Gain More Customers
+r235,S1,False,JPM,2010-10-15 05:00:00 UTC,,REG-JPMorgan Asset Management Form 8.3 - Southern Cross Heatlhcare Group Plc
+r236,S1,False,DIS,2011-01-11 15:07:00 UTC,,The Walt Disney Company to Sponsor Hawaii Diversity Committee
+r237,S2,True,KO,2017-03-22 00:00:00 UTC,KO,Guy Adami And David Seaburg Share Their Thoughts On Altria And Coca-Cola
+r238,S1,False,AAPL,2020-04-15 00:00:00 UTC,MLR,"Diversified Investment Strategies, LLC Buys Miller Industries, Schwab US Aggregate Bond, Apple ..."
+r239,S1,False,BAC,2013-04-10 06:20:00 UTC,,Bank of America names ex-Goldman partner as Europe M&A; head
+r240,S1,False,BAC,2015-02-26 00:00:00 UTC,AB,Bank of America Upgrades AllianceBernstein Holding To Neutral
+r241,S1,False,BAC,2011-09-30 12:36:00 UTC,,"UPDATE 3-Buffett backs Bank of America, buying more stocks"
+r242,S1,False,GOOGL,2014-07-21 00:00:00 UTC,YHOO,Mixed Earnings from Google and Yahoo Put Internet ETFs in Focus - ETF News And Commentary
+r243,S1,False,KO,2014-08-18 00:00:00 UTC,MNST,Jefferies Thinks Monster Looks Fully Valued Following Coca-Cola Deal
+r244,S2,True,KO,2016-05-18 00:00:00 UTC,KO,San Francisco Not So Sweet To Beverage Investors
+r245,S1,False,META,2016-06-18 00:00:00 UTC,PNRA,"Investing Action Plan: Facebook, Brexit, Stress Tests, Yellen"
+r246,S1,False,DIS,2020-05-05 00:00:00 UTC,PEJ,3 ETFs For Disney Earnings
+r247,S2,True,NVDA,2017-08-07 00:00:00 UTC,NVDA,These Were The Most Bought And Sold Stocks In July
+r248,S1,False,DIS,2010-07-08 10:00:00 UTC,,"Large Insiders Trade Alerts on Comcast, Hewlett-Packard, Walt Disney, Philip Morris, Sirius Satellite Radio, & Zions; Reported by Insiderslab.com"
+r249,S1,False,AAPL,2016-07-13 00:00:00 UTC,ADI,Apple Supplier TSM Lingers In Buy Zone On Nixed Samsung Rivalry
+r250,S1,False,JPM,2011-09-08 00:00:00 UTC,CUB,JP Morgan's PT Changes On Applied & Emerging Technology
+r251,S1,False,GOOGL,2010-09-20 04:00:00 UTC,,TechTeam Global to Help Customers Transition to the Cloud as a Google Apps Reseller and Service Provider
+r252,S1,False,BAC,2017-12-11 00:00:00 UTC,ITW,"Illinois Tool Works, 'The Gold Standard,' Initiated With A Buy At BofA"
+r253,S1,False,GOOGL,2011-01-19 23:09:00 UTC,,"Google Ventures backs LawPivot, a legal Q&A; service for startups"
+r254,S1,False,MSFT,2011-07-18 10:06:00 UTC,, Ortsbo's Live & Global Platform Launches Commercial Release for Windows Azure Marketplace at Microsoft World Partnership Conferenc
+r255,S2,True,DIS,2019-12-18 00:00:00 UTC,DIS,"Most Active Equity Options For Midday - Wednesday, Dec. 18"
+r256,S1,False,JPM,2011-12-02 00:00:00 UTC,DRYS,Navios Maritime Soars on JPMorgan Nod
+r257,S1,False,MSFT,2015-04-29 08:35:00 UTC,,Tegile Systems Exhibits at Microsoft Ignite 2015
+r258,S1,False,AMZN,2018-01-22 00:00:00 UTC,ADMS,Hartwell J M Limited Partnership Buys Amazon. ...
+r259,S1,False,GOOGL,2019-04-30 00:00:00 UTC,PFE,Alphabet Revenue Disappoints Ahead Of Apple Earnings After The Bell
+r260,S2,True,JPM,2020-01-20 00:00:00 UTC,JPM,"Are Earnings Reports Just OK, or Better than Expected?"
+r261,S1,False,AAPL,2014-10-10 21:51:00 UTC,,"UPDATE 7-Apple supplier GT to drop sapphire ops, asks bankruptcy plan remain secret"
+r262,S1,False,AMD,2014-01-15 20:00:00 UTC,,"Robbins Geller Rudman & Dowd LLP Files Class Action Suit against Advanced Micro Devices, Inc."
+r263,S1,False,MSFT,2016-05-24 00:00:00 UTC,LL,Microsoft Upgraded; Twitter Downgraded; Charter Price Target Raised
+r264,S2,True,JPM,2019-04-08 00:00:00 UTC,JPM,What Will Upcoming Earnings Reveal?
+r265,S2,True,JPM,2019-05-19 00:00:00 UTC,JPM,"JPMorgan Chase, Health Care And The 'New' Modern Corporation"
+r266,S1,False,KO,2018-02-09 00:00:00 UTC,EQIX,"Walmart, Cisco, Coca-Cola among dividend hikers next week - Bloomberg"
+r267,S1,False,AAPL,2014-09-10 15:12:00 UTC,,Visa and Apple Opening a New Era of Payments on Mobile Devices
+r268,S1,False,BAC,2010-04-30 16:22:00 UTC,,BofA CEO favors rescue fund if built over time: report
+r269,S1,False,TSLA,2016-08-05 00:00:00 UTC,MNST,Jobs Boom Lifts Stocks; Tesla Leads Tech M&A; Auto Sales Stall In Busy Week
+r270,S1,False,AAPL,2018-07-26 00:00:00 UTC,SYY,"Stocks That Made New 52-Week Highs Earlier Today Include: Alphabet, Adobe, VeriSign, Abbott Labs, Becton, United Continental, IHS Markit, TransDigm, Kansas City Southern, Ingersoll-Rand, VF, Motorola Solutions, AES, Edward Lifesciences, Visa, AMD, & Apple"
+r271,S1,False,JPM,2017-02-17 00:00:00 UTC,WATT,Energous -8.8%; J.P. Morgan observes Broadcom powering wireless iPhone charging
+r272,S1,False,BAC,2016-12-15 00:00:00 UTC,ACRE,"Bank of America on Financials Thursday: Upgrades 10 Stocks, Downgrades 8"
+r273,S2,True,NVDA,2018-06-26 00:00:00 UTC,NVDA,"Benzinga's Top Upgrades, Downgrades For June 26, 2018"
+r274,S1,False,GOOGL,2016-12-18 00:00:00 UTC,AVGO,"Tech Stocks Make Comeback As Apple, Netflix, Alphabet Near Buy Points"
+r275,S1,False,GOOGL,2010-02-19 08:55:00 UTC,,"Google's books plan hailed, reviled; no ruling"
+r276,S1,False,META,2011-05-05 12:25:00 UTC,,"Skype in deal talks with Facebook, Google amid IPO delay"
+r277,S1,False,GOOGL,2011-03-01 00:00:00 UTC,,Google назвал причину сбоя почты Gmail
+r278,S2,True,GOOGL,2020-02-25 00:00:00 UTC,GOOG,"UPDATE: Morgan Stanley On Alphabet Notes 'Our new SoTP shows how GOOGL is worth $1,650 with no value for Cloud, Waymo, Verily, Stadia and investments...and $1,850 if the market just starts to put value on Cloud and Waymo'"
+r279,S1,False,TSLA,2016-09-15 00:00:00 UTC,MBLY,Mobileye Takes A Big Swing At Tesla Safety Standards
+r280,S2,True,NFLX,2016-09-22 00:00:00 UTC,NFLX,"Wunderlich Initiates Central European Media With Buy Rating, $3.30 Target"
+r281,S2,True,JPM,2018-09-19 00:00:00 UTC,JPM,"Blue Chips Rise; JPMorgan, Goldman Lead Dow; Oil Stocks Strong Again"
+r282,S2,True,TSLA,2019-07-05 00:00:00 UTC,TSLA,"Benzinga Pro's Top 7 Most-Searched Tickers For Morning of Friday., July 05, 2019"
+r283,S1,False,JPM,2018-01-04 00:00:00 UTC,RECN,JP Morgan Downgrades Resources Connection to Underweight
+r284,S1,False,BAC,2016-06-21 00:00:00 UTC,IPXL,Bank of America Upgrades Impax Laboratories to Neutral
+r285,S1,False,AAPL,2013-04-23 00:00:00 UTC,,Apple Plans to Borrow to Fund Bigger Capital-Return Program
+r286,S2,True,JPM,2019-10-15 00:00:00 UTC,JPM,JPMorgan Chase & Co. 2019 Q3 - Results - Earnings Call Presentation
+r287,S1,False,AMZN,2012-07-31 13:52:00 UTC,,"Updated Amazon Cloud Player Includes New Scan and Match Technology, Free Audio Quality Upgrades, and More"
+r288,S2,True,TSLA,2020-01-23 00:00:00 UTC,TSLA,"UPDATE: UBS Reinstates Sell on Tesla, Raises Price Target to $410 As Firm Expects 'Tesla to reach 10% OP margin and generate $3-5B annual free cash flow from 2022 onwards, based on known products and capacities.'"
+r289,S1,False,GOOGL,2015-04-15 00:00:00 UTC,VSLR,SolarCity And Google's Nest Labs: What Are They Working On?
+r290,S1,False,AMZN,2013-11-01 09:00:00 UTC,,Amazon.com Brightens the Season - Launches Black Friday Deals Store and Electronics Holiday Gift Guide
+r291,S1,False,MSFT,2012-06-11 08:00:00 UTC,,JustEnough Software Aligns with enVista to Provide an End-to-End Planning Solution for Microsoft Dynamics AX
+r292,S2,True,BAC,2017-06-04 00:00:00 UTC,BAC,"Barron's Picks And Pans: AT&T, Express Scripts, Accenture And More"
+r293,S1,False,AMD,2010-10-14 00:00:00 UTC,FCS,"Stocks To Watch For October 14 (GOOG, SWY, WMT, AMD, FCS)"
+r294,S1,False,AAPL,2016-01-06 15:05:00 UTC,,Samsung urges U.S. court to overturn $120 million patent verdict for Apple
+r295,S1,False,GOOGL,2013-07-26 09:54:00 UTC,,New Qi-Compatible Google Nexus 7 Launches As First Tablet With Wireless Charging
+r296,S2,True,NVDA,2020-02-19 00:00:00 UTC,NVDA,10 Biggest Price Target Changes For Wednesday
+r297,S2,True,DIS,2020-03-23 00:00:00 UTC,DIS,"Most Active Equity Options For Midday - Monday, March 23"
+r298,S1,False,AAPL,2012-01-26 01:21:00 UTC,,How to play it: The anti-contrarian on Apple's high
+r299,S2,True,JPM,2018-09-28 00:00:00 UTC,JPM,Is Chesapeake Energy Really Paying Over 7% To Borrow $1.25B?
+r300,S1,False,AMD,2019-04-18 00:00:00 UTC,ANET,"Jim Cramer Shares His Thoughts On AMD, Gilead, Nvidia And More"

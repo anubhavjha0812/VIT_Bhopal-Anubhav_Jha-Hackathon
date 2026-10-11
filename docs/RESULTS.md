@@ -40,3 +40,132 @@ Per-class F1:
 | M&A           |                 0.593 |                     0.797 |           0.892 |                                      0.816 |                          0.753 |
 | Geopolitical  |                 0.141 |                     0.931 |           0.934 |                                      0.925 |                          0.916 |
 | Other         |                 0.851 |                     0.976 |           0.98  |                                      0.97  |                          0.97  |
+
+## Events (TFN-topic, 9 classes)
+
+| model                          |    n |   accuracy | accuracy_ci95   |   macro_f1 | macro_f1_ci95   |   texts_per_s |   model_size_mb |
+|:-------------------------------|-----:|-----------:|:----------------|-----------:|:----------------|--------------:|----------------:|
+| keywords (baseline)            | 4117 |      0.419 | [0.404, 0.435]  |      0.372 | [0.349, 0.393]  |      2422.69  |           0     |
+| topic-bge-small-en-v1.5-int8   | 4117 |      0.897 | [0.888, 0.906]  |      0.813 | [0.796, 0.830]  |        47.28  |          33.946 |
+| events9-bge-small-en-v1.5      | 4117 |      0.904 | [0.895, 0.913]  |      0.861 | [0.842, 0.877]  |        38.189 |         133.454 |
+| events9-bge-small-en-v1.5-int8 | 4117 |      0.897 | [0.888, 0.905]  |      0.841 | [0.822, 0.858]  |        45.884 |          33.941 |
+
+Per-class F1:
+
+|                   |   keywords (baseline) |   topic-bge-small-en-v1.5-int8 |   events9-bge-small-en-v1.5 |   events9-bge-small-en-v1.5-int8 |
+|:------------------|----------------------:|-------------------------------:|----------------------------:|---------------------------------:|
+| M&A               |                 0.571 |                          0.751 |                       0.763 |                            0.766 |
+| Geopolitical      |                 0.145 |                          0.916 |                       0.913 |                            0.91  |
+| Macroeconomic     |                 0.376 |                          0.917 |                       0.922 |                            0.911 |
+| Product news      |                 0.122 |                          0.903 |                       0.9   |                            0.892 |
+| Earnings          |                 0.647 |                          0.948 |                       0.96  |                            0.949 |
+| Analyst rating    |                 0.346 |                          0.214 |                       0.561 |                            0.465 |
+| Legal/Regulatory  |                 0.49  |                          0.848 |                       0.869 |                            0.826 |
+| Management change |                 0.161 |                          0.918 |                       0.951 |                            0.941 |
+| Other             |                 0.49  |                          0.902 |                       0.907 |                            0.906 |
+
+keywords (baseline), per class:
+
+|                   |   precision |   recall |    f1 | f1_ci95        |   support |
+|:------------------|------------:|---------:|------:|:---------------|----------:|
+| M&A               |       0.609 |    0.538 | 0.571 | [0.494, 0.641] |       130 |
+| Geopolitical      |       0.145 |    0.145 | 0.145 | [0.104, 0.188] |       249 |
+| Macroeconomic     |       0.732 |    0.253 | 0.376 | [0.341, 0.410] |       897 |
+| Product news      |       0.836 |    0.066 | 0.122 | [0.095, 0.152] |       852 |
+| Earnings          |       0.578 |    0.735 | 0.647 | [0.605, 0.686] |       339 |
+| Analyst rating    |       0.581 |    0.247 | 0.346 | [0.231, 0.459] |        73 |
+| Legal/Regulatory  |       0.605 |    0.412 | 0.49  | [0.403, 0.575] |       119 |
+| Management change |       0.833 |    0.089 | 0.161 | [0.079, 0.248] |       112 |
+| Other             |       0.364 |    0.752 | 0.49  | [0.472, 0.509] |      1346 |
+
+topic-bge-small-en-v1.5-int8, per class:
+
+|                   |   precision |   recall |    f1 | f1_ci95        |   support |
+|:------------------|------------:|---------:|------:|:---------------|----------:|
+| M&A               |       0.8   |    0.708 | 0.751 | [0.688, 0.809] |       130 |
+| Geopolitical      |       0.933 |    0.9   | 0.916 | [0.888, 0.941] |       249 |
+| Macroeconomic     |       0.93  |    0.904 | 0.917 | [0.903, 0.930] |       897 |
+| Product news      |       0.887 |    0.919 | 0.903 | [0.888, 0.916] |       852 |
+| Earnings          |       0.934 |    0.962 | 0.948 | [0.929, 0.964] |       339 |
+| Analyst rating    |       0.818 |    0.123 | 0.214 | [0.101, 0.333] |        73 |
+| Legal/Regulatory  |       0.905 |    0.798 | 0.848 | [0.791, 0.896] |       119 |
+| Management change |       0.935 |    0.902 | 0.918 | [0.878, 0.955] |       112 |
+| Other             |       0.874 |    0.932 | 0.902 | [0.890, 0.914] |      1346 |
+
+events9-bge-small-en-v1.5, per class:
+
+|                   |   precision |   recall |    f1 | f1_ci95        |   support |
+|:------------------|------------:|---------:|------:|:---------------|----------:|
+| M&A               |       0.706 |    0.831 | 0.763 | [0.703, 0.812] |       130 |
+| Geopolitical      |       0.915 |    0.912 | 0.913 | [0.886, 0.938] |       249 |
+| Macroeconomic     |       0.912 |    0.932 | 0.922 | [0.909, 0.933] |       897 |
+| Product news      |       0.895 |    0.905 | 0.9   | [0.884, 0.914] |       852 |
+| Earnings          |       0.941 |    0.979 | 0.96  | [0.944, 0.974] |       339 |
+| Analyst rating    |       0.882 |    0.411 | 0.561 | [0.446, 0.661] |        73 |
+| Legal/Regulatory  |       0.873 |    0.866 | 0.869 | [0.822, 0.913] |       119 |
+| Management change |       0.947 |    0.955 | 0.951 | [0.922, 0.978] |       112 |
+| Other             |       0.916 |    0.898 | 0.907 | [0.895, 0.919] |      1346 |
+
+events9-bge-small-en-v1.5-int8, per class:
+
+|                   |   precision |   recall |    f1 | f1_ci95        |   support |
+|:------------------|------------:|---------:|------:|:---------------|----------:|
+| M&A               |       0.729 |    0.808 | 0.766 | [0.708, 0.817] |       130 |
+| Geopolitical      |       0.948 |    0.876 | 0.91  | [0.884, 0.934] |       249 |
+| Macroeconomic     |       0.903 |    0.92  | 0.911 | [0.898, 0.924] |       897 |
+| Product news      |       0.876 |    0.907 | 0.892 | [0.876, 0.906] |       852 |
+| Earnings          |       0.92  |    0.979 | 0.949 | [0.932, 0.964] |       339 |
+| Analyst rating    |       0.885 |    0.315 | 0.465 | [0.349, 0.585] |        73 |
+| Legal/Regulatory  |       0.909 |    0.756 | 0.826 | [0.768, 0.879] |       119 |
+| Management change |       0.954 |    0.929 | 0.941 | [0.908, 0.973] |       112 |
+| Other             |       0.904 |    0.908 | 0.906 | [0.895, 0.916] |      1346 |
+
+## Sentiment, more public sets (E18)
+
+### PhraseBank 50Agree
+
+| model                                        | status                                |    n |   accuracy |   macro_f1 | macro_f1_ci95   |   clean n |   clean macro_f1 | clean macro_f1_ci95   |   texts_per_s |
+|:---------------------------------------------|:--------------------------------------|-----:|-----------:|-----------:|:----------------|----------:|-----------------:|:----------------------|--------------:|
+| sentiment-bge-small-en-v1.5-int8             | clean                                 | 4846 |      0.754 |      0.685 | [0.670, 0.701]  |      4846 |            0.685 | [0.670, 0.701]        |          44.7 |
+| sentiment-bge-small-en-v1.5                  | clean                                 | 4846 |      0.762 |      0.702 | [0.686, 0.717]  |      4846 |            0.702 | [0.686, 0.717]        |          37.7 |
+| sentiment-finbert                            | in-sample (never counted as a result) | 4846 |      0.819 |      0.789 | [0.776, 0.802]  |         0 |          nan     | nan                   |         nan   |
+| sentiment-distil-bge-small-en-v1.5           | partly seen: clean rows are primary   | 4846 |      0.895 |      0.885 | [0.875, 0.896]  |      1385 |            0.637 | [0.607, 0.667]        |         nan   |
+| sentiment-teacher-deberta-v3-base            | partly seen: clean rows are primary   | 4846 |      0.902 |      0.894 | [0.883, 0.902]  |      1385 |            0.657 | [0.625, 0.685]        |         nan   |
+| multihead-bge-small-en-v1.5 (sentiment head) | partly seen: clean rows are primary   | 4846 |      0.898 |      0.889 | [0.880, 0.899]  |      1385 |            0.652 | [0.621, 0.678]        |         nan   |
+| finbert (baseline)                           | in-sample (never counted as a result) | 4846 |      0.889 |      0.882 | [0.872, 0.892]  |         0 |          nan     | nan                   |         nan   |
+
+### PhraseBank AllAgree
+
+| model                                        | status                                |    n |   accuracy |   macro_f1 | macro_f1_ci95   |   clean n |   clean macro_f1 | clean macro_f1_ci95   |   texts_per_s |
+|:---------------------------------------------|:--------------------------------------|-----:|-----------:|-----------:|:----------------|----------:|-----------------:|:----------------------|--------------:|
+| sentiment-bge-small-en-v1.5-int8             | clean                                 | 2264 |      0.889 |      0.865 | [0.848, 0.880]  |      2264 |            0.865 | [0.848, 0.880]        |          42.9 |
+| sentiment-bge-small-en-v1.5                  | clean                                 | 2264 |      0.9   |      0.88  | [0.863, 0.895]  |      2264 |            0.88  | [0.863, 0.895]        |          40.8 |
+| sentiment-finbert                            | in-sample (never counted as a result) | 2264 |      0.943 |      0.936 | [0.924, 0.947]  |         0 |          nan     | nan                   |         nan   |
+| sentiment-distil-bge-small-en-v1.5           | in-sample (never counted as a result) | 2264 |      0.998 |      0.997 | [0.993, 0.999]  |         0 |          nan     | nan                   |         nan   |
+| sentiment-teacher-deberta-v3-base            | in-sample (never counted as a result) | 2264 |      0.999 |      0.998 | [0.996, 1.000]  |         0 |          nan     | nan                   |         nan   |
+| multihead-bge-small-en-v1.5 (sentiment head) | in-sample (never counted as a result) | 2264 |      0.997 |      0.995 | [0.991, 0.998]  |         0 |          nan     | nan                   |         nan   |
+| finbert (baseline)                           | in-sample (never counted as a result) | 2264 |      0.972 |      0.963 | [0.953, 0.972]  |         0 |          nan     | nan                   |         nan   |
+
+### FiQA-2018 test
+
+| model                                        | status                              |   n |   accuracy |   macro_f1 | macro_f1_ci95   |   clean n |   clean macro_f1 | clean macro_f1_ci95   |   texts_per_s |
+|:---------------------------------------------|:------------------------------------|----:|-----------:|-----------:|:----------------|----------:|-----------------:|:----------------------|--------------:|
+| sentiment-bge-small-en-v1.5-int8             | clean                               | 150 |      0.573 |      0.573 | [0.486, 0.649]  |       150 |            0.573 | [0.486, 0.649]        |          49.1 |
+| sentiment-bge-small-en-v1.5                  | clean                               | 150 |      0.6   |      0.602 | [0.521, 0.676]  |       150 |            0.602 | [0.521, 0.676]        |          49.9 |
+| sentiment-finbert                            | clean                               | 150 |      0.613 |      0.617 | [0.532, 0.688]  |       150 |            0.617 | [0.532, 0.688]        |         nan   |
+| sentiment-distil-bge-small-en-v1.5           | partly seen: clean rows are primary | 150 |      0.687 |      0.678 | [0.600, 0.752]  |       149 |            0.676 | [0.599, 0.752]        |         nan   |
+| sentiment-teacher-deberta-v3-base            | partly seen: clean rows are primary | 150 |      0.713 |      0.707 | [0.626, 0.776]  |       149 |            0.705 | [0.626, 0.774]        |         nan   |
+| multihead-bge-small-en-v1.5 (sentiment head) | partly seen: clean rows are primary | 150 |      0.653 |      0.643 | [0.559, 0.714]  |       149 |            0.641 | [0.566, 0.711]        |         nan   |
+| finbert (baseline)                           | clean                               | 150 |      0.567 |      0.562 | [0.480, 0.634]  |       150 |            0.562 | [0.480, 0.634]        |         nan   |
+
+### NWGI test
+
+| model                                        | status   |    n |   accuracy |   macro_f1 | macro_f1_ci95   |   clean n |   clean macro_f1 | clean macro_f1_ci95   |   texts_per_s |
+|:---------------------------------------------|:---------|-----:|-----------:|-----------:|:----------------|----------:|-----------------:|:----------------------|--------------:|
+| sentiment-bge-small-en-v1.5-int8             | clean    | 4047 |      0.382 |      0.406 | [0.391, 0.420]  |      4047 |            0.406 | [0.391, 0.420]        |          39.9 |
+| sentiment-bge-small-en-v1.5                  | clean    | 4047 |      0.389 |      0.414 | [0.399, 0.428]  |      4047 |            0.414 | [0.399, 0.428]        |          41.8 |
+| sentiment-finbert                            | clean    | 4047 |      0.455 |      0.474 | [0.460, 0.489]  |      4047 |            0.474 | [0.460, 0.489]        |         nan   |
+| sentiment-distil-bge-small-en-v1.5           | clean    | 4047 |      0.543 |      0.541 | [0.526, 0.555]  |      4047 |            0.541 | [0.526, 0.555]        |         nan   |
+| sentiment-teacher-deberta-v3-base            | clean    | 4047 |      0.578 |      0.574 | [0.561, 0.590]  |      4047 |            0.574 | [0.561, 0.590]        |         nan   |
+| multihead-bge-small-en-v1.5 (sentiment head) | clean    | 4047 |      0.561 |      0.558 | [0.544, 0.573]  |      4047 |            0.558 | [0.544, 0.573]        |         nan   |
+| finbert (baseline)                           | clean    | 4047 |      0.568 |      0.554 | [0.540, 0.568]  |      4047 |            0.554 | [0.540, 0.568]        |         nan   |
