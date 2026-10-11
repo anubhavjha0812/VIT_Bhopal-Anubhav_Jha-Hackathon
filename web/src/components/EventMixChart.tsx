@@ -5,7 +5,7 @@ interface Props {
   events: Record<string, number>
 }
 
-// "Other" dwarfs every class (93% of texts), so it is shown as a note, not a bar.
+// "Other" dwarfs every class (most texts), so it is shown as a note, not a bar.
 export default function EventMixChart({ events }: Props) {
   const theme = useTheme()
   const rows = Object.entries(events)
@@ -17,7 +17,7 @@ export default function EventMixChart({ events }: Props) {
 
   const option = {
     backgroundColor: 'transparent',
-    grid: { left: 130, right: 40, top: 10, bottom: 30 },
+    grid: { left: 96, right: 24, top: 10, bottom: 30 },
     tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
     xAxis: {
       type: 'value',
@@ -46,7 +46,7 @@ export default function EventMixChart({ events }: Props) {
   }
 
   return (
-    <section className="rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+    <section className="min-w-0 rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
       <h2 className="border-b border-slate-200 px-4 py-3 text-sm font-semibold dark:border-slate-800">
         Event classes in the window
       </h2>

@@ -135,9 +135,9 @@ export default function Replay() {
 
   return (
     <div className="space-y-6">
-      <section className={`${card} flex flex-wrap items-center gap-4 p-4`}>
+      <section className={`${card} flex flex-col gap-4 p-4 sm:flex-row sm:flex-wrap sm:items-center`}>
         {r.status === 'playing' ? (
-          <button type="button" onClick={r.pause} className="rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white dark:bg-slate-200 dark:text-slate-900">
+          <button type="button" onClick={r.pause} className="w-full rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white dark:bg-slate-200 dark:text-slate-900 sm:w-auto">
             ❚❚ Pause
           </button>
         ) : (
@@ -145,12 +145,12 @@ export default function Replay() {
             type="button"
             onClick={() => r.play(rate)}
             disabled={r.status === 'done'}
-            className="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-50"
+            className="w-full rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-50 sm:w-auto"
           >
             ▶ {r.status === 'paused' ? 'Resume' : 'Play'}
           </button>
         )}
-        <button type="button" onClick={r.reset} className="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-700">
+        <button type="button" onClick={r.reset} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-700 sm:w-auto">
           Reset
         </button>
         <label className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
@@ -171,7 +171,7 @@ export default function Replay() {
             ))}
           </select>
         </label>
-        <div className="ml-auto text-right">
+        <div className="w-full text-left sm:ml-auto sm:w-auto sm:text-right">
           <div className="font-mono text-lg font-semibold tabular-nums">{now ? `${nyTime(now)} NY` : '—'}</div>
           <div className="text-xs text-slate-500">
             {r.count.texts.toLocaleString()} / {total.toLocaleString()} texts · {r.count.news} news · {r.count.tweets} tweets
@@ -184,7 +184,7 @@ export default function Replay() {
         </div>
       </section>
 
-      <div className="grid gap-6 xl:grid-cols-3">
+      <div className="grid min-w-0 gap-6 xl:grid-cols-3">
         <section className={`${card} xl:col-span-2`}>
           <h2 className={head}>Live feed · newest first</h2>
           {r.feed.length === 0 ? (
@@ -195,20 +195,20 @@ export default function Replay() {
           ) : (
             <ul>
               {r.feed.map((s) => (
-                <li key={s.doc_id} className="flex items-start gap-3 border-t border-slate-100 px-4 py-2 text-sm first:border-t-0 dark:border-slate-800">
-                  <span className="w-24 shrink-0 font-mono text-xs text-slate-500">{nyTime(s.published_at)}</span>
-                  <span className="w-28 shrink-0">
+                <li key={s.doc_id} className="flex flex-wrap items-start gap-2 border-t border-slate-100 px-4 py-3 text-sm first:border-t-0 dark:border-slate-800 sm:flex-nowrap sm:gap-3 sm:py-2">
+                  <span className="w-full shrink-0 font-mono text-xs text-slate-500 sm:w-24">{nyTime(s.published_at)}</span>
+                  <span className="min-w-24 shrink-0 sm:w-28">
                     <Tickers subjects={s.tickers} analysts={s.analysts} />
                   </span>
                   <span
-                    className={`w-12 shrink-0 text-right font-mono tabular-nums ${
+                    className={`w-12 shrink-0 text-left font-mono tabular-nums sm:text-right ${
                       s.sentiment > 0.2 ? 'text-teal-700 dark:text-teal-400' : s.sentiment < -0.2 ? 'text-rose-600 dark:text-rose-400' : ''
                     }`}
                   >
                     {signed(s.sentiment)}
                   </span>
                   <ImpactPill impact={s.impact} trigger={trigger} />
-                  <span className="min-w-0 flex-1">
+                  <span className="min-w-full flex-1 break-words sm:min-w-0">
                     {s.event !== 'Other' && (
                       <span className="mr-2">
                         <EventBadge event={s.event} />
@@ -233,11 +233,11 @@ export default function Replay() {
               <ul className="max-h-80 overflow-y-auto">
                 {r.alerts.map((s) => (
                   <li key={s.doc_id} className="border-t border-slate-100 px-4 py-2 text-sm first:border-t-0 dark:border-slate-800">
-                    <div className="flex items-center gap-2 text-xs">
+                    <div className="flex flex-wrap items-center gap-2 text-xs">
                       <ImpactPill impact={s.impact} trigger={trigger} />
                       <EventBadge event={s.event} />
                       <Tickers subjects={s.tickers} analysts={s.analysts} />
-                      <span className="ml-auto text-slate-500">{nyTime(s.published_at)}</span>
+                      <span className="w-full text-slate-500 sm:ml-auto sm:w-auto">{nyTime(s.published_at)}</span>
                     </div>
                     <div className="mt-1">{s.text}</div>
                     {s.obligors && (

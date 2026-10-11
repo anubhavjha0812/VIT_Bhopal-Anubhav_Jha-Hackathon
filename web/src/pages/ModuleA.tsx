@@ -101,32 +101,34 @@ export default function ModuleA() {
             <EquityChart rows={equity.data} />
           </div>
         </section>
-        <section className={card}>
+        <section className={`${card} min-w-0`}>
           <h2 className={head}>Performance, {equity.data[0].date} → {equity.data[equity.data.length - 1].date}</h2>
-          <table className="w-full text-sm">
-            <thead className="text-left text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
-              <tr>
-                <th className="px-4 py-2" />
-                {strategies.map((s) => (
-                  <th key={s} className="px-4 py-2 text-right">
-                    {s === 'equal' ? 'Equal' : 'Tilt'}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {METRIC_ROWS.map(([key, label, fmt]) => (
-                <tr key={key} className="border-t border-slate-100 dark:border-slate-800">
-                  <td className="px-4 py-2">{label}</td>
+          <div className="overflow-x-auto">
+            <table className="min-w-[420px] w-full text-sm">
+              <thead className="text-left text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                <tr>
+                  <th className="px-4 py-2" />
                   {strategies.map((s) => (
-                    <td key={s} className="px-4 py-2 text-right font-mono tabular-nums">
-                      {fmt(metrics.data![s][key])}
-                    </td>
+                    <th key={s} className="px-4 py-2 text-right">
+                      {s === 'equal' ? 'Equal' : 'Tilt'}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {METRIC_ROWS.map(([key, label, fmt]) => (
+                  <tr key={key} className="border-t border-slate-100 dark:border-slate-800">
+                    <td className="px-4 py-2">{label}</td>
+                    {strategies.map((s) => (
+                      <td key={s} className="px-4 py-2 text-right font-mono tabular-nums">
+                        {fmt(metrics.data![s][key])}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <p className="px-4 py-3 text-xs text-slate-500 dark:text-slate-400">
             Honest result: over these two months the tilt trails equal weight. 43 days is too short to tell skill from
             luck.

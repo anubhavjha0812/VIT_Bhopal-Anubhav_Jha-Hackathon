@@ -295,7 +295,7 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
       <div className="space-y-4 p-4">
         <div>
           <div className={`mb-2 ${muted}`}>Real alerts the credit gate passed (Apr–Jun 2020)</div>
-          <div className="grid gap-2 sm:grid-cols-2">
+          <div className="grid gap-2 lg:grid-cols-2">
             {alerts.map((a) => (
               <button
                 key={`${a.doc_id}-${a.ticker}`}
@@ -318,16 +318,16 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
                   <span className="text-slate-500">
                     {a.published_at.slice(0, 10)} · {a.source}
                   </span>
-                  <span className="ml-auto font-mono">CET1 {pct(a.cet1_after)}</span>
+                    <span className="w-full font-mono sm:ml-auto sm:w-auto">CET1 {pct(a.cet1_after)}</span>
                 </div>
                 <div className="mt-1 line-clamp-2">{a.text}</div>
               </button>
             ))}
           </div>
         </div>
-        <div className="flex flex-wrap items-end gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end">
           <button
-            className={pill(marketOnly)}
+            className={`${pill(marketOnly)} w-full sm:w-auto`}
             onClick={() => set({ doc: null, ticker: null, notches: null, market: '1' })}
           >
             Market only
@@ -348,7 +348,7 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
                     : { ticker: null, market: '1' },
                 )
               }
-              className="mt-1 rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
+              className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900 sm:w-auto"
             >
               <option value="">—</option>
               {tickers.map((t) => (
@@ -362,7 +362,7 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
               disabled={!whatIf}
               value={params.get('notches') ?? '1'}
               onChange={(e) => set({ notches: e.target.value })}
-              className="mt-1 rounded-lg border border-slate-300 bg-white px-2 py-1.5 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900"
+              className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900 sm:w-auto"
             >
               {[1, 2, 3, 4, 5, 6].map((n) => (
                 <option key={n}>{n}</option>
@@ -370,11 +370,11 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
               <option value="99">default</option>
             </select>
           </label>
-          <div className="ml-auto">
+          <div className="w-full sm:ml-auto sm:w-auto">
             <span className={`block ${muted}`}>Market episode (real FRED and price moves)</span>
             <div className="mt-1 flex flex-wrap gap-2">
               {EPISODES.map(([key, label]) => (
-                <button key={key} className={pill(episode === key)} onClick={() => set({ episode: key })}>
+                <button key={key} className={`${pill(episode === key)} flex-1 sm:flex-none`} onClick={() => set({ episode: key })}>
                   {label}
                 </button>
               ))}
@@ -410,7 +410,7 @@ function ReportView({ rep }: { rep: Report }) {
         />
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-5">
+      <div className="grid min-w-0 gap-6 pt-2 xl:grid-cols-5">
         <section className={`${card} xl:col-span-3`}>
           <h2 className={head}>Risk memo</h2>
           <div className="space-y-4 p-4">
@@ -422,7 +422,7 @@ function ReportView({ rep }: { rep: Report }) {
         <section className={`${card} min-w-0 xl:col-span-2`}>
           <h2 className={head}>Top 10 position losses</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="min-w-[520px] w-full text-sm">
               <thead className="text-left text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
                 <tr>
                   <th className="px-4 py-2">Name</th>
@@ -459,7 +459,7 @@ function ReportView({ rep }: { rep: Report }) {
         </section>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-5">
+      <div className="grid min-w-0 gap-6 pt-2 xl:grid-cols-5">
         <section className={`${card} xl:col-span-3`}>
           <h2 className={head}>One-year default loss: before vs after (Gaussian copula)</h2>
           <div className="p-2">
@@ -473,7 +473,7 @@ function ReportView({ rep }: { rep: Report }) {
         <section className={`${card} min-w-0 xl:col-span-2`}>
           <h2 className={head}>Per company</h2>
           <div className="max-h-96 overflow-auto">
-            <table className="w-full text-sm">
+            <table className="min-w-[620px] w-full text-sm">
               <thead className="sticky top-0 bg-white text-left text-xs uppercase tracking-wide text-slate-500 dark:bg-slate-900 dark:text-slate-400">
                 <tr>
                   <th className="px-3 py-2">Name</th>
@@ -527,7 +527,7 @@ function Verdict({ tone, text }: { tone: keyof typeof TONES; text: string }) {
 /** Our prediction vs the naive one, one row per measure (lower error is better). */
 function Compare({ ours, rows }: { ours: string; rows: [string, string, string][] }) {
   return (
-    <table className="w-full text-sm">
+    <table className="min-w-[360px] w-full text-sm">
       <thead className={`text-left ${muted}`}>
         <tr>
           <th className="py-1.5 font-normal" />
@@ -640,7 +640,7 @@ function ChecksView({ checks }: { checks: Checks }) {
               forecast accuracy.
             </p>
             <div className="mt-3 overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="min-w-[560px] w-full text-sm">
                 <thead className={`text-left ${muted}`}>
                   <tr>
                     <th className="py-1.5 font-normal">Alert</th>
@@ -776,10 +776,10 @@ function Running() {
   return (
     <div
       role="status"
-      className="flex items-center gap-3 rounded-full border border-teal-500/30 bg-white/90 px-4 py-2 text-sm shadow-lg backdrop-blur dark:bg-slate-900/90"
+      className="mx-3 flex max-w-[calc(100vw-24px)] items-center gap-3 rounded-2xl border border-teal-500/30 bg-white/90 px-4 py-2 text-sm shadow-lg backdrop-blur dark:bg-slate-900/90 sm:rounded-full"
     >
       <span className="h-4 w-4 animate-spin rounded-full border-2 border-teal-500/30 border-t-teal-500" />
-      <span>Running the scenario: revaluing the book, 20,000 default draws, reverse stress…</span>
+      <span className="min-w-0">Running the scenario: revaluing the book, 20,000 default draws, reverse stress…</span>
     </div>
   )
 }

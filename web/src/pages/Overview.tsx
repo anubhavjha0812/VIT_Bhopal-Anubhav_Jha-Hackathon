@@ -1,6 +1,7 @@
 import { useApi } from '../api'
 import ErrorBox from '../components/ErrorBox'
 import EventMixChart from '../components/EventMixChart'
+import ClassF1Table from '../components/ClassF1Table'
 import ScoreTable from '../components/ScoreTable'
 import StatCard from '../components/StatCard'
 import type { Overview as OverviewData, Scoreboard } from '../types'
@@ -13,10 +14,10 @@ export default function Overview() {
   if (!overview.data || !scores.data) return <p className="text-sm text-slate-500">Loading…</p>
 
   const o = overview.data
-  const [sentimentTask, eventsTask] = Object.keys(scores.data)
+  const [sentimentTask, eventsTask, events9Task] = Object.keys(scores.data)
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         <StatCard label="Texts scored" value={o.texts.toLocaleString()} note={`${o.signals.toLocaleString()} text–stock signals`} />
         <StatCard
           label="News / tweets"
@@ -34,10 +35,17 @@ export default function Overview() {
 
       <EventMixChart events={o.events} />
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid min-w-0 gap-6 xl:grid-cols-2">
         <ScoreTable title={sentimentTask} rows={scores.data[sentimentTask]} engineModel={o.engine_models.sentiment} />
         <ScoreTable title={eventsTask} rows={scores.data[eventsTask]} engineModel={o.engine_models.events} />
       </div>
+
+      {events9Task && (
+        <div className="grid min-w-0 gap-6 xl:grid-cols-2">
+          <ScoreTable title={events9Task} rows={scores.data[events9Task]} engineModel={o.engine_models.events} />
+          <ClassF1Table rows={scores.data[events9Task]} engineModel={o.engine_models.events} />
+        </div>
+      )}
     </div>
   )
 }

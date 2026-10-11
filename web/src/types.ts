@@ -33,6 +33,8 @@ export interface ScoreRow {
   macro_f1_ci95: [number, number]
   texts_per_s: number
   model_size_mb: number
+  per_class_f1?: Record<string, number> // only rows scored with per-class intervals (E16)
+  per_class_f1_ci95?: Record<string, [number, number]>
 }
 
 export type Scoreboard = Record<string, ScoreRow[]>

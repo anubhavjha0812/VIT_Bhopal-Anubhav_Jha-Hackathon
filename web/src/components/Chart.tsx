@@ -16,5 +16,5 @@ interface Props {
 }
 
 export default function Chart({ option, style }: Props) {
-  return <ReactEChartsCore echarts={echarts} option={option} style={style} notMerge />
+  return <ReactEChartsCore echarts={echarts} option={option} style={{ width: '100%', ...style }} notMerge />
 }

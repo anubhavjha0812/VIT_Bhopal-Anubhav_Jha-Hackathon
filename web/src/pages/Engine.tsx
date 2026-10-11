@@ -15,13 +15,13 @@ const MAX_ROWS = 200
 
 function TickerPicker({ tickers, value, onChange }: { tickers: string[]; value: string; onChange: (t: string) => void }) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="no-scrollbar -mx-3 flex gap-2 overflow-x-auto px-3 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 sm:pb-0">
       {tickers.map((t) => (
         <button
           key={t}
           type="button"
           onClick={() => onChange(t)}
-          className={`rounded-lg border px-3 py-1.5 font-mono text-sm transition ${
+          className={`shrink-0 rounded-lg border px-3 py-1.5 font-mono text-sm transition ${
             t === value
               ? 'border-teal-600 bg-teal-600 text-white'
               : 'border-slate-200 bg-white text-slate-700 hover:border-teal-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
@@ -88,7 +88,7 @@ function SentimentPriceChart({ daily, prices }: { daily: DailyRow[]; prices: Pri
 function SignalTable({ rows }: { rows: Signal[] }) {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm">
+        <table className="min-w-[900px] w-full text-sm">
         <thead className="text-left text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
           <tr>
             <th className="px-4 py-2">Time (UTC)</th>
@@ -195,7 +195,7 @@ function TickerPanel({ ticker, minImpact, setMinImpact }: { ticker: string; minI
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         <StatCard label={`${ticker} texts`} value={stats.texts.toLocaleString()} note="news + tweets naming the stock" />
         <StatCard
           label="Mean sentiment"
@@ -219,7 +219,7 @@ function TickerPanel({ ticker, minImpact, setMinImpact }: { ticker: string; minI
       </section>
 
       <section className="rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 px-4 py-3 dark:border-slate-800">
+        <div className="flex flex-col gap-3 border-b border-slate-200 px-4 py-3 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-sm font-semibold">
             Texts with impact ≥ {minImpact}{' '}
             <span className="font-normal text-slate-500">

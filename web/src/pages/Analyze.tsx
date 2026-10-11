@@ -58,8 +58,8 @@ export default function Analyze() {
 
   const latest = history[0]
   return (
-    <div className="grid gap-6 xl:grid-cols-2">
-      <form onSubmit={run} className="space-y-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+    <div className="grid min-w-0 gap-6 xl:grid-cols-2">
+      <form onSubmit={run} className="min-w-0 space-y-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         <h2 className="text-sm font-semibold">Score any headline or post live</h2>
         <textarea
           value={text}
@@ -69,11 +69,11 @@ export default function Analyze() {
           className="w-full rounded-lg border border-slate-200 bg-white p-3 text-sm dark:border-slate-700 dark:bg-slate-950"
           placeholder="e.g. Boeing suspends dividend as airlines cancel orders"
         />
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <select
             value={source}
             onChange={(e) => setSource(e.target.value as 'news' | 'tweets')}
-            className="rounded-lg border border-slate-200 bg-white px-2 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
+            className="w-full rounded-lg border border-slate-200 bg-white px-2 py-2 text-sm dark:border-slate-700 dark:bg-slate-950 sm:w-auto"
           >
             <option value="news">News headline</option>
             <option value="tweets">Social post</option>
@@ -81,7 +81,7 @@ export default function Analyze() {
           <button
             type="submit"
             disabled={busy}
-            className="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-60"
+            className="w-full rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-60 sm:w-auto"
           >
             {busy ? 'Scoring…' : 'Analyze'}
           </button>
@@ -93,7 +93,7 @@ export default function Analyze() {
               key={ex}
               type="button"
               onClick={() => setText(ex)}
-              className="block text-left text-sm text-teal-700 hover:underline dark:text-teal-400"
+              className="block max-w-full text-left text-sm break-words text-teal-700 hover:underline dark:text-teal-400"
             >
               {ex}
             </button>
@@ -105,12 +105,12 @@ export default function Analyze() {
         </p>
       </form>
 
-      <div className="space-y-4">
+      <div className="min-w-0 space-y-4">
         {error && <ErrorBox message={error} />}
         {latest && (
           <section className="space-y-4 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
             <p className="text-sm">“{latest.text}”</p>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid gap-4 sm:grid-cols-3">
               <div>
                 <div className="text-xs uppercase tracking-wide text-slate-500">Sentiment</div>
                 <div className="font-mono text-2xl font-semibold tabular-nums">
@@ -151,13 +151,13 @@ export default function Analyze() {
             <h2 className="border-b border-slate-200 px-4 py-3 text-sm font-semibold dark:border-slate-800">Earlier</h2>
             <ul>
               {history.slice(1).map((r, i) => (
-                <li key={i} className="flex items-center gap-3 border-t border-slate-100 px-4 py-2 text-sm first:border-t-0 dark:border-slate-800">
-                  <span className="w-14 text-right font-mono tabular-nums">
+                <li key={i} className="flex flex-wrap items-center gap-3 border-t border-slate-100 px-4 py-2 text-sm first:border-t-0 dark:border-slate-800 sm:flex-nowrap">
+                  <span className="w-14 shrink-0 text-right font-mono tabular-nums">
                     {signed(r.sentiment)}
                   </span>
                   <EventBadge event={r.event} />
                   <ImpactPill impact={r.impact} />
-                  <span className="truncate">{r.text}</span>
+                  <span className="min-w-0 flex-1 truncate">{r.text}</span>
                 </li>
               ))}
             </ul>

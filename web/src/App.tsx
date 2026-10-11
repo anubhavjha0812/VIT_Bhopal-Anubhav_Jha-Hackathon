@@ -4,6 +4,7 @@ import Intro from './components/Intro'
 import ThemeToggle from './components/ThemeToggle'
 import Analyze from './pages/Analyze'
 import Engine from './pages/Engine'
+import Live from './pages/Live'
 import ModuleA from './pages/ModuleA'
 import ModuleB from './pages/ModuleB'
 import Overview from './pages/Overview'
@@ -16,6 +17,7 @@ const PAGES = [
   { path: '/', label: 'Overview' },
   { path: '/engine', label: 'Engine' },
   { path: '/analyze', label: 'Analyze' },
+  { path: '/live', label: 'Live GDELT' },
   { path: '/replay', label: 'Live replay' },
   { path: '/module-a', label: 'Module A' },
   { path: '/module-b', label: 'Module B' },
@@ -100,7 +102,7 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
   )
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom,0px)+12px)] z-50 flex justify-center px-3 md:top-[calc(env(safe-area-inset-top,0px)+12px)] md:bottom-auto">
+    <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom,0px)+10px)] z-50 flex justify-center px-2 md:top-[calc(env(safe-area-inset-top,0px)+12px)] md:bottom-auto md:px-3">
       <nav
         aria-label="Pages"
         onMouseEnter={() => later(true, OPEN_DELAY_MS)}
@@ -112,7 +114,7 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
         style={{
           width: sizes?.[open ? 'open' : 'closed'][0],
           height: sizes?.[open ? 'open' : 'closed'][1],
-          maxWidth: 'calc(100vw - 24px)',
+          maxWidth: 'calc(100vw - 16px)',
           opacity: ready ? 1 : 0,
           transform: ready ? 'none' : 'translateY(-6px) scale(0.9)',
           transition: ['width', 'height', 'background-color', 'backdrop-filter', 'box-shadow', 'opacity', 'transform']
@@ -143,11 +145,11 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
               tabIndex={open ? -1 : 0}
               onClick={() => later(true, 0)}
               aria-expanded={open}
-              className="flex items-center gap-2.5 py-2 pr-2 pl-3 text-sm whitespace-nowrap"
+              className="flex min-w-0 items-center gap-2 py-2 pr-2 pl-3 text-sm whitespace-nowrap"
             >
               <span className="h-2 w-2 shrink-0 rounded-full bg-teal-400 shadow-[0_0_8px] shadow-teal-400 dark:bg-teal-600 dark:shadow-teal-500/70" />
-              <span className="text-white/60 dark:text-slate-500">AI Risk Engine</span>
-              <span className="font-semibold">{current.label}</span>
+              <span className="hidden text-white/60 dark:text-slate-500 min-[380px]:inline">AI Risk Engine</span>
+              <span className="max-w-32 truncate font-semibold sm:max-w-none">{current.label}</span>
               <svg
                 viewBox="0 0 20 20"
                 className="h-4 w-4 text-white/50 dark:text-slate-400"
@@ -161,8 +163,12 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
           </div>
         </div>
         <div className={`absolute inset-0 flex items-center justify-center ${open ? '' : 'pointer-events-none'}`}>
-          <div ref={openFace} aria-hidden={!open} className="flex w-max shrink-0 items-center p-1.5">
-            <ul className="no-scrollbar flex min-w-0 gap-1 overflow-x-auto whitespace-nowrap">
+          <div
+            ref={openFace}
+            aria-hidden={!open}
+            className="flex max-w-[calc(100vw-16px)] shrink-0 flex-wrap items-center justify-center gap-y-1 p-1.5 md:w-max md:flex-nowrap"
+          >
+            <ul className="no-scrollbar flex min-w-0 flex-wrap justify-center gap-1 md:flex-nowrap md:overflow-x-auto md:whitespace-nowrap">
               {PAGES.map((p, i) => (
                 <li key={p.path} style={fade(open, open ? 140 + 35 * i : 0)}>
                   <NavLink
@@ -173,7 +179,7 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
                     // a tap or the keyboard (no hover to leave) closes it
                     onClick={(e) => (e.detail === 0 || !window.matchMedia('(hover: hover)').matches) && later(false, 0)}
                     className={({ isActive }) =>
-                      `block rounded-full px-3.5 py-1.5 text-sm transition-colors duration-300 ${
+                      `block rounded-full px-2.5 py-1.5 text-xs transition-colors duration-300 sm:px-3.5 sm:text-sm ${
                         isActive
                           ? 'bg-white font-semibold text-slate-900 dark:bg-slate-900 dark:text-white'
                           : 'text-white/75 hover:bg-white/10 hover:text-white dark:text-slate-600 dark:hover:bg-slate-900/10 dark:hover:text-slate-900'
@@ -209,11 +215,12 @@ export default function App() {
       <BrowserRouter>
         {intro && <Intro onDone={endIntro} />}
         <Island theme={theme} onTheme={changeTheme} ready={!intro} />
-        <main className="min-h-screen px-4 pt-6 pb-28 sm:px-6 md:pt-[4.5rem] md:pb-8">
+        <main className="mx-auto min-h-screen w-full max-w-[1500px] px-3 pt-5 pb-32 sm:px-5 md:px-6 md:pt-[4.5rem] md:pb-8">
           <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/engine" element={<Engine />} />
             <Route path="/analyze" element={<Analyze />} />
+            <Route path="/live" element={<Live />} />
             <Route path="/replay" element={<Replay />} />
             <Route path="/module-a" element={<ModuleA />} />
             <Route path="/module-b" element={<ModuleB />} />
