@@ -56,6 +56,19 @@ body {
   animation: ring-turn 7s linear infinite;
 }
 
+/* on the off-white dark-theme island a white head would vanish, so the light runs in deeper teal */
+.dark .island .island-ring {
+  background: conic-gradient(
+    from var(--ring-angle),
+    transparent 0deg 270deg,
+    rgb(13 148 136 / 0.25) 310deg,
+    rgb(13 148 136) 350deg,
+    rgb(17 94 89) 358deg,
+    transparent 360deg
+  );
+  filter: drop-shadow(0 0 3px rgb(20 184 166 / 0.8));
+}
+
 /* the opening intro (components/Intro.tsx) */
 @keyframes intro-rise {
   from {

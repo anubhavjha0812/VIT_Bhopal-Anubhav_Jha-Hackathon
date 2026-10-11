@@ -52,7 +52,11 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
   // The size of each face, kept current as fonts load or the page name changes.
   useLayoutEffect(() => {
     const size = (el: HTMLDivElement | null): [number, number] => [el?.offsetWidth ?? 0, el?.offsetHeight ?? 0]
-    const measure = () => setSizes({ closed: size(closedFace.current), open: size(openFace.current) })
+    const measure = () =>
+      setSizes({
+        closed: size(closedFace.current),
+        open: size(openFace.current),
+      })
     measure()
     const ro = new ResizeObserver(measure)
     for (const el of [closedFace.current, openFace.current]) if (el) ro.observe(el)
@@ -86,11 +90,11 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
 
   const toggle = (
     <>
-      <span className="mx-1 h-4 w-px shrink-0 bg-white/15" aria-hidden />
+      <span className="mx-1 h-4 w-px shrink-0 bg-white/15 dark:bg-slate-900/15" aria-hidden />
       <ThemeToggle
         theme={theme}
         onChange={onTheme}
-        className="shrink-0 rounded-full p-1.5 text-white/70 transition duration-300 hover:bg-white/10 hover:text-white"
+        className="shrink-0 rounded-full p-1.5 text-white/70 transition duration-300 hover:bg-white/10 hover:text-white dark:text-slate-600 dark:hover:bg-slate-900/10 dark:hover:text-slate-900"
       />
     </>
   )
@@ -115,12 +119,17 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
             .map((k) => `${k} ${k === 'width' || k === 'height' ? GROW_MS : 700}ms ${EASE}`)
             .join(', '),
         }}
-        className={`island pointer-events-auto relative overflow-hidden rounded-[28px] border border-white/10 text-white shadow-xl shadow-slate-900/25 dark:shadow-black/50 ${
+        // always the opposite of the page: dark on the light theme, off-white on the dark theme
+        className={`island pointer-events-auto relative overflow-hidden rounded-[28px] border border-white/10 text-white shadow-xl shadow-slate-900/25 dark:border-white/60 dark:text-slate-900 dark:shadow-black/60 ${
           open ? 'shadow-2xl' : ''
-        } ${glass ? 'bg-slate-950/35 backdrop-blur-2xl dark:bg-black/30' : 'bg-slate-950/90 backdrop-blur-xl dark:bg-black/85'}`}
+        } ${glass ? 'bg-slate-950/35 backdrop-blur-2xl dark:bg-slate-100/80' : 'bg-slate-950/90 backdrop-blur-xl dark:bg-slate-100/95'}`}
       >
         {/* a teal light circles the border while the island is closed (index.css) */}
-        <div className="island-ring" style={{ opacity: open ? 0 : 1, transition: `opacity 500ms ${EASE}` }} aria-hidden />
+        <div
+          className="island-ring"
+          style={{ opacity: open ? 0 : 1, transition: `opacity 500ms ${EASE}` }}
+          aria-hidden
+        />
         {/* each face is centred, so a face wider than the pill overflows both sides evenly */}
         <div className={`absolute inset-0 flex items-center justify-center ${open ? 'pointer-events-none' : ''}`}>
           <div
@@ -136,10 +145,15 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
               aria-expanded={open}
               className="flex items-center gap-2.5 py-2 pr-2 pl-3 text-sm whitespace-nowrap"
             >
-              <span className="h-2 w-2 shrink-0 rounded-full bg-teal-400 shadow-[0_0_8px] shadow-teal-400" />
-              <span className="text-white/60">AI Risk Engine</span>
+              <span className="h-2 w-2 shrink-0 rounded-full bg-teal-400 shadow-[0_0_8px] shadow-teal-400 dark:bg-teal-600 dark:shadow-teal-500/70" />
+              <span className="text-white/60 dark:text-slate-500">AI Risk Engine</span>
               <span className="font-semibold">{current.label}</span>
-              <svg viewBox="0 0 20 20" className="h-4 w-4 text-white/50" fill="currentColor" aria-hidden>
+              <svg
+                viewBox="0 0 20 20"
+                className="h-4 w-4 text-white/50 dark:text-slate-400"
+                fill="currentColor"
+                aria-hidden
+              >
                 <path d="M5.2 7.7a.75.75 0 0 1 1.06.04L10 11.7l3.74-3.96a.75.75 0 1 1 1.09 1.03l-4.28 4.53a.75.75 0 0 1-1.1 0L5.16 8.77a.75.75 0 0 1 .04-1.06z" />
               </svg>
             </button>
@@ -155,10 +169,14 @@ function Island({ theme, onTheme, ready }: { theme: Theme; onTheme: (t: Theme) =
                     to={p.path}
                     end
                     tabIndex={open ? 0 : -1}
-                    onClick={() => later(false, 0)}
+                    // a mouse click keeps it open until the pointer leaves, like the theme toggle;
+                    // a tap or the keyboard (no hover to leave) closes it
+                    onClick={(e) => (e.detail === 0 || !window.matchMedia('(hover: hover)').matches) && later(false, 0)}
                     className={({ isActive }) =>
                       `block rounded-full px-3.5 py-1.5 text-sm transition-colors duration-300 ${
-                        isActive ? 'bg-white font-semibold text-slate-900' : 'text-white/75 hover:bg-white/10 hover:text-white'
+                        isActive
+                          ? 'bg-white font-semibold text-slate-900 dark:bg-slate-900 dark:text-white'
+                          : 'text-white/75 hover:bg-white/10 hover:text-white dark:text-slate-600 dark:hover:bg-slate-900/10 dark:hover:text-slate-900'
                       }`
                     }
                   >

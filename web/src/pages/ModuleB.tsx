@@ -52,7 +52,14 @@ interface Report {
   }
   capital: Capital
   by_instrument: Record<string, number>
-  top_losses: { position: string; ticker: string; instrument: string; rating: string; notional: number; loss: number }[]
+  top_losses: {
+    position: string
+    ticker: string
+    instrument: string
+    rating: string
+    notional: number
+    loss: number
+  }[]
   obligors: {
     ticker: string
     rating_before: string
@@ -75,8 +82,18 @@ interface Report {
   memo: string
 }
 interface Checks {
-  alerts: { ticker: string; window: string; predicted_loss: number; naive_loss: number; realised_loss: number; sign_match: boolean }[]
-  crises: { mae: Record<'predicted' | 'naive', { loss: number; cet1: number; sign: number }>; rows: unknown[] }
+  alerts: {
+    ticker: string
+    window: string
+    predicted_loss: number
+    naive_loss: number
+    realised_loss: number
+    sign_match: boolean
+  }[]
+  crises: {
+    mae: Record<'predicted' | 'naive', { loss: number; cet1: number; sign: number }>
+    rows: unknown[]
+  }
   monthly: {
     summary: {
       origins: number
@@ -89,7 +106,12 @@ interface Checks {
       naive_sign: number
       dm_p: number
     }
-    rows: { origin: string; realised_loss: number; model_loss: number; naive_loss: number }[]
+    rows: {
+      origin: string
+      realised_loss: number
+      model_loss: number
+      naive_loss: number
+    }[]
   }
 }
 
@@ -226,8 +248,15 @@ function MonthlyChart({ rows }: { rows: Checks['monthly']['rows'] }) {
     backgroundColor: 'transparent',
     legend: { top: 0, textStyle: { color: c.text } },
     grid: { left: 56, right: 20, top: 36, bottom: 30 },
-    tooltip: { trigger: 'axis', valueFormatter: (v: number) => `$${v.toFixed(1)}m` },
-    xAxis: { type: 'time', axisLabel: { color: c.text }, axisLine: { lineStyle: { color: c.grid } } },
+    tooltip: {
+      trigger: 'axis',
+      valueFormatter: (v: number) => `$${v.toFixed(1)}m`,
+    },
+    xAxis: {
+      type: 'time',
+      axisLabel: { color: c.text },
+      axisLine: { lineStyle: { color: c.grid } },
+    },
     yAxis: {
       type: 'value',
       name: 'book loss, $m',
@@ -270,7 +299,14 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
             {alerts.map((a) => (
               <button
                 key={`${a.doc_id}-${a.ticker}`}
-                onClick={() => set({ doc: a.doc_id, ticker: a.ticker, notches: null, market: null })}
+                onClick={() =>
+                  set({
+                    doc: a.doc_id,
+                    ticker: a.ticker,
+                    notches: null,
+                    market: null,
+                  })
+                }
                 className={`rounded-lg border p-3 text-left text-sm ${
                   doc === a.doc_id
                     ? 'border-teal-600 bg-teal-50 dark:bg-teal-950/40'
@@ -279,7 +315,9 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
               >
                 <div className="flex items-center gap-2 text-xs">
                   <span className="font-mono font-semibold">{a.ticker}</span>
-                  <span className="text-slate-500">{a.published_at.slice(0, 10)} · {a.source}</span>
+                  <span className="text-slate-500">
+                    {a.published_at.slice(0, 10)} · {a.source}
+                  </span>
                   <span className="ml-auto font-mono">CET1 {pct(a.cet1_after)}</span>
                 </div>
                 <div className="mt-1 line-clamp-2">{a.text}</div>
@@ -288,7 +326,10 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
           </div>
         </div>
         <div className="flex flex-wrap items-end gap-3">
-          <button className={pill(marketOnly)} onClick={() => set({ doc: null, ticker: null, notches: null, market: '1' })}>
+          <button
+            className={pill(marketOnly)}
+            onClick={() => set({ doc: null, ticker: null, notches: null, market: '1' })}
+          >
             Market only
           </button>
           <label className="text-sm">
@@ -298,7 +339,12 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
               onChange={(e) =>
                 set(
                   e.target.value
-                    ? { doc: null, market: null, ticker: e.target.value, notches: params.get('notches') ?? '1' }
+                    ? {
+                        doc: null,
+                        market: null,
+                        ticker: e.target.value,
+                        notches: params.get('notches') ?? '1',
+                      }
                     : { ticker: null, market: '1' },
                 )
               }
@@ -369,7 +415,7 @@ function ReportView({ rep }: { rep: Report }) {
           <h2 className={head}>Risk memo</h2>
           <div className="space-y-4 p-4">
             <Cet1Gauge c={c} />
-            <div className="space-y-3 text-sm leading-relaxed whitespace-pre-line">{rep.memo}</div>
+            <Memo text={rep.memo} />
             <p className={muted}>Fixed template, no LLM: every number above comes from this run.</p>
           </div>
         </section>
@@ -401,7 +447,9 @@ function ReportView({ rep }: { rep: Report }) {
               </tbody>
             </table>
           </div>
-          <div className={`flex flex-wrap gap-x-4 gap-y-1 border-t border-slate-200 px-4 py-3 dark:border-slate-800 ${muted}`}>
+          <div
+            className={`flex flex-wrap gap-x-4 gap-y-1 border-t border-slate-200 px-4 py-3 dark:border-slate-800 ${muted}`}
+          >
             {Object.entries(rep.by_instrument).map(([k, v]) => (
               <span key={k}>
                 {INSTRUMENTS[k] ?? k}: <span className="font-mono">{usd(v)}</span>
@@ -442,7 +490,9 @@ function ReportView({ rep }: { rep: Report }) {
                     <tr key={o.ticker} className="border-t border-slate-100 dark:border-slate-800">
                       <td className="px-3 py-1.5 font-mono">{o.ticker}</td>
                       <td className="px-3 py-1.5 font-mono text-xs whitespace-nowrap">
-                        {o.rating_before === o.rating_after ? o.rating_before : `${o.rating_before} → ${o.rating_after}`}
+                        {o.rating_before === o.rating_after
+                          ? o.rating_before
+                          : `${o.rating_before} → ${o.rating_after}`}
                       </td>
                       <td className="min-w-28 px-3 py-1.5 text-right font-mono tabular-nums whitespace-nowrap">
                         {Math.round(100 * o.spread_before)} → {Math.round(100 * o.spread_after)}
@@ -471,11 +521,7 @@ const TONES = {
 }
 
 function Verdict({ tone, text }: { tone: keyof typeof TONES; text: string }) {
-  return (
-    <span className={`rounded px-2 py-0.5 text-xs font-semibold whitespace-nowrap ${TONES[tone]}`}>
-      {text}
-    </span>
-  )
+  return <span className={`rounded px-2 py-0.5 text-xs font-semibold whitespace-nowrap ${TONES[tone]}`}>{text}</span>
 }
 
 /** Our prediction vs the naive one, one row per measure (lower error is better). */
@@ -502,6 +548,66 @@ function Compare({ ours, rows }: { ours: string; rows: [string, string, string][
   )
 }
 
+/** Sample size, period and baseline of a validation test. */
+function TestFacts({ n, period, baseline }: { n: string; period: string; baseline: string }) {
+  return (
+    <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600 dark:text-slate-400">
+      {(
+        [
+          ['n', n],
+          ['Period', period],
+          ['Baseline', baseline],
+        ] as const
+      ).map(([k, v]) => (
+        <div key={k} className="flex gap-1">
+          <dt className="font-semibold">{k}:</dt>
+          <dd>{v}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
+const SENSITIVITY: [string, string][] = [
+  ['No shock, no loss', 'no alert and the episode × 0 leave every rating, spread, PD and CET1 unchanged'],
+  [
+    'Bigger shock, bigger loss',
+    'GFC 2008, euro 2011 and COVID 2020 at × 0, 0.5, 1, 1.5, 2: loss never falls, CET1 never rises',
+  ],
+  ['× 0 removes the episode', "with a downgrade, only the obligor's rating moves; others move by contagion only"],
+  ['More notches, more risk', "0 to 6 notches: the obligor's PD and ECL, total loss and RWA never fall"],
+  ['Stressed PD', 'Vasicek PD rises with the market factor z, never below the normal PD'],
+  ['Default', 'rating D: the loan in IFRS 9 stage 3 at LGD × EAD, the bond at its recovery value'],
+  ['Reverse stress', 'at the multiple it reports, CET1 lands on the 8% floor'],
+]
+
+/** M1: do the formulas move the right way? Expectations fixed before the checks were run. */
+function SensitivityView() {
+  return (
+    <section className={card}>
+      <h2 className={head}>Stress-test checks · do the formulas move the right way?</h2>
+      <div className="space-y-3 p-4">
+        <p className={muted}>
+          Seven checks on the real book and market data, expectations written down before they were run (DECISIONS M1);
+          all pass, as 13 automated tests (tests/test_module_b_sensitivity.py).
+        </p>
+        <ul className="grid gap-2 sm:grid-cols-2">
+          {SENSITIVITY.map(([name, what]) => (
+            <li key={name} className={`${box} flex gap-3`}>
+              <span className="text-teal-600" aria-hidden>
+                ✓
+              </span>
+              <span className="text-sm">
+                <span className="font-semibold">{name}:</span> {what}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
 function ChecksView({ checks }: { checks: Checks }) {
   const m = checks.monthly.summary
   const cr = checks.crises.mae
@@ -510,20 +616,36 @@ function ChecksView({ checks }: { checks: Checks }) {
   const pt = (x: number) => `${(100 * x).toFixed(2)} pt`
   return (
     <section className={card}>
-      <h2 className={head}>Predicted vs actual (each test scored once, rules fixed before the run)</h2>
+      <h2 className={head}>Forecast validation · does a scenario predict what really happened?</h2>
       <div className="space-y-6 p-4">
+        <p className={muted}>
+          A stress test asks "how bad if this happens?", not "what will happen?". These three tests ask the second
+          question anyway, to show what the scenarios can and cannot tell. Each was scored once, with its rules fixed
+          before the run.
+        </p>
         <div className="grid gap-6 lg:grid-cols-2">
           <div className={box}>
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h3 className="text-sm font-semibold">Test 1 · Real alerts: next 20 trading days</h3>
               <Verdict tone="neutral" text={`direction right ${signs} of ${checks.alerts.length}`} />
             </div>
+            <TestFacts
+              n={`${checks.alerts.length} gated alerts`}
+              period="Apr–Jun 2020"
+              baseline="COVID episode alone, no downgrade"
+            />
+            <p className={`mt-2 ${muted}`}>
+              Predicted = the alert's downgrade + the full COVID 2020 episode. Realised = the same downgrade + the real
+              market moves of the next 20 trading days. A historical crisis shock against realised P&L: not a measure of
+              forecast accuracy.
+            </p>
             <div className="mt-3 overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className={`text-left ${muted}`}>
                   <tr>
                     <th className="py-1.5 font-normal">Alert</th>
                     <th className="py-1.5 text-right font-normal">Predicted</th>
+                    <th className="py-1.5 text-right font-normal">Naive</th>
                     <th className="py-1.5 text-right font-normal">Realised</th>
                     <th className="py-1.5 text-right font-normal">Direction</th>
                   </tr>
@@ -536,6 +658,7 @@ function ChecksView({ checks }: { checks: Checks }) {
                         <span className="text-xs text-slate-500">{a.window.slice(0, 10)}</span>
                       </td>
                       <td className="py-1.5 text-right font-mono tabular-nums">{usd(a.predicted_loss)}</td>
+                      <td className="py-1.5 text-right font-mono tabular-nums">{usd(a.naive_loss)}</td>
                       <td className="py-1.5 text-right font-mono tabular-nums">{usd(a.realised_loss)}</td>
                       <td className={`py-1.5 text-right ${a.sign_match ? 'text-teal-600' : 'text-rose-600'}`}>
                         {a.sign_match ? '✓' : '✗'}
@@ -547,7 +670,8 @@ function ChecksView({ checks }: { checks: Checks }) {
             </div>
             <p className={`mt-3 ${muted}`}>
               Direction mostly right, size far too big: the full COVID episode is applied after the crash had already
-              happened (spreads were falling in Apr–Jun 2020).
+              happened (spreads were falling in Apr–Jun 2020). Predicted − naive is the alert's own part (about $8–10m);
+              the gap to realised is the episode.
             </p>
           </div>
 
@@ -556,6 +680,7 @@ function ChecksView({ checks }: { checks: Checks }) {
               <h3 className="text-sm font-semibold">Test 2 · 12 credit crises 1990–2023: next 60 days</h3>
               <Verdict tone="neutral" text="about the same as naive" />
             </div>
+            <TestFacts n="12 crises (leave one out)" period="1990–2023" baseline="average of the other 11 crises" />
             <p className={`mt-1 ${muted}`}>
               Crisis = Baa widens 75 bp within 60 days. Prediction = the 3 most similar past crises on their first 5
               days. Naive = the average of all other crises.
@@ -570,7 +695,9 @@ function ChecksView({ checks }: { checks: Checks }) {
                 ]}
               />
             </div>
-            <p className={`mt-3 ${muted}`}>No better than the average: a crisis' first week does not tell how it ends.</p>
+            <p className={`mt-3 ${muted}`}>
+              No better than the average: a crisis' first week does not tell how it ends.
+            </p>
           </div>
         </div>
 
@@ -579,8 +706,16 @@ function ChecksView({ checks }: { checks: Checks }) {
             <h3 className="text-sm font-semibold">
               Test 3 · {m.origins} month-ends 1995–2023: next 60 days from today's spreads and VIX
             </h3>
-            <Verdict tone={m.passed ? 'good' : 'bad'} text={m.passed ? 'PASS' : `FAIL · ratio ${m.ratio.toFixed(2)}, pass ≤ ${m.pass_ratio}`} />
+            <Verdict
+              tone={m.passed ? 'good' : 'bad'}
+              text={m.passed ? 'PASS' : `FAIL · ratio ${m.ratio.toFixed(2)}, pass ≤ ${m.pass_ratio}`}
+            />
           </div>
+          <TestFacts
+            n={`${m.origins} month-ends`}
+            period="1995–2023"
+            baseline="average 60-day move of all earlier months"
+          />
           <div className="mt-3 grid gap-6 lg:grid-cols-3">
             <div className="min-w-0 space-y-3">
               <Compare
@@ -591,16 +726,16 @@ function ChecksView({ checks }: { checks: Checks }) {
                 ]}
               />
               <p className="text-sm">
-                Direction: <span className="font-mono font-semibold text-teal-600">{pct(m.model_sign, 0)}</span> vs naive{' '}
-                {pct(m.naive_sign, 0)}.{' '}
+                Direction: <span className="font-mono font-semibold text-teal-600">{pct(m.model_sign, 0)}</span> vs
+                naive {pct(m.naive_sign, 0)}.{' '}
                 <span className={muted}>
                   Always guessing "gain" would get {pct(gainShare, 0)}. Reported, not part of the pass rule.
                 </span>
               </p>
               <p className={muted}>
                 Diebold–Mariano p = {m.dm_p.toFixed(2)}: no real difference in loss error. Crashes from calm levels
-                (2008, 2020) cannot be seen coming in today's spreads and VIX. That is why capital is set on severe stress
-                episodes, not on a forecast.
+                (2008, 2020) cannot be seen coming in today's spreads and VIX. That is why capital is set on severe
+                stress episodes, not on a forecast.
               </p>
             </div>
             <div className="min-w-0 lg:col-span-2">
@@ -610,6 +745,42 @@ function ChecksView({ checks }: { checks: Checks }) {
         </div>
       </div>
     </section>
+  )
+}
+
+// The memo's keys ("Trigger (…):", "Scenario:", "Gate:", …) in bold, so it scans easily.
+const MEMO_KEY = /(^[^:."]{1,40}:|Credit rules matched:|Gate:)/g
+
+function Memo({ text }: { text: string }) {
+  return (
+    <div className="space-y-3 text-sm leading-relaxed">
+      {text.split('\n\n').map((para, i) => (
+        <p key={i}>
+          {para.split(MEMO_KEY).map((part, j) =>
+            j % 2 ? (
+              <strong key={j} className="font-semibold text-slate-900 dark:text-white">
+                {part}
+              </strong>
+            ) : (
+              part
+            ),
+          )}
+        </p>
+      ))}
+    </div>
+  )
+}
+
+/** Shown while a scenario is revalued, simulated and reverse-stressed (a few seconds). */
+function Running() {
+  return (
+    <div
+      role="status"
+      className="flex items-center gap-3 rounded-full border border-teal-500/30 bg-white/90 px-4 py-2 text-sm shadow-lg backdrop-blur dark:bg-slate-900/90"
+    >
+      <span className="h-4 w-4 animate-spin rounded-full border-2 border-teal-500/30 border-t-teal-500" />
+      <span>Running the scenario: revaluing the book, 20,000 default draws, reverse stress…</span>
+    </div>
   )
 }
 
@@ -652,7 +823,26 @@ export default function ModuleB() {
         </p>
       </div>
       <Picker alerts={alerts.data} tickers={tickers} doc={doc} />
-      {report.data ? <ReportView rep={report.data} /> : <p className="text-sm text-slate-500">Running the scenario…</p>}
+      {report.data ? (
+        <div className="relative" aria-busy={report.loading}>
+          {/* a new choice is running: the last result stays, dimmed, under a loader */}
+          <div
+            className={`transition duration-300 ${report.loading ? 'pointer-events-none opacity-40 blur-[1px]' : ''}`}
+          >
+            <ReportView rep={report.data} />
+          </div>
+          {report.loading && (
+            <div className="absolute inset-x-0 top-6 z-10 flex justify-center">
+              <Running />
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="flex justify-center py-10">
+          <Running />
+        </div>
+      )}
+      <SensitivityView />
       {checks.data && <ChecksView checks={checks.data} />}
     </div>
   )
