@@ -2,6 +2,14 @@
 PLAN.md
 STEPS.md
 private_notes/
+final-comp*.md
+1.Submission Guidelines_External.docx.md
+
+# Local assistant and cloud tooling
+.agents/
+.codex/
+.claude/
+.aws/
 
 # Python
 __pycache__/
@@ -15,16 +23,23 @@ dist/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+.uv-cache/
 .coverage
 htmlcov/
+*.log
+*.ses
 
 # Secrets
 .env
+.env.*
+!.env.example
+!.env.sample
 kaggle.json
 
 # Large / raw data (only small samples are committed)
 data/raw/
 data/cache/
+data/live/
 models/
 *.ckpt
 *.safetensors
@@ -34,3 +49,23 @@ models/
 .idea/
 .DS_Store
 Thumbs.db
+
+# E18 test sets: third-party copies (NC or unstated licence), fetched on demand at pinned
+# revisions; their sha256 are in data/outputs/e18_manifest.json
+data/eval/phrasebank_*.csv
+data/eval/fiqa_*.csv
+data/eval/nwgi_*.csv
+data/eval/sentfin_*.csv
+data/eval/finentity.json
+
+# E21 blind tweet annotation: tweet text (platform terms); only ids and hashes are committed
+data/annotation/
+
+# E23 credit gold set: these files hold tweet text (platform terms); ids and system outputs are in sample_meta.csv
+data/gold/credit/credit_to_label.csv
+data/gold/credit/credit_labelled.csv
+
+# E24: tweet text (platform terms) and AI / human label files
+data/gold/e24/final_tweets_to_label.csv
+data/gold/e24/*labels*.csv
+data/gold/e24/raw/
