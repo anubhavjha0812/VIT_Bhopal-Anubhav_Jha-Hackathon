@@ -69,3 +69,4 @@ data/gold/credit/credit_labelled.csv
 data/gold/e24/final_tweets_to_label.csv
 data/gold/e24/*labels*.csv
 data/gold/e24/raw/
+README copy.md
