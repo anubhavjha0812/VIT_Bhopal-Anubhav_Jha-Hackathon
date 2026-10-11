@@ -16,6 +16,7 @@ class Config:
     impact: Literal["formula", "learned"] = "formula"
     rebalancer: Literal["equal", "sentiment"] = "sentiment"
     shock: Literal["flat", "scaled"] = "flat"
+    rates: Literal["fixed", "moved"] = "fixed"  # E22: Treasury held fixed, or moved by the episode
     impact_trigger: int = 7
     window_start: date = date(2020, 4, 9)
     window_end: date = date(2020, 6, 10)

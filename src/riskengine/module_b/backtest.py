@@ -102,7 +102,8 @@ def moves(m: pd.DataFrame, start: pd.Timestamp, days: int) -> dict:
     a, b = m.iloc[i], m.iloc[min(i + days, len(m) - 1)]
     return {"d_baa": b["baa"] - a["baa"], "d_aaa": b["aaa"] - a["aaa"],
             "d_vix": b["vix"] - a["vix"], "spx_ret": np.log(b["spx"] / a["spx"]),
-            "fx_ret": b["usdinr"] / a["usdinr"] - 1}  # fmt: skip
+            "fx_ret": b["usdinr"] / a["usdinr"] - 1,
+            **({"d_ust": b["ust10y"] - a["ust10y"]} if "ust10y" in m else {})}  # fmt: skip
 
 
 def as_market(name: str, mv: dict, sigma_1y: float) -> Market:
@@ -110,10 +111,10 @@ def as_market(name: str, mv: dict, sigma_1y: float) -> Market:
     base = market(DEFAULT_EPISODE)  # book-date levels
     z = -mv["spx_ret"] / sigma_1y
     return Market(name, base.aaa0, base.baa0, mv["d_aaa"], mv["d_baa"], float(z), base.fx0,
-                  mv["fx_ret"], base.rate0)  # fmt: skip
+                  mv["fx_ret"], base.rate0, mv.get("d_ust", 0.0))  # fmt: skip
 
 
-def crisis_backtest(book: pd.DataFrame | None = None) -> pd.DataFrame:
+def crisis_backtest(book: pd.DataFrame | None = None, rates: str = "fixed") -> pd.DataFrame:
     book = build_book() if book is None else book
     m = market_history().loc["1990":"2023"].ffill()
     spx = np.log(m["spx"]).diff()
@@ -132,7 +133,8 @@ def crisis_backtest(book: pd.DataFrame | None = None) -> pd.DataFrame:
         row = {"start": start.date(), "end": end.date(), "d_baa": full.iloc[i]["d_baa"],
                "neighbours": "; ".join(str(eps[j][0].date()) for j in near)}  # fmt: skip
         for key, mv in guesses.items():
-            r = revalue(book, None, 0, as_market(f"{key} {start.date()}", mv.to_dict(), sigma_1y))
+            mk = as_market(f"{key} {start.date()}", mv.to_dict(), sigma_1y)
+            r = revalue(book, None, 0, mk, rates=rates)
             row[f"{key}_loss"] = r.loss_usd
             row[f"{key}_cet1"] = r.cet1_after
         rows.append(row)

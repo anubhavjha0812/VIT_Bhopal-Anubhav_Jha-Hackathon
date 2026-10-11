@@ -1,10 +1,10 @@
 """Event class per text.
 
 - keywords: rules, first match wins (most severe first). The baseline.
-- model: our topic classifier fine-tuned on Twitter Financial News Topic; its 20 topics are
-  mapped to our classes with TOPIC_TO_EVENT (docs/DECISIONS.md, E2/E5). bge-small, int8 ONNX in
-  models/topic (E11). The topic data has no credit events, so the credit classes come from the
-  stricter E13 rules (`credit_event`) on top.
+- model: our classifier fine-tuned on Twitter Financial News Topic. A 20-topic model is mapped to
+  our 9 learned classes with TOPIC_TO_EVENT (docs/DECISIONS.md, E16); a model that already
+  predicts our classes passes through. int8 ONNX in models/topic. The topic data has no credit
+  events, so the 3 credit classes come from the stricter E13 rules (`credit_event`) on top.
 """
 
 import re
@@ -21,7 +21,11 @@ EVENT_CLASSES = [
     "M&A",
     "Geopolitical",
     "Macroeconomic",
-    "Product launch",
+    "Product news",
+    "Earnings",
+    "Analyst rating",
+    "Legal/Regulatory",
+    "Management change",
     "Other",
 ]
 
@@ -34,6 +38,21 @@ _RULES: list[tuple[str, str]] = [
     ),
     ("M&A", r"acqui(re|res|red|sition)|merger|takeover|buyout|\bto buy\b|\bstake in\b"),
     (
+        "Legal/Regulatory",
+        r"lawsuit|\bsues?\b|\bsued\b|\bsec\b|antitrust|\bprobe\b|\bfined?\b|\bfines\b|"
+        r"\bcourt\b|settle(s|d|ment)",
+    ),
+    (
+        "Management change",
+        r"\b(ceo|cfo|chief executive)\b.{0,60}?\b(steps? down|resign\w*|appoint\w*|names?|named)\b|"
+        r"\b(appoint\w*|names?|named)\b.{0,60}?\b(ceo|cfo|chief executive)\b",
+    ),
+    (
+        "Earnings",
+        r"earnings|\beps\b|(beats?|miss(es)?|tops?) (\w+ )?(estimates|expectations)|"
+        r"quarterly (results|profit|revenue|loss)|dividend|guidance",
+    ),
+    (
         "Geopolitical",
         r"china|tariff|sanction|\bwar\b|geopolit|election|military|russia|iran|hong kong",
     ),
@@ -43,7 +62,7 @@ _RULES: list[tuple[str, str]] = [
         r"recession|stimulus|\bcpi\b|treasury yield",
     ),
     (
-        "Product launch",
+        "Product news",
         r"\blaunch|unveil|rolls? out|new (iphone|product|model|service)|introduces",
     ),
 ]
@@ -135,23 +154,57 @@ def credit_event(text: str) -> str | None:
     return None
 
 
-TOPIC_TO_EVENT = {
+# E2 table (4 learned classes), kept so the earlier results reproduce; every other topic -> Other
+TOPIC_TO_EVENT_E2 = {
     "Fed | Central Banks": "Macroeconomic",
     "Macro": "Macroeconomic",
     "M&A | Investments": "M&A",
     "Politics": "Geopolitical",
-}  # every other topic -> "Other"
+}
+
+# E16 table: all 20 TFN topics -> 9 learned classes (fixed before training or scoring)
+TOPIC_TO_EVENT = {
+    "Politics": "Geopolitical",
+    "Fed | Central Banks": "Macroeconomic",
+    "Macro": "Macroeconomic",
+    "Treasuries | Corporate Debt": "Macroeconomic",
+    "Energy | Oil": "Macroeconomic",
+    "Gold | Metals | Materials": "Macroeconomic",
+    "Currencies": "Macroeconomic",
+    "M&A | Investments": "M&A",
+    "IPO": "M&A",
+    "Company | Product News": "Product news",
+    "Earnings": "Earnings",
+    "Dividend": "Earnings",
+    "Analyst Update": "Analyst rating",
+    "Legal | Regulation": "Legal/Regulatory",
+    "Personnel Change": "Management change",
+    "General News | Opinion": "Other",
+    "Markets": "Other",
+    "Stock Commentary": "Other",
+    "Stock Movement": "Other",
+    "Financials": "Other",
+}
+LEARNED_CLASSES = [c for c in EVENT_CLASSES if c not in CREDIT_CLASSES]
 
 
 def classify_keywords(text: str) -> str:
+    """E16 keyword baseline, first match wins. A stock analyst's rating is checked right after
+    the 3 credit rules (as in E13)."""
     for label, pattern in _COMPILED:
+        if label not in CREDIT_CLASSES and is_analyst_rating(text):
+            return "Analyst rating"
         if pattern.search(text):
             return label
     return "Other"
 
 
-def topic_to_event(topic: str) -> str:
-    return TOPIC_TO_EVENT.get(topic, "Other")
+def topic_to_event(topic: str, table: dict[str, str] = TOPIC_TO_EVENT) -> str:
+    """A TFN topic -> our class. A model that already predicts our classes passes through
+    ("Earnings" is both a topic and a class, so topics are looked up first)."""
+    if topic not in TOPIC_TO_EVENT and topic in LEARNED_CLASSES:
+        return topic
+    return table.get(topic, "Other")
 
 
 def get_event_classifier(kind: str) -> Callable[[Sequence[str]], list[str]]:

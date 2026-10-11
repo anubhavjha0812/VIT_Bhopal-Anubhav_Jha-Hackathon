@@ -51,24 +51,26 @@ def training(hist: pd.DataFrame, origin: pd.Timestamp) -> pd.DataFrame:
     return hist[hist["window_end"] <= origin]
 
 
-def forecast(train: pd.DataFrame, state: pd.Series) -> tuple[pd.Series, pd.Series]:
+def forecast(
+    train: pd.DataFrame, state: pd.Series, targets: list[str] = FEATURES
+) -> tuple[pd.Series, pd.Series]:
     """(model, naive) 60-day moves for one state, from a training set."""
     x = np.column_stack([np.ones(len(train)), train[STATE].to_numpy()])
-    beta, *_ = np.linalg.lstsq(x, train[FEATURES].to_numpy(), rcond=None)
+    beta, *_ = np.linalg.lstsq(x, train[targets].to_numpy(), rcond=None)
     model = np.concatenate([[1.0], state[STATE].to_numpy(dtype=float)]) @ beta
-    return pd.Series(model, FEATURES), train[FEATURES].mean()
+    return pd.Series(model, targets), train[targets].mean()
 
 
-def predictions(m: pd.DataFrame) -> pd.DataFrame:
+def predictions(m: pd.DataFrame, targets: list[str] = FEATURES) -> pd.DataFrame:
     """Realised, model and naive moves at every test origin (columns '<kind>_<feature>')."""
     hist = history(m)
     rows = []
     for origin in hist.loc[FIRST_ORIGIN:LAST_ORIGIN].index:
         now = hist.loc[origin]
-        model, naive = forecast(training(hist, origin), now)
+        model, naive = forecast(training(hist, origin), now, targets)
         row = {"origin": origin, **{s: now[s] for s in STATE}}
-        for kind, mv in (("realised", now[FEATURES]), ("model", model), ("naive", naive)):
-            row.update({f"{kind}_{f}": float(mv[f]) for f in FEATURES})
+        for kind, mv in (("realised", now[targets]), ("model", model), ("naive", naive)):
+            row.update({f"{kind}_{f}": float(mv[f]) for f in targets})
         rows.append(row)
     return pd.DataFrame(rows).set_index("origin")
 
@@ -84,17 +86,20 @@ def diebold_mariano(d: np.ndarray, lag: int = NW_LAG) -> tuple[float, float]:
     return stat, 2 * norm.sf(abs(stat))
 
 
-def monthly_backtest(book: pd.DataFrame | None = None) -> pd.DataFrame:
+def monthly_backtest(book: pd.DataFrame | None = None, rates: str = "fixed") -> pd.DataFrame:
+    """E15; with rates="moved" (E22) the Treasury move is also predicted and applied."""
     book = build_book() if book is None else book
     m = market_history().loc[:"2023"].ffill()
     spx = np.log(m["spx"]).diff()
     sigma_1y = spx.loc[CALM[0] : CALM[1]].std() * math.sqrt(TRADING_DAYS)
-    df = predictions(m)
+    targets = [*FEATURES, "d_ust"] if rates == "moved" else FEATURES
+    df = predictions(m, targets)
     for kind in ("realised", "model", "naive"):
         losses, cet1 = [], []
         for origin, row in df.iterrows():
-            mv = {f: row[f"{kind}_{f}"] for f in FEATURES}
-            r = revalue(book, None, 0, as_market(f"{kind} {origin.date()}", mv, sigma_1y))
+            mv = {f: row[f"{kind}_{f}"] for f in targets}
+            mk = as_market(f"{kind} {origin.date()}", mv, sigma_1y)
+            r = revalue(book, None, 0, mk, rates=rates)
             losses.append(r.loss_usd)
             cet1.append(r.cet1_after)
         df[f"{kind}_loss"], df[f"{kind}_cet1"] = losses, cet1

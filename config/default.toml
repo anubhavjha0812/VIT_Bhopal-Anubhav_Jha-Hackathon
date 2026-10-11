@@ -6,6 +6,7 @@ events = "model"         # keywords | model
 impact = "formula"       # formula | learned
 rebalancer = "sentiment" # equal | sentiment (equal weight is always run as the benchmark)
 shock = "flat"           # flat | scaled
+rates = "moved"          # fixed | moved (E22: Treasury moves with the episode, parallel shift)
 
 impact_trigger = 7       # Module B runs on events with impact above this
 

@@ -7,9 +7,13 @@ CLASS_SEVERITY = {
     "Geopolitical": 6,
     "Macroeconomic": 6,
     "M&A": 6,
-    "Product launch": 4,
+    "Legal/Regulatory": 6,
+    "Earnings": 5,
+    "Management change": 5,
+    "Product news": 4,
+    "Analyst rating": 4,
     "Other": 3,
-}
+}  # the 5 classes added in E16 were set before anything was re-scored
 NEWS_BONUS = 1  # an edited news headline counts for more than a single social post
 AGENCY_BONUS = 1  # a named rating agency makes it an official credit action (DECISIONS E13)
 

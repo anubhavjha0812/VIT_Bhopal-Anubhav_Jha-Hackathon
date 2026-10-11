@@ -11,7 +11,13 @@ import torch
 
 from riskengine.ingest.news import load_fnspid
 from riskengine.nlp.classifier import TextClassifier
-from riskengine.nlp.events import CREDIT_CLASSES, OWN_TOPIC, classify_keywords, topic_to_event
+from riskengine.nlp.events import (
+    CREDIT_CLASSES,
+    OWN_TOPIC,
+    TOPIC_TO_EVENT_E2,
+    classify_keywords,
+    topic_to_event,
+)
 from riskengine.nlp.sentiment import OWN_SENTIMENT, TransformerSentiment
 from riskengine.paths import DATA
 
@@ -31,7 +37,8 @@ def score_headlines(news: pd.DataFrame | None = None, path: Path = SCORES_PATH) 
     probs = torch.cat(list(topics.probs(texts))).numpy()
     p = pd.DataFrame(probs, columns=[f"p_{t}" for t in topics.labels], index=news.index)
 
-    model_event = [topic_to_event(topics.labels[i]) for i in probs.argmax(1)]
+    # impact v1/v2 (E6, E8) were built on the E2 classes
+    model_event = [topic_to_event(topics.labels[i], TOPIC_TO_EVENT_E2) for i in probs.argmax(1)]
     rules = [classify_keywords(t) for t in texts]
     event = [r if r in CREDIT_CLASSES else m for r, m in zip(rules, model_event, strict=True)]
 

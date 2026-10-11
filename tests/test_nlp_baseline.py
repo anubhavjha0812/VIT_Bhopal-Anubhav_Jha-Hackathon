@@ -13,7 +13,7 @@ from riskengine.nlp.impact import CLASS_SEVERITY, impact_formula
         ("Microsoft in talks to acquire TikTok US", "M&A"),
         ("US-China tensions escalate over Hong Kong", "Geopolitical"),
         ("Fed holds interest rates near zero", "Macroeconomic"),
-        ("Apple unveils new iPhone SE", "Product launch"),
+        ("Apple unveils new iPhone SE", "Product news"),
         ("Shares trade flat on Tuesday", "Other"),
     ],
 )

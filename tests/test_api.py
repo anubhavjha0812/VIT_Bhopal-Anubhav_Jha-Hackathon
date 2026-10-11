@@ -122,6 +122,20 @@ def test_scoreboard_keeps_summary_fields_only(client, monkeypatch):
     assert out["Sentiment"][0]["accuracy"] == 0.9
 
 
+def test_scoreboard_keeps_per_class_f1_with_intervals(client, monkeypatch):
+    row = {
+        "model": "m", "n": 10, "accuracy": 0.9, "accuracy_ci95": [0.8, 0.95], "macro_f1": 0.85,
+        "macro_f1_ci95": [0.7, 0.9], "texts_per_s": 50.0, "model_size_mb": 34.0,
+        "per_class_f1": {"Earnings": 0.9}, "per_class_f1_ci95": {"Earnings": [0.8, 0.95]},
+        "per_class_recall": {"Earnings": 0.9},
+    }  # fmt: skip
+    monkeypatch.setattr(api, "eval_results", lambda: {"Events 9": [row]})
+    out = client.get("/scoreboard").json()["Events 9"][0]
+    assert out["per_class_f1"] == {"Earnings": 0.9}
+    assert out["per_class_f1_ci95"] == {"Earnings": [0.8, 0.95]}
+    assert "per_class_recall" not in out
+
+
 def test_prices_for_one_ticker_and_404_for_unknown(client, monkeypatch):
     rows = pd.DataFrame(
         {

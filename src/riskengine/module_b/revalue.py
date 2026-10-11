@@ -7,8 +7,12 @@ Where each position's loss goes:
   Treasury + spread; at D the bond is worth its recovery (1 - LGD).
 - CDS (trading book): mark-to-market (spread change × risky annuity); at D, ± notional × LGD.
   Bought protection gains when spreads widen, sold protection loses.
-- interest rate swaps (trading book, at market, rates held fixed): only CVA moves. Exposure =
-  SA-CCR EAD (1.4 × 0.5% × supervisory duration × notional).
+- interest rate swaps (trading book, pay fixed at the book-date rate): with `rates="fixed"` only
+  CVA moves; with `rates="moved"` (E22) also the mark-to-market N·(r1 − r0)·annuity(r1, T). CVA
+  exposure = SA-CCR EAD (1.4 × 0.5% × supervisory duration × notional), not the mark-to-market.
+- rates (E22): `fixed` holds the 10-year Treasury at the book date; `moved` shifts every tenor by
+  the episode's 10-year change × multiple (a parallel shift), floored at 0. Revolvers are taken
+  as floating-rate, so rates move only bonds, swaps and the CDS annuity.
 Capital (E14 as amended after the first run):
 - credit: Basel F-IRB corporate RWA on revolvers, bonds and swap exposures, at the normal one-year
   PD of the rating (Basel uses long-run PDs; a downgrade raises RWA, a bad market alone does not).
@@ -134,12 +138,15 @@ class Result:
         return self.capital_after_inr / self.rwa_after_inr
 
 
-def _position(p: pd.Series, s: pd.Series, rate: float, when: str) -> tuple[float, float, int]:
-    """(value or -ECL in USD, RWA in USD, stage) of one position in the before or after state."""
+def _position(
+    p: pd.Series, s: pd.Series, rate0: float, rate: float, when: str
+) -> tuple[float, float, int]:
+    """(value or -ECL in USD, RWA in USD, stage) of one position in the before or after state.
+    rate0 = the book-date Treasury (sets coupons and swap fixed rates); rate = the one now."""
     rating, sprd, pd_ = s[f"rating_{when}"], s[f"spread_{when}"] / 100, s[f"pd_{when}"]
     pd_capital = pd_1y(rating)  # long-run PD of the (new) rating
     defaulted = notch(rating) == DEFAULT
-    coupon = rate + s["spread_before"] / 100  # priced at par at the book date
+    coupon = rate0 + s["spread_before"] / 100  # priced at par at the book date
     inst, n, years, lgd = p["instrument"], p["notional"], p["years"], p["lgd"]
     if inst == "revolver":
         stg = stage(s["rating_before"], rating) if when == "after" else 1
@@ -159,8 +166,15 @@ def _position(p: pd.Series, s: pd.Series, rate: float, when: str) -> tuple[float
         ead = sa_ccr_ead(n, years)
         hazard = sprd / lgd
         cva = lgd * ead if defaulted else lgd * ead * (1 - math.exp(-hazard * years))
-        return -cva, irb_rwa(pd_capital, lgd, years, ead), 0
+        mtm = n * (rate - rate0) * annuity(rate, years)  # pay fixed: gains when rates rise
+        return mtm - cva, irb_rwa(pd_capital, lgd, years, ead), 0
     raise ValueError(inst)
+
+
+def treasury_after(mk: Market, multiple: float = 1.0, rates: str = "fixed") -> float:
+    """The 10-year Treasury after the scenario, as a fraction (E22: parallel shift, floor 0)."""
+    rate0 = mk.rate0 / 100
+    return max(rate0 + multiple * mk.d_rate / 100, 0.0) if rates == "moved" else rate0
 
 
 def revalue(
@@ -169,15 +183,16 @@ def revalue(
     notches: int = 0,
     episode: Episode = DEFAULT_EPISODE,
     multiple: float = 1.0,
+    rates: str = "fixed",
 ) -> Result:
     ratings = book.drop_duplicates("ticker").set_index("ticker")["rating"]
     sc, mk, fx_after = scenario(ratings, obligor, notches, episode, multiple)
-    rate = mk.rate0 / 100
+    rate0, rate1 = mk.rate0 / 100, treasury_after(mk, multiple, rates)
     rows = []
     for _, p in book.iterrows():
         s = sc.loc[p["ticker"]]
-        v0, rwa0, _ = _position(p, s, rate, "before")
-        v1, rwa1, stg = _position(p, s, rate, "after")
+        v0, rwa0, _ = _position(p, s, rate0, rate0, "before")
+        v1, rwa1, stg = _position(p, s, rate0, rate1, "after")
         rows.append({**p.to_dict(), "value_before": v0, "value_after": v1, "loss": v0 - v1,
                      "rwa_before": rwa0, "rwa_after": rwa1, "stage": stg})  # fmt: skip
     pos = pd.DataFrame(rows)
@@ -196,11 +211,12 @@ def reverse_stress(
     floor: float = CET1_FLOOR,
     high: float = 20.0,
     tol: float = 1e-3,
+    rates: str = "fixed",
 ) -> float:
     """Smallest multiple of the episode that takes CET1 down to `floor` (inf if not by `high`)."""
 
     def cet1(k: float) -> float:
-        return revalue(book, obligor, notches, episode, k).cet1_after
+        return revalue(book, obligor, notches, episode, k, rates).cet1_after
 
     if cet1(high) > floor:
         return math.inf

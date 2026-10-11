@@ -56,9 +56,12 @@ def _capital(r: Result) -> dict:
     }
 
 
-def summary(book: pd.DataFrame, ticker: str, notches: int, episode: str, multiple: float) -> dict:
+def summary(
+    book: pd.DataFrame, ticker: str, notches: int, episode: str, multiple: float,
+    rates: str = "fixed",
+) -> dict:  # fmt: skip
     """The quick numbers for an alert list: loss and CET1 before → after."""
-    return _capital(revalue(book, ticker, notches, episode, multiple))
+    return _capital(revalue(book, ticker, notches, episode, multiple, rates))
 
 
 def _histogram(before: np.ndarray, after: np.ndarray) -> dict:
@@ -69,16 +72,17 @@ def _histogram(before: np.ndarray, after: np.ndarray) -> dict:
 
 
 def run(
-    book: pd.DataFrame, ticker: str | None, notches: int, episode: str, multiple: float
-) -> dict:
-    r = revalue(book, ticker, notches, episode, multiple)
+    book: pd.DataFrame, ticker: str | None, notches: int, episode: str, multiple: float,
+    rates: str = "fixed",
+) -> dict:  # fmt: skip
+    r = revalue(book, ticker, notches, episode, multiple, rates)
     pos, sc, mk = r.positions, r.scenario, r.market
     by_ticker = pos.groupby("ticker")["loss"].sum()
     obligors = sc.assign(loss=by_ticker).reset_index(names="ticker")
     top = pos.reindex(pos["loss"].abs().sort_values(ascending=False).index).head(TOP)
     stages = pos.loc[pos["instrument"] == "revolver", "stage"].value_counts().sort_index()
     before, after = before_after(book, sc, market_shock=multiple > 0)
-    k = reverse_stress(book, ticker, notches, episode)
+    k = reverse_stress(book, ticker, notches, episode, rates=rates)
     start, end = EPISODES[episode]
     out = {
         "book_date": BOOK_DATE,
@@ -89,7 +93,8 @@ def run(
             "rating_before": sc.loc[ticker, "rating_before"] if ticker else None,
             "rating_after": sc.loc[ticker, "rating_after"] if ticker else None,
             "d_baa_bp": 100 * multiple * mk.d_baa, "d_aaa_bp": 100 * multiple * mk.d_aaa,
-            "fx_move": multiple * mk.fx_move, "z": multiple * mk.z,
+            "fx_move": multiple * mk.fx_move, "z": multiple * mk.z, "rates": rates,
+            "d_ust_bp": 100 * multiple * mk.d_rate if rates == "moved" else 0.0,
         },
         "capital": _capital(r),
         "by_instrument": pos.groupby("instrument")["loss"].sum().round(2).to_dict(),
@@ -136,8 +141,10 @@ def memo(rep: dict, alert: dict | None = None) -> str:
     lines.append(
         f"Market: {s['episode_label']} ({s['start']} to {s['end']}) × {s['multiple']:.2f}: "
         f"Baa {s['d_baa_bp']:+.0f} bp, Aaa {s['d_aaa_bp']:+.0f} bp, USD/INR "
-        f"{100 * s['fx_move']:+.1f}%, market factor z = {s['z']:.2f}."
-    )
+        f"{100 * s['fx_move']:+.1f}%, market factor z = {s['z']:.2f}"
+        + (f", 10-year Treasury {s['d_ust_bp']:+.0f} bp (parallel shift)." if s["rates"] == "moved"
+           else "; Treasury rates held at the book date.")
+    )  # fmt: skip
     worst = max(rep["obligors"], key=lambda o: o["loss"])
     lines.append(
         f"Result on the {rep['book_date']} book: loss {_m(c['loss_usd'])} before tax "
@@ -161,6 +168,7 @@ def memo(rep: dict, alert: dict | None = None) -> str:
     )
     lines.append(
         "Limits: FRED spreads by rating bucket, not company spreads; junk spreads understated; "
-        "market risk of CDS and swaps not modelled."
+        "one 10-year rate for every tenor, no funding side; market risk of CDS and swaps not "
+        "modelled."
     )
     return "\n\n".join(lines)

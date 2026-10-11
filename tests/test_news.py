@@ -31,3 +31,19 @@ def test_load_maps_symbols_and_merges_syndicated_headlines(tmp_path):
     assert df["tickers"].tolist() == [("META",), ("BAC", "JPM")]
     assert set(df["source"]) == {"news"}
     assert str(df["published_at"].dt.tz) == "UTC"
+
+
+NAMED = [*ROWS, ["2020-05-03 09:00:00 UTC", "Foxconn says Apple orders rise", "HNHPF", "u6", "p"]]
+
+
+def test_fetch_by_name_also_keeps_headlines_naming_our_companies(tmp_path):
+    path = str(_write(tmp_path, NAMED))
+    assert "HNHPF" not in set(fetch(path)["Stock_symbol"])
+    assert sorted(fetch(path, by_name=True)["Stock_symbol"]) == [
+        "AAPL", "BAC", "FB", "HNHPF", "JPM",
+    ]  # fmt: skip
+
+
+def test_load_links_a_named_headline_under_another_symbol(tmp_path):
+    df, _ = load_fnspid(_write(tmp_path, NAMED))
+    assert df["tickers"].tolist() == [("META",), ("BAC", "JPM"), ("AAPL",)]

@@ -4,8 +4,9 @@ from riskengine.config import Config, load_config
 
 
 def test_default_config_runs_our_models():
-    # The file switches on our models (DECISIONS E11); Config() itself stays the baseline.
-    assert load_config() == Config(sentiment="own", events="model")
+    # The file switches on our models (DECISIONS E11) and moved rates (E22, its checks passed);
+    # Config() itself stays the baseline.
+    assert load_config() == Config(sentiment="own", events="model", rates="moved")
 
 
 def test_bad_switch_value_is_rejected():

@@ -1,7 +1,8 @@
 """FNSPID headlines -> clean, deduplicated, company-linked rows.
 
-A headline keeps its FNSPID ticker (old symbols mapped: FB -> META, GOOG -> GOOGL) and also
-gets any other universe company named in the title.
+A headline keeps its FNSPID ticker (old symbols mapped: FB -> META, GOOG -> GOOGL) when it is
+one of ours, and also gets any universe company named in the title. A headline filed under
+another symbol is kept only if it names one of ours (the --by-name slice, DECISIONS E17).
 """
 
 from pathlib import Path
@@ -28,13 +29,14 @@ def load_fnspid(
             "symbol": raw["Stock_symbol"].map(linker.cashtag_to_ticker),
         }
     )
-    df = df.dropna(subset=["published_at", "symbol"])
+    df = df.dropna(subset=["published_at"])
     df = df[df["text"] != ""]
 
     df["tickers"] = [
-        tuple(sorted({sym, *linker.link(text)}))
+        tuple(sorted({*([sym] if isinstance(sym, str) else []), *linker.link(text)}))
         for sym, text in zip(df["symbol"], df["text"], strict=True)
     ]
+    df = df[df["tickers"].map(len) > 0]
     # Same headline syndicated under several symbols on one day -> one row, tickers merged.
     df["day"] = df["published_at"].dt.date
     df = (

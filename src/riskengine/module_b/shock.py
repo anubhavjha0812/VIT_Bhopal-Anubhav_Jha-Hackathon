@@ -72,7 +72,8 @@ class Market:
     z: float  # equal-weight 15-stock move, standard deviations, positive = fall
     fx0: float  # USD/INR at the book date
     fx_move: float  # episode USD/INR ratio - 1
-    rate0: float  # 10-year Treasury at the book date (%); held fixed, only credit is shocked
+    rate0: float  # 10-year Treasury at the book date (%)
+    d_rate: float = 0.0  # episode change in the 10-year Treasury (% points), used in E22
 
 
 @cache
@@ -110,7 +111,17 @@ def market(episode: str | tuple[str, str] = DEFAULT_EPISODE) -> Market:
     name = episode if isinstance(episode, str) else f"{start} to {end}"
     return Market(name, book["aaa"], book["baa"], b["aaa"] - a["aaa"], b["baa"] - a["baa"],
                   float(z), book["usdinr"], b["usdinr"] / a["usdinr"] - 1,
-                  book["ust10y"])  # fmt: skip
+                  book["ust10y"], b["ust10y"] - a["ust10y"])  # fmt: skip
+
+
+RATES_UP = 2.0  # E22 controlled scenario: +200 bp parallel (Basel IRRBB USD parallel up)
+
+
+def rates_up_market(d_rate: float = RATES_UP) -> Market:
+    """A rate-only scenario: the Treasury moves by `d_rate` points; credit, stocks and FX stay."""
+    base = market(DEFAULT_EPISODE)
+    return Market(f"rates {d_rate:+.2f} pp", base.aaa0, base.baa0, 0.0, 0.0, 0.0, base.fx0, 0.0,
+                  base.rate0, d_rate)  # fmt: skip
 
 
 def scenario(

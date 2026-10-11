@@ -38,8 +38,10 @@ from pydantic import BaseModel
 
 from riskengine.config import load_config
 from riskengine.gate import gate
+from riskengine.ingest.gdelt import GdeltClient
 from riskengine.ingest.linking import Linker
 from riskengine.ingest.prices import load_prices
+from riskengine.live import LiveFeed
 from riskengine.module_a import NY, Backtest, run_module_a
 from riskengine.module_b import report as module_b
 from riskengine.module_b.backtest import ALERTS_PATH, CRISES_PATH
@@ -76,6 +78,8 @@ def warm_up() -> None:
 async def lifespan(_: FastAPI):
     asyncio.get_running_loop().run_in_executor(None, warm_up)  # in the background
     yield
+    if live_feed.cache_info().currsize:
+        live_feed().close()
 
 
 app = FastAPI(title="Risk Engine API", lifespan=lifespan)
@@ -184,12 +188,12 @@ def alert_row(row: pd.Series) -> dict:
 
 @lru_cache(maxsize=256)
 def module_b_summary(ticker: str, notches: int, episode: str, multiple: float) -> dict:
-    return module_b.summary(book(), ticker, notches, episode, multiple)
+    return module_b.summary(book(), ticker, notches, episode, multiple, load_config().rates)
 
 
 @lru_cache(maxsize=64)
 def module_b_run(ticker: str | None, notches: int, episode: str, multiple: float) -> dict:
-    return module_b.run(book(), ticker, notches, episode, multiple)
+    return module_b.run(book(), ticker, notches, episode, multiple, load_config().rates)
 
 
 def alert_capital(ticker: str, text: str, event: str, impact: int) -> dict:
@@ -204,6 +208,26 @@ def alert_capital(ticker: str, text: str, event: str, impact: int) -> dict:
 class AnalyzeIn(BaseModel):
     text: str
     source: str = "news"
+
+
+@lru_cache
+def live_feed() -> LiveFeed:
+    return LiveFeed(GdeltClient(linker()), lambda text: analyze(AnalyzeIn(text=text)))
+
+
+@app.get("/live")
+def live_signals(
+    ticker: str | None = None, min_impact: int = Query(1, ge=1, le=10),
+) -> dict:
+    feed = live_feed()
+    feed.start()
+    return feed.snapshot(ticker, min_impact)
+
+
+@app.post("/live/refresh")
+def refresh_live() -> dict:
+    live_feed().refresh()
+    return {"status": "scheduled"}
 
 
 @app.get("/health")
@@ -358,11 +382,17 @@ def gate_table() -> list[dict]:
 
 @app.get("/scoreboard")
 def scoreboard() -> dict:
-    """Held-out test scores per task, without the per-class detail."""
-    return {
-        task: [{k: row[k] for k in SCORE_FIELDS} for row in rows]
-        for task, rows in eval_results().items()
-    }
+    """Held-out test scores per task. Per-class F1 only where it has intervals (E16 rows)."""
+
+    def summary(row: dict) -> dict:
+        out = {k: row[k] for k in SCORE_FIELDS}
+        if "per_class_f1_ci95" in row:
+            out |= {k: row[k] for k in ("per_class_f1", "per_class_f1_ci95")}
+        return out
+
+    # E18 rows are per (model, test set) and live in docs/RESULTS.md, not on the scoreboard.
+    tasks = {t: rows for t, rows in eval_results().items() if "(E18)" not in t}
+    return {task: [summary(r) for r in rows] for task, rows in tasks.items()}
 
 
 @app.get("/prices")
