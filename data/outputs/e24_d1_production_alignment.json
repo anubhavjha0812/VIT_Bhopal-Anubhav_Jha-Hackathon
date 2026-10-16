@@ -1,0 +1,165 @@
+{
+  "created_at_utc": "2026-10-16T09:25:22.680418+00:00",
+  "D1_rows": 153,
+  "D2_or_final_rows_read": false,
+  "labels_read_or_changed": false,
+  "candidate_A_logic_unchanged": true,
+  "rules_and_mapping_AST_unchanged": true,
+  "protected_files_sha256": {
+    "docs/DECISIONS.md": "97f716563b1e19ba7a83061cb3dffbae67958f893bf70ab45053de93295b36a7",
+    "src/riskengine/nlp/classifier.py": "b433fefb74e2f75ca496bbc34a3be99e873b6dc4fa2a6b3643341e25ef809f1b",
+    "src/riskengine/nlp/sentiment.py": "3dcfe1c692a5124578d60d7083dea5929417ff2336022fe3d518198ab7bd66d8",
+    "src/riskengine/gate.py": "13d85491ddcd8e8725a94efd97a96adb597015cac5acf662f3e41569fd77d3d1",
+    "src/riskengine/eval/e24_dev.py": "ebec32b2e5771c53d55b980ba1355e31a84b2c80516f131bf685e906bcd61039",
+    "src/riskengine/eval/e24_rules.py": "b7317befcf1fe639c58c91050c5c317ce78626db05a4341dcdad3f804a0a68b4",
+    "src/riskengine/eval/e24_inference.py": "614f164e76e672e38cb5050d8da56eeb06fa32da998f16d20d337976e3ef2c20",
+    "src/riskengine/impact/scores.py": "83238e2080df1726579907d7b130bedd0113aaaa134194f70cf14cc4806cca6c",
+    "data/outputs/e23_gate_snapshot.json": "e81114116472f83180e29f31515cb273f31749ce78435e34b0748ec361865de1"
+  },
+  "before": {
+    "phase": "before",
+    "created_at_utc": "2026-10-16T09:19:53.070700+00:00",
+    "D1_rows": 153,
+    "D2_or_final_rows_read": false,
+    "labels_read": false,
+    "production_factory": "riskengine.nlp.events.get_event_classifier('model')",
+    "backend_class": "riskengine.nlp.classifier.TextClassifier",
+    "inference": {
+      "method": "legacy_TextClassifier",
+      "batch_size": 64,
+      "intra_op_num_threads": 0,
+      "inter_op_num_threads": 0
+    },
+    "model_sha256": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "model_size_mb": 33.941275,
+    "input_sha256": "987b779f1ced3d5aab1c91fbf556eaac552c5fde36b46a11f71fe1d9436e7eb8",
+    "load_seconds": 8.691609917004826,
+    "timing_seconds_repeats": [
+      2.3760809730156325,
+      2.4334390410222113,
+      2.2337580260063987
+    ],
+    "median_seconds": 2.3760809730156325,
+    "texts_per_second": 64.39174495211675,
+    "memory": {
+      "rss_before_model_load_mib": 70.234375,
+      "rss_after_model_load_mib": 511.15234375,
+      "rss_after_warmed_inference_mib": 706.18359375,
+      "peak_production_process_rss_mib": 705.38671875,
+      "scope": "isolated process; imports/model/production warm-up and three passes; before evaluation session"
+    },
+    "top1_differing_rows_vs_evaluation": 13,
+    "final_A_labels_differing_rows_vs_evaluation": 13,
+    "probability_differing_rows_vs_evaluation": 153,
+    "max_abs_probability_difference_vs_evaluation": 0.36822882294654846,
+    "probabilities_bit_identical_vs_evaluation": false,
+    "evaluation_matches_previous_per_row_cache_bit_identical": true,
+    "production_events_source_sha256": "8d4fbb569cbd72eb1df12cad71f1c7f0fc8fc7520c0d6a029616174a7e58a1a6",
+    "protected_files_sha256": {
+      "docs/DECISIONS.md": "97f716563b1e19ba7a83061cb3dffbae67958f893bf70ab45053de93295b36a7",
+      "src/riskengine/nlp/classifier.py": "b433fefb74e2f75ca496bbc34a3be99e873b6dc4fa2a6b3643341e25ef809f1b",
+      "src/riskengine/nlp/sentiment.py": "3dcfe1c692a5124578d60d7083dea5929417ff2336022fe3d518198ab7bd66d8",
+      "src/riskengine/gate.py": "13d85491ddcd8e8725a94efd97a96adb597015cac5acf662f3e41569fd77d3d1",
+      "src/riskengine/eval/e24_dev.py": "ebec32b2e5771c53d55b980ba1355e31a84b2c80516f131bf685e906bcd61039",
+      "src/riskengine/eval/e24_rules.py": "b7317befcf1fe639c58c91050c5c317ce78626db05a4341dcdad3f804a0a68b4",
+      "src/riskengine/eval/e24_inference.py": "614f164e76e672e38cb5050d8da56eeb06fa32da998f16d20d337976e3ef2c20",
+      "src/riskengine/impact/scores.py": "83238e2080df1726579907d7b130bedd0113aaaa134194f70cf14cc4806cca6c",
+      "data/outputs/e23_gate_snapshot.json": "e81114116472f83180e29f31515cb273f31749ce78435e34b0748ec361865de1"
+    },
+    "probability_file_sha256": "e57f645bf1c76dfbdf24ef14e6c9f84135c4d01c98d92499320caa8c79146edb"
+  },
+  "after": {
+    "phase": "after",
+    "created_at_utc": "2026-10-16T09:21:13.873940+00:00",
+    "D1_rows": 153,
+    "D2_or_final_rows_read": false,
+    "labels_read": false,
+    "production_factory": "riskengine.nlp.events.get_event_classifier('model')",
+    "backend_class": "riskengine.eval.e24_inference.EvaluationProbs",
+    "inference": {
+      "method": "onnx_cpu_per_row_dynamic_padding_v1",
+      "batch_size": 1,
+      "padding": "longest_in_single_row",
+      "truncation": true,
+      "max_length": 64,
+      "provider": "CPUExecutionProvider",
+      "onnxruntime_version": "1.30.0",
+      "intra_op_num_threads": 1,
+      "inter_op_num_threads": 1,
+      "execution_mode": "ORT_SEQUENTIAL",
+      "graph_optimization_level": "ORT_ENABLE_ALL",
+      "softmax": "torch_float32_softmax_last_dimension",
+      "torch_version": "2.14.1+cpu",
+      "transformers_version": "5.18.0",
+      "model_sha256": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+      "assets_sha256": {
+        "config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+        "model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+        "source_metrics.json": "2dca2b4609638cb3ff6f954d811b57db11ff84560fe4054015e651287809d80a",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+      }
+    },
+    "model_sha256": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "model_size_mb": 33.941275,
+    "input_sha256": "987b779f1ced3d5aab1c91fbf556eaac552c5fde36b46a11f71fe1d9436e7eb8",
+    "load_seconds": 7.110752029984724,
+    "timing_seconds_repeats": [
+      1.9469492389762308,
+      1.8055209449958056,
+      1.8840765070053749
+    ],
+    "median_seconds": 1.8840765070053749,
+    "texts_per_second": 81.20689336718296,
+    "memory": {
+      "rss_before_model_load_mib": 70.36328125,
+      "rss_after_model_load_mib": 511.390625,
+      "rss_after_warmed_inference_mib": 518.19921875,
+      "peak_production_process_rss_mib": 517.34375,
+      "scope": "isolated process; imports/model/production warm-up and three passes; before evaluation session"
+    },
+    "top1_differing_rows_vs_evaluation": 0,
+    "final_A_labels_differing_rows_vs_evaluation": 0,
+    "probability_differing_rows_vs_evaluation": 0,
+    "max_abs_probability_difference_vs_evaluation": 0.0,
+    "probabilities_bit_identical_vs_evaluation": true,
+    "evaluation_matches_previous_per_row_cache_bit_identical": true,
+    "production_events_source_sha256": "e2f9db573a47ceb2935d3ad9eeab382b6ee0f0474152343eece97974e642e2de",
+    "protected_files_sha256": {
+      "docs/DECISIONS.md": "97f716563b1e19ba7a83061cb3dffbae67958f893bf70ab45053de93295b36a7",
+      "src/riskengine/nlp/classifier.py": "b433fefb74e2f75ca496bbc34a3be99e873b6dc4fa2a6b3643341e25ef809f1b",
+      "src/riskengine/nlp/sentiment.py": "3dcfe1c692a5124578d60d7083dea5929417ff2336022fe3d518198ab7bd66d8",
+      "src/riskengine/gate.py": "13d85491ddcd8e8725a94efd97a96adb597015cac5acf662f3e41569fd77d3d1",
+      "src/riskengine/eval/e24_dev.py": "ebec32b2e5771c53d55b980ba1355e31a84b2c80516f131bf685e906bcd61039",
+      "src/riskengine/eval/e24_rules.py": "b7317befcf1fe639c58c91050c5c317ce78626db05a4341dcdad3f804a0a68b4",
+      "src/riskengine/eval/e24_inference.py": "614f164e76e672e38cb5050d8da56eeb06fa32da998f16d20d337976e3ef2c20",
+      "src/riskengine/impact/scores.py": "83238e2080df1726579907d7b130bedd0113aaaa134194f70cf14cc4806cca6c",
+      "data/outputs/e23_gate_snapshot.json": "e81114116472f83180e29f31515cb273f31749ce78435e34b0748ec361865de1"
+    },
+    "probability_file_sha256": "a8350f044ff12d84cb4661adaa3df7cc28d780840c48bd96833cafe74027744f"
+  },
+  "throughput_ratio_after_over_before": 1.2611382627939396,
+  "elapsed_time_ratio_after_over_before": 0.7929344699958504,
+  "peak_production_rss_change_mib": -188.04296875,
+  "E24_section_sha": "bfffa0ad37366c8a",
+  "E23_snapshot_file_unchanged": true,
+  "E23_historical_whole_file_hash_differences": [
+    "src/riskengine/nlp/events.py"
+  ],
+  "E23_credit_rules_unchanged": true,
+  "candidate_selected_or_frozen": false,
+  "committed": false,
+  "changed_source_and_tests": [
+    "src/riskengine/nlp/events.py",
+    "tests/test_e24_inference.py",
+    "tests/test_nlp_baseline.py"
+  ],
+  "record_updates": [
+    "STEPS.md",
+    "docs/EXPERIMENTS.md"
+  ],
+  "benchmark_scripts": [
+    "private_notes/annotation_uploads/task1/e24_production_alignment/benchmark.py",
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/private_notes/annotation_uploads/task1/e24_production_alignment/build_report.py"
+  ]
+}

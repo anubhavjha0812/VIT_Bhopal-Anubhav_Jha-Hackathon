@@ -5,6 +5,7 @@
   our 9 learned classes with TOPIC_TO_EVENT (docs/DECISIONS.md, E16); a model that already
   predicts our classes passes through. int8 ONNX in models/topic. The topic data has no credit
   events, so the 3 credit classes come from the stricter E13 rules (`credit_event`) on top.
+  Production uses the shared E24 per-row ONNX method, so its probabilities match evaluation.
 """
 
 import re
@@ -207,19 +208,25 @@ def topic_to_event(topic: str, table: dict[str, str] = TOPIC_TO_EVENT) -> str:
     return table.get(topic, "Other")
 
 
+def get_event_probs():
+    """Topic probabilities using the same batch-independent backend as E24 evaluation."""
+    from riskengine.eval.e24_inference import EvaluationProbs
+
+    if not OWN_TOPIC.exists():
+        raise FileNotFoundError(f"own topic model not found at {OWN_TOPIC}")
+    return EvaluationProbs(OWN_TOPIC)
+
+
 def get_event_classifier(kind: str) -> Callable[[Sequence[str]], list[str]]:
     """A function: texts -> event class per text."""
     if kind == "keywords":
         return lambda texts: [classify_keywords(t) for t in texts]
     if kind == "model":
-        from riskengine.nlp.classifier import TextClassifier
-
-        if not OWN_TOPIC.exists():
-            raise FileNotFoundError(f"own topic model not found at {OWN_TOPIC}")
-        topics = TextClassifier(str(OWN_TOPIC))
+        topics = get_event_probs()
 
         def classify(texts: Sequence[str]) -> list[str]:
-            model = [topic_to_event(t) for t in topics.predict(texts)]
+            names, p = topics(texts)
+            model = [topic_to_event(names[i]) for i in p.argmax(axis=1)]
             return [credit_event(t) or m for t, m in zip(texts, model, strict=True)]
 
         return classify

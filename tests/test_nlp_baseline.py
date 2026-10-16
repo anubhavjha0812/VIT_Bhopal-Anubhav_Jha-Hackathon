@@ -42,16 +42,15 @@ def test_strong_default_news_crosses_module_b_trigger():
 
 
 def test_model_events_keep_credit_rules(monkeypatch, tmp_path):
-    from riskengine.nlp import classifier, events
+    import numpy as np
 
-    class FakeTopics:
-        def __init__(self, path):
-            pass
+    from riskengine.nlp import events
 
-        def predict(self, texts):
-            return ["Politics", "Earnings"]
+    def fake_probs(texts):
+        assert len(texts) == 2
+        return ["Politics", "Earnings"], np.eye(2)
 
-    monkeypatch.setattr(classifier, "TextClassifier", FakeTopics)
+    monkeypatch.setattr(events, "get_event_probs", lambda: fake_probs)
     monkeypatch.setattr(events, "OWN_TOPIC", tmp_path)  # exists
     classify = events.get_event_classifier("model")
     out = classify(["Senate passes China bill", "Hertz files for Chapter 11"])
