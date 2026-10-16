@@ -1,0 +1,49 @@
+candidate,class,precision,recall,f1,support
+A,Default,0.0,0.0,0.0,0
+A,Credit downgrade,0.0,0.0,0.0,0
+A,Covenant breach,0.0,0.0,0.0,0
+A,Geopolitical,0.0,0.0,0.0,1
+A,Macroeconomic,0.26666666666666666,0.8,0.4,5
+A,M&A,0.0,0.0,0.0,2
+A,Product news,0.13333333333333333,1.0,0.23529411764705882,4
+A,Earnings,0.2857142857142857,0.4,0.3333333333333333,5
+A,Analyst rating,0.8823529411764706,0.40540540540540543,0.5555555555555556,37
+A,Legal/Regulatory,1.0,0.6666666666666666,0.8,3
+A,Management change,1.0,1.0,1.0,1
+A,Other,0.78,0.4105263157894737,0.5379310344827586,95
+B,Default,0.0,0.0,0.0,0
+B,Credit downgrade,0.0,0.0,0.0,0
+B,Covenant breach,0.0,0.0,0.0,0
+B,Geopolitical,0.0,0.0,0.0,1
+B,Macroeconomic,0.2857142857142857,0.8,0.42105263157894735,5
+B,M&A,0.0,0.0,0.0,2
+B,Product news,1.0,1.0,1.0,4
+B,Earnings,0.2857142857142857,0.4,0.3333333333333333,5
+B,Analyst rating,0.9736842105263158,1.0,0.9866666666666667,37
+B,Legal/Regulatory,1.0,0.6666666666666666,0.8,3
+B,Management change,1.0,1.0,1.0,1
+B,Other,0.9651162790697675,0.8736842105263158,0.9171270718232044,95
+C,Default,0.0,0.0,0.0,0
+C,Credit downgrade,0.0,0.0,0.0,0
+C,Covenant breach,0.0,0.0,0.0,0
+C,Geopolitical,0.0,0.0,0.0,1
+C,Macroeconomic,0.3076923076923077,0.8,0.4444444444444444,5
+C,M&A,0.0,0.0,0.0,2
+C,Product news,1.0,1.0,1.0,4
+C,Earnings,1.0,1.0,1.0,5
+C,Analyst rating,0.9736842105263158,1.0,0.9866666666666667,37
+C,Legal/Regulatory,1.0,0.6666666666666666,0.8,3
+C,Management change,1.0,1.0,1.0,1
+C,Other,0.9887640449438202,0.9263157894736842,0.9565217391304348,95
+D,Default,0.0,0.0,0.0,0
+D,Credit downgrade,0.0,0.0,0.0,0
+D,Covenant breach,0.0,0.0,0.0,0
+D,Geopolitical,0.0,0.0,0.0,1
+D,Macroeconomic,0.3076923076923077,0.8,0.4444444444444444,5
+D,M&A,0.0,0.0,0.0,2
+D,Product news,1.0,1.0,1.0,4
+D,Earnings,1.0,1.0,1.0,5
+D,Analyst rating,1.0,1.0,1.0,37
+D,Legal/Regulatory,1.0,0.6666666666666666,0.8,3
+D,Management change,1.0,1.0,1.0,1
+D,Other,0.9888888888888889,0.9368421052631579,0.9621621621621622,95

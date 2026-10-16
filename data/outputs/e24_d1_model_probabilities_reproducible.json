@@ -1,0 +1,52 @@
+{
+  "created_at_utc": "2026-10-16T06:09:25.692980+00:00",
+  "input_sha256": "987b779f1ced3d5aab1c91fbf556eaac552c5fde36b46a11f71fe1d9436e7eb8",
+  "labels_sha256": "ee8943019a3b83757dc7ef22a9cf6332925dde40821b3be8ee01eefe9713f890",
+  "protected_files_sha256": {
+    "src/riskengine/nlp/events.py": "8d4fbb569cbd72eb1df12cad71f1c7f0fc8fc7520c0d6a029616174a7e58a1a6",
+    "src/riskengine/gate.py": "13d85491ddcd8e8725a94efd97a96adb597015cac5acf662f3e41569fd77d3d1",
+    "src/riskengine/nlp/classifier.py": "b433fefb74e2f75ca496bbc34a3be99e873b6dc4fa2a6b3643341e25ef809f1b",
+    "models/topic/model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "models/topic/config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+    "models/topic/tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+    "docs/DECISIONS.md": "97f716563b1e19ba7a83061cb3dffbae67958f893bf70ab45053de93295b36a7"
+  },
+  "fixed_D_threshold": 0.5,
+  "temperature": null,
+  "D1_rows": 153,
+  "efficiency": {
+    "seconds_including_load_and_warmup": 7.805246089003049,
+    "inference_seconds": 2.954753615980735,
+    "batch_size": 1,
+    "intra_op_num_threads": 1,
+    "inter_op_num_threads": 1,
+    "device": "CPU",
+    "model_size_mb": 33.941275,
+    "peak_process_rss_mib": 526.97265625
+  },
+  "inference": {
+    "method": "onnx_cpu_per_row_dynamic_padding_v1",
+    "batch_size": 1,
+    "padding": "longest_in_single_row",
+    "truncation": true,
+    "max_length": 64,
+    "provider": "CPUExecutionProvider",
+    "onnxruntime_version": "1.30.0",
+    "intra_op_num_threads": 1,
+    "inter_op_num_threads": 1,
+    "execution_mode": "ORT_SEQUENTIAL",
+    "graph_optimization_level": "ORT_ENABLE_ALL",
+    "softmax": "torch_float32_softmax_last_dimension",
+    "torch_version": "2.14.1+cpu",
+    "transformers_version": "5.18.0",
+    "model_sha256": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "assets_sha256": {
+      "config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+      "model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+      "source_metrics.json": "2dca2b4609638cb3ff6f954d811b57db11ff84560fe4054015e651287809d80a",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+    }
+  },
+  "cache_sha256": "5c6815daede2662aa511b59fcf300b2aae4e53e10b07f326554abea1f9d98dde"
+}

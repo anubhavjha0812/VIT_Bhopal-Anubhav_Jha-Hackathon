@@ -1,0 +1,49 @@
+candidate,actual_class,Default,Credit downgrade,Covenant breach,Geopolitical,Macroeconomic,M&A,Product news,Earnings,Analyst rating,Legal/Regulatory,Management change,Other
+A,Default,0,0,0,0,0,0,0,0,0,0,0,0
+A,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+A,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+A,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+A,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+A,M&A,0,0,0,0,1,0,1,0,0,0,0,0
+A,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+A,Earnings,0,0,0,0,1,0,0,2,0,0,0,2
+A,Analyst rating,0,0,0,0,0,13,0,0,15,0,0,9
+A,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+A,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+A,Other,0,0,0,0,7,17,25,5,2,0,0,39
+B,Default,0,0,0,0,0,0,0,0,0,0,0,0
+B,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+B,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+B,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+B,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+B,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+B,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+B,Earnings,0,0,0,0,1,0,0,2,0,0,0,2
+B,Analyst rating,0,0,0,0,0,0,0,0,37,0,0,0
+B,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+B,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+B,Other,0,0,0,0,6,0,0,5,1,0,0,83
+C,Default,0,0,0,0,0,0,0,0,0,0,0,0
+C,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+C,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+C,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+C,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+C,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+C,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+C,Earnings,0,0,0,0,0,0,0,5,0,0,0,0
+C,Analyst rating,0,0,0,0,0,0,0,0,37,0,0,0
+C,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+C,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+C,Other,0,0,0,0,6,0,0,0,1,0,0,88
+D,Default,0,0,0,0,0,0,0,0,0,0,0,0
+D,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+D,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+D,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+D,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+D,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+D,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+D,Earnings,0,0,0,0,0,0,0,5,0,0,0,0
+D,Analyst rating,0,0,0,0,0,0,0,0,37,0,0,0
+D,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+D,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+D,Other,0,0,0,0,6,0,0,0,0,0,0,89
