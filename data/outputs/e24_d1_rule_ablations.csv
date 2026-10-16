@@ -1,0 +1,174 @@
+candidate,rule,item_id,text,reference,final_prediction,prediction_without_this_change,effect_of_change,final_source,alternative_source
+B,product_rule,6819f1385f8dd540,What To Know About NASA And SpaceX's Crew Dragon Launch,Other,Other,Product news,fixed,model_product_to_other,product_rule
+B,product_rule,b06e525d4ac7a093,"Tesla shares are trading higher, potentially on reports the company plans to debut a new Model 3 in China as well as the company's progress on ventilator production. Movement also likely related to overall market strength.",Other,Other,Product news,fixed,model,product_rule
+B,product_rule,fade37d418ba8324,"Tesla Says Remains On Track To Launch Local Production Of Model 3 In China By End Of Year, Model Y In Fremont By Fall 2020, Accelerating European Gigafactory Efforts",Other,Other,Product news,fixed,model_product_to_other,product_rule
+B,product_rule,30fecfe20cc8a033,"'Google to sell 500 products from JD.com, deepening partnership' -Nikkei Asian Review",Product news,Product news,Other,fixed,product_rule,model_product_to_other
+B,product_rule,37eb368abadf4d1d,Amazon's (AMZN) New Fire HD 8 Family Expands Tablet Portfolio,Product news,Product news,Other,fixed,product_rule,model_product_to_other
+B,product_rule,2e817f9a1aff8256,Amazon Testing Online Platform To Let Merchants Shop For Loans: Report,Product news,Product news,Other,fixed,product_rule,model_product_to_other
+B,holdings_rule,9e48448d1ea3e4b4,"Fairhaven Wealth Management, LLC Buys Vanguard Total Stock Market, Vanguard Tax-Exempt Bond, ...",Other,Other,Macroeconomic,fixed,holdings_rule,model
+B,holdings_rule,627dbd089fd30fdf,"Nan Fung Trinity (hk) Ltd Buys Trip.com Group, Booking Holdings Inc, The Walt Disney Co, Sells ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,73aea1a40b006a6e,"Pacific Wealth Strategies Group, Inc. Buys ProShares S&P 5…… Dividend Aristocrats ETF, ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,9b80bbc3b3465143,"Connable Office Inc Buys iShares —…+ Year Treasury Bond ETF, Merck Inc, Dominion Energy ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,87fbb0201e3a0725,"Landscape Capital Management, L.l.c. Buys iShares Short Maturity Bond, PIMCO Enhanced Short ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,dbff5c602f64baa6,"Mountain Capital Investment Advisors, Inc Buys iShares Short Maturity Bond, iShares ...",Other,Other,Macroeconomic,fixed,holdings_rule,model
+B,holdings_rule,e8a9658e6a4d599c,"Aua Capital Management, Llc Buys Truist Financial Corp, Vanguard Div Appreciation, Vanguard ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,6fce9fad19006405,"King Wealth Management Group, LLC Buys NVIDIA Corp, Costco Wholesale Corp, Fidelity Total Bond, ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,1a7b566ecacaff2e,"Morgan Dempsey Capital Management Llc Buys HP Inc, United Parcel Service Inc, Enbridge Inc, ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,38cb769a67a6ca14,"Moseley Investment Management Inc Buys iShares Short Maturity Bond, Abbott Laboratories, ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,3c986290c6a4e3d6,"Wealth Alliance Advisory Group, LLC Buys iShares Core S&P Total U.S. ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,13e72e1884b41518,"Mathes Company, Inc. Buys SPDR Select Sector Fund - Technology, iShares U.S. ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,c117c4f21e44cc5b,"Private Portfolio Partners LLC Buys iShares –-' Year Treasury Bond ETF, Vanguard Small-Cap ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,3e229eb112085075,"Vishria Bird Financial Group, LLC Buys KraneShares Trust CSI China Internet, JPMorgan Chase, ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,b5e712666f25d613,"Hayek Kallen Investment Management Buys Vanguard Short-Term Government Bond ETF, JPMorgan ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,cf028b884522ff8d,"Live Oak Private Wealth LLC Buys Berkshire Hathaway Inc, The Walt Disney Co, Mastercard Inc, ...",Other,Other,M&A,fixed,holdings_rule,model
+B,holdings_rule,9c25071cb0c9fca4,"Wealthcare Capital Management Llc Buys iShares –…-—… Year Treasury Bond ETF, Amazon. ...",Other,Other,M&A,fixed,holdings_rule,model
+B,analyst_rule,fbaf9f5ae9e90698,Cowen & Co. Downgrades Exxon Mobil to Market Perform,Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,d7aacb4993876cfe,"HSBC Downgrades Coke: 'If The Bottlers Aren't Happy, Nobody's Happy'",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,dcc9ca3f33aa8acc,"Credit Suisse Maintains Outperform on Alphabet, Raises Price Target to $1,500",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,65fd575dcc914cf9,"Goldman Sachs Initiates Coverage On Tesla with Buy Rating, Announces Price Target to $864",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,57c69d84204a86a7,"UPDATE:B Of A Securities Reiterates Buy On Advanced Micro Devices, Raises Tgt To $62 Notes 'Overall AMD guiding to yet another year of best-in-class 20%+ sales, and accelerating 80% EPS growth in some of the most attractive secular growth compute markets'",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,c5468bb40f72367d,"Benzinga's Top Upgrades, Downgrades For October 3, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,710f8f771f7a0586,UPDATE: Needham Downgrades Netflix To Underperform As Firm Notes 'We project NFLX will lose 4mm US subs in 2020 at its premium priced tier of $9-$16/ month',Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,ea7ccd183874c516,"Wedbush Maintains Neutral Rating On Tesla, Says 'We continue to believe EV demand in China is starting to accelerate with Tesla competing with a number of domestic and international competitors for market share'",Other,Other,M&A,fixed,analyst_rule,model
+B,analyst_rule,f98cb3b2e90d511f,"Goldman Sachs Maintains Buy on Netflix, Lowers Price Target to $360; Keeps On Conviction Buy List",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,d783f0a8e7a8dbb0,"Benzinga's Top Upgrades, Downgrades For January 9, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,78e1480f22d1aed8,"SocGen downgrades Goldman, Morgan Stanley to Sell",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,7c1e816637dc8e7c,"UPDATE: Goldman Sachs Downgrades Exxon Mobil to Sell, Lowers Price Target to $59 Notes 6 Reasons:",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,3dec5111f35caf09,"Credit Suisse Maintains Underperform on Tesla, Raises Price Target to $415",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,f19dd3fc81a7d627,"Nomura Initiates Coverage On NVIDIA with Neutral Rating, Announces $147 Price Target",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model_product_to_other
+B,analyst_rule,0ee3e8fbb1566302,"Credit Suisse Maintains Outperform on Amazon.com, Lowers Price Target to $2760",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,0e02885bcb26dde9,UPDATE: Jefferies Downgrades Bank Of America As Firm Notes 'the 1Q19 print showed incremental challenges in numerous revenue areas' Such As Net Interest Income And Fees; Firm Prefers 'putting new money into Citi among universals',Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,915f307c0ef8c779,"UPDATE: Deutsche Bank Upgrades Netflix To Buy, Raises Target From $360 To $400 As Firm Notes '2019-2020 consensus subscriber expectations seem conservative', Co 'is winning the battle for talent', 'Competitive concerns are exaggerated'",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,8c43ea803a65755a,"Benzinga's Top Upgrades, Downgrades For November 15, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,77572b68722a0f4e,"B of A Securities Maintains Buy on Netflix, Raises Price Target to $460",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,da0f1a13bed74ffd,Edward Jones Upgrades Facebook to Buy,Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+B,analyst_rule,ba299228530b590c,"Benzinga's Top Upgrades, Downgrades For March 8, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,a5af1fed2f8eff62,"Benzinga's Top Upgrades, Downgrades For March 6, 2020",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+B,analyst_rule,9c83f626768dfdcb,10 Biggest Price Target Changes For Tuesday,Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,product_rule,6819f1385f8dd540,What To Know About NASA And SpaceX's Crew Dragon Launch,Other,Other,Product news,fixed,model_product_to_other,product_rule
+C,product_rule,b06e525d4ac7a093,"Tesla shares are trading higher, potentially on reports the company plans to debut a new Model 3 in China as well as the company's progress on ventilator production. Movement also likely related to overall market strength.",Other,Other,Product news,fixed,model,product_rule
+C,product_rule,fade37d418ba8324,"Tesla Says Remains On Track To Launch Local Production Of Model 3 In China By End Of Year, Model Y In Fremont By Fall 2020, Accelerating European Gigafactory Efforts",Other,Other,Product news,fixed,model_product_to_other,product_rule
+C,product_rule,30fecfe20cc8a033,"'Google to sell 500 products from JD.com, deepening partnership' -Nikkei Asian Review",Product news,Product news,Other,fixed,product_rule,model_product_to_other
+C,product_rule,37eb368abadf4d1d,Amazon's (AMZN) New Fire HD 8 Family Expands Tablet Portfolio,Product news,Product news,Other,fixed,product_rule,model_product_to_other
+C,product_rule,2e817f9a1aff8256,Amazon Testing Online Platform To Let Merchants Shop For Loans: Report,Product news,Product news,Other,fixed,product_rule,model_product_to_other
+C,holdings_rule,9e48448d1ea3e4b4,"Fairhaven Wealth Management, LLC Buys Vanguard Total Stock Market, Vanguard Tax-Exempt Bond, ...",Other,Other,Macroeconomic,fixed,holdings_rule,model
+C,holdings_rule,627dbd089fd30fdf,"Nan Fung Trinity (hk) Ltd Buys Trip.com Group, Booking Holdings Inc, The Walt Disney Co, Sells ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,73aea1a40b006a6e,"Pacific Wealth Strategies Group, Inc. Buys ProShares S&P 5…… Dividend Aristocrats ETF, ...",Other,Other,Earnings,fixed,holdings_rule,earnings_rule
+C,holdings_rule,9b80bbc3b3465143,"Connable Office Inc Buys iShares —…+ Year Treasury Bond ETF, Merck Inc, Dominion Energy ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,87fbb0201e3a0725,"Landscape Capital Management, L.l.c. Buys iShares Short Maturity Bond, PIMCO Enhanced Short ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,dbff5c602f64baa6,"Mountain Capital Investment Advisors, Inc Buys iShares Short Maturity Bond, iShares ...",Other,Other,Macroeconomic,fixed,holdings_rule,model
+C,holdings_rule,e8a9658e6a4d599c,"Aua Capital Management, Llc Buys Truist Financial Corp, Vanguard Div Appreciation, Vanguard ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,6fce9fad19006405,"King Wealth Management Group, LLC Buys NVIDIA Corp, Costco Wholesale Corp, Fidelity Total Bond, ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,1a7b566ecacaff2e,"Morgan Dempsey Capital Management Llc Buys HP Inc, United Parcel Service Inc, Enbridge Inc, ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,38cb769a67a6ca14,"Moseley Investment Management Inc Buys iShares Short Maturity Bond, Abbott Laboratories, ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,3c986290c6a4e3d6,"Wealth Alliance Advisory Group, LLC Buys iShares Core S&P Total U.S. ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,13e72e1884b41518,"Mathes Company, Inc. Buys SPDR Select Sector Fund - Technology, iShares U.S. ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,c117c4f21e44cc5b,"Private Portfolio Partners LLC Buys iShares –-' Year Treasury Bond ETF, Vanguard Small-Cap ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,3e229eb112085075,"Vishria Bird Financial Group, LLC Buys KraneShares Trust CSI China Internet, JPMorgan Chase, ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,b5e712666f25d613,"Hayek Kallen Investment Management Buys Vanguard Short-Term Government Bond ETF, JPMorgan ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,cf028b884522ff8d,"Live Oak Private Wealth LLC Buys Berkshire Hathaway Inc, The Walt Disney Co, Mastercard Inc, ...",Other,Other,M&A,fixed,holdings_rule,model
+C,holdings_rule,9c25071cb0c9fca4,"Wealthcare Capital Management Llc Buys iShares –…-—… Year Treasury Bond ETF, Amazon. ...",Other,Other,M&A,fixed,holdings_rule,model
+C,analyst_rule,fbaf9f5ae9e90698,Cowen & Co. Downgrades Exxon Mobil to Market Perform,Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,d7aacb4993876cfe,"HSBC Downgrades Coke: 'If The Bottlers Aren't Happy, Nobody's Happy'",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,dcc9ca3f33aa8acc,"Credit Suisse Maintains Outperform on Alphabet, Raises Price Target to $1,500",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,65fd575dcc914cf9,"Goldman Sachs Initiates Coverage On Tesla with Buy Rating, Announces Price Target to $864",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,57c69d84204a86a7,"UPDATE:B Of A Securities Reiterates Buy On Advanced Micro Devices, Raises Tgt To $62 Notes 'Overall AMD guiding to yet another year of best-in-class 20%+ sales, and accelerating 80% EPS growth in some of the most attractive secular growth compute markets'",Analyst rating,Analyst rating,Earnings,fixed,analyst_rule,earnings_rule
+C,analyst_rule,c5468bb40f72367d,"Benzinga's Top Upgrades, Downgrades For October 3, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,710f8f771f7a0586,UPDATE: Needham Downgrades Netflix To Underperform As Firm Notes 'We project NFLX will lose 4mm US subs in 2020 at its premium priced tier of $9-$16/ month',Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,ea7ccd183874c516,"Wedbush Maintains Neutral Rating On Tesla, Says 'We continue to believe EV demand in China is starting to accelerate with Tesla competing with a number of domestic and international competitors for market share'",Other,Other,M&A,fixed,analyst_rule,model
+C,analyst_rule,f98cb3b2e90d511f,"Goldman Sachs Maintains Buy on Netflix, Lowers Price Target to $360; Keeps On Conviction Buy List",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,d783f0a8e7a8dbb0,"Benzinga's Top Upgrades, Downgrades For January 9, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,78e1480f22d1aed8,"SocGen downgrades Goldman, Morgan Stanley to Sell",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,7c1e816637dc8e7c,"UPDATE: Goldman Sachs Downgrades Exxon Mobil to Sell, Lowers Price Target to $59 Notes 6 Reasons:",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,3dec5111f35caf09,"Credit Suisse Maintains Underperform on Tesla, Raises Price Target to $415",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,f19dd3fc81a7d627,"Nomura Initiates Coverage On NVIDIA with Neutral Rating, Announces $147 Price Target",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model_product_to_other
+C,analyst_rule,0ee3e8fbb1566302,"Credit Suisse Maintains Outperform on Amazon.com, Lowers Price Target to $2760",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,0e02885bcb26dde9,UPDATE: Jefferies Downgrades Bank Of America As Firm Notes 'the 1Q19 print showed incremental challenges in numerous revenue areas' Such As Net Interest Income And Fees; Firm Prefers 'putting new money into Citi among universals',Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,915f307c0ef8c779,"UPDATE: Deutsche Bank Upgrades Netflix To Buy, Raises Target From $360 To $400 As Firm Notes '2019-2020 consensus subscriber expectations seem conservative', Co 'is winning the battle for talent', 'Competitive concerns are exaggerated'",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,8c43ea803a65755a,"Benzinga's Top Upgrades, Downgrades For November 15, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,77572b68722a0f4e,"B of A Securities Maintains Buy on Netflix, Raises Price Target to $460",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,da0f1a13bed74ffd,Edward Jones Upgrades Facebook to Buy,Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+C,analyst_rule,ba299228530b590c,"Benzinga's Top Upgrades, Downgrades For March 8, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,a5af1fed2f8eff62,"Benzinga's Top Upgrades, Downgrades For March 6, 2020",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,analyst_rule,9c83f626768dfdcb,10 Biggest Price Target Changes For Tuesday,Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+C,earnings_preview_rule,bc2a1383e9f93389,"""A Market Of Just 5 Stocks"": Earnings Season Confirmed ""Winner-Take-All"" Phenomenon Is Accelerating",Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+C,earnings_preview_rule,7a823f5ff0b475b4,What's in Store for Digital Turbine (APPS) in Q3 Earnings?,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+C,earnings_preview_rule,40aa5e08c4d95a74,Notable earnings before Friday's open,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+C,earnings_preview_rule,51bad6a760d2f34e,5 Earnings Charts Everyone Will Be Talking About,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+C,earnings_preview_rule,35044591e1b7393d,Software Rises Above Semiconductors And Hardware As Tech Heads Into Earnings Season,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+C,earnings_preview_rule,14846c0fac82062e,Earnings season kicks off,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+C,earnings_rule,5399ab6d33a53395,"Coca-Cola CFO Says Trough Will Come In Q2, Says Bullish Credit Suisse",Earnings,Earnings,Other,fixed,earnings_rule,model_product_to_other
+C,earnings_rule,91e94098d4fe35fe,"Alphabet Reports Q4 Operating Margin 20%, Down From 21% YoY",Earnings,Earnings,Other,fixed,earnings_rule,model
+C,earnings_rule,f0b2db2f103efa9d,Bank stocks slump amid more disappointing earnings,Other,Other,Earnings,fixed,model,earnings_rule
+C,earnings_rule,036c664b5b4ff2b3,NVIDIA shares are trading lower in sympathy with Texas Instruments after the company reported weak Q3 sales results and issued Q4 sales guidance below analyst estimates.,Other,Other,Earnings,fixed,model,earnings_rule
+C,earnings_rule,a8938082efc049b3,"Bank Of America Shares Dip To Pre-Market Low, Quickly Rebound; Hearing Cut FY19 Net Interest Income Guidance On Earnings Conference Call",Other,Other,Earnings,fixed,model,earnings_rule
+D,product_rule,6819f1385f8dd540,What To Know About NASA And SpaceX's Crew Dragon Launch,Other,Other,Product news,fixed,model_product_to_other,product_rule
+D,product_rule,b06e525d4ac7a093,"Tesla shares are trading higher, potentially on reports the company plans to debut a new Model 3 in China as well as the company's progress on ventilator production. Movement also likely related to overall market strength.",Other,Other,Product news,fixed,model,product_rule
+D,product_rule,fade37d418ba8324,"Tesla Says Remains On Track To Launch Local Production Of Model 3 In China By End Of Year, Model Y In Fremont By Fall 2020, Accelerating European Gigafactory Efforts",Other,Other,Product news,fixed,model_product_to_other,product_rule
+D,product_rule,30fecfe20cc8a033,"'Google to sell 500 products from JD.com, deepening partnership' -Nikkei Asian Review",Product news,Product news,Other,fixed,product_rule,model_product_to_other
+D,product_rule,37eb368abadf4d1d,Amazon's (AMZN) New Fire HD 8 Family Expands Tablet Portfolio,Product news,Product news,Other,fixed,product_rule,model_product_to_other
+D,product_rule,2e817f9a1aff8256,Amazon Testing Online Platform To Let Merchants Shop For Loans: Report,Product news,Product news,Other,fixed,product_rule,model_product_to_other
+D,holdings_rule,9e48448d1ea3e4b4,"Fairhaven Wealth Management, LLC Buys Vanguard Total Stock Market, Vanguard Tax-Exempt Bond, ...",Other,Other,Macroeconomic,fixed,holdings_rule,model
+D,holdings_rule,627dbd089fd30fdf,"Nan Fung Trinity (hk) Ltd Buys Trip.com Group, Booking Holdings Inc, The Walt Disney Co, Sells ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,73aea1a40b006a6e,"Pacific Wealth Strategies Group, Inc. Buys ProShares S&P 5…… Dividend Aristocrats ETF, ...",Other,Other,Earnings,fixed,holdings_rule,earnings_rule
+D,holdings_rule,9b80bbc3b3465143,"Connable Office Inc Buys iShares —…+ Year Treasury Bond ETF, Merck Inc, Dominion Energy ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,87fbb0201e3a0725,"Landscape Capital Management, L.l.c. Buys iShares Short Maturity Bond, PIMCO Enhanced Short ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,e8a9658e6a4d599c,"Aua Capital Management, Llc Buys Truist Financial Corp, Vanguard Div Appreciation, Vanguard ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,6fce9fad19006405,"King Wealth Management Group, LLC Buys NVIDIA Corp, Costco Wholesale Corp, Fidelity Total Bond, ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,1a7b566ecacaff2e,"Morgan Dempsey Capital Management Llc Buys HP Inc, United Parcel Service Inc, Enbridge Inc, ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,38cb769a67a6ca14,"Moseley Investment Management Inc Buys iShares Short Maturity Bond, Abbott Laboratories, ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,3c986290c6a4e3d6,"Wealth Alliance Advisory Group, LLC Buys iShares Core S&P Total U.S. ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,13e72e1884b41518,"Mathes Company, Inc. Buys SPDR Select Sector Fund - Technology, iShares U.S. ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,c117c4f21e44cc5b,"Private Portfolio Partners LLC Buys iShares –-' Year Treasury Bond ETF, Vanguard Small-Cap ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,3e229eb112085075,"Vishria Bird Financial Group, LLC Buys KraneShares Trust CSI China Internet, JPMorgan Chase, ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,b5e712666f25d613,"Hayek Kallen Investment Management Buys Vanguard Short-Term Government Bond ETF, JPMorgan ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,cf028b884522ff8d,"Live Oak Private Wealth LLC Buys Berkshire Hathaway Inc, The Walt Disney Co, Mastercard Inc, ...",Other,Other,M&A,fixed,holdings_rule,model
+D,holdings_rule,9c25071cb0c9fca4,"Wealthcare Capital Management Llc Buys iShares –…-—… Year Treasury Bond ETF, Amazon. ...",Other,Other,M&A,fixed,holdings_rule,model
+D,analyst_rule,fbaf9f5ae9e90698,Cowen & Co. Downgrades Exxon Mobil to Market Perform,Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,980da7047039bb43,"DZ Bank Downgrades NVIDIA To Sell, Announces $170 Target",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,4f939590557abdd9,"UPDATE: Credit Suisse Maintains Underperform On Tesla, Raises Target To $200 As Firm Notes 'That was a solid beat...now question is on sustainability'",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,d7aacb4993876cfe,"HSBC Downgrades Coke: 'If The Bottlers Aren't Happy, Nobody's Happy'",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,3547626d3a70936b,"Goldman Sachs Downgrades Apple to Sell, Lowers Price Target to $233",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,dcc9ca3f33aa8acc,"Credit Suisse Maintains Outperform on Alphabet, Raises Price Target to $1,500",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+D,analyst_rule,65fd575dcc914cf9,"Goldman Sachs Initiates Coverage On Tesla with Buy Rating, Announces Price Target to $864",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,518fa6f6436e56ec,"Bernstein Downgrades NVIDIA to Market Perform, Lowers Price Target to $175",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,57c69d84204a86a7,"UPDATE:B Of A Securities Reiterates Buy On Advanced Micro Devices, Raises Tgt To $62 Notes 'Overall AMD guiding to yet another year of best-in-class 20%+ sales, and accelerating 80% EPS growth in some of the most attractive secular growth compute markets'",Analyst rating,Analyst rating,Earnings,fixed,analyst_rule,earnings_rule
+D,analyst_rule,c5468bb40f72367d,"Benzinga's Top Upgrades, Downgrades For October 3, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,16d4a332bcf20e45,"Stifel Downgrades Netflix to Hold, Announces $460 Price Target",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,710f8f771f7a0586,UPDATE: Needham Downgrades Netflix To Underperform As Firm Notes 'We project NFLX will lose 4mm US subs in 2020 at its premium priced tier of $9-$16/ month',Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,014fd54d9210a26b,Bernstein Downgrades 'Hamstrung' Nvidia,Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,f98cb3b2e90d511f,"Goldman Sachs Maintains Buy on Netflix, Lowers Price Target to $360; Keeps On Conviction Buy List",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+D,analyst_rule,d783f0a8e7a8dbb0,"Benzinga's Top Upgrades, Downgrades For January 9, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+D,analyst_rule,82b0435265630698,"Stifel Nicolaus Downgrades Alphabet Inc. - Class A Common Stock to Hold, Announces $1,287 Price Target",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,aebde86fb13ee857,"Citigroup Downgrades Netflix to Neutral, Lowers Price Target to $325",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,78e1480f22d1aed8,"SocGen downgrades Goldman, Morgan Stanley to Sell",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,1e17278ef832bfd3,"Consumer Edge Research Downgrades Walt Disney to Equal-Weight, Announces $125 Price Target",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,9c02b9f7f5bd81f4,"Daiwa Capital Downgrades Apple to Outperform, Lowers Price Target to $297",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,d72936b7b0b60c64,Exane BNP Paribas Downgrades Advanced Micro Devices to Neutral,Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,7c1e816637dc8e7c,"UPDATE: Goldman Sachs Downgrades Exxon Mobil to Sell, Lowers Price Target to $59 Notes 6 Reasons:",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,3dec5111f35caf09,"Credit Suisse Maintains Underperform on Tesla, Raises Price Target to $415",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,f19dd3fc81a7d627,"Nomura Initiates Coverage On NVIDIA with Neutral Rating, Announces $147 Price Target",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model_product_to_other
+D,analyst_rule,681ba06ab781b778,Macquarie Downgrades Netflix to Neutral,Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,95809ac435c5fdd4,"Buckingham Downgrades Netflix to Neutral, Announces $382",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,f28d12f5ec0f0aea,"Benzinga's Top Upgrades, Downgrades For March 24, 2020",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,29fc4331cfefeb56,"Morgan Stanley Downgrades Coca-Cola From Overweight To Equal weight, Cuts PT From $65 To $52",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,0ee3e8fbb1566302,"Credit Suisse Maintains Outperform on Amazon.com, Lowers Price Target to $2760",Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+D,analyst_rule,0e02885bcb26dde9,UPDATE: Jefferies Downgrades Bank Of America As Firm Notes 'the 1Q19 print showed incremental challenges in numerous revenue areas' Such As Net Interest Income And Fees; Firm Prefers 'putting new money into Citi among universals',Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,915f307c0ef8c779,"UPDATE: Deutsche Bank Upgrades Netflix To Buy, Raises Target From $360 To $400 As Firm Notes '2019-2020 consensus subscriber expectations seem conservative', Co 'is winning the battle for talent', 'Competitive concerns are exaggerated'",Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+D,analyst_rule,8c43ea803a65755a,"Benzinga's Top Upgrades, Downgrades For November 15, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,77572b68722a0f4e,"B of A Securities Maintains Buy on Netflix, Raises Price Target to $460",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,da0f1a13bed74ffd,Edward Jones Upgrades Facebook to Buy,Analyst rating,Analyst rating,M&A,fixed,analyst_rule,model
+D,analyst_rule,ba299228530b590c,"Benzinga's Top Upgrades, Downgrades For March 8, 2019",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,a5af1fed2f8eff62,"Benzinga's Top Upgrades, Downgrades For March 6, 2020",Analyst rating,Analyst rating,Other,fixed,analyst_rule,abstain
+D,analyst_rule,9c83f626768dfdcb,10 Biggest Price Target Changes For Tuesday,Analyst rating,Analyst rating,Other,fixed,analyst_rule,model
+D,earnings_preview_rule,bc2a1383e9f93389,"""A Market Of Just 5 Stocks"": Earnings Season Confirmed ""Winner-Take-All"" Phenomenon Is Accelerating",Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+D,earnings_preview_rule,7a823f5ff0b475b4,What's in Store for Digital Turbine (APPS) in Q3 Earnings?,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+D,earnings_preview_rule,40aa5e08c4d95a74,Notable earnings before Friday's open,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+D,earnings_preview_rule,51bad6a760d2f34e,5 Earnings Charts Everyone Will Be Talking About,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+D,earnings_preview_rule,35044591e1b7393d,Software Rises Above Semiconductors And Hardware As Tech Heads Into Earnings Season,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+D,earnings_preview_rule,14846c0fac82062e,Earnings season kicks off,Other,Other,Earnings,fixed,earnings_preview_rule,earnings_rule
+D,earnings_rule,5399ab6d33a53395,"Coca-Cola CFO Says Trough Will Come In Q2, Says Bullish Credit Suisse",Earnings,Earnings,Other,fixed,earnings_rule,abstain
+D,earnings_rule,91e94098d4fe35fe,"Alphabet Reports Q4 Operating Margin 20%, Down From 21% YoY",Earnings,Earnings,Other,fixed,earnings_rule,model
+D,earnings_rule,f0b2db2f103efa9d,Bank stocks slump amid more disappointing earnings,Other,Other,Earnings,fixed,model,earnings_rule
+D,earnings_rule,036c664b5b4ff2b3,NVIDIA shares are trading lower in sympathy with Texas Instruments after the company reported weak Q3 sales results and issued Q4 sales guidance below analyst estimates.,Other,Other,Earnings,fixed,model,earnings_rule
+D,earnings_rule,a8938082efc049b3,"Bank Of America Shares Dip To Pre-Market Low, Quickly Rebound; Hearing Cut FY19 Net Interest Income Guidance On Earnings Conference Call",Other,Other,Earnings,fixed,model,earnings_rule

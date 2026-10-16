@@ -1,0 +1,97 @@
+phase,candidate,actual_class,Default,Credit downgrade,Covenant breach,Geopolitical,Macroeconomic,M&A,Product news,Earnings,Analyst rating,Legal/Regulatory,Management change,Other
+before,A,Default,0,0,0,0,0,0,0,0,0,0,0,0
+before,A,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+before,A,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+before,A,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+before,A,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+before,A,M&A,0,0,0,0,1,0,1,0,0,0,0,0
+before,A,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+before,A,Earnings,0,0,0,0,0,0,1,2,0,0,0,2
+before,A,Analyst rating,0,0,0,0,0,10,1,0,15,0,0,11
+before,A,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+before,A,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+before,A,Other,0,0,0,0,10,16,25,5,1,0,0,38
+before,B,Default,0,0,0,0,0,0,0,0,0,0,0,0
+before,B,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+before,B,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+before,B,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+before,B,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+before,B,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+before,B,Product news,0,0,0,0,0,0,1,0,0,0,0,3
+before,B,Earnings,0,0,0,0,0,0,0,2,0,0,0,3
+before,B,Analyst rating,0,0,0,0,0,10,0,0,15,0,0,12
+before,B,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+before,B,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+before,B,Other,0,0,0,0,10,16,3,5,1,0,0,60
+before,C,Default,0,0,0,0,0,0,0,0,0,0,0,0
+before,C,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+before,C,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+before,C,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+before,C,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+before,C,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+before,C,Product news,0,0,0,0,0,0,1,0,0,0,0,3
+before,C,Earnings,0,0,0,0,0,0,0,3,0,0,0,2
+before,C,Analyst rating,0,0,0,0,0,10,0,1,15,0,0,11
+before,C,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+before,C,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+before,C,Other,0,0,0,0,10,15,3,10,1,0,0,56
+before,D,Default,0,0,0,0,0,0,0,0,0,0,0,0
+before,D,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+before,D,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+before,D,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+before,D,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+before,D,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+before,D,Product news,0,0,0,0,0,0,1,0,0,0,0,3
+before,D,Earnings,0,0,0,0,0,0,0,3,0,0,0,2
+before,D,Analyst rating,0,0,0,0,0,3,0,1,0,0,0,33
+before,D,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+before,D,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+before,D,Other,0,0,0,0,8,14,3,10,0,0,0,60
+final,A,Default,0,0,0,0,0,0,0,0,0,0,0,0
+final,A,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+final,A,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+final,A,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+final,A,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+final,A,M&A,0,0,0,0,1,0,1,0,0,0,0,0
+final,A,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+final,A,Earnings,0,0,0,0,0,0,1,2,0,0,0,2
+final,A,Analyst rating,0,0,0,0,0,10,1,0,15,0,0,11
+final,A,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+final,A,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+final,A,Other,0,0,0,0,10,16,25,5,1,0,0,38
+final,B,Default,0,0,0,0,0,0,0,0,0,0,0,0
+final,B,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+final,B,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+final,B,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+final,B,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+final,B,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+final,B,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+final,B,Earnings,0,0,0,0,0,0,0,2,0,0,0,3
+final,B,Analyst rating,0,0,0,0,0,0,0,0,37,0,0,0
+final,B,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+final,B,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+final,B,Other,0,0,0,0,8,0,0,5,1,0,0,81
+final,C,Default,0,0,0,0,0,0,0,0,0,0,0,0
+final,C,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+final,C,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+final,C,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+final,C,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+final,C,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+final,C,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+final,C,Earnings,0,0,0,0,0,0,0,5,0,0,0,0
+final,C,Analyst rating,0,0,0,0,0,0,0,0,37,0,0,0
+final,C,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+final,C,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+final,C,Other,0,0,0,0,8,0,0,0,1,0,0,86
+final,D,Default,0,0,0,0,0,0,0,0,0,0,0,0
+final,D,Credit downgrade,0,0,0,0,0,0,0,0,0,0,0,0
+final,D,Covenant breach,0,0,0,0,0,0,0,0,0,0,0,0
+final,D,Geopolitical,0,0,0,0,1,0,0,0,0,0,0,0
+final,D,Macroeconomic,0,0,0,1,4,0,0,0,0,0,0,0
+final,D,M&A,0,0,0,0,1,0,0,0,0,0,0,1
+final,D,Product news,0,0,0,0,0,0,4,0,0,0,0,0
+final,D,Earnings,0,0,0,0,0,0,0,5,0,0,0,0
+final,D,Analyst rating,0,0,0,0,0,0,0,0,37,0,0,0
+final,D,Legal/Regulatory,0,0,0,0,1,0,0,0,0,2,0,0
+final,D,Management change,0,0,0,0,0,0,0,0,0,0,1,0
+final,D,Other,0,0,0,0,7,0,0,0,0,0,0,88

@@ -1,0 +1,108 @@
+{
+  "created_at_utc": "2026-10-16T05:43:59.403028+00:00",
+  "rows": 153,
+  "per_rule_conditional_ablations": {
+    "B:product_rule": {
+      "fixed": 6,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "B:holdings_rule": {
+      "fixed": 17,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "B:analyst_rule": {
+      "fixed": 23,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "B:earnings_preview_rule": {
+      "fixed": 0,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "B:earnings_rule": {
+      "fixed": 0,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "C:product_rule": {
+      "fixed": 6,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "C:holdings_rule": {
+      "fixed": 17,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "C:analyst_rule": {
+      "fixed": 23,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "C:earnings_preview_rule": {
+      "fixed": 6,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "C:earnings_rule": {
+      "fixed": 5,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "D:product_rule": {
+      "fixed": 6,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "D:holdings_rule": {
+      "fixed": 16,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "D:analyst_rule": {
+      "fixed": 37,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "D:earnings_preview_rule": {
+      "fixed": 6,
+      "broke": 0,
+      "changed_error": 0
+    },
+    "D:earnings_rule": {
+      "fixed": 5,
+      "broke": 0,
+      "changed_error": 0
+    }
+  },
+  "comparison": "Shared fixed probability cache. Ablation counts are conditional and not additive.",
+  "changes_vs_original_candidates": {
+    "B": {
+      "fixed": 46
+    },
+    "C": {
+      "fixed": 57
+    },
+    "D": {
+      "fixed": 70
+    }
+  },
+  "candidate_C_product_reference": 4,
+  "candidate_C_product_predictions": 4,
+  "candidate_C_product_true_positives": 4,
+  "candidate_C_MA_reference": 2,
+  "candidate_C_MA_predictions": 0,
+  "candidate_C_MA_true_positives": 0,
+  "remaining_C_errors": 14,
+  "real_D2_or_final_rows_opened": false,
+  "D_fixed_threshold": 0.5,
+  "threshold_tuning": false,
+  "temperature_fitting": false,
+  "candidate_selected_or_frozen": false,
+  "production_changed": false,
+  "tests_passed": 143,
+  "ruff_passed": true
+}

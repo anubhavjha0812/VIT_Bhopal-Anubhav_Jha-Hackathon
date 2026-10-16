@@ -44,6 +44,7 @@ FINAL_SETS = {"final_news": "final_news_to_label.csv", "final_tweets": "final_tw
 PINNED = [
     "src/riskengine/eval/e24_dev.py",
     "src/riskengine/eval/e24_rules.py",
+    "src/riskengine/eval/e24_inference.py",
     "src/riskengine/nlp/events.py",
     "src/riskengine/nlp/classifier.py",
     "models/topic/model.onnx",
@@ -252,12 +253,18 @@ def freeze_candidate(
         names = ", ".join(f.name for f in early)
         raise GateError(f"final annotation already exists ({names}): freeze must come first")
     manifest = check_frozen(p)
+    # Synthetic test fixtures have no model; real freezes always pin the evaluation method.
+    from riskengine.eval.e24_inference import inference_metadata
+
+    model_dir = p.root / "models/topic"
+    inference = inference_metadata(model_dir) if (model_dir / "model.onnx").exists() else None
     frozen = {
         "rule": "docs/DECISIONS.md E24",
         "frozen_at_utc": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "candidate": candidate,
         "threshold": threshold,
         "temperature": temperature,
+        "inference": inference,
         "rules_file": str(rules_file) if rules_file else None,
         "rules_sha256": sha256(rules_file) if rules_file else None,
         "gate_sha256": sha256(Path(__file__)),
@@ -287,6 +294,14 @@ def check_candidate(p: Paths) -> dict:
     for f, want in (frozen.get("pinned_sha256") or {}).items():
         if sha256(_need(p.root / f, f"pinned file {f}")) != want:
             raise GateError(f"{f} changed since the candidate was frozen")
+    from riskengine.eval.e24_inference import inference_metadata, validate_inference_metadata
+
+    model_dir = p.root / "models/topic"
+    if (model_dir / "model.onnx").exists():
+        try:
+            validate_inference_metadata(frozen.get("inference"), inference_metadata(model_dir))
+        except ValueError as exc:
+            raise GateError(str(exc)) from exc
     return frozen
 
 

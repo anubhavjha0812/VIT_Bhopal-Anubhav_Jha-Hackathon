@@ -227,3 +227,21 @@ def test_selection_freezes_once_with_its_rules_and_time(env):
         assert frozen["rules_sha256"] == sha(e24_dev.RULES_FILE)
     with pytest.raises(GateError, match="already frozen"):
         run_selection(p, d1, d2, fake_probs)
+
+
+def test_freeze_pins_inference_and_refuses_runtime_method_change(env, monkeypatch):
+    from riskengine.eval import e24_inference
+    from riskengine.eval.e24_gate import check_candidate, freeze_candidate
+
+    p, *_ = env
+    model = p.root / "models/topic/model.onnx"
+    model.parent.mkdir(parents=True)
+    model.write_bytes(b"fixture")
+    method = {"method": "per_row_test", "batch_size": 1, "onnxruntime_version": "test"}
+    monkeypatch.setattr(e24_inference, "inference_metadata", lambda _: method)
+    frozen = freeze_candidate(p, "A", None, None, None)
+    assert frozen["inference"] == method
+    assert check_candidate(p)["inference"] == method
+    monkeypatch.setattr(e24_inference, "inference_metadata", lambda _: method | {"batch_size": 64})
+    with pytest.raises(GateError, match="method/settings mismatch"):
+        check_candidate(p)

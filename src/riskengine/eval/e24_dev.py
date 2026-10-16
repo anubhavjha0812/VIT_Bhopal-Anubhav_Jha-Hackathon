@@ -9,8 +9,9 @@ module never opens a final label file or a raw final annotation output.
 Candidates (E24): A = the current engine (E13 credit rules override the 9-class model);
 B = A + product rule + narrow Product-news mapping (a model "Product news" without a product
 event becomes Other); C = B + earnings rule; D = C + one global abstention threshold on the
-model's (optionally temperature-scaled) top probability. Order: credit rule → earnings rule →
-product rule → model; abstention applies only to model predictions.
+model's (optionally temperature-scaled) top probability. The D1-only amendment in
+docs/E24_AMENDMENT.md adds holdings/analyst routing to B–D. Order: credit → holdings →
+analyst → earnings preview/results → product → model; abstention applies only to model predictions.
 """
 
 from __future__ import annotations
@@ -50,17 +51,10 @@ Predictor = Callable[[Sequence[str]], tuple[list[str], list[str]]]
 
 
 def engine_probs() -> Probs:
-    """The engine's 9-class event model (models/topic): (class names, probabilities)."""
-    from riskengine.nlp.classifier import TextClassifier
-    from riskengine.nlp.events import OWN_TOPIC
+    """The unchanged 9-class model, evaluated one row at a time with pinned CPU settings."""
+    from riskengine.eval.e24_inference import EvaluationProbs
 
-    clf = TextClassifier(str(OWN_TOPIC))
-
-    def probs(texts: Sequence[str]) -> tuple[list[str], np.ndarray]:
-        parts = [p.numpy() for p in clf.probs(list(texts))]
-        return clf.labels, (np.concatenate(parts) if parts else np.zeros((0, len(clf.labels))))
-
-    return probs
+    return EvaluationProbs()
 
 
 def scale(p: np.ndarray, temperature: float | None) -> np.ndarray:
@@ -79,8 +73,7 @@ class Config:
 
 
 def build_predictor(cfg: Config, probs: Probs | None = None) -> Predictor:
-    """texts -> (labels, sources). Sources: credit_rule, earnings_rule, product_rule, model,
-    model_product_to_other, abstain."""
+    """texts -> (labels, sources), with the amendment rules enabled only for B–D."""
     if cfg.candidate not in ORDER:
         raise GateError(f"unknown candidate {cfg.candidate!r}")
     if (cfg.candidate == "D") != (cfg.threshold is not None):
@@ -98,6 +91,12 @@ def build_predictor(cfg: Config, probs: Probs | None = None) -> Predictor:
             model_label, conf = names[i], float(row[i])
             if credit := credit_event(text):
                 labels.append(credit), sources.append("credit_rule")
+            elif cfg.candidate in "BCD" and e24_rules.holdings_rule(text):
+                labels.append("Other"), sources.append("holdings_rule")
+            elif cfg.candidate in "BCD" and (analyst := e24_rules.analyst_rule(text)):
+                labels.append(analyst), sources.append("analyst_rule")
+            elif cfg.candidate in "CD" and e24_rules.earnings_preview_rule(text):
+                labels.append("Other"), sources.append("earnings_preview_rule")
             elif cfg.candidate in "CD" and e24_rules.earnings_rule(text):
                 labels.append("Earnings"), sources.append("earnings_rule")
             elif cfg.candidate in "BCD" and e24_rules.product_rule(text):

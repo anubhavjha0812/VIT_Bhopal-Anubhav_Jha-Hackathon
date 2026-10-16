@@ -1,0 +1,1169 @@
+{
+  "phase": "final",
+  "created_at_utc": "2026-10-16T05:41:36.078606+00:00",
+  "reference": "AI-only v6; no human/expert validation",
+  "D1_rows": 153,
+  "D2_or_final_rows_read": false,
+  "threshold_tuned": false,
+  "temperature_fitted": false,
+  "D_fixed_demonstration_threshold": 0.5,
+  "primary_metric": "fixed 12-class macro-F1, zero_division=0",
+  "scores": {
+    "A": {
+      "macro_f1_12": 0.31714813335387126,
+      "macro_f1_supported_supplementary": 0.4228641778051616,
+      "accuracy": 0.43137254901960786,
+      "correct": 66,
+      "per_class": {
+        "Default": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Credit downgrade": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Covenant breach": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Geopolitical": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Macroeconomic": {
+          "precision": 0.23529411764705882,
+          "recall": 0.8,
+          "f1": 0.36363636363636365,
+          "support": 5
+        },
+        "M&A": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Product news": {
+          "precision": 0.125,
+          "recall": 1.0,
+          "f1": 0.2222222222222222,
+          "support": 4
+        },
+        "Earnings": {
+          "precision": 0.2857142857142857,
+          "recall": 0.4,
+          "f1": 0.3333333333333333,
+          "support": 5
+        },
+        "Analyst rating": {
+          "precision": 0.9375,
+          "recall": 0.40540540540540543,
+          "f1": 0.5660377358490566,
+          "support": 37
+        },
+        "Legal/Regulatory": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "support": 3
+        },
+        "Management change": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Other": {
+          "precision": 0.7450980392156863,
+          "recall": 0.4,
+          "f1": 0.5205479452054794,
+          "support": 95
+        }
+      },
+      "predicted_counts": {
+        "Default": 0,
+        "Credit downgrade": 0,
+        "Covenant breach": 0,
+        "Geopolitical": 1,
+        "Macroeconomic": 17,
+        "M&A": 26,
+        "Product news": 32,
+        "Earnings": 7,
+        "Analyst rating": 16,
+        "Legal/Regulatory": 2,
+        "Management change": 1,
+        "Other": 51
+      },
+      "confusion": {
+        "labels": [
+          "Default",
+          "Credit downgrade",
+          "Covenant breach",
+          "Geopolitical",
+          "Macroeconomic",
+          "M&A",
+          "Product news",
+          "Earnings",
+          "Analyst rating",
+          "Legal/Regulatory",
+          "Management change",
+          "Other"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            10,
+            1,
+            0,
+            15,
+            0,
+            0,
+            11
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            10,
+            16,
+            25,
+            5,
+            1,
+            0,
+            0,
+            38
+          ]
+        ]
+      }
+    },
+    "B": {
+      "macro_f1_12": 0.4516666666666667,
+      "macro_f1_supported_supplementary": 0.6022222222222222,
+      "accuracy": 0.8562091503267973,
+      "correct": 131,
+      "per_class": {
+        "Default": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Credit downgrade": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Covenant breach": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Geopolitical": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Macroeconomic": {
+          "precision": 0.26666666666666666,
+          "recall": 0.8,
+          "f1": 0.4,
+          "support": 5
+        },
+        "M&A": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Product news": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "Earnings": {
+          "precision": 0.2857142857142857,
+          "recall": 0.4,
+          "f1": 0.3333333333333333,
+          "support": 5
+        },
+        "Analyst rating": {
+          "precision": 0.9736842105263158,
+          "recall": 1.0,
+          "f1": 0.9866666666666667,
+          "support": 37
+        },
+        "Legal/Regulatory": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "support": 3
+        },
+        "Management change": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Other": {
+          "precision": 0.9529411764705882,
+          "recall": 0.8526315789473684,
+          "f1": 0.9,
+          "support": 95
+        }
+      },
+      "predicted_counts": {
+        "Default": 0,
+        "Credit downgrade": 0,
+        "Covenant breach": 0,
+        "Geopolitical": 1,
+        "Macroeconomic": 15,
+        "M&A": 0,
+        "Product news": 4,
+        "Earnings": 7,
+        "Analyst rating": 38,
+        "Legal/Regulatory": 2,
+        "Management change": 1,
+        "Other": 85
+      },
+      "confusion": {
+        "labels": [
+          "Default",
+          "Credit downgrade",
+          "Covenant breach",
+          "Geopolitical",
+          "Macroeconomic",
+          "M&A",
+          "Product news",
+          "Earnings",
+          "Analyst rating",
+          "Legal/Regulatory",
+          "Management change",
+          "Other"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            37,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            5,
+            1,
+            0,
+            0,
+            81
+          ]
+        ]
+      }
+    },
+    "C": {
+      "macro_f1_12": 0.510976800976801,
+      "macro_f1_supported_supplementary": 0.6813024013024014,
+      "accuracy": 0.9084967320261438,
+      "correct": 139,
+      "per_class": {
+        "Default": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Credit downgrade": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Covenant breach": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Geopolitical": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Macroeconomic": {
+          "precision": 0.26666666666666666,
+          "recall": 0.8,
+          "f1": 0.4,
+          "support": 5
+        },
+        "M&A": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Product news": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "Earnings": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "Analyst rating": {
+          "precision": 0.9736842105263158,
+          "recall": 1.0,
+          "f1": 0.9866666666666667,
+          "support": 37
+        },
+        "Legal/Regulatory": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "support": 3
+        },
+        "Management change": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Other": {
+          "precision": 0.9885057471264368,
+          "recall": 0.9052631578947369,
+          "f1": 0.945054945054945,
+          "support": 95
+        }
+      },
+      "predicted_counts": {
+        "Default": 0,
+        "Credit downgrade": 0,
+        "Covenant breach": 0,
+        "Geopolitical": 1,
+        "Macroeconomic": 15,
+        "M&A": 0,
+        "Product news": 4,
+        "Earnings": 5,
+        "Analyst rating": 38,
+        "Legal/Regulatory": 2,
+        "Management change": 1,
+        "Other": 87
+      },
+      "confusion": {
+        "labels": [
+          "Default",
+          "Credit downgrade",
+          "Covenant breach",
+          "Geopolitical",
+          "Macroeconomic",
+          "M&A",
+          "Product news",
+          "Earnings",
+          "Analyst rating",
+          "Legal/Regulatory",
+          "Management change",
+          "Other"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            37,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            86
+          ]
+        ]
+      }
+    },
+    "D": {
+      "macro_f1_12": 0.5147978642257819,
+      "macro_f1_supported_supplementary": 0.6863971523010425,
+      "accuracy": 0.9215686274509803,
+      "correct": 141,
+      "per_class": {
+        "Default": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Credit downgrade": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Covenant breach": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Geopolitical": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Macroeconomic": {
+          "precision": 0.2857142857142857,
+          "recall": 0.8,
+          "f1": 0.42105263157894735,
+          "support": 5
+        },
+        "M&A": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Product news": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "Earnings": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "Analyst rating": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 37
+        },
+        "Legal/Regulatory": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "support": 3
+        },
+        "Management change": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Other": {
+          "precision": 0.9887640449438202,
+          "recall": 0.9263157894736842,
+          "f1": 0.9565217391304348,
+          "support": 95
+        }
+      },
+      "predicted_counts": {
+        "Default": 0,
+        "Credit downgrade": 0,
+        "Covenant breach": 0,
+        "Geopolitical": 1,
+        "Macroeconomic": 14,
+        "M&A": 0,
+        "Product news": 4,
+        "Earnings": 5,
+        "Analyst rating": 37,
+        "Legal/Regulatory": 2,
+        "Management change": 1,
+        "Other": 89
+      },
+      "confusion": {
+        "labels": [
+          "Default",
+          "Credit downgrade",
+          "Covenant breach",
+          "Geopolitical",
+          "Macroeconomic",
+          "M&A",
+          "Product news",
+          "Earnings",
+          "Analyst rating",
+          "Legal/Regulatory",
+          "Management change",
+          "Other"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            37,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            88
+          ]
+        ]
+      }
+    }
+  },
+  "class_support": {
+    "Other": 95,
+    "Analyst rating": 37,
+    "Earnings": 5,
+    "Macroeconomic": 5,
+    "Product news": 4,
+    "Legal/Regulatory": 3,
+    "M&A": 2,
+    "Geopolitical": 1,
+    "Management change": 1
+  },
+  "source_files_sha256": {
+    "src/riskengine/eval/e24_dev.py": "d8ede66a127e766696bad00bd73fc5354920ca028acedc120e2ebc2765d168f5",
+    "src/riskengine/eval/e24_rules.py": "b7317befcf1fe639c58c91050c5c317ce78626db05a4341dcdad3f804a0a68b4"
+  },
+  "protected_files_sha256": {
+    "src/riskengine/nlp/events.py": "8d4fbb569cbd72eb1df12cad71f1c7f0fc8fc7520c0d6a029616174a7e58a1a6",
+    "src/riskengine/gate.py": "13d85491ddcd8e8725a94efd97a96adb597015cac5acf662f3e41569fd77d3d1",
+    "src/riskengine/nlp/classifier.py": "b433fefb74e2f75ca496bbc34a3be99e873b6dc4fa2a6b3643341e25ef809f1b",
+    "models/topic/model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "models/topic/config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+    "models/topic/tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+    "docs/DECISIONS.md": "97f716563b1e19ba7a83061cb3dffbae67958f893bf70ab45053de93295b36a7"
+  },
+  "cache_sha256": "38c0c1a87633598c078849dfa37f5b22fb54de584d89b617e557f12685795a2c",
+  "efficiency_from_single_cached_inference": {
+    "seconds_including_load_and_warmup": 20.444764961022884,
+    "inference_seconds": 3.7352847020083573,
+    "batch_size": 64,
+    "device": "CPU",
+    "model_size_mb": 33.941275,
+    "peak_process_rss_mib": 676.734375
+  },
+  "candidate_A_differences_vs_earlier_mixed_batches": 12,
+  "comparison_method": "Identical cached D1 probabilities for before/after; A code unchanged",
+  "no_candidate_selected_or_frozen": true
+}
