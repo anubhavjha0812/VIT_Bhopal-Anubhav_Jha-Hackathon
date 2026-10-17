@@ -42,6 +42,7 @@ from riskengine.ingest.gdelt import GdeltClient
 from riskengine.ingest.linking import Linker
 from riskengine.ingest.prices import load_prices
 from riskengine.live import LiveFeed
+from riskengine.market_gate import evidence, market_gate
 from riskengine.module_a import NY, Backtest, run_module_a
 from riskengine.module_b import report as module_b
 from riskengine.module_b.backtest import ALERTS_PATH, CRISES_PATH
@@ -49,10 +50,10 @@ from riskengine.module_b.book import load_book
 from riskengine.module_b.outlook import MONTHLY_PATH
 from riskengine.module_b.outlook import summary as monthly_summary
 from riskengine.module_b.shock import DEFAULT_EPISODE, parse_notches
+from riskengine.nlp.event_engine import get_engine_classifier
 from riskengine.nlp.events import (
     CREDIT_CLASSES,
     OWN_TOPIC,
-    get_event_classifier,
     is_analyst_rating,
     names_agency,
 )
@@ -110,7 +111,7 @@ def scorer():
 
 @lru_cache
 def event_classifier():
-    return get_event_classifier(load_config().events)
+    return get_engine_classifier(load_config().events)
 
 
 @lru_cache
@@ -153,7 +154,9 @@ def module_a_run() -> dict[str, Backtest]:
 def engine_models(config) -> dict[str, str]:
     """Scoreboard names of the models the engine runs, so the dashboard can mark them."""
     sentiment = OWN_SENTIMENT.resolve().name if config.sentiment == "own" else "finbert (baseline)"
-    events = OWN_TOPIC.resolve().name if config.events == "model" else "keywords (baseline)"
+    events = OWN_TOPIC.resolve().name if config.events != "keywords" else "keywords (baseline)"
+    if config.events == "model_rules":
+        events += " + rules (E24 candidate C)"
     return {"sentiment": sentiment, "events": events}
 
 
@@ -434,6 +437,34 @@ def module_b_alerts(episode: Episode = DEFAULT_EPISODE) -> list[dict]:
         multiple = module_b.alert_multiple(a["impact"], shock)
         c = module_b_summary(a["ticker"], a["notches"], episode, multiple)
         out.append({**a, "episode": episode, "multiple": multiple, **c})
+    return out
+
+
+@app.get("/module-b/market-alerts")
+def module_b_market_alerts(episode: Episode = DEFAULT_EPISODE) -> list[dict]:
+    """Geopolitical / Macroeconomic items that fired the market gate, with the market-wide stress
+    (no single obligor): loss and CET1 before → after on the episode, scaled by config.shock."""
+    cfg = load_config()
+    fired = market_gate(stored_signals(), cfg.impact_trigger)
+    out = []
+    for _, row in fired[fired["fired"]].iterrows():
+        multiple = module_b.alert_multiple(int(row["market_impact"]), cfg.shock)
+        c = module_b_summary(None, 0, episode, multiple)
+        out.append(
+            {
+                "doc_id": row["doc_id"],
+                "published_at": str(row["published_at"]),
+                "source": row["source"],
+                "text": row["text"],
+                "event": row["event"],
+                "impact": int(row["market_impact"]),
+                "gate": row["reason"],
+                "matched": evidence(row["text"], row["event"]),
+                "episode": episode,
+                "multiple": multiple,
+                **c,
+            }
+        )
     return out
 
 

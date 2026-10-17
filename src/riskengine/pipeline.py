@@ -14,7 +14,8 @@ from riskengine.ingest.coverage import in_window
 from riskengine.ingest.linking import Linker
 from riskengine.ingest.news import load_fnspid
 from riskengine.ingest.tweets import load_akkerman
-from riskengine.nlp.events import get_event_classifier, is_analyst_rating, names_agency
+from riskengine.nlp.event_engine import get_engine_classifier
+from riskengine.nlp.events import is_analyst_rating, names_agency
 from riskengine.nlp.impact import impact_formula
 from riskengine.nlp.sentiment import SentimentScorer, get_scorer
 from riskengine.paths import DATA
@@ -64,7 +65,7 @@ def score_docs(
     """One row per (doc, company): sentiment, event, impact and which models produced them."""
     if config.impact != "formula":
         raise NotImplementedError("only the baseline impact formula exists so far")
-    classify_events = classify_events or get_event_classifier(config.events)
+    classify_events = classify_events or get_engine_classifier(config.events)
     linker = linker or Linker.from_csv()
     docs = docs.copy()
     texts = docs["text"].tolist()

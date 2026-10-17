@@ -2,7 +2,7 @@
 # Defaults are our fine-tuned int8 models (DECISIONS E11); set finbert / keywords for the baselines.
 
 sentiment = "own"        # finbert | own
-events = "model"         # keywords | model
+events = "model_rules"   # keywords | model | model_rules (E24 candidate C, chosen on D2, final-tested)
 impact = "formula"       # formula | learned
 rebalancer = "sentiment" # equal | sentiment (equal weight is always run as the benchmark)
 shock = "flat"           # flat | scaled
