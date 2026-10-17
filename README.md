@@ -17,7 +17,7 @@ Financial news and social media contain signals that can influence market sentim
 **AI Risk Engine** is an end-to-end prototype that processes financial news and social media posts into structured signals containing company identity, sentiment, event category, impact score and supporting text. It combines lightweight NLP inference with rule-based credit-event validation and financial risk calculations, connecting a shared signal-processing engine to two modules.
 
 - **Module A — Portfolio Rebalancing:** Uses historical sentiment signals to adjust the weights of a simulated portfolio of 15 S&P 100 stocks. It compares sentiment-based allocation against an equal-weight benchmark.
-- **Module B — Credit Stress Testing:** Applies validated credit alerts to a hypothetical bank portfolio of loans, bonds and derivatives. It estimates credit losses and capital impacts under historical crisis scenarios and configurable what-if assumptions.
+- **Module B — Credit Stress Testing:** Uses a credit gate and a separate Geopolitical/Macroeconomic market gate to trigger stress analysis on a hypothetical bank portfolio of loans, bonds and derivatives. It estimates credit losses and capital impacts under historical crisis scenarios and configurable what-if assumptions.
 
 The prototype also includes a browser-based dashboard, historical signal replay and a live GDELT news interface. Its purpose is to demonstrate the complete path from financial text to risk analysis, while reporting evaluation results and limitations explicitly.
 
@@ -31,8 +31,8 @@ The prototype also includes a browser-based dashboard, historical signal replay 
 
 1. **Data sources:** Financial news, social media posts, historical stock prices, company debt information, credit ratings and macroeconomic data.
 2. **Ingestion and preprocessing:** Cleans text, identifies company references and prepares documents for inference.
-3. **NLP signal generation:** Produces sentiment scores, event classifications and impact scores. The current engine uses quantized ONNX models for sentiment and event classification, with rule-based handling for selected credit events and a formula-based impact score.
-4. **Shared signal layer and API:** Stores structured signals and exposes them through FastAPI. Credit-event rules check event type, company identity, impact threshold and supporting confirmation before an alert is sent to Module B.
+3. **NLP signal generation:** Produces sentiment scores, event classifications and impact scores. The running event engine is E24 candidate C: rules plus the quantized event model (`events = "model_rules"`). Sentiment uses its own quantized ONNX model; impact uses a formula.
+4. **Shared signal layer and API:** Stores structured signals and exposes them through FastAPI. The credit gate checks credit-event evidence before an alert goes to Module B. A separate market gate handles Geopolitical and Macroeconomic alerts.
 5. **Risk modules:** Module A computes portfolio weights and backtest metrics. Module B applies financial formulas, historical shocks and statistical simulation to estimate credit losses and capital impacts.
 6. **Dashboard:** A React and TypeScript interface displays signals, replay progress, portfolio weights, credit alerts and stress-test outputs.
 
@@ -187,7 +187,16 @@ The deployed quantized model improves accuracy by approximately **15.1 percentag
 
 ### Event classification
 
-On the four-class TFN-topic evaluation:
+The running engine is **E24 candidate C (rules + event model)**. Its final test was run once, against the previous engine A. Macro-F1 uses all 12 event classes:
+
+| Final set | Rows | Previous engine A | Running candidate C | Gain | 95% range of gain |
+|---|---:|---:|---:|---:|---|
+| News | 200 | 0.309 | 0.376 | +0.067 | +0.029 to +0.107 |
+| Tweets | 100 | 0.142 | 0.132 | -0.010 | -0.031 to +0.009 |
+
+The tweet result is inside the registered margin; it is not an improvement. Eight of the 12 classes are absent in tweets. Every evaluation label for these final sets is **AI-made**: ChatGPT, Claude and AI adjudication, with **no human check**. Development sets D1 and D2 are also AI-derived. See the [results file](data/outputs/e24_final_results.json) and [labelling amendment](docs/E25_LABELLER_AMENDMENT.md).
+
+Earlier four-class TFN-topic component results:
 
 | Model | Accuracy | Macro-F1 |
 |---|---:|---:|
@@ -202,6 +211,8 @@ The four-class evaluation is distinct from the engine's later nine-class mapping
 For the 9 April–10 June 2020 demo window, the quantized engine processed the 14,169-document sample in approximately 9 minutes 54 seconds on CPU in the recorded run. The additional credit-rule and gating workflow took approximately 11 minutes 43 seconds.
 
 In the recorded integrated run, the credit gate reduced 41 high-impact alerts to four candidate credit alerts, of which three were real credit events on the reviewed demo window. This is a design check on the same window used to refine the rules, not an independent estimate of production precision.
+
+Module B now has two gates. The **credit gate has 47% precision on E23**. The new **Geopolitical/Macroeconomic market gate produced 15 alerts** on the replay window after the switch to C. About 70% looked market-wide in an earlier, non-blind read of the 16 alerts before the switch. That check is exploratory, not a measured precision result for the current 15 alerts. See [E26 and the engine-switch entry](docs/EXPERIMENTS.md).
 
 The portfolio backtest produced the following results:
 

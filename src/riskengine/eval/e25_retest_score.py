@@ -1,14 +1,18 @@
 """Score A, C, D and E on the fresh R3 set with the rule in docs/E25_RETEST.md.
 
 uv run python -m riskengine.eval.e25_retest_score
+uv run python -m riskengine.eval.e25_retest_score --student <folder> --output-suffix _v3
 
 Reads the R3 sheet and its AI-derived labels only (no D2, final or E23 row). Per-row inference,
 no threshold or temperature search (D uses the fixed 0.50 of the D1 report). Writes
-data/outputs/e25_retest_{scores.json,per_class.csv,report.md}.
+data/outputs/e25_retest_{scores.json,per_class.csv,predictions.csv}. A comparison suffix
+keeps alternate-student outputs separate; the default student and file names are unchanged.
 """
 
 import argparse
 import json
+import re
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -16,6 +20,7 @@ from sklearn.metrics import accuracy_score, f1_score, precision_recall_fscore_su
 
 from riskengine.eval.e24_dev import Config, build_predictor, engine_probs
 from riskengine.eval.e24_gate import CLASSES
+from riskengine.eval.e25_candidate import student_probs
 from riskengine.paths import DATA, ROOT
 
 SET = ROOT / "private_notes/annotation_uploads/task1/retest_set"
@@ -60,13 +65,29 @@ def bootstrap_gain(y, pc, pe, n: int = 1000) -> list[float]:
 
 
 def main() -> None:
-    argparse.ArgumentParser(description=__doc__).parse_args()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--student", type=Path, help="local student folder; default is the v2 student"
+    )
+    parser.add_argument("--output-suffix", default="", help="separate comparison files, e.g. _v3")
+    args = parser.parse_args()
+    if not re.fullmatch(r"(?:_[A-Za-z0-9_-]+)?", args.output_suffix):
+        parser.error("--output-suffix must be empty or an underscore followed by letters/digits")
+    targets = {
+        name: DATA / f"outputs/e25_retest_{name}{args.output_suffix}.{extension}"
+        for name, extension in (("scores", "json"), ("per_class", "csv"), ("predictions", "csv"))
+    }
+    if (args.student is not None or args.output_suffix) and any(
+        p.exists() for p in targets.values()
+    ):
+        parser.error("comparison outputs already exist; choose a new --output-suffix")
     sheet = pd.read_csv(SET / "to_label.csv", dtype=str)
     lab = pd.read_csv(SET / "R3_labels_claude.csv", dtype=str)
     assert sheet["item_id"].tolist() == lab["item_id"].tolist() and len(sheet) == 400
     texts, y = sheet["text"].tolist(), lab["label"].tolist()
     base = engine_probs()
-    preds = {k: build_predictor(cfg, None if k == "E" else base)(texts)[0]
+    student = student_probs(args.student) if args.student is not None else None
+    preds = {k: build_predictor(cfg, student if k == "E" else base)(texts)[0]
              for k, cfg in CANDIDATES.items()}  # fmt: skip
     scores, pcs = {}, {}
     for k, p in preds.items():
@@ -84,12 +105,16 @@ def main() -> None:
     out = {"rows": len(y), "reference_counts": pd.Series(y).value_counts().to_dict(),
            "scores": scores, "rule": rule,
            "note": "AI-derived labels (Claude, blind); R3 is a development set."}  # fmt: skip
-    (DATA / "outputs/e25_retest_scores.json").write_text(json.dumps(out, indent=2))
+    if args.student is not None:
+        out["student"] = str(args.student)
+        out["student_inference"] = student.inference_metadata
+    targets["scores"].parent.mkdir(parents=True, exist_ok=True)
+    targets["scores"].write_text(json.dumps(out, indent=2))
     pd.concat({k: v for k, v in pcs.items()}, names=["candidate"]).reset_index(level=0).to_csv(
-        DATA / "outputs/e25_retest_per_class.csv", index=False
+        targets["per_class"], index=False
     )
     pd.DataFrame({"item_id": sheet["item_id"], "text": texts, "label": y, **preds}).to_csv(
-        DATA / "outputs/e25_retest_predictions.csv", index=False
+        targets["predictions"], index=False
     )
     print(json.dumps(out, indent=2))
 

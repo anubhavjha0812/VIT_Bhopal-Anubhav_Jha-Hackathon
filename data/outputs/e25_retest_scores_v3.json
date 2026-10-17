@@ -1,0 +1,80 @@
+{
+  "rows": 400,
+  "reference_counts": {
+    "Other": 236,
+    "Analyst rating": 38,
+    "Earnings": 32,
+    "Legal/Regulatory": 32,
+    "Product news": 30,
+    "M&A": 17,
+    "Macroeconomic": 9,
+    "Geopolitical": 3,
+    "Management change": 3
+  },
+  "scores": {
+    "A": {
+      "macro_f1_fixed_12": 0.3122,
+      "macro_f1_supported": 0.4163,
+      "accuracy": 0.4525
+    },
+    "C": {
+      "macro_f1_fixed_12": 0.4363,
+      "macro_f1_supported": 0.5817,
+      "accuracy": 0.695
+    },
+    "D": {
+      "macro_f1_fixed_12": 0.4436,
+      "macro_f1_supported": 0.5914,
+      "accuracy": 0.705
+    },
+    "E": {
+      "macro_f1_fixed_12": 0.4495,
+      "macro_f1_supported": 0.5993,
+      "accuracy": 0.7325
+    }
+  },
+  "rule": {
+    "gain": 0.0132,
+    "gain_ok": false,
+    "class_f1_change": {
+      "M&A": 0.186,
+      "Product news": 0.0,
+      "Earnings": 0.1535,
+      "Analyst rating": 0.0454,
+      "Legal/Regulatory": 0.1177,
+      "Other": 0.0032
+    },
+    "no_big_drop": true,
+    "e_replaces_c": false,
+    "gain_ci95_bootstrap": [
+      -0.0515,
+      0.083
+    ]
+  },
+  "note": "AI-derived labels (Claude, blind); R3 is a development set.",
+  "student": "private_notes/annotation_uploads/task1/e25_student_output/v3/models/e25-student-bge-small-en-v1.5-int8",
+  "student_inference": {
+    "method": "onnx_cpu_per_row_dynamic_padding_v1",
+    "batch_size": 1,
+    "padding": "longest_in_single_row",
+    "truncation": true,
+    "max_length": 64,
+    "provider": "CPUExecutionProvider",
+    "onnxruntime_version": "1.30.0",
+    "intra_op_num_threads": 1,
+    "inter_op_num_threads": 1,
+    "execution_mode": "ORT_SEQUENTIAL",
+    "graph_optimization_level": "ORT_ENABLE_ALL",
+    "softmax": "torch_float32_softmax_last_dimension",
+    "torch_version": "2.14.1+cpu",
+    "transformers_version": "5.18.0",
+    "model_sha256": "80b70feb6bc2b436a8e500fb57d9d82642f293fe2e94aeeb99c5d60febb98dd6",
+    "assets_sha256": {
+      "config.json": "596a8b3a87448227d15c622c859c55e4b9d35f94aa2da136ab3d119c8ac4d1da",
+      "model.onnx": "80b70feb6bc2b436a8e500fb57d9d82642f293fe2e94aeeb99c5d60febb98dd6",
+      "source_metrics.json": "d8fbd66da49394d81a339dc69426cd960457279b7ef6332193c833f9d2cc89e3",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+    }
+  }
+}

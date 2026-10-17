@@ -189,3 +189,17 @@ Updated after every experiment.
 ### SEC 8-K credit anchors (2026-10-17)
 - 1,821 8-K filings (Item 1.03 bankruptcy, Item 2.04 acceleration) from SEC full-text search, 2010 to mid-2020. The SEC items filter is ignored, so items are re-checked on each hit.
 - Matched to local FNSPID headlines, only 13 headlines remain (most bankrupt firms are not in our news). Too small for a credit test; a bigger news source is needed (TODO L4 stays open). Not labelled.
+
+### R3: student v3 compared with v2 and C (2026-10-17)
+
+Ran once, offline, on the same 400 R3 headlines and Claude's AI-derived labels. Added `--student <folder>` and `--output-suffix _v3` to `eval/e25_retest_score.py`; the default remains v2. Used the local `e25_student_output/v3/models/e25-student-bge-small-en-v1.5-int8` folder, unchanged per-row inference and rules, D threshold 0.50 and no temperature search.
+
+| Candidate | Macro-F1, fixed 12 classes | Accuracy |
+|---|---:|---:|
+| C | 0.4363 | 69.50% |
+| E with v2 | 0.4690 | 73.00% |
+| E with v3 | 0.4495 | 73.25% |
+
+- V3 vs C: +0.0132 macro-F1 and +3.75 percentage points accuracy. The [pre-written R3 rule](E25_RETEST.md) needs at least +0.02 macro-F1 and no F1 drop over 0.05 for a class with at least 10 rows. The class guard passes, but the gain fails: **C stays**. The paired 95% bootstrap range is -0.0515 to +0.0830.
+- V3 vs v2: -0.0195 macro-F1, +0.25 percentage points accuracy; 21 predictions changed. R3 remains a development comparison, not another final test. The running engine and frozen candidate are unchanged.
+- New files: `data/outputs/e25_retest_scores_v3.json`, `e25_retest_per_class_v3.csv`, `e25_retest_predictions_v3.csv`. All metrics were checked from saved predictions; A/C/D predictions and scores match v2 exactly. V2 files and protected files retain their hashes. 27 scorer/candidate/inference tests pass; Ruff passes. No network, tuning, E24 rerun, commit or push.
