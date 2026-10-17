@@ -1,0 +1,42 @@
+{
+  "_note": "Big files that are not in git. Model entries stay pending_freeze until the E24 candidate is frozen and uploaded; then fill url, revision, sha256, size_bytes and set status to ready.",
+  "assets": {
+    "sentiment": {
+      "kind": "model",
+      "status": "pending_freeze",
+      "dest": "models/sentiment",
+      "url": "",
+      "revision": "",
+      "sha256": "",
+      "size_bytes": 0,
+      "about": "int8 ONNX sentiment model (DECISIONS E9, E11), about 34 MB"
+    },
+    "topic": {
+      "kind": "model",
+      "status": "pending_freeze",
+      "dest": "models/topic",
+      "url": "",
+      "revision": "",
+      "sha256": "",
+      "size_bytes": 0,
+      "about": "int8 ONNX nine-class event model (DECISIONS E16), about 34 MB"
+    },
+    "impact_model": {
+      "kind": "model",
+      "status": "pending_freeze",
+      "dest": "data/models/impact_model.joblib",
+      "url": "",
+      "revision": "",
+      "sha256": "",
+      "size_bytes": 0,
+      "about": "learned impact score (DECISIONS E6), about 1.1 MB"
+    },
+    "fnspid_news": {
+      "kind": "rebuild",
+      "status": "ready",
+      "dest": "data/raw/fnspid/universe_news.csv.gz",
+      "command": "uv run python -m riskengine.ingest.fetch_fnspid",
+      "about": "streams the 5.7 GB FNSPID file from Hugging Face and keeps only our 15 stocks; the repo ships a small sample in data/samples/ instead"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "created_at_utc": "2026-10-16T05:33:52.593171+00:00",
+  "task": "Report-only E23 credit gate against v6 AI reference; stored frozen decisions, no gate rerun/edit",
+  "annotation_method": "AI-derived reference; no human/expert validation",
+  "overall_sample": {
+    "rows": 243,
+    "TP": 39,
+    "FP": 44,
+    "FN": 7,
+    "TN": 153,
+    "false_alerts": 44,
+    "missed_alerts": 7,
+    "precision": 0.46987951807228917,
+    "recall": 0.8478260869565217
+  },
+  "per_stratum": {
+    "S1": {
+      "rows": 83,
+      "TP": 39,
+      "FP": 44,
+      "FN": 0,
+      "TN": 0,
+      "false_alerts": 44,
+      "missed_alerts": 0,
+      "precision": 0.46987951807228917,
+      "recall": 1.0
+    },
+    "S2": {
+      "rows": 60,
+      "TP": 0,
+      "FP": 0,
+      "FN": 7,
+      "TN": 53,
+      "false_alerts": 0,
+      "missed_alerts": 7,
+      "precision": null,
+      "recall": 0.0
+    },
+    "S3": {
+      "rows": 60,
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "TN": 60,
+      "false_alerts": 0,
+      "missed_alerts": 0,
+      "precision": null,
+      "recall": null
+    },
+    "S4": {
+      "rows": 40,
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "TN": 40,
+      "false_alerts": 0,
+      "missed_alerts": 0,
+      "precision": null,
+      "recall": null
+    }
+  },
+  "false_alerts_by_primary_reason": {
+    "securitization": 21,
+    "counterparty": 9,
+    "no_own_credit_event": 8,
+    "wrong_company": 3,
+    "non_adverse_or_low_materiality": 1,
+    "upgrade_or_positive_outlook": 1,
+    "affirmation": 1
+  },
+  "population_estimate": {
+    "method": "Inverse stratum sampling-fraction point estimates; not raw counts or an uncertainty interval",
+    "stratum_population": {
+      "S1": 83,
+      "S2": 107,
+      "S3": 5278,
+      "S4": 121267
+    },
+    "stratum_sample": {
+      "S1": 83,
+      "S2": 60,
+      "S3": 60,
+      "S4": 40
+    },
+    "estimated_confusion_counts": {
+      "TP": 39.0,
+      "FP": 44.0,
+      "FN": 12.483333333333334,
+      "TN": 126639.51666666668
+    },
+    "precision": 0.46987951807228917,
+    "recall": 0.7575267076723858
+  },
+  "inputs_sha256": {
+    "private_notes/annotation_uploads/task1/reference_v6/credit/credit_labelled.csv": "834ba4192c4b692a39ef468d4df603638ec0544483b32737ab15507f46c506c9",
+    "data/gold/credit/sample_meta.csv": "950ae3ccf1878fbbb76ce0a3fbcc9f9076d325f0bc1095387b430a20863e1825",
+    "data/outputs/e23_gate_snapshot.json": "e81114116472f83180e29f31515cb273f31749ce78435e34b0748ec361865de1"
+  },
+  "gate_snapshot_verified": true,
+  "protected_files_sha256": {
+    "src/riskengine/gate.py": "13d85491ddcd8e8725a94efd97a96adb597015cac5acf662f3e41569fd77d3d1",
+    "src/riskengine/nlp/events.py": "8d4fbb569cbd72eb1df12cad71f1c7f0fc8fc7520c0d6a029616174a7e58a1a6",
+    "src/riskengine/nlp/impact.py": "19d59d26c4aafcd5827fcfa6b352c0cd6a74bcf6cf61b6aeeb7c615a2fad9005",
+    "src/riskengine/ingest/linking.py": "6b8beff83e4cbc3eb0f8360673e3293eed3dca946b5f90fe657b5d097572f54b",
+    "src/riskengine/ingest/relevance.py": "adc911bc335fd87d2a2c0ef5b91cc0cb386e613e845b45148dc3133e08dfdd94"
+  },
+  "all_credit_labels_ai_labelled": true,
+  "gate_changed": false,
+  "D2_or_final_rows_read": false
+}
