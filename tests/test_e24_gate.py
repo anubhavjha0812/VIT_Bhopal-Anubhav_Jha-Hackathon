@@ -396,3 +396,14 @@ def test_prompts_share_identical_instructions_and_leak_nothing():
     for text in (gpt, gem):  # no item ids, engine outputs or results in a prompt
         for banned in ("N000", "T000", "engine predicted", "macro-F1", "confidence"):
             assert banned not in text
+
+
+def test_final_accepts_claude_as_labeller_b(p):
+    ready_for_final(p)
+    for s in ("final_news", "final_tweets"):
+        (p.gold / "records" / f"gemini_{s}.json").rename(p.gold / "records" / f"claude_{s}.json")
+        path = p.gold / "records" / f"claude_{s}.json"
+        data = json.loads(path.read_text())
+        path.write_text(json.dumps({**data, "labeller": "claude"}))
+    res = _run_final(p, fake_factory())
+    assert res["final_news"]["n"] == 3

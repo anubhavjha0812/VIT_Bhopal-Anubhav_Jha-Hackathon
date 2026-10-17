@@ -1,0 +1,202 @@
+{
+  "v6": {
+    "reference": "private_notes/annotation_uploads/task1/reference_v6/development/D1_labels.csv",
+    "teachers": {
+      "mistral_nemo": {
+        "rows": 153,
+        "accuracy": 0.7712,
+        "macro_f1_fixed_12": 0.4981,
+        "macro_f1_supported": 0.6641,
+        "kappa": 0.6152,
+        "predicted_counts": {
+          "Other": 84,
+          "Analyst rating": 38,
+          "Product news": 14,
+          "Earnings": 5,
+          "Legal/Regulatory": 4,
+          "Geopolitical": 2,
+          "Macroeconomic": 2,
+          "M&A": 1,
+          "Credit downgrade": 1,
+          "Management change": 1,
+          "Default": 1
+        },
+        "reference_counts": {
+          "Other": 95,
+          "Analyst rating": 37,
+          "Earnings": 5,
+          "Macroeconomic": 5,
+          "Product news": 4,
+          "Legal/Regulatory": 3,
+          "M&A": 2,
+          "Geopolitical": 1,
+          "Management change": 1
+        }
+      },
+      "qwen3_8b": {
+        "rows": 153,
+        "accuracy": 0.7582,
+        "macro_f1_fixed_12": 0.4358,
+        "macro_f1_supported": 0.5811,
+        "kappa": 0.5899,
+        "predicted_counts": {
+          "Other": 85,
+          "Analyst rating": 39,
+          "Product news": 8,
+          "Earnings": 5,
+          "M&A": 4,
+          "Default": 3,
+          "Macroeconomic": 3,
+          "Covenant breach": 2,
+          "Geopolitical": 2,
+          "Legal/Regulatory": 1,
+          "Management change": 1
+        },
+        "reference_counts": {
+          "Other": 95,
+          "Analyst rating": 37,
+          "Earnings": 5,
+          "Macroeconomic": 5,
+          "Product news": 4,
+          "Legal/Regulatory": 3,
+          "M&A": 2,
+          "Geopolitical": 1,
+          "Management change": 1
+        }
+      }
+    },
+    "pairs": {
+      "mistral_nemo+qwen3_8b": {
+        "rows": 153,
+        "agree_rate": 0.817,
+        "kept_rows": 125,
+        "accuracy_on_kept": 0.848,
+        "accuracy_on_dropped": 0.4286,
+        "kept_by_class": {
+          "Other": 72,
+          "Analyst rating": 34,
+          "Product news": 8,
+          "Earnings": 4,
+          "Geopolitical": 2,
+          "Macroeconomic": 2,
+          "Legal/Regulatory": 1,
+          "Management change": 1,
+          "Default": 1
+        },
+        "kappa_between_teachers": 0.7071
+      }
+    },
+    "second_teacher_speed": {
+      "second_teacher": "mistral_nemo",
+      "projected_pool_hours": 2.3,
+      "rows_per_second": 4.81,
+      "peak_gpu_gib": [
+        9.9,
+        11.5
+      ],
+      "limit_hours": 8.0,
+      "decision": "keep"
+    },
+    "note": "AI-derived reference; D1 only; no D2 or final row used."
+  },
+  "v7": {
+    "reference": "private_notes/annotation_uploads/task1/reference_v7/development/D1_labels.csv",
+    "teachers": {
+      "mistral_nemo": {
+        "rows": 153,
+        "accuracy": 0.7778,
+        "macro_f1_fixed_12": 0.5335,
+        "macro_f1_supported": 0.7113,
+        "kappa": 0.6218,
+        "predicted_counts": {
+          "Other": 84,
+          "Analyst rating": 38,
+          "Product news": 14,
+          "Earnings": 5,
+          "Legal/Regulatory": 4,
+          "Geopolitical": 2,
+          "Macroeconomic": 2,
+          "M&A": 1,
+          "Credit downgrade": 1,
+          "Management change": 1,
+          "Default": 1
+        },
+        "reference_counts": {
+          "Other": 97,
+          "Analyst rating": 37,
+          "Macroeconomic": 5,
+          "Earnings": 4,
+          "Product news": 4,
+          "Legal/Regulatory": 3,
+          "M&A": 1,
+          "Geopolitical": 1,
+          "Management change": 1
+        }
+      },
+      "qwen3_8b": {
+        "rows": 153,
+        "accuracy": 0.7647,
+        "macro_f1_fixed_12": 0.4434,
+        "macro_f1_supported": 0.5912,
+        "kappa": 0.5963,
+        "predicted_counts": {
+          "Other": 85,
+          "Analyst rating": 39,
+          "Product news": 8,
+          "Earnings": 5,
+          "M&A": 4,
+          "Default": 3,
+          "Macroeconomic": 3,
+          "Covenant breach": 2,
+          "Geopolitical": 2,
+          "Legal/Regulatory": 1,
+          "Management change": 1
+        },
+        "reference_counts": {
+          "Other": 97,
+          "Analyst rating": 37,
+          "Macroeconomic": 5,
+          "Earnings": 4,
+          "Product news": 4,
+          "Legal/Regulatory": 3,
+          "M&A": 1,
+          "Geopolitical": 1,
+          "Management change": 1
+        }
+      }
+    },
+    "pairs": {
+      "mistral_nemo+qwen3_8b": {
+        "rows": 153,
+        "agree_rate": 0.817,
+        "kept_rows": 125,
+        "accuracy_on_kept": 0.856,
+        "accuracy_on_dropped": 0.4286,
+        "kept_by_class": {
+          "Other": 72,
+          "Analyst rating": 34,
+          "Product news": 8,
+          "Earnings": 4,
+          "Geopolitical": 2,
+          "Macroeconomic": 2,
+          "Legal/Regulatory": 1,
+          "Management change": 1,
+          "Default": 1
+        },
+        "kappa_between_teachers": 0.7071
+      }
+    },
+    "second_teacher_speed": {
+      "second_teacher": "mistral_nemo",
+      "projected_pool_hours": 2.3,
+      "rows_per_second": 4.81,
+      "peak_gpu_gib": [
+        9.9,
+        11.5
+      ],
+      "limit_hours": 8.0,
+      "decision": "keep"
+    },
+    "note": "AI-derived reference; D1 only; no D2 or final row used."
+  }
+}

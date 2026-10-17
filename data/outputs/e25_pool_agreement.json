@@ -1,0 +1,54 @@
+{
+  "rows": 40453,
+  "agree_rate": 0.7479,
+  "kept": 30254,
+  "kept_by_class": {
+    "Other": 16187,
+    "Product news": 5465,
+    "Legal/Regulatory": 2755,
+    "Earnings": 1503,
+    "Analyst rating": 1363,
+    "Management change": 1195,
+    "M&A": 1178,
+    "Geopolitical": 260,
+    "Credit downgrade": 205,
+    "Macroeconomic": 104,
+    "Default": 36,
+    "Covenant breach": 3
+  },
+  "qwen_counts": {
+    "Other": 23361,
+    "Product news": 6071,
+    "Legal/Regulatory": 2863,
+    "M&A": 2118,
+    "Earnings": 1721,
+    "Analyst rating": 1581,
+    "Management change": 1421,
+    "Geopolitical": 630,
+    "Credit downgrade": 242,
+    "Macroeconomic": 216,
+    "Default": 165,
+    "Covenant breach": 64
+  },
+  "mistral_counts": {
+    "Other": 17541,
+    "Product news": 10222,
+    "Legal/Regulatory": 4561,
+    "Analyst rating": 1881,
+    "Earnings": 1853,
+    "M&A": 1819,
+    "Management change": 1496,
+    "Geopolitical": 459,
+    "Macroeconomic": 253,
+    "Credit downgrade": 237,
+    "Default": 124,
+    "Covenant breach": 7
+  },
+  "under_200": [
+    "Default",
+    "Covenant breach",
+    "Macroeconomic"
+  ],
+  "mean_soft_top_prob_kept": 0.928,
+  "kappa": 0.6378
+}

@@ -1,0 +1,67 @@
+{
+  "frame": 77854,
+  "excluded_by_set": {
+    "training (TFN topic train+valid, TFNS train+valid)": 2,
+    "E3": 5,
+    "E23 sample": 193,
+    "E22b alerts": 77,
+    "E17 relevance samples": 120,
+    "E21 tweet sample": 0,
+    "FinEntity": 0,
+    "other project's gold-1, gold-2, entity check": 0,
+    "E24 final news": 0,
+    "E24 final tweets": 0
+  },
+  "excluded_total": 316,
+  "after_exclusions": 77538,
+  "dropped_in_final_passes": 1,
+  "rule": "FNSPID 2010-2016, E17 relevance kept, role subject, unique text, per-company cap",
+  "seed": 25,
+  "cap_per_company": 3000,
+  "window": [
+    "2010-01-01",
+    "2017-01-01"
+  ],
+  "pool": 40453,
+  "by_company": {
+    "META": 3000,
+    "MSFT": 3000,
+    "JPM": 3000,
+    "GOOGL": 3000,
+    "XOM": 3000,
+    "BAC": 3000,
+    "AAPL": 3000,
+    "AMZN": 3000,
+    "BA": 3000,
+    "KO": 2999,
+    "DIS": 2798,
+    "NFLX": 2400,
+    "TSLA": 2318,
+    "NVDA": 1787,
+    "AMD": 1151
+  },
+  "by_year": {
+    "2010": 5608,
+    "2011": 6946,
+    "2012": 7240,
+    "2013": 6285,
+    "2014": 4855,
+    "2015": 5154,
+    "2016": 4365
+  },
+  "pool_sha256": "fb9229c97933b4c0461e2ec1155aaa9b54c40f3b8aaf87028d80275651258f0a",
+  "source": "data/cache/history_signals.csv.gz",
+  "source_sha256": "7b5893c633b1450be76de4e07b8057cd717fe6b691e6e5b51c2786311ed2dc0e",
+  "cleared_against": [
+    "E17 relevance samples",
+    "E21 tweet sample",
+    "E22b alerts",
+    "E23 sample",
+    "E24 final news",
+    "E24 final tweets",
+    "E3",
+    "FinEntity",
+    "other project's gold-1, gold-2, entity check",
+    "training (TFN topic train+valid, TFNS train+valid)"
+  ]
+}

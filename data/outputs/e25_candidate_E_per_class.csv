@@ -1,0 +1,49 @@
+reference,candidate,class,precision,recall,f1,support
+v6,C,Default,0.0,0.0,0.0,0
+v6,C,Credit downgrade,0.0,0.0,0.0,0
+v6,C,Covenant breach,0.0,0.0,0.0,0
+v6,C,Geopolitical,0.0,0.0,0.0,1
+v6,C,Macroeconomic,0.3076923076923077,0.8,0.4444444444444444,5
+v6,C,M&A,0.0,0.0,0.0,2
+v6,C,Product news,1.0,1.0,1.0,4
+v6,C,Earnings,1.0,1.0,1.0,5
+v6,C,Analyst rating,0.9736842105263158,1.0,0.9866666666666667,37
+v6,C,Legal/Regulatory,1.0,0.6666666666666666,0.8,3
+v6,C,Management change,1.0,1.0,1.0,1
+v6,C,Other,0.9887640449438202,0.9263157894736842,0.9565217391304348,95
+v6,E,Default,0.0,0.0,0.0,0
+v6,E,Credit downgrade,0.0,0.0,0.0,0
+v6,E,Covenant breach,0.0,0.0,0.0,0
+v6,E,Geopolitical,0.0,0.0,0.0,1
+v6,E,Macroeconomic,0.2,0.2,0.2,5
+v6,E,M&A,0.0,0.0,0.0,2
+v6,E,Product news,1.0,1.0,1.0,4
+v6,E,Earnings,0.8333333333333334,1.0,0.9090909090909091,5
+v6,E,Analyst rating,0.8222222222222222,1.0,0.9024390243902439,37
+v6,E,Legal/Regulatory,1.0,0.6666666666666666,0.8,3
+v6,E,Management change,1.0,1.0,1.0,1
+v6,E,Other,0.9418604651162791,0.8526315789473684,0.8950276243093923,95
+v7,C,Default,0.0,0.0,0.0,0
+v7,C,Credit downgrade,0.0,0.0,0.0,0
+v7,C,Covenant breach,0.0,0.0,0.0,0
+v7,C,Geopolitical,0.0,0.0,0.0,1
+v7,C,Macroeconomic,0.3076923076923077,0.8,0.4444444444444444,5
+v7,C,M&A,0.0,0.0,0.0,1
+v7,C,Product news,1.0,1.0,1.0,4
+v7,C,Earnings,0.8,1.0,0.8888888888888888,4
+v7,C,Analyst rating,0.9736842105263158,1.0,0.9866666666666667,37
+v7,C,Legal/Regulatory,1.0,0.6666666666666666,0.8,3
+v7,C,Management change,1.0,1.0,1.0,1
+v7,C,Other,0.9887640449438202,0.9072164948453608,0.946236559139785,97
+v7,E,Default,0.0,0.0,0.0,0
+v7,E,Credit downgrade,0.0,0.0,0.0,0
+v7,E,Covenant breach,0.0,0.0,0.0,0
+v7,E,Geopolitical,0.0,0.0,0.0,1
+v7,E,Macroeconomic,0.2,0.2,0.2,5
+v7,E,M&A,0.0,0.0,0.0,1
+v7,E,Product news,1.0,1.0,1.0,4
+v7,E,Earnings,0.6666666666666666,1.0,0.8,4
+v7,E,Analyst rating,0.8222222222222222,1.0,0.9024390243902439,37
+v7,E,Legal/Regulatory,1.0,0.6666666666666666,0.8,3
+v7,E,Management change,1.0,1.0,1.0,1
+v7,E,Other,0.9534883720930233,0.845360824742268,0.8961748633879781,97

@@ -1,0 +1,361 @@
+{
+  "created_at_utc": "2026-10-17T08:01:52.977443+00:00",
+  "status": "built",
+  "error": null,
+  "sample_rows": 400,
+  "by_cue_class": {
+    "Macro": 0,
+    "Geo": 400
+  },
+  "by_source": {
+    "govuk_fco": 400
+  },
+  "by_year": {
+    "2010": 29,
+    "2011": 89,
+    "2012": 78,
+    "2013": 66,
+    "2014": 72,
+    "2015": 33,
+    "2016": 33
+  },
+  "seed": 25,
+  "cap_per_cue_class": 400,
+  "window": [
+    "2010-01-01",
+    "2017-01-01"
+  ],
+  "cue_class_is_label": false,
+  "labels_created": false,
+  "training_run": false,
+  "style_note": "Official press-release titles are formal; style differs from news.",
+  "language_rule": "English source routes plus conservative Latin-script/English-word screen; uncertain/non-English titles dropped; not a general language detector.",
+  "modifications": "Title-only extraction, HTML entity decoding and index whitespace normalization; no paraphrasing or translation. Date standardized to UTC calendar date.",
+  "cues": {
+    "Macro": "\\b(?:rate decisions?|(?:interest|policy|key(?: ECB)?) rates?|monetary polic(?:y|ies)|inflation|GDP|gross domestic product|employment|unemployment|nonfarm payrolls?|balance of payments|exchange rates?|oil prices?|financial stability)\\b",
+    "Geo": "\\b(?:sanctions?|conflicts?|cease[ -]?fires?|military|missiles?|treat(?:y|ies)|summits?|election observers?)\\b",
+    "minister": "\\b(?:foreign (?:secretary|minister)|FCO minister|minister for (?:the )?(?:Middle East|Asia|Africa|Europe))\\b",
+    "statement": "\\b(?:statements?|says?|comments?|condemns?|welcomes?|urges?|calls?|on)\\b",
+    "countries": "Afghanistan|Albania|Algeria|Argentina|Armenia|Australia|Austria|Azerbaijan|Bahrain|Bangladesh|Belarus|Belgium|Bosnia(?: and Herzegovina)?|Brazil|Britain|Bulgaria|Burma|Myanmar|Burundi|Cambodia|Cameroon|Canada|Central African Republic|Chad|Chile|China|Colombia|Congo|Croatia|Cuba|Cyprus|Denmark|Egypt|Eritrea|Estonia|Ethiopia|Fiji|Finland|France|Gambia|Georgia|Germany|Ghana|Greece|Guatemala|Guinea|Haiti|Honduras|Hungary|Iceland|India|Indonesia|Iran|Iraq|Ireland|Israel|Italy|Ivory Coast|Japan|Jordan|Kazakhstan|Kenya|Kosovo|Kuwait|Kyrgyzstan|Laos|Latvia|Lebanon|Liberia|Libya|Lithuania|Macedonia|Madagascar|Malawi|Malaysia|Maldives|Mali|Malta|Mauritania|Mauritius|Mexico|Moldova|Mongolia|Montenegro|Morocco|Mozambique|Nepal|Netherlands|New Zealand|Nicaragua|Niger|Nigeria|North Korea|DPRK|Norway|Oman|Pakistan|Palestine|Panama|Peru|Philippines|Poland|Portugal|Qatar|Romania|Russia|Rwanda|Saudi Arabia|Senegal|Serbia|Sierra Leone|Singapore|Slovakia|Slovenia|Somalia|South Africa|South Korea|South Sudan|Spain|Sri Lanka|Sudan|Sweden|Switzerland|Syria|Taiwan|Tajikistan|Tanzania|Thailand|Tunisia|Turkey|Turkmenistan|Uganda|Ukraine|United Arab Emirates|United Kingdom|United States|Uzbekistan|Venezuela|Vietnam|Yemen|Zambia|Zimbabwe"
+  },
+  "sources": {
+    "fed": {
+      "attribution": "Board of Governors of the Federal Reserve System",
+      "cue_class": "Macro",
+      "licence": "Public domain Board material, except identified third-party material",
+      "terms_url": "https://www.federalreserve.gov/disclaimer.htm",
+      "conditions": "Cite the Board; exclude third-party material and protected seals/logos.",
+      "date_field": "press-release URL date",
+      "status": "blocked",
+      "rows": 0,
+      "reason": "Prior archive request returned HTTP 403 (E25_REAL_SOURCES); skipped, no bypass."
+    },
+    "ecb": {
+      "attribution": "European Central Bank, Frankfurt am Main, Germany",
+      "cue_class": "Macro",
+      "licence": "ECB website copyright and free-use terms (not Creative Commons)",
+      "terms_url": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+      "conditions": "Cite ECB; reproduce accurately; disclose changes. For sold documents, tell buyers the information is available free from ECB. No framing. Exclude named-author papers, which need permission; only institutional press releases here.",
+      "date_field": "press-release URL date",
+      "status": "fetched",
+      "rows": 7
+    },
+    "govuk_fco": {
+      "attribution": "Foreign & Commonwealth Office, GOV.UK; Crown copyright",
+      "cue_class": "Geo",
+      "licence": "Open Government Licence v3.0, subject to its exclusions",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "terms_url": "https://www.gov.uk/help/reuse-govuk-content",
+      "conditions": "Contains public sector information licensed under the Open Government Licence v3.0. Retain attribution and licence link; no endorsement; excludes third-party rights, personal data, logos and other OGL exceptions.",
+      "date_field": "Search API public_timestamp (update time, never before first publication, so a date <= 2016 is a safe upper bound)",
+      "status": "fetched",
+      "rows": 8320
+    }
+  },
+  "sample_path": "data/cache/e25/official_titles.csv",
+  "sample_sha256": "db09a690b1a58917bf26b790251302c5029dbaf2d2507aefdd5e939665ed3790",
+  "script_sha256": "b7f6c954165ce31cc3bcf85eff6050d014b96eaa163ce3fba0ef11006f97b211",
+  "raw_cache_path": "data/cache/e25/official",
+  "fetch_policy": "One request per second; honor robots and longer crawl delays; stop each unavailable/blocked source; no access bypass. Dry-run writes nothing.",
+  "raw_responses": {
+    "21b5c81633ce31f01c75a0b5ed89478ab39b6fe9a779da8e54cc540af5de0f00": {
+      "url": "https://www.ecb.europa.eu/robots.txt",
+      "final_url": "https://www.ecb.europa.eu/robots.txt",
+      "status": 200,
+      "sha256": "8e55738f64103300babd50db62b59ff5fd47fa7e51a497a7e2f13bf6669b6655",
+      "bytes": 1141,
+      "fetched_at_utc": "2026-10-17T07:57:00.773025+00:00"
+    },
+    "b1e512330bc99b3fe4ebff97d7511584880f0a59775e965359555b35714dbd21": {
+      "url": "https://www.ecb.europa.eu/press/pr/date/2010/html/index.en.html",
+      "final_url": "https://www.ecb.europa.eu/press/pubbydate/html/index.en.html?name_of_publication=Press%20release&year=2010",
+      "status": 200,
+      "sha256": "273a6c04471728af03972f968fd570a5035cb8bd3cf30e0000d6143aa597ffa1",
+      "bytes": 99883,
+      "fetched_at_utc": "2026-10-17T07:57:06.211882+00:00"
+    },
+    "3c255c7a073378a730757b71ee5652ed69756245bb25c6d705925fba96dc6f65": {
+      "url": "https://www.ecb.europa.eu/press/pr/date/2011/html/index.en.html",
+      "final_url": "https://www.ecb.europa.eu/press/pubbydate/html/index.en.html?name_of_publication=Press%20release&year=2011",
+      "status": 200,
+      "sha256": "507e9935a8ce74ba037a5d3b7392ba4bd1b0fd28ba0be51b8176061b6ef9b9c4",
+      "bytes": 99860,
+      "fetched_at_utc": "2026-10-17T07:59:04.378388+00:00"
+    },
+    "01df4a7207a091a3e676755767811f560ee5b72cbb979d114a1d515415f080a0": {
+      "url": "https://www.ecb.europa.eu/press/pr/date/2012/html/index.en.html",
+      "final_url": "https://www.ecb.europa.eu/press/pubbydate/html/index.en.html?name_of_publication=Press%20release&year=2012",
+      "status": 200,
+      "sha256": "507e9935a8ce74ba037a5d3b7392ba4bd1b0fd28ba0be51b8176061b6ef9b9c4",
+      "bytes": 99860,
+      "fetched_at_utc": "2026-10-17T07:59:14.149336+00:00"
+    },
+    "dc9767db36f3bd7fa418630b382a2e4a368fe6ae804cbec2ebe8dfbcf5d9f082": {
+      "url": "https://www.ecb.europa.eu/press/pr/date/2013/html/index.en.html",
+      "final_url": "https://www.ecb.europa.eu/press/pubbydate/html/index.en.html?name_of_publication=Press%20release&year=2013",
+      "status": 200,
+      "sha256": "507e9935a8ce74ba037a5d3b7392ba4bd1b0fd28ba0be51b8176061b6ef9b9c4",
+      "bytes": 99860,
+      "fetched_at_utc": "2026-10-17T07:59:24.150655+00:00"
+    },
+    "d832afdda53291cce7fd1be3ddbaffa45207fe46a20b1e3133c3ad13445c05e2": {
+      "url": "https://www.ecb.europa.eu/press/pr/date/2014/html/index.en.html",
+      "final_url": "https://www.ecb.europa.eu/press/pubbydate/html/index.en.html?name_of_publication=Press%20release&year=2014",
+      "status": 200,
+      "sha256": "507e9935a8ce74ba037a5d3b7392ba4bd1b0fd28ba0be51b8176061b6ef9b9c4",
+      "bytes": 99860,
+      "fetched_at_utc": "2026-10-17T07:59:34.150854+00:00"
+    },
+    "63f8c21b7b3449d3b0ce1ae323bf114edcc439b3a4554561b59e8936245250c3": {
+      "url": "https://www.ecb.europa.eu/press/pr/date/2015/html/index.en.html",
+      "final_url": "https://www.ecb.europa.eu/press/pubbydate/html/index.en.html?name_of_publication=Press%20release&year=2015",
+      "status": 200,
+      "sha256": "507e9935a8ce74ba037a5d3b7392ba4bd1b0fd28ba0be51b8176061b6ef9b9c4",
+      "bytes": 99860,
+      "fetched_at_utc": "2026-10-17T07:59:44.149552+00:00"
+    },
+    "82c713dd279baf42db4458e4bbd6f65f60764e0bfc6c1fc2ee7990f94a4ff484": {
+      "url": "https://www.ecb.europa.eu/press/pr/date/2016/html/index.en.html",
+      "final_url": "https://www.ecb.europa.eu/press/pubbydate/html/index.en.html?name_of_publication=Press%20release&year=2016",
+      "status": 200,
+      "sha256": "507e9935a8ce74ba037a5d3b7392ba4bd1b0fd28ba0be51b8176061b6ef9b9c4",
+      "bytes": 99860,
+      "fetched_at_utc": "2026-10-17T07:59:54.151934+00:00"
+    },
+    "1be5a93c1802658b627cb1dda87a1a97d93fc2e749c9df2aeba0fc24e5d45fc8": {
+      "url": "https://www.gov.uk/robots.txt",
+      "final_url": "https://www.gov.uk/robots.txt",
+      "status": 200,
+      "sha256": "459835d29527b9c00f00f6af00f45c73a909af1944e81fefa153f585e1857305",
+      "bytes": 1097,
+      "fetched_at_utc": "2026-10-17T07:57:16.269456+00:00"
+    },
+    "b4e1db2944ac41d0d0e358c7f419db30416b0e95b914b12e2fed5c446bbad16e": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=0",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=0",
+      "status": 200,
+      "sha256": "da44e6c64bbc64ddaf06d5673dc14a0b95ee8bd0cb1c0d55064eab37d8d52f03",
+      "bytes": 184158,
+      "fetched_at_utc": "2026-10-17T08:00:00.296151+00:00"
+    },
+    "da1c8a1adebfbdd26eaaca31452306d69721e7dbecc6163dd8715c5cef0a3475": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=500",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=500",
+      "status": 200,
+      "sha256": "e49e0ecaf98fd2df17742c71a7362a04bb1db8439d766438fc0b11b525470455",
+      "bytes": 190485,
+      "fetched_at_utc": "2026-10-17T08:00:05.132506+00:00"
+    },
+    "104b7b7f848139325627653a4455238a06d9833d2f4be0b1b9a84f94a37c4a8c": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=1000",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=1000",
+      "status": 200,
+      "sha256": "8ba9e3102a7c9d5d222c000b2a6593d07abbd16d96212dc9df473caa201ac744",
+      "bytes": 189210,
+      "fetched_at_utc": "2026-10-17T08:00:10.231988+00:00"
+    },
+    "6d1a1b4b2dbbc98c0c4855e7d1fbf12e0a710b03da2ba28a9586a59c8ecb70e3": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=1500",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=1500",
+      "status": 200,
+      "sha256": "a93372fa65f1fd8badae31d10ec2c2bfc7a3985892e6a19a1f79cf6776bc5518",
+      "bytes": 175092,
+      "fetched_at_utc": "2026-10-17T08:00:15.132558+00:00"
+    },
+    "dc28f586f908a35c0b231974ff766feae77884b84d5047914e8b85e997ac5a08": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=2000",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=2000",
+      "status": 200,
+      "sha256": "a73dc7bd0b9d76f9a75bc14bbc492921876ba0e79b2610903889e5df2c6ec027",
+      "bytes": 181490,
+      "fetched_at_utc": "2026-10-17T08:00:20.027563+00:00"
+    },
+    "8fd8b124b1d6c3a5798e2d8ac2a1e190ff6a4dda084155b659f59735e6f05433": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=2500",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=2500",
+      "status": 200,
+      "sha256": "a94e8d5f418226d756f415d309790310f291ddc02d61f71722c06e1f0b243f60",
+      "bytes": 184156,
+      "fetched_at_utc": "2026-10-17T08:00:24.967079+00:00"
+    },
+    "43a4f95a2fce68bcba63c02381ed9352d57361d7b7eefbb7618a6f7fdeabceb4": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=3000",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=3000",
+      "status": 200,
+      "sha256": "992138002797964861a067eeb628439b701b19859e99b48329722337f5156672",
+      "bytes": 188050,
+      "fetched_at_utc": "2026-10-17T08:00:29.778977+00:00"
+    },
+    "5ec1501559fa802838fc953b1bd6fed25740d871f5c088d588e3f838f1ec3887": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=3500",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=3500",
+      "status": 200,
+      "sha256": "00552345a7b03849eeb015c40a41a3d33199b9a67ebb5e2d2ac24c70366ba553",
+      "bytes": 183548,
+      "fetched_at_utc": "2026-10-17T08:00:34.580018+00:00"
+    },
+    "17b7e32a5adf1b13120f532283641a57ceb4eb739de060574283a8a016ef3da0": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=4000",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=4000",
+      "status": 200,
+      "sha256": "d4906faf91d375667cd7348a13dc554e81a8f79ee73e9c2e57895845d5b10820",
+      "bytes": 187698,
+      "fetched_at_utc": "2026-10-17T08:00:40.233074+00:00"
+    },
+    "c6068adead8a9f6067c0106e7f7762281e8635c837fd6a7f4ec76ae94885fa90": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=4500",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=4500",
+      "status": 200,
+      "sha256": "04ae1c345a66f29409c77df4745ab1292b9cb684ee063256e6a923a69462488e",
+      "bytes": 189091,
+      "fetched_at_utc": "2026-10-17T08:00:45.041672+00:00"
+    },
+    "0be2b749df3dcc180770512b07dcfa06f26540f356d0bf737f75ad4c115b4c03": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=5000",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=5000",
+      "status": 200,
+      "sha256": "0e446882d41be07f00d5e8780564121e71ed14a2063ff5018a4daa1539e431a6",
+      "bytes": 181361,
+      "fetched_at_utc": "2026-10-17T08:00:49.851804+00:00"
+    },
+    "e6de7ae82a028029e1dac73a4accc895ad301fae88fcc2ea8043815089bef1b6": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=5500",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=5500",
+      "status": 200,
+      "sha256": "8146a573c63c99a4e68bde2883d51b51124bd892f7ac5c3d10bef864ec6f5e70",
+      "bytes": 181412,
+      "fetched_at_utc": "2026-10-17T08:00:55.175182+00:00"
+    },
+    "69c37b317ae467f05ca997da92d83352dfb294b8a43865429a89e137d54867fb": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=6000",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=6000",
+      "status": 200,
+      "sha256": "7da7364e049a929b0734c8788df7f9a5931c9a3e36070bde10be8b7fa236191e",
+      "bytes": 183404,
+      "fetched_at_utc": "2026-10-17T08:01:00.035884+00:00"
+    },
+    "44805265ec04307d81d8bcebcdacf7bad4f08572d4740cb6000800412d4b1137": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=6500",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=6500",
+      "status": 200,
+      "sha256": "b3229041194dab9ff214f5d2d1bf91e817562d6fe6e727a24fd4233c55925465",
+      "bytes": 186763,
+      "fetched_at_utc": "2026-10-17T08:01:04.458168+00:00"
+    },
+    "ab0e3ac1a7e82723661e8e517b0135a580468cb827b0fb27468f20a67902d7cc": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=7000",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=7000",
+      "status": 200,
+      "sha256": "3ea4d85dcd90c0797b1df925aea45493b5dd0f4c2a1df4b137d34c89e6db4f25",
+      "bytes": 189681,
+      "fetched_at_utc": "2026-10-17T08:01:09.436905+00:00"
+    },
+    "659d8eea3a9d903d9d836930a0066301deae7dc0ce4df96bdc69abcb33694082": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=7500",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=7500",
+      "status": 200,
+      "sha256": "f9412aa775430a392e030d01eb5e39b150f30d010e1ef559594f8e163182ee67",
+      "bytes": 189905,
+      "fetched_at_utc": "2026-10-17T08:01:15.142345+00:00"
+    },
+    "d493816d0b5e4d87bc8687e372128330eec1b084701f49667b14defb8afb3146": {
+      "url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=8000",
+      "final_url": "https://www.gov.uk/api/search.json?filter_organisations%5B%5D=foreign-commonwealth-office&filter_format%5B%5D=news_story&filter_format%5B%5D=press_release&fields=title&fields=link&fields=public_timestamp&count=500&start=8000",
+      "status": 200,
+      "sha256": "61427bc936004a0b308a641828c40c0bc62fcead4b78a412c2405cb1ddf57159",
+      "bytes": 123124,
+      "fetched_at_utc": "2026-10-17T08:01:19.238620+00:00"
+    }
+  },
+  "leak_check": "passed",
+  "cleared_against": [
+    "E25 extra",
+    "E25 pool",
+    "R3 reserved texts",
+    "credit held-out reserved texts",
+    "fixed_exclusions_00",
+    "fixed_exclusions_01",
+    "fixed_exclusions_02",
+    "fixed_exclusions_03",
+    "fixed_exclusions_04",
+    "fixed_exclusions_05",
+    "fixed_exclusions_06",
+    "fixed_exclusions_07",
+    "fixed_exclusions_08",
+    "fixed_exclusions_09"
+  ],
+  "audit": {
+    "raw_rows": 8327,
+    "after_min_length": 8173,
+    "after_original_date_window": 6442,
+    "after_english_screen": 4582,
+    "after_cues": 696,
+    "after_initial_dedup": 677,
+    "before_cap": 677,
+    "exclusion_passes": [
+      {
+        "frame": 677,
+        "excluded_by_set": {
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0,
+          "E25 pool": 0,
+          "E25 extra": 0,
+          "R3 reserved texts": 0,
+          "credit held-out reserved texts": 0
+        },
+        "excluded_total": 0,
+        "after_exclusions": 677
+      },
+      {
+        "frame": 400,
+        "excluded_by_set": {
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0,
+          "E25 pool": 0,
+          "E25 extra": 0,
+          "R3 reserved texts": 0,
+          "credit held-out reserved texts": 0
+        },
+        "excluded_total": 0,
+        "after_exclusions": 400
+      }
+    ],
+    "sample_rows": 400
+  }
+}

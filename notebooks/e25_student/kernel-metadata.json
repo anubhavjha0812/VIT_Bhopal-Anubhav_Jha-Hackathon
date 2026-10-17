@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-e25-student-train",
+  "title": "sp-riskengine-e25-student-train",
+  "code_file": "train_student.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": ["anubhavjha0812/sp-riskengine-e25-student"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

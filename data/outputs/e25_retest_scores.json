@@ -1,0 +1,55 @@
+{
+  "rows": 400,
+  "reference_counts": {
+    "Other": 236,
+    "Analyst rating": 38,
+    "Earnings": 32,
+    "Legal/Regulatory": 32,
+    "Product news": 30,
+    "M&A": 17,
+    "Macroeconomic": 9,
+    "Geopolitical": 3,
+    "Management change": 3
+  },
+  "scores": {
+    "A": {
+      "macro_f1_fixed_12": 0.3122,
+      "macro_f1_supported": 0.4163,
+      "accuracy": 0.4525
+    },
+    "C": {
+      "macro_f1_fixed_12": 0.4363,
+      "macro_f1_supported": 0.5817,
+      "accuracy": 0.695
+    },
+    "D": {
+      "macro_f1_fixed_12": 0.4436,
+      "macro_f1_supported": 0.5914,
+      "accuracy": 0.705
+    },
+    "E": {
+      "macro_f1_fixed_12": 0.469,
+      "macro_f1_supported": 0.6254,
+      "accuracy": 0.73
+    }
+  },
+  "rule": {
+    "gain": 0.0327,
+    "gain_ok": true,
+    "class_f1_change": {
+      "M&A": 0.1349,
+      "Product news": 0.0,
+      "Earnings": 0.161,
+      "Analyst rating": 0.0423,
+      "Legal/Regulatory": 0.0817,
+      "Other": 0.0014
+    },
+    "no_big_drop": true,
+    "e_replaces_c": true,
+    "gain_ci95_bootstrap": [
+      -0.0496,
+      0.111
+    ]
+  },
+  "note": "AI-derived labels (Claude, blind); R3 is a development set."
+}

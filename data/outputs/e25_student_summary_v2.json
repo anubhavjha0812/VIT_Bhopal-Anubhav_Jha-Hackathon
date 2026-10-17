@@ -1,0 +1,283 @@
+{
+  "chosen": {
+    "seed": 43,
+    "best": {
+      "epoch": 3,
+      "valid_macro_f1": 0.8738,
+      "valid_acc": 0.9267
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "valid_macro_f1": 0.7997,
+        "valid_acc": 0.8848
+      },
+      {
+        "epoch": 2,
+        "valid_macro_f1": 0.8399,
+        "valid_acc": 0.9058
+      },
+      {
+        "epoch": 3,
+        "valid_macro_f1": 0.8738,
+        "valid_acc": 0.9267
+      },
+      {
+        "epoch": 4,
+        "valid_macro_f1": 0.861,
+        "valid_acc": 0.9236
+      }
+    ]
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "best": {
+        "epoch": 4,
+        "valid_macro_f1": 0.8675,
+        "valid_acc": 0.9309
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "valid_macro_f1": 0.8412,
+          "valid_acc": 0.9173
+        },
+        {
+          "epoch": 2,
+          "valid_macro_f1": 0.8591,
+          "valid_acc": 0.9204
+        },
+        {
+          "epoch": 3,
+          "valid_macro_f1": 0.856,
+          "valid_acc": 0.9257
+        },
+        {
+          "epoch": 4,
+          "valid_macro_f1": 0.8675,
+          "valid_acc": 0.9309
+        }
+      ]
+    },
+    {
+      "seed": 43,
+      "best": {
+        "epoch": 3,
+        "valid_macro_f1": 0.8738,
+        "valid_acc": 0.9267
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "valid_macro_f1": 0.7997,
+          "valid_acc": 0.8848
+        },
+        {
+          "epoch": 2,
+          "valid_macro_f1": 0.8399,
+          "valid_acc": 0.9058
+        },
+        {
+          "epoch": 3,
+          "valid_macro_f1": 0.8738,
+          "valid_acc": 0.9267
+        },
+        {
+          "epoch": 4,
+          "valid_macro_f1": 0.861,
+          "valid_acc": 0.9236
+        }
+      ]
+    },
+    {
+      "seed": 44,
+      "best": {
+        "epoch": 4,
+        "valid_macro_f1": 0.8736,
+        "valid_acc": 0.9309
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "valid_macro_f1": 0.8436,
+          "valid_acc": 0.9068
+        },
+        {
+          "epoch": 2,
+          "valid_macro_f1": 0.8696,
+          "valid_acc": 0.9277
+        },
+        {
+          "epoch": 3,
+          "valid_macro_f1": 0.86,
+          "valid_acc": 0.9257
+        },
+        {
+          "epoch": 4,
+          "valid_macro_f1": 0.8736,
+          "valid_acc": 0.9309
+        }
+      ]
+    }
+  ],
+  "rows": {
+    "train": 22635,
+    "valid": 955,
+    "train_by_class": {
+      "Product news": 5827,
+      "Other": 5350,
+      "Legal/Regulatory": 3101,
+      "Earnings": 2031,
+      "M&A": 1618,
+      "Management change": 1585,
+      "Analyst rating": 1519,
+      "Geopolitical": 881,
+      "Macroeconomic": 723
+    },
+    "train_by_source": {
+      "pool": 17741,
+      "tfn": 4469,
+      "extra": 425
+    },
+    "tfn_train": {
+      "Earnings": 600,
+      "Product news": 600,
+      "Geopolitical": 600,
+      "Other": 600,
+      "Macroeconomic": 600,
+      "M&A": 441,
+      "Management change": 424,
+      "Legal/Regulatory": 387,
+      "Analyst rating": 217
+    },
+    "tfn_dev": {
+      "Other": 492,
+      "Product news": 318,
+      "Macroeconomic": 283,
+      "Earnings": 130,
+      "Geopolitical": 84,
+      "M&A": 48,
+      "Legal/Regulatory": 45,
+      "Management change": 45,
+      "Analyst rating": 26
+    }
+  },
+  "reports": {
+    "valid_per_class": {
+      "M&A": {
+        "support": 62,
+        "predicted": 73,
+        "precision": 0.8356,
+        "recall": 0.9839
+      },
+      "Geopolitical": {
+        "support": 15,
+        "predicted": 16,
+        "precision": 0.6875,
+        "recall": 0.7333
+      },
+      "Macroeconomic": {
+        "support": 6,
+        "predicted": 11,
+        "precision": 0.4545,
+        "recall": 0.8333
+      },
+      "Product news": {
+        "support": 275,
+        "predicted": 266,
+        "precision": 0.9662,
+        "recall": 0.9345
+      },
+      "Earnings": {
+        "support": 75,
+        "predicted": 77,
+        "precision": 0.961,
+        "recall": 0.9867
+      },
+      "Analyst rating": {
+        "support": 68,
+        "predicted": 76,
+        "precision": 0.8816,
+        "recall": 0.9853
+      },
+      "Legal/Regulatory": {
+        "support": 143,
+        "predicted": 152,
+        "precision": 0.9342,
+        "recall": 0.993
+      },
+      "Management change": {
+        "support": 61,
+        "predicted": 64,
+        "precision": 0.9375,
+        "recall": 0.9836
+      },
+      "Other": {
+        "support": 250,
+        "predicted": 220,
+        "precision": 0.9455,
+        "recall": 0.832
+      }
+    },
+    "tfn_dev_per_class": {
+      "M&A": {
+        "support": 48,
+        "predicted": 72,
+        "precision": 0.5556,
+        "recall": 0.8333
+      },
+      "Geopolitical": {
+        "support": 84,
+        "predicted": 107,
+        "precision": 0.7664,
+        "recall": 0.9762
+      },
+      "Macroeconomic": {
+        "support": 283,
+        "predicted": 269,
+        "precision": 0.9182,
+        "recall": 0.8728
+      },
+      "Product news": {
+        "support": 318,
+        "predicted": 272,
+        "precision": 0.9081,
+        "recall": 0.7767
+      },
+      "Earnings": {
+        "support": 130,
+        "predicted": 153,
+        "precision": 0.8431,
+        "recall": 0.9923
+      },
+      "Analyst rating": {
+        "support": 26,
+        "predicted": 46,
+        "precision": 0.5435,
+        "recall": 0.9615
+      },
+      "Legal/Regulatory": {
+        "support": 45,
+        "predicted": 62,
+        "precision": 0.7097,
+        "recall": 0.9778
+      },
+      "Management change": {
+        "support": 45,
+        "predicted": 62,
+        "precision": 0.7097,
+        "recall": 0.9778
+      },
+      "Other": {
+        "support": 492,
+        "predicted": 428,
+        "precision": 0.8972,
+        "recall": 0.7805
+      }
+    },
+    "tfn_dev_macro_f1_9": 0.8159
+  },
+  "int8_mb": 33.9,
+  "minutes": 7.3
+}

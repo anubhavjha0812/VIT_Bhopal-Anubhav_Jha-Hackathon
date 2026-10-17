@@ -33,9 +33,13 @@ CLASSES = [
     "Default", "Credit downgrade", "Covenant breach", "Geopolitical", "Macroeconomic", "M&A",
     "Product news", "Earnings", "Analyst rating", "Legal/Regulatory", "Management change", "Other",
 ]  # fmt: skip
-LABEL_SOURCES = {"ai_agreed", "ai_agreed_human_audited", "human_adjudicated", "excluded"}
+LABEL_SOURCES = {
+    "ai_agreed", "ai_agreed_human_audited", "human_adjudicated", "excluded",
+    "ai_adjudicated", "ai_agreed_ai_audited",  # docs/E25_LABELLER_AMENDMENT.md
+}  # fmt: skip
 LABEL_COLUMNS = ["item_id", "label", "ambiguous", "rationale", "label_source"]
-CANDIDATES = {"A", "B", "C", "D"}
+LABELLER_B = ("gemini", "claude")  # docs/E25_LABELLER_AMENDMENT.md
+CANDIDATES = {"A", "B", "C", "D", "E"}  # E: docs/E25_AMENDMENT.md
 GRID = [round(0.30 + 0.05 * i, 2) for i in range(9)]  # 0.30 ... 0.70, fixed in E24
 E24_SECTION_SHA = "bfffa0ad37366c8a"  # first 16 hex of the locked DECISIONS E24 section
 BOOT, BOOT_SEED, MAX_WIDTH, TWEET_MARGIN = 1000, 0, 0.20, 0.05
@@ -48,6 +52,9 @@ PINNED = [
     "src/riskengine/nlp/events.py",
     "src/riskengine/nlp/classifier.py",
     "models/topic/model.onnx",
+    "src/riskengine/eval/e25_candidate.py",
+    "private_notes/annotation_uploads/task1/e25_student_output/v2/models/"
+    "e25-student-bge-small-en-v1.5-int8/model.onnx",
 ]
 LOW_SUPPORT = 5
 RECORD_FIELDS = [
@@ -247,7 +254,7 @@ def freeze_candidate(
     if temperature is not None and not temperature > 0:
         raise GateError("temperature must be positive")
     if candidate != "A" and rules_file is None:
-        raise GateError("candidates B, C, D need their rules file")
+        raise GateError("candidates B, C, D, E need their rules file")
     early = final_annotation_files(p)
     if early:
         names = ", ".join(f.name for f in early)
@@ -397,7 +404,11 @@ def _run_final(p: Paths, factory: Factory) -> dict:
     check_frozen(p)
     frozen = check_candidate(p)
     for set_name in FINAL_SETS:
-        for labeller in ("chatgpt", "gemini"):
+        second = next(
+            (b for b in LABELLER_B if (p.gold / "records" / f"{b}_{set_name}.json").exists()),
+            LABELLER_B[0],
+        )
+        for labeller in ("chatgpt", second):
             check_record(p.gold / "records" / f"{labeller}_{set_name}.json", p, labeller, set_name)
     results = {
         "rule": "docs/DECISIONS.md E24",
@@ -423,7 +434,14 @@ def _run_final(p: Paths, factory: Factory) -> dict:
         c, c_src = factory(frozen_now)(texts)
         boot = paired_bootstrap(y, a, c)
         bound = 0.0 if set_name == "final_news" else -TWEET_MARGIN
-        touched = df["label_source"].isin(["human_adjudicated", "ai_agreed_human_audited"])
+        touched = df["label_source"].isin(
+            [
+                "human_adjudicated",
+                "ai_agreed_human_audited",
+                "ai_adjudicated",
+                "ai_agreed_ai_audited",
+            ]
+        )
         sup = pd.Series(y).value_counts().reindex(CLASSES, fill_value=0)
         idx = touched.to_numpy()
         results[set_name] = {

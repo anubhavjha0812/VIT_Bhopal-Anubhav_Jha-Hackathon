@@ -1,0 +1,35 @@
+{
+  "frame": 13081,
+  "excluded_by_set": {
+    "training (TFN topic train+valid, TFNS train+valid)": 34,
+    "E3": 314,
+    "E23 sample": 23,
+    "E22b alerts": 1,
+    "E17 relevance samples": 63,
+    "E21 tweet sample": 0,
+    "FinEntity": 0,
+    "other project's gold-1, gold-2, entity check": 0,
+    "E24 final news": 0,
+    "E24 final tweets": 0
+  },
+  "excluded_total": 432,
+  "after_exclusions": 12649,
+  "window": [
+    "2019-01-01",
+    "2020-07-01"
+  ],
+  "seed": 26,
+  "rows": 400,
+  "by_stratum": {
+    "random": 200,
+    "Earnings": 25,
+    "Analyst rating": 25,
+    "Management change": 25,
+    "Product news": 25,
+    "Macroeconomic": 25,
+    "Legal/Regulatory": 25,
+    "M&A": 25,
+    "Geopolitical": 25
+  },
+  "sha256": "7d1856f179aa34a9b003c6b758e2c7fc3e277bf79ba9588cc52ff13c1ebc1f39"
+}

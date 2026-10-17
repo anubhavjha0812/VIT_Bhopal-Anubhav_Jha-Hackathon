@@ -106,7 +106,7 @@ def test_predictor_order_and_sources():
 
 
 @pytest.mark.parametrize(
-    "cfg", [Config("D", 0.42), Config("D"), Config("A", 0.5), Config("E")]
+    "cfg", [Config("D", 0.42), Config("D"), Config("A", 0.5), Config("F"), Config("E", 0.5)]
 )  # fmt: skip
 def test_threshold_grid_is_enforced(cfg):
     with pytest.raises(GateError):
@@ -245,3 +245,26 @@ def test_freeze_pins_inference_and_refuses_runtime_method_change(env, monkeypatc
     monkeypatch.setattr(e24_inference, "inference_metadata", lambda _: method | {"batch_size": 64})
     with pytest.raises(GateError, match="method/settings mismatch"):
         check_candidate(p)
+
+
+def test_e_needs_clear_margin(env):
+    p, _, d2, _ = env
+    lab = pd.read_csv(d2, dtype=str)
+    texts = [t for t in ["Beta launches a phone", "Beta phone sales talk at a conference",
+                         "Beta quarterly profit rises", "Beta unsure markets drift",
+                         "Beta hesitant markets drift"]]  # fmt: skip
+    tie = select(lab, texts, fake_probs, None, e_probs=fake_probs)  # E scores same as C
+    assert "E" in tie["scores"] and tie["chosen"] != "E"
+
+    def better(ts):  # a student that also knows 'quarterly' is Earnings
+        names, pr = fake_probs(ts)
+        pr = pr.copy()
+        for i, t in enumerate(ts):
+            if "quarterly" in t:
+                pr[i] = 0.01
+                pr[i, names.index("Earnings")] = 0.92
+        return names, pr
+
+    clear = select(lab, texts, fake_probs, None, e_probs=better)
+    gain = clear["scores"]["E"]["macro_f1"] - max(clear["scores"][c]["macro_f1"] for c in "ABCD")
+    assert (clear["chosen"] == "E") == (gain >= 0.02)

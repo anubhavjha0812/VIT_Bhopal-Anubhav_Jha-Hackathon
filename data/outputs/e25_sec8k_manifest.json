@@ -1,0 +1,456 @@
+{
+  "cap_per_item": 150,
+  "counts_per_item": {
+    "1.03": 13,
+    "2.04": 11
+  },
+  "exclusions": {
+    "E25 extra": {
+      "rows": 1212,
+      "sha256": "d687f2b3cc0413b8fa29ab692cbe489278cebaa134ed3227f01679264a7a622b"
+    },
+    "E25 pool": {
+      "rows": 40453,
+      "sha256": "be3ae28eab208c14fd18845b4401cf56e009d060e48d7788c4c03e622792c73c"
+    },
+    "R3": {
+      "rows": 400,
+      "sha256": "bcca7933d07ec2cbfee703ef98c85fd8cb92d6b27b74603d8fa5fc4c2b777377"
+    },
+    "credit held-out": {
+      "rows": 150,
+      "sha256": "67007d0064b6050da8a2abfa15a9fd693943101ec42de16aa9a131256ea8a115"
+    },
+    "fixed_exclusions_00": {
+      "rows": 33038,
+      "sha256": "75c16ff4d996ecf167d053eb5eedbeb7b7e8558cedbbd0ce753e7a67f645e7b1"
+    },
+    "fixed_exclusions_01": {
+      "rows": 300,
+      "sha256": "8202b67ba8ed5913b10744984bc11a9ec0f38f78d0e0f538d8e23118e1ca6ab0"
+    },
+    "fixed_exclusions_02": {
+      "rows": 243,
+      "sha256": "1f654a329443dd2b36cebfef1c20cbb6e3e867f00c5a6515fe54811547a6a281"
+    },
+    "fixed_exclusions_03": {
+      "rows": 83,
+      "sha256": "cd54e0f7b07d146f5c59063faeb4741a7e87e510245242cc0b3115a99d28592b"
+    },
+    "fixed_exclusions_04": {
+      "rows": 396,
+      "sha256": "39cbf6e1ecb42c231fec0208cf9628902721ca91e9228d5d92bb42cd558045a3"
+    },
+    "fixed_exclusions_05": {
+      "rows": 300,
+      "sha256": "59bf2cb175b99c3de5fc628c690f99fb260bcb3f8db51c99ef5b7e79a4f4bca9"
+    },
+    "fixed_exclusions_06": {
+      "rows": 851,
+      "sha256": "418b5923d7217aa00af0ad8732da81caf134a2c328c5d496c3909c543fc9ea6c"
+    },
+    "fixed_exclusions_07": {
+      "rows": 600,
+      "sha256": "31b111aab0756dfb28c878589798f91dcbf543a009b6127ffb5d01f67a305a3b"
+    },
+    "fixed_exclusions_08": {
+      "rows": 200,
+      "sha256": "f8d7c135d58616dcaa224822417e88eed846840559634568b4636da955278b51"
+    },
+    "fixed_exclusions_09": {
+      "rows": 100,
+      "sha256": "9ef2cb0832ec6f80527808970371620496f829c6a50a549ef26c4e61f69de6e4"
+    }
+  },
+  "filing_window": [
+    "2010-01-01",
+    "2020-06-30"
+  ],
+  "headline_window_days": [
+    -2,
+    5
+  ],
+  "leak_filter": {
+    "after_draw": [
+      {
+        "after_exclusions": 13,
+        "excluded_by_set": {
+          "E25 extra": 0,
+          "E25 pool": 0,
+          "R3": 0,
+          "credit held-out": 0,
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0
+        },
+        "excluded_total": 0,
+        "frame": 13
+      }
+    ],
+    "before_draw": [
+      {
+        "after_exclusions": 13,
+        "excluded_by_set": {
+          "E25 extra": 1,
+          "E25 pool": 2,
+          "R3": 0,
+          "credit held-out": 1,
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 10,
+          "fixed_exclusions_03": 6,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0
+        },
+        "excluded_total": 14,
+        "frame": 27
+      },
+      {
+        "after_exclusions": 13,
+        "excluded_by_set": {
+          "E25 extra": 0,
+          "E25 pool": 0,
+          "R3": 0,
+          "credit held-out": 0,
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0
+        },
+        "excluded_total": 0,
+        "frame": 13
+      }
+    ]
+  },
+  "matched_unique_headlines": 27,
+  "note": "8-K item codes are anchors for sampling, not labels. Headline text still gets labelled blind. The labeller reads to_label.csv only, never anchors.csv or this manifest. This is a separate supplementary credit set, not E24 or a tuning set.",
+  "rows": 13,
+  "rule": "8-K filings 2010-01-01 through 2020-06-30; client-side exact item recheck; local FNSPID headline dated filing-2 through filing+5 days, inclusive; normalized issuer name without legal suffixes or literal uppercase ticker in text; unique normalized headline, earliest matching date; standard E25 leak exclusions plus R3, credit held-out, pool and extra; seeded hash draw, at most 150 headlines/item",
+  "script_sha256": "955cb76f1df55a3a03c6c2fead61747c4a90044a8fcbd51bc1981d561e3f2abb",
+  "sec_cache": {
+    "counts_per_item": {
+      "1.03": {
+        "dropped_item_hits": 0,
+        "dropped_metadata_hits": 0,
+        "hits": 1377,
+        "kept_hits": 1377
+      },
+      "2.04": {
+        "dropped_item_hits": 980,
+        "dropped_metadata_hits": 0,
+        "hits": 1377,
+        "kept_hits": 397
+      }
+    },
+    "filings": 1821,
+    "sha256": {
+      "1.03_2010-01-01_2010-12-31_000000.json": "c1ec40b46d6ed3f05031baa2e852b3e13d38e026cd6bba6dadacd86032206f94",
+      "1.03_2010-01-01_2010-12-31_000100.json": "8e0328aed243f25d2ee3f97cb8db9351d5a59949175975021fee4a8a528e3e66",
+      "1.03_2011-01-01_2011-12-31_000000.json": "17fe59225e9152e35bcddeab019878bfb07d75966cebb21d96e0d21b0151e012",
+      "1.03_2011-01-01_2011-12-31_000100.json": "3e9ae48c14b9e2a424fd85f760aa5f37de872e32acfbabd0d8c3d4e47d824988",
+      "1.03_2012-01-01_2012-12-31_000000.json": "f1d8a8c69b3fcce1ac88ce7bc855797350c652d59d1a9de7f6b007058731ef98",
+      "1.03_2012-01-01_2012-12-31_000100.json": "5f1b3f249707a3d648a4715af2792a9a0e831d1c915ff6dc08caf683d8ce86ca",
+      "1.03_2013-01-01_2013-12-31_000000.json": "c669d784a7d551eae2041c3987b27cca934332dc5944778f6114023eb1a83d5e",
+      "1.03_2013-01-01_2013-12-31_000100.json": "d66a72a0037224a181b05fdac1daa528d91ca88eefeefcbeb0c49d69999848d7",
+      "1.03_2014-01-01_2014-12-31_000000.json": "b48643a257b6421e24ee7a6779c7e4695456b5b0d59d3072a8342eef83c400f9",
+      "1.03_2014-01-01_2014-12-31_000100.json": "a2b28cac89501b1704622944585f8cc4a5eea332951ab599660589fcded76fc4",
+      "1.03_2015-01-01_2015-12-31_000000.json": "4ced16c9b474f8c8884d6bfdc385fee912e95df194a419063bed2c2c8f272b50",
+      "1.03_2016-01-01_2016-12-31_000000.json": "7d337f1b9763ccac76aa75189f3ade27b8b0d9c1ea73dd73cc4587cd711738fd",
+      "1.03_2016-01-01_2016-12-31_000100.json": "5fe61fae67a281b31ad4f031c6abb7e65b5cd51409e3035014cf7934612d1ebf",
+      "1.03_2017-01-01_2017-12-31_000000.json": "fc42f65490cd6626fbcdde639206407667a29d68437253810fafc295963362fe",
+      "1.03_2017-01-01_2017-12-31_000100.json": "fe48c8bcb95a5031f3089900954949e72f1bab1964e67ae74f49254bc13bbea0",
+      "1.03_2018-01-01_2018-12-31_000000.json": "f8d60cfc16030e92cb2f252260f1b30a70d692289a03d125baf6564be19c313e",
+      "1.03_2019-01-01_2019-12-31_000000.json": "9f8a8b0fcad7786143e34d1338d9b3e36f66604d92d9d1779c96f5d028487579",
+      "1.03_2019-01-01_2019-12-31_000100.json": "bf988efed60f4009fccf5776fa769e61cdbb564a8f37dfc7b3757b9fd270558b",
+      "1.03_2020-01-01_2020-06-30_000000.json": "14ed2508da930461da0692909add316d4a6bc2dd81b468fd65530e40b4981516",
+      "2.04_2010-01-01_2010-12-31_000000.json": "c1ec40b46d6ed3f05031baa2e852b3e13d38e026cd6bba6dadacd86032206f94",
+      "2.04_2010-01-01_2010-12-31_000100.json": "8e0328aed243f25d2ee3f97cb8db9351d5a59949175975021fee4a8a528e3e66",
+      "2.04_2011-01-01_2011-12-31_000000.json": "17fe59225e9152e35bcddeab019878bfb07d75966cebb21d96e0d21b0151e012",
+      "2.04_2011-01-01_2011-12-31_000100.json": "3e9ae48c14b9e2a424fd85f760aa5f37de872e32acfbabd0d8c3d4e47d824988",
+      "2.04_2012-01-01_2012-12-31_000000.json": "f1d8a8c69b3fcce1ac88ce7bc855797350c652d59d1a9de7f6b007058731ef98",
+      "2.04_2012-01-01_2012-12-31_000100.json": "5f1b3f249707a3d648a4715af2792a9a0e831d1c915ff6dc08caf683d8ce86ca",
+      "2.04_2013-01-01_2013-12-31_000000.json": "c669d784a7d551eae2041c3987b27cca934332dc5944778f6114023eb1a83d5e",
+      "2.04_2013-01-01_2013-12-31_000100.json": "d66a72a0037224a181b05fdac1daa528d91ca88eefeefcbeb0c49d69999848d7",
+      "2.04_2014-01-01_2014-12-31_000000.json": "b48643a257b6421e24ee7a6779c7e4695456b5b0d59d3072a8342eef83c400f9",
+      "2.04_2014-01-01_2014-12-31_000100.json": "a2b28cac89501b1704622944585f8cc4a5eea332951ab599660589fcded76fc4",
+      "2.04_2015-01-01_2015-12-31_000000.json": "4ced16c9b474f8c8884d6bfdc385fee912e95df194a419063bed2c2c8f272b50",
+      "2.04_2016-01-01_2016-12-31_000000.json": "7d337f1b9763ccac76aa75189f3ade27b8b0d9c1ea73dd73cc4587cd711738fd",
+      "2.04_2016-01-01_2016-12-31_000100.json": "5fe61fae67a281b31ad4f031c6abb7e65b5cd51409e3035014cf7934612d1ebf",
+      "2.04_2017-01-01_2017-12-31_000000.json": "fc42f65490cd6626fbcdde639206407667a29d68437253810fafc295963362fe",
+      "2.04_2017-01-01_2017-12-31_000100.json": "fe48c8bcb95a5031f3089900954949e72f1bab1964e67ae74f49254bc13bbea0",
+      "2.04_2018-01-01_2018-12-31_000000.json": "f8d60cfc16030e92cb2f252260f1b30a70d692289a03d125baf6564be19c313e",
+      "2.04_2019-01-01_2019-12-31_000000.json": "9f8a8b0fcad7786143e34d1338d9b3e36f66604d92d9d1779c96f5d028487579",
+      "2.04_2019-01-01_2019-12-31_000100.json": "bf988efed60f4009fccf5776fa769e61cdbb564a8f37dfc7b3757b9fd270558b",
+      "2.04_2020-01-01_2020-06-30_000000.json": "14ed2508da930461da0692909add316d4a6bc2dd81b468fd65530e40b4981516",
+      "index.json": "cd8e68fb8bdb4d918f6ee0b32dddb6555639703e3f7a3cdb8d46d706623decb5"
+    },
+    "status": "cached"
+  },
+  "seed": 28,
+  "selected_filing_metadata": [
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0001",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0001",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0002",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0002",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0003",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0003",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0004",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0004",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0005",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0005",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0006",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0006",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-12-016443",
+      "cik": "31235",
+      "company": "EASTMAN KODAK CO",
+      "file_date": "2012-01-19",
+      "id": "S8K0007",
+      "item": "1.03",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-12-016443",
+      "cik": "31235",
+      "company": "EASTMAN KODAK CO",
+      "file_date": "2012-01-19",
+      "id": "S8K0007",
+      "item": "2.04",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-13-021391",
+      "cik": "1367396",
+      "company": "SUPERMEDIA INC.",
+      "file_date": "2013-03-18",
+      "id": "S8K0008",
+      "item": "1.03",
+      "items": "1.03 2.04 5.07 9.01"
+    },
+    {
+      "accession": "0001157523-13-001439",
+      "cik": "30419",
+      "company": "DEX ONE Corp",
+      "file_date": "2013-03-18",
+      "id": "S8K0008",
+      "item": "1.03",
+      "items": "1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-13-021391",
+      "cik": "1367396",
+      "company": "SUPERMEDIA INC.",
+      "file_date": "2013-03-18",
+      "id": "S8K0008",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 9.01"
+    },
+    {
+      "accession": "0001157523-13-001439",
+      "cik": "30419",
+      "company": "DEX ONE Corp",
+      "file_date": "2013-03-18",
+      "id": "S8K0008",
+      "item": "2.04",
+      "items": "1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0009",
+      "item": "1.03",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0009",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-18-298778",
+      "cik": "1310067",
+      "company": "SEARS HOLDINGS CORP",
+      "file_date": "2018-10-15",
+      "id": "S8K0010",
+      "item": "1.03",
+      "items": "1.03 2.03 2.04 2.05 5.02 5.03 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-298778",
+      "cik": "1310067",
+      "company": "SEARS HOLDINGS CORP",
+      "file_date": "2018-10-15",
+      "id": "S8K0010",
+      "item": "2.04",
+      "items": "1.03 2.03 2.04 2.05 5.02 5.03 7.01 9.01"
+    },
+    {
+      "accession": "0000950123-19-005914",
+      "cik": "1516479",
+      "company": "Insys Therapeutics, Inc.",
+      "file_date": "2019-06-10",
+      "id": "S8K0011",
+      "item": "1.03",
+      "items": "1.03 7.01 9.01"
+    },
+    {
+      "accession": "0001562762-20-000134",
+      "cik": "920448",
+      "company": "BROADVISION INC",
+      "file_date": "2020-03-27",
+      "id": "S8K0012",
+      "item": "1.03",
+      "items": "1.01 1.03 9.01"
+    },
+    {
+      "accession": "0001193125-20-144411",
+      "cik": "1166126",
+      "company": "J C PENNEY CO INC",
+      "file_date": "2020-05-18",
+      "id": "S8K0013",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 3.01 3.03 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-20-144411",
+      "cik": "1166126",
+      "company": "J C PENNEY CO INC",
+      "file_date": "2020-05-18",
+      "id": "S8K0013",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 3.01 3.03 7.01 8.01 9.01"
+    }
+  ],
+  "sha256": {
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/private_notes/annotation_uploads/task1/credit_8k/anchors.csv": "76acf861589c08df81e35a72564ce09d6cfdf04e8543a362067ac4eae0f5ecac",
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/private_notes/annotation_uploads/task1/credit_8k/to_label.csv": "c68491a80d6b6c72ff994e8bc3795a3c59201bb99fc49b31b5ffd7bc74b0fb65"
+  },
+  "source_rows": {
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/raw/fnspid/universe_news.csv.gz": 21551,
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/raw/fnspid/universe_news_named.csv.gz": 284478
+  },
+  "sources_sha256": {
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/raw/fnspid/universe_news.csv.gz": "f150c4981f308b9eece9bb6fde64fd9ce285c13de6e08a6af2ea7ce786ce05ad",
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/raw/fnspid/universe_news_named.csv.gz": "b21227baab3d5ffbe5bcef3492811f1bf4c22eec13a7d148c789a19be5a69b2d"
+  },
+  "ticker_cache_sha256": "bb1521ff938ce1217343362f335aae521d9978b105229eabef69124ac24bbb1c"
+}

@@ -1,0 +1,59 @@
+{
+  "rows": 1212,
+  "agree_rate": 0.6972,
+  "kept": 845,
+  "kept_by_class": {
+    "Other": 546,
+    "Legal/Regulatory": 102,
+    "M&A": 61,
+    "Product news": 37,
+    "Geopolitical": 36,
+    "Management change": 27,
+    "Macroeconomic": 25,
+    "Analyst rating": 7,
+    "Earnings": 3,
+    "Credit downgrade": 1
+  },
+  "kept_by_shortlist_and_class": {
+    "Analyst rating": {
+      "Geopolitical": 2,
+      "Macroeconomic": 5
+    },
+    "Credit downgrade": {
+      "Geopolitical": 0,
+      "Macroeconomic": 1
+    },
+    "Earnings": {
+      "Geopolitical": 0,
+      "Macroeconomic": 3
+    },
+    "Geopolitical": {
+      "Geopolitical": 35,
+      "Macroeconomic": 1
+    },
+    "Legal/Regulatory": {
+      "Geopolitical": 57,
+      "Macroeconomic": 45
+    },
+    "M&A": {
+      "Geopolitical": 41,
+      "Macroeconomic": 20
+    },
+    "Macroeconomic": {
+      "Geopolitical": 0,
+      "Macroeconomic": 25
+    },
+    "Management change": {
+      "Geopolitical": 15,
+      "Macroeconomic": 12
+    },
+    "Other": {
+      "Geopolitical": 270,
+      "Macroeconomic": 276
+    },
+    "Product news": {
+      "Geopolitical": 19,
+      "Macroeconomic": 18
+    }
+  }
+}

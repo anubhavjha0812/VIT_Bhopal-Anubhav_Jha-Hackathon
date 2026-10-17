@@ -1,0 +1,18 @@
+{
+  "verified_at_utc": "2026-10-17T04:46:09.549969+00:00",
+  "method": "Replay final formatted predictor source from the original hashed D1 probability caches; no model inference.",
+  "rows_per_candidate": 153,
+  "prediction_or_source_differences": {
+    "C": 0,
+    "E": 0
+  },
+  "metrics_identical_for_both_references": true,
+  "protected_files_unchanged": true,
+  "original_source_hashes_retained": true,
+  "final_source_files_sha256": {
+    "src/riskengine/eval/e25_candidate.py": "3bf4ff3ac48948be1553ed4997ff6612a3b0f43f50579a4ef9ce8da0d56f5ba7",
+    "src/riskengine/eval/e24_dev.py": "5499bb51161e05fafe6f23b0b03e99692888a6969eb105dda4cb2d78f4e9a280",
+    "src/riskengine/eval/e24_inference.py": "614f164e76e672e38cb5050d8da56eeb06fa32da998f16d20d337976e3ef2c20"
+  },
+  "note": "Formatting and report wording changed after initial inference; original source_files_sha256 records the initial run."
+}

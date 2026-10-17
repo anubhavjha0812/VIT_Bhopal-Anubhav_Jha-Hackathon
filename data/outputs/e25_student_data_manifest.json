@@ -1,0 +1,60 @@
+{
+  "agreed_rows": 30854,
+  "agreed_by_class": {
+    "Other": 16733,
+    "Product news": 5502,
+    "Legal/Regulatory": 2857,
+    "Earnings": 1506,
+    "Analyst rating": 1370,
+    "M&A": 1239,
+    "Management change": 1222,
+    "Geopolitical": 296,
+    "Macroeconomic": 129
+  },
+  "seed": 25,
+  "other_cap": 5000,
+  "valid_frac": 0.05,
+  "classes": [
+    "M&A",
+    "Geopolitical",
+    "Macroeconomic",
+    "Product news",
+    "Earnings",
+    "Analyst rating",
+    "Legal/Regulatory",
+    "Management change",
+    "Other"
+  ],
+  "leak_check": true,
+  "train": 18166,
+  "valid": 955,
+  "train_by_class": {
+    "Product news": 5227,
+    "Other": 4750,
+    "Legal/Regulatory": 2714,
+    "Earnings": 1431,
+    "Analyst rating": 1302,
+    "M&A": 1177,
+    "Management change": 1161,
+    "Geopolitical": 281,
+    "Macroeconomic": 123
+  },
+  "valid_by_class": {
+    "Product news": 275,
+    "Other": 250,
+    "Legal/Regulatory": 143,
+    "Earnings": 75,
+    "Analyst rating": 68,
+    "M&A": 62,
+    "Management change": 61,
+    "Geopolitical": 15,
+    "Macroeconomic": 6
+  },
+  "train_by_source": {
+    "pool": 17741,
+    "extra": 425
+  },
+  "train_sha256": "4659096e6891afd51b3480b151cdc46f956a0f1565b264364fd421bb32ad1ee0",
+  "valid_sha256": "4789d9163a50019af7d12c1b98156ed104fa7120e659be5e0648c55fd78c4daa",
+  "overlap_train_valid": 0
+}

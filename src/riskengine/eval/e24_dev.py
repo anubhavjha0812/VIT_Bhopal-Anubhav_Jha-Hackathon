@@ -41,6 +41,7 @@ from riskengine.nlp.events import credit_event
 from riskengine.paths import DATA
 
 ORDER = ["A", "B", "C", "D"]  # simplest first
+PREDICTOR_CANDIDATES = [*ORDER, "E"]  # E is D1-only; selection/freeze remain a separate step.
 TIE, DROP, MIN_ROWS, MIN_CLASSES = 0.01, 0.05, 10, 5
 RULES_FILE = Path(e24_rules.__file__)
 E3_FILE = DATA / "gold" / "gold_to_label.csv"
@@ -74,12 +75,16 @@ class Config:
 
 def build_predictor(cfg: Config, probs: Probs | None = None) -> Predictor:
     """texts -> (labels, sources), with the amendment rules enabled only for B–D."""
-    if cfg.candidate not in ORDER:
+    if cfg.candidate not in PREDICTOR_CANDIDATES:
         raise GateError(f"unknown candidate {cfg.candidate!r}")
     if (cfg.candidate == "D") != (cfg.threshold is not None):
         raise GateError("only candidate D has a threshold, and D needs one")
     if cfg.threshold is not None and cfg.threshold not in GRID:
         raise GateError("threshold must come from the fixed grid")
+    if cfg.candidate == "E":
+        from riskengine.eval.e25_candidate import build_candidate
+
+        return build_candidate(probs=probs, temperature=cfg.temperature)
     probs = probs or engine_probs()
 
     def predict(texts: Sequence[str]) -> tuple[list[str], list[str]]:
@@ -143,8 +148,15 @@ def per_class_f1(y, pred) -> dict:
     return dict(zip(CLASSES, map(float, vals), strict=True))
 
 
-def select(d2: pd.DataFrame, d2_texts: Sequence[str], probs: Probs, temperature) -> dict:
-    """Score A, B, C and D (each grid threshold) on D2 only; apply the E24 choice rule."""
+E_MARGIN = 0.02  # docs/E25_AMENDMENT.md: E must beat the best of A-D by this much
+
+
+def select(
+    d2: pd.DataFrame, d2_texts: Sequence[str], probs: Probs, temperature,
+    e_probs: Probs | None = None,
+) -> dict:  # fmt: skip
+    """Score A, B, C and D (each grid threshold) on D2 only; apply the E24 choice rule.
+    With e_probs (the student), E is also scored and needs a clear margin (E25 amendment)."""
     kept = d2["label_source"] != "excluded"
     y = d2.loc[kept, "label"].tolist()
     texts = [t for t, k in zip(d2_texts, kept, strict=True) if k]
@@ -162,6 +174,12 @@ def select(d2: pd.DataFrame, d2_texts: Sequence[str], probs: Probs, temperature)
     allowed = {c: all(r["per_class_f1"][k] >= base[k] - DROP for k in big) for c, r in rows.items()}
     best = max(r["macro_f1"] for c, r in rows.items() if allowed[c])
     chosen = next(c for c in ORDER if allowed[c] and rows[c]["macro_f1"] >= best - TIE)
+    if e_probs is not None:
+        pred, _ = build_predictor(Config("E", temperature=None), e_probs)(texts)
+        rows["E"] = {"macro_f1": macro_f1(y, pred), "per_class_f1": per_class_f1(y, pred)}
+        allowed["E"] = all(rows["E"]["per_class_f1"][k] >= base[k] - DROP for k in big)
+        if allowed["E"] and rows["E"]["macro_f1"] >= best + E_MARGIN:
+            chosen = "E"
     return {
         "d2_rows_scored": len(y),
         "d2_support": support(d2).to_dict(),
@@ -180,13 +198,15 @@ def e3_texts(ids: Sequence[str]) -> list[str]:
     return [e3[i] for i in ids]
 
 
-def run_selection(p: Paths, d1_path, d2_path, probs: Probs | None = None) -> dict:
+def run_selection(
+    p: Paths, d1_path, d2_path, probs: Probs | None = None, e_probs: Probs | None = None
+) -> dict:  # fmt: skip
     """D1 → optional temperature; D2 → candidate and threshold; then freeze once."""
     d1 = load_dev_labels(d1_path, "D1", p)
     d2 = load_dev_labels(d2_path, "D2", p)
     probs = probs or engine_probs()
     temp = fit_temperature(d1, e3_texts(d1["item_id"]), probs)
-    sel = select(d2, e3_texts(d2["item_id"]), probs, temp["temperature"])
+    sel = select(d2, e3_texts(d2["item_id"]), probs, temp["temperature"], e_probs)
     c = sel["chosen"]
     threshold = sel["threshold_for_D"] if c == "D" else None
     frozen = freeze_candidate(
@@ -201,11 +221,18 @@ def run_selection(p: Paths, d1_path, d2_path, probs: Probs | None = None) -> dic
 def main() -> None:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--select", action="store_true")
+    a.add_argument("--with-e", action="store_true", help="also score E (docs/E25_AMENDMENT.md)")
     a.add_argument("--d1", default=str(DATA / "gold/e24/e3_D1_labels.csv"))
     a.add_argument("--d2", default=str(DATA / "gold/e24/e3_D2_labels.csv"))
     args = a.parse_args()
     if args.select:
-        print(json.dumps(run_selection(Paths(), args.d1, args.d2), indent=2, default=float))
+        e_probs = None
+        if args.with_e:
+            from riskengine.eval.e25_candidate import student_probs
+
+            e_probs = student_probs()
+        report = run_selection(Paths(), args.d1, args.d2, e_probs=e_probs)
+        print(json.dumps(report, indent=2, default=float))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,37 @@
+{
+  "v2_train": 18166,
+  "v2_valid": 955,
+  "added_rows": 967,
+  "train": 19083,
+  "valid": 1005,
+  "leak_check": true,
+  "train_by_class": {
+    "Product news": 5231,
+    "Other": 5226,
+    "Legal/Regulatory": 2882,
+    "Earnings": 1488,
+    "Analyst rating": 1302,
+    "M&A": 1179,
+    "Management change": 1161,
+    "Geopolitical": 442,
+    "Macroeconomic": 172
+  },
+  "train_by_source": {
+    "pool": 17741,
+    "resolved_ai": 698,
+    "extra": 425,
+    "official_geo": 219
+  },
+  "added_by_source_class": {
+    "official_geo/Geopolitical": 150,
+    "official_geo/Other": 82,
+    "resolved_ai/Earnings": 60,
+    "resolved_ai/Geopolitical": 19,
+    "resolved_ai/Legal/Regulatory": 177,
+    "resolved_ai/M&A": 3,
+    "resolved_ai/Macroeconomic": 52,
+    "resolved_ai/Other": 419,
+    "resolved_ai/Product news": 5
+  },
+  "overlap_train_valid": 0
+}

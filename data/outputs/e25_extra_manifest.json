@@ -1,0 +1,41 @@
+{
+  "frame": 77854,
+  "excluded_by_set": {
+    "training (TFN topic train+valid, TFNS train+valid)": 2,
+    "E3": 5,
+    "E23 sample": 193,
+    "E22b alerts": 77,
+    "E17 relevance samples": 120,
+    "E21 tweet sample": 0,
+    "FinEntity": 0,
+    "other project's gold-1, gold-2, entity check": 0,
+    "E24 final news": 0,
+    "E24 final tweets": 0
+  },
+  "excluded_total": 316,
+  "after_exclusions": 77538,
+  "rule": "left-out FNSPID 2010-2016 rows, same frame and leak filter as the pool, keyword shortlist for thin classes, both teachers label",
+  "seed": 25,
+  "per_group": 2500,
+  "left_out_after_pool": 37085,
+  "dropped_in_final_passes": 0,
+  "extra": 1212,
+  "by_group": {
+    "Geopolitical": 651,
+    "Macroeconomic": 561
+  },
+  "extra_sha256": "1a4566cb967c221885e68c79626bc9395d98fe55dbb259143dc1f5f2210570fc",
+  "source": "data/cache/history_signals.csv.gz",
+  "cleared_against": [
+    "E17 relevance samples",
+    "E21 tweet sample",
+    "E22b alerts",
+    "E23 sample",
+    "E24 final news",
+    "E24 final tweets",
+    "E3",
+    "FinEntity",
+    "other project's gold-1, gold-2, entity check",
+    "training (TFN topic train+valid, TFNS train+valid)"
+  ]
+}

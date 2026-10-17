@@ -1,0 +1,146 @@
+{
+  "created_at_utc": "2026-10-17T04:56:59.474505+00:00",
+  "rule": "Unlabelled FNSPID 2010-2016 E25 frame, excluding existing pool/extra and all fixed test corpora; seed-27 disjoint keyword strata, 120 credit-style cues plus 30 hard-negative cues",
+  "seed": 27,
+  "sample_rows": 150,
+  "target_rows": 150,
+  "targets": {
+    "rating_action": 55,
+    "default_bankruptcy": 30,
+    "covenant_waiver": 15,
+    "restructuring_distress": 20,
+    "hard_negative_pattern": 30
+  },
+  "stratum_counts": {
+    "rating_action": 66,
+    "default_bankruptcy": 26,
+    "covenant_waiver": 8,
+    "restructuring_distress": 20,
+    "hard_negative_pattern": 30
+  },
+  "hard_negative_pattern_counts": {
+    "securitization": 10,
+    "wrong_company_pattern": 9,
+    "stock_rating": 9,
+    "counterparty": 2
+  },
+  "available_keyword_strata": {
+    "": 32365,
+    "rating_action": 480,
+    "hard_negative_pattern": 308,
+    "restructuring_distress": 28,
+    "default_bankruptcy": 26,
+    "covenant_waiver": 8
+  },
+  "window": [
+    "2010-01-01",
+    "2017-01-01"
+  ],
+  "shortfall_vs_target": 0,
+  "quota_deficit_policy": "fill scarce credit cues from other credit strata; keep negative target",
+  "strata_are_labels": false,
+  "sample_has_labels_or_model_outputs": false,
+  "model_or_gate_run": false,
+  "labels_read": false,
+  "reserved_text_access": "mechanical exclusion only through existing E25 helpers",
+  "history_columns_read": [
+    "published_at",
+    "text",
+    "ticker",
+    "why",
+    "role"
+  ],
+  "source_files_sha256": {
+    "data/cache/history_signals.csv.gz": "7b5893c633b1450be76de4e07b8057cd717fe6b691e6e5b51c2786311ed2dc0e",
+    "data/cache/e25/pool.csv.gz": "2013287ca9426385d29f83b0f9f1297b86b1ed489dcd798e31ccc95e59c1b623",
+    "data/cache/e25/extra.csv.gz": "d260f557e67b754076f2ee565b84d789575b3ed2627ea8d16a1d77d26122eabc"
+  },
+  "script_sha256": "c9bd33f2bd39f98b3aa6fd5afadf65d77cac7dd88fffc8dec748c82252d47515",
+  "sample_path": "private_notes/annotation_uploads/task1/credit_heldout/to_label.csv",
+  "sample_sha256": "dc21612f260fb784b27e96f3478a071a0cb028c6141e88662b03c39ee4e52faa",
+  "exclusion_audit": {
+    "frame_rows": 77854,
+    "after_exact_pool_extra_removal": 35722,
+    "exclusion_passes": [
+      {
+        "frame": 35722,
+        "excluded_by_set": {
+          "fixed_exclusions_00": 1,
+          "fixed_exclusions_01": 3,
+          "fixed_exclusions_02": 193,
+          "fixed_exclusions_03": 77,
+          "fixed_exclusions_04": 118,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0,
+          "E25 pool": 2191,
+          "E25 extra": 0
+        },
+        "excluded_total": 2502,
+        "after_exclusions": 33220
+      },
+      {
+        "frame": 33220,
+        "excluded_by_set": {
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 2,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0,
+          "E25 pool": 2,
+          "E25 extra": 0
+        },
+        "excluded_total": 4,
+        "after_exclusions": 33216
+      },
+      {
+        "frame": 33216,
+        "excluded_by_set": {
+          "fixed_exclusions_00": 1,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0,
+          "E25 pool": 0,
+          "E25 extra": 0
+        },
+        "excluded_total": 1,
+        "after_exclusions": 33215
+      },
+      {
+        "frame": 33215,
+        "excluded_by_set": {
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0,
+          "E25 pool": 0,
+          "E25 extra": 0
+        },
+        "excluded_total": 0,
+        "after_exclusions": 33215
+      }
+    ],
+    "clean_remainder_rows": 33215
+  },
+  "sampling_bias": "keyword-enriched challenge sample; not a population prevalence estimate",
+  "annotation_status": "unlabelled; obtain AI-derived labels before gate/model evaluation"
+}

@@ -97,7 +97,16 @@ def adjudication_sheet(chatgpt, gemini, ids, seed: int = SEED) -> pd.DataFrame:
     return sheet[cols].assign(human_label="", human_rationale="")
 
 
-def merge_labels(chatgpt, gemini, human: pd.DataFrame, ids, seed: int = SEED) -> pd.DataFrame:
+AI_SOURCES = {  # docs/E25_LABELLER_AMENDMENT.md: when an AI, not a person, adjudicates
+    "human_adjudicated": "ai_adjudicated",
+    "ai_agreed_human_audited": "ai_agreed_ai_audited",
+}
+
+
+def merge_labels(
+    chatgpt, gemini, human: pd.DataFrame, ids, seed: int = SEED, adjudicator: str = "human"
+) -> pd.DataFrame:
+    """`adjudicator="ai"` marks adjudicated and audited rows as AI-made, never as a person's."""
     df = _combine(chatgpt, gemini, ids, seed)
     missing = [c for c in HUMAN_COLUMNS if c not in human.columns]
     if missing:
@@ -117,9 +126,12 @@ def merge_labels(chatgpt, gemini, human: pd.DataFrame, ids, seed: int = SEED) ->
     df["human_label"] = h["human_label"].reindex(df.index).fillna("")
     adjudicated = df["needs_human"] & ~df["audit_selected"]
     excluded = df["human_label"] == EXCLUDE
+    names = ["human_adjudicated", "ai_agreed_human_audited"]
+    if adjudicator == "ai":
+        names = [AI_SOURCES[n] for n in names]
     df["label_source"] = np.select(
         [excluded, adjudicated, df["audit_selected"]],
-        ["excluded", "human_adjudicated", "ai_agreed_human_audited"],
+        ["excluded", *names],
         default="ai_agreed",
     )
     df["label"] = np.where(df["needs_human"], df["human_label"], df["chatgpt_label"])
@@ -151,13 +163,18 @@ def validate_merged(df: pd.DataFrame) -> None:
         "ai_agreed rows must be two equal, clear AI labels, not audited": (src == "ai_agreed")
         & ~((df["chatgpt_label"] == df["gemini_label"]) & (lab == df["chatgpt_label"])
             & (df["chatgpt_ambiguous"] == "N") & (df["gemini_ambiguous"] == "N") & ~audit),
-        "audited rows must use the person's label": (src == "ai_agreed_human_audited")
+        "audited rows must use the adjudicator's label": src.isin(
+            ["ai_agreed_human_audited", "ai_agreed_ai_audited"]
+        )
         & ~(audit & (lab == hum) & hum.isin(CLASSES)),
-        "adjudicated rows must use the person's label": (src == "human_adjudicated")
+        "adjudicated rows must use the adjudicator's label": src.isin(
+            ["human_adjudicated", "ai_adjudicated"]
+        )
         & ~(~audit & (lab == hum) & hum.isin(CLASSES)),
         "excluded rows must be the person's EXCLUDE": (src == "excluded") & ~(hum == EXCLUDE),
         "unknown label_source": ~src.isin(
-            {"ai_agreed", "ai_agreed_human_audited", "human_adjudicated", "excluded"}
+            {"ai_agreed", "ai_agreed_human_audited", "human_adjudicated", "excluded",
+             "ai_adjudicated", "ai_agreed_ai_audited"}  # fmt: skip
         ),
     }  # fmt: skip
     for msg, bad in rules.items():
