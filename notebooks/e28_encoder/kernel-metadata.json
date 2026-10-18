@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-e28-encoder",
+  "title": "sp-riskengine-e28-encoder",
+  "code_file": "train_encoder.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": ["anubhavjha0812/sp-riskengine-e28-encoder-input"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

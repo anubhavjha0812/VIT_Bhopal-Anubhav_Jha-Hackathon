@@ -1,0 +1,13 @@
+{
+  "id": "anubhavjha0812/sp-riskengine-e29-teacher-rdrop",
+  "title": "sp-riskengine-e29-teacher-rdrop",
+  "code_file": "train_teacher_rdrop.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

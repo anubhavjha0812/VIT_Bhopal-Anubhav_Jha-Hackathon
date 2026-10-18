@@ -1,0 +1,973 @@
+{
+  "rule": "gain over C on D2 >= 0.02",
+  "sets": {
+    "bge-small-en-v1.5": {
+      "D1": {
+        "macro_f1": 0.4138,
+        "gain_vs_C": -0.0917,
+        "gain_ci95": [
+          -0.1544,
+          -0.0338
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1,
+            "predicted": 1
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5,
+            "predicted": 0
+          },
+          {
+            "class": "M&A",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1,
+            "predicted": 0
+          },
+          {
+            "class": "Product news",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4,
+            "predicted": 4
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.571,
+            "recall": 1.0,
+            "f1": 0.727,
+            "support": 4,
+            "predicted": 7
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.881,
+            "recall": 1.0,
+            "f1": 0.937,
+            "support": 37,
+            "predicted": 42
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 0.5,
+            "recall": 0.333,
+            "f1": 0.4,
+            "support": 3,
+            "predicted": 2
+          },
+          {
+            "class": "Management change",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1,
+            "predicted": 1
+          },
+          {
+            "class": "Other",
+            "precision": 0.906,
+            "recall": 0.897,
+            "f1": 0.902,
+            "support": 97,
+            "predicted": 96
+          }
+        ]
+      },
+      "D2": {
+        "macro_f1": 0.2734,
+        "gain_vs_C": -0.1292,
+        "gain_ci95": [
+          -0.1739,
+          -0.009
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4,
+            "predicted": 0
+          },
+          {
+            "class": "M&A",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2,
+            "predicted": 1
+          },
+          {
+            "class": "Product news",
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.667,
+            "support": 2,
+            "predicted": 1
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.25,
+            "recall": 0.667,
+            "f1": 0.364,
+            "support": 3,
+            "predicted": 8
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.889,
+            "support": 36,
+            "predicted": 45
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 0.333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "support": 1,
+            "predicted": 3
+          },
+          {
+            "class": "Management change",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Other",
+            "precision": 0.91,
+            "recall": 0.818,
+            "f1": 0.862,
+            "support": 99,
+            "predicted": 89
+          }
+        ]
+      },
+      "R3": {
+        "macro_f1": 0.4182,
+        "gain_vs_C": -0.0181,
+        "gain_ci95": [
+          -0.076,
+          0.0519
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3,
+            "predicted": 1
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 1.0,
+            "recall": 0.222,
+            "f1": 0.364,
+            "support": 9,
+            "predicted": 2
+          },
+          {
+            "class": "M&A",
+            "precision": 0.5,
+            "recall": 0.471,
+            "f1": 0.485,
+            "support": 17,
+            "predicted": 16
+          },
+          {
+            "class": "Product news",
+            "precision": 0.633,
+            "recall": 0.633,
+            "f1": 0.633,
+            "support": 30,
+            "predicted": 30
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.512,
+            "recall": 0.688,
+            "f1": 0.587,
+            "support": 32,
+            "predicted": 43
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.881,
+            "recall": 0.974,
+            "f1": 0.925,
+            "support": 38,
+            "predicted": 42
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 0.794,
+            "recall": 0.844,
+            "f1": 0.818,
+            "support": 32,
+            "predicted": 34
+          },
+          {
+            "class": "Management change",
+            "precision": 0.286,
+            "recall": 0.667,
+            "f1": 0.4,
+            "support": 3,
+            "predicted": 7
+          },
+          {
+            "class": "Other",
+            "precision": 0.827,
+            "recall": 0.788,
+            "f1": 0.807,
+            "support": 236,
+            "predicted": 225
+          }
+        ]
+      },
+      "passes_D2_rule": false
+    },
+    "e5-base-v2": {
+      "D1": {
+        "macro_f1": 0.4461,
+        "gain_vs_C": -0.0594,
+        "gain_ci95": [
+          -0.0944,
+          -0.0238
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1,
+            "predicted": 1
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5,
+            "predicted": 0
+          },
+          {
+            "class": "M&A",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1,
+            "predicted": 1
+          },
+          {
+            "class": "Product news",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4,
+            "predicted": 4
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.571,
+            "recall": 1.0,
+            "f1": 0.727,
+            "support": 4,
+            "predicted": 7
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.86,
+            "recall": 1.0,
+            "f1": 0.925,
+            "support": 37,
+            "predicted": 43
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 1.0,
+            "recall": 0.667,
+            "f1": 0.8,
+            "support": 3,
+            "predicted": 2
+          },
+          {
+            "class": "Management change",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1,
+            "predicted": 1
+          },
+          {
+            "class": "Other",
+            "precision": 0.915,
+            "recall": 0.887,
+            "f1": 0.901,
+            "support": 97,
+            "predicted": 94
+          }
+        ]
+      },
+      "D2": {
+        "macro_f1": 0.3368,
+        "gain_vs_C": -0.0658,
+        "gain_ci95": [
+          -0.1212,
+          0.0535
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4,
+            "predicted": 0
+          },
+          {
+            "class": "M&A",
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.667,
+            "support": 2,
+            "predicted": 4
+          },
+          {
+            "class": "Product news",
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.667,
+            "support": 2,
+            "predicted": 1
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "support": 3,
+            "predicted": 9
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.857,
+            "support": 36,
+            "predicted": 48
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 0.333,
+            "recall": 1.0,
+            "f1": 0.5,
+            "support": 1,
+            "predicted": 3
+          },
+          {
+            "class": "Management change",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Other",
+            "precision": 0.939,
+            "recall": 0.778,
+            "f1": 0.851,
+            "support": 99,
+            "predicted": 82
+          }
+        ]
+      },
+      "R3": {
+        "macro_f1": 0.4353,
+        "gain_vs_C": -0.001,
+        "gain_ci95": [
+          -0.0631,
+          0.0748
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3,
+            "predicted": 2
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 0.667,
+            "recall": 0.222,
+            "f1": 0.333,
+            "support": 9,
+            "predicted": 3
+          },
+          {
+            "class": "M&A",
+            "precision": 0.476,
+            "recall": 0.588,
+            "f1": 0.526,
+            "support": 17,
+            "predicted": 21
+          },
+          {
+            "class": "Product news",
+            "precision": 0.633,
+            "recall": 0.633,
+            "f1": 0.633,
+            "support": 30,
+            "predicted": 30
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.488,
+            "recall": 0.625,
+            "f1": 0.548,
+            "support": 32,
+            "predicted": 41
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.902,
+            "recall": 0.974,
+            "f1": 0.937,
+            "support": 38,
+            "predicted": 41
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 0.844,
+            "recall": 0.844,
+            "f1": 0.844,
+            "support": 32,
+            "predicted": 32
+          },
+          {
+            "class": "Management change",
+            "precision": 0.429,
+            "recall": 1.0,
+            "f1": 0.6,
+            "support": 3,
+            "predicted": 7
+          },
+          {
+            "class": "Other",
+            "precision": 0.825,
+            "recall": 0.78,
+            "f1": 0.802,
+            "support": 236,
+            "predicted": 223
+          }
+        ]
+      },
+      "passes_D2_rule": false
+    },
+    "multilingual-e5-large": {
+      "D1": {
+        "macro_f1": 0.4028,
+        "gain_vs_C": -0.1027,
+        "gain_ci95": [
+          -0.1662,
+          -0.0439
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1,
+            "predicted": 2
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5,
+            "predicted": 1
+          },
+          {
+            "class": "M&A",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1,
+            "predicted": 2
+          },
+          {
+            "class": "Product news",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4,
+            "predicted": 4
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.667,
+            "support": 4,
+            "predicted": 8
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.822,
+            "recall": 1.0,
+            "f1": 0.902,
+            "support": 37,
+            "predicted": 45
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 0.5,
+            "recall": 0.333,
+            "f1": 0.4,
+            "support": 3,
+            "predicted": 2
+          },
+          {
+            "class": "Management change",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1,
+            "predicted": 1
+          },
+          {
+            "class": "Other",
+            "precision": 0.909,
+            "recall": 0.825,
+            "f1": 0.865,
+            "support": 97,
+            "predicted": 88
+          }
+        ]
+      },
+      "D2": {
+        "macro_f1": 0.3518,
+        "gain_vs_C": -0.0508,
+        "gain_ci95": [
+          -0.1388,
+          0.0597
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4,
+            "predicted": 0
+          },
+          {
+            "class": "M&A",
+            "precision": 0.333,
+            "recall": 0.5,
+            "f1": 0.4,
+            "support": 2,
+            "predicted": 3
+          },
+          {
+            "class": "Product news",
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.667,
+            "support": 2,
+            "predicted": 1
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.3,
+            "recall": 1.0,
+            "f1": 0.462,
+            "support": 3,
+            "predicted": 10
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.735,
+            "recall": 1.0,
+            "f1": 0.847,
+            "support": 36,
+            "predicted": 49
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1,
+            "predicted": 1
+          },
+          {
+            "class": "Management change",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Other",
+            "precision": 0.928,
+            "recall": 0.778,
+            "f1": 0.846,
+            "support": 99,
+            "predicted": 83
+          }
+        ]
+      },
+      "R3": {
+        "macro_f1": 0.4271,
+        "gain_vs_C": -0.0092,
+        "gain_ci95": [
+          -0.0657,
+          0.0585
+        ],
+        "per_class": [
+          {
+            "class": "Default",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Credit downgrade",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Covenant breach",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0,
+            "predicted": 0
+          },
+          {
+            "class": "Geopolitical",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3,
+            "predicted": 0
+          },
+          {
+            "class": "Macroeconomic",
+            "precision": 0.667,
+            "recall": 0.222,
+            "f1": 0.333,
+            "support": 9,
+            "predicted": 3
+          },
+          {
+            "class": "M&A",
+            "precision": 0.529,
+            "recall": 0.529,
+            "f1": 0.529,
+            "support": 17,
+            "predicted": 17
+          },
+          {
+            "class": "Product news",
+            "precision": 0.633,
+            "recall": 0.633,
+            "f1": 0.633,
+            "support": 30,
+            "predicted": 30
+          },
+          {
+            "class": "Earnings",
+            "precision": 0.522,
+            "recall": 0.75,
+            "f1": 0.615,
+            "support": 32,
+            "predicted": 46
+          },
+          {
+            "class": "Analyst rating",
+            "precision": 0.925,
+            "recall": 0.974,
+            "f1": 0.949,
+            "support": 38,
+            "predicted": 40
+          },
+          {
+            "class": "Legal/Regulatory",
+            "precision": 0.771,
+            "recall": 0.844,
+            "f1": 0.806,
+            "support": 32,
+            "predicted": 35
+          },
+          {
+            "class": "Management change",
+            "precision": 0.333,
+            "recall": 0.667,
+            "f1": 0.444,
+            "support": 3,
+            "predicted": 6
+          },
+          {
+            "class": "Other",
+            "precision": 0.839,
+            "recall": 0.792,
+            "f1": 0.815,
+            "support": 236,
+            "predicted": 223
+          }
+        ]
+      },
+      "passes_D2_rule": false
+    }
+  },
+  "C": {
+    "D1": 0.5055,
+    "D2": 0.4026,
+    "R3": 0.4363
+  }
+}

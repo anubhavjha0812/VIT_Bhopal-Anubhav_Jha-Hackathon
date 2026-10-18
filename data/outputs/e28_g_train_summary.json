@@ -1,0 +1,45 @@
+{
+  "classes": [
+    "M&A",
+    "Geopolitical",
+    "Macroeconomic",
+    "Product news",
+    "Earnings",
+    "Analyst rating",
+    "Legal/Regulatory",
+    "Management change",
+    "Other"
+  ],
+  "rows": {
+    "train": 19083,
+    "valid": 1005,
+    "eval": 700
+  },
+  "multilingual-e5-large": {
+    "alpha": 2.0,
+    "C": 3.0,
+    "temperature": 0.75,
+    "valid_log_loss": 0.1927,
+    "valid_macro_f1": 0.8544,
+    "encode_seconds_total": 59.2,
+    "encode_seconds_per_1000_texts": 2.85
+  },
+  "e5-base-v2": {
+    "alpha": 2.0,
+    "C": 3.0,
+    "temperature": 0.75,
+    "valid_log_loss": 0.2097,
+    "valid_macro_f1": 0.8319,
+    "encode_seconds_total": 13.1,
+    "encode_seconds_per_1000_texts": 0.63
+  },
+  "bge-small-en-v1.5": {
+    "alpha": 1.0,
+    "C": 3.0,
+    "temperature": 0.75,
+    "valid_log_loss": 0.2789,
+    "valid_macro_f1": 0.8334,
+    "encode_seconds_total": 6.3,
+    "encode_seconds_per_1000_texts": 0.3
+  }
+}

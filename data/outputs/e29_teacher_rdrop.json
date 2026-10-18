@@ -1,0 +1,124 @@
+{
+  "data": {
+    "rows_in": {
+      "tfns": 8588,
+      "phrasebank": 3453,
+      "fiqa": 1063,
+      "tfns_dev": 955
+    },
+    "dropped_test_leak": {
+      "tfns": 74,
+      "tfns_dev": 10
+    },
+    "dropped_label_conflict": {
+      "tfns": 8
+    },
+    "dropped_duplicates": {
+      "fiqa": 107,
+      "tfns": 81,
+      "tfns_dev": 8,
+      "phrasebank": 6
+    },
+    "rows_used": {
+      "tfns": 8425,
+      "phrasebank": 3447,
+      "fiqa": 956,
+      "tfns_dev": 937
+    }
+  },
+  "seeds": [
+    {
+      "backbone": "microsoft/deberta-v3-base",
+      "seed": 42,
+      "best_dev_macro_f1": 0.853,
+      "history": [
+        {
+          "epoch": 1,
+          "dev_macro_f1": 0.8076
+        },
+        {
+          "epoch": 2,
+          "dev_macro_f1": 0.8374
+        },
+        {
+          "epoch": 3,
+          "dev_macro_f1": 0.853
+        },
+        {
+          "epoch": 4,
+          "dev_macro_f1": 0.8482
+        }
+      ],
+      "params_m": 184.4,
+      "train_minutes": 10.2
+    },
+    {
+      "backbone": "microsoft/deberta-v3-base",
+      "seed": 43,
+      "best_dev_macro_f1": 0.8523,
+      "history": [
+        {
+          "epoch": 1,
+          "dev_macro_f1": 0.8348
+        },
+        {
+          "epoch": 2,
+          "dev_macro_f1": 0.8469
+        },
+        {
+          "epoch": 3,
+          "dev_macro_f1": 0.8523
+        },
+        {
+          "epoch": 4,
+          "dev_macro_f1": 0.8495
+        }
+      ],
+      "params_m": 184.4,
+      "train_minutes": 10.2
+    },
+    {
+      "backbone": "microsoft/deberta-v3-base",
+      "seed": 44,
+      "best_dev_macro_f1": 0.8489,
+      "history": [
+        {
+          "epoch": 1,
+          "dev_macro_f1": 0.818
+        },
+        {
+          "epoch": 2,
+          "dev_macro_f1": 0.8489
+        },
+        {
+          "epoch": 3,
+          "dev_macro_f1": 0.8434
+        },
+        {
+          "epoch": 4,
+          "dev_macro_f1": 0.8484
+        }
+      ],
+      "params_m": 184.4,
+      "train_minutes": 10.1
+    }
+  ],
+  "dev_macro_f1": {
+    "seed42": 0.8530198373232004,
+    "seed43": 0.852301589559128,
+    "seed44": 0.8489182626147204,
+    "ensemble3": 0.8518700289903504
+  },
+  "chosen": "seed42",
+  "test": {
+    "n": 2388,
+    "accuracy": 0.8961474036850922,
+    "accuracy_ci95": [
+      0.8839928810720268,
+      0.9083019262981574
+    ],
+    "macro_f1": 0.874562424999088
+  },
+  "rdrop_alpha": 1.0,
+  "reference_e7_teacher_accuracy": 0.905
+}
