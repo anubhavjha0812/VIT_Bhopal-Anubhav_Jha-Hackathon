@@ -1,0 +1,30 @@
+{
+  "seed": 44,
+  "best": {
+    "epoch": 4,
+    "dev_macro_f1": 0.8832,
+    "dev_acc": 0.8847
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "dev_macro_f1": 0.8272,
+      "dev_acc": 0.8294
+    },
+    {
+      "epoch": 2,
+      "dev_macro_f1": 0.8734,
+      "dev_acc": 0.8747
+    },
+    {
+      "epoch": 3,
+      "dev_macro_f1": 0.8812,
+      "dev_acc": 0.8829
+    },
+    {
+      "epoch": 4,
+      "dev_macro_f1": 0.8832,
+      "dev_acc": 0.8847
+    }
+  ]
+}

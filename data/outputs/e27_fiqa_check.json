@@ -1,0 +1,12 @@
+{
+  "rows": 150,
+  "own": {
+    "spearman": 0.5824,
+    "sign_accuracy": 0.7305
+  },
+  "entity": {
+    "spearman": 0.6229,
+    "sign_accuracy": 0.7872
+  },
+  "note": "Post-hoc check, not registered. Target ticker/name from FiQA used as entity."
+}

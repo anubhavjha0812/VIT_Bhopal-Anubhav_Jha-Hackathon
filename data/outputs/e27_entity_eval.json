@@ -1,0 +1,152 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-17T15:52:53.119104+00:00",
+  "counts": {
+    "rows": 2152,
+    "headlines": 1611,
+    "conflicting_rows": 463,
+    "conflicting_headlines": 199,
+    "labels": {
+      "negative": 558,
+      "neutral": 838,
+      "positive": 756
+    }
+  },
+  "labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "metrics": {
+    "conflicting": {
+      "rows": 463,
+      "A": {
+        "macro_f1": 0.47614991651972244,
+        "accuracy": 0.4794816414686825
+      },
+      "B": {
+        "macro_f1": 0.8205387294527399,
+        "accuracy": 0.8272138228941684
+      },
+      "paired_b_minus_a": {
+        "b_minus_a": 0.34438881293301743,
+        "ci95": [
+          0.2954643740781862,
+          0.39952657448800066
+        ],
+        "verdict": "higher"
+      }
+    },
+    "all": {
+      "rows": 2152,
+      "A": {
+        "macro_f1": 0.6747425901673901,
+        "accuracy": 0.671003717472119
+      },
+      "B": {
+        "macro_f1": 0.8637786612386141,
+        "accuracy": 0.8629182156133829
+      },
+      "paired_b_minus_a": {
+        "b_minus_a": 0.189036071071224,
+        "ci95": [
+          0.16912774692545196,
+          0.21117545192019013
+        ],
+        "verdict": "higher"
+      }
+    }
+  },
+  "paired_bootstrap": {
+    "seed": 0,
+    "resamples": 1000,
+    "interval": "percentile 95%",
+    "sampling_unit": "entity row"
+  },
+  "rule": {
+    "primary_gain_b_minus_a": 0.34438881293301743,
+    "minimum_primary_gain": 0.05,
+    "primary_gain_pass": true,
+    "all_macro_f1_b_minus_a": 0.189036071071224,
+    "maximum_all_macro_f1_drop": 0.02,
+    "all_macro_f1_guard_pass": true,
+    "switch_to_b": true,
+    "recommended_engine": "B",
+    "applied_to_engine": false
+  },
+  "scope": "SEntFiN Indian business news headlines; US news and tweets are not tested.",
+  "label_provenance": "Human-made labels supplied by the SEntFiN dataset authors.",
+  "completed_utc": "2026-10-17T15:54:28.439401+00:00",
+  "test_file": "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/cache/e27/test.csv",
+  "test_sha256": "3dc3cae2f8b1cf39ddd138d31d7beeda64361b84eb2acd8190a4d559e2563a95",
+  "selection": {
+    "seed": 44,
+    "epoch": 4,
+    "dev_macro_f1": 0.8832,
+    "criterion": "dev_macro_f1 only; first epoch/seed on a tie",
+    "source_metrics_file": "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/private_notes/annotation_uploads/task1/e27_entity_output/models/e27-entity-bge-small-en-v1.5-int8/source_metrics.json",
+    "source_metrics_sha256": "1520d6a18739bda4fcf872d077b5199167cb09a38dade694e0671dc52ec02c81",
+    "all_seed_comparison_verified": false,
+    "note": "Exported winner only; other seeds cannot be rechecked without summary.json."
+  },
+  "models": {
+    "A": {
+      "folder": "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/models/sentiment",
+      "inference": {
+        "method": "onnx_cpu_per_row_dynamic_padding_v1",
+        "batch_size": 1,
+        "padding": "longest_in_single_row",
+        "truncation": true,
+        "max_length": 64,
+        "provider": "CPUExecutionProvider",
+        "onnxruntime_version": "1.30.0",
+        "intra_op_num_threads": 1,
+        "inter_op_num_threads": 1,
+        "execution_mode": "ORT_SEQUENTIAL",
+        "graph_optimization_level": "ORT_ENABLE_ALL",
+        "softmax": "torch_float32_softmax_last_dimension",
+        "torch_version": "2.14.1+cpu",
+        "transformers_version": "5.18.0",
+        "model_sha256": "abcbe1a81754528b8a75b1337171867a64e5a97b846f291d64a42f52e7d78de6",
+        "assets_sha256": {
+          "config.json": "4fa7f87f62540f12f09ac224c38a44b3db571c26565eda118b9d6cfe21316b84",
+          "model.onnx": "abcbe1a81754528b8a75b1337171867a64e5a97b846f291d64a42f52e7d78de6",
+          "source_metrics.json": "9d97c1afe258bb289416c76fb0f65dee5855a8d4a72df83926180f90b738a464",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+        }
+      }
+    },
+    "B": {
+      "folder": "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/private_notes/annotation_uploads/task1/e27_entity_output/models/e27-entity-bge-small-en-v1.5-int8",
+      "inference": {
+        "method": "onnx_cpu_per_row_dynamic_padding_v1",
+        "batch_size": 1,
+        "padding": "longest_in_single_row",
+        "truncation": true,
+        "max_length": 64,
+        "provider": "CPUExecutionProvider",
+        "onnxruntime_version": "1.30.0",
+        "intra_op_num_threads": 1,
+        "inter_op_num_threads": 1,
+        "execution_mode": "ORT_SEQUENTIAL",
+        "graph_optimization_level": "ORT_ENABLE_ALL",
+        "softmax": "torch_float32_softmax_last_dimension",
+        "torch_version": "2.14.1+cpu",
+        "transformers_version": "5.18.0",
+        "model_sha256": "6183f5f95e43d5f4d9620fc45ebfd3cedf03f6979bcc5cd356387adb892583fe",
+        "assets_sha256": {
+          "config.json": "dcf28398bb0465b3f881c457b4c14fc986e22365ea6ed7156314e93e2f1e6657",
+          "model.onnx": "6183f5f95e43d5f4d9620fc45ebfd3cedf03f6979bcc5cd356387adb892583fe",
+          "source_metrics.json": "1520d6a18739bda4fcf872d077b5199167cb09a38dade694e0671dc52ec02c81",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+        },
+        "input_order": [
+          "entity",
+          "headline"
+        ],
+        "encoding": "tokenizer(entity, text_pair=headline)"
+      }
+    }
+  }
+}
