@@ -5,7 +5,9 @@ A row fires only if all hold:
 2. the company is the subject, not a bank that only gives a stock rating (E12)
 3. it is the obligor: named in the text and, if the text has cashtags, the first is its own
    ("$DO $XOM $CVX: Diamond Offshore files for bankruptcy" is not about Exxon)
-4. impact is above the trigger (7 in the case study)
+4. impact is above the trigger (7 in the case study). This is the severity formula
+   (`impact_formula` if the file has it): the learned score (E28) is how far the stock may move,
+   not how serious the credit event is, and it would drop real downgrades on calm stocks
 5. a rating agency is named, or a different text on the same company and credit class arrived
    in the previous 24 hours (one tweet alone is a rumour)
 
@@ -40,6 +42,7 @@ def gate(signals: pd.DataFrame, trigger: int, linker: Linker | None = None) -> p
     s = signals.copy()
     if "role" not in s:
         s["role"] = "subject"
+    impact = s["impact_formula"] if "impact_formula" in s else s["impact"]
     reason = pd.Series("", index=s.index, dtype=object)
     credit = s["event"].isin(CREDIT_CLASSES)
     reason[~credit] = "not credit"
@@ -55,10 +58,10 @@ def gate(signals: pd.DataFrame, trigger: int, linker: Linker | None = None) -> p
     )
     reason[rest & ~obligor] = "not the obligor"
     candidates = rest & obligor  # credit news about this company, any impact
-    reason[candidates & (s["impact"] <= trigger)] = f"impact ≤ {trigger}"
+    reason[candidates & (impact <= trigger)] = f"impact ≤ {trigger}"
 
     pool = s[candidates]
-    for i in s.index[candidates & (s["impact"] > trigger)]:
+    for i in s.index[candidates & (impact > trigger)]:
         row = s.loc[i]
         if names_agency(row["text"]):
             reason[i] = "fired: rating agency"

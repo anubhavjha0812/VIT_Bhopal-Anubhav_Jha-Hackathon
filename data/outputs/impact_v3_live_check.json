@@ -1,0 +1,11 @@
+{
+  "rows_news": 3182,
+  "rows_scored": 3182,
+  "rows_with_real_move": 3182,
+  "spearman_vs_abs_car01": {
+    "formula_impact": 0.1312,
+    "volatility_only": 0.2029,
+    "v3_expected_move": 0.2433
+  },
+  "note": "Apr-Jun 2020 replay window, news rows only; 2020 was already seen in E28 (development check, not a blind test). Sqrt2 scaling: 1.4142"
+}

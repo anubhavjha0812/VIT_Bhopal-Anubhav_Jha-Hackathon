@@ -27,6 +27,8 @@ def texts(signals: pd.DataFrame) -> pd.DataFrame:
         signals = signals.assign(role="subject")
     if "fired" not in signals:
         signals = signals.assign(fired=False, reason="")
+    if "impact_formula" not in signals:  # E28: the alert size follows severity, not the stock move
+        signals = signals.assign(impact_formula=signals["impact"])
     out = (
         signals.groupby("doc_id", sort=False)
         .agg(
@@ -40,6 +42,7 @@ def texts(signals: pd.DataFrame) -> pd.DataFrame:
             sentiment=("sentiment", "first"),
             event=("event", "first"),
             impact=("impact", "first"),
+            impact_formula=("impact_formula", "first"),
         )
         .reset_index()
         .sort_values(["published_at", "doc_id"], kind="stable")
@@ -94,7 +97,7 @@ def events(
             alert = {**payload, "obligors": t.obligors, "gate": t.gate}
             if on_alert:
                 alert["module_b"] = {
-                    o: on_alert(o, t.text, t.event, int(t.impact)) for o in t.obligors
+                    o: on_alert(o, t.text, t.event, int(t.impact_formula)) for o in t.obligors
                 }
             yield "alert", alert
     yield from weights_until(None)

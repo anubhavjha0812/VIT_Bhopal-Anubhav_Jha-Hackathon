@@ -1,0 +1,15 @@
+{
+  "train_rows": 14552,
+  "test_rows": 22761,
+  "spearman_vs_abs_car01": {
+    "v3_tweets": 0.1403,
+    "volatility_only": 0.134,
+    "formula": 0.0107
+  },
+  "gain_over_volatility_ci95": [
+    0.0041,
+    0.0086
+  ],
+  "adopt": true,
+  "rule": "v3 > volatility only and > formula, gain CI lower bound > 0"
+}

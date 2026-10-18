@@ -1,0 +1,29 @@
+{
+  "chosen": "d_clipped_no_vol",
+  "sets": {
+    "F_fresh_2019": {
+      "n": 26964,
+      "volatility_only": 0.1429,
+      "a_v2_ridge": 0.2954,
+      "d_clipped_no_vol": 0.2797
+    },
+    "F_fresh_2020": {
+      "n": 15098,
+      "volatility_only": 0.3307,
+      "a_v2_ridge": -0.0924,
+      "d_clipped_no_vol": 0.3532
+    },
+    "S_seen_2019": {
+      "n": 6214,
+      "volatility_only": 0.2699,
+      "a_v2_ridge": 0.321,
+      "d_clipped_no_vol": 0.3268
+    },
+    "S_seen_2020": {
+      "n": 6454,
+      "volatility_only": 0.3399,
+      "a_v2_ridge": 0.1096,
+      "d_clipped_no_vol": 0.3808
+    }
+  }
+}

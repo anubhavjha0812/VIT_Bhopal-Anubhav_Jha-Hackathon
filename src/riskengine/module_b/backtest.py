@@ -66,7 +66,7 @@ def alert_check(book: pd.DataFrame | None = None) -> pd.DataFrame:
         start = days[days <= a.published_at.tz_localize(None).normalize()][-1]
         end = days[min(days.get_loc(start) + HORIZON, len(days) - 1)]
         n = parse_notches(a.text, a.event)
-        multiple = 1.0 if cfg.shock == "flat" else a.impact / 10
+        multiple = 1.0 if cfg.shock == "flat" else getattr(a, "impact_formula", a.impact) / 10
         predicted = _market_loss(revalue(book, a.ticker, n, DEFAULT_EPISODE, multiple))
         naive = _market_loss(revalue(book, None, 0, DEFAULT_EPISODE, 1.0))
         realised = _market_loss(revalue(book, a.ticker, n, (str(start.date()), str(end.date()))))
