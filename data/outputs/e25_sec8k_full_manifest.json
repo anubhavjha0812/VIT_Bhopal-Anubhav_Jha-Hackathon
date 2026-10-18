@@ -1,0 +1,3048 @@
+{
+  "cap_per_item": 150,
+  "chunk_rows": 50000,
+  "chunks": 262,
+  "counts_per_item": {
+    "1.03": 150,
+    "2.04": 150
+  },
+  "exclusion_snapshot": {
+    "baseline_manifest": "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/outputs/e25_sec8k_manifest.json",
+    "baseline_sha256": "4e6aab67526a9928857f97189353186f34aa7a4293770a557b46a4844df0db73",
+    "path": "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/cache/e25/sec8k_exclusions.json",
+    "sha256": "98fa1036b8d5e1d169126ccf3904db127703bde1466ef2271da049dbe7d1b887"
+  },
+  "exclusions": {
+    "E25 extra": {
+      "rows": 1212,
+      "sha256": "d687f2b3cc0413b8fa29ab692cbe489278cebaa134ed3227f01679264a7a622b"
+    },
+    "E25 pool": {
+      "rows": 40453,
+      "sha256": "be3ae28eab208c14fd18845b4401cf56e009d060e48d7788c4c03e622792c73c"
+    },
+    "R3": {
+      "rows": 400,
+      "sha256": "bcca7933d07ec2cbfee703ef98c85fd8cb92d6b27b74603d8fa5fc4c2b777377"
+    },
+    "credit held-out": {
+      "rows": 150,
+      "sha256": "67007d0064b6050da8a2abfa15a9fd693943101ec42de16aa9a131256ea8a115"
+    },
+    "fixed_exclusions_00": {
+      "rows": 33038,
+      "sha256": "75c16ff4d996ecf167d053eb5eedbeb7b7e8558cedbbd0ce753e7a67f645e7b1"
+    },
+    "fixed_exclusions_01": {
+      "rows": 300,
+      "sha256": "8202b67ba8ed5913b10744984bc11a9ec0f38f78d0e0f538d8e23118e1ca6ab0"
+    },
+    "fixed_exclusions_02": {
+      "rows": 243,
+      "sha256": "1f654a329443dd2b36cebfef1c20cbb6e3e867f00c5a6515fe54811547a6a281"
+    },
+    "fixed_exclusions_03": {
+      "rows": 83,
+      "sha256": "cd54e0f7b07d146f5c59063faeb4741a7e87e510245242cc0b3115a99d28592b"
+    },
+    "fixed_exclusions_04": {
+      "rows": 396,
+      "sha256": "39cbf6e1ecb42c231fec0208cf9628902721ca91e9228d5d92bb42cd558045a3"
+    },
+    "fixed_exclusions_05": {
+      "rows": 300,
+      "sha256": "59bf2cb175b99c3de5fc628c690f99fb260bcb3f8db51c99ef5b7e79a4f4bca9"
+    },
+    "fixed_exclusions_06": {
+      "rows": 851,
+      "sha256": "418b5923d7217aa00af0ad8732da81caf134a2c328c5d496c3909c543fc9ea6c"
+    },
+    "fixed_exclusions_07": {
+      "rows": 600,
+      "sha256": "31b111aab0756dfb28c878589798f91dcbf543a009b6127ffb5d01f67a305a3b"
+    },
+    "fixed_exclusions_08": {
+      "rows": 200,
+      "sha256": "f8d7c135d58616dcaa224822417e88eed846840559634568b4636da955278b51"
+    },
+    "fixed_exclusions_09": {
+      "rows": 100,
+      "sha256": "9ef2cb0832ec6f80527808970371620496f829c6a50a549ef26c4e61f69de6e4"
+    }
+  },
+  "filing_window": [
+    "2010-01-01",
+    "2020-06-30"
+  ],
+  "headline_window_days": [
+    -2,
+    5
+  ],
+  "leak_filter": {
+    "after_draw": [
+      {
+        "after_exclusions": 287,
+        "excluded_by_set": {
+          "E25 extra": 0,
+          "E25 pool": 0,
+          "R3": 0,
+          "credit held-out": 0,
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0
+        },
+        "excluded_total": 0,
+        "frame": 287
+      }
+    ],
+    "before_draw": [
+      {
+        "after_exclusions": 1375,
+        "excluded_by_set": {
+          "E25 extra": 1,
+          "E25 pool": 1,
+          "R3": 0,
+          "credit held-out": 1,
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 10,
+          "fixed_exclusions_03": 6,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0
+        },
+        "excluded_total": 13,
+        "frame": 1388
+      },
+      {
+        "after_exclusions": 1375,
+        "excluded_by_set": {
+          "E25 extra": 0,
+          "E25 pool": 0,
+          "R3": 0,
+          "credit held-out": 0,
+          "fixed_exclusions_00": 0,
+          "fixed_exclusions_01": 0,
+          "fixed_exclusions_02": 0,
+          "fixed_exclusions_03": 0,
+          "fixed_exclusions_04": 0,
+          "fixed_exclusions_05": 0,
+          "fixed_exclusions_06": 0,
+          "fixed_exclusions_07": 0,
+          "fixed_exclusions_08": 0,
+          "fixed_exclusions_09": 0
+        },
+        "excluded_total": 0,
+        "frame": 1375
+      }
+    ]
+  },
+  "matched_unique_headlines": 1388,
+  "news_source": "full_local_csv",
+  "non_news_filter": {
+    "counts": {
+      "dropped_three_or_more_tickers": 201066,
+      "dropped_total": 254694,
+      "dropped_wrap_title": 57497,
+      "rows": 13057514
+    },
+    "rule": "Fixed before scanning: drop a row if its title matches the case-insensitive wrap regex, or title plus Stock_symbol contain at least 3 distinct literal uppercase tickers from the existing SEC ticker map and cached filing display-name tickers. No row-by-row review.",
+    "ticker_lexicon_sha256": "2f9633b5b78afae851258bc356625a8f8ee6452744ebc9ed9b62d7b2916d308d",
+    "wrap_regex": "\\b(?:stocks?\\s+to\\s+watch|market[\\s-]+(?:wrap|round[\\s-]?up)|wall\\s+street[\\s-]+(?:wrap|round[\\s-]?up)|(?:pre[\\s-]?market|midday|after[\\s-]?hours|morning|afternoon)[\\s-]+(?:movers|market[\\s-]+(?:update|wrap|round[\\s-]?up)))\\b"
+  },
+  "note": "8-K item codes are anchors for sampling, not labels. Headline text still gets labelled blind. The labeller reads to_label.csv only, never anchors.csv or this manifest. This is a separate supplementary credit set, not E24 or a tuning set.",
+  "rows": 287,
+  "rule": "8-K filings 2010-01-01 through 2020-06-30; client-side exact item recheck; local FNSPID headline dated filing-2 through filing+5 days, inclusive; normalized issuer name without legal suffixes or literal uppercase ticker in text; unique normalized headline, earliest matching date; standard E25 leak exclusions plus R3, credit held-out, pool and extra; seeded hash draw, at most 150 headlines/item",
+  "script_sha256": "91f606ca2a033892bc4416bd9f5783fdf2ab76bba75f4d847939db3d153c83a4",
+  "sec_cache": {
+    "counts_per_item": {
+      "1.03": {
+        "dropped_item_hits": 0,
+        "dropped_metadata_hits": 0,
+        "hits": 1377,
+        "kept_hits": 1377
+      },
+      "2.04": {
+        "dropped_item_hits": 980,
+        "dropped_metadata_hits": 0,
+        "hits": 1377,
+        "kept_hits": 397
+      }
+    },
+    "filings": 1821,
+    "sha256": {
+      "1.03_2010-01-01_2010-12-31_000000.json": "c1ec40b46d6ed3f05031baa2e852b3e13d38e026cd6bba6dadacd86032206f94",
+      "1.03_2010-01-01_2010-12-31_000100.json": "8e0328aed243f25d2ee3f97cb8db9351d5a59949175975021fee4a8a528e3e66",
+      "1.03_2011-01-01_2011-12-31_000000.json": "17fe59225e9152e35bcddeab019878bfb07d75966cebb21d96e0d21b0151e012",
+      "1.03_2011-01-01_2011-12-31_000100.json": "3e9ae48c14b9e2a424fd85f760aa5f37de872e32acfbabd0d8c3d4e47d824988",
+      "1.03_2012-01-01_2012-12-31_000000.json": "f1d8a8c69b3fcce1ac88ce7bc855797350c652d59d1a9de7f6b007058731ef98",
+      "1.03_2012-01-01_2012-12-31_000100.json": "5f1b3f249707a3d648a4715af2792a9a0e831d1c915ff6dc08caf683d8ce86ca",
+      "1.03_2013-01-01_2013-12-31_000000.json": "c669d784a7d551eae2041c3987b27cca934332dc5944778f6114023eb1a83d5e",
+      "1.03_2013-01-01_2013-12-31_000100.json": "d66a72a0037224a181b05fdac1daa528d91ca88eefeefcbeb0c49d69999848d7",
+      "1.03_2014-01-01_2014-12-31_000000.json": "b48643a257b6421e24ee7a6779c7e4695456b5b0d59d3072a8342eef83c400f9",
+      "1.03_2014-01-01_2014-12-31_000100.json": "a2b28cac89501b1704622944585f8cc4a5eea332951ab599660589fcded76fc4",
+      "1.03_2015-01-01_2015-12-31_000000.json": "4ced16c9b474f8c8884d6bfdc385fee912e95df194a419063bed2c2c8f272b50",
+      "1.03_2016-01-01_2016-12-31_000000.json": "7d337f1b9763ccac76aa75189f3ade27b8b0d9c1ea73dd73cc4587cd711738fd",
+      "1.03_2016-01-01_2016-12-31_000100.json": "5fe61fae67a281b31ad4f031c6abb7e65b5cd51409e3035014cf7934612d1ebf",
+      "1.03_2017-01-01_2017-12-31_000000.json": "fc42f65490cd6626fbcdde639206407667a29d68437253810fafc295963362fe",
+      "1.03_2017-01-01_2017-12-31_000100.json": "fe48c8bcb95a5031f3089900954949e72f1bab1964e67ae74f49254bc13bbea0",
+      "1.03_2018-01-01_2018-12-31_000000.json": "f8d60cfc16030e92cb2f252260f1b30a70d692289a03d125baf6564be19c313e",
+      "1.03_2019-01-01_2019-12-31_000000.json": "9f8a8b0fcad7786143e34d1338d9b3e36f66604d92d9d1779c96f5d028487579",
+      "1.03_2019-01-01_2019-12-31_000100.json": "bf988efed60f4009fccf5776fa769e61cdbb564a8f37dfc7b3757b9fd270558b",
+      "1.03_2020-01-01_2020-06-30_000000.json": "14ed2508da930461da0692909add316d4a6bc2dd81b468fd65530e40b4981516",
+      "2.04_2010-01-01_2010-12-31_000000.json": "c1ec40b46d6ed3f05031baa2e852b3e13d38e026cd6bba6dadacd86032206f94",
+      "2.04_2010-01-01_2010-12-31_000100.json": "8e0328aed243f25d2ee3f97cb8db9351d5a59949175975021fee4a8a528e3e66",
+      "2.04_2011-01-01_2011-12-31_000000.json": "17fe59225e9152e35bcddeab019878bfb07d75966cebb21d96e0d21b0151e012",
+      "2.04_2011-01-01_2011-12-31_000100.json": "3e9ae48c14b9e2a424fd85f760aa5f37de872e32acfbabd0d8c3d4e47d824988",
+      "2.04_2012-01-01_2012-12-31_000000.json": "f1d8a8c69b3fcce1ac88ce7bc855797350c652d59d1a9de7f6b007058731ef98",
+      "2.04_2012-01-01_2012-12-31_000100.json": "5f1b3f249707a3d648a4715af2792a9a0e831d1c915ff6dc08caf683d8ce86ca",
+      "2.04_2013-01-01_2013-12-31_000000.json": "c669d784a7d551eae2041c3987b27cca934332dc5944778f6114023eb1a83d5e",
+      "2.04_2013-01-01_2013-12-31_000100.json": "d66a72a0037224a181b05fdac1daa528d91ca88eefeefcbeb0c49d69999848d7",
+      "2.04_2014-01-01_2014-12-31_000000.json": "b48643a257b6421e24ee7a6779c7e4695456b5b0d59d3072a8342eef83c400f9",
+      "2.04_2014-01-01_2014-12-31_000100.json": "a2b28cac89501b1704622944585f8cc4a5eea332951ab599660589fcded76fc4",
+      "2.04_2015-01-01_2015-12-31_000000.json": "4ced16c9b474f8c8884d6bfdc385fee912e95df194a419063bed2c2c8f272b50",
+      "2.04_2016-01-01_2016-12-31_000000.json": "7d337f1b9763ccac76aa75189f3ade27b8b0d9c1ea73dd73cc4587cd711738fd",
+      "2.04_2016-01-01_2016-12-31_000100.json": "5fe61fae67a281b31ad4f031c6abb7e65b5cd51409e3035014cf7934612d1ebf",
+      "2.04_2017-01-01_2017-12-31_000000.json": "fc42f65490cd6626fbcdde639206407667a29d68437253810fafc295963362fe",
+      "2.04_2017-01-01_2017-12-31_000100.json": "fe48c8bcb95a5031f3089900954949e72f1bab1964e67ae74f49254bc13bbea0",
+      "2.04_2018-01-01_2018-12-31_000000.json": "f8d60cfc16030e92cb2f252260f1b30a70d692289a03d125baf6564be19c313e",
+      "2.04_2019-01-01_2019-12-31_000000.json": "9f8a8b0fcad7786143e34d1338d9b3e36f66604d92d9d1779c96f5d028487579",
+      "2.04_2019-01-01_2019-12-31_000100.json": "bf988efed60f4009fccf5776fa769e61cdbb564a8f37dfc7b3757b9fd270558b",
+      "2.04_2020-01-01_2020-06-30_000000.json": "14ed2508da930461da0692909add316d4a6bc2dd81b468fd65530e40b4981516",
+      "index.json": "cd8e68fb8bdb4d918f6ee0b32dddb6555639703e3f7a3cdb8d46d706623decb5"
+    },
+    "status": "cached"
+  },
+  "seed": 28,
+  "selected_filing_metadata": [
+    {
+      "accession": "0001136261-10-000004",
+      "cik": "810332",
+      "company": "MESA AIR GROUP INC",
+      "file_date": "2010-01-06",
+      "id": "S8K0001",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0001136261-10-000004",
+      "cik": "810332",
+      "company": "MESA AIR GROUP INC",
+      "file_date": "2010-01-06",
+      "id": "S8K0002",
+      "item": "1.03",
+      "items": "1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0001136261-10-000004",
+      "cik": "810332",
+      "company": "MESA AIR GROUP INC",
+      "file_date": "2010-01-06",
+      "id": "S8K0003",
+      "item": "1.03",
+      "items": "1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0001193125-10-002722",
+      "cik": "810536",
+      "company": "FIRSTFED FINANCIAL CORP",
+      "file_date": "2010-01-07",
+      "id": "S8K0004",
+      "item": "1.03",
+      "items": "1.03 2.04"
+    },
+    {
+      "accession": "0000950123-10-008491",
+      "cik": "855667",
+      "company": "NEENAH ENTERPRISES, INC.",
+      "file_date": "2010-02-04",
+      "id": "S8K0005",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 9.01"
+    },
+    {
+      "accession": "0000950123-10-019481",
+      "cik": "913015",
+      "company": "REGENT COMMUNICATIONS INC",
+      "file_date": "2010-03-01",
+      "id": "S8K0006",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 8.01 9.01"
+    },
+    {
+      "accession": "0001144204-10-011125",
+      "cik": "38570",
+      "company": "ORLEANS HOMEBUILDERS INC",
+      "file_date": "2010-03-03",
+      "id": "S8K0007",
+      "item": "2.04",
+      "items": "1.03 2.04 8.01 9.01"
+    },
+    {
+      "accession": "0000921895-10-000530",
+      "cik": "899166",
+      "company": "POINT BLANK SOLUTIONS, INC.",
+      "file_date": "2010-04-14",
+      "id": "S8K0008",
+      "item": "1.03",
+      "items": "1.01 1.02 1.03 2.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000950130-10-002582",
+      "cik": "1082368",
+      "company": "BANK OF FLORIDA CORP",
+      "file_date": "2010-06-01",
+      "id": "S8K0009",
+      "item": "1.03",
+      "items": "1.03 8.01 9.01"
+    },
+    {
+      "accession": "0001171520-10-000363",
+      "cik": "23341",
+      "company": "CONGOLEUM CORP",
+      "file_date": "2010-06-10",
+      "id": "S8K0010",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0001019687-10-002250",
+      "cik": "778164",
+      "company": "Pacific Ethanol, Inc.",
+      "file_date": "2010-06-11",
+      "id": "S8K0011",
+      "item": "1.03",
+      "items": "1.03 8.01 9.01"
+    },
+    {
+      "accession": "0000921895-10-001124",
+      "cik": "899647",
+      "company": "RIVIERA HOLDINGS CORP",
+      "file_date": "2010-07-14",
+      "id": "S8K0012",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 8.01 9.01"
+    },
+    {
+      "accession": "0001181431-10-041910",
+      "cik": "1157443",
+      "company": "nCoat, Inc.",
+      "file_date": "2010-08-16",
+      "id": "S8K0013",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0001144204-10-050128",
+      "cik": "1402364",
+      "company": "Ultimate Escapes, Inc.",
+      "file_date": "2010-09-20",
+      "id": "S8K0014",
+      "item": "1.03",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0015",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0015",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0016",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0017",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0018",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0019",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0020",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-10-215765",
+      "cik": "1085734",
+      "company": "BLOCKBUSTER INC",
+      "file_date": "2010-09-24",
+      "id": "S8K0021",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001140361-10-043150",
+      "cik": "1063537",
+      "company": "NUTRACEA",
+      "file_date": "2010-11-02",
+      "id": "S8K0022",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0001354488-10-003388",
+      "cik": "1405419",
+      "company": "GULFSTREAM INTERNATIONAL GROUP INC",
+      "file_date": "2010-11-05",
+      "id": "S8K0023",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 3.01 5.02 9.01"
+    },
+    {
+      "accession": "0001193125-10-256201",
+      "cik": "874501",
+      "company": "AMBAC FINANCIAL GROUP INC",
+      "file_date": "2010-11-10",
+      "id": "S8K0024",
+      "item": "1.03",
+      "items": "1.03 2.04 3.01 8.01"
+    },
+    {
+      "accession": "0001193125-10-256201",
+      "cik": "874501",
+      "company": "AMBAC FINANCIAL GROUP INC",
+      "file_date": "2010-11-10",
+      "id": "S8K0025",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01 8.01"
+    },
+    {
+      "accession": "0000950123-10-113458",
+      "cik": "1145238",
+      "company": "INSIGHT HEALTH SERVICES HOLDINGS CORP",
+      "file_date": "2010-12-14",
+      "id": "S8K0026",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0000950123-10-113458",
+      "cik": "1145238",
+      "company": "INSIGHT HEALTH SERVICES HOLDINGS CORP",
+      "file_date": "2010-12-14",
+      "id": "S8K0026",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-11-021328",
+      "cik": "317477",
+      "company": "COMPOSITE TECHNOLOGY CORP",
+      "file_date": "2011-04-11",
+      "id": "S8K0027",
+      "item": "1.03",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001144204-11-021328",
+      "cik": "317477",
+      "company": "COMPOSITE TECHNOLOGY CORP",
+      "file_date": "2011-04-11",
+      "id": "S8K0027",
+      "item": "2.04",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001144204-11-042996",
+      "cik": "764241",
+      "company": "INTEGRA BANK CORP",
+      "file_date": "2011-08-01",
+      "id": "S8K0028",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 5.03 9.01"
+    },
+    {
+      "accession": "0001144204-11-049225",
+      "cik": "1160165",
+      "company": "ShengdaTech, Inc.",
+      "file_date": "2011-08-23",
+      "id": "S8K0029",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-11-049225",
+      "cik": "1160165",
+      "company": "ShengdaTech, Inc.",
+      "file_date": "2011-08-23",
+      "id": "S8K0030",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-11-049225",
+      "cik": "1160165",
+      "company": "ShengdaTech, Inc.",
+      "file_date": "2011-08-23",
+      "id": "S8K0031",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-11-059059",
+      "cik": "1103345",
+      "company": "BEACON POWER CORP",
+      "file_date": "2011-10-31",
+      "id": "S8K0032",
+      "item": "2.04",
+      "items": "1.03 2.04"
+    },
+    {
+      "accession": "0001104659-11-059059",
+      "cik": "1103345",
+      "company": "BEACON POWER CORP",
+      "file_date": "2011-10-31",
+      "id": "S8K0033",
+      "item": "2.04",
+      "items": "1.03 2.04"
+    },
+    {
+      "accession": "0001104659-11-059059",
+      "cik": "1103345",
+      "company": "BEACON POWER CORP",
+      "file_date": "2011-10-31",
+      "id": "S8K0034",
+      "item": "2.04",
+      "items": "1.03 2.04"
+    },
+    {
+      "accession": "0001193125-11-295417",
+      "cik": "1401106",
+      "company": "MF Global Holdings Ltd.",
+      "file_date": "2011-11-03",
+      "id": "S8K0035",
+      "item": "2.04",
+      "items": "1.02 1.03 2.04 3.01 8.01 9.01"
+    },
+    {
+      "accession": "0001341004-11-001955",
+      "cik": "724742",
+      "company": "SYMS CORP",
+      "file_date": "2011-11-02",
+      "id": "S8K0036",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02"
+    },
+    {
+      "accession": "0001193125-11-295417",
+      "cik": "1401106",
+      "company": "MF Global Holdings Ltd.",
+      "file_date": "2011-11-03",
+      "id": "S8K0037",
+      "item": "2.04",
+      "items": "1.02 1.03 2.04 3.01 8.01 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0038",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1105055",
+      "company": "DYNEGY HOLDINGS, LLC",
+      "file_date": "2011-11-08",
+      "id": "S8K0039",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0039",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0040",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0041",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0042",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0043",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0044",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0045",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001104659-11-061791",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2011-11-08",
+      "id": "S8K0046",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-11-313979",
+      "cik": "1039184",
+      "company": "TRAILER BRIDGE INC",
+      "file_date": "2011-11-16",
+      "id": "S8K0047",
+      "item": "2.04",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0048",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0049",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0049",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0050",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0050",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0051",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0052",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0053",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0054",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0055",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0056",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0057",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0058",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0059",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0060",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0061",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0062",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000395",
+      "cik": "6201",
+      "company": "AMR CORP",
+      "file_date": "2011-11-29",
+      "id": "S8K0062",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000909518-11-000394",
+      "cik": "4515",
+      "company": "AMERICAN AIRLINES INC",
+      "file_date": "2011-11-29",
+      "id": "S8K0063",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0001181431-11-058389",
+      "cik": "1401106",
+      "company": "MF Global Holdings Ltd.",
+      "file_date": "2011-12-02",
+      "id": "S8K0064",
+      "item": "1.03",
+      "items": "1.03 5.02"
+    },
+    {
+      "accession": "0001183010-11-000033",
+      "cik": "58361",
+      "company": "LEE ENTERPRISES, INC",
+      "file_date": "2011-12-12",
+      "id": "S8K0065",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01"
+    },
+    {
+      "accession": "0001183010-11-000033",
+      "cik": "58361",
+      "company": "LEE ENTERPRISES, INC",
+      "file_date": "2011-12-12",
+      "id": "S8K0065",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01"
+    },
+    {
+      "accession": "0001183010-11-000033",
+      "cik": "58361",
+      "company": "LEE ENTERPRISES, INC",
+      "file_date": "2011-12-12",
+      "id": "S8K0066",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01"
+    },
+    {
+      "accession": "0001183010-11-000033",
+      "cik": "58361",
+      "company": "LEE ENTERPRISES, INC",
+      "file_date": "2011-12-12",
+      "id": "S8K0067",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01"
+    },
+    {
+      "accession": "0001193125-12-002324",
+      "cik": "859475",
+      "company": "TRIDENT MICROSYSTEMS INC",
+      "file_date": "2012-01-04",
+      "id": "S8K0068",
+      "item": "1.03",
+      "items": "1.01 1.03 9.01"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0069",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0070",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0071",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0072",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0073",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0074",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0075",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0076",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0077",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0078",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0079",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0080",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0001193125-12-016443",
+      "cik": "31235",
+      "company": "EASTMAN KODAK CO",
+      "file_date": "2012-01-19",
+      "id": "S8K0081",
+      "item": "2.04",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0082",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0083",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000732717-12-000006",
+      "cik": "732717",
+      "company": "AT&T INC.  (T, TBB, TBC, T-PA, T-PC)",
+      "file_date": "2012-01-13",
+      "id": "S8K0084",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0001193125-12-016443",
+      "cik": "31235",
+      "company": "EASTMAN KODAK CO",
+      "file_date": "2012-01-19",
+      "id": "S8K0085",
+      "item": "1.03",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-12-016443",
+      "cik": "31235",
+      "company": "EASTMAN KODAK CO",
+      "file_date": "2012-01-19",
+      "id": "S8K0085",
+      "item": "2.04",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001144204-12-003999",
+      "cik": "895642",
+      "company": "ENER1 INC",
+      "file_date": "2012-01-26",
+      "id": "S8K0086",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-12-004253",
+      "cik": "895642",
+      "company": "ENER1 INC",
+      "file_date": "2012-01-27",
+      "id": "S8K0086",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-12-003999",
+      "cik": "895642",
+      "company": "ENER1 INC",
+      "file_date": "2012-01-26",
+      "id": "S8K0087",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-12-004253",
+      "cik": "895642",
+      "company": "ENER1 INC",
+      "file_date": "2012-01-27",
+      "id": "S8K0087",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-12-069168",
+      "cik": "216039",
+      "company": "GRUBB & ELLIS CO",
+      "file_date": "2012-02-21",
+      "id": "S8K0088",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-12-069168",
+      "cik": "216039",
+      "company": "GRUBB & ELLIS CO",
+      "file_date": "2012-02-21",
+      "id": "S8K0089",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 9.01"
+    },
+    {
+      "accession": "0001432093-12-000140",
+      "cik": "811036",
+      "company": "TaxMasters, Inc.",
+      "file_date": "2012-03-16",
+      "id": "S8K0090",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0001193125-12-140009",
+      "cik": "853695",
+      "company": "DRI CORP",
+      "file_date": "2012-03-29",
+      "id": "S8K0091",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0001104659-12-047881",
+      "cik": "1379895",
+      "company": "DYNEGY INC.",
+      "file_date": "2012-07-06",
+      "id": "S8K0092",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0000950103-12-003529",
+      "cik": "1376812",
+      "company": "Patriot Coal CORP",
+      "file_date": "2012-07-09",
+      "id": "S8K0093",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0000950103-12-003529",
+      "cik": "1376812",
+      "company": "Patriot Coal CORP",
+      "file_date": "2012-07-09",
+      "id": "S8K0094",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0001437749-12-006893",
+      "cik": "885551",
+      "company": "VALENCE TECHNOLOGY INC",
+      "file_date": "2012-07-13",
+      "id": "S8K0095",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0001437749-12-006893",
+      "cik": "885551",
+      "company": "VALENCE TECHNOLOGY INC",
+      "file_date": "2012-07-13",
+      "id": "S8K0096",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0001471242-12-001053",
+      "cik": "22551",
+      "company": "TRI VALLEY CORP",
+      "file_date": "2012-08-09",
+      "id": "S8K0097",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 9.01"
+    },
+    {
+      "accession": "0000840264-12-000053",
+      "cik": "840264",
+      "company": "CAPITOL BANCORP LTD",
+      "file_date": "2012-08-09",
+      "id": "S8K0098",
+      "item": "2.04",
+      "items": "1.03 2.02 2.04 9.01"
+    },
+    {
+      "accession": "0000914121-12-000451",
+      "cik": "1490930",
+      "company": "Digital Domain Media Group, Inc.",
+      "file_date": "2012-09-12",
+      "id": "S8K0099",
+      "item": "1.03",
+      "items": "1.01 1.03 3.01 5.02 9.01"
+    },
+    {
+      "accession": "0000914121-12-000477",
+      "cik": "1490930",
+      "company": "Digital Domain Media Group, Inc.",
+      "file_date": "2012-09-28",
+      "id": "S8K0100",
+      "item": "1.03",
+      "items": "1.01 1.03 2.01 9.01"
+    },
+    {
+      "accession": "0000914121-12-000477",
+      "cik": "1490930",
+      "company": "Digital Domain Media Group, Inc.",
+      "file_date": "2012-09-28",
+      "id": "S8K0101",
+      "item": "1.03",
+      "items": "1.01 1.03 2.01 9.01"
+    },
+    {
+      "accession": "0001104659-12-069499",
+      "cik": "1167178",
+      "company": "A123 SYSTEMS, INC.",
+      "file_date": "2012-10-17",
+      "id": "S8K0102",
+      "item": "1.03",
+      "items": "1.01 1.02 1.03 2.04 5.02 9.01"
+    },
+    {
+      "accession": "0000075208-12-000032",
+      "cik": "75208",
+      "company": "OVERSEAS SHIPHOLDING GROUP INC",
+      "file_date": "2012-11-15",
+      "id": "S8K0103",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000075208-12-000032",
+      "cik": "75208",
+      "company": "OVERSEAS SHIPHOLDING GROUP INC",
+      "file_date": "2012-11-15",
+      "id": "S8K0104",
+      "item": "1.03",
+      "items": "1.03 2.04 3.01 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000075208-12-000032",
+      "cik": "75208",
+      "company": "OVERSEAS SHIPHOLDING GROUP INC",
+      "file_date": "2012-11-15",
+      "id": "S8K0104",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0001104659-12-084422",
+      "cik": "930835",
+      "company": "EDISON MISSION ENERGY",
+      "file_date": "2012-12-17",
+      "id": "S8K0105",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001104659-12-084422",
+      "cik": "930835",
+      "company": "EDISON MISSION ENERGY",
+      "file_date": "2012-12-17",
+      "id": "S8K0106",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0000865570-12-000066",
+      "cik": "865570",
+      "company": "THQ INC",
+      "file_date": "2012-12-19",
+      "id": "S8K0107",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0000865570-12-000066",
+      "cik": "865570",
+      "company": "THQ INC",
+      "file_date": "2012-12-19",
+      "id": "S8K0108",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0000865570-12-000066",
+      "cik": "865570",
+      "company": "THQ INC",
+      "file_date": "2012-12-19",
+      "id": "S8K0109",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0000865570-12-000066",
+      "cik": "865570",
+      "company": "THQ INC",
+      "file_date": "2012-12-19",
+      "id": "S8K0110",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0000865570-12-000066",
+      "cik": "865570",
+      "company": "THQ INC",
+      "file_date": "2012-12-19",
+      "id": "S8K0111",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0001104659-13-004940",
+      "cik": "911002",
+      "company": "LODGENET INTERACTIVE CORP",
+      "file_date": "2013-01-28",
+      "id": "S8K0112",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-13-026381",
+      "cik": "1023362",
+      "company": "POWERWAVE TECHNOLOGIES INC",
+      "file_date": "2013-01-28",
+      "id": "S8K0113",
+      "item": "2.04",
+      "items": "1.02 1.03 2.04 3.01"
+    },
+    {
+      "accession": "0001104659-13-021391",
+      "cik": "1367396",
+      "company": "SUPERMEDIA INC.",
+      "file_date": "2013-03-18",
+      "id": "S8K0114",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 9.01"
+    },
+    {
+      "accession": "0001171200-13-000043",
+      "cik": "1288359",
+      "company": "OTELCO INC.",
+      "file_date": "2013-03-25",
+      "id": "S8K0115",
+      "item": "2.04",
+      "items": "1.03 2.04 8.01 9.01"
+    },
+    {
+      "accession": "0001127342-13-000021",
+      "cik": "1127342",
+      "company": "GMX RESOURCES INC",
+      "file_date": "2013-04-01",
+      "id": "S8K0116",
+      "item": "2.04",
+      "items": "1.03 2.04 8.01 9.01"
+    },
+    {
+      "accession": "0001127342-13-000021",
+      "cik": "1127342",
+      "company": "GMX RESOURCES INC",
+      "file_date": "2013-04-01",
+      "id": "S8K0117",
+      "item": "2.04",
+      "items": "1.03 2.04 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-13-145299",
+      "cik": "1175108",
+      "company": "ROTECH HEALTHCARE INC",
+      "file_date": "2013-04-08",
+      "id": "S8K0118",
+      "item": "2.04",
+      "items": "1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-13-145696",
+      "cik": "1046880",
+      "company": "CENTRAL EUROPEAN DISTRIBUTION CORP",
+      "file_date": "2013-04-08",
+      "id": "S8K0119",
+      "item": "1.03",
+      "items": "1.03 2.04 8.01 9.01"
+    },
+    {
+      "accession": "0000025354-13-000017",
+      "cik": "25354",
+      "company": "CPI CORP",
+      "file_date": "2013-04-16",
+      "id": "S8K0120",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0000025354-13-000017",
+      "cik": "25354",
+      "company": "CPI CORP",
+      "file_date": "2013-04-16",
+      "id": "S8K0121",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0000025354-13-000017",
+      "cik": "25354",
+      "company": "CPI CORP",
+      "file_date": "2013-04-16",
+      "id": "S8K0122",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0000914760-13-000042",
+      "cik": "25354",
+      "company": "CPI CORP",
+      "file_date": "2013-05-01",
+      "id": "S8K0123",
+      "item": "1.03",
+      "items": "1.03 5.02 8.01"
+    },
+    {
+      "accession": "0001188112-13-001366",
+      "cik": "1288359",
+      "company": "OTELCO INC.",
+      "file_date": "2013-05-06",
+      "id": "S8K0124",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0001193125-13-253602",
+      "cik": "813781",
+      "company": "EXIDE TECHNOLOGIES",
+      "file_date": "2013-06-10",
+      "id": "S8K0125",
+      "item": "2.04",
+      "items": "1.01 1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-13-253602",
+      "cik": "813781",
+      "company": "EXIDE TECHNOLOGIES",
+      "file_date": "2013-06-10",
+      "id": "S8K0126",
+      "item": "2.04",
+      "items": "1.01 1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-13-253602",
+      "cik": "813781",
+      "company": "EXIDE TECHNOLOGIES",
+      "file_date": "2013-06-10",
+      "id": "S8K0127",
+      "item": "1.03",
+      "items": "1.01 1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0000018172-13-000035",
+      "cik": "18172",
+      "company": "CASTLE A M & CO",
+      "file_date": "2013-07-30",
+      "id": "S8K0128",
+      "item": "1.03",
+      "items": "1.03 2.02 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-13-043123",
+      "cik": "852570",
+      "company": "GLOBAL AXCESS CORP",
+      "file_date": "2013-08-06",
+      "id": "S8K0129",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 5.03 7.01 9.01"
+    },
+    {
+      "accession": "0001341004-13-000851",
+      "cik": "885322",
+      "company": "ANCHOR BANCORP WISCONSIN INC",
+      "file_date": "2013-08-13",
+      "id": "S8K0130",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 3.02 8.01 9.01"
+    },
+    {
+      "accession": "0001437749-13-012053",
+      "cik": "1301206",
+      "company": "ECOTALITY, INC.",
+      "file_date": "2013-09-17",
+      "id": "S8K0131",
+      "item": "1.03",
+      "items": "1.03 2.03 2.04 5.02 9.01"
+    },
+    {
+      "accession": "0001193125-13-398784",
+      "cik": "722104",
+      "company": "SAVIENT PHARMACEUTICALS INC",
+      "file_date": "2013-10-15",
+      "id": "S8K0132",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0001065059-14-000008",
+      "cik": "1065059",
+      "company": "USEC INC",
+      "file_date": "2014-03-05",
+      "id": "S8K0133",
+      "item": "2.04",
+      "items": "1.01 1.02 1.03 2.04 3.03 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001171843-14-001435",
+      "cik": "1311486",
+      "company": "Global Geophysical Services Inc",
+      "file_date": "2014-03-27",
+      "id": "S8K0134",
+      "item": "1.03",
+      "items": "1.03 2.04 3.01 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0000950103-14-002530",
+      "cik": "1297720",
+      "company": "James River Coal CO",
+      "file_date": "2014-04-08",
+      "id": "S8K0135",
+      "item": "2.04",
+      "items": "1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0000950103-14-002530",
+      "cik": "1297720",
+      "company": "James River Coal CO",
+      "file_date": "2014-04-08",
+      "id": "S8K0136",
+      "item": "2.04",
+      "items": "1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0000947871-14-000216",
+      "cik": "1018005",
+      "company": "COLDWATER CREEK INC",
+      "file_date": "2014-04-11",
+      "id": "S8K0137",
+      "item": "2.04",
+      "items": "1.03 2.04 2.05 9.01"
+    },
+    {
+      "accession": "0001193125-14-143355",
+      "cik": "1405041",
+      "company": "Momentive Performance Materials Inc.",
+      "file_date": "2014-04-15",
+      "id": "S8K0138",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001140361-14-036007",
+      "cik": "1010086",
+      "company": "SIGA TECHNOLOGIES INC",
+      "file_date": "2014-09-18",
+      "id": "S8K0139",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 3.01 9.01"
+    },
+    {
+      "accession": "0001445305-14-004279",
+      "cik": "1394954",
+      "company": "GT Advanced Technologies Inc.",
+      "file_date": "2014-10-10",
+      "id": "S8K0140",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01"
+    },
+    {
+      "accession": "0001445305-14-004279",
+      "cik": "1394954",
+      "company": "GT Advanced Technologies Inc.",
+      "file_date": "2014-10-10",
+      "id": "S8K0141",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01"
+    },
+    {
+      "accession": "0001445305-14-004279",
+      "cik": "1394954",
+      "company": "GT Advanced Technologies Inc.",
+      "file_date": "2014-10-10",
+      "id": "S8K0142",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01"
+    },
+    {
+      "accession": "0001104659-14-071598",
+      "cik": "30302",
+      "company": "ALCO STORES INC",
+      "file_date": "2014-10-14",
+      "id": "S8K0143",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 3.01 8.01 9.01"
+    },
+    {
+      "accession": "0001104659-14-071598",
+      "cik": "30302",
+      "company": "ALCO STORES INC",
+      "file_date": "2014-10-14",
+      "id": "S8K0144",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 3.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-14-404500",
+      "cik": "1107332",
+      "company": "DENDREON CORP",
+      "file_date": "2014-11-10",
+      "id": "S8K0145",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-14-404500",
+      "cik": "1107332",
+      "company": "DENDREON CORP",
+      "file_date": "2014-11-10",
+      "id": "S8K0146",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-14-404500",
+      "cik": "1107332",
+      "company": "DENDREON CORP",
+      "file_date": "2014-11-10",
+      "id": "S8K0147",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-14-404500",
+      "cik": "1107332",
+      "company": "DENDREON CORP",
+      "file_date": "2014-11-10",
+      "id": "S8K0148",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001379246-15-000013",
+      "cik": "1379246",
+      "company": "BODY CENTRAL CORP",
+      "file_date": "2015-01-09",
+      "id": "S8K0149",
+      "item": "1.03",
+      "items": "1.03"
+    },
+    {
+      "accession": "0001193125-15-013229",
+      "cik": "863456",
+      "company": "WET SEAL INC",
+      "file_date": "2015-01-16",
+      "id": "S8K0150",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-013229",
+      "cik": "863456",
+      "company": "WET SEAL INC",
+      "file_date": "2015-01-16",
+      "id": "S8K0151",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-044358",
+      "cik": "96289",
+      "company": "RADIOSHACK CORP",
+      "file_date": "2015-02-11",
+      "id": "S8K0152",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 2.05 9.01"
+    },
+    {
+      "accession": "0001193125-15-044358",
+      "cik": "96289",
+      "company": "RADIOSHACK CORP",
+      "file_date": "2015-02-11",
+      "id": "S8K0153",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 2.05 9.01"
+    },
+    {
+      "accession": "0001171843-15-000693",
+      "cik": "1311486",
+      "company": "Global Geophysical Services Inc",
+      "file_date": "2015-02-09",
+      "id": "S8K0154",
+      "item": "1.03",
+      "items": "1.01 1.02 1.03 2.03 3.02 5.01 5.02 9.01"
+    },
+    {
+      "accession": "0001437749-15-004548",
+      "cik": "1023734",
+      "company": "BPZ RESOURCES, INC.",
+      "file_date": "2015-03-10",
+      "id": "S8K0155",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-089476",
+      "cik": "1092839",
+      "company": "DUNE ENERGY INC",
+      "file_date": "2015-03-12",
+      "id": "S8K0156",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001437749-15-004548",
+      "cik": "1023734",
+      "company": "BPZ RESOURCES, INC.",
+      "file_date": "2015-03-10",
+      "id": "S8K0157",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-088374",
+      "cik": "840889",
+      "company": "DORAL FINANCIAL CORP",
+      "file_date": "2015-03-12",
+      "id": "S8K0158",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0001144204-15-015599",
+      "cik": "49534",
+      "company": "LIFE PARTNERS HOLDINGS INC",
+      "file_date": "2015-03-12",
+      "id": "S8K0159",
+      "item": "1.03",
+      "items": "1.03 3.01 9.01"
+    },
+    {
+      "accession": "0000906318-15-000028",
+      "cik": "93456",
+      "company": "STANDARD REGISTER CO",
+      "file_date": "2015-03-13",
+      "id": "S8K0160",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 5.02 9.01"
+    },
+    {
+      "accession": "0001060990-15-000056",
+      "cik": "1060990",
+      "company": "QUICKSILVER RESOURCES INC",
+      "file_date": "2015-03-17",
+      "id": "S8K0161",
+      "item": "2.04",
+      "items": "1.01 1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001060990-15-000056",
+      "cik": "1060990",
+      "company": "QUICKSILVER RESOURCES INC",
+      "file_date": "2015-03-17",
+      "id": "S8K0162",
+      "item": "1.03",
+      "items": "1.01 1.03 2.02 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-122107",
+      "cik": "1532543",
+      "company": "EveryWare Global, Inc.",
+      "file_date": "2015-04-08",
+      "id": "S8K0163",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-122107",
+      "cik": "1532543",
+      "company": "EveryWare Global, Inc.",
+      "file_date": "2015-04-08",
+      "id": "S8K0163",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-122107",
+      "cik": "1532543",
+      "company": "EveryWare Global, Inc.",
+      "file_date": "2015-04-08",
+      "id": "S8K0164",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001387308-15-000036",
+      "cik": "1431888",
+      "company": "AVT, Inc.",
+      "file_date": "2015-05-04",
+      "id": "S8K0165",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001144204-15-029467",
+      "cik": "1282613",
+      "company": "AMERICAN EAGLE ENERGY Corp",
+      "file_date": "2015-05-12",
+      "id": "S8K0166",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-15-029467",
+      "cik": "1282613",
+      "company": "AMERICAN EAGLE ENERGY Corp",
+      "file_date": "2015-05-12",
+      "id": "S8K0167",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-15-029467",
+      "cik": "1282613",
+      "company": "AMERICAN EAGLE ENERGY Corp",
+      "file_date": "2015-05-12",
+      "id": "S8K0168",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0000950142-15-001280",
+      "cik": "1106935",
+      "company": "IVANHOE ENERGY INC",
+      "file_date": "2015-06-02",
+      "id": "S8K0169",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0001137171-15-000132",
+      "cik": "1319009",
+      "company": "Midway Gold Corp",
+      "file_date": "2015-06-22",
+      "id": "S8K0170",
+      "item": "1.03",
+      "items": "1.03 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0171",
+      "item": "1.03",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0171",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0172",
+      "item": "1.03",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0173",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0174",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0175",
+      "item": "1.03",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0175",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0176",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0177",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0178",
+      "item": "1.03",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0179",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0180",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0181",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001193125-15-232137",
+      "cik": "1259550",
+      "company": "LOCAL Corp",
+      "file_date": "2015-06-24",
+      "id": "S8K0182",
+      "item": "2.04",
+      "items": "1.03 2.04 5.07 8.01"
+    },
+    {
+      "accession": "0001104659-15-051290",
+      "cik": "837173",
+      "company": "Walter Energy, Inc.",
+      "file_date": "2015-07-15",
+      "id": "S8K0183",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-15-051260",
+      "cik": "38079",
+      "company": "SABINE OIL & GAS CORP",
+      "file_date": "2015-07-15",
+      "id": "S8K0184",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001330849-15-000062",
+      "cik": "1330849",
+      "company": "HERCULES OFFSHORE, INC.",
+      "file_date": "2015-08-17",
+      "id": "S8K0185",
+      "item": "1.03",
+      "items": "1.03 2.04 3.01 7.01 9.01"
+    },
+    {
+      "accession": "0001445866-15-000994",
+      "cik": "851726",
+      "company": "Santa Fe Gold CORP",
+      "file_date": "2015-08-28",
+      "id": "S8K0186",
+      "item": "2.04",
+      "items": "1.03 2.04"
+    },
+    {
+      "accession": "0001193125-15-318615",
+      "cik": "805305",
+      "company": "QUIKSILVER INC",
+      "file_date": "2015-09-11",
+      "id": "S8K0187",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 3.01 5.02 9.01"
+    },
+    {
+      "accession": "0001193125-15-318615",
+      "cik": "805305",
+      "company": "QUIKSILVER INC",
+      "file_date": "2015-09-11",
+      "id": "S8K0188",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 3.01 5.02 9.01"
+    },
+    {
+      "accession": "0001193125-15-318615",
+      "cik": "805305",
+      "company": "QUIKSILVER INC",
+      "file_date": "2015-09-11",
+      "id": "S8K0189",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 3.01 5.02 9.01"
+    },
+    {
+      "accession": "0001437749-15-017854",
+      "cik": "728249",
+      "company": "INTERPHASE CORP",
+      "file_date": "2015-10-01",
+      "id": "S8K0190",
+      "item": "2.04",
+      "items": "1.03 2.04 2.05 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0001336545-15-000135",
+      "cik": "1336545",
+      "company": "AMERICAN APPAREL, INC",
+      "file_date": "2015-10-08",
+      "id": "S8K0191",
+      "item": "2.04",
+      "items": "1.01 1.02 1.03 2.03 2.04 3.01 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0000785968-15-000068",
+      "cik": "785968",
+      "company": "MILLER ENERGY RESOURCES, INC.",
+      "file_date": "2015-10-06",
+      "id": "S8K0192",
+      "item": "1.03",
+      "items": "1.03 7.01 9.01"
+    },
+    {
+      "accession": "0001336545-15-000135",
+      "cik": "1336545",
+      "company": "AMERICAN APPAREL, INC",
+      "file_date": "2015-10-08",
+      "id": "S8K0193",
+      "item": "1.03",
+      "items": "1.01 1.02 1.03 2.03 2.04 3.01 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-15-394250",
+      "cik": "1419428",
+      "company": "Vantage Drilling CO",
+      "file_date": "2015-12-03",
+      "id": "S8K0194",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-16-088942",
+      "cik": "1037676",
+      "company": "ARCH COAL INC",
+      "file_date": "2016-01-11",
+      "id": "S8K0195",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-437595",
+      "cik": "1421182",
+      "company": "Verso Corp",
+      "file_date": "2016-01-26",
+      "id": "S8K0196",
+      "item": "1.03",
+      "items": "1.03 2.02 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-446753",
+      "cik": "1385544",
+      "company": "Horsehead Holding Corp",
+      "file_date": "2016-02-02",
+      "id": "S8K0197",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-16-094344",
+      "cik": "1553588",
+      "company": "SFX Entertainment, INC",
+      "file_date": "2016-02-05",
+      "id": "S8K0198",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 3.01 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001140361-16-052794",
+      "cik": "1594590",
+      "company": "PARAGON OFFSHORE PLC",
+      "file_date": "2016-02-16",
+      "id": "S8K0199",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001140361-16-052794",
+      "cik": "1594590",
+      "company": "PARAGON OFFSHORE PLC",
+      "file_date": "2016-02-16",
+      "id": "S8K0200",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001393905-16-000794",
+      "cik": "1422109",
+      "company": "Blue Earth, Inc.",
+      "file_date": "2016-03-24",
+      "id": "S8K0201",
+      "item": "2.04",
+      "items": "1.03 2.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001393905-16-000794",
+      "cik": "1422109",
+      "company": "Blue Earth, Inc.",
+      "file_date": "2016-03-24",
+      "id": "S8K0202",
+      "item": "2.04",
+      "items": "1.03 2.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-089675",
+      "cik": "1283843",
+      "company": "Emerald Oil, Inc.",
+      "file_date": "2016-03-23",
+      "id": "S8K0203",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-089675",
+      "cik": "1283843",
+      "company": "Emerald Oil, Inc.",
+      "file_date": "2016-03-23",
+      "id": "S8K0204",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0000874841-16-000121",
+      "cik": "874841",
+      "company": "PACIFIC SUNWEAR OF CALIFORNIA INC",
+      "file_date": "2016-04-08",
+      "id": "S8K0205",
+      "item": "1.03",
+      "items": "1.01 1.03 2.02 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-539191",
+      "cik": "1064728",
+      "company": "PEABODY ENERGY CORP",
+      "file_date": "2016-04-13",
+      "id": "S8K0206",
+      "item": "1.03",
+      "items": "1.01 1.02 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-539191",
+      "cik": "1064728",
+      "company": "PEABODY ENERGY CORP",
+      "file_date": "2016-04-13",
+      "id": "S8K0207",
+      "item": "2.04",
+      "items": "1.01 1.02 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-539191",
+      "cik": "1064728",
+      "company": "PEABODY ENERGY CORP",
+      "file_date": "2016-04-13",
+      "id": "S8K0208",
+      "item": "1.03",
+      "items": "1.01 1.02 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0209",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0210",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0211",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0212",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0212",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0213",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-539191",
+      "cik": "1064728",
+      "company": "PEABODY ENERGY CORP",
+      "file_date": "2016-04-13",
+      "id": "S8K0213",
+      "item": "1.03",
+      "items": "1.01 1.02 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0214",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-539191",
+      "cik": "1064728",
+      "company": "PEABODY ENERGY CORP",
+      "file_date": "2016-04-13",
+      "id": "S8K0215",
+      "item": "2.04",
+      "items": "1.01 1.02 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0216",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-094204",
+      "cik": "1343719",
+      "company": "Energy XXI Ltd",
+      "file_date": "2016-04-14",
+      "id": "S8K0217",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-559806",
+      "cik": "945436",
+      "company": "SUNEDISON, INC.",
+      "file_date": "2016-04-27",
+      "id": "S8K0218",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 3.01 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-16-116450",
+      "cik": "1533924",
+      "company": "Midstates Petroleum Company, Inc.",
+      "file_date": "2016-05-02",
+      "id": "S8K0219",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-571099",
+      "cik": "1385228",
+      "company": "BIND Therapeutics, Inc",
+      "file_date": "2016-05-02",
+      "id": "S8K0220",
+      "item": "1.03",
+      "items": "1.03 2.04"
+    },
+    {
+      "accession": "0001193125-16-571099",
+      "cik": "1385228",
+      "company": "BIND Therapeutics, Inc",
+      "file_date": "2016-05-02",
+      "id": "S8K0221",
+      "item": "1.03",
+      "items": "1.03 2.04"
+    },
+    {
+      "accession": "0001140361-16-063876",
+      "cik": "1168213",
+      "company": "AEROPOSTALE INC",
+      "file_date": "2016-05-06",
+      "id": "S8K0222",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 2.05 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001140361-16-063876",
+      "cik": "1168213",
+      "company": "AEROPOSTALE INC",
+      "file_date": "2016-05-06",
+      "id": "S8K0223",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 2.05 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001144204-16-098469",
+      "cik": "1022646",
+      "company": "ULTRA PETROLEUM CORP",
+      "file_date": "2016-05-03",
+      "id": "S8K0224",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01"
+    },
+    {
+      "accession": "0001615774-16-005209",
+      "cik": "1586300",
+      "company": "CHC Group Ltd.",
+      "file_date": "2016-05-05",
+      "id": "S8K0225",
+      "item": "1.03",
+      "items": "1.03 2.04 3.01 7.01 9.01"
+    },
+    {
+      "accession": "0001140361-16-063876",
+      "cik": "1168213",
+      "company": "AEROPOSTALE INC",
+      "file_date": "2016-05-06",
+      "id": "S8K0226",
+      "item": "1.03",
+      "items": "1.01 1.03 2.03 2.04 2.05 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-587315",
+      "cik": "1326428",
+      "company": "LINN ENERGY, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0227",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-587323",
+      "cik": "1549756",
+      "company": "LinnCo, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0227",
+      "item": "1.03",
+      "items": "1.01 1.03 9.01"
+    },
+    {
+      "accession": "0001193125-16-587334",
+      "cik": "778438",
+      "company": "Berry Petroleum Company, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0227",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-16-587315",
+      "cik": "1326428",
+      "company": "LINN ENERGY, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0228",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-587315",
+      "cik": "1326428",
+      "company": "LINN ENERGY, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0229",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-587315",
+      "cik": "1326428",
+      "company": "LINN ENERGY, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0230",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-587323",
+      "cik": "1549756",
+      "company": "LinnCo, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0230",
+      "item": "1.03",
+      "items": "1.01 1.03 9.01"
+    },
+    {
+      "accession": "0001193125-16-587315",
+      "cik": "1326428",
+      "company": "LINN ENERGY, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0231",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-587315",
+      "cik": "1326428",
+      "company": "LINN ENERGY, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0232",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-587334",
+      "cik": "778438",
+      "company": "Berry Petroleum Company, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0232",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-16-587315",
+      "cik": "1326428",
+      "company": "LINN ENERGY, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0232",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-587334",
+      "cik": "778438",
+      "company": "Berry Petroleum Company, LLC",
+      "file_date": "2016-05-11",
+      "id": "S8K0232",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 9.01"
+    },
+    {
+      "accession": "0001193125-16-591230",
+      "cik": "1349436",
+      "company": "SANDRIDGE ENERGY INC",
+      "file_date": "2016-05-16",
+      "id": "S8K0233",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-591230",
+      "cik": "1349436",
+      "company": "SANDRIDGE ENERGY INC",
+      "file_date": "2016-05-16",
+      "id": "S8K0234",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-613290",
+      "cik": "1330849",
+      "company": "HERCULES OFFSHORE, INC.",
+      "file_date": "2016-06-06",
+      "id": "S8K0235",
+      "item": "1.03",
+      "items": "1.03 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-614976",
+      "cik": "1532930",
+      "company": "Seventy Seven Energy Inc.",
+      "file_date": "2016-06-07",
+      "id": "S8K0236",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001171843-16-010644",
+      "cik": "796764",
+      "company": "PREMIER EXHIBITIONS, INC.",
+      "file_date": "2016-06-14",
+      "id": "S8K0237",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0001193125-16-653775",
+      "cik": "1615817",
+      "company": "C&J Energy Services Ltd.",
+      "file_date": "2016-07-21",
+      "id": "S8K0238",
+      "item": "2.04",
+      "items": "1.03 2.04 3.01 7.01 9.01"
+    },
+    {
+      "accession": "0001140361-16-080937",
+      "cik": "1171014",
+      "company": "COSI INC",
+      "file_date": "2016-09-28",
+      "id": "S8K0239",
+      "item": "2.04",
+      "items": "1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001140361-16-080937",
+      "cik": "1171014",
+      "company": "COSI INC",
+      "file_date": "2016-09-28",
+      "id": "S8K0240",
+      "item": "1.03",
+      "items": "1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-793101",
+      "cik": "904080",
+      "company": "STONE ENERGY CORP",
+      "file_date": "2016-12-14",
+      "id": "S8K0241",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-16-793101",
+      "cik": "904080",
+      "company": "STONE ENERGY CORP",
+      "file_date": "2016-12-14",
+      "id": "S8K0242",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 5.02 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001564590-17-006418",
+      "cik": "1476170",
+      "company": "Unilife Corp",
+      "file_date": "2017-04-12",
+      "id": "S8K0243",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001564590-17-006418",
+      "cik": "1476170",
+      "company": "Unilife Corp",
+      "file_date": "2017-04-12",
+      "id": "S8K0244",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001104659-17-024683",
+      "cik": "1602367",
+      "company": "Adeptus Health Inc.",
+      "file_date": "2017-04-20",
+      "id": "S8K0245",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-17-357981",
+      "cik": "1040719",
+      "company": "WALTER INVESTMENT MANAGEMENT CORP",
+      "file_date": "2017-12-01",
+      "id": "S8K0246",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-17-376671",
+      "cik": "868725",
+      "company": "RENTECH, INC.",
+      "file_date": "2017-12-21",
+      "id": "S8K0247",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-011684",
+      "cik": "316300",
+      "company": "EXCO RESOURCES INC",
+      "file_date": "2018-01-17",
+      "id": "S8K0248",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-011684",
+      "cik": "316300",
+      "company": "EXCO RESOURCES INC",
+      "file_date": "2018-01-17",
+      "id": "S8K0248",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0000950142-18-000301",
+      "cik": "878079",
+      "company": "BON TON STORES INC",
+      "file_date": "2018-02-05",
+      "id": "S8K0249",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-156001",
+      "cik": "1534287",
+      "company": "BioAmber Inc.",
+      "file_date": "2018-05-08",
+      "id": "S8K0250",
+      "item": "1.03",
+      "items": "1.03 9.01"
+    },
+    {
+      "accession": "0001193125-18-167436",
+      "cik": "1397516",
+      "company": "REX ENERGY CORP",
+      "file_date": "2018-05-18",
+      "id": "S8K0251",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-167436",
+      "cik": "1397516",
+      "company": "REX ENERGY CORP",
+      "file_date": "2018-05-18",
+      "id": "S8K0252",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-167436",
+      "cik": "1397516",
+      "company": "REX ENERGY CORP",
+      "file_date": "2018-05-18",
+      "id": "S8K0253",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-167436",
+      "cik": "1397516",
+      "company": "REX ENERGY CORP",
+      "file_date": "2018-05-18",
+      "id": "S8K0254",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-298778",
+      "cik": "1310067",
+      "company": "SEARS HOLDINGS CORP",
+      "file_date": "2018-10-15",
+      "id": "S8K0255",
+      "item": "1.03",
+      "items": "1.03 2.03 2.04 2.05 5.02 5.03 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-298778",
+      "cik": "1310067",
+      "company": "SEARS HOLDINGS CORP",
+      "file_date": "2018-10-15",
+      "id": "S8K0256",
+      "item": "1.03",
+      "items": "1.03 2.03 2.04 2.05 5.02 5.03 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-298778",
+      "cik": "1310067",
+      "company": "SEARS HOLDINGS CORP",
+      "file_date": "2018-10-15",
+      "id": "S8K0257",
+      "item": "2.04",
+      "items": "1.03 2.03 2.04 2.05 5.02 5.03 7.01 9.01"
+    },
+    {
+      "accession": "0001193125-18-298778",
+      "cik": "1310067",
+      "company": "SEARS HOLDINGS CORP",
+      "file_date": "2018-10-15",
+      "id": "S8K0258",
+      "item": "1.03",
+      "items": "1.03 2.03 2.04 2.05 5.02 5.03 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-18-072852",
+      "cik": "1347613",
+      "company": "SYNERGY PHARMACEUTICALS, INC.",
+      "file_date": "2018-12-13",
+      "id": "S8K0259",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 5.02 9.01"
+    },
+    {
+      "accession": "0001193125-19-076920",
+      "cik": "350403",
+      "company": "PHI INC",
+      "file_date": "2019-03-15",
+      "id": "S8K0260",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001564590-19-011576",
+      "cik": "1301501",
+      "company": "Achaogen, Inc.",
+      "file_date": "2019-04-15",
+      "id": "S8K0261",
+      "item": "1.03",
+      "items": "1.03 3.01 8.01 9.01"
+    },
+    {
+      "accession": "0001104659-19-028592",
+      "cik": "1441849",
+      "company": "CLOUD PEAK ENERGY INC.",
+      "file_date": "2019-05-10",
+      "id": "S8K0262",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-19-034045",
+      "cik": "1575360",
+      "company": "FTD Companies, Inc.",
+      "file_date": "2019-06-05",
+      "id": "S8K0263",
+      "item": "2.04",
+      "items": "1.01 1.03 2.01 2.04 3.01 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-19-034045",
+      "cik": "1575360",
+      "company": "FTD Companies, Inc.",
+      "file_date": "2019-06-05",
+      "id": "S8K0264",
+      "item": "2.04",
+      "items": "1.01 1.03 2.01 2.04 3.01 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001140361-19-011356",
+      "cik": "1735828",
+      "company": "Legacy Reserves Inc.",
+      "file_date": "2019-06-21",
+      "id": "S8K0265",
+      "item": "2.04",
+      "items": "1.03 2.03 2.04 3.01 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001140361-19-011356",
+      "cik": "1735828",
+      "company": "Legacy Reserves Inc.",
+      "file_date": "2019-06-21",
+      "id": "S8K0266",
+      "item": "1.03",
+      "items": "1.03 2.03 2.04 3.01 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001140361-19-011356",
+      "cik": "1735828",
+      "company": "Legacy Reserves Inc.",
+      "file_date": "2019-06-21",
+      "id": "S8K0266",
+      "item": "2.04",
+      "items": "1.03 2.03 2.04 3.01 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001434621-19-000040",
+      "cik": "1434621",
+      "company": "LendingTree, Inc.",
+      "file_date": "2019-07-25",
+      "id": "S8K0267",
+      "item": "1.03",
+      "items": "1.03 8.01"
+    },
+    {
+      "accession": "0001193125-19-235912",
+      "cik": "1045425",
+      "company": "RAIT Financial Trust",
+      "file_date": "2019-09-03",
+      "id": "S8K0268",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 5.02 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-19-235912",
+      "cik": "1045425",
+      "company": "RAIT Financial Trust",
+      "file_date": "2019-09-03",
+      "id": "S8K0269",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 5.02 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001564590-19-039499",
+      "cik": "1540729",
+      "company": "Foresight Energy LP",
+      "file_date": "2019-11-04",
+      "id": "S8K0270",
+      "item": "1.03",
+      "items": "1.03 8.01"
+    },
+    {
+      "accession": "0001104659-19-062024",
+      "cik": "931336",
+      "company": "DEAN FOODS CO",
+      "file_date": "2019-11-12",
+      "id": "S8K0271",
+      "item": "2.04",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-19-062024",
+      "cik": "931336",
+      "company": "DEAN FOODS CO",
+      "file_date": "2019-11-12",
+      "id": "S8K0272",
+      "item": "1.03",
+      "items": "1.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001056087-20-000005",
+      "cik": "1056087",
+      "company": "MCCLATCHY CO",
+      "file_date": "2020-02-13",
+      "id": "S8K0273",
+      "item": "1.03",
+      "items": "1.03 2.02 2.03 2.04 7.01 9.01"
+    },
+    {
+      "accession": "0001140361-20-005841",
+      "cik": "1056386",
+      "company": "Internap Corp",
+      "file_date": "2020-03-16",
+      "id": "S8K0274",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 5.02 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001564590-20-013833",
+      "cik": "1009672",
+      "company": "CARBO CERAMICS INC",
+      "file_date": "2020-03-30",
+      "id": "S8K0275",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-20-093737",
+      "cik": "1255474",
+      "company": "WHITING PETROLEUM CORP",
+      "file_date": "2020-04-01",
+      "id": "S8K0276",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001193125-20-093737",
+      "cik": "1255474",
+      "company": "WHITING PETROLEUM CORP",
+      "file_date": "2020-04-01",
+      "id": "S8K0277",
+      "item": "2.04",
+      "items": "1.03 2.04 5.02 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001140361-20-008876",
+      "cik": "20520",
+      "company": "FRONTIER COMMUNICATIONS CORP",
+      "file_date": "2020-04-15",
+      "id": "S8K0278",
+      "item": "2.04",
+      "items": "1.01 1.03 2.03 2.04 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001564590-20-016943",
+      "cik": "1672326",
+      "company": "Yuma Energy, Inc.",
+      "file_date": "2020-04-16",
+      "id": "S8K0279",
+      "item": "1.03",
+      "items": "1.03 5.02 8.01 9.01"
+    },
+    {
+      "accession": "0000006885-20-000067",
+      "cik": "6885",
+      "company": "STAGE STORES INC",
+      "file_date": "2020-05-12",
+      "id": "S8K0280",
+      "item": "1.03",
+      "items": "1.03 2.04 3.01 3.03 5.02 7.01 8.01 9.01"
+    },
+    {
+      "accession": "0001104659-20-065674",
+      "cik": "47129",
+      "company": "HERTZ CORP",
+      "file_date": "2020-05-26",
+      "id": "S8K0281",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-20-065674",
+      "cik": "47129",
+      "company": "HERTZ CORP",
+      "file_date": "2020-05-26",
+      "id": "S8K0282",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-20-065674",
+      "cik": "47129",
+      "company": "HERTZ CORP",
+      "file_date": "2020-05-26",
+      "id": "S8K0283",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-20-065674",
+      "cik": "47129",
+      "company": "HERTZ CORP",
+      "file_date": "2020-05-26",
+      "id": "S8K0284",
+      "item": "1.03",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-20-065674",
+      "cik": "47129",
+      "company": "HERTZ CORP",
+      "file_date": "2020-05-26",
+      "id": "S8K0285",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001104659-20-065674",
+      "cik": "47129",
+      "company": "HERTZ CORP",
+      "file_date": "2020-05-26",
+      "id": "S8K0286",
+      "item": "2.04",
+      "items": "1.01 1.03 2.04 5.02 7.01 9.01"
+    },
+    {
+      "accession": "0001437749-20-012113",
+      "cik": "902274",
+      "company": "LIBBEY INC",
+      "file_date": "2020-06-01",
+      "id": "S8K0287",
+      "item": "1.03",
+      "items": "1.03 2.04 5.02 7.01 8.01 9.01"
+    }
+  ],
+  "sha256": {
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/private_notes/annotation_uploads/task1/credit_8k_full/anchors.csv": "c24abfefbac6063d955b6ba7da24258fa268e55fac1d35d38984de8e600b44c8",
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/private_notes/annotation_uploads/task1/credit_8k_full/to_label.csv": "cc0471d19003773032a5be46311df4b106d1fbdfed37f31c6412fd9042d0775a"
+  },
+  "source_rows": {
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/raw/fnspid/All_external.csv": 13057514
+  },
+  "sources_sha256": {
+    "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/data/raw/fnspid/All_external.csv": "5d4c018036bd82ca821da71b7a9c0c7db3289642e0fc6f897ea69f4a0c5135c3"
+  },
+  "ticker_cache_sha256": "bb1521ff938ce1217343362f335aae521d9978b105229eabef69124ac24bbb1c"
+}

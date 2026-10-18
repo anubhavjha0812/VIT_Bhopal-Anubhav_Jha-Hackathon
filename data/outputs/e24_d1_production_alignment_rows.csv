@@ -1,0 +1,154 @@
+item_id,before_top1,after_top1,before_production_A,after_production_A,evaluation_A,before_max_abs_probability_difference_vs_evaluation,after_max_abs_probability_difference_vs_evaluation
+fbaf9f5ae9e90698,M&A,M&A,M&A,M&A,M&A,0.011401929,0.0
+64e1c0df249f2d3a,Other,Other,Other,Other,Other,0.00045275688,0.0
+bc2a1383e9f93389,Earnings,Earnings,Earnings,Earnings,Earnings,0.09819293,0.0
+980da7047039bb43,Analyst rating,M&A,Analyst rating,M&A,M&A,0.05653459,0.0
+eecaa10276b2768c,Other,Other,Other,Other,Other,0.01831758,0.0
+9e48448d1ea3e4b4,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.14265817,0.0
+4f939590557abdd9,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.0396643,0.0
+d7aacb4993876cfe,M&A,M&A,M&A,M&A,M&A,0.0036847629,0.0
+43b04ff6e8815cf4,Product news,Product news,Product news,Product news,Product news,0.0003796816,0.0
+aba6af630ec4c8f8,Other,Other,Other,Other,Other,0.0013988018,0.0
+3547626d3a70936b,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.016012281,0.0
+627dbd089fd30fdf,M&A,M&A,M&A,M&A,M&A,0.011958718,0.0
+822327a99f266e62,Other,Other,Other,Other,Other,0.0034617186,0.0
+dcc9ca3f33aa8acc,Other,Other,Other,Other,Other,0.1523608,0.0
+65fd575dcc914cf9,M&A,M&A,M&A,M&A,M&A,0.056327313,0.0
+6819f1385f8dd540,Product news,Product news,Product news,Product news,Product news,0.002507925,0.0
+73aea1a40b006a6e,M&A,M&A,M&A,M&A,M&A,0.0469668,0.0
+9b80bbc3b3465143,M&A,M&A,M&A,M&A,M&A,0.008293033,0.0
+518fa6f6436e56ec,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.0031507164,0.0
+8475b6fd18b29169,Product news,Product news,Product news,Product news,Product news,0.0006871745,0.0
+5399ab6d33a53395,Product news,Macroeconomic,Product news,Macroeconomic,Macroeconomic,0.36822882,0.0
+7a98b031859e76bd,Product news,Product news,Product news,Product news,Product news,0.1284123,0.0
+91e94098d4fe35fe,Other,Other,Other,Other,Other,0.0005811453,0.0
+ca8da6e8cd7e852f,Macroeconomic,Product news,Macroeconomic,Product news,Product news,0.23152617,0.0
+4677b136ae4217ce,Product news,Product news,Product news,Product news,Product news,0.05540663,0.0
+a8c6ec42539dd99b,Product news,Product news,Product news,Product news,Product news,0.021740973,0.0
+8753c9ca2bdc6109,Earnings,Earnings,Earnings,Earnings,Earnings,0.08731574,0.0
+a1adf7b6817f3f08,Other,Other,Other,Other,Other,0.0054692626,0.0
+02161cba83e27a65,Product news,Product news,Product news,Product news,Product news,0.016820967,0.0
+b06e525d4ac7a093,Other,Other,Other,Other,Other,0.0003875494,0.0
+d30860fda4892d28,Product news,Product news,Product news,Product news,Product news,0.00043970346,0.0
+c9c3039dcb3e1cf2,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.002029254,0.0
+50bc7a8182f39445,Other,Other,Other,Other,Other,0.00028061867,0.0
+7a823f5ff0b475b4,Earnings,Earnings,Earnings,Earnings,Earnings,0.0028572083,0.0
+87fbb0201e3a0725,M&A,M&A,M&A,M&A,M&A,0.0277801,0.0
+40aa5e08c4d95a74,Earnings,Earnings,Earnings,Earnings,Earnings,0.03930992,0.0
+dbff5c602f64baa6,Macroeconomic,M&A,Macroeconomic,M&A,M&A,0.29202306,0.0
+cc39c3c800a9eed6,Other,Other,Other,Other,Other,0.000447158,0.0
+e2744211c83fcb5b,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.00043055438,0.0
+01c6317b8069f29d,Earnings,Earnings,Earnings,Earnings,Earnings,0.022233903,0.0
+57c69d84204a86a7,Other,Other,Other,Other,Other,0.025616005,0.0
+fca0dcb9c974f3d9,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.068927094,0.0
+c43ab3dd4974bb0b,Other,Other,Other,Other,Other,0.0003195845,0.0
+c5468bb40f72367d,Other,Other,Other,Other,Other,0.024326056,0.0
+4a2473accf881f15,Product news,Product news,Product news,Product news,Product news,0.012468059,0.0
+59a3a59235979709,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.002598524,0.0
+f125ff302afc44bb,Other,Other,Other,Other,Other,0.0041104555,0.0
+e8a9658e6a4d599c,M&A,M&A,M&A,M&A,M&A,0.0007092953,0.0
+16d4a332bcf20e45,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.01913254,0.0
+0926d628881cf622,Other,Other,Other,Other,Other,7.823319e-05,0.0
+0d9ff504b985cdb7,Product news,Product news,Product news,Product news,Product news,0.00011944771,0.0
+4e06df992a4bdb4d,Product news,Product news,Product news,Product news,Product news,0.0046834946,0.0
+34f5ba1910b5bff6,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.0030890703,0.0
+5a30120acd95fbb2,Product news,Product news,Product news,Product news,Product news,0.0018650889,0.0
+710f8f771f7a0586,M&A,M&A,M&A,M&A,M&A,0.047141135,0.0
+eede66f367e7c4d1,Product news,Product news,Product news,Product news,Product news,0.0005767676,0.0
+d084cf002ccb098c,Other,Other,Other,Other,Other,0.0015825033,0.0
+f0b2db2f103efa9d,Other,Other,Other,Other,Other,0.00033548404,0.0
+2b560a97698981fa,Other,Other,Other,Other,Other,0.00035631657,0.0
+15f2802c56d1e23b,Other,Other,Other,Other,Other,0.00062983856,0.0
+706a021156786561,Other,Other,Other,Other,Other,0.00069111586,0.0
+ea7ccd183874c516,M&A,M&A,M&A,M&A,M&A,0.028576761,0.0
+6fce9fad19006405,M&A,M&A,M&A,M&A,M&A,0.0015450381,0.0
+014fd54d9210a26b,Analyst rating,M&A,Analyst rating,M&A,M&A,0.04401067,0.0
+1a7b566ecacaff2e,M&A,M&A,M&A,M&A,M&A,0.010319173,0.0
+d9ed61ba8c78aa9e,Other,Other,Other,Other,Other,0.00029802322,0.0
+66d39fe489a66fa2,Product news,Product news,Product news,Product news,Product news,0.0014203787,0.0
+2d8d8ed7e3c021be,Other,Other,Other,Other,Other,0.0012170672,0.0
+7675b96da99e037a,Other,Other,Other,Other,Other,0.0033943057,0.0
+b8a633af68b40de5,Macroeconomic,Other,Macroeconomic,Other,Other,0.0706771,0.0
+0742a6469c7e0ef7,Other,Analyst rating,Other,Analyst rating,Analyst rating,0.12749256,0.0
+036c664b5b4ff2b3,Other,Other,Other,Other,Other,0.0038887858,0.0
+2a9ea3f52ee00d64,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.00018143654,0.0
+3c7a9e5c184d0f06,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,0.061116993,0.0
+20f96b492a8030be,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.11769569,0.0
+38cb769a67a6ca14,M&A,M&A,M&A,M&A,M&A,0.0066889524,0.0
+6c379aab9fcb5cbe,Product news,Product news,Product news,Product news,Product news,0.123072565,0.0
+35af3efedbb7ca67,Product news,Product news,Product news,Product news,Product news,0.00026512146,0.0
+82ecc7db0017a5d9,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.00053822994,0.0
+f98cb3b2e90d511f,M&A,M&A,M&A,M&A,M&A,0.020767622,0.0
+3c986290c6a4e3d6,M&A,M&A,M&A,M&A,M&A,0.004960358,0.0
+b86e56b892cbc06d,Product news,Product news,Product news,Product news,Product news,0.01969713,0.0
+945cb71a7ec96af4,Other,Other,Other,Other,Other,0.021463871,0.0
+4b6ab43daa6ffb29,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.00022941828,0.0
+d05d1236e6dd4915,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.00026082993,0.0
+9fffdc438af8fa9e,Product news,Product news,Product news,Product news,Product news,0.04726827,0.0
+508ae4c790d0357a,Other,Other,Other,Other,Other,0.000615716,0.0
+13ac84962e491bca,Other,Other,Other,Other,Other,0.0034174323,0.0
+d783f0a8e7a8dbb0,Other,Other,Other,Other,Other,0.15598631,0.0
+82b0435265630698,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.028587073,0.0
+c0fdb48f0c735843,Product news,Product news,Product news,Product news,Product news,0.00018241326,0.0
+25710ee51b79623d,Product news,Other,Product news,Other,Other,0.2239376,0.0
+aebde86fb13ee857,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.028764553,0.0
+050ea7e975209ff8,Other,Other,Other,Other,Other,0.00026386976,0.0
+583da3bb8e7dbe67,Other,Other,Other,Other,Other,0.00066689774,0.0
+13e72e1884b41518,M&A,M&A,M&A,M&A,M&A,0.0017543398,0.0
+78e1480f22d1aed8,M&A,M&A,M&A,M&A,M&A,0.01834327,0.0
+53b9ec35c6762716,Management change,Management change,Management change,Management change,Management change,0.004860107,0.0
+214ac371ee187529,Other,Other,Other,Other,Other,0.0026898263,0.0
+c117c4f21e44cc5b,M&A,M&A,M&A,M&A,M&A,0.00960803,0.0
+1e17278ef832bfd3,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.007244177,0.0
+9c02b9f7f5bd81f4,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.0014563426,0.0
+e2e5317900c66fde,Product news,Product news,Product news,Product news,Product news,0.00059751933,0.0
+d72936b7b0b60c64,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.012626886,0.0
+3e229eb112085075,M&A,M&A,M&A,M&A,M&A,0.006456867,0.0
+7c1e816637dc8e7c,M&A,M&A,M&A,M&A,M&A,0.0037415475,0.0
+3dec5111f35caf09,Other,Other,Other,Other,Other,0.03776923,0.0
+c07f70d327f5dc98,Other,Other,Other,Other,Other,0.0013204226,0.0
+59bb1def35dc1740,Other,Other,Other,Other,Other,0.048044488,0.0
+6d585d8f7b562c80,Geopolitical,Geopolitical,Geopolitical,Geopolitical,Geopolitical,0.004718777,0.0
+f19dd3fc81a7d627,Product news,M&A,Product news,M&A,M&A,0.26006806,0.0
+681ba06ab781b778,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.020368807,0.0
+b5e712666f25d613,M&A,M&A,M&A,M&A,M&A,0.010846794,0.0
+ad7072cc2344d2b5,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,0.015884623,0.0
+95809ac435c5fdd4,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.042696804,0.0
+f28d12f5ec0f0aea,Analyst rating,Other,Analyst rating,Other,Other,0.099515855,0.0
+e206311eace651b7,Product news,Product news,Product news,Product news,Product news,0.0040720105,0.0
+29fc4331cfefeb56,Analyst rating,Analyst rating,Analyst rating,Analyst rating,Analyst rating,0.005982816,0.0
+fade37d418ba8324,Product news,Product news,Product news,Product news,Product news,0.0001967405,0.0
+b3ccb8df0dc9f866,Other,Other,Other,Other,Other,0.00019896543,0.0
+0ee3e8fbb1566302,Other,Other,Other,Other,Other,0.01939559,0.0
+6f73bcddcdefa1c5,Product news,Product news,Product news,Product news,Product news,0.0004016757,0.0
+0e02885bcb26dde9,M&A,M&A,M&A,M&A,M&A,0.0047042966,0.0
+b7809ce402a2ad17,Other,Other,Other,Other,Other,0.0027635694,0.0
+30fecfe20cc8a033,Product news,Product news,Product news,Product news,Product news,0.055245876,0.0
+a8938082efc049b3,Other,Other,Other,Other,Other,0.0013257265,0.0
+915f307c0ef8c779,M&A,M&A,M&A,M&A,M&A,0.0047454834,0.0
+8c43ea803a65755a,Other,Other,Other,Other,Other,0.012880683,0.0
+77572b68722a0f4e,Other,Analyst rating,Other,Analyst rating,Analyst rating,0.1630716,0.0
+7471becb2897c198,Product news,Product news,Product news,Product news,Product news,0.0014757514,0.0
+cf028b884522ff8d,M&A,M&A,M&A,M&A,M&A,0.0037688203,0.0
+1718a18d40ceaa74,Other,Other,Other,Other,Other,0.011587977,0.0
+7be07abde0a0ef62,Other,Other,Other,Other,Other,0.0040264726,0.0
+e5796ccf2ecaac86,Product news,Product news,Product news,Product news,Product news,0.08542943,0.0
+9c25071cb0c9fca4,M&A,M&A,M&A,M&A,M&A,0.009002209,0.0
+086ac774b270378f,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.0006400943,0.0
+da0f1a13bed74ffd,M&A,M&A,M&A,M&A,M&A,0.036287665,0.0
+51bad6a760d2f34e,Earnings,Earnings,Earnings,Earnings,Earnings,0.13061303,0.0
+3d74a7bbaaee166c,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.2589501,0.0
+35044591e1b7393d,Other,Other,Other,Other,Other,0.00420177,0.0
+c97d34c0311e79b3,Other,Other,Other,Other,Other,0.0012888908,0.0
+9e8ceee40b67588e,Other,Other,Other,Other,Other,0.0024496913,0.0
+5195614027aefd9a,Other,Other,Other,Other,Other,0.0017222166,0.0
+4e78afbec436c0d5,Other,Other,Other,Other,Other,0.0011419058,0.0
+37eb368abadf4d1d,Product news,Product news,Product news,Product news,Product news,0.0005185008,0.0
+ba299228530b590c,Other,Analyst rating,Other,Analyst rating,Analyst rating,0.06832561,0.0
+b590d87f019abc38,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.0003274083,0.0
+2e817f9a1aff8256,Product news,Product news,Product news,Product news,Product news,0.00085252523,0.0
+14846c0fac82062e,Earnings,Earnings,Earnings,Earnings,Earnings,0.00024133758,0.0
+1953e464a02f400d,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,Macroeconomic,0.0003105998,0.0
+3f8c8c00d932fdfb,Product news,Product news,Product news,Product news,Product news,0.003945589,0.0
+a5af1fed2f8eff62,Other,Analyst rating,Other,Analyst rating,Analyst rating,0.062223405,0.0
+9c83f626768dfdcb,Other,Other,Other,Other,Other,0.012611866,0.0

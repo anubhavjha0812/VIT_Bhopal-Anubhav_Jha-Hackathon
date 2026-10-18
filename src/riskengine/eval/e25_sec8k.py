@@ -3,9 +3,11 @@
 SEC_USER_AGENT='project-name contact@example.org' uv run python -m riskengine.eval.e25_sec8k --fetch
 uv run python -m riskengine.eval.e25_sec8k --dry-run  # SEC cache counts only; no writes/network
 uv run python -m riskengine.eval.e25_sec8k --build    # local news + standard E25 exclusions
+uv run python -m riskengine.eval.e25_sec8k --build --news-full  # full CSV, cached exclusions
 
 Only --fetch calls SEC. Build reuses the normal E25 exclusion loader, including its usual
 training-corpus retrieval. Item codes select candidates; they never determine a news label.
+Full-news builds are offline and require a local snapshot of the original exclusion texts.
 """
 
 import argparse
@@ -13,6 +15,7 @@ import hashlib
 import json
 import os
 import re
+import sys
 import time
 import unicodedata
 from collections import defaultdict
@@ -37,9 +40,14 @@ NEWS = (
     DATA / "raw/fnspid/universe_news_named.csv.gz",
     DATA / "raw/fnspid/universe_news.csv.gz",
 )
+FULL_NEWS = DATA / "raw/fnspid/All_external.csv"
+CHUNK_ROWS = 50000
 TICKERS = DATA / "raw/sec/company_tickers.json"
 OUT = ROOT / "private_notes/annotation_uploads/task1/credit_8k"
 MANIFEST = DATA / "outputs/e25_sec8k_manifest.json"
+FULL_OUT = ROOT / "private_notes/annotation_uploads/task1/credit_8k_full"
+FULL_MANIFEST = DATA / "outputs/e25_sec8k_full_manifest.json"
+EXCLUSIONS_CACHE = DATA / "cache/e25/sec8k_exclusions.json"
 EXTRA_EXCLUSIONS = {
     "R3": ROOT / "private_notes/annotation_uploads/task1/retest_set/to_label.csv",
     "credit held-out": ROOT / "private_notes/annotation_uploads/task1/credit_heldout/to_label.csv",
@@ -50,6 +58,18 @@ NEWS_COLUMNS = ["Date", "Article_title", "Stock_symbol"]
 BLIND_COLUMNS = ["id", "text", "date", "tickers"]
 ANCHOR_COLUMNS = ["id", "accession", "item", "company", "file_date"]
 FILING_COLUMNS = ["accession", "item", "company", "file_date", "cik", "tickers", "items"]
+WRAP_PATTERN = (
+    r"\b(?:stocks?\s+to\s+watch|market[\s-]+(?:wrap|round[\s-]?up)|"
+    r"wall\s+street[\s-]+(?:wrap|round[\s-]?up)|"
+    r"(?:pre[\s-]?market|midday|after[\s-]?hours|morning|afternoon)"
+    r"[\s-]+(?:movers|market[\s-]+(?:update|wrap|round[\s-]?up)))\b"
+)
+TICKER_TOKEN = re.compile(r"(?<![\w$])\$?([A-Z][A-Z0-9]*(?:[.-][A-Z0-9]+)?)(?![\w])")
+NON_NEWS_RULE = (
+    "Fixed before scanning: drop a row if its title matches the case-insensitive wrap regex, "
+    "or title plus Stock_symbol contain at least 3 distinct literal uppercase tickers from "
+    "the existing SEC ticker map and cached filing display-name tickers. No row-by-row review."
+)
 RULE = (
     "8-K filings 2010-01-01 through 2020-06-30; client-side exact item recheck; "
     "local FNSPID headline dated filing-2 through filing+5 days, inclusive; "
@@ -330,8 +350,8 @@ def ticker_map(path: Path) -> dict[str, set[str]]:
     return dict(out)
 
 
-def match_candidates(news: pd.DataFrame, filings: pd.DataFrame, symbols: dict) -> pd.DataFrame:
-    """Match headline text, never Stock_symbol alone. A token index avoids a full cross join."""
+def matcher_index(filings: pd.DataFrame, symbols: dict) -> tuple:
+    """Build the unchanged issuer/ticker matching index once for a streamed source."""
     token_index = defaultdict(set)
     prepared = []
     for row in filings.to_dict("records"):
@@ -344,11 +364,21 @@ def match_candidates(news: pd.DataFrame, filings: pd.DataFrame, symbols: dict) -
         )
         i = len(prepared)
         filed = date.fromisoformat(row["file_date"])
-        prepared.append((row, key, tickers, pattern, filed))
+        prepared.append(
+            (row, key, tickers, pattern, filed - timedelta(days=2), filed + timedelta(days=5))
+        )
         if key:
             token_index[max(key.split(), key=lambda t: (len(t), t))].add(i)
         for ticker in tickers:
             token_index[norm(ticker).split()[0]].add(i)
+    return prepared, token_index
+
+
+def match_candidates(
+    news: pd.DataFrame, filings: pd.DataFrame, symbols: dict, *, index: tuple | None = None
+) -> pd.DataFrame:
+    """Match headline text, never Stock_symbol alone. A token index avoids a full cross join."""
+    prepared, token_index = index if index is not None else matcher_index(filings, symbols)
     dates = pd.to_datetime(news["Date"], format="mixed", utc=True, errors="coerce")
     matched = []
     for text, published in zip(news["Article_title"].fillna(""), dates, strict=True):
@@ -366,8 +396,8 @@ def match_candidates(news: pd.DataFrame, filings: pd.DataFrame, symbols: dict) -
         for token in normalized.split():
             possible.update(token_index.get(token, ()))
         for i in sorted(possible):
-            row, name, tickers, pattern, filed = prepared[i]
-            if not filed - timedelta(days=2) <= day <= filed + timedelta(days=5):
+            row, name, tickers, pattern, first_day, last_day = prepared[i]
+            if not first_day <= day <= last_day:
                 continue
             if (name and f" {name} " in f" {normalized} ") or (pattern and pattern.search(text)):
                 matched.append(
@@ -381,6 +411,28 @@ def match_candidates(news: pd.DataFrame, filings: pd.DataFrame, symbols: dict) -
                 )
     columns = ["text", "date", "tickers", "key", *[c for c in FILING_COLUMNS if c != "tickers"]]
     return pd.DataFrame(matched, columns=columns)
+
+
+def remove_non_news(news: pd.DataFrame, known_tickers: set[str]) -> tuple[pd.DataFrame, dict]:
+    """A fixed title/ticker screen, applied mechanically before issuer matching."""
+    titles = news["Article_title"].fillna("").astype(str)
+    symbols = news["Stock_symbol"].fillna("").astype(str)
+    wraps = titles.str.contains(WRAP_PATTERN, case=False, regex=True)
+    multi = pd.Series(
+        [
+            len(set(TICKER_TOKEN.findall(title + " " + stocks)) & known_tickers) >= 3
+            for title, stocks in zip(titles, symbols, strict=True)
+        ],
+        index=news.index,
+        dtype=bool,
+    )
+    drop = wraps | multi
+    return news.loc[~drop], {
+        "rows": len(news),
+        "dropped_wrap_title": int(wraps.sum()),
+        "dropped_three_or_more_tickers": int(multi.sum()),
+        "dropped_total": int(drop.sum()),
+    }
 
 
 def headline_frame(matches: pd.DataFrame) -> pd.DataFrame:
@@ -462,24 +514,87 @@ def load_exclusions() -> dict:
     return corpus
 
 
-def build(cache: Path, news_paths: tuple, tickers_path: Path, output: Path, manifest: Path) -> dict:
+def load_cached_exclusions(path: Path, baseline: Path) -> dict:
+    """Offline only; require the exact original exclusion groups, counts and text hashes.
+
+    A snapshot is JSON written from load_exclusions(), optionally wrapped as {"corpus": ...}.
+    Matching the existing manifest prevents a partial export from weakening the leak filter.
+    """
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"Offline E25 exclusion snapshot missing: {path}. Supply --exclusions-cache <JSON> "
+            "containing the original load_exclusions() text lists; no download is attempted."
+        )
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError("Offline exclusion snapshot must be a JSON object")
+    corpus = payload.get("corpus", payload)
+    expected = json.loads(baseline.read_text(encoding="utf-8"))["exclusions"]
+    if not isinstance(corpus, dict) or set(corpus) != set(expected):
+        raise ValueError("Offline exclusion snapshot must contain every original exclusion group")
+    for name, texts in corpus.items():
+        if not isinstance(texts, list) or not all(isinstance(t, str) for t in texts):
+            raise ValueError(f"Invalid text-only exclusion group: {name}")
+        digest = hashlib.sha256(json.dumps(texts, ensure_ascii=False).encode()).hexdigest()
+        if len(texts) != expected[name]["rows"] or digest != expected[name]["sha256"]:
+            raise ValueError(f"Offline exclusion snapshot does not match original group: {name}")
+    return corpus
+
+
+def build(
+    cache: Path,
+    news_paths: tuple,
+    tickers_path: Path,
+    output: Path,
+    manifest: Path,
+    *,
+    news_full: bool = False,
+    exclusions_cache: Path = EXCLUSIONS_CACHE,
+    exclusions_baseline: Path = MANIFEST,
+) -> dict:
     targets = [output / "to_label.csv", output / "anchors.csv", manifest]
     if any(path.exists() for path in targets):
         raise FileExistsError("SEC sample outputs already exist; preserve the existing sample")
     filings, cached = read_cache(cache)
     if filings.empty:
         raise ValueError("No valid item-checked filings in the SEC cache")
+    corpus = (
+        load_cached_exclusions(exclusions_cache, exclusions_baseline)
+        if news_full
+        else load_exclusions()
+    )
     symbols, matches, source_hashes, source_counts = ticker_map(tickers_path), [], {}, {}
+    index = matcher_index(filings, symbols)
+    known_tickers = {ticker for group in symbols.values() for ticker in group}
+    known_tickers |= {ticker for group in filings["tickers"] for ticker in group.split()}
+    non_news = {
+        "rows": 0,
+        "dropped_wrap_title": 0,
+        "dropped_three_or_more_tickers": 0,
+        "dropped_total": 0,
+    }
+    chunks = 0
     for path in news_paths:
         source_hashes[str(path)] = sha_file(path)
         count = 0
-        for chunk in pd.read_csv(path, usecols=NEWS_COLUMNS, dtype=str, chunksize=50000):
+        for chunk in pd.read_csv(path, usecols=NEWS_COLUMNS, dtype=str, chunksize=CHUNK_ROWS):
             count += len(chunk)
-            matches.append(match_candidates(chunk, filings, symbols))
+            chunks += 1
+            if news_full:
+                chunk, dropped = remove_non_news(chunk, known_tickers)
+                for name, value in dropped.items():
+                    non_news[name] += value
+            matches.append(match_candidates(chunk, filings, symbols, index=index))
+            if news_full and chunks % 10 == 0:
+                print(
+                    f"Full news: {count:,} rows streamed; "
+                    f"{non_news['dropped_total']:,} fixed-rule drops",
+                    file=sys.stderr,
+                    flush=True,
+                )
         source_counts[str(path)] = count
     combined = pd.concat(matches, ignore_index=True) if matches else pd.DataFrame(columns=["key"])
     frame = headline_frame(combined)
-    corpus = load_exclusions()
     blind, detailed, audit = sample(frame, corpus)
     # The final shared assertion uses precisely the texts written for labelling.
     if len(blind):
@@ -517,6 +632,26 @@ def build(cache: Path, news_paths: tuple, tickers_path: Path, output: Path, mani
         },
         "selected_filing_metadata": detailed.to_dict("records"),
     }
+    if news_full:
+        info |= {
+            "news_source": "full_local_csv",
+            "chunk_rows": CHUNK_ROWS,
+            "chunks": chunks,
+            "non_news_filter": {
+                "rule": NON_NEWS_RULE,
+                "wrap_regex": WRAP_PATTERN,
+                "ticker_lexicon_sha256": hashlib.sha256(
+                    json.dumps(sorted(known_tickers)).encode()
+                ).hexdigest(),
+                "counts": non_news,
+            },
+            "exclusion_snapshot": {
+                "path": str(exclusions_cache),
+                "sha256": sha_file(exclusions_cache),
+                "baseline_manifest": str(exclusions_baseline),
+                "baseline_sha256": sha_file(exclusions_baseline),
+            },
+        }
     write_json(manifest, info)
     return info
 
@@ -526,7 +661,18 @@ def main() -> None:
     mode = parser.add_mutually_exclusive_group(required=True)
     for name in ("dry-run", "fetch", "build"):
         mode.add_argument(f"--{name}", action="store_true")
+    parser.add_argument(
+        "--news-full", action="store_true", help="stream All_external.csv with --build"
+    )
+    parser.add_argument(
+        "--exclusions-cache",
+        type=Path,
+        default=EXCLUSIONS_CACHE,
+        help="text-only local E25 exclusion snapshot for --news-full",
+    )
     args = parser.parse_args()
+    if args.news_full and not args.build:
+        parser.error("--news-full requires --build")
     if args.dry_run:
         info = (
             read_cache(CACHE)[1]
@@ -540,7 +686,18 @@ def main() -> None:
     elif args.fetch:
         info = fetch(CACHE, SecClient(os.environ.get("SEC_USER_AGENT", "")))
     else:
-        info = build(CACHE, NEWS, TICKERS, OUT, MANIFEST)
+        if args.news_full:
+            info = build(
+                CACHE,
+                (FULL_NEWS,),
+                TICKERS,
+                FULL_OUT,
+                FULL_MANIFEST,
+                news_full=True,
+                exclusions_cache=args.exclusions_cache,
+            )
+        else:
+            info = build(CACHE, NEWS, TICKERS, OUT, MANIFEST)
     print(json.dumps(info, indent=2))
 
 

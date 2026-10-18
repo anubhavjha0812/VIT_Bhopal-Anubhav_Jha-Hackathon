@@ -1,0 +1,288 @@
+item_id,text,label_chatgpt,label_claude,final,label_source,pred_C
+S8K0001,"Benzinga’s Top Pre- Market Losers (MESA, SHPGY, NOK, BEXP, MOT, CBY)",Other,Other,Other,ai_agreed,Other
+S8K0002,"UPDATE 3-Mesa Air Group files for bankruptcy, to cut fleet",Default,Default,Default,ai_agreed,Default
+S8K0003,Mesa Air Group Receives Nasdaq Staff Delisting Notice,Legal/Regulatory,Other,Other,ai_adjudicated,Other
+S8K0004,FirstFed Financial files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0005,"Neenah Enterprises, Inc. Initiates Pre-Negotiated Voluntary Chapter 11 Recapitalization to Restructure Balance Sheet and Reduce Debt",Default,Default,Default,ai_agreed,Default
+S8K0006,Regent Communications Announces Consensual Restructuring Agreement With Senior Lenders,Default,Default,Default,ai_agreed_ai_audited,Other
+S8K0007,"UPDATE 2-Orleans Homebuilders files bankruptcy, seeks buyer",Default,Default,Default,ai_agreed,Default
+S8K0008,Point Blank Solutions Files Voluntary Petition for Chapter 11 Reorganization; Reaches Agreement to Obtain,Default,Default,Default,ai_agreed,Default
+S8K0009,Bank of Florida Corp. Announces Delisting from Nasdaq,Other,Other,Other,ai_agreed_ai_audited,M&A
+S8K0010,Congoleum Corporation Plan of Reorganization Confirmed,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Other
+S8K0011,UPDATE 1-Pacific Ethanol units to emerge from bankruptcy,Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0012,Riviera Holdings Corporation Files for Chapter 11 Bankruptcy Reorganization,Default,Default,Default,ai_agreed,Default
+S8K0013,UPDATE 1-Specialty coatings maker nCoat files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0014,"Ultimate Escapes, Destination Club for Rich, Files Chapter 11",Default,Default,Default,ai_agreed,Default
+S8K0015,"This Holiday Season, Bring Home the $250 Million Comedy Blockbuster Despicable Me",Other,Product news,Product news,ai_adjudicated,Other
+S8K0016,Blockbuster Board to Have Three Members Chosen by Icahn After Bankruptcy,Management change,Management change,Management change,ai_agreed_ai_audited,Default
+S8K0017,Blockbuster Files for Bankruptcy After Online Rivals Gain,Default,Default,Default,ai_agreed,Default
+S8K0018,"Blockbuster, Lehman, Tribune, Abitibi: Bankruptcy",Other,Default,Default,ai_adjudicated,Default
+S8K0019,Blockbuster seeks turnaround in bankruptcy,Other,Default,Default,ai_adjudicated,Default
+S8K0020,Fitch Downgrades Blockbuster's IDR to 'D',Credit downgrade,Credit downgrade,Credit downgrade,ai_agreed,Credit downgrade
+S8K0021,Blockbuster Wins Bankruptcy Court Approval to Borrow $25 Million of Loan,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Default
+S8K0022,NutraCea's Plan of Reorganization Approved by Bankruptcy Court,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Default
+S8K0023,Gulfstream International Group Begins Financial Restructuring Under Chapter 11 Bankruptcy;...,Default,Default,Default,ai_agreed,Default
+S8K0024,"Ambac Financial Group, Inc. Announces Third Quarter 2010 Results",Earnings,Earnings,Earnings,ai_agreed,Earnings
+S8K0025,"Ambac Financial Group Bankruptcy and Regulator`s Rehabilitation Plan Prove Ambac Policyholders Are Not Being Protected, Says RMBS Policyholders Group",Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0026,InSight Health Services Holdings Corp. Reaches Agreement with Its Creditors to Restructure Its Balance Sheet through a Prepackaged Chapter 11 Reorganization,Default,Default,Default,ai_agreed,Default
+S8K0027,Composite Technology Files for Chapter 11 Protection to Address Court Order Obtained by Lender,Default,Default,Default,ai_agreed,Default
+S8K0028,Fitch: No Effect on Old National Bancorp's Rtgs from Acquisition of Integra Bank,Other,Other,Other,ai_agreed_ai_audited,M&A
+S8K0029,ShengdaTech board sues CEO citing obstruction of fraud probe,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0030,ShengdaTech Panel Wins Order Barring Management From Thwarting Fraud Probe,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Other
+S8K0031,"A-Tec, Danish Banks Agreement, ShengdaTeCH: Bankruptcy",Other,Default,Default,ai_adjudicated,Default
+S8K0032,Beacon Power bankrupt; had U.S. backing like Solyndra,Default,Default,Default,ai_agreed,Default
+S8K0033,UPDATE 1-Beacon Power bankrupt; had US backing like Solyndra,Default,Default,Default,ai_agreed,Default
+S8K0034,UPDATE 2-Beacon Power bankrupt; had US backing like Solyndra,Default,Default,Default,ai_agreed,Default
+S8K0035,Block & Leviton LLP Investigates MF Global Holdings Ltd.,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0036,Syms and Filene`s Basement File for Bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0037,Harwood Feffer LLP Announces Investigation of MF Global Holdings,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0038,"Dynegy Holding Co Could File As Soon As Monday Night; Remains In Discussion With Bondholders Owed $3.5B -WSJ, Sources",Other,Other,Other,ai_agreed_ai_audited,Macroeconomic
+S8K0039,"Dynegy Inc. Announces Restructuring Agreement with Holders of Over $1.4 Billion of Dynegy Holdings, LLC Senior Notes",Default,Default,Default,ai_agreed_ai_audited,Other
+S8K0040,Dynegy May Seek Chapter 11 for Holding Company,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0041,UPDATE 2-Dynegy close to bankruptcy for unit-sources,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0042,Dynegy shares jump as bankruptcy losses limited,Other,Other,Other,ai_agreed,Default
+S8K0043,Notable Put Options Activity in Dynegy,Other,Other,Other,ai_agreed,Other
+S8K0044,UPDATE 1-Dynegy shares jump as bankruptcy losses limited,Other,Other,Other,ai_agreed,Default
+S8K0045,Analysis: Bondholders warm to unusual Dynegy bankruptcy,Other,Default,Default,ai_adjudicated,Default
+S8K0046,UPDATE 2-Examiner sought for Dynegy bankruptcy,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Default
+S8K0047,Trailer Bridge Reports 2011 Third Quarter and Nine Month Financial Results,Earnings,Earnings,Earnings,ai_agreed,Earnings
+S8K0048,American Airlines files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0049,"American Airlines Parent AMR Says It's Broke, Files for Bankruptcy",Default,Default,Default,ai_agreed,Default
+S8K0050,"AMR, American Airlines file for bankruptcy",Default,Default,Default,ai_agreed,Default
+S8K0051,AMR Said to Have Begun Bankruptcy Contingency Plans in August,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0052,Bankruptcy for American Airlines,Default,Default,Default,ai_agreed,Default
+S8K0053,CORRECTED-(OFFICIAL)-Nasdaq cancels trades in AMR preferred shrs,Legal/Regulatory,Other,Other,ai_adjudicated,M&A
+S8K0054,Fitch: AMR Restructuring to Boost Industry Revenue Fundamentals,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0055,Morning Briefing: Facebook eyes IPO; AMR seeks shelter,Other,Other,Other,ai_agreed_ai_audited,M&A
+S8K0056,U.S. airport bonds eyed in American Airlines bankruptcy,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0057,UPDATE 2-BA owner has faith in AMR survival,Other,Other,Other,ai_agreed,Other
+S8K0058,US Airways Seen as Possible Merger Partner for AMR,Other,M&A,M&A,ai_adjudicated,M&A
+S8K0059,American Airlines bankruptcy won't hurt flyers... for now,Other,Other,Other,ai_agreed,Default
+S8K0060,"American Airlines seeks to shed planes, engines",Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0061,"CORRECTED - UPDATE 1-American Airlines seeks to shed planes, engines",Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0062,"Grupo Aeroportuario del Pacifico Informs Regarding Announcement That AMR Corporation, Parent of American Airlines and American Eagle, Filed Voluntary Petitions for Chapter 11 Reorganization in the United States Bankruptcy Co",Default,Default,Default,ai_agreed,Default
+S8K0063,American Airlines Joins Japan Airlines in Sponsoring Honolulu Marathon,Other,Other,Other,ai_agreed,Other
+S8K0064,"MF Global Holdings Should Give Priority to Brokerage Claims, Funds Say",Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0065,Newspaper group Lee Enterprises files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0066,St. Louis Post-Dispatch Publisher Lee Enterprises Files For Bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0067,"Winland Ocean Shipping Corp. Announces Another 57,000 DWT Bulk Carrier Vessel ""RUI LEE"" Placed in Service",Other,Other,Other,ai_agreed,Other
+S8K0068,"Trident Microsystems, Inc. and Cayman Subsidiary File for Chapter 11 Protection",Default,Default,Default,ai_agreed,Default
+S8K0069,"BancFirst Corp. (BANF) EVP & CFO Joe T Jr Shockley sells 1,000 Shares",Other,Other,Other,ai_agreed,Other
+S8K0070,China Nov gold output up 2.7 pct at 32.6 T - govt,Macroeconomic,Other,Other,ai_adjudicated,Macroeconomic
+S8K0071,T.G.I. Friday'sÂ® Bartenders Train for Global Showdown,Other,Other,Other,ai_agreed,Other
+S8K0072,Vietnam 2015 coal output to rise to 55-58 mln T -govt,Macroeconomic,Other,Other,ai_adjudicated,Macroeconomic
+S8K0073,Can Do <2698.T>-2010/11 div forecast,Earnings,Earnings,Earnings,ai_agreed,Other
+S8K0074,Duskin <4665.T>-2011/12 parent forecast,Earnings,Earnings,Earnings,ai_agreed_ai_audited,Other
+S8K0075,Работа над S.T.A.L.K.E.R. 2 продолжится,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0076,Startup Weekend Bay Area Goes Mobile: Kicks Off 2012 at AT&T; Foundry in Palo Alto,Other,Other,Other,ai_agreed,Other
+S8K0077,Toyo Denki <6505.T>-2011/12 group forecast,Earnings,Earnings,Earnings,ai_agreed_ai_audited,Other
+S8K0078,Capital Product Partners L.P. Announces the Successful Extension of the Charters of the MR Product Tankers M/T,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0079,"India MMTC buys 21,000 T RBD palmolein at $1,073/T-sources",Product news,Other,Other,ai_adjudicated,M&A
+S8K0080,Cadan Completes Comval Project Transaction; Focus on Development of High Grade T'Boli Gold and Silver Project,M&A,M&A,M&A,ai_agreed_ai_audited,Other
+S8K0081,"Clubpennystocks Volume WatchList: STEV (Stevia),  NSRS (North Springs Resources), AAMRQ (AMR), EK (Eastman Kodak), TFER (Titan Iro",Other,Other,Other,ai_agreed,Other
+S8K0082,Greek borrowing costs shrink slightly in 3-months T-bill sale,Macroeconomic,Macroeconomic,Macroeconomic,ai_agreed,Macroeconomic
+S8K0083,AT&T; jacks up data plan prices as usage booms,Other,Other,Other,ai_agreed,Other
+S8K0084,Japan Corporate Housing <8945.T>-6-month parent,Other,Earnings,Earnings,ai_adjudicated,Macroeconomic
+S8K0085,Eastman Kodak Proposes Interest Rates on $950 Million DIP,Other,Default,Default,ai_adjudicated,Macroeconomic
+S8K0086,"Ener1, Inc. Reaches Agreement With Primary Investors and Lenders on Plan to Reduce Debt and Secure New Equity Funding to Support Its Long-term Business Strategy",Other,Default,Default,ai_adjudicated,Other
+S8K0087,"Ener1, Parent of U.S. Subsidized Battery Unit, Seeks Bankruptcy",Default,Default,Default,ai_agreed,Default
+S8K0088,Grubb & Ellis Enters Into Strategic Transaction With BGC Partners,Other,M&A,M&A,ai_adjudicated,Other
+S8K0089,"Grubb & Ellis files bankruptcy, to be sold to BGC",Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0090,"TaxMasters Files for Bankruptcy, Dogged by Fraud Suits",Default,Default,Default,ai_agreed,Default
+S8K0091,"Newhall Laboratories Acquires the L.A. Looks, Dep Sport, Zero Frizz, Thicker Fuller Hair, Pure & Natural and Soft & Dri Brands from Henkel",M&A,M&A,M&A,ai_agreed,M&A
+S8K0092,TEXT-Fitch downgrades Dynegy's IDR to 'D',Credit downgrade,Credit downgrade,Credit downgrade,ai_agreed,Credit downgrade
+S8K0093,Patriot Coal gets court OK for DIP financing,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0094,"Latest News Just Released OTC Markets: Patriot Coal (PCSCQ), Centaurus Diamond Technologies (CTDT), AMR (AAMRQ), Implant Sciences",Other,Other,Other,ai_agreed,Product news
+S8K0095,UPDATE 1-Valence Technology files for Chapter 11 bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0096,"Valence Technology, Battery Maker, Files Bankruptcy",Default,Default,Default,ai_agreed,Default
+S8K0097,Tri-Valley Corporation Files for Chapter 11 Relief; Receives Commitment for DIP Financing,Default,Default,Default,ai_agreed,Default
+S8K0098,Capitol Bancorp of Michigan Makes Chapter 11 Filing,Default,Default,Default,ai_agreed,Default
+S8K0099,"Digital Domain Media Group Advances Strategic Realignment Through Chapter 11 and CCAA Filing; Searchlight Capital Partners L.P. to Acquire Digital Domain Productions, Inc. and Subsidiaries, Including Mothership Media",Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0100,"Rosen Law Firm Files Securities Class Action on Behalf of Digital Domain Media Group, Inc. Investors -- DDMGQ",Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0101,"Glancy Binkow & Goldberg LLP Announces Class Action Lawsuit Against Digital Domain Media Group, Inc.",Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0102,A123 Systems Reaches Agreement To Sell Automotive Business Assets To Johnson Controls For $125M,M&A,M&A,M&A,ai_agreed,M&A
+S8K0103,"Overseas Shipholding Group, Inc. Commences Chapter 11 Process to Reduce Debt and Other Financial Obligations and Create Solid Financial Foundation",Default,Default,Default,ai_agreed,Default
+S8K0104,"Pomerantz Law Firm Reminds Shareholders of Overseas Shipholding Group, Inc. of Upcoming Deadline -- OSGIQ",Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Other
+S8K0105,Edison Mission Energy files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0106,Edison Mission Energy Reaches Agreement to Facilitate Consensual Equity Turnover and Substantial Debt Reduction,Default,Default,Default,ai_agreed_ai_audited,Macroeconomic
+S8K0107,"THQ files for bankruptcy, Clearlake makes offer for assets",Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0108,"THQ files for bankruptcy, Clearlake to bid for assets",Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0109,"THQ Inc. Secures Asset Purchase Agreement with Affiliates of Clearlake Capital Group, L.P.",M&A,M&A,M&A,ai_agreed,Other
+S8K0110,"UPDATE 2-THQ files for bankruptcy, Clearlake to bid for assets",Default,Default,Default,ai_agreed,Default
+S8K0111,Издательство THQ объявило о банкротстве,Default,Default,Default,ai_agreed_ai_audited,Other
+S8K0112,LodgeNet Interactive Files for Bankruptcy Protection,Default,Default,Default,ai_agreed,Default
+S8K0113,BRIEF-Powerwave Technologies files for chapter 11 bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0114,"Dex, SuperMedia File for Bankruptcy to Complete Merger",Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0115,Otelco Takes Next Steps to Implement Restructuring,Other,Default,Default,ai_adjudicated,Other
+S8K0116,GMX Resources files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0117,UPDATE 2-GMX Resources files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0118,Rotech Healthcare Files Consensual Plan of Reorganization and Voluntary Petitions to Complete Financial Restructuring,Default,Default,Default,ai_agreed,Other
+S8K0119,Central European Distribution Corporation Announces Confirmation Hearing Date of Plan of Reorganization,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Other
+S8K0120,TABLE-UK March CPI holds at 2.8 percent as expected,Macroeconomic,Macroeconomic,Macroeconomic,ai_agreed,Macroeconomic
+S8K0121,US STOCKS SNAPSHOT-Futures add to gains after CPI data,Other,Macroeconomic,Macroeconomic,ai_adjudicated,Other
+S8K0122,Chile Stats Agency Workers Question Leader as CPI Raises Doubts,Other,Macroeconomic,Macroeconomic,ai_adjudicated,Macroeconomic
+S8K0123,Bank of England's Miles sees CPI near 2 pct at end of year,Macroeconomic,Macroeconomic,Macroeconomic,ai_agreed,Macroeconomic
+S8K0124,Otelco Reports First Quarter 2013 Results and Progress of Balance Sheet Restructuring,Earnings,Earnings,Earnings,ai_agreed,Earnings
+S8K0125,Battery maker Exide Technologies files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0126,"Exide Technologies Files for Bankruptcy and Threatens Californians with Bill for Cleanup that Top Toxics Regulator Botched, Says Consumer Watchdog",Default,Default,Default,ai_agreed,Default
+S8K0127,UPDATE 1-Battery maker Exide Technologies files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0128,Castle (A.M.) & Co. Reports Q2 EPS of $0.02 vs $(0.09) Est; Revenue of $273.40M vs $300.0M Est,Earnings,Earnings,Earnings,ai_agreed,Earnings
+S8K0129,Global Axcess Corp Secures Asset Purchase Agreement with FCTI,M&A,M&A,M&A,ai_agreed,Other
+S8K0130,Anchor BanCorp Wisconsin Inc. Announces First Quarter Results,Earnings,Earnings,Earnings,ai_agreed,Earnings
+S8K0131,"Ecotality, an electric car charger maker, files for bankruptcy",Default,Default,Default,ai_agreed,Default
+S8K0132,Savient Pharmaceuticals Files for Bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0133,UPDATE 2-Uranium supplier USEC files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0134,"Cohen, Placitella & Roth, PC Investigating Global Geophysical Services, Inc. for Issuing False and Misleading Statements Concerning the Company's Financial Performance",Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0135,James River Coal files for bankruptcy protection,Default,Default,Default,ai_agreed,Default
+S8K0136,UPDATE 1-James River Coal files for bankruptcy protection,Default,Default,Default,ai_agreed,Default
+S8K0137,"UPDATE 1-Coldwater Creek files for bankruptcy, retailer plans to close",Default,Default,Default,ai_agreed,Default
+S8K0138,Silicones and Quartz Producer Momentive Performance Materials Inc. Files for Chapter 11 to Implement âPre-Negotiatedâ Balance Sheet Restructuring Plan,Default,Default,Default,ai_agreed,Default
+S8K0139,"SIGA Technologies, Inc. Files for Chapter 11 Reorganization",Default,Default,Default,ai_agreed,Default
+S8K0140,"SHAREHOLDER ALERT: Brower Piven Launches Investigation And Encourages Investors Who Have Losses In Excess of $750,000 From Investment In GT Advanced Technologies, Inc. To Contact Brower Piven For Additional Information",Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0141,BRIEF-GT Advanced Technologies lawyer says confidentiality agreement bars disclosing cause of Ch. 11,Other,Default,Default,ai_adjudicated,Other
+S8K0142,GT Advanced Technologies Inc. Investors Encouraged to Contact Securities Law Firm about Investigation into Allegations of Corporate Wrongdoing,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0143,ALCO Stores Commences Voluntary Chapter 11 Proceeding,Default,Default,Default,ai_agreed,Default
+S8K0144,Texas discount chain Alco Stores files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0145,CORRECTED-UPDATE 2-Dendreon files for bankruptcy as cancer vaccine disappoints,Default,Default,Default,ai_agreed,Default
+S8K0146,Dendreon files for bankruptcy as cancer vaccine disappoints,Default,Default,Default,ai_agreed,Default
+S8K0147,Dendreon Reaches Agreements on Terms of Financial Restructuring,Default,Default,Default,ai_agreed_ai_audited,Other
+S8K0148,"Technical Pulse on Biotech Stocks - Dendreon, Alkermes, Exact Sciences, Inovio Pharma, and Seattle Genetics",Other,Other,Other,ai_agreed,Other
+S8K0149,Mall-based apparel retailer Body Central said to prepare for bankruptcy - report,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0150,Wet Seal,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0151,UPDATE 3-Apparel retailer Wet Seal files for Chapter 11 bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0152,Will GameStop Follow RadioShack's Demise? A Bunch Of Redditors Think So,Other,Other,Other,ai_agreed,Other
+S8K0153,RadioShack gets court approval for interim bankruptcy loan,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Default
+S8K0154,"Global Geophysical Services, Inc. Emerges From Chapter 11",Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0155,BPZ Resources Inc. Begins Voluntary Chapter 11 Proceeding,Default,Default,Default,ai_agreed,Default
+S8K0156,Dune Energy Commences Voluntary Chapter 11 Business Reorganization,Default,Default,Default,ai_agreed,Default
+S8K0157,Oil company BPZ Resources files for bankruptcy in U.S. court,Default,Default,Default,ai_agreed,Default
+S8K0158,Doral Financial files for Chapter 11 bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0159,Life Partners Holdings Announces Receipt of Nasdaq Notice of Deficiency,Legal/Regulatory,Other,Other,ai_adjudicated,Other
+S8K0160,Standard Register seeks bankruptcy sale to Silver Point,M&A,M&A,M&A,ai_agreed_ai_audited,Default
+S8K0161,Quicksilver Resources files Chapter 11,Default,Default,Default,ai_agreed,Default
+S8K0162,Quicksilver Resources files for Chapter 11 protection,Default,Default,Default,ai_agreed,Default
+S8K0163,EveryWare Global files for Chapter 11 bankruptcy protection,Default,Default,Default,ai_agreed,Default
+S8K0164,"EveryWare Global, Inc. Receives Nasdaq Delisting Notice",Legal/Regulatory,Other,Other,ai_adjudicated,Other
+S8K0165,AVT Custom Coffee Kiosks Awarded Contract with Marine Corps,Product news,Product news,Product news,ai_agreed,Other
+S8K0166,American Eagle Energy Files For Bankruptcy Protection,Default,Default,Default,ai_agreed,Default
+S8K0167,American Eagle Energy Starts Voluntary Chapter 11 Proceedings,Default,Default,Default,ai_agreed,Default
+S8K0168,American Eagle Energy Begins Voluntary Chapter 11 Proceeding,Default,Default,Default,ai_agreed,Default
+S8K0169,Ivanhoe Energy Unable to Reach Agreement on Restructuring Proposal,Other,Default,Default,ai_adjudicated,Other
+S8K0170,Midway Gold files for Chapter 11 bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0171,"Alibaba, Ant Financial to Each Invest $483.3M in Local Services JV",M&A,M&A,M&A,ai_agreed_ai_audited,Other
+S8K0172,"Alibaba, Ant to pour nearly $1 billion into local services startup",M&A,M&A,M&A,ai_agreed_ai_audited,Other
+S8K0173,Alibaba Group and Ant Financial Announce Local Services JV,M&A,M&A,M&A,ai_agreed_ai_audited,Other
+S8K0174,Blast at Pemex shallow water oil platform in southern Gulf - local media,Other,Other,Other,ai_agreed,Macroeconomic
+S8K0175,Research and Markets: Local Programmatic Advertising Market 2015-2020,Other,Other,Other,ai_agreed,Other
+S8K0176,United Airlines Teams Up with the Chicago Urban League to Fly Local Students to China,Other,Other,Other,ai_agreed,Other
+S8K0177,Houston Methodist Willowbrook Hospital recognizes local EMS providers,Other,Other,Other,ai_agreed,Other
+S8K0178,Quarterly Summary of State and Local Government Tax Revenue:  1st Quarter 2015,Macroeconomic,Macroeconomic,Macroeconomic,ai_agreed,Macroeconomic
+S8K0179,Real Estate Becomes Local Again; National Trends Less Prevalent on a Market Level,Other,Other,Other,ai_agreed,Macroeconomic
+S8K0180,Local Fire and Law Enforcement Agencies and the California State Fire Marshal Discuss Efforts to Target Those Individuals Using Illegal Fireworks,Legal/Regulatory,Other,Other,ai_adjudicated,Other
+S8K0181,Hesse Premier Says K + S Takeover by Potash Must Not Threaten Local Job; Says K+S Must Remain German Corporation With HQ in Hesse -Reuters,Other,M&A,M&A,ai_adjudicated,M&A
+S8K0182,New Digital Maps Show Changing Hyper-Local Real Estate Values,Other,Other,Other,ai_agreed_ai_audited,Macroeconomic
+S8K0183,Fitch: Poor Unsecured Recoveries Expected for Walter Energy,Other,Other,Other,ai_agreed_ai_audited,Macroeconomic
+S8K0184,Sabine Oil & Gas Receives Court Approval of First Day Motions,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Legal/Regulatory
+S8K0185,Hercules Offshore Files for Bankruptcy: Will Others Follow?,Default,Default,Default,ai_agreed,Default
+S8K0186,"With no way to raise cash, Santa Fe Gold files for bankruptcy",Default,Default,Default,ai_agreed,Default
+S8K0187,Quiksilver may file for bankruptcy as early as Tuesday - Bloomberg,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0188,"Quiksilver Postpones Q3 Financial Stmt Filings, Cancels Conference Call",Other,Other,Other,ai_agreed_ai_audited,Earnings
+S8K0189,Quiksilver U.S. Launches Pre-Arranged Chapter 11 Restructuring,Default,Default,Default,ai_agreed,Default
+S8K0190,Interphase Shares Halted News Pending,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0191,"American Apparel files for bankruptcy, operations to continue",Default,Default,Default,ai_agreed,Default
+S8K0192,Miller Energy Resources Files Bankruptcy With A Prepackaged Plan And Gives Shareholders A Second Chance,Default,Default,Default,ai_agreed,Default
+S8K0193,American Apparel seeks fashion revival under bankruptcy plan,Other,Default,Default,ai_adjudicated,Default
+S8K0194,Vantage Drilling Reaches Agreement on Comprehensive Deleveraging and Recapitalization Transaction; Executes Support Agreement With Lenders and Noteholders Holding More Than $1.6 Billion in Debt;,Default,Default,Default,ai_agreed_ai_audited,Macroeconomic
+S8K0195,"Arch Coal Bankruptcy, Low Prices Sink Mining Stocks",Other,Default,Default,ai_adjudicated,Default
+S8K0196,U.S. paper firm Verso files for bankruptcy to cut debt,Default,Default,Default,ai_agreed,Default
+S8K0197,"Horsehead Holding Corp., Certain Subsidiaries, Report Commencement of Voluntary Restructuring",Other,Default,Default,ai_adjudicated,Other
+S8K0198,Electronic dance promoter SFX Entertainment's CEO to resign,Management change,Management change,Management change,ai_agreed,Management change
+S8K0199,Paragon Offshore Declares Bankruptcy - Now What?,Default,Default,Default,ai_agreed,Default
+S8K0200,Paragon Offshore Pull A Rabbit Out Of The Hat,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0201,BRIEF-Blue Earth to receive $1-$3.0 mln DIP financing from Jackson Investment,Other,Default,Default,ai_adjudicated,Other
+S8K0202,Blue Earth aims to swap debt for equity with bankruptcy filing,Default,Default,Default,ai_agreed,Default
+S8K0203,UPDATE: Emerald Oil Announces Non-Binding Agreement with Latium Enterprises to Purchase 'Substantially All Assets',M&A,M&A,M&A,ai_agreed_ai_audited,Other
+S8K0204,Emerald Oil files for bankruptcy with Latium as stalking horse,Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0205,"Pacific Sunwear of California EPS in-line, beats on revenue",Earnings,Earnings,Earnings,ai_agreed,Earnings
+S8K0206,Peabody Energy Is Latest Coal Miner To Burn Out To Bankruptcy,Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0207,Peabody Energy Is Officially Dead,Other,Default,Default,ai_adjudicated,Other
+S8K0208,BRIEF-Peabody Energy files for U.S. Chapter 11 bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0209,CorEnergy Says Energy XXI GIGS Services has not Filed for Bankruptcy,Other,Other,Other,ai_agreed,Default
+S8K0210,Energy XXI Confirms It Will Voluntarily File For Chapter 11 Bankruptcy,Other,Default,Default,ai_adjudicated,Default
+S8K0211,Energy XXI to file for bankruptcy as soon as Thursday-Bloomberg,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0212,Energy XXI Voluntarily Files for Chapter 11 to Implement Financial Restructuring,Default,Default,Default,ai_agreed,Default
+S8K0213,"Fitch: Peabody, Energy XXI push U.S. high-yield default rate to two-year high",Macroeconomic,Other,Other,ai_adjudicated,Macroeconomic
+S8K0214,Latest energy casualty: Energy XXI files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0215,BRIEF-Peabody Energy Announces Court Approval Of First-Day Motions Allowing Business Operations To Proceed In Ordinary Course,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Earnings
+S8K0216,BRIEF-Fitch downgrades Energy XXI Gulf Coast Inc to 'D',Credit downgrade,Credit downgrade,Credit downgrade,ai_agreed,Credit downgrade
+S8K0217,The Fat Lady Sings For Energy XXI,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0218,The SunEdison Story: A Few Takeaways,Other,Other,Other,ai_agreed,Other
+S8K0219,Midstates Petroleum files for Chapter 11 bankruptcu,Default,Default,Default,ai_agreed,Default
+S8K0220,BIND Therapeutics files Chapter 11; shares off 24% premarket,Default,Default,Default,ai_agreed,Default
+S8K0221,Mid-Day Market Update: Opower Gains On Acquisition News; BIND Therapeutics Shares Dip,Other,Other,Other,ai_agreed,Analyst rating
+S8K0222,Aeropostale files for Chapter 11 bankruptcy protection,Default,Default,Default,ai_agreed,Default
+S8K0223,BRIEF-Aeropostale files for chapter 11 bankruptcy protection - court filing,Default,Default,Default,ai_agreed,Default
+S8K0224,Judge tweaks Ultra Petroleum motions as Ch. 11 case gets going,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed,Legal/Regulatory
+S8K0225,BRIEF-Chc Group files for Chapter 11 protection in northern district of Texas,Default,Default,Default,ai_agreed,Default
+S8K0226,BRIEF-Aeropostale says bankruptcy court approved to draw $100 mln,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Default
+S8K0227,"LINN Energy, LinnCo and Berry Petroleum Report Restructuring Support Agreement With First Lien Lenders, The Company Filed Voluntary Petitions For Restructuring Under Chapter 11; Operations To Continue In Ordinary Course",Default,Default,Default,ai_agreed,Default
+S8K0228,The End Of Linn Energy,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0229,"Linn Energy files for bankruptcy, SandRidge misses quarterly filing",Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0230,Linn Energy Shares Fall 57% Premarket; Linnco -59% Following Announcement of Chapter 11 Bankruptcy Filing on Wednesday,Other,Default,Default,ai_adjudicated,Default
+S8K0231,"BRIEF-Linn Energy receive court approval of ""first day"" motions to support business",Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,M&A
+S8K0232,Linn Energy: The Value Of Berry Petroleum,Other,Other,Other,ai_agreed,Other
+S8K0233,BRIEF-SandRidge Energy files for bankruptcy protection,Default,Default,Default,ai_agreed,Default
+S8K0234,SandRidge Energy files for bankruptcy protection,Default,Default,Default,ai_agreed,Default
+S8K0235,BRIEF-Hercules Offshore files for Chapter 11 bankruptcy protection,Default,Default,Default,ai_agreed,Default
+S8K0236,Oilfield service firm Seventy Seven Energy files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0237,BRIEF-Premier exhibitions to reorganize under chapter 11,Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0238,C&J Energy Services halted; news pending,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0239,Cosi Shares Halted News Pending,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0240,Panera Could Gain From Cosi Bankruptcy,Other,Other,Other,ai_agreed,Other
+S8K0241,Stone Energy files for Chapter 11 bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0242,"Stone Energy Files For Court Approval Of Restructuring Plan, Files Chapter 11 Banruptcy",Default,Default,Default,ai_agreed,Default
+S8K0243,"PR Confirms Unilife Files for Chapter 11 Protection, Co. Says It Has Obtained Commitment For $7M DIP Financing Facility",Default,Default,Default,ai_agreed,Default
+S8K0244,Unilife Shares Halted News Pending,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0245,Adeptus Health Files for Ch 11 Bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0246,Walter Investment Management Announces CEO Gary Tillett To Retire In 2018; Jerry Lombardo To Succeed Him With Jeff Baker As COO,Management change,Management change,Management change,ai_agreed,Management change
+S8K0247,Rentech files for Chapter 11 bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0248,EXCO Resources Files Voluntary Petitions for Chapter 11 Reorganization to Facilitate Financial Restructuring,Default,Default,Default,ai_agreed,Default
+S8K0249,Bon-Ton stores files for bankruptcy,Default,Default,Default,ai_agreed,Default
+S8K0250,H.C. Wainwright Place BioAmber 'Buy' Rating Under Review As A Petition For Relief Under Chapter 11 Was Filed,Analyst rating,Analyst rating,Analyst rating,ai_agreed,Default
+S8K0251,"Rex Energy In 10-Q Filed Late Tuesday Reported Q1 EPS $(6.73) Doesn't Compare to $(0.73) Estimate, Sales $65.029M Miss $67.65M Estimate",Earnings,Earnings,Earnings,ai_agreed,Earnings
+S8K0252,Rex Energy Shares Down 35.7% Following 10-Q Filing Wed. Morning Which Showed Co. Will File For Protection Under Chapter 11 Bankruptcy,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0253,UPDATE: Rex Energy 10-Q From Late Tuesday States Co. Doesn't Expect To 'Conclude a successful negotiation with our lenders...we lack the liquidity to pay these obligations'; Co. Is In Process Of Filing For Ch. 11 Bankruptcy Protections,Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0254,Rex Energy (REXX) Files for Bankruptcy Amid Debt Struggles,Default,Default,Default,ai_agreed,Default
+S8K0255,Expecting Sears Holdings To Liquidate,Other,Other,Other,ai_agreed,Other
+S8K0256,Sears Holdings Commences Voluntary Chapter 11 Proceedings,Default,Default,Default,ai_agreed,Default
+S8K0257,Sears Holdings shares are down 23.8% premarket after the company earlier announced filing for Chapter 11 bankruptcy; Edward Lampert stepped down as CEO.,Other,Default,Default,ai_adjudicated,Default
+S8K0258,"Sears Holdings Shares Spike 20% Over Past Few Minutes, Pulling Back From High; Not Seeing Any News To Justify Sudden Price Spike.",Other,Other,Other,ai_agreed,Other
+S8K0259,Cipher Pharmaceuticals Earlier Announced Its New Drug Submission For PLECANATIDE Has Been Accepted For Review By Health Canada; Cipher In February Acquired The Canadian Rights To PLECANATIDE From Synergy Pharmaceuticals,Legal/Regulatory,Legal/Regulatory,Legal/Regulatory,ai_agreed_ai_audited,Other
+S8K0260,PHI Inc. - Helicopter Services Provider Files For Bankruptcy With Equityholders' Fate In Limbo,Default,Default,Default,ai_agreed,Default
+S8K0261,"Achaogen's Bankruptcy Filing, Proposed Sale: What You Need to Know",Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0262,Cloud Peak Energy Is Liquidating In Ch.11 Bankruptcy,Default,Default,Default,ai_agreed_ai_audited,Default
+S8K0263,FTD Companies moves into Chapter 11,Default,Default,Default,ai_agreed,Default
+S8K0264,FTD Companies shares are trading higher after Diamond Investment Group reported a 12% stake in the company. FTD 50 LLC also disclosed a 12% stake in the company.,Other,Other,Other,ai_agreed,Other
+S8K0265,Legacy Reserves Files For Chapter 11 Bankruptcy Protection,Default,Default,Default,ai_agreed,Default
+S8K0266,Legacy Reserves shares are trading lower after the company filed for chapter 11 bankruptcy protection.,Other,Default,Default,ai_adjudicated,Default
+S8K0267,"LendingTree EPS misses by $0.22, beats on revenue",Earnings,Earnings,Earnings,ai_agreed,Earnings
+S8K0268,RAIT Financial Trust: More Bad News And More Good News - What's Next?,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0269,RAIT Financial Trust: Senior-Notes Holders Should Be Safe In Bankruptcy; Equity Likely Cancelled,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0270,Foresight Energy to be de-listed from NYSE,Legal/Regulatory,Other,Other,ai_adjudicated,M&A
+S8K0271,Dean Foods files Chapter 11,Default,Default,Default,ai_agreed,Default
+S8K0272,Dean Foods Shares Halted Ahead Of Chapter 11 Bankruptcy Annonucement,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0273,"McClatchy Commences Voluntary Chapter ––, While Soliciting Support for Plan of Reorganization",Default,Default,Default,ai_agreed_ai_audited,Other
+S8K0274,Internap Outlines Actions To Strengthen Capital Structure: Will Restructure With Ad Hoc Lender,Other,Default,Default,ai_adjudicated,Macroeconomic
+S8K0275,CARBO Ceramics Announces Agreement with Wilks Brothers to Acquire Business Under Chapter 11,M&A,M&A,M&A,ai_agreed_ai_audited,Default
+S8K0276,"Whiting Petroleum Reports Commencement Of Voluntary Chapter 11 Cases; Says Has $585M+ In Cash On Balance Sheet, Will Continue To Operate Business In Normal Course Without Disruption",Default,Default,Default,ai_agreed,Default
+S8K0277,"Whiting Petroleum Shares Plunge After Chapter 11 Bankruptcy Filing Driven By Oil, Gas Downturn",Other,Default,Default,ai_adjudicated,Default
+S8K0278,Frontier Communications Announces Restructuring Support Agreement; Filed Petitions under Chapter 11 of the United States Bankruptcy Code,Default,Default,Default,ai_agreed,Default
+S8K0279,"Yuma Energy Halted, Pending News",Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0280,Stage Stores Commences Voluntary Chapter –– Process,Default,Default,Default,ai_agreed_ai_audited,Other
+S8K0281,NYSE To Commence Delisting Proceedings Against Hertz Global Holdings,Legal/Regulatory,Other,Other,ai_adjudicated,Legal/Regulatory
+S8K0282,'Bankrupt Hertz just told all of its landlords it won't pay rent for six months in the latest slam to commercial real estate' -Business Insider Report,Other,Other,Other,ai_agreed_ai_audited,Default
+S8K0283,"Carl Icahn Says Exits Hertz, Says Sold Position At Significant Loss; Says Still Has Faith In Future Of Hertz",Other,Other,Other,ai_agreed,M&A
+S8K0284,The Hertz Story Isn't What You Think,Other,Other,Other,ai_agreed_ai_audited,Other
+S8K0285,Carl Icahn Takes Over $–.6 Billion Loss on Embattled Hertz,Other,Other,Other,ai_agreed,Other
+S8K0286,"Thinking about buying stock in Hertz, Nio, Macy's, American Airlines, or Twitter?",Other,Other,Other,ai_agreed,Other
+S8K0287,Libbey Commences Chapter –– Reorganization with $–6… Million in Agreed Financing,Default,Default,Default,ai_agreed_ai_audited,Other

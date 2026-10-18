@@ -1,0 +1,20 @@
+{
+  "rows": 287,
+  "label_source_counts": {
+    "ai_agreed": 169,
+    "ai_agreed_ai_audited": 80,
+    "ai_adjudicated": 38
+  },
+  "credit_true": 147,
+  "pred_credit": 152,
+  "tp": 128,
+  "fp": 24,
+  "fn": 19,
+  "precision": 0.842,
+  "recall": 0.871,
+  "sensitivity_chatgpt_labels": {
+    "recall": 0.921,
+    "precision": 0.77
+  },
+  "note": "Sample is anchored on 8-K bankruptcy items, so Default is over-represented: recall is meaningful, precision is not comparable to E23. AI labels, no human check; Claude's label used where labellers differ (ai_adjudicated, adjudicator is also a labeller)."
+}

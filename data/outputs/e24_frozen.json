@@ -1,0 +1,51 @@
+{
+  "rule": "docs/DECISIONS.md E24",
+  "frozen_at_utc": "2026-10-17T06:25:45Z",
+  "candidate": "C",
+  "threshold": null,
+  "temperature": null,
+  "inference": {
+    "method": "onnx_cpu_per_row_dynamic_padding_v1",
+    "batch_size": 1,
+    "padding": "longest_in_single_row",
+    "truncation": true,
+    "max_length": 64,
+    "provider": "CPUExecutionProvider",
+    "onnxruntime_version": "1.30.0",
+    "intra_op_num_threads": 1,
+    "inter_op_num_threads": 1,
+    "execution_mode": "ORT_SEQUENTIAL",
+    "graph_optimization_level": "ORT_ENABLE_ALL",
+    "softmax": "torch_float32_softmax_last_dimension",
+    "torch_version": "2.14.1+cpu",
+    "transformers_version": "5.18.0",
+    "model_sha256": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "assets_sha256": {
+      "config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+      "model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+      "source_metrics.json": "2dca2b4609638cb3ff6f954d811b57db11ff84560fe4054015e651287809d80a",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+    }
+  },
+  "rules_file": "/home/anubhavjha0812/Documents/09-events/03-casestudy/S&P/VIT_Bhopal-Anubhav_Jha-Hackathon/src/riskengine/eval/e24_rules.py",
+  "rules_sha256": "b7317befcf1fe639c58c91050c5c317ce78626db05a4341dcdad3f804a0a68b4",
+  "gate_sha256": "047fc9d630448e4cdb9ecd9f7db82d477b2e460d28e409e9ec5acea4dd7e0bb3",
+  "pinned_sha256": {
+    "src/riskengine/eval/e24_dev.py": "5f7c6cc096b2a76d1c71dc17aa3dab63ec31a41ddf64d578849c28b452abe036",
+    "src/riskengine/eval/e24_rules.py": "b7317befcf1fe639c58c91050c5c317ce78626db05a4341dcdad3f804a0a68b4",
+    "src/riskengine/eval/e24_inference.py": "614f164e76e672e38cb5050d8da56eeb06fa32da998f16d20d337976e3ef2c20",
+    "src/riskengine/nlp/events.py": "e2f9db573a47ceb2935d3ad9eeab382b6ee0f0474152343eece97974e642e2de",
+    "src/riskengine/nlp/classifier.py": "b433fefb74e2f75ca496bbc34a3be99e873b6dc4fa2a6b3643341e25ef809f1b",
+    "models/topic/model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "src/riskengine/eval/e25_candidate.py": "3bf4ff3ac48948be1553ed4997ff6612a3b0f43f50579a4ef9ce8da0d56f5ba7",
+    "private_notes/annotation_uploads/task1/e25_student_output/v2/models/e25-student-bge-small-en-v1.5-int8/model.onnx": "a84bb36065ba3b715029f954033c3f3dfbc253e8c6f0b5f64fb8d86300980bbe"
+  },
+  "guide_sha256": "1fbfc6bd528f7deb4cd94ced924715f92466a5e13ecc4bf79448d995ee5df184",
+  "sample_files_sha256": {
+    "final_news_to_label.csv": "12ca737593a4a3eb718a185a3d0041c2d4d88778ebbe44d2910a37e1f5dff093",
+    "final_tweets_to_label.csv": "2b6b2e126f3c2f0dc2683380ad245f7c1e611e52a56b3d4a2fe056b36e56743f",
+    "final_provenance.csv": "c6fbd0d5f6efd2e44f8e30653185ce1ae16007351f3c30a5df787d80f1c98b2e",
+    "e3_split.csv": "9c4e069123d762e22ea6be19d1eab4a43ddd4ff7f6fa41a60a784ca30642270b"
+  }
+}

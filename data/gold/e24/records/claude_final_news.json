@@ -1,0 +1,15 @@
+{
+  "labeller": "claude",
+  "set": "final_news",
+  "model_as_shown_by_interface": "claude-sonnet-5-5 (model ID given in the session system prompt)",
+  "interface": "Claude Code CLI (agent session)",
+  "annotation_date_utc": "2026-10-17T09:59:51Z",
+  "settings": "default, not controllable",
+  "prompt_file": "data/gold/e24/prompts/chatgpt_prompt.md",
+  "prompt_sha256": "40877a995f812c92fd536e9de03ac1c81c7ff40a247bb9afb35ef90588c63aec",
+  "guide_sha256": "1fbfc6bd528f7deb4cd94ced924715f92466a5e13ecc4bf79448d995ee5df184",
+  "input_file_sha256": "12ca737593a4a3eb718a185a3d0041c2d4d88778ebbe44d2910a37e1f5dff093",
+  "raw_output_file": "data/gold/e24/raw/final_news_claude.csv",
+  "raw_output_sha256": "cc1e8339b1579f37585fd0cd59b67d18e254e8e3ff3f26f4b3d62ad7eee5e6ba",
+  "notes": "Labeller B is Claude, not Gemini (docs/E25_LABELLER_AMENDMENT.md). Same instruction block as the ChatGPT prompt (chatgpt_prompt.md), read from that file; labelled from the text and date only, before ChatGPT's final labels were read. Rows read with the file reader and labelled in one pass, rationales written by hand."
+}

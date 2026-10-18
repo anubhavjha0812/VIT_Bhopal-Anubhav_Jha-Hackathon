@@ -1,0 +1,15 @@
+{
+  "labeller": "chatgpt",
+  "set": "final_news",
+  "model_as_shown_by_interface": "not shown",
+  "interface": "ChatGPT through Codex CLI (agent session)",
+  "annotation_date_utc": "2026-10-17T09:54:45Z",
+  "settings": "default, not controllable",
+  "prompt_file": "data/gold/e24/prompts/chatgpt_prompt.md",
+  "prompt_sha256": "40877a995f812c92fd536e9de03ac1c81c7ff40a247bb9afb35ef90588c63aec",
+  "guide_sha256": "1fbfc6bd528f7deb4cd94ced924715f92466a5e13ecc4bf79448d995ee5df184",
+  "input_file_sha256": "12ca737593a4a3eb718a185a3d0041c2d4d88778ebbe44d2910a37e1f5dff093",
+  "raw_output_file": "data/gold/e24/raw/final_news_chatgpt.csv",
+  "raw_output_sha256": "011b78d8d08bc8c6bcd9a3fddabc04bf1903e32958f93457b5e5906d683854ca",
+  "notes": "Directly labelled each row once in file order, in batches of 50, using only its text and date. Raw CSV batches were written without subsequent label edits. No web, repository scripts, forbidden files, predictions, scores, or other labellers' outputs were accessed. The prompt's fresh-chat and memory/custom-instructions-off procedure was not performed: an existing Codex agent session with system, developer, and user instructions was used; memory and custom-instruction controls were unavailable. An exact runtime model name/version was not shown. SHA256 values were computed with sha256sum. Row counts, input ID order, allowed labels, ambiguity flags, and rationale word limits were checked."
+}

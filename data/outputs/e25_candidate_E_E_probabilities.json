@@ -1,0 +1,29 @@
+{
+  "input_sha256": "987b779f1ced3d5aab1c91fbf556eaac552c5fde36b46a11f71fe1d9436e7eb8",
+  "candidate": "E",
+  "inference": {
+    "method": "onnx_cpu_per_row_dynamic_padding_v1",
+    "batch_size": 1,
+    "padding": "longest_in_single_row",
+    "truncation": true,
+    "max_length": 64,
+    "provider": "CPUExecutionProvider",
+    "onnxruntime_version": "1.30.0",
+    "intra_op_num_threads": 1,
+    "inter_op_num_threads": 1,
+    "execution_mode": "ORT_SEQUENTIAL",
+    "graph_optimization_level": "ORT_ENABLE_ALL",
+    "softmax": "torch_float32_softmax_last_dimension",
+    "torch_version": "2.14.1+cpu",
+    "transformers_version": "5.18.0",
+    "model_sha256": "a84bb36065ba3b715029f954033c3f3dfbc253e8c6f0b5f64fb8d86300980bbe",
+    "assets_sha256": {
+      "config.json": "596a8b3a87448227d15c622c859c55e4b9d35f94aa2da136ab3d119c8ac4d1da",
+      "model.onnx": "a84bb36065ba3b715029f954033c3f3dfbc253e8c6f0b5f64fb8d86300980bbe",
+      "source_metrics.json": "8bfe3016163f7c65bdad4847ed22290ce5f9c7f89ceb0d40c69cfd73c1a37bbd",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+    }
+  },
+  "cache_sha256": "7645afd85ec7c4a3888ca049afbb78f5a2e131631ec8e90cf6dbb2b743decf74"
+}

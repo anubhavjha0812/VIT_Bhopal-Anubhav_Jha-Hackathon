@@ -1,0 +1,20 @@
+candidate,item_id,text,reference,previous,reproducible,previous_source,reproducible_source,effect
+A,980da7047039bb43,"DZ Bank Downgrades NVIDIA To Sell, Announces $170 Target",Analyst rating,Analyst rating,M&A,model,model,broke
+A,5399ab6d33a53395,"Coca-Cola CFO Says Trough Will Come In Q2, Says Bullish Credit Suisse",Earnings,Product news,Macroeconomic,model,model,changed_error
+A,ca8da6e8cd7e852f,ExxonMobil Reports Will Proceed With New Crude Unit As Part Of Beaumont Refinery Expansion,Other,Macroeconomic,Product news,model,model,changed_error
+A,dbff5c602f64baa6,"Mountain Capital Investment Advisors, Inc Buys iShares Short Maturity Bond, iShares ...",Other,Macroeconomic,M&A,model,model,changed_error
+A,014fd54d9210a26b,Bernstein Downgrades 'Hamstrung' Nvidia,Analyst rating,Analyst rating,M&A,model,model,broke
+A,b8a633af68b40de5,Banks And Leveraged Loans: Which Are Most Exposed,Other,Macroeconomic,Other,model,model,fixed
+A,0742a6469c7e0ef7,UBS Maintains Sell Rating On Tesla After Shares 'Left The Orbit',Other,Other,Analyst rating,model,model,broke
+A,25710ee51b79623d,"Coca-Cola Is Well Positioned To Achieve Higher End Of Sales Growth Outlook, BMO Says",Other,Product news,Other,model,model,fixed
+A,f19dd3fc81a7d627,"Nomura Initiates Coverage On NVIDIA with Neutral Rating, Announces $147 Price Target",Analyst rating,Product news,M&A,model,model,changed_error
+A,f28d12f5ec0f0aea,"Benzinga's Top Upgrades, Downgrades For March 24, 2020",Analyst rating,Analyst rating,Other,model,model,broke
+A,77572b68722a0f4e,"B of A Securities Maintains Buy on Netflix, Raises Price Target to $460",Analyst rating,Other,Analyst rating,model,model,fixed
+A,ba299228530b590c,"Benzinga's Top Upgrades, Downgrades For March 8, 2019",Analyst rating,Other,Analyst rating,model,model,fixed
+A,a5af1fed2f8eff62,"Benzinga's Top Upgrades, Downgrades For March 6, 2020",Analyst rating,Other,Analyst rating,model,model,fixed
+B,5399ab6d33a53395,"Coca-Cola CFO Says Trough Will Come In Q2, Says Bullish Credit Suisse",Earnings,Other,Macroeconomic,model_product_to_other,model,changed_error
+B,ca8da6e8cd7e852f,ExxonMobil Reports Will Proceed With New Crude Unit As Part Of Beaumont Refinery Expansion,Other,Macroeconomic,Other,model,model_product_to_other,fixed
+B,b8a633af68b40de5,Banks And Leveraged Loans: Which Are Most Exposed,Other,Macroeconomic,Other,model,model,fixed
+C,ca8da6e8cd7e852f,ExxonMobil Reports Will Proceed With New Crude Unit As Part Of Beaumont Refinery Expansion,Other,Macroeconomic,Other,model,model_product_to_other,fixed
+C,b8a633af68b40de5,Banks And Leveraged Loans: Which Are Most Exposed,Other,Macroeconomic,Other,model,model,fixed
+D,ca8da6e8cd7e852f,ExxonMobil Reports Will Proceed With New Crude Unit As Part Of Beaumont Refinery Expansion,Other,Macroeconomic,Other,model,model_product_to_other,fixed

@@ -435,3 +435,172 @@ def test_disjoint_nonmatching_fixture_build_is_header_only(tmp_path, monkeypatch
     assert info["rows"] == 0
     assert pd.read_csv(out / "to_label.csv").empty
     assert pd.read_csv(out / "anchors.csv").empty
+
+
+def exclusion_snapshot(tmp_path, corpus):
+    snapshot, baseline = tmp_path / "exclusions.json", tmp_path / "baseline.json"
+    sec.write_json(snapshot, {"corpus": corpus})
+    sec.write_json(
+        baseline,
+        {
+            "exclusions": {
+                name: {
+                    "rows": len(texts),
+                    "sha256": hashlib.sha256(
+                        json.dumps(texts, ensure_ascii=False).encode()
+                    ).hexdigest(),
+                }
+                for name, texts in corpus.items()
+            }
+        },
+    )
+    return snapshot, baseline
+
+
+def test_cached_exclusions_are_complete_hash_checked_and_never_download(tmp_path, monkeypatch):
+    corpus = {"base": ["A reserved fixture"], "fake finals": ["Other reserved fixture"]}
+    snapshot, baseline = exclusion_snapshot(tmp_path, corpus)
+    monkeypatch.setattr(
+        sec, "load_exclusions", lambda: pytest.fail("network-capable loader called")
+    )
+    assert sec.load_cached_exclusions(snapshot, baseline) == corpus
+    sec.write_json(snapshot, corpus)  # Both plain and wrapped exports are accepted.
+    assert sec.load_cached_exclusions(snapshot, baseline) == corpus
+    sec.write_json(snapshot, {"base": corpus["base"]})
+    with pytest.raises(ValueError, match="every original"):
+        sec.load_cached_exclusions(snapshot, baseline)
+    sec.write_json(snapshot, {**corpus, "base": ["Modified text"]})
+    with pytest.raises(ValueError, match="does not match"):
+        sec.load_cached_exclusions(snapshot, baseline)
+    with pytest.raises(FileNotFoundError, match="no download"):
+        sec.load_cached_exclusions(tmp_path / "absent", baseline)
+
+
+@pytest.mark.parametrize(
+    ("title", "symbols", "dropped"),
+    [
+        ("Stocks to Watch: Acme", "ACME", True),
+        ("STOCKS TO WATCH: Acme", "ACME", True),
+        ("Market Wrap: Acme rallies", "ACME", True),
+        ("Wall Street Round-Up: Acme rallies", "ACME", True),
+        ("Premarket Movers: Acme jumps", "ACME", True),
+        ("Acme, $OTHER and THIRD among active shares", "ACME", True),
+        ("Acme makes an announcement", "ACME OTHER THIRD", True),
+        ("Acme signs a new loan", "ACME", False),
+        ("ACME ACME ACME restructures its loan", "ACME", False),
+        ("Acme and OTHER sign a loan", "ACME", False),
+        ("Acme says ABC XYZ DEF are project codes", "ACME", False),
+    ],
+)
+def test_non_news_rule_is_fixed_and_counts_distinct_known_tickers(title, symbols, dropped):
+    f = news([title])
+    f["Stock_symbol"] = symbols
+    kept, audit = sec.remove_non_news(f, {"ACME", "OTHER", "THIRD"})
+    assert kept.empty == dropped
+    assert audit["dropped_total"] == int(dropped)
+
+
+def test_non_news_reasons_overlap_without_double_counting():
+    f = news(["Stocks to Watch: $ACME $OTHER $THIRD"])
+    kept, audit = sec.remove_non_news(f, {"ACME", "OTHER", "THIRD"})
+    assert kept.empty
+    assert audit["dropped_wrap_title"] == audit["dropped_three_or_more_tickers"] == 1
+    assert audit["dropped_total"] == 1
+
+
+def test_index_reuse_preserves_exact_matching_results():
+    rows = news(["Acme restructures debt", "$OTHR new report", "Other issuer news"])
+    filings = filing()
+    symbols = {"1": {"OTHR"}}
+    direct = sec.match_candidates(rows, filings, symbols)
+    reused = sec.match_candidates(rows, filings, symbols, index=sec.matcher_index(filings, symbols))
+    pd.testing.assert_frame_equal(direct, reused)
+
+
+def test_full_news_streams_only_three_columns_with_small_chunks(tmp_path, monkeypatch):
+    cache = cached(tmp_path / "cache")
+    path = tmp_path / "All_external.csv"
+    rows = news(
+        [
+            "Acme signs a new steel financing agreement",
+            "Stocks to Watch: Acme and OTHER",
+            "ACME SIGNS A NEW STEEL FINANCING AGREEMENT!",
+            "Acme announces warehouse debt extension",
+            "Acme OTHER THIRD active shares roundup",
+            "Acme builds an orbital solar station",
+        ]
+    )
+    rows["Article"] = "Large unused body must not be loaded"
+    rows.to_csv(path, index=False)
+    corpus = {"reserved": [rows.iloc[3]["Article_title"]]}
+    snapshot, baseline = exclusion_snapshot(tmp_path, corpus)
+    monkeypatch.setattr(sec, "CHUNK_ROWS", 2)
+    monkeypatch.setattr(sec, "load_exclusions", lambda: pytest.fail("online exclusion loader"))
+    monkeypatch.setattr(sec, "ticker_map", lambda path: {"1": {"ACME", "OTHER", "THIRD"}})
+    original, seen_chunks = pd.read_csv, []
+
+    def chunk_only(source, **kwargs):
+        assert source == path
+        assert kwargs["usecols"] == sec.NEWS_COLUMNS and kwargs["chunksize"] == 2
+        reader = original(source, **kwargs)
+
+        def iterate():
+            for chunk in reader:
+                assert len(chunk) <= 2 and set(chunk.columns) == set(sec.NEWS_COLUMNS)
+                seen_chunks.append(len(chunk))
+                yield chunk
+
+        return iterate()
+
+    monkeypatch.setattr(pd, "read_csv", chunk_only)
+    old = tmp_path / "credit_8k"
+    old.mkdir()
+    old_sheet = old / "to_label.csv"
+    old_sheet.write_text("preserve the original sample\n")
+    out, manifest = tmp_path / "credit_8k_full", tmp_path / "full_manifest.json"
+    info = sec.build(
+        cache,
+        (path,),
+        tmp_path / "no-tickers",
+        out,
+        manifest,
+        news_full=True,
+        exclusions_cache=snapshot,
+        exclusions_baseline=baseline,
+    )
+    assert seen_chunks == [2, 2, 2] and info["source_rows"][str(path)] == 6
+    sheet = original(out / "to_label.csv")
+    assert sheet.columns.tolist() == sec.BLIND_COLUMNS and len(sheet) == 2
+    assert sheet.text.map(sec.norm).is_unique
+    assert info["non_news_filter"]["rule"] == sec.NON_NEWS_RULE
+    assert info["non_news_filter"]["counts"]["dropped_total"] == 2
+    assert info["exclusion_snapshot"]["sha256"] == sec.sha_file(snapshot)
+    assert info["chunks"] == 3 and info["chunk_rows"] == 2
+    assert old_sheet.read_text() == "preserve the original sample\n"
+
+
+def test_news_full_cli_selects_separate_source_and_destinations(monkeypatch, tmp_path, capsys):
+    calls = []
+
+    def build(*args, **kwargs):
+        calls.append((args, kwargs))
+        return {"rows": 0}
+
+    monkeypatch.setattr(sec, "build", build)
+    snapshot = tmp_path / "exclusions.json"
+    monkeypatch.setattr(
+        sys, "argv", ["sec8k", "--build", "--news-full", "--exclusions-cache", str(snapshot)]
+    )
+    sec.main()
+    args, kwargs = calls[0]
+    assert args == (sec.CACHE, (sec.FULL_NEWS,), sec.TICKERS, sec.FULL_OUT, sec.FULL_MANIFEST)
+    assert kwargs == {"news_full": True, "exclusions_cache": snapshot}
+    assert sec.FULL_OUT != sec.OUT and sec.FULL_MANIFEST != sec.MANIFEST
+    capsys.readouterr()
+
+
+@pytest.mark.parametrize("mode", ["--dry-run", "--fetch"])
+def test_news_full_requires_build_without_network_or_cache_access(monkeypatch, mode):
+    monkeypatch.setattr(sys, "argv", ["sec8k", mode, "--news-full"])
+    with pytest.raises(SystemExit, match="2"):
+        sec.main()
