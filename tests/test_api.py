@@ -109,6 +109,12 @@ def test_overview_counts_texts_events_and_alerts(client, monkeypatch):
     }
 
 
+def test_engine_model_name_identifies_entity_mode_without_loading_models():
+    assert api.engine_models(Config(sentiment="entity"))["sentiment"] == (
+        "e27-entity-bge-small-en-v1.5-int8"
+    )
+
+
 def test_scoreboard_keeps_summary_fields_only(client, monkeypatch):
     row = {
         "model": "m", "n": 10, "accuracy": 0.9, "accuracy_ci95": [0.8, 0.95], "macro_f1": 0.85,

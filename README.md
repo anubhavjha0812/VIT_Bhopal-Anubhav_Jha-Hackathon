@@ -12,14 +12,12 @@
 
 ## 1. Project Overview / Problem Statement & Approach
 
-Financial news and social media contain signals that can influence market sentiment, portfolio decisions and perceptions of corporate credit risk. However, converting unstructured financial text into actionable risk measures requires more than sentiment classification: the system must identify the relevant company and event, evaluate its significance, and connect the resulting signal to a risk-analysis workflow.
-
-**AI Risk Engine** is an end-to-end prototype that processes financial news and social media posts into structured signals containing company identity, sentiment, event category, impact score and supporting text. It combines lightweight NLP inference with rule-based credit-event validation and financial risk calculations, connecting a shared signal-processing engine to two modules.
+**AI Risk Engine** turns financial news and social posts into company, sentiment, event and impact signals. Rules and financial calculations connect those signals to two prototype risk workflows.
 
 - **Module A — Portfolio Rebalancing:** Uses historical sentiment signals to adjust the weights of a simulated portfolio of 15 S&P 100 stocks. It compares sentiment-based allocation against an equal-weight benchmark.
 - **Module B — Credit Stress Testing:** Uses a credit gate and a separate Geopolitical/Macroeconomic market gate to trigger stress analysis on a hypothetical bank portfolio of loans, bonds and derivatives. It estimates credit losses and capital impacts under historical crisis scenarios and configurable what-if assumptions.
 
-The prototype also includes a browser-based dashboard, historical signal replay and a live GDELT news interface. Its purpose is to demonstrate the complete path from financial text to risk analysis, while reporting evaluation results and limitations explicitly.
+The dashboard includes historical replay and a live GDELT news interface. Measured results and limits are below; full details are in [RESULTS](docs/RESULTS.md) and [EXPERIMENTS](docs/EXPERIMENTS.md).
 
 ## 2. Architecture & Tech Stack
 
@@ -31,8 +29,8 @@ The prototype also includes a browser-based dashboard, historical signal replay 
 
 1. **Data sources:** Financial news, social media posts, historical stock prices, company debt information, credit ratings and macroeconomic data.
 2. **Ingestion and preprocessing:** Cleans text, identifies company references and prepares documents for inference.
-3. **NLP signal generation:** Produces sentiment scores, event classifications and impact scores. The running event engine is E24 candidate C: rules plus the quantized event model (`events = "model_rules"`). Sentiment uses its own quantized ONNX model; impact uses a formula.
-4. **Shared signal layer and API:** Stores structured signals and exposes them through FastAPI. The credit gate checks credit-event evidence before an alert goes to Module B. A separate market gate handles Geopolitical and Macroeconomic alerts.
+3. **NLP signal generation:** New pipeline scoring defaults to E27 company-specific sentiment (`sentiment = "entity"`), with the older `own` model as fallback when the company name is missing. Events use E24 candidate C (`events = "model_rules"`); impact uses a formula.
+4. **Shared signal layer and API:** Exposes signals through FastAPI. Stored credit-replay signals still contain `own` sentiment, because entity scoring missed a real downgrade alert. The credit gate and a separate Geopolitical/Macroeconomic market gate feed Module B.
 5. **Risk modules:** Module A computes portfolio weights and backtest metrics. Module B applies financial formulas, historical shocks and statistical simulation to estimate credit losses and capital impacts.
 6. **Dashboard:** A React and TypeScript interface displays signals, replay progress, portfolio weights, credit alerts and stress-test outputs.
 
@@ -65,6 +63,7 @@ The project uses publicly available financial text and market data. No confident
 | Twitter Financial News Sentiment (TFNS) | Sentiment-model evaluation |
 | Twitter Financial News Topic (TFN-topic) | Event-classification evaluation |
 | Financial PhraseBank and FiQA-2018 | Additional sentiment training and cross-dataset evaluation |
+| SEntFiN | Entity-aware sentiment training and evaluation; human labels supplied by the dataset authors |
 | Daily prices and S&P 500/VIX data via yfinance | Event studies and portfolio backtesting |
 | SEC EDGAR XBRL and credit-rating evidence | Company debt information and credit-risk inputs |
 | FRED and historical market data | Macroeconomic inputs and stress scenarios |
@@ -78,6 +77,8 @@ Module B uses a hypothetical bank book dated 31 December 2019, with 85 positions
 Historical scenarios include the Global Financial Crisis, the Eurozone crisis and COVID-19. These are stress-testing scenarios, not forecasts. Some market and hedge risks remain simplified or outside the current model.
 
 Dataset licences and known data-quality issues are documented in the project. In particular, the Kaggle tweet source contains duplicated records across certain tickers, and some public training datasets overlap with their original test sets. The relevant experiments account for identified overlap where documented.
+
+All new project labels for E24 (including D1/D2 and the final sets), Macro/Geo adjudication and the 8-K credit set are **AI-made or AI-adjudicated by ChatGPT and Claude, with no human check**. Their provenance includes `ai_agreed`, `ai_agreed_ai_audited` and `ai_adjudicated`; none means human review. SEntFiN supplies the human-made reference labels for E27. See [label provenance](docs/RESULTS.md#label-provenance).
 
 ## 4. Quickstart & Installation
 
@@ -107,15 +108,7 @@ uv sync
 uv run python run_demo.py
 ```
 
-This replays stored signals and runs Module A using the saved historical data. It does not require re-running inference across the full text sample.
-
-To rescore the sample with the configured models:
-
-```bash
-uv run python run_demo.py --rescore
-```
-
-Rescoring is more computationally expensive than replaying the stored outputs.
+This uses the saved `own`-sentiment signals. The separate entity-sentiment comparison is saved in `data/outputs/signals_entity.jsonl.gz`; changing the config default does not replace the stored credit signals.
 
 ### Run the complete dashboard and API
 
@@ -171,19 +164,13 @@ npm run build
 
 **Data and model notes:** The repository contains small samples and derived outputs. Full raw datasets and model files may require separate downloads or setup according to the repository documentation. Some evaluation and demo workflows use precomputed outputs to avoid unnecessary downloads.
 
-## 5. Key Results & Domain Impact
+## 5. Results and Limits
 
-### Sentiment classification
+### Entity-aware sentiment (E27)
 
-Evaluated on the Twitter Financial News Sentiment test set containing 2,388 tweets.
+On SEntFiN's Indian business news with human labels, macro-F1 rose from **0.476 to 0.821** on 463 entity rows from conflicting headlines: gain **+0.344**, 95% range **0.295 to 0.400**. Across all 2,152 rows, it rose from **0.675 to 0.864**. The registered switch rule passed; the config default is now `entity`.
 
-| Model | Accuracy | Macro-F1 | Model size | CPU throughput |
-|---|---:|---:|---:|---:|
-| Off-the-shelf FinBERT baseline | 72.6% | 0.669 | 438 MB | 13 texts/s |
-| Fine-tuned bge-small | 88.5% | 0.848 | 133 MB | 45 texts/s |
-| **bge-small INT8 ONNX — engine default** | **87.7%** | **0.836** | **34 MB** | **56 texts/s** |
-
-The deployed quantized model improves accuracy by approximately **15.1 percentage points** over the off-the-shelf FinBERT baseline while reducing model size by roughly 13 times and increasing measured CPU throughput by about 4.3 times.
+A small, post-hoc FiQA US check (150 rows) gave Spearman **0.582 to 0.623** and sign accuracy **0.731 to 0.787**. This does not establish broad US news or tweet performance. Full results and seed-record limits are in [RESULTS](docs/RESULTS.md#entity-aware-sentiment-e27).
 
 ### Event classification
 
@@ -196,42 +183,28 @@ The running engine is **E24 candidate C (rules + event model)**. Its final test 
 
 The tweet result is inside the registered margin; it is not an improvement. Eight of the 12 classes are absent in tweets. Every evaluation label for these final sets is **AI-made**: ChatGPT, Claude and AI adjudication, with **no human check**. Development sets D1 and D2 are also AI-derived. See the [results file](data/outputs/e24_final_results.json) and [labelling amendment](docs/E25_LABELLER_AMENDMENT.md).
 
-Earlier four-class TFN-topic component results:
+Earlier TFNS sentiment and TFN-topic component benchmarks are kept separately in [RESULTS](docs/RESULTS.md); they are not scores for the new entity model or the credit gate.
 
-| Model | Accuracy | Macro-F1 |
-|---|---:|---:|
-| Keyword-rule baseline | 74.0% | 0.505 |
-| Fine-tuned FinBERT topic model | 96.6% | 0.933 |
-| INT8 ONNX model used by the engine | 95.1% | 0.886 |
+### Credit and market alerts
 
-The four-class evaluation is distinct from the engine's later nine-class mapping. These results evaluate event classification, not the independent accuracy of the credit-event gate.
+On the wider 8-K set (287 headlines), frozen C had recall **0.871** and precision **0.842**. ChatGPT and Claude agreed on **86.8%** of labels; Claude's label was used where they differed, so the adjudicator was also a labeller. All labels are AI-made, with no human check. This Default-heavy sample and E23 are **not comparable**; E23 precision **0.47** remains the reported worst case.
 
-### Integrated demo and portfolio backtest
+Entity scoring reduced replay credit alerts **4 to 2**: it removed a false BAC alert but also missed a real Boeing downgrade. The credit chain therefore keeps the stored `own` scores. The market gate produced 15 alerts on that stored replay; an earlier non-blind read of 16 alerts found about 70% market-wide, an exploratory check only. See [RESULTS](docs/RESULTS.md#module-b-alert-gates).
 
-For the 9 April–10 June 2020 demo window, the quantized engine processed the 14,169-document sample in approximately 9 minutes 54 seconds on CPU in the recorded run. The additional credit-rule and gating workflow took approximately 11 minutes 43 seconds.
+### Module A portfolio comparison
 
-In the recorded integrated run, the credit gate reduced 41 high-impact alerts to four candidate credit alerts, of which three were real credit events on the reviewed demo window. This is a design check on the same window used to refine the rules, not an independent estimate of production precision.
-
-Module B now has two gates. The **credit gate has 47% precision on E23**. The new **Geopolitical/Macroeconomic market gate produced 15 alerts** on the replay window after the switch to C. About 70% looked market-wide in an earlier, non-blind read of the 16 alerts before the switch. That check is exploratory, not a measured precision result for the current 15 alerts. See [E26 and the engine-switch entry](docs/EXPERIMENTS.md).
-
-The portfolio backtest produced the following results:
+For 9 April–10 June 2020, with the same allocation rule and costs:
 
 | Strategy | Total return | Sharpe ratio |
 |---|---:|---:|
-| Equal-weight benchmark | 25.5% | 4.88 |
-| Sentiment tilt, integrated run | 24.4% | 4.61 |
+| Equal-weight benchmark | 25.52% | 4.88 |
+| Entity-sentiment tilt | 24.85% | 4.73 |
 
-The sentiment strategy **did not outperform equal weight** in this historical window. The results demonstrate the allocation workflow and its comparison against a benchmark, not evidence of investment alpha.
+With 1,000 shuffled-company placebos, p was **0.403 for return** and **0.380 for Sharpe**. The tilt shows **no proven value over chance or equal weight**. Sources and the earlier `own` comparison are in [RESULTS](docs/RESULTS.md#module-a-portfolio-and-placebo).
 
-### Domain impact and limitations
+### Other limits
 
-The prototype connects unstructured financial information to two different risk workflows:
-
-- **Portfolio analysis:** Makes sentiment-based allocation decisions, subject to portfolio constraints, and compares them with a transparent benchmark.
-- **Credit risk:** Links selected credit alerts to a hypothetical bank book and estimates scenario losses, expected credit loss, capital ratios, risk-weighted assets and tail-risk measures.
-- **Operational usability:** Provides a dashboard for headline analysis, historical replay, portfolio monitoring and scenario exploration, with API-accessible outputs.
-
-Important limitations remain. The impact score has not consistently beaten the volatility-only baseline across fresh test periods. Credit-event gating still needs broader independent validation, and some stress-test assumptions simplify interest-rate, funding and hedge risks. Historical results should therefore be interpreted as prototype outputs under stated assumptions, not forecasts or production risk estimates.
+The impact score has not consistently beaten the volatility-only baseline across fresh test periods. Credit gating still needs broader independent validation. The hypothetical bank book simplifies interest-rate, funding and hedge risks. Historical results are prototype outputs under these assumptions, not forecasts or production risk estimates.
 
 ## License
 

@@ -24,6 +24,23 @@ def test_company_name_links(linker):
     assert linker.link("JPMorgan raises loan-loss reserves") == ("JPM",)
 
 
+def test_company_name_uses_the_canonical_universe_name(linker):
+    assert linker.company_name("AAPL") == "Apple Inc."
+    assert linker.company_name("BAC") == "Bank of America Corp."
+    assert linker.company_name("UNKNOWN") is None
+
+
+def test_linker_without_company_names_keeps_existing_linking_working(linker):
+    old = Linker(
+        linker.cashtag_to_ticker,
+        linker.alias_patterns,
+        linker.analyst_patterns,
+        linker.desk_patterns,
+    )
+    assert old.link("Apple $AAPL") == ("AAPL",)
+    assert old.company_name("AAPL") is None
+
+
 def test_name_needs_word_boundary(linker):
     assert linker.link("pineapple prices rise") == ()
 

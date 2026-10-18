@@ -1,7 +1,7 @@
 """Link text to companies in our universe by cashtags ($AAPL) and company names."""
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 import pandas as pd
@@ -49,6 +49,7 @@ class Linker:
     alias_patterns: dict[str, re.Pattern]
     analyst_patterns: dict[str, re.Pattern]
     desk_patterns: dict[str, re.Pattern]
+    company_names: dict[str, str] = field(default_factory=dict)
 
     @classmethod
     def from_csv(cls, path: Path = UNIVERSE_PATH) -> "Linker":
@@ -61,7 +62,17 @@ class Linker:
         aliases = {tk: re.compile(rf"\b(?:{n})\b") for tk, n in names.items()}
         analysts = {tk: _analyst_pattern(names[tk]) for tk in BROKERS}
         desks = {tk: _desk_pattern(names[tk]) for tk in BROKERS}
-        return cls(cashtags, aliases, analysts, desks)
+        company_names = {
+            row.ticker: str(row.name).strip()
+            for row in u.itertuples()
+            if pd.notna(getattr(row, "name", None)) and str(row.name).strip()
+        }
+        return cls(cashtags, aliases, analysts, desks, company_names)
+
+    def company_name(self, ticker: str) -> str | None:
+        """Canonical universe name for entity sentiment; missing names use headline sentiment."""
+        name = self.company_names.get(ticker)
+        return name.strip() if isinstance(name, str) and name.strip() else None
 
     @property
     def tickers(self) -> list[str]:

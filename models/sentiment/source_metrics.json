@@ -1,0 +1,37 @@
+{
+  "task": "sentiment",
+  "backbone": "BAAI/bge-small-en-v1.5",
+  "train_rows": 8588,
+  "dev_rows": 955,
+  "best_dev_macro_f1": 0.8521,
+  "history": [
+    {
+      "epoch": 1,
+      "dev_macro_f1": 0.8179
+    },
+    {
+      "epoch": 2,
+      "dev_macro_f1": 0.8521
+    },
+    {
+      "epoch": 3,
+      "dev_macro_f1": 0.8439
+    },
+    {
+      "epoch": 4,
+      "dev_macro_f1": 0.8447
+    }
+  ],
+  "params_m": 33.4,
+  "train_minutes": 1.0,
+  "device": "Tesla T4",
+  "settings": {
+    "seed": 42,
+    "max_len": 64,
+    "batch": 32,
+    "epochs": 4,
+    "lr": 5e-05,
+    "warmup": 0.1,
+    "dev_frac": 0.1
+  }
+}

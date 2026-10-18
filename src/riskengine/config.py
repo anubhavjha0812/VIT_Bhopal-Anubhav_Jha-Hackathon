@@ -11,7 +11,7 @@ DEFAULT_PATH = Path(__file__).resolve().parents[2] / "config" / "default.toml"
 
 @dataclass(frozen=True)
 class Config:
-    sentiment: Literal["finbert", "own"] = "finbert"
+    sentiment: Literal["finbert", "own", "entity"] = "finbert"
     events: Literal["keywords", "model", "model_rules"] = "keywords"
     impact: Literal["formula", "learned"] = "formula"
     rebalancer: Literal["equal", "sentiment"] = "sentiment"

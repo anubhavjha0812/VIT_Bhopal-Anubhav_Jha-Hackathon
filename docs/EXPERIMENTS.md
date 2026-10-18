@@ -33,6 +33,16 @@ Updated after every experiment.
 | E22b | Does a credit alert alone carry information? (alert-only prediction vs the stock's market-adjusted 20-day return) | history 2010 – Apr 2020: 79 alerts, 40 independent; 55% negative vs base 47.8%, binomial p = 0.23; mean −1.7% [−4.1%, +0.6%]; predicted size vs reaction Spearman +0.05 | FAIL; many history alerts are false (bank-named securitisations, affirmations) | `e22b_alerts.csv`, `e22b_results.json`, `tests/test_module_b_alert_check.py` |
 | E23 | Is the frozen credit-alert gate right? | AI reference 243 pairs: TP 39, FP 44, FN 7, TN 153; sample precision 0.470, recall 0.848; population-weighted recall point estimate 0.758 | report only; gate unchanged | e24_e23_gate_v6.json/.md, e24_e23_gate_v6_false_alerts.csv |
 | E24 | Rules for product/M&A overprediction, earnings and analyst routing | D1-only: reproducible per-row A macro-F1 0.3218 / accuracy 0.4379; B 0.4548 / 0.8693; C 0.5156 / 0.9216; D=0.50 demonstration 0.5172 / 0.9281. Product 4/4 correct; M&A 0 predictions, both positives missed. Production A now matches evaluation exactly | D1 development only; D2/final pending, no selection/freeze; production reuses per-row inference | e24_d1_production_alignment_report.md, e24_d1_reproducibility_report.md, e24_d1_rules_reproducible.json, docs/E24_AMENDMENT.md |
+| E25 | Does a teacher-student event model beat the running rules + event model? | Student never beat it by the registered margin on D2/R3; the running model won the final news test (+0.067 macro-F1) | negative for the student | `e24_final_results.json`, `e25_*` |
+| E26 | Market gate for Geopolitical/Macroeconomic alerts | 15 alerts on the replay window after the switch; no measured precision | exploratory | `docs/EXPERIMENTS.md` E26 entry |
+| E27 | Does company-specific sentiment beat one score per headline? | SEntFiN test: conflicting rows macro-F1 0.476 -> 0.821 (+0.344, CI 0.295..0.400); all rows 0.675 -> 0.864; FiQA US check Spearman 0.582 -> 0.623; Module A tilt 24.85% vs equal 25.52%, placebo p 0.403; credit alerts 4 -> 2 | pass (default); Module A no proven edge | `e27_entity_eval.json`, `e27_fiqa_check.json`, `module_a_placebo_entity.json` |
+| E27b | Wider SEC 8-K credit set, running model once | 287 headlines, two AI labellers (86.8% agreement); credit recall 0.871, precision 0.842 (Default-heavy set, not comparable to E23) | reported | `e25_credit_8k_full_gate.json` |
+| E28 | Impact robust to the 2020 crisis year | Chosen on folds only; beats volatility-only in 4 of 4 test sets (fresh 2020 0.353 vs 0.331, v2 -0.092); small 2020 margin; not wired in | pass (research model) | `impact_v3_frozen.json`, `impact_v3_results.json`, `docs/IMPACT_V3.md` |
+| E28c | Does the learned impact (v3) rank real moves better than the formula inside the engine? | Replay window, 3,182 news rows, Spearman vs real \|CAR\|: v3 0.243, volatility only 0.203, formula 0.131; now the engine's `impact` for news rows (formula kept in `impact_formula`); credit gate fires the same 4 alerts | pass (development check) | `impact_v3_live_check.json`, `docs/IMPACT_V3.md` |
+| E28d | Does a tweet-trained v3 rank real moves better than volatility only and the formula? | Test 1 Jun-16 Jul 2020 (22,761 rows): v3 0.140, volatility only 0.134, formula 0.011; gain over volatility +0.006 [0.004, 0.009] | pass by the written rule (small gain; large over the formula) | `impact_v3_tweets.json`, `docs/IMPACT_V3.md` |
+| E30 | Do non-credit triggers catch real price shocks (fixed thresholds, one run)? | F 2019 P99 precision 0.076 vs volatility 0.067, difference CI [-0.1338, 0.2058]; F 2020 P99 precision 0.411 vs volatility 0.428, difference CI [-0.0884, 0.0479] | fail fixed rule; keep current gates | `e30_trigger_validation.json`, `docs/E30_TRIGGER_VALIDATION.md` |
+| E29 | Does R-Drop lift the sentiment teacher to 0.91? | TFNS test accuracy 0.896 [0.884, 0.908] vs 0.905 for the E7 teacher; target 0.91 missed | fail | `e29_teacher_rdrop.json`, `docs/E29_TEACHER.md` |
+| E28b | Frozen encoder + TF-IDF + logistic regression for events | Dev macro-F1 vs running model: D2 0.35/0.34/0.27 vs 0.40 and no gain on D1/R3; in-distribution valid 0.83-0.85 | fail (label mismatch, not encoder) | `e28_g_eval.json`, `notebooks/e28_encoder/run1_as_pushed/` |
 
 
 ## How results are stored
@@ -203,3 +213,63 @@ Ran once, offline, on the same 400 R3 headlines and Claude's AI-derived labels. 
 - V3 vs C: +0.0132 macro-F1 and +3.75 percentage points accuracy. The [pre-written R3 rule](E25_RETEST.md) needs at least +0.02 macro-F1 and no F1 drop over 0.05 for a class with at least 10 rows. The class guard passes, but the gain fails: **C stays**. The paired 95% bootstrap range is -0.0515 to +0.0830.
 - V3 vs v2: -0.0195 macro-F1, +0.25 percentage points accuracy; 21 predictions changed. R3 remains a development comparison, not another final test. The running engine and frozen candidate are unchanged.
 - New files: `data/outputs/e25_retest_scores_v3.json`, `e25_retest_per_class_v3.csv`, `e25_retest_predictions_v3.csv`. All metrics were checked from saved predictions; A/C/D predictions and scores match v2 exactly. V2 files and protected files retain their hashes. 27 scorer/candidate/inference tests pass; Ruff passes. No network, tuning, E24 rerun, commit or push.
+
+### Module A placebo test (2026-10-17)
+- 1,000 placebos keep the real daily sentiment values but shuffle which stock gets which value each day (same weights rule, cap and costs). Run once, seed 29.
+- Real sentiment tilt: return 24.4%, Sharpe 4.61. Placebo mean: 24.1%, Sharpe 4.57. In 46% of placebos the return is as high or higher (p = 0.46); equal weight is 25.5%.
+- So the replay does not show that the sentiment tilt adds value over a random tilt. Same result as before, now with a test. The real tilt turns over less than the placebos (0.25 vs 0.55 a day), so it pays less cost.
+
+### Wider SEC 8-K credit candidates, local data only (2026-10-17)
+- Added `e25_sec8k --build --news-full`: streams only Date, Article_title and Stock_symbol from `All_external.csv` in 50,000-row chunks. Reuses the same issuer/ticker matching, inclusive filing -2/+5 day window, item recheck, unique normalized headlines, seed 28 and cap 150 headlines per item. Outputs go to `credit_8k_full/` and `e25_sec8k_full_manifest.json`; the old sample is preserved.
+- Fixed non-news rule before scanning: drop Stocks to Watch, market/wall-street wrap or roundup, and the listed premarket/midday/after-hours mover/update title patterns; also drop rows with 3+ distinct known literal uppercase tickers across title and Stock_symbol. The manifest records the exact regex, ticker-lexicon hash and drop counts. No manual headline review or labels.
+- Full mode uses a local text-only exclusion snapshot, checked against every original exclusion-group count and hash. Prepared from existing local public-data copies with network blocked; all 14 groups and 78,326 texts match the original manifest, including R3, credit held-out, pool, extra and frozen final texts. Uses the same remove_seen/assert_clean helpers. Protected E24 gold files were not opened; final-text copies came from the existing frozen backup.
+- Completed the offline build: 13,057,514 rows in 262 chunks; the fixed rule dropped 254,694 source rows. Found 1,388 unique matching headlines; the shared leak filter removed 13. The seeded capped sample has **287 unlabelled headlines**, 150 for each item, with 13 shared by both items. Counts describe sampling anchors, not event labels.
+- Files: `private_notes/annotation_uploads/task1/credit_8k_full/{to_label.csv,anchors.csv}` and `data/outputs/e25_sec8k_full_manifest.json`. Schemas, unique texts/IDs, date windows, anchor membership, caps, output hashes and final leak assertion pass. The original 13-row sample and protected sources keep their hashes. 18 new fake-chunk/filter/cache tests; 89 related tests pass, Ruff clean. No network, manual headline review, labelling, model/credit-gate run, commit or push.
+
+### E27 training result (dev only)
+- Kaggle kernel `sp-riskengine-e27-entity-train`: bge-small, (entity, headline) pair input, seeds 42-44. Best seed 44, epoch 4, dev macro-F1 0.8832, dev accuracy 0.8847.
+- Test split not used. Switch decision waits for the one registered test run (see `docs/E27_ENTITY_SENTIMENT.md`).
+
+### Wider 8-K credit set: two AI labellers (2026-10-17)
+- 287 rows labelled by ChatGPT and Claude, blind to each other. Agreement 86.8% (249/287); both Default 124. Claude ambiguous 78, ChatGPT 60. Labels are AI-made, no human check; ChatGPT's record notes it saw the sampler context, Claude's too.
+- Next: AI adjudication of the 38 disagreements and ambiguous rows, then the credit gate once, no tuning.
+
+### Frozen engine C on the wider 8-K credit set (2026-10-17)
+- 287 headlines, final label = Claude's where the AI labellers differ (disclosed, no human check). One run, no tuning.
+- Credit recall 0.871 (128 of 147), precision 0.842 (24 false alerts). With ChatGPT's labels: recall 0.921, precision 0.770.
+- The set is anchored on bankruptcy filings, so precision is not comparable to E23 (0.47). Use the recall figure; keep the E23 precision as the honest worst case.
+
+### E27 evaluator ready; test not scored (2026-10-17)
+- Added `eval/e27_entity_eval.py`. `--dry-run` prints split counts only; `--score` will read the test CSV once, compare headline A with entity-pair B using shared per-row inference, and write `data/outputs/e27_entity_eval.json`. It reports macro-F1, accuracy and paired B-A 95% intervals on conflicting and all rows (seed 0, 1,000 entity-row resamples).
+- The fixed switch rule remains: at least +0.05 conflicting macro-F1, with no all-test loss over 0.02. The script reports a recommendation, leaves the engine unchanged and refuses repeat/interrupted attempts. Export selection is checked from dev records only; optional `--summary` checks all three seeds. Only the chosen seed's record is downloaded, so the default report discloses the missing all-seed recheck.
+- Counts-only dry-run confirmed train/dev/test 10,071/2,186/2,152 rows, including 463 conflicting test rows. 31 new fixture tests and 14 shared-inference tests pass; Ruff passes. No real test inference or result, training, network or protected-file changes. Claude will run the registered score once. Scope stays Indian business news; US news and tweets remain untested here.
+
+### E27 entity-aware sentiment, test result (2026-10-17)
+- One registered run on 2,152 SEntFiN test rows. Conflicting rows (463): A 0.476, B 0.821, gain +0.344 (CI 0.295..0.400). All rows: A 0.675, B 0.864, gain +0.189 (CI 0.169..0.211). Switch rule passed.
+- Limits: Indian business headlines, human labels from the dataset; US news and tweets not tested; other seeds' metrics not kept.
+
+### E27 production wiring, default still own (2026-10-17)
+- Added opt-in `sentiment = "entity"`. After ticker expansion, the pipeline sends each canonical company name and headline to E27's existing per-row int8 inference (max length 64). Each row gets P(positive) - P(negative), rounded to four decimals, and its own impact. Missing names use the own-model headline score; own and FinBERT keep their old document-level behavior.
+- Copied the evaluated export to `models/e27-entity-bge-small-en-v1.5-int8/`: four files, 34.65 MB total. All copied hashes match the evaluated assets. The existing `models/` ignore rule keeps these local, like the other weights. The default remains `own`; no activation or stored-signal update was made.
+- 111 targeted tests pass with fake scores/local fixtures; repository Ruff and whitespace checks pass. Stored signals and Module A/weights/placebo outputs keep their hashes. No real test rerun, Module A/placebo run, network, frozen-file changes, commit or push.
+
+### Module A with entity sentiment (2026-10-17)
+- Same window, rule and costs; 1,000 placebos, seed 29, one run. Tilt return 24.85% / Sharpe 4.73 vs equal weight 25.52% / 4.88. Placebo p 0.403 (return), 0.380 (Sharpe). A small move in the right direction, but the tilt still shows no proven value over chance or over equal weight.
+
+### E27 US sanity check on FiQA (2026-10-17)
+- 150 FiQA test rows, target company as entity. Own: Spearman 0.582, sign accuracy 0.731. Entity: 0.623 and 0.787. Post-hoc and small, so a sanity check only. Entity sentiment is now the default in `config/default.toml`.
+
+### Entity sentiment and the credit alerts (2026-10-18)
+- With entity sentiment the credit gate fires 2 alerts instead of 4. Lost: a false alert (BAC, an India-stocks headline) and a real one (Boeing downgrade, entity sentiment -0.03 instead of -0.54). Limit: entity sentiment can under-read downgrade headlines, so stored signals stay on the own model for the credit chain.
+
+- 2026-10-18, documentation update (#275): README and RESULTS now report E27/FiQA, wider-credit and entity-placebo results, AI-label provenance and limits, including stored own-model credit signals and no proven portfolio advantage; checked against saved records, with no evaluation rerun.
+
+### E28 impact v3: robustness fix (2026-10-18)
+- Clip numeric features and drop `vol20`/`vix_prev` as regressors, chosen on rolling folds only. Fresh 2020 Spearman 0.353 vs volatility-only 0.331 (v2: -0.092); fresh 2019 0.280 vs 0.143. Beats volatility-only in all four test sets; 2020 margin is small; not wired into the live pipeline; 2019/2020 had been viewed before. See `docs/IMPACT_V3.md`.
+
+### E28 G/S event encoders: scripts only (2026-10-18)
+- Added frozen-encoder TF-IDF/logistic G (multilingual-e5-large, e5-base-v2, bge-small) and few-shot SetFit S (bge-small, e5-base). Hyperparameters and calibration use training-pool valid labels only; evaluation inputs contain D1/D2/R3 texts and no labels. Outputs carry explicit class/row order, hashes and timings.
+- The new development evaluator reuses the unchanged E25/C rule path, reports fixed-12 F1 and paired bootstrap versus C, and applies the D2 +0.02 margin, large-class guard and 0.01 simpler tie. All G/S comparisons are exploratory until a fresh test. No Kaggle/network/training or real development/final scoring was run here; 22 fixture/regression tests and Ruff pass. A concurrent session handled impact v3 separately (#281); this session did not run or replace its selection/fresh results.
+
+### E28 candidate G: stronger encoder does not close the event gap (2026-10-18)
+- TF-IDF + frozen encoder vectors (e5-large, e5-base, bge-small) + logistic regression on 19k teacher rows, plugged into C's routing. Dev macro-F1 (12 classes) vs running model C: D1 0.403/0.446/0.414 vs 0.506; D2 0.352/0.337/0.273 vs 0.403; R3 0.427/0.435/0.418 vs 0.436. No gain on any set; the D2 rule fails. In-distribution valid macro-F1 is 0.83-0.85, so the problem is label-definition mismatch on real news, not encoder strength.

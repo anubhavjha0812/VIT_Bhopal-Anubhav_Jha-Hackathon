@@ -1,9 +1,9 @@
 # Which version of each part to run.
 # Defaults are our fine-tuned int8 models (DECISIONS E11); set finbert / keywords for the baselines.
 
-sentiment = "own"        # finbert | own
+sentiment = "entity"     # finbert | own | entity (E27, per-company, text pair; own is the fallback)
 events = "model_rules"   # keywords | model | model_rules (E24 candidate C, chosen on D2, final-tested)
-impact = "formula"       # formula | learned
+impact = "learned"       # formula | learned (E28: adds move_score; the 1-10 impact stays the formula)
 rebalancer = "sentiment" # equal | sentiment (equal weight is always run as the benchmark)
 shock = "flat"           # flat | scaled
 rates = "moved"          # fixed | moved (E22: Treasury moves with the episode, parallel shift)

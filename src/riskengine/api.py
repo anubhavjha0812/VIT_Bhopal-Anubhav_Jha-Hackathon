@@ -58,7 +58,7 @@ from riskengine.nlp.events import (
     names_agency,
 )
 from riskengine.nlp.impact import impact_formula
-from riskengine.nlp.sentiment import OWN_SENTIMENT, get_scorer
+from riskengine.nlp.sentiment import ENTITY_SENTIMENT, OWN_SENTIMENT, get_scorer
 from riskengine.paths import DATA
 from riskengine.pipeline import SIGNALS_PATH, load_signals, subjects
 from riskengine.replay import events, sse
@@ -154,6 +154,8 @@ def module_a_run() -> dict[str, Backtest]:
 def engine_models(config) -> dict[str, str]:
     """Scoreboard names of the models the engine runs, so the dashboard can mark them."""
     sentiment = OWN_SENTIMENT.resolve().name if config.sentiment == "own" else "finbert (baseline)"
+    if config.sentiment == "entity":
+        sentiment = ENTITY_SENTIMENT.name
     events = OWN_TOPIC.resolve().name if config.events != "keywords" else "keywords (baseline)"
     if config.events == "model_rules":
         events += " + rules (E24 candidate C)"
@@ -220,7 +222,8 @@ def live_feed() -> LiveFeed:
 
 @app.get("/live")
 def live_signals(
-    ticker: str | None = None, min_impact: int = Query(1, ge=1, le=10),
+    ticker: str | None = None,
+    min_impact: int = Query(1, ge=1, le=10),
 ) -> dict:
     feed = live_feed()
     feed.start()

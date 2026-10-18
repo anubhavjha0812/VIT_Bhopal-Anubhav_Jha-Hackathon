@@ -1,0 +1,92 @@
+{
+  "candidate": "events9",
+  "backbone": "BAAI/bge-small-en-v1.5",
+  "labels": [
+    "Geopolitical",
+    "Macroeconomic",
+    "M&A",
+    "Product news",
+    "Earnings",
+    "Analyst rating",
+    "Legal/Regulatory",
+    "Management change",
+    "Other"
+  ],
+  "train_rows": 13226,
+  "dev_rows": 1471,
+  "best_dev_events9_macro_f1": 0.8478,
+  "history": [
+    {
+      "epoch": 1,
+      "dev_events9_macro_f1": 0.7008,
+      "dev_events9_f1": {
+        "Geopolitical": 0.8936,
+        "Macroeconomic": 0.9172,
+        "M&A": 0.4722,
+        "Product news": 0.8541,
+        "Earnings": 0.9421,
+        "Analyst rating": 0.0,
+        "Legal/Regulatory": 0.6923,
+        "Management change": 0.6471,
+        "Other": 0.8889
+      }
+    },
+    {
+      "epoch": 2,
+      "dev_events9_macro_f1": 0.7922,
+      "dev_events9_f1": {
+        "Geopolitical": 0.9282,
+        "Macroeconomic": 0.9201,
+        "M&A": 0.7059,
+        "Product news": 0.8906,
+        "Earnings": 0.9582,
+        "Analyst rating": 0.0,
+        "Legal/Regulatory": 0.8936,
+        "Management change": 0.9247,
+        "Other": 0.9083
+      }
+    },
+    {
+      "epoch": 3,
+      "dev_events9_macro_f1": 0.7917,
+      "dev_events9_f1": {
+        "Geopolitical": 0.9486,
+        "Macroeconomic": 0.9306,
+        "M&A": 0.7207,
+        "Product news": 0.8861,
+        "Earnings": 0.9552,
+        "Analyst rating": 0.0,
+        "Legal/Regulatory": 0.8696,
+        "Management change": 0.9053,
+        "Other": 0.9097
+      }
+    },
+    {
+      "epoch": 4,
+      "dev_events9_macro_f1": 0.8478,
+      "dev_events9_f1": {
+        "Geopolitical": 0.954,
+        "Macroeconomic": 0.9387,
+        "M&A": 0.7767,
+        "Product news": 0.8906,
+        "Earnings": 0.9621,
+        "Analyst rating": 0.4118,
+        "Legal/Regulatory": 0.875,
+        "Management change": 0.9053,
+        "Other": 0.9161
+      }
+    }
+  ],
+  "params_m": 33.4,
+  "train_minutes": 1.4,
+  "device": "Tesla T4",
+  "settings": {
+    "seed": 42,
+    "max_len": 64,
+    "batch": 32,
+    "epochs": 4,
+    "lr": 5e-05,
+    "warmup": 0.1,
+    "dev_frac": 0.1
+  }
+}
