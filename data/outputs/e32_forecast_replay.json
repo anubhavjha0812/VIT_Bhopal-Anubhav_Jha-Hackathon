@@ -1,0 +1,408 @@
+{
+  "experiment": "E32",
+  "created_utc": "2026-10-18T16:51:13.842544+00:00",
+  "rules": "docs/E32_FORECAST_REPLAY.md",
+  "pre_run_rules_sha256": "c9ac9e5ddf8871e8b3f36af6a6b4a6710efb8b99a4a9feec628bd25fe08c871e",
+  "pre_run_rules_text": "# E32: chronological market-move forecast replay\n\nRules fixed on 18 October 2026, before coding or scoring. No network, model\nsearch, weight search or engine change. E14/E15/E22 results have already been seen;\nthis is development work, not a confirmatory test.\n\n## Data and information dates\n\n- Use the local `data/reference/market_history.csv` only, sorted by its unique\n  observation dates. Forward fill from earlier rows only; never backfill.\n- Origins are the last stored trading day of every month from January 1995\n  through the last month with a completed 60-trading-day target. Use these same\n  origins for both horizons and all six candidates. Do not select crisis origins.\n  Training origins start in February 1990, as in E15.\n- The file contains observation dates, **no release timestamps or historical\n  vintages**. To avoid treating observation dates as release dates, impose a fixed\n  **10 stored trading-session availability buffer on every series**, including\n  training outcomes. This is a conservative timing assumption, not a verified\n  release calendar. It cannot remove later revisions in this snapshot. Therefore\n  report this as a chronological replay under assumed availability, not proof of\n  a fully vintage-correct, real-time forecast.\n- At an origin, compute the E15 state (Baa level, VIX level and Baa's trailing\n  20-session change) using the latest observation admitted by that buffer.\n  Historical training states use the same buffer at their own origins. A target\n  enters training only when its end plus the buffer is on or before the origin.\n  Training origins must also be strictly earlier than the forecast origin.\n- Fit distances and OLS only on those completed, assumed-available training\n  targets. For pricing's equity-to-z scale use expanding S&P daily log-return\n  volatility through the buffered observation cutoff, annualised by sqrt(252).\n  Never use the old full 2008\u20132019 volatility window for an earlier forecast.\n  Rebuilding after deleting all rows later than an origin must leave every\n  forecast, neighbour and scale identical. Store timing-violation counts and\n  check that invariance at every scored origin before valuing any forecast.\n\n## Targets, pricing and candidates\n\nPrimary horizon: 60 stored trading days; secondary: 20. Targets are changes from\nthe origin's close to the close H sessions later (days 1 through H): Baa and Aaa\nspread changes, VIX change, S&P log return, USD/INR simple return and UST10Y change.\nThe outcome itself is scored without shifting its window by the release buffer.\n\nImport E15's month-end, completed-training and least-squares helpers, and E14's\nmove-vector helper. Reuse the unchanged `revalue` function with `rates=\"moved\"`\n(E22). Read the stored 31 December 2019 SEC book; never rebuild it. Apply all\nforecast and realised vectors to the same fixed book-date spread, Treasury and\nFX levels. Those fixed 2019 valuation levels and the hypothetical book are\ncounterfactual pricing constants, not predictors available at a 1995 origin.\nUse the same origin-specific, earlier-data equity scale for all its valuations.\nNo issuer downgrade is added. VIX is evaluated as a target but is not a direct\npricing input in the existing engine.\n\nSix candidates, with identical origins and training targets within each horizon:\n\n1. **Historical mean:** expanding mean of earlier completed, available vectors.\n2. **No change:** zero for every component.\n3. **Fixed shock (reference only):** equity -10% (`log(0.9)`), UST10Y +200 bp\n   (`d_ust=2` percentage points); zero credit, VIX and FX moves. This is not fitted.\n4. **Clean analog:** mean target of the three closest earlier eligible month-end\n   states. Standardise the three E15 state variables using training mean/sample\n   standard deviation only; a zero scale becomes 1. Break distance ties by the\n   earlier origin. Require at least three training rows; a shortage is an error,\n   not a reason to drop selected origins after scoring.\n5. **E15 state model:** OLS on the same three state values and a constant, refitted\n   on the earlier eligible training set using E15's `forecast` helper.\n6. **75/25 combination:** `0.75 * historical_mean + 0.25 * state_model`, separately\n   for each move component, then reprice that vector. Do not average losses or\n   CET1 ratios. No other weights or combinations.\n\n## Scoring and fixed decision\n\n- Report each candidate's loss MAE in USD millions, ratio to the historical\n  mean's loss MAE, CET1 mean absolute error in percentage points, and MAE of\n  each target. Spread/rate/VIX errors retain their input units; S&P log-return\n  and USD/INR simple-return errors are fractions.\n- The paired loss difference is candidate absolute loss error minus historical\n  mean absolute loss error, in USD millions. Use a two-sided 95% percentile\n  interval from a moving-block bootstrap: six consecutive monthly origins per\n  block, non-circular starts, 1,000 resamples, seed 0. Use the same resampled\n  origin indices for every candidate. Report per-year metrics as well.\n- Reuse E15's Diebold\u2013Mariano helper on paired absolute loss errors, with\n  Newey\u2013West lag `ceil(H / 21)`: 3 months for 60 days, 1 for 20 days. A constant\n  zero difference has statistic 0 and p-value 1; flag other degenerate variances.\n- The combination is better only if its **60-day loss-MAE ratio <= 0.85** and\n  its paired bootstrap interval is entirely below zero. Otherwise the decision\n  is **\"no gain over the historical mean\"** and the mean remains the research\n  benchmark. Neither outcome changes the engine, dashboard or stress defaults.\n- Show the stored old E14 crisis-analog MAE beside the new clean monthly analog;\n  also show the stored E22 rates-moved crisis analog for context. State the\n  numerical gaps. These use different origin selection, information, sample\n  size and (for E14) rates, so the gaps **do not isolate the causal effect of\n  leakage**. Do not present them as a measured leakage correction.\n\n## Run, records and limits\n\nWrite a new evaluator and fake-frame tests, then run once. `--run` must refuse\nif `data/outputs/e32_forecast_replay.json` exists. If the run crashes before that\nJSON exists, fix it and rerun; never rerun after it exists. Preserve old outputs.\nStore all move forecasts, realised moves, information cutoffs, training counts,\nneighbours and valuations in a new E32 predictions CSV; store per-year metrics\nin a new E32 CSV. The JSON records the contract, input/code hashes, metrics,\nbootstrap settings, timing checks and decision. Append results here only after\nthe run. Verify the stored baseline hashes of the Module B files at the end.\n\nMonthly targets overlap heavily, especially at 60 days. Roughly 30 years and a\nhandful of crises give low power. This is a hypothetical static 2019 book, not\nobserved historical bank P&L or capital. Historical series lack release vintages;\nthe fixed buffer does not prove real-time data availability. E22 still uses one\nparallel Treasury shift, omits USD funding offsets and CDS/swap market-risk\ncapital, and does not let swap CVA follow mark-to-market. Prior results and this\nmarket history have already been viewed. No claim of an untouched test is made.\n",
+  "availability": {
+    "buffer_trading_sessions": 10,
+    "release_calendar_verified": false,
+    "historical_vintages": false,
+    "scope": "Chronological replay under assumed availability"
+  },
+  "pricing": {
+    "book_date": "2019-12-31",
+    "rates": "moved",
+    "obligor": null,
+    "sigma": "Expanding daily equity volatility through observation cutoff"
+  },
+  "combination_weights": {
+    "historical_mean": 0.75,
+    "state_model": 0.25
+  },
+  "bootstrap": {
+    "block_months": 6,
+    "resamples": 1000,
+    "seed": 0,
+    "method": "Paired non-circular moving blocks, percentile 95% interval",
+    "difference": "Candidate minus mean absolute loss error, USD millions"
+  },
+  "horizons": {
+    "60": {
+      "origins": 345,
+      "first_origin": "1995-01-31",
+      "last_origin": "2023-09-29",
+      "last_target_end": "2023-12-27",
+      "training_count_range": [
+        56,
+        400
+      ],
+      "truncation_checks_passed": 345,
+      "timing_violations": {
+        "training_origin_violations": 0,
+        "target_end_violations": 0,
+        "availability_violations": 0,
+        "state_date_violations": 0
+      },
+      "candidates": {
+        "historical_mean": {
+          "origins": 345,
+          "loss_mae_usd_m": 41.408430421535414,
+          "ratio_to_mean": 1.0,
+          "cet1_mae_pp": 1.1102681981966038,
+          "target_mae": {
+            "d_baa": 0.25416007558334375,
+            "d_aaa": 0.16980859306944723,
+            "d_vix": 4.913058173487906,
+            "spx_ret": 0.05732363624509441,
+            "fx_ret": 0.02742270490330569,
+            "d_ust": 0.35977010091389466
+          },
+          "paired_difference_usd_m": 0.0,
+          "paired_difference_95ci_usd_m": [
+            0.0,
+            0.0
+          ],
+          "diebold_mariano": {
+            "statistic": 0.0,
+            "p_two_sided": 1.0,
+            "newey_west_lag": 3
+          }
+        },
+        "no_change": {
+          "origins": 345,
+          "loss_mae_usd_m": 41.07890419856411,
+          "ratio_to_mean": 0.9920420499010287,
+          "cet1_mae_pp": 1.105118355260907,
+          "target_mae": {
+            "d_baa": 0.25055072463768113,
+            "d_aaa": 0.168463768115942,
+            "d_vix": 4.900144927536232,
+            "spx_ret": 0.0620508894232494,
+            "fx_ret": 0.024220981288474854,
+            "d_ust": 0.35489855072463766
+          },
+          "paired_difference_usd_m": -0.3295262229713047,
+          "paired_difference_95ci_usd_m": [
+            -1.3357084550681886,
+            0.5146714933872782
+          ],
+          "diebold_mariano": {
+            "statistic": -0.7438511544252141,
+            "p_two_sided": 0.456966528734133,
+            "newey_west_lag": 3
+          }
+        },
+        "fixed_shock": {
+          "origins": 345,
+          "loss_mae_usd_m": 260.28912836076256,
+          "ratio_to_mean": 6.28589699515375,
+          "cet1_mae_pp": 6.736194488027687,
+          "target_mae": {
+            "d_baa": 0.25055072463768113,
+            "d_aaa": 0.168463768115942,
+            "d_vix": 4.900144927536232,
+            "spx_ret": 0.1333660094676051,
+            "fx_ret": 0.024220981288474854,
+            "d_ust": 2.0055072463768115
+          },
+          "paired_difference_usd_m": 218.8806979392272,
+          "paired_difference_95ci_usd_m": [
+            207.39618189843455,
+            229.1862049593602
+          ],
+          "diebold_mariano": {
+            "statistic": 40.73346367874402,
+            "p_two_sided": 0.0,
+            "newey_west_lag": 3
+          }
+        },
+        "clean_analog": {
+          "origins": 345,
+          "loss_mae_usd_m": 47.425673509409634,
+          "ratio_to_mean": 1.1453144450687707,
+          "cet1_mae_pp": 1.2638643896822186,
+          "target_mae": {
+            "d_baa": 0.29868599033816423,
+            "d_aaa": 0.2038357487922705,
+            "d_vix": 5.486695652173913,
+            "spx_ret": 0.0710068937312582,
+            "fx_ret": 0.03593602147191195,
+            "d_ust": 0.4142705314009662
+          },
+          "paired_difference_usd_m": 6.017243087874221,
+          "paired_difference_95ci_usd_m": [
+            2.707058408954613,
+            8.472053856660155
+          ],
+          "diebold_mariano": {
+            "statistic": 3.846817595251583,
+            "p_two_sided": 0.00011966198740931423,
+            "newey_west_lag": 3
+          }
+        },
+        "state_model": {
+          "origins": 345,
+          "loss_mae_usd_m": 42.98614899876615,
+          "ratio_to_mean": 1.0381013856639736,
+          "cet1_mae_pp": 1.1441171219292499,
+          "target_mae": {
+            "d_baa": 0.25211072248509186,
+            "d_aaa": 0.17403238579729866,
+            "d_vix": 4.967105318292291,
+            "spx_ret": 0.061534066305524465,
+            "fx_ret": 0.029237637646390202,
+            "d_ust": 0.37124490277393624
+          },
+          "paired_difference_usd_m": 1.5777185772307378,
+          "paired_difference_95ci_usd_m": [
+            -0.13267794193097524,
+            2.97030427841206
+          ],
+          "diebold_mariano": {
+            "statistic": 1.9296527388365756,
+            "p_two_sided": 0.0536498795173376,
+            "newey_west_lag": 3
+          }
+        },
+        "combination": {
+          "origins": 345,
+          "loss_mae_usd_m": 41.650112949392685,
+          "ratio_to_mean": 1.0058365537016727,
+          "cet1_mae_pp": 1.1146180349796324,
+          "target_mae": {
+            "d_baa": 0.24970968434376414,
+            "d_aaa": 0.16829263808326805,
+            "d_vix": 4.823413971899523,
+            "spx_ret": 0.057777624897342214,
+            "fx_ret": 0.027716764260620853,
+            "d_ust": 0.3602564998298937
+          },
+          "paired_difference_usd_m": 0.2416825278572793,
+          "paired_difference_95ci_usd_m": [
+            -0.18024046153484224,
+            0.5434539259581104
+          ],
+          "diebold_mariano": {
+            "statistic": 1.2260202929552773,
+            "p_two_sided": 0.22019103858752442,
+            "newey_west_lag": 3
+          }
+        }
+      }
+    },
+    "20": {
+      "origins": 345,
+      "first_origin": "1995-01-31",
+      "last_origin": "2023-09-29",
+      "last_target_end": "2023-10-30",
+      "training_count_range": [
+        58,
+        402
+      ],
+      "truncation_checks_passed": 345,
+      "timing_violations": {
+        "training_origin_violations": 0,
+        "target_end_violations": 0,
+        "availability_violations": 0,
+        "state_date_violations": 0
+      },
+      "candidates": {
+        "historical_mean": {
+          "origins": 345,
+          "loss_mae_usd_m": 23.07720103282723,
+          "ratio_to_mean": 1.0,
+          "cet1_mae_pp": 0.6180465250592287,
+          "target_mae": {
+            "d_baa": 0.13459347805224425,
+            "d_aaa": 0.10157515449676399,
+            "d_vix": 3.4325218544112617,
+            "spx_ret": 0.03436787331583431,
+            "fx_ret": 0.01444527237524646,
+            "d_ust": 0.19779277805437517
+          },
+          "paired_difference_usd_m": 0.0,
+          "paired_difference_95ci_usd_m": [
+            0.0,
+            0.0
+          ],
+          "diebold_mariano": {
+            "statistic": 0.0,
+            "p_two_sided": 1.0,
+            "newey_west_lag": 1
+          }
+        },
+        "no_change": {
+          "origins": 345,
+          "loss_mae_usd_m": 23.067224566313378,
+          "ratio_to_mean": 0.9995676916581149,
+          "cet1_mae_pp": 0.6164832061916486,
+          "target_mae": {
+            "d_baa": 0.13405797101449277,
+            "d_aaa": 0.10118840579710144,
+            "d_vix": 3.431565217391304,
+            "spx_ret": 0.035855318083161634,
+            "fx_ret": 0.012872683615526233,
+            "d_ust": 0.19739130434782606
+          },
+          "paired_difference_usd_m": -0.009976466513853501,
+          "paired_difference_95ci_usd_m": [
+            -0.2706534517835505,
+            0.18693329621833885
+          ],
+          "diebold_mariano": {
+            "statistic": -0.09097641684920757,
+            "p_two_sided": 0.9275113299603698,
+            "newey_west_lag": 1
+          }
+        },
+        "fixed_shock": {
+          "origins": 345,
+          "loss_mae_usd_m": 257.99957976109215,
+          "ratio_to_mean": 11.17984713111823,
+          "cet1_mae_pp": 6.757602890601381,
+          "target_mae": {
+            "d_baa": 0.13405797101449277,
+            "d_aaa": 0.10118840579710144,
+            "d_vix": 3.431565217391304,
+            "spx_ret": 0.11338987875396372,
+            "fx_ret": 0.012872683615526233,
+            "d_ust": 1.9939710144927538
+          },
+          "paired_difference_usd_m": 234.92237872826493,
+          "paired_difference_95ci_usd_m": [
+            230.78939071079748,
+            239.39315344221535
+          ],
+          "diebold_mariano": {
+            "statistic": 104.831343686194,
+            "p_two_sided": 0.0,
+            "newey_west_lag": 1
+          }
+        },
+        "clean_analog": {
+          "origins": 345,
+          "loss_mae_usd_m": 24.559412438152613,
+          "ratio_to_mean": 1.06422838728219,
+          "cet1_mae_pp": 0.68944934574348,
+          "target_mae": {
+            "d_baa": 0.15929468599033816,
+            "d_aaa": 0.12703381642512077,
+            "d_vix": 3.8389275362318838,
+            "spx_ret": 0.040295164594023984,
+            "fx_ret": 0.016633946401799982,
+            "d_ust": 0.232512077294686
+          },
+          "paired_difference_usd_m": 1.4822114053253843,
+          "paired_difference_95ci_usd_m": [
+            0.2456213341082696,
+            2.8111211605334616
+          ],
+          "diebold_mariano": {
+            "statistic": 1.944542848112736,
+            "p_two_sided": 0.05183002360612748,
+            "newey_west_lag": 1
+          }
+        },
+        "state_model": {
+          "origins": 345,
+          "loss_mae_usd_m": 23.566284249051396,
+          "ratio_to_mean": 1.021193350767645,
+          "cet1_mae_pp": 0.6327163981880751,
+          "target_mae": {
+            "d_baa": 0.13804138579516192,
+            "d_aaa": 0.10275717960642448,
+            "d_vix": 3.452716340640725,
+            "spx_ret": 0.03549060599574866,
+            "fx_ret": 0.014789517295472131,
+            "d_ust": 0.2063802174095752
+          },
+          "paired_difference_usd_m": 0.4890832162241665,
+          "paired_difference_95ci_usd_m": [
+            -0.12821612025801074,
+            1.031408386654885
+          ],
+          "diebold_mariano": {
+            "statistic": 1.817756110700534,
+            "p_two_sided": 0.06910141746866312,
+            "newey_west_lag": 1
+          }
+        },
+        "combination": {
+          "origins": 345,
+          "loss_mae_usd_m": 23.174374547612615,
+          "ratio_to_mean": 1.0042108015892897,
+          "cet1_mae_pp": 0.6203920303134637,
+          "target_mae": {
+            "d_baa": 0.13474018202764051,
+            "d_aaa": 0.10153185223612718,
+            "d_vix": 3.421553510326448,
+            "spx_ret": 0.034549518782043875,
+            "fx_ret": 0.014419169718152118,
+            "d_ust": 0.1986549505804498
+          },
+          "paired_difference_usd_m": 0.09717351478538674,
+          "paired_difference_95ci_usd_m": [
+            -0.05824407577724103,
+            0.23796480845313556
+          ],
+          "diebold_mariano": {
+            "statistic": 1.4109986402614367,
+            "p_two_sided": 0.15824501495430965,
+            "newey_west_lag": 1
+          }
+        }
+      }
+    }
+  },
+  "decision": "no gain over the historical mean",
+  "decision_rule": "60-day combination ratio <= 0.85 and paired 95% CI wholly below 0",
+  "engine_changed": false,
+  "development_only": true,
+  "old_vs_clean_analog": {
+    "clean_monthly_analog_mae_usd_m": 47.425673509409634,
+    "warning": "Different origin selection, samples, availability and pricing; these gaps do not isolate the causal effect of leakage.",
+    "E14": {
+      "file": "module_b_crisis_backtest.csv",
+      "crises": 12,
+      "analog_mae_usd_m": 45.678640178015826,
+      "mean_mae_usd_m": 47.01578990769968,
+      "clean_minus_old_mae_usd_m": 1.7470333313938085,
+      "rates": "fixed"
+    },
+    "E22": {
+      "file": "e22_crisis_backtest.csv",
+      "crises": 12,
+      "analog_mae_usd_m": 31.01252513276502,
+      "mean_mae_usd_m": 28.245839115241935,
+      "clean_minus_old_mae_usd_m": 16.413148376644614,
+      "rates": "moved"
+    }
+  },
+  "sha256": {
+    "data/reference/market_history.csv": "c0d241bec82b8c197f82d41b127da780ddc7b2cf561e0997b6e51940699db4b5",
+    "data/reference/book.csv": "58e57fbc91a0a67cbc2a29e2fc17e4282994c404a0004a5a6483b29a8a4f74d4",
+    "docs/DECISIONS.md": "97f716563b1e19ba7a83061cb3dffbae67958f893bf70ab45053de93295b36a7",
+    "data/outputs/module_b_crisis_backtest.csv": "0c4d65d95ee5910c17d947616bb2679d9dae4c43d62d3aabe17061b2678771dd",
+    "data/outputs/e22_crisis_backtest.csv": "cc9822c6bb2ef6820c4747b07628eef1fcd14ec51138a5176de352784a685b2d",
+    "src/riskengine/eval/e32_forecast_replay.py": "fee958ff6d27e39979d914a18574126c3b3456ead5fcee3cb6ce9097939f75b5",
+    "tests/test_e32_forecast_replay.py": "fcb185c6a448cbe98c71bc89431010bb606934997ba60931f2561bb236f7385e",
+    "src/riskengine/module_b/__init__.py": "8748934099a380e8195cd6586753f20fc3a2b3343c0e2d59360f6f71a5206039",
+    "src/riskengine/module_b/alert_check.py": "0b8b221cc28baa4fd65dc87c1cc713409062caac09044e78f7f134580f3b551d",
+    "src/riskengine/module_b/backtest.py": "c9e861863af9471b826671920ce21d2d64a5069edc171f475c5e6d3666e94b6a",
+    "src/riskengine/module_b/book.py": "1523fa12582d8acf69a4a4cafb7a0c6200935a3fec1e3346acb267326532c2bd",
+    "src/riskengine/module_b/book_transactions.py": "c93b10f03874852138e1cdec4c69e3435cf19a13f4dc39ed202a338e7845f85b",
+    "src/riskengine/module_b/montecarlo.py": "f338c4161443bb55d4580478f09569a2f0bdd038891c1a2d034d0b40f2deb6f9",
+    "src/riskengine/module_b/outlook.py": "6d35df415a15cf5e500f057385734eaa2be9174f789ca66b13c62e760ab18b0d",
+    "src/riskengine/module_b/params.py": "2a2dde17c7a435d327693983d3adac0b0b5949c9247cf79480714944808ae356",
+    "src/riskengine/module_b/rates.py": "50622949a9d14a2c12d96d77ad2528da5acf52ffbbc525b6b5374478e24a8d71",
+    "src/riskengine/module_b/report.py": "90c3462c7ab86b858fdec02d72f93986f03d8a3186639517ccce5f3058f8ddcf",
+    "src/riskengine/module_b/revalue.py": "1131098e8e5dd8a284fa6a0c2ee0a3332b300605addd1c34eb7234c6e36c5fdc",
+    "src/riskengine/module_b/shock.py": "85c1121762ea00b9a1964e1293c47640437f2187474b7a768f1955fb23088f9f",
+    "src/riskengine/module_b/sources.py": "c0da9b8e01d8b50efae6bfd129ac84c426932400c4ead14e2706eff8c7d348fa"
+  },
+  "artifacts": {
+    "data/outputs/e32_forecast_replay_predictions.csv": "016da762ddc27dbe31df4d33c02db3d6fb58b9318a009ca305b66ab83ca976d4",
+    "data/outputs/e32_forecast_replay_per_year.csv": "7e3a7f9f0b6fee050dc45c1011cf112a47eb9b9135b4c0170a046a729dd7ebbd"
+  }
+}
