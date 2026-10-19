@@ -1,0 +1,61 @@
+id,category,text,expected
+target_price-1,target_price,Analysts set a Target price for the sector,[]
+target_price-2,target_price,A higher Target price for crude oil futures,[]
+target_price-3,target_price,Investors debate the Target price after earnings,[]
+target_price-4,target_price,Range closed for Target practice despite store expansion,[]
+target_price-5,target_price,Marketers choose a Target audience for bank cards,[]
+target_price-6,target_price,The charity sets a Target goal for its dividend fund,[]
+visa_applications-1,visa_applications,Visa applications rise as travel returns,[]
+visa_applications-2,visa_applications,New Visa application costs challenge tourists,[]
+visa_applications-3,visa_applications,Visa applicants await decisions despite bank closures,[]
+visa_applications-4,visa_applications,Visa-free travel supports regional stocks,[]
+visa_applications-5,visa_applications,Visa immigration rules affect software workers,[]
+visa_applications-6,visa_applications,Visa travel paperwork delayed after company closures,[]
+ford_river-1,ford_river,Hikers Ford the river near the closed bank,[]
+ford_river-2,ford_river,Farmers Ford a stream to reach the market,[]
+ford_river-3,ford_river,Rescue teams Ford the creek with new equipment,[]
+ford_river-4,ford_river,Travellers Ford a river as stores reopen,[]
+ford_river-5,ford_river,A plan to Ford the river crossing needs machinery,[]
+ford_river-6,ford_river,Engineers Ford the stream after truck deliveries,[]
+gap_coverage-1,gap_coverage,Insurers report a gap in coverage,[]
+gap_coverage-2,gap_coverage,Gap in coverage leaves retailers uninsured,[]
+gap_coverage-3,gap_coverage,A funding gap affects bank research,[]
+gap_coverage-4,gap_coverage,Shares fall amid a gap in coverage,[]
+gap_coverage-5,gap_coverage,The gap in earnings coverage widens,[]
+gap_coverage-6,gap_coverage,$GPS announces a store closure,[]
+apple_harvest-1,apple_harvest,Apple harvest lifts farm profits,[]
+apple_harvest-2,apple_harvest,Apple orchard earnings beat expectations,[]
+apple_harvest-3,apple_harvest,Apple juice prices rise in stores,[]
+apple_harvest-4,apple_harvest,Apple cider sales fund new equipment,[]
+apple_harvest-5,apple_harvest,Apple tree losses hit company forecasts,[]
+apple_harvest-6,apple_harvest,Apple pie demand boosts retailer shares,[]
+analyst_desks-1,analyst_desks,BofA upgrades Costco to Buy,"[""COST""]"
+analyst_desks-2,analyst_desks,JPMorgan analysts cut Target earnings estimates,"[""TGT""]"
+analyst_desks-3,analyst_desks,Goldman Sachs downgrades Visa to Sell,"[""V""]"
+analyst_desks-4,analyst_desks,Morgan Stanley raises Oracle price target,"[""ORCL""]"
+analyst_desks-5,analyst_desks,Citigroup analysts expect Ford shares to recover,"[""F""]"
+analyst_desks-6,analyst_desks,$GS faces credit losses after Goldman Sachs downgrades Apple,"[""AAPL"", ""GS""]"
+cashtags-1,cashtags,$F announces a new model,"[""F""]"
+cashtags-2,cashtags,$v raises its dividend,"[""V""]"
+cashtags-3,cashtags,$C reports quarterly deposits,"[""C""]"
+cashtags-4,cashtags,$SO proposes a power project,"[""SO""]"
+cashtags-5,cashtags,$ALL expands its business,"[""ALL""]"
+cashtags-6,cashtags,$TGT faces weaker demand,"[""TGT""]"
+possessives-1,possessives,Target's earnings exceed forecasts,"[""TGT""]"
+possessives-2,possessives,Oracle’s cloud revenue rises,"[""ORCL""]"
+possessives-3,possessives,Ford's vehicles win new orders,"[""F""]"
+possessives-4,possessives,Visa’s payments business grows,"[""V""]"
+possessives-5,possessives,Apple's iPhone revenue improves,"[""AAPL""]"
+possessives-6,possessives,Capital One’s deposits increase,"[""COF""]"
+two_companies-1,two_companies,Nvidia and Microsoft expand cloud partnership,"[""MSFT"", ""NVDA""]"
+two_companies-2,two_companies,Costco and Walmart report earnings,"[""COST"", ""WMT""]"
+two_companies-3,two_companies,Oracle buys software assets from Salesforce,"[""CRM"", ""ORCL""]"
+two_companies-4,two_companies,Ford and General Motors launch new vehicles,"[""F"", ""GM""]"
+two_companies-5,two_companies,Apple and Boeing announce company pension changes,"[""AAPL"", ""BA""]"
+two_companies-6,two_companies,Target and Amazon expand retail stores,"[""AMZN"", ""TGT""]"
+other_ambiguous_legal-1,other_ambiguous_legal,Amazon rainforest losses threaten global banks,[]
+other_ambiguous_legal-2,other_ambiguous_legal,Caterpillar larvae damage farm equipment,[]
+other_ambiguous_legal-3,other_ambiguous_legal,Oracle of Omaha comments on credit conditions,[]
+other_ambiguous_legal-4,other_ambiguous_legal,Dow Jones gains as bank shares rise,[]
+other_ambiguous_legal-5,other_ambiguous_legal,Capital One is written on the first page,[]
+other_ambiguous_legal-6,other_ambiguous_legal,Capital One Financial Corporation reports results,"[""COF""]"

@@ -1,0 +1,6638 @@
+{
+  "experiment": "E38",
+  "utc_time": "2026-10-19T07:05:11.575712+00:00",
+  "seed": 22,
+  "reference_kind": "ai_blind_link_reference",
+  "same_resolver": true,
+  "independent_human_check": false,
+  "set_a": {
+    "old": {
+      "rows": 200,
+      "precision": 0.7523809523809524,
+      "recall": 0.3386015325670498,
+      "f1": 0.37123809523809526,
+      "wrong_links": 26,
+      "tp": 85,
+      "fp": 26,
+      "fn": 173,
+      "precision_rows": 105,
+      "recall_rows": 174,
+      "f1_rows": 175,
+      "empty_both": 25,
+      "empty_predictions": 95,
+      "empty_references": 26,
+      "exact_set_accuracy": 0.335,
+      "micro_precision": 0.7657657657657657,
+      "micro_recall": 0.32945736434108525,
+      "micro_f1": 0.46070460704607047
+    },
+    "extended": {
+      "rows": 200,
+      "precision": 0.7635658914728682,
+      "recall": 0.48553639846743296,
+      "f1": 0.5045986394557823,
+      "wrong_links": 33,
+      "tp": 118,
+      "fp": 33,
+      "fn": 140,
+      "precision_rows": 129,
+      "recall_rows": 174,
+      "f1_rows": 175,
+      "empty_both": 25,
+      "empty_predictions": 71,
+      "empty_references": 26,
+      "exact_set_accuracy": 0.46,
+      "micro_precision": 0.7814569536423841,
+      "micro_recall": 0.4573643410852713,
+      "micro_f1": 0.5770171149144254
+    }
+  },
+  "set_a_rows": [
+    {
+      "id": "L38-001",
+      "text": "Bank of America Maintains Neutral on AutoZone, Inc., Raises PO to $561.00",
+      "gold": [
+        "AZO"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-002",
+      "text": "Bank of America Continues to Bleed Customers (Update 1)",
+      "gold": [
+        "BAC"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-003",
+      "text": "Amazon's Grocery Service Expansion Boosts Retail Presence",
+      "gold": [
+        "AMZN"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [
+        "AMZN"
+      ],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": [
+        "AMZN"
+      ]
+    },
+    {
+      "id": "L38-004",
+      "text": "Coca-Cola Company Reports Quarterly Earnings Numbers (KO)",
+      "gold": [
+        "KO"
+      ],
+      "old_subjects": [
+        "KO"
+      ],
+      "extended_subjects": [
+        "KO"
+      ],
+      "old_mentions": [
+        "KO"
+      ],
+      "extended_mentions": [
+        "KO"
+      ]
+    },
+    {
+      "id": "L38-005",
+      "text": "J.P. Morgan Adjusts Its FY11 And FY12 Estimates On Genpact (G)",
+      "gold": [
+        "G"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-006",
+      "text": "Mad Dogs Of The Dow - The Outperformance Increases",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-007",
+      "text": "American Airlines Says FAA Approval Of Two Boeing Max 8 Aircrafts On Hold Due To Government Shutdown",
+      "gold": [
+        "AAL",
+        "BA"
+      ],
+      "old_subjects": [
+        "BA"
+      ],
+      "extended_subjects": [
+        "BA"
+      ],
+      "old_mentions": [
+        "BA"
+      ],
+      "extended_mentions": [
+        "BA"
+      ]
+    },
+    {
+      "id": "L38-008",
+      "text": "UPDATE: NVIDIA Shares Down 1.2% In Pre-Market Trade; Not Yet Seeing Any News To Justify Move Lower",
+      "gold": [
+        "NVDA"
+      ],
+      "old_subjects": [
+        "NVDA"
+      ],
+      "extended_subjects": [
+        "NVDA"
+      ],
+      "old_mentions": [
+        "NVDA"
+      ],
+      "extended_mentions": [
+        "NVDA"
+      ]
+    },
+    {
+      "id": "L38-009",
+      "text": "YouTube, Netflix Seen Benefiting From Longer Viewing",
+      "gold": [
+        "NFLX",
+        "name:youtube"
+      ],
+      "old_subjects": [
+        "NFLX"
+      ],
+      "extended_subjects": [
+        "NFLX"
+      ],
+      "old_mentions": [
+        "NFLX"
+      ],
+      "extended_mentions": [
+        "NFLX"
+      ]
+    },
+    {
+      "id": "L38-010",
+      "text": "'China has the market demand to buy $40B-$50B worth of US farm products. China won't make a commitment that it can't honor; once it promises, it will fulfill it' -Tweet From Global Times Editor",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-011",
+      "text": "Stocks to Watch for the Week of April 15, 2013",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-012",
+      "text": "Halliburton: No Growth To Be Found",
+      "gold": [
+        "HAL"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-013",
+      "text": "Amazon Effect Pushes Traditional Freight Transport Outside Comfort Zone",
+      "gold": [
+        "AMZN"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-014",
+      "text": "J.P. Morgan Overweight On Green Dot (GDOT)",
+      "gold": [
+        "GDOT"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-015",
+      "text": "Global Endowment Management, LP Buys Facebook Inc, Procter & Gamble Co, Biogen Inc, Sells ...",
+      "gold": [
+        "BIIB",
+        "META",
+        "PG"
+      ],
+      "old_subjects": [
+        "META"
+      ],
+      "extended_subjects": [
+        "BIIB",
+        "META",
+        "PG"
+      ],
+      "old_mentions": [
+        "META"
+      ],
+      "extended_mentions": [
+        "BIIB",
+        "META",
+        "PG"
+      ]
+    },
+    {
+      "id": "L38-016",
+      "text": "UPDATE: JP Morgan Negative On Vitamin Shoppe Citing Perceived Challenges From General Nutrition Centers, Says Risks To Pricing And Margins Are 'inflecting higher'",
+      "gold": [
+        "GNC",
+        "VSI"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-017",
+      "text": "Microsoft: Long-Term Profits From China's $24.4 Billion Games Industry",
+      "gold": [
+        "MSFT"
+      ],
+      "old_subjects": [
+        "MSFT"
+      ],
+      "extended_subjects": [
+        "MSFT"
+      ],
+      "old_mentions": [
+        "MSFT"
+      ],
+      "extended_mentions": [
+        "MSFT"
+      ]
+    },
+    {
+      "id": "L38-018",
+      "text": "Top 5 Retailers Partnering With Apple On Its E-Wallet",
+      "gold": [
+        "AAPL"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL"
+      ]
+    },
+    {
+      "id": "L38-019",
+      "text": "IDEAYA and Pfizer Enter Clinical Trial Collaboration And Supply Agreement To Evaluate Clinical Combination Of IDE196 And Binimetinib In Solid Tumors Harboring GNAQ Or GNA11 Hotspot Mutations",
+      "gold": [
+        "IDYA",
+        "PFE"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "PFE"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "PFE"
+      ]
+    },
+    {
+      "id": "L38-020",
+      "text": "Boeing Wins $152M Deal to Build IRST Block II for F/A-18 Jets",
+      "gold": [
+        "BA"
+      ],
+      "old_subjects": [
+        "BA"
+      ],
+      "extended_subjects": [
+        "BA"
+      ],
+      "old_mentions": [
+        "BA"
+      ],
+      "extended_mentions": [
+        "BA"
+      ]
+    },
+    {
+      "id": "L38-021",
+      "text": "Former Market Maker Keith Harwood On Combining Technical Trading, Leveraged Derivatives",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-022",
+      "text": "Amazon Bought Cameras to Take Temperatures of Workers from U.S. Blacklisted China's Zhejiang Dahua Technology Co",
+      "gold": [
+        "AMZN",
+        "name:zhejiang dahua technology"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-023",
+      "text": "J.P. Morgan Raising Price Target On CF Industries (CF)",
+      "gold": [
+        "CF"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-024",
+      "text": "Can Amazon Bring Tech Into Whole Foods Stores?",
+      "gold": [
+        "AMZN",
+        "name:whole foods"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [
+        "AMZN"
+      ],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": [
+        "AMZN"
+      ]
+    },
+    {
+      "id": "L38-025",
+      "text": "Coca-Cola Beats Overall - Analyst Blog",
+      "gold": [
+        "KO"
+      ],
+      "old_subjects": [
+        "KO"
+      ],
+      "extended_subjects": [
+        "KO"
+      ],
+      "old_mentions": [
+        "KO"
+      ],
+      "extended_mentions": [
+        "KO"
+      ]
+    },
+    {
+      "id": "L38-026",
+      "text": "Gilead's Yescarta gets thumbs up in Scotland",
+      "gold": [
+        "GILD"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "GILD"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "GILD"
+      ]
+    },
+    {
+      "id": "L38-027",
+      "text": "Apple Supplier Broadcom 'Pooling' M&A Capital; Stock Hits Buy Zone",
+      "gold": [
+        "AVGO"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL"
+      ]
+    },
+    {
+      "id": "L38-028",
+      "text": "Pekin Singer Strauss Asset Management Buys Evercore Inc, Ituran Location and Control, TPI ...",
+      "gold": [
+        "EVR",
+        "ITRN",
+        "name:tpi"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-029",
+      "text": "JP Morgan Maintains Janus Capital Group at Neutral, Raises PT from $7 to $9.50",
+      "gold": [
+        "JNS"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-030",
+      "text": "5 Energy Plays to Stand Out in Q1 Earnings Amid Crude Crash",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-031",
+      "text": "Eli Lilly (LLY) Surpasses Q3 Earnings Estimates",
+      "gold": [
+        "LLY"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "LLY"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "LLY"
+      ]
+    },
+    {
+      "id": "L38-032",
+      "text": "J.P. Morgan Sees Sangamo Biosciences, Inc. As Attractive Investment Opportunity",
+      "gold": [
+        "SGMO"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-033",
+      "text": "CenturyLink shares are trading higher after the company announced it is expanding its Cloud Connect Dynamic Connections service to Google Cloud Platform.",
+      "gold": [
+        "CTL",
+        "GOOGL"
+      ],
+      "old_subjects": [
+        "GOOGL"
+      ],
+      "extended_subjects": [
+        "GOOGL"
+      ],
+      "old_mentions": [
+        "GOOGL"
+      ],
+      "extended_mentions": [
+        "GOOGL"
+      ]
+    },
+    {
+      "id": "L38-034",
+      "text": "UPS, Boeing: Secrets of the Transport Winners",
+      "gold": [
+        "BA",
+        "UPS"
+      ],
+      "old_subjects": [
+        "BA"
+      ],
+      "extended_subjects": [
+        "BA",
+        "UPS"
+      ],
+      "old_mentions": [
+        "BA"
+      ],
+      "extended_mentions": [
+        "BA",
+        "UPS"
+      ]
+    },
+    {
+      "id": "L38-035",
+      "text": "Ohr Pharmaceutical Presents New Data From OHR-102 Phase II IMPACT Study in Wet-AMD at American Academy of Ophthalmology Annual Meeting",
+      "gold": [
+        "name:ohr pharmaceutical"
+      ],
+      "old_subjects": [
+        "AMD"
+      ],
+      "extended_subjects": [
+        "AMD"
+      ],
+      "old_mentions": [
+        "AMD"
+      ],
+      "extended_mentions": [
+        "AMD"
+      ]
+    },
+    {
+      "id": "L38-036",
+      "text": "New York State Comptroller Disclosed A Resolution Asking ExxonMobil To Disclose Short-, Medium-, Long-Range Targets For Greehouse Gas Emissions",
+      "gold": [
+        "XOM"
+      ],
+      "old_subjects": [
+        "XOM"
+      ],
+      "extended_subjects": [
+        "XOM"
+      ],
+      "old_mentions": [
+        "XOM"
+      ],
+      "extended_mentions": [
+        "XOM"
+      ]
+    },
+    {
+      "id": "L38-037",
+      "text": "ARMed Attack: Intel And AMD Do Not See The Torpedo Headed Their Way",
+      "gold": [
+        "AMD",
+        "INTC"
+      ],
+      "old_subjects": [
+        "AMD"
+      ],
+      "extended_subjects": [
+        "AMD",
+        "INTC"
+      ],
+      "old_mentions": [
+        "AMD"
+      ],
+      "extended_mentions": [
+        "AMD",
+        "INTC"
+      ]
+    },
+    {
+      "id": "L38-038",
+      "text": "Stocks Slip In Mixed Volume; Tesla, Keurig, AMC Hammered",
+      "gold": [
+        "AMC",
+        "TSLA",
+        "name:keurig"
+      ],
+      "old_subjects": [
+        "TSLA"
+      ],
+      "extended_subjects": [
+        "TSLA"
+      ],
+      "old_mentions": [
+        "TSLA"
+      ],
+      "extended_mentions": [
+        "TSLA"
+      ]
+    },
+    {
+      "id": "L38-039",
+      "text": "Stocks To Watch: Eyes On Wendy's, Domino's And Discount Brokers",
+      "gold": [
+        "DPZ",
+        "WEN"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-040",
+      "text": "UPDATE: Bank of America Reiterates on Hatteras Financial Following Good Q4 '13 Results",
+      "gold": [
+        "HTS"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-041",
+      "text": "Vietnam's Vingroup in Deal with Google to Develop Smart TVs",
+      "gold": [
+        "GOOGL",
+        "name:vingroup"
+      ],
+      "old_subjects": [
+        "GOOGL"
+      ],
+      "extended_subjects": [
+        "GOOGL"
+      ],
+      "old_mentions": [
+        "GOOGL"
+      ],
+      "extended_mentions": [
+        "GOOGL"
+      ]
+    },
+    {
+      "id": "L38-042",
+      "text": "Bank of America Maintains Neutral on Sempra Energy, Raises Price Target to $121",
+      "gold": [
+        "SRE"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "TGT"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC",
+        "TGT"
+      ]
+    },
+    {
+      "id": "L38-043",
+      "text": "Lightning Strikes Twice",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-044",
+      "text": "Does Warren Buffett's Investment In Flying J Bode Well For TravelCenters Of America?",
+      "gold": [
+        "TA",
+        "name:flying j"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-045",
+      "text": "Bank of America Downgrades Waters Corporation to Neutral, Lowers PO to $105.00",
+      "gold": [
+        "WAT"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-046",
+      "text": "Tesla: An Unexpected Loser In The GOP's Tax Plan",
+      "gold": [
+        "TSLA"
+      ],
+      "old_subjects": [
+        "TSLA"
+      ],
+      "extended_subjects": [
+        "TSLA"
+      ],
+      "old_mentions": [
+        "TSLA"
+      ],
+      "extended_mentions": [
+        "TSLA"
+      ]
+    },
+    {
+      "id": "L38-047",
+      "text": "Citigroup Maintains Neutral on Duke Energy, Lowers Price Target to $93",
+      "gold": [
+        "DUK"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "DUK"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "C",
+        "DUK"
+      ]
+    },
+    {
+      "id": "L38-048",
+      "text": "GE Intelligent Platforms Announces Will Work with NVIDIA for Tegra K1-based, High Performance Embedded Computing Solution",
+      "gold": [
+        "NVDA",
+        "name:ge intelligent platforms"
+      ],
+      "old_subjects": [
+        "NVDA"
+      ],
+      "extended_subjects": [
+        "GE",
+        "NVDA"
+      ],
+      "old_mentions": [
+        "NVDA"
+      ],
+      "extended_mentions": [
+        "GE",
+        "NVDA"
+      ]
+    },
+    {
+      "id": "L38-049",
+      "text": "Record petroleum exports at risk by Houston Ship Channel traffic, exec says",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-050",
+      "text": "Determined Fixing Record Date For Icahn Group's Planned Consent Solicitation Not In Best Interests Of Co./Its Stockholders; Expects To Complete The Acquisition Of Anadarko In The Second Half Of 2019",
+      "gold": [
+        "APC"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-051",
+      "text": "Veeva Systems (VEEV) Presents At 36th Annual J.P. Morgan Healthcare Conference - Slideshow",
+      "gold": [
+        "VEEV"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-052",
+      "text": "Bank of America Reinstates Buy on Plains All American Pipeline, L.P., Announces $60.00 PO",
+      "gold": [
+        "PAA"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-053",
+      "text": "Clean Energy Fuels up Nearly 10% Pre-Market on BofA Upgrade",
+      "gold": [
+        "CLNE"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-054",
+      "text": "Apple Issues Statement: Says China Telecom Does Not Have Access to Encrypted Content - Bloomberg",
+      "gold": [
+        "AAPL",
+        "name:china telecom"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-055",
+      "text": "Bank of America Reinstates Neutral on JM Smucker, Announces $106 Price Target",
+      "gold": [
+        "SJM"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "TGT"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC",
+        "TGT"
+      ]
+    },
+    {
+      "id": "L38-056",
+      "text": "Cisco Systems (CSCO) Earnings Expected to Grow: Should You Buy?",
+      "gold": [
+        "CSCO"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "CSCO"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "CSCO"
+      ]
+    },
+    {
+      "id": "L38-057",
+      "text": "Wells Fargo Maintains Overweight on Johnson & Johnson, Lowers Price Target to $150",
+      "gold": [
+        "JNJ"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "JNJ"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "JNJ",
+        "WFC"
+      ]
+    },
+    {
+      "id": "L38-058",
+      "text": "LinkedIn, Apple, Zynga: Tech Premarket",
+      "gold": [
+        "AAPL",
+        "LNKD",
+        "ZNGA"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-059",
+      "text": "9 Stocks For Your New Year",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-060",
+      "text": "Roku Or Netflix – Which One Is Better In The Near Term?",
+      "gold": [
+        "NFLX",
+        "ROKU"
+      ],
+      "old_subjects": [
+        "NFLX"
+      ],
+      "extended_subjects": [
+        "NFLX"
+      ],
+      "old_mentions": [
+        "NFLX"
+      ],
+      "extended_mentions": [
+        "NFLX"
+      ]
+    },
+    {
+      "id": "L38-061",
+      "text": "PreMarket Prep Recap: 'It Just Doesn't Matter'",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-062",
+      "text": "Julian Robertson Buys Adobe and Sells Apple in –st Quarter",
+      "gold": [
+        "AAPL",
+        "ADBE"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL",
+        "ADBE"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL",
+        "ADBE"
+      ]
+    },
+    {
+      "id": "L38-063",
+      "text": "The Week Ahead In Biotech: Pending Clinical Readouts, Earnings Dominate",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-064",
+      "text": "JP Morgan Comments On Men's Wearhouse After Reporting Strong Earnings",
+      "gold": [
+        "MW"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-065",
+      "text": "Back To The Roots Announces Home Depot Partnership Amid Surge In Interest",
+      "gold": [
+        "HD",
+        "name:back to the roots"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "HD"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "HD"
+      ]
+    },
+    {
+      "id": "L38-066",
+      "text": "Goldman Sachs Earlier Maintained Neutral on 3M, Lowered Price Target to $159",
+      "gold": [
+        "MMM"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "GS",
+        "MMM"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "GS",
+        "MMM"
+      ]
+    },
+    {
+      "id": "L38-067",
+      "text": "NVIDIA (NVDA) Catches Eye: Stock Adds 5.8% in Session",
+      "gold": [
+        "NVDA"
+      ],
+      "old_subjects": [
+        "NVDA"
+      ],
+      "extended_subjects": [
+        "NVDA"
+      ],
+      "old_mentions": [
+        "NVDA"
+      ],
+      "extended_mentions": [
+        "NVDA"
+      ]
+    },
+    {
+      "id": "L38-068",
+      "text": "JP Morgan Downgrades Sohu.com to Underweight, Lowers PT to $50.00",
+      "gold": [
+        "SOHU"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-069",
+      "text": "Why Companies Like Tesla And Amazon Might Be Undervalued",
+      "gold": [
+        "AMZN",
+        "TSLA"
+      ],
+      "old_subjects": [
+        "AMZN",
+        "TSLA"
+      ],
+      "extended_subjects": [
+        "TSLA"
+      ],
+      "old_mentions": [
+        "AMZN",
+        "TSLA"
+      ],
+      "extended_mentions": [
+        "TSLA"
+      ]
+    },
+    {
+      "id": "L38-070",
+      "text": "Stocks to Watch: JPMorgan, Boeing, Ford, GM",
+      "gold": [
+        "BA",
+        "F",
+        "GM",
+        "JPM"
+      ],
+      "old_subjects": [
+        "BA",
+        "JPM"
+      ],
+      "extended_subjects": [
+        "BA",
+        "F",
+        "GM",
+        "JPM"
+      ],
+      "old_mentions": [
+        "BA",
+        "JPM"
+      ],
+      "extended_mentions": [
+        "BA",
+        "F",
+        "GM",
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-071",
+      "text": "5 Stocks To Watch For July 15, 2019",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-072",
+      "text": "'Alphabet's Waymo Seeks Outside Investors' -The Information",
+      "gold": [
+        "name:waymo"
+      ],
+      "old_subjects": [
+        "GOOGL"
+      ],
+      "extended_subjects": [
+        "GOOGL"
+      ],
+      "old_mentions": [
+        "GOOGL"
+      ],
+      "extended_mentions": [
+        "GOOGL"
+      ]
+    },
+    {
+      "id": "L38-073",
+      "text": "Bank Stock Roundup: Legal Issues & Cost Savings Continue; JPMorgan, Citi, BofA in Focus - Analyst Blog",
+      "gold": [
+        "BAC",
+        "C",
+        "JPM"
+      ],
+      "old_subjects": [
+        "BAC",
+        "JPM"
+      ],
+      "extended_subjects": [
+        "BAC",
+        "C",
+        "JPM"
+      ],
+      "old_mentions": [
+        "BAC",
+        "JPM"
+      ],
+      "extended_mentions": [
+        "BAC",
+        "C",
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-074",
+      "text": "Eli Lilly: An Update",
+      "gold": [
+        "LLY"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "LLY"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "LLY"
+      ]
+    },
+    {
+      "id": "L38-075",
+      "text": "Boeing Co (BA) Seals $4.9B 737 MAX Garuda Indonesia Deal - Analyst Blog",
+      "gold": [
+        "BA",
+        "name:garuda indonesia"
+      ],
+      "old_subjects": [
+        "BA"
+      ],
+      "extended_subjects": [
+        "BA"
+      ],
+      "old_mentions": [
+        "BA"
+      ],
+      "extended_mentions": [
+        "BA"
+      ]
+    },
+    {
+      "id": "L38-076",
+      "text": "Bank of America Downgrades Yanzhou Coal Mining Company Limited to Neutral",
+      "gold": [
+        "name:yanzhou coal mining"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-077",
+      "text": "FedEx cut to Sell at UBS; shares -1.8%",
+      "gold": [
+        "FDX"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "FDX"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "FDX"
+      ]
+    },
+    {
+      "id": "L38-078",
+      "text": "NVIDIA Shares Lower Despite WSJ Headline 'NVIDIA Open to Deals That Fit Into Businesses'",
+      "gold": [
+        "NVDA"
+      ],
+      "old_subjects": [
+        "NVDA"
+      ],
+      "extended_subjects": [
+        "NVDA"
+      ],
+      "old_mentions": [
+        "NVDA"
+      ],
+      "extended_mentions": [
+        "NVDA"
+      ]
+    },
+    {
+      "id": "L38-079",
+      "text": "Techs Erase Early Gains; Apple, Facebook Lead Nasdaq 100 Lower",
+      "gold": [
+        "AAPL",
+        "META"
+      ],
+      "old_subjects": [
+        "AAPL",
+        "META"
+      ],
+      "extended_subjects": [
+        "META"
+      ],
+      "old_mentions": [
+        "AAPL",
+        "META"
+      ],
+      "extended_mentions": [
+        "META"
+      ]
+    },
+    {
+      "id": "L38-080",
+      "text": "J.P. Morgan: Salesforce Could Fetch $100/Share In Bidding War",
+      "gold": [
+        "CRM"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "CRM",
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "CRM",
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-081",
+      "text": "Netflix To 'Friends' Fans: We'll Be There For You (For Another Year)",
+      "gold": [
+        "NFLX"
+      ],
+      "old_subjects": [
+        "NFLX"
+      ],
+      "extended_subjects": [
+        "NFLX"
+      ],
+      "old_mentions": [
+        "NFLX"
+      ],
+      "extended_mentions": [
+        "NFLX"
+      ]
+    },
+    {
+      "id": "L38-082",
+      "text": "Court Place Advisors, LLC Buys The Kroger Co, Walt Disney Co, Unilever PLC, Sells International ...",
+      "gold": [
+        "DIS",
+        "KR",
+        "UL"
+      ],
+      "old_subjects": [
+        "DIS"
+      ],
+      "extended_subjects": [
+        "DIS"
+      ],
+      "old_mentions": [
+        "DIS"
+      ],
+      "extended_mentions": [
+        "DIS"
+      ]
+    },
+    {
+      "id": "L38-083",
+      "text": "Dow Jones Trails Nasdaq In Choppy Trade; Will This Badly Hit Stock Market Sector Reign In 2019?",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-084",
+      "text": "Ligand Pharmaceuticals Hit By Bearish Citron Report",
+      "gold": [
+        "LGND"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-085",
+      "text": "Exxon's Affiliate Inks PSC with Equatorial Guinea Government",
+      "gold": [],
+      "old_subjects": [
+        "XOM"
+      ],
+      "extended_subjects": [
+        "XOM"
+      ],
+      "old_mentions": [
+        "XOM"
+      ],
+      "extended_mentions": [
+        "XOM"
+      ]
+    },
+    {
+      "id": "L38-086",
+      "text": "These ETFs Could Benefit From Apple Dividend Growth",
+      "gold": [
+        "AAPL"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL"
+      ]
+    },
+    {
+      "id": "L38-087",
+      "text": "Recent Purchase: Lowe's",
+      "gold": [
+        "LOW"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "LOW"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "LOW"
+      ]
+    },
+    {
+      "id": "L38-088",
+      "text": "Chemical Stock Earnings Due on Nov 7: APD, ESI, TROX & ICL",
+      "gold": [
+        "APD",
+        "ESI",
+        "ICL",
+        "TROX"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-089",
+      "text": "Walgreens Boots Alliance shares are trading higher after an analyst from UBS upgraded the company's stock from Sell to Neutral.",
+      "gold": [
+        "WBA"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-090",
+      "text": "European Equities Seem To Offer Relative Value, But That's A Trap",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-091",
+      "text": "JP Morgan Upgrades Tyco To Overweight",
+      "gold": [
+        "TYC"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-092",
+      "text": "Apple Acquires Spotsetter App",
+      "gold": [
+        "AAPL",
+        "name:spotsetter"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL"
+      ]
+    },
+    {
+      "id": "L38-093",
+      "text": "JP Morgan Upgrades Amicus Therapeutics, Inc. to Overweight",
+      "gold": [
+        "FOLD"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-094",
+      "text": "BofA/Merrill downgrades SMIC",
+      "gold": [
+        "name:smic"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-095",
+      "text": "JP Morgan Raises PT On Men's Warehouse To $38",
+      "gold": [
+        "MW"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-096",
+      "text": "UPDATE: Bank of America Lowers PO to $12 on Universal Technical Institute",
+      "gold": [
+        "UTI"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-097",
+      "text": "Wambolt & Associates, LLC Buys Prosperity Bancshares Inc, Fortune Brands Home & ...",
+      "gold": [
+        "PB",
+        "name:fortune brands home"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-098",
+      "text": "Nvidia GeForce Now Game Streaming Is Now Available",
+      "gold": [
+        "NVDA"
+      ],
+      "old_subjects": [
+        "NVDA"
+      ],
+      "extended_subjects": [
+        "NVDA"
+      ],
+      "old_mentions": [
+        "NVDA"
+      ],
+      "extended_mentions": [
+        "NVDA"
+      ]
+    },
+    {
+      "id": "L38-099",
+      "text": "Seeing Earlier Reports Indicating Cisco Is In Talks To Buy Cybersecurity Startup Signal Sciences",
+      "gold": [
+        "CSCO",
+        "name:signal sciences"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "CSCO"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "CSCO"
+      ]
+    },
+    {
+      "id": "L38-100",
+      "text": "Coca-Cola European Partners' (CCE) Q4 Earnings Top Estimates",
+      "gold": [
+        "CCE"
+      ],
+      "old_subjects": [
+        "KO"
+      ],
+      "extended_subjects": [
+        "KO"
+      ],
+      "old_mentions": [
+        "KO"
+      ],
+      "extended_mentions": [
+        "KO"
+      ]
+    },
+    {
+      "id": "L38-101",
+      "text": "Bank of America Maintains Buy on CSX, Lowers price target to $66.00",
+      "gold": [
+        "CSX"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-102",
+      "text": "Market Briefing for Thursday, April 30",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-103",
+      "text": "Cisco Systems Inc (CSCO) EVP and CFO Kelly A. Kramer Sold $—.9 million of Shares",
+      "gold": [
+        "CSCO"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "CSCO"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "CSCO"
+      ]
+    },
+    {
+      "id": "L38-104",
+      "text": "UPDATE: Bank of America Downgrades Steel Dynamics to Neutral",
+      "gold": [
+        "STLD"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-105",
+      "text": "Play These Dividend Growth ETFs Amid Coronavirus Crisis",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-106",
+      "text": "Bank of America Downgrades Yum! Brands, Inc. to Underperform, Lowers PO to $60.00",
+      "gold": [
+        "YUM"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-107",
+      "text": "Shares of several healthcare companies are trading lower amid overall market weakness. Stocks are lower, selling off from last week's gains amid uncertainty surrounding coronavirus outlook and the reopening of the economy.",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-108",
+      "text": "Apple Suppliers Say OLED Displays Could Appear in iPhones as Early as 2017; Say Apple has Asked Display Makers in Asia to Increase OLED Production, Submit Prototypes -DJ",
+      "gold": [
+        "AAPL"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL"
+      ]
+    },
+    {
+      "id": "L38-109",
+      "text": "DuPont Exercises Option to Acquire 100% Ownership of OxyMem",
+      "gold": [
+        "DD",
+        "name:oxymem"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "DD"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "DD"
+      ]
+    },
+    {
+      "id": "L38-110",
+      "text": "Jabil's Guidance Is Bad Sign For Apple's iPhone",
+      "gold": [
+        "AAPL",
+        "JBL"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL"
+      ]
+    },
+    {
+      "id": "L38-111",
+      "text": "Moore Capital Management, LP Buys iShares iBoxx $ High Yield Corporate Bond, Amazon. ...",
+      "gold": [
+        "AMZN"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [
+        "AMZN"
+      ],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": [
+        "AMZN"
+      ]
+    },
+    {
+      "id": "L38-112",
+      "text": "Shares of several industrial companies are trading higher amid market strength as news from a Moderna trial stoked optimism about a potential coronavirus vaccine, which has raised hopes of an economic rebound.",
+      "gold": [
+        "MRNA"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-113",
+      "text": "U.S. Bancorp (USB) CEO Andrew Cecere on Q2 2019 Results - Earnings Call Transcript",
+      "gold": [
+        "USB"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "USB"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "USB"
+      ]
+    },
+    {
+      "id": "L38-114",
+      "text": "Adobe Inc (ADBE) EVP, Chief Marketing Officer Ann Lewnes Sold $–.7 million of Shares",
+      "gold": [
+        "ADBE"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "ADBE"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "ADBE"
+      ]
+    },
+    {
+      "id": "L38-115",
+      "text": "Adobe Shares Drops On Poor Guidance, But Sell-Side Analysts Less Worried",
+      "gold": [
+        "ADBE"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "ADBE"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "ADBE"
+      ]
+    },
+    {
+      "id": "L38-116",
+      "text": "Bank of America Maintains Molina Healthcare at Underperform, Raises PO from $25 to $30",
+      "gold": [
+        "MOH"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-117",
+      "text": "Biotech News Recap: Merck Boasts Another Impressive Quarter, Keytruda Dominance Highlighted",
+      "gold": [
+        "MRK"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "MRK"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "MRK"
+      ]
+    },
+    {
+      "id": "L38-118",
+      "text": "Bank of America Initiates Coverage on Fulton Financial at Underperform, Announces PO of $9.5",
+      "gold": [
+        "FULT"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-119",
+      "text": "Anadarko Petroleum Corporation (APC) Presents at Bank of America Merrill Lynch 2018 Global Energy Conference (Transcript)",
+      "gold": [
+        "APC"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-120",
+      "text": "Exxon Mobile shares are trading lower amid a decline in the price of oil and analysts at RBC Capital downgrading the stock to an Underperform rating.",
+      "gold": [
+        "XOM"
+      ],
+      "old_subjects": [
+        "XOM"
+      ],
+      "extended_subjects": [
+        "XOM"
+      ],
+      "old_mentions": [
+        "XOM"
+      ],
+      "extended_mentions": [
+        "XOM"
+      ]
+    },
+    {
+      "id": "L38-121",
+      "text": "JP Morgan Maintains Neutral on Rexford Industrial Realty, Raises Price Target to $47",
+      "gold": [
+        "REXR"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-122",
+      "text": "Microsoft adds MakerBot 3D printers to more stores",
+      "gold": [
+        "MSFT",
+        "name:makerbot"
+      ],
+      "old_subjects": [
+        "MSFT"
+      ],
+      "extended_subjects": [
+        "MSFT"
+      ],
+      "old_mentions": [
+        "MSFT"
+      ],
+      "extended_mentions": [
+        "MSFT"
+      ]
+    },
+    {
+      "id": "L38-123",
+      "text": "PPG, Sherwin-Williams fall sharply following J.P. Morgan downgrades",
+      "gold": [
+        "PPG",
+        "SHW"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-124",
+      "text": "Benzinga'a M&A Chatter for Tuesday August 21, 2012",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-125",
+      "text": "BlackRock (BLK) Rides on Asset Growth Despite High Costs",
+      "gold": [
+        "BLK"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "BLK"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "BLK"
+      ]
+    },
+    {
+      "id": "L38-126",
+      "text": "Disney, Silver And More: Fast Money Picks For November 8",
+      "gold": [
+        "DIS"
+      ],
+      "old_subjects": [
+        "DIS"
+      ],
+      "extended_subjects": [
+        "DIS"
+      ],
+      "old_mentions": [
+        "DIS"
+      ],
+      "extended_mentions": [
+        "DIS"
+      ]
+    },
+    {
+      "id": "L38-127",
+      "text": "The Market In 5 Minutes: More Twitter Rumors, Disappointing Employment Data",
+      "gold": [
+        "TWTR"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-128",
+      "text": "Railway Pension Investments Ltd Buys Procter & Gamble Co, Merck Inc, Verizon Communications ...",
+      "gold": [
+        "MRK",
+        "PG",
+        "VZ"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "MRK",
+        "PG",
+        "VZ"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "MRK",
+        "PG",
+        "VZ"
+      ]
+    },
+    {
+      "id": "L38-129",
+      "text": "Here's Why it is Wise to Hold on to BofA (BAC) Stock Now",
+      "gold": [
+        "BAC"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-130",
+      "text": "Top Analyst Reports for Microsoft, UnitedHealth & Costco",
+      "gold": [
+        "COST",
+        "MSFT",
+        "UNH"
+      ],
+      "old_subjects": [
+        "MSFT"
+      ],
+      "extended_subjects": [
+        "COST",
+        "MSFT",
+        "UNH"
+      ],
+      "old_mentions": [
+        "MSFT"
+      ],
+      "extended_mentions": [
+        "COST",
+        "MSFT",
+        "UNH"
+      ]
+    },
+    {
+      "id": "L38-131",
+      "text": "These Dividend Stock Plays Offer Big Payout And Price Gains",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-132",
+      "text": "Lazard: This Mid-Cap Stock Is Priced For A Recession",
+      "gold": [
+        "LAZ"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-133",
+      "text": "J.P. Morgan Reports On TRMK",
+      "gold": [
+        "TRMK"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-134",
+      "text": "Altimeter Capital Management, LLC Buys Nutanix Inc, Microsoft Corp, Spirit Airlines Inc, Sells ...",
+      "gold": [
+        "MSFT",
+        "NTNX",
+        "SAVE"
+      ],
+      "old_subjects": [
+        "MSFT"
+      ],
+      "extended_subjects": [
+        "MSFT"
+      ],
+      "old_mentions": [
+        "MSFT"
+      ],
+      "extended_mentions": [
+        "MSFT"
+      ]
+    },
+    {
+      "id": "L38-135",
+      "text": "Mobileye upgraded on overblown reaction to Tesla breakup",
+      "gold": [
+        "MBLY",
+        "TSLA"
+      ],
+      "old_subjects": [
+        "TSLA"
+      ],
+      "extended_subjects": [
+        "TSLA"
+      ],
+      "old_mentions": [
+        "TSLA"
+      ],
+      "extended_mentions": [
+        "TSLA"
+      ]
+    },
+    {
+      "id": "L38-136",
+      "text": "55 Biggest Movers From Yesterday",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-137",
+      "text": "Coca-Cola: Dividend King But With Poor Total Return",
+      "gold": [
+        "KO"
+      ],
+      "old_subjects": [
+        "KO"
+      ],
+      "extended_subjects": [
+        "KO"
+      ],
+      "old_mentions": [
+        "KO"
+      ],
+      "extended_mentions": [
+        "KO"
+      ]
+    },
+    {
+      "id": "L38-138",
+      "text": "Forget Amazon, Invest in Cloud Computing Stocks with This ETF - ETF News And Commentary",
+      "gold": [
+        "AMZN"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [
+        "AMZN"
+      ],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": [
+        "AMZN"
+      ]
+    },
+    {
+      "id": "L38-139",
+      "text": "JJ Kinahan On Coca-Cola Options Ahead Of Earnings",
+      "gold": [
+        "KO"
+      ],
+      "old_subjects": [
+        "KO"
+      ],
+      "extended_subjects": [
+        "KO"
+      ],
+      "old_mentions": [
+        "KO"
+      ],
+      "extended_mentions": [
+        "KO"
+      ]
+    },
+    {
+      "id": "L38-140",
+      "text": "Qualcomm shares are trading lower. Not seeing any company-specific news to justify the price action.",
+      "gold": [
+        "QCOM"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "QCOM"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "QCOM"
+      ]
+    },
+    {
+      "id": "L38-141",
+      "text": "Stocks Open Lower, Rebound On JPMorgan, Fiber Optics Rally",
+      "gold": [
+        "JPM"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-142",
+      "text": "A Glimpse Inside Facebook's Earnings War Room",
+      "gold": [
+        "META"
+      ],
+      "old_subjects": [
+        "META"
+      ],
+      "extended_subjects": [
+        "META"
+      ],
+      "old_mentions": [
+        "META"
+      ],
+      "extended_mentions": [
+        "META"
+      ]
+    },
+    {
+      "id": "L38-143",
+      "text": "CarGurus Is The Formula One Of Online Auto Markets; Should Google And Craigslist Beware?",
+      "gold": [
+        "CARG",
+        "GOOGL",
+        "name:craigslist"
+      ],
+      "old_subjects": [
+        "GOOGL"
+      ],
+      "extended_subjects": [
+        "GOOGL"
+      ],
+      "old_mentions": [
+        "GOOGL"
+      ],
+      "extended_mentions": [
+        "GOOGL"
+      ]
+    },
+    {
+      "id": "L38-144",
+      "text": "Apple Announces Opening of First Retail Store in Taiwan",
+      "gold": [
+        "AAPL"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL"
+      ]
+    },
+    {
+      "id": "L38-145",
+      "text": "Powell: Still Strong; Markets: AYFKM",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-146",
+      "text": "Bank of America Upgrades Edwards Lifesciences to Buy, Raises Price Target to $190",
+      "gold": [
+        "EW"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "TGT"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC",
+        "TGT"
+      ]
+    },
+    {
+      "id": "L38-147",
+      "text": "Netflix Q1 Earnings Interview Just Published to YouTube",
+      "gold": [
+        "NFLX"
+      ],
+      "old_subjects": [
+        "NFLX"
+      ],
+      "extended_subjects": [
+        "NFLX"
+      ],
+      "old_mentions": [
+        "NFLX"
+      ],
+      "extended_mentions": [
+        "NFLX"
+      ]
+    },
+    {
+      "id": "L38-148",
+      "text": "UPDATE: JP Morgan Cuts Intrexon to Neutral, Raises Target to $55; Cites Valuation But Sees Incremental Positive Updates in Healthcare",
+      "gold": [
+        "XON"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-149",
+      "text": "UBS Upgrades Coca-Cola to Buy, Raises Price Target to $63",
+      "gold": [
+        "KO"
+      ],
+      "old_subjects": [
+        "KO"
+      ],
+      "extended_subjects": [
+        "KO",
+        "TGT"
+      ],
+      "old_mentions": [
+        "KO"
+      ],
+      "extended_mentions": [
+        "KO",
+        "TGT"
+      ]
+    },
+    {
+      "id": "L38-150",
+      "text": "O'Keefe Stevens Advisory, Inc. Buys Teekay LNG Partners LP, Warrior Met Coal Inc, Trinity Place ...",
+      "gold": [
+        "HCC",
+        "TGP",
+        "name:trinity place"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-151",
+      "text": "Know What ESG Is? A Report Suggests It Is Going To Start To Impact Trucking",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-152",
+      "text": "Arcadia Investment Management Corp Buys Fastenal Co, Microsoft Corp, Ingersoll-Rand PLC, Sells ...",
+      "gold": [
+        "FAST",
+        "IR",
+        "MSFT"
+      ],
+      "old_subjects": [
+        "MSFT"
+      ],
+      "extended_subjects": [
+        "MSFT"
+      ],
+      "old_mentions": [
+        "MSFT"
+      ],
+      "extended_mentions": [
+        "MSFT"
+      ]
+    },
+    {
+      "id": "L38-153",
+      "text": "Dow Jones Futures: Facebook Leads 5 Top Stocks Near Buy Points With Rising Profit Estimates",
+      "gold": [
+        "META"
+      ],
+      "old_subjects": [
+        "META"
+      ],
+      "extended_subjects": [
+        "META"
+      ],
+      "old_mentions": [
+        "META"
+      ],
+      "extended_mentions": [
+        "META"
+      ]
+    },
+    {
+      "id": "L38-154",
+      "text": "Boeing Co (BA) Extends Ties with Japanese Supplier Toray - Analyst Blog",
+      "gold": [
+        "BA",
+        "name:toray"
+      ],
+      "old_subjects": [
+        "BA"
+      ],
+      "extended_subjects": [
+        "BA"
+      ],
+      "old_mentions": [
+        "BA"
+      ],
+      "extended_mentions": [
+        "BA"
+      ]
+    },
+    {
+      "id": "L38-155",
+      "text": "TAP Consulting, LLC Buys Vanguard Health Care, iShares Russell —………, S&P Global ...",
+      "gold": [
+        "SPGI"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-156",
+      "text": "For The Content Hungry: Cloud Or Cable?",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-157",
+      "text": "Trump Says Before A Great Budget, Wants A Great Military",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-158",
+      "text": "JP Morgan Upgrades XL Group Ltd. to Overweight",
+      "gold": [
+        "XL"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-159",
+      "text": "Bank of America Maintains Green Mountain Coffee Roasters at Neutral, Lowers PO from $63 to $51",
+      "gold": [
+        "GMCR"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-160",
+      "text": "JP Morgan Maintains Denbury Resources at Overweight, Raises PT from $23.50 to $25",
+      "gold": [
+        "DNR"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-161",
+      "text": "JP Morgan Downgrades Texas Roadhouse, Inc. to Neutral, Raises PT to $25.00",
+      "gold": [
+        "TXRH"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-162",
+      "text": "NextEra Energy: Q1 Earnings Insights",
+      "gold": [
+        "NEE"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "NEE"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "NEE"
+      ]
+    },
+    {
+      "id": "L38-163",
+      "text": "'Tesla's used cars prove popular in China with impressive value retention' -Electrek",
+      "gold": [
+        "TSLA"
+      ],
+      "old_subjects": [
+        "TSLA"
+      ],
+      "extended_subjects": [
+        "TSLA"
+      ],
+      "old_mentions": [
+        "TSLA"
+      ],
+      "extended_mentions": [
+        "TSLA"
+      ]
+    },
+    {
+      "id": "L38-164",
+      "text": "Amazon throws a scare far and wide in grocery sector",
+      "gold": [
+        "AMZN"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-165",
+      "text": "Lilly Presents Positive Results for Taltz® (ixekizumab) in Pediatric Patients with Moderate to ...",
+      "gold": [
+        "LLY"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "LLY"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "LLY"
+      ]
+    },
+    {
+      "id": "L38-166",
+      "text": "Advanced Micro Devices Option Alert: Fri $42 Calls Sweep (10) above Ask!: 1500 @ $2.959 vs 10833 OI; Earnings 1/28 After Close [est] Ref=$44.9",
+      "gold": [
+        "AMD"
+      ],
+      "old_subjects": [
+        "AMD"
+      ],
+      "extended_subjects": [
+        "AMD"
+      ],
+      "old_mentions": [
+        "AMD"
+      ],
+      "extended_mentions": [
+        "AMD"
+      ]
+    },
+    {
+      "id": "L38-167",
+      "text": "Apple up 3.7% as markets rally, analysts defend",
+      "gold": [
+        "AAPL"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [
+        "AAPL"
+      ],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": [
+        "AAPL"
+      ]
+    },
+    {
+      "id": "L38-168",
+      "text": "Weight Watchers Shares Up 6.4% After JP Morgan And DA Davidson Initiated Coverage On Stock With Bullish Ratings",
+      "gold": [
+        "WTW"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-169",
+      "text": "Tesla: The Imperative For A China Plant",
+      "gold": [
+        "TSLA"
+      ],
+      "old_subjects": [
+        "TSLA"
+      ],
+      "extended_subjects": [
+        "TSLA"
+      ],
+      "old_mentions": [
+        "TSLA"
+      ],
+      "extended_mentions": [
+        "TSLA"
+      ]
+    },
+    {
+      "id": "L38-170",
+      "text": "Earnings Scheduled For February 26, 2020",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-171",
+      "text": "J&J Drafted Into A Fight Over Shareholder Suits, Co. Asked SEC To Omit Proposal From 2019 Proxy Statement",
+      "gold": [
+        "JNJ"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-172",
+      "text": "'Walt Disney expected to add cash to its current bid for Twenty-First Century Fox's assets - sources'-CNBC Now Tweet",
+      "gold": [
+        "DIS",
+        "FOXA"
+      ],
+      "old_subjects": [
+        "DIS"
+      ],
+      "extended_subjects": [
+        "DIS"
+      ],
+      "old_mentions": [
+        "DIS"
+      ],
+      "extended_mentions": [
+        "DIS"
+      ]
+    },
+    {
+      "id": "L38-173",
+      "text": "Riverbed Announces Working with Amazon to Unveil Enterprise Backup Solution to Run Natively in AWS",
+      "gold": [
+        "AMZN",
+        "RVBD"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-174",
+      "text": "Samsung CEO Sees Intensified Competition in Chip Market Due to Oversupply",
+      "gold": [
+        "name:samsung"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-175",
+      "text": "JP Morgan Maintains Overweight on Home Depot, Raises Price Target to $260",
+      "gold": [
+        "HD"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "HD"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "HD",
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-176",
+      "text": "Facebook, 2 Payment Stocks At Or Near Highs Ahead Of Earnings: Investing Action Plan",
+      "gold": [
+        "META"
+      ],
+      "old_subjects": [
+        "META"
+      ],
+      "extended_subjects": [
+        "META"
+      ],
+      "old_mentions": [
+        "META"
+      ],
+      "extended_mentions": [
+        "META"
+      ]
+    },
+    {
+      "id": "L38-177",
+      "text": "Cisco Is Among The First to Give a Bigger Picture of the Pandemic's Impact",
+      "gold": [
+        "CSCO"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "CSCO"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "CSCO"
+      ]
+    },
+    {
+      "id": "L38-178",
+      "text": "Jericho Capital Asset Management L.P. Buys Snap Inc, Broadcom Inc, Amazon. ...",
+      "gold": [
+        "AMZN",
+        "AVGO",
+        "SNAP"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-179",
+      "text": "The Zacks Analyst Blog Highlights: Bunge, Boeing and Apple",
+      "gold": [
+        "AAPL",
+        "BA",
+        "BG"
+      ],
+      "old_subjects": [
+        "AAPL",
+        "BA"
+      ],
+      "extended_subjects": [
+        "AAPL",
+        "BA"
+      ],
+      "old_mentions": [
+        "AAPL",
+        "BA"
+      ],
+      "extended_mentions": [
+        "AAPL",
+        "BA"
+      ]
+    },
+    {
+      "id": "L38-180",
+      "text": "BofA: Cyberark Is A 'Critical' Element Of Cyber Defense",
+      "gold": [
+        "CYBR"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-181",
+      "text": "Podcast: Microsoft Build, Citrix Synergy, Google I/O",
+      "gold": [
+        "CTXS",
+        "GOOGL",
+        "MSFT"
+      ],
+      "old_subjects": [
+        "GOOGL",
+        "MSFT"
+      ],
+      "extended_subjects": [
+        "GOOGL",
+        "MSFT"
+      ],
+      "old_mentions": [
+        "GOOGL",
+        "MSFT"
+      ],
+      "extended_mentions": [
+        "GOOGL",
+        "MSFT"
+      ]
+    },
+    {
+      "id": "L38-182",
+      "text": "Kroger Accepts the Amazon Challenge",
+      "gold": [
+        "AMZN",
+        "KR"
+      ],
+      "old_subjects": [
+        "AMZN"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AMZN"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-183",
+      "text": "Cisco's 'rd-Quarter Earnings and Revenue Surpass Projections",
+      "gold": [
+        "CSCO"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "CSCO"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "CSCO"
+      ]
+    },
+    {
+      "id": "L38-184",
+      "text": "Brown University Buys VanEck Vectors Gold Miners, Alphabet Inc, Raytheon Co, Sells Brookfield ...",
+      "gold": [
+        "GOOGL",
+        "RTN",
+        "name:brookfield"
+      ],
+      "old_subjects": [
+        "GOOGL"
+      ],
+      "extended_subjects": [
+        "GOOGL",
+        "RTX"
+      ],
+      "old_mentions": [
+        "GOOGL"
+      ],
+      "extended_mentions": [
+        "GOOGL",
+        "RTX"
+      ]
+    },
+    {
+      "id": "L38-185",
+      "text": "Oppenheimer Maintains Outperform on U.S. Bancorp, Raises Price Target to $59",
+      "gold": [
+        "USB"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "USB"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "USB"
+      ]
+    },
+    {
+      "id": "L38-186",
+      "text": "Apple (AAPL) Beats on Surprise China Numbers; Plus EA, MDLZ",
+      "gold": [
+        "AAPL",
+        "EA",
+        "MDLZ"
+      ],
+      "old_subjects": [
+        "AAPL"
+      ],
+      "extended_subjects": [],
+      "old_mentions": [
+        "AAPL"
+      ],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-187",
+      "text": "J. P. Morgan Suggests Overwriting Coca-Cola Co.",
+      "gold": [
+        "KO"
+      ],
+      "old_subjects": [
+        "KO"
+      ],
+      "extended_subjects": [
+        "KO"
+      ],
+      "old_mentions": [
+        "KO"
+      ],
+      "extended_mentions": [
+        "KO"
+      ]
+    },
+    {
+      "id": "L38-188",
+      "text": "Great Lakes Advisors, Llc Buys Canadian National Railway Co, Sysco Corp, World Wrestling ...",
+      "gold": [
+        "CNI",
+        "SYY",
+        "name:world wrestling"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-189",
+      "text": "The Daily Biotech Pulse: FDA Approves Novartis Lung Cancer Drug, 2-Way Contest Emerging For Tetraphase Pharma, Dexcom To Join S&P 500",
+      "gold": [
+        "DXCM",
+        "NVS",
+        "TTPH"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-190",
+      "text": "''Are all of your online systems down?' Wells Fargo customers fume over website problems' -The Charlotte Observer",
+      "gold": [
+        "WFC"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "WFC"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "WFC"
+      ]
+    },
+    {
+      "id": "L38-191",
+      "text": "Facebook, Twitter, Snap Said to Offer Tens of Millions for Online Rights to 2018 World Cup Clips from Fox -Bloomberg",
+      "gold": [
+        "FOXA",
+        "META",
+        "SNAP",
+        "TWTR"
+      ],
+      "old_subjects": [
+        "META"
+      ],
+      "extended_subjects": [
+        "META"
+      ],
+      "old_mentions": [
+        "META"
+      ],
+      "extended_mentions": [
+        "META"
+      ]
+    },
+    {
+      "id": "L38-192",
+      "text": "Bank of America Maintains Embraer S/A at Buy, Lowers PO from $40 to $39",
+      "gold": [
+        "ERJ"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-193",
+      "text": "Kentucky Retirement Systems Insurance Trust Fund Buys ServiceNow Inc, Bristol-Myers Squibb ...",
+      "gold": [
+        "BMY",
+        "NOW"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "BMY"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "BMY"
+      ]
+    },
+    {
+      "id": "L38-194",
+      "text": "BofA/Merrill Downs SKT To Neutral",
+      "gold": [
+        "SKT"
+      ],
+      "old_subjects": [
+        "BAC"
+      ],
+      "extended_subjects": [
+        "BAC"
+      ],
+      "old_mentions": [
+        "BAC"
+      ],
+      "extended_mentions": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "L38-195",
+      "text": "FreightWaves Oil Report: Bankruptcies In The Oil Patch Are Piling Up",
+      "gold": [],
+      "old_subjects": [],
+      "extended_subjects": [],
+      "old_mentions": [],
+      "extended_mentions": []
+    },
+    {
+      "id": "L38-196",
+      "text": "Can Disney Find Its Prince? A Rangeley Capital Discussion",
+      "gold": [
+        "DIS"
+      ],
+      "old_subjects": [
+        "DIS"
+      ],
+      "extended_subjects": [
+        "DIS"
+      ],
+      "old_mentions": [
+        "DIS"
+      ],
+      "extended_mentions": [
+        "DIS"
+      ]
+    },
+    {
+      "id": "L38-197",
+      "text": "Turkcell up as JPMorgan get bullish on Turkish telecom",
+      "gold": [
+        "TKC"
+      ],
+      "old_subjects": [
+        "JPM"
+      ],
+      "extended_subjects": [
+        "JPM"
+      ],
+      "old_mentions": [
+        "JPM"
+      ],
+      "extended_mentions": [
+        "JPM"
+      ]
+    },
+    {
+      "id": "L38-198",
+      "text": "The Zacks Analyst Blog Highlights: Gilead Sciences, Pfizer, Sanofi, GlaxoSmithKline and Moderna",
+      "gold": [
+        "GILD",
+        "GSK",
+        "MRNA",
+        "PFE",
+        "SNY"
+      ],
+      "old_subjects": [],
+      "extended_subjects": [
+        "GILD",
+        "PFE"
+      ],
+      "old_mentions": [],
+      "extended_mentions": [
+        "GILD",
+        "PFE"
+      ]
+    },
+    {
+      "id": "L38-199",
+      "text": "'Just met with @sundarpichai, President of @Google, who is obviously doing quite well. He stated strongly that he is totally committed to the U.S. Military, not the Chinese Military....' -Tweet From Pres Trump",
+      "gold": [
+        "GOOGL"
+      ],
+      "old_subjects": [
+        "GOOGL"
+      ],
+      "extended_subjects": [
+        "GOOGL"
+      ],
+      "old_mentions": [
+        "GOOGL"
+      ],
+      "extended_mentions": [
+        "GOOGL"
+      ]
+    },
+    {
+      "id": "L38-200",
+      "text": "NVIDIA shares are trading higher after Benchmark assumes the stock with a Buy rating and announced a $210 price target.",
+      "gold": [
+        "NVDA"
+      ],
+      "old_subjects": [
+        "NVDA"
+      ],
+      "extended_subjects": [
+        "NVDA"
+      ],
+      "old_mentions": [
+        "NVDA"
+      ],
+      "extended_mentions": [
+        "NVDA"
+      ]
+    }
+  ],
+  "out_of_catalog_reference_links": 127,
+  "set_b": {
+    "rows": 243,
+    "original_company_differences": 20,
+    "rows_with_outside_additions": 26,
+    "comparisons": [
+      {
+        "id": "563b9f516a90604c",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1b1c58e7a280ba5e",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "16bd4255e47faced",
+        "target": "GOOGL",
+        "old": [
+          "GOOGL",
+          "META",
+          "MSFT"
+        ],
+        "extended_originals": [
+          "GOOGL",
+          "META",
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0fb219e184c76b91",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a1c1c7a0f67f725c",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9d9b6f43ad673c7a",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "4f061aba9f55a20b",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9b137f6202d8c085",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "642d285b6b492309",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "b35e4cfcc2b65449",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1cbb04ec6794e2f7",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a650dc0ef41d8c67",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "AIG"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "6ccad44924280456",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "6e964557351779f7",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "3b150d8cb80efcac",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "df36a3ea94ed87ff",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "6863ee8d0cbb94d3",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "aecbe397aa86ad19",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "c3be3dc786f9b818",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "C"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f31609f2e7643476",
+        "target": "AMD",
+        "old": [
+          "AAPL",
+          "AMD"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "818b0d7bdea8c72f",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "835d9665f5b6c16e",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "bff832225bac359a",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [
+          "COP"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "3319ec9a5db856c1",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "6eccd6147ba3688d",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "5f48d6b06211390a",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "559ca0b996b2130a",
+        "target": "MSFT",
+        "old": [
+          "AAPL",
+          "MSFT"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "ec370984ff57ce2d",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "172fcc618c87b124",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "3465a9f2b33ec333",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "8b4981600b6242d0",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "b6fd3ef031a76a0d",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a10ad25cd9bb87f2",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "e420202b18513af3",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "C"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "df605783b65ef853",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1642584679054c9f",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "803c47868783b187",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "63f57c0a683422b4",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "e62813e47030846b",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "MS"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1549629efa0ed4e4",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "83c33078f2ad30ef",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "ca224c8633b3e048",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "33e033c58615095f",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "8d371c2e845d3e73",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f9f44610acbb434f",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "f06ef0a4ea91ac15",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "e93853d5185a3ca2",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "24025b19a775623e",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "C",
+          "WFC"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "453abba74ce25188",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [
+          "BLK"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "25cb51ce83b3b4e1",
+        "target": "AMZN",
+        "old": [
+          "AMZN"
+        ],
+        "extended_originals": [
+          "AMZN"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "ada7fd301ce92c1d",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "aff444af1ed913dc",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "2a828213ca8f39bf",
+        "target": "XOM",
+        "old": [
+          "XOM"
+        ],
+        "extended_originals": [
+          "XOM"
+        ],
+        "added_outside": [
+          "CVX"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1bcbe2ec341f87e2",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "2f28115a866496e5",
+        "target": "AMZN",
+        "old": [
+          "AAPL",
+          "AMZN",
+          "NFLX"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "AMZN",
+          "NFLX"
+        ],
+        "added_outside": [
+          "WMT"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "e0d9f0410f8a18f7",
+        "target": "GOOGL",
+        "old": [
+          "GOOGL"
+        ],
+        "extended_originals": [
+          "GOOGL"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "75c584ecf1e391f6",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "5f96d5fca16ec06f",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "24c5d870d59916ca",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "fdc1158bb2d392fc",
+        "target": "XOM",
+        "old": [
+          "XOM"
+        ],
+        "extended_originals": [
+          "XOM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "82594be29e87a889",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [
+          "WFC"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "5afa2fe04825a04e",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "dbfe48721383cdc4",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "664a662ae5e58510",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "36be63c76d3907f9",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "2334a506853bd71c",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "WFC"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "671d0a2d78d91e2a",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "845aee75463fb9de",
+        "target": "TSLA",
+        "old": [
+          "TSLA"
+        ],
+        "extended_originals": [
+          "TSLA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "d90841f041e8dc24",
+        "target": "GOOGL",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "06c615d9f69637ad",
+        "target": "NVDA",
+        "old": [
+          "NVDA"
+        ],
+        "extended_originals": [
+          "NVDA"
+        ],
+        "added_outside": [
+          "GE"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f706d46ca2f70c1d",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [
+          "USB"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "8acdaf646e4651fe",
+        "target": "META",
+        "old": [
+          "META"
+        ],
+        "extended_originals": [
+          "META"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a6de69885b7d1490",
+        "target": "BAC",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "3596b1f50236324c",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "C"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "788898580a7ebd5c",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "cf9be19293ab4e26",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "GS"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "93a9ad1e5f6eb5e0",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "C"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "46f8c127b5309a5c",
+        "target": "BA",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "d4a7daf37afee533",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "c88009f871394fd8",
+        "target": "BAC",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0d60111bd85036a7",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "53dca86fa940b52d",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "686b8174344e4e8e",
+        "target": "DIS",
+        "old": [
+          "DIS"
+        ],
+        "extended_originals": [
+          "DIS"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9d4909c2deacfd31",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1cae8f32b44a7346",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "221b8dd8b5f2fd5b",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [
+          "AAPL"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "b35e5ae648ad19e8",
+        "target": "JPM",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f95b3d73db297da9",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [
+          "AAPL"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "3a194369174837c6",
+        "target": "AMZN",
+        "old": [
+          "AMZN"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "9c57d8fbc90b14d9",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f7556d670673b91c",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [
+          "AAPL"
+        ],
+        "added_outside": [
+          "QCOM"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a97bcb15f8daee39",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "219a658771ea9986",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0cea0b73b1a71f6c",
+        "target": "KO",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1ec53c2c80a4a8ce",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "df5cab0a689784e7",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1eff5f9ea0dc4c66",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "343171c8fde819bd",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "856e4c1a2817270c",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "37dc24db11d3fda6",
+        "target": "NFLX",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f2c3be9c22896713",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "5f5b71e3ee7dc3c6",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "96656720d24fda27",
+        "target": "DIS",
+        "old": [
+          "DIS"
+        ],
+        "extended_originals": [
+          "DIS"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "c5853273c27c6b4c",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "070fca00c3717020",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [
+          "AAPL"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "569517914c15d06c",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "baaa2e0b20ab3d32",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "99ceb1ddc09a80ad",
+        "target": "AAPL",
+        "old": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "META"
+        ],
+        "extended_originals": [
+          "GOOGL",
+          "META"
+        ],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "aaee5be07b88b0a4",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "10ffac2bdf2763fa",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [
+          "MS"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "8a41b9ea3ed2ecb8",
+        "target": "BAC",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "12c50ad29e9a3897",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "e76279598f6c0f32",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "86ec7b64c084fa35",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "7d2f256a94593140",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "d25452b4fd6993b5",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "47944230437761c8",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "8a3f3bcea0c3d909",
+        "target": "NFLX",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "ef1c83354b41a3f9",
+        "target": "JPM",
+        "old": [
+          "BAC",
+          "JPM"
+        ],
+        "extended_originals": [
+          "BAC",
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "4e366acaa00df9df",
+        "target": "META",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "3830262f3fc4c2a9",
+        "target": "BAC",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "cd64e755e8863a26",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "033935d821021237",
+        "target": "NFLX",
+        "old": [
+          "DIS",
+          "NFLX"
+        ],
+        "extended_originals": [
+          "DIS",
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "8d68d2feedba5ac0",
+        "target": "GOOGL",
+        "old": [
+          "AMZN",
+          "GOOGL",
+          "META"
+        ],
+        "extended_originals": [
+          "AMZN",
+          "GOOGL",
+          "META"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "b023eea767d0b89a",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f8b5ab8b5f87d812",
+        "target": "DIS",
+        "old": [
+          "DIS"
+        ],
+        "extended_originals": [
+          "DIS"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "538577d6597ee744",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "e539c2f59890dc46",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "12affbf7ad784071",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0d5946fa141de9a2",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "7925e6cb4c949706",
+        "target": "DIS",
+        "old": [
+          "DIS"
+        ],
+        "extended_originals": [
+          "DIS"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "c2e0ba312e76f655",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "af0b8c640b8ca45d",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "23630a5a98c07462",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "91796aef2a1d7e13",
+        "target": "AAPL",
+        "old": [
+          "AAPL",
+          "AMD"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f18f00392aed3f70",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "427f53d36f01fd55",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "b3cd207d4ebe8fa4",
+        "target": "AAPL",
+        "old": [
+          "AAPL",
+          "AMZN",
+          "NFLX"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "AMZN",
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "17afb4bd4ae22b54",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "180ab69a0d00dad1",
+        "target": "DIS",
+        "old": [
+          "DIS"
+        ],
+        "extended_originals": [
+          "DIS"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "38b7fc27ae659d47",
+        "target": "XOM",
+        "old": [
+          "XOM"
+        ],
+        "extended_originals": [
+          "XOM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "beaa9de0786c9181",
+        "target": "AMZN",
+        "old": [
+          "AMZN"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "cf54a851acac5bb0",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "b788a28739b2488d",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "603e6e894177896a",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "230d2b594c564338",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9081769b130dd2e1",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "3b06c4352c4204b1",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "127e05b49523943c",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "59140fe9d480a0d2",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "25d48ca2f4e77cfa",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "C"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f560fe3ed0f37a50",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1542952d31e7e013",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "856c4c99cda38343",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0d8e46c23ac47777",
+        "target": "AAPL",
+        "old": [
+          "AAPL",
+          "GOOGL",
+          "MSFT"
+        ],
+        "extended_originals": [
+          "GOOGL",
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "0ec1c626f0581682",
+        "target": "MSFT",
+        "old": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "MSFT"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9cb9be1c40cc1dd3",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "bee1488a7d606bad",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "d9a1d2ee29517ff4",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "015d7ecfbc1848d3",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "985a9e5ac8067f84",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "31d46de6d2a09528",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "b704a748e00259c1",
+        "target": "DIS",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "475209bebb35156f",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "AIG"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0763ace7a971972e",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "81285eadd7745990",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "fd3460a355332483",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "3f995a5fead5cb25",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "29afc3a2c65c02e1",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1666d76183c89277",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [
+          "AAPL"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "b184cadf200617d5",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "099f03c3034a1c98",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "C",
+          "MS"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0d474efdac047a09",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "d4977ccac4584fb7",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "3ae9c3730e893225",
+        "target": "GOOGL",
+        "old": [
+          "GOOGL"
+        ],
+        "extended_originals": [
+          "GOOGL"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "25833e11d99ca516",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "62c65c1ed1fa57ee",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "70ad22d166e12df1",
+        "target": "DIS",
+        "old": [
+          "DIS"
+        ],
+        "extended_originals": [
+          "DIS"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "39d41760e75b6fc8",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "92efe2ce0415aaa6",
+        "target": "JPM",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [
+          "V"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f12230dbdd75079d",
+        "target": "MSFT",
+        "old": [
+          "GOOGL",
+          "META",
+          "MSFT"
+        ],
+        "extended_originals": [
+          "GOOGL",
+          "META",
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "798b0672e81aba40",
+        "target": "NVDA",
+        "old": [
+          "NVDA"
+        ],
+        "extended_originals": [
+          "NVDA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "407b7f2116cc777a",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "4f5f0052c11c4481",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "C",
+          "GS"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0acdd86d2efbcd33",
+        "target": "NFLX",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "413e335287f6fd35",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "fa93258fbf1e6484",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "890051a277dc1607",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "4eee89cae506d200",
+        "target": "XOM",
+        "old": [
+          "XOM"
+        ],
+        "extended_originals": [
+          "XOM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "93ff4106e9550b9c",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "ac8f86dcead6b002",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "2fee01e304fb56d4",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "61379bdba4bc6d3e",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "ec1b2470d728ed62",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "69b40720e1998e5c",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "37d0894daf124ce4",
+        "target": "XOM",
+        "old": [
+          "XOM"
+        ],
+        "extended_originals": [
+          "XOM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "94e870846d99f06f",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "15b19b933c78814a",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "06bba038d52c550a",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "8513543d010eff0a",
+        "target": "JPM",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a4d3637432136e3a",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "3caf5602cef228d3",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "4391b6c6eafee3a0",
+        "target": "MSFT",
+        "old": [
+          "MSFT"
+        ],
+        "extended_originals": [
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "35d1cc4e19a32a16",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "ef324d62320b045d",
+        "target": "JPM",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "e6905e2b7e6423a6",
+        "target": "AAPL",
+        "old": [
+          "AAPL"
+        ],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": true,
+        "target_differs": true
+      },
+      {
+        "id": "6b31b1fd5393a9e9",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9a873ccbd674c646",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "bbaa41a59e48bdb8",
+        "target": "GOOGL",
+        "old": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "META"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "META"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "4a86fe34716bbd1e",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [
+          "TGT"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "516e930cd6d4678c",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "0325c4cee26d7b11",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "4277ec5f01efe2ba",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a70c474eca7e7086",
+        "target": "TSLA",
+        "old": [
+          "TSLA"
+        ],
+        "extended_originals": [
+          "TSLA"
+        ],
+        "added_outside": [
+          "MS",
+          "TGT"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a1d9ef661ffe5d19",
+        "target": "AAPL",
+        "old": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "NFLX"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "231e0c937a5d6aad",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "75b91b0e4ca12f3b",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a0807ce672195362",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "1c908afa91e9e4aa",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "bc1253e6f0b53e3f",
+        "target": "AMZN",
+        "old": [
+          "AMZN"
+        ],
+        "extended_originals": [
+          "AMZN"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a3693177caa49d30",
+        "target": "AMZN",
+        "old": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "MSFT"
+        ],
+        "extended_originals": [
+          "AAPL",
+          "AMZN",
+          "GOOGL",
+          "MSFT"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "a3969694778d7ee5",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "64254cadb36b7334",
+        "target": "GOOGL",
+        "old": [
+          "GOOGL"
+        ],
+        "extended_originals": [
+          "GOOGL"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f93d479e4ef81b29",
+        "target": "AMD",
+        "old": [
+          "AMD"
+        ],
+        "extended_originals": [
+          "AMD"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9b80e0d12ef9114b",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "f1bc22290d730bba",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "7efc2389cddc963b",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "6caf766c390fbb8f",
+        "target": "GOOGL",
+        "old": [
+          "GOOGL"
+        ],
+        "extended_originals": [
+          "GOOGL"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "df1957eba6ee1830",
+        "target": "BAC",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "6042be7acbbfb842",
+        "target": "NFLX",
+        "old": [
+          "NFLX"
+        ],
+        "extended_originals": [
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "7786f3da37578ba5",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [
+          "WFC"
+        ],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "18d3331ad24b9417",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9f4a55cd4158a34f",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "224f533318d24547",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "068a9babd75222b6",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "cd1324aa7013e813",
+        "target": "KO",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "c1a1a51b61d2d1cf",
+        "target": "BAC",
+        "old": [
+          "BAC"
+        ],
+        "extended_originals": [
+          "BAC"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "4e15fcfb841a2fd2",
+        "target": "DIS",
+        "old": [
+          "DIS",
+          "NFLX"
+        ],
+        "extended_originals": [
+          "DIS",
+          "NFLX"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "d1c02eec4e14783f",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "2c275f69a1e10027",
+        "target": "KO",
+        "old": [
+          "KO"
+        ],
+        "extended_originals": [
+          "KO"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "fe5530dd64b9c66a",
+        "target": "JPM",
+        "old": [
+          "JPM"
+        ],
+        "extended_originals": [
+          "JPM"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "cc420ff4be9cfebc",
+        "target": "JPM",
+        "old": [],
+        "extended_originals": [],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      },
+      {
+        "id": "9864205e26343252",
+        "target": "BA",
+        "old": [
+          "BA"
+        ],
+        "extended_originals": [
+          "BA"
+        ],
+        "added_outside": [],
+        "differs": false,
+        "target_differs": false
+      }
+    ]
+  },
+  "synthetic_probes": {
+    "target_price": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "visa_applications": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "ford_river": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "gap_coverage": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "apple_harvest": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "analyst_desks": {
+      "passed": 5,
+      "total": 6,
+      "failures": [
+        {
+          "id": "analyst_desks-4",
+          "expected": [
+            "ORCL"
+          ],
+          "got": []
+        }
+      ]
+    },
+    "cashtags": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "possessives": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "two_companies": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    },
+    "other_ambiguous_legal": {
+      "passed": 6,
+      "total": 6,
+      "failures": []
+    }
+  },
+  "adopt_live_default": false,
+  "decision_rule": "primary recall higher; primary precision >=0.95; E23 original diff=0",
+  "rules_text": "# E38: extended live company linking\n\nRules written before candidate implementation, blind sampling/labels or scored runs. No network. Prompt 21's tested local changes are the dependency for this task; the user explicitly authorised proceeding with that working tree. No commit or merge is performed.\n\n## Scope and inputs\n\n- Extend only new `/analyze` and LiveFeed requests. Batch, stored signals, replay, gates, Module A and Module B retain the original 15-company linker. No models, model thresholds or existing results change.\n- `prices_fresh.csv` contains 86 symbols: **84 companies and two market proxies**, `^GSPC` and `^VIX`. Exclude the proxies. The extended CSV contains these 84 companies plus the original 15: **99 companies**, not a verified current S&P 100 membership list. The local price list is historical.\n- Copy every original CSV field verbatim into `universe_extended.csv`; append `in_index=true` to those rows. New companies have `in_index=false`. Names, sectors and aliases are manually recorded public company names, not scraped or derived from the evaluation labels. Historical names/symbols are not claimed to be current listings.\n- Keep `Linker.from_csv()` and the original CSV unchanged. A separate extended loader/subclass reuses that loader and the existing desk/analyst logic. It additionally handles GS, MS, C, WFC and USB desks using the same patterns. Own cashtags continue to override analyst-only tagging.\n- The original API `linker()` continues to serve stored gates. A separate live loader is selected by the boolean config flag `extended_linker`, initially false. API entities add `in_index`; outside-index entities have no book/portfolio exposure attached. Existing stored live rows are not rewritten.\n\n## Fixed alias rules\n\nMatching remains case-sensitive for names and case-insensitive for cashtag letters, on word boundaries, as in the original linker. New aliases are legal names and common company short names only. Bare stock symbols that are not also company brands are not aliases. GOOG and FB remain aliases for GOOGL and META through the original cashtag table.\n\nFor ambiguous short names, a cashtag or a legal company suffix is sufficient. Otherwise a company-context word must occur within **80 characters** on either side of the match. Legal suffixes are Inc/Incorporated, Corp/Corporation, Co/Company, Ltd/Limited and PLC, with optional punctuation. Full multi-word legal aliases are accepted directly.\n\nFixed context expression (case-insensitive; word boundaries):\n\n```text\nshares?|stocks?|earnings|revenues?|profits?|losses?|dividends?|quarter\\w*|fiscal|buybacks?|securities|bonds?|debt|credit|analysts?|ratings?|upgrad\\w*|downgrad\\w*|acquir\\w*|acquisition\\w*|merger\\w*|ceo|cfo|company|corporation|incorporated|payments?|cards?|cloud|software|vehicles?|trucks?|automaker\\w*|retail\\w*|stores?|banks?|banking|deposits?|machinery|equipment|iphones?|ipads?|macbooks?\n```\n\nThe following fixed look-alike phrases block a bare ambiguous alias even if the context window also contains a finance word. A cashtag or legal-name/suffix match still wins. No rule is added or changed after the scored run.\n\n| Ticker / short name | Handling |\n|---|---|\n| AAPL / Apple | Context/suffix/cashtag required; block apple harvest, orchard, fruit, tree, pie, cider and juice phrases. Original 15-linker behaviour remains unchanged. |\n| AMZN / Amazon | Context/suffix/cashtag required; block Amazon river, rainforest, jungle and basin phrases. |\n| TGT / Target | Context/suffix/cashtag required; block target price, practice, audience, goal and market phrases. A possessive such as Target's earnings passes through its company context. |\n| V / Visa | Context/suffix/cashtag required; block visa application, applicant, immigration, tourist, travel, work permit and visa-free phrases. |\n| F / Ford | Context/suffix/cashtag required; block ford the/a river, stream or creek, and river crossing phrases. Ford Motor Company is a full name. |\n| ORCL / Oracle | Context/suffix/cashtag required; block oracle of Omaha, ancient oracle and mythical oracle phrases. Oracle Corporation is a full name. |\n| COF / Capital One | Context/suffix/cashtag required; Capital One Financial Corporation is a full name. No substring match to capital alone or the number one. |\n| CAT / Caterpillar | Context/suffix/cashtag required; block caterpillar larvae, larva, insect, butterfly and cocoon phrases. |\n| DOW / Dow | Context/suffix/cashtag required; block Dow Jones, Dow industrial/industrial-average phrases, and bare Dow rises/falls/gains/drops/climbs/slides/jumps expressions. Dow Inc. is a full name. |\n| Gap / GPS | Absent from the 84-company price list. Do not add it: gap in coverage and `$GPS` are outside this candidate's catalog. |\n| CVX / Chevron | Chevron Corporation and Chevron are accepted company names; no bare CVX alias. |\n\nThe context guards apply only to the extended candidate, including ambiguous short names among the original 15. They can change a live match on a non-company phrase such as apple harvest. The original loader and all historical paths preserve their original behaviour. The E23 guard below checks the original-company projection before live adoption.\n\n## Blind sample and reference labels\n\nUnit: one unique normalised headline, not a headline-stock pair. Normalisation is case-folding, punctuation-to-space and whitespace collapse. A headline appears in only one stratum. No linker/model predictions enter sampling or labelling.\n\nThe specified caches have different schemas: `history_texts.csv.gz` has only text IDs/text; `headline_scores_fresh.csv.gz` has doc IDs/model outputs but no text or symbols. Read **only its doc_id column**. Recover text/date/source symbols from their existing local raw sources, `universe_news_named.csv.gz` and `fresh_news.csv.gz`, using the existing fresh-news cleaning/ID method. Do not read cached scores. History raw rows must match a cached history text. Fresh raw rows must match a cached fresh doc ID. These joins recover sampling provenance; source symbols are not reference labels.\n\nMerge provenance for duplicate normalised headlines. Canonicalise GOOG→GOOGL and FB→META for stratum membership. Positive stratum: at least one source symbol belongs to the full extended catalog. Negative stratum: none belongs. Sort by normalised headline, sample **100 from each** without replacement using seed **22**, then shuffle with the same seed. Refuse an undersized pool rather than changing the rule. Record the stock-symbol/date/cache mapping separately from the blind file. The sample is frozen before labelling.\n\n`--label` writes a 200-row private blind CSV with `id,text,gold_entities,rationale` and a separate sampling manifest/provenance file. It refuses to overwrite an existing sample. Label every row from **text alone**, before invoking either linker on it. Annotation is by the same AI resolver, with no independent human check. Record model name if shown, otherwise `not shown`, time, input/output hashes and annotation kind `ai_blind_link_reference`.\n\nReference guide:\n\n- `gold_entities` is a JSON array of company tickers whose company/stock is a subject of the headline. Use `name:<normalised company name>` when its symbol is not known from the text/public company identity; do not guess a ticker or inspect source symbols. Empty array means no identifiable company subject.\n- Include explicitly named targets of earnings, products, legal/rating actions, deals and stock/holdings changes. Multiple actual subjects may be labelled. An entity merely supplying an analyst opinion, rating, price target, quote or ownership disclosure is attribution, unless its own action/performance is independently discussed. Do not infer a listed parent from a differently named fund or subsidiary.\n- Generic sectors, indices, countries and market commentary are not companies. Headlines about an unnamed company remain empty; do not infer identity from an article not supplied. Ambiguous identity may be described in the one-line rationale.\n- Labels may include companies outside the catalog. Report out-of-catalog reference support and the sampling limitations. A source-symbol-negative headline can still name a catalog company.\n- Freeze completed labels and their hashes before any scored run. No relabelling or alias/threshold tuning after viewing results.\n\n## Metrics and no-regression checks\n\nEvaluate the **subject** links: `link(text) - analyst_only(text)`, consistently for both old and extended. Also report mention links for inspection, so excluded analyst mentions are visible.\n\nFor each headline, TP is the intersection of predicted/reference entity sets. Wrong links are predicted entities outside the reference set, counted as headline-company links. A company occurring twice in one headline counts once.\n\n- Primary precision: mean of per-headline TP/predicted-count over headlines with a nonempty predicted set. Empty prediction has undefined precision and is excluded; report its count. If all predictions are empty, precision is null and adoption fails.\n- Primary recall: mean of per-headline TP/reference-count over headlines with a nonempty reference set. Report excluded empty references. If none has a reference, recall is null and adoption fails.\n- Per-headline F1: mean of 2TP/(predicted-count + reference-count) over headlines with a nonempty union. Empty/empty rows are counted separately, not rewarded as correct company links.\n- Report pooled entity-link precision/recall/F1, TP/FP/FN, exact-set accuracy, wrong-link total and all denominators as secondary checks. No sentiment/event accuracy claim and no population extrapolation.\n\nSet B: use only the existing E23 blind file's ID/headline/target_company fields, **243 pairs**. Do not rerun its gate or use its credit labels. Compare old and extended link sets projected onto the original 15, and the given target's membership. Count differences in either check; expected **0**. Additional outside-index mentions are reported separately and do not count as original-company differences. No E23 texts are read to write probes or aliases.\n\nSynthetic probes: freeze **60 invented rows**, six per category: target-price look-alikes, visa applications, ford/river, gap/coverage, apple/harvest, analyst desks, cashtags, possessives, two-company headlines, and other ambiguous/legal names (Amazon/Caterpillar/Oracle/Dow/Capital One). Store expected subject sets before reading E23 texts or running real evaluation. Report each category's passes/total and failures, clearly separate from real-news metrics. Unit tests may use invented fixtures before the scored run; they are not real-data selection.\n\nBatch guard: before candidate implementation, capture the canonical output SHA-256 of a small invented, fake-scored batch fixture. A test recomputes it with the default batch loader after the extension and must match. Also assert the original loader still has exactly its 15 members and that stored API gates retain it even when extended live linking is selected. Never rescore stored real signals.\n\n## Fixed decision and run procedure\n\nAdopt for API/live only if **all** hold on the frozen sample: extended primary recall is higher than old primary recall; extended primary precision is **at least 0.95**; and Set B has **zero original-company differences**. Otherwise leave `extended_linker=false` by default. Synthetic probes diagnose behaviour and are reported separately; they do not substitute for Set A/B.\n\n`--run` refuses if `data/outputs/linker_extended.json` already exists, takes an exclusive run lock, validates sample/label/probe/source/candidate hashes and writes one result. All selected rows and metrics are stored, including failures. No second scored run or post-result tuning. A pre-output implementation error may be fixed without changing rules, labels or samples. Freeze the rules text, candidate/probe files, source hashes and completed labels before running. Append results below afterwards; retain the pre-run rules hash/text.\n\nLimits: AI labels from the same resolver, one small sample, old US large-cap history, partly company-conditioned source collection, potentially noisy/multiple source symbols, unverified current index membership, manually chosen aliases, and no fresh-model or whole-portfolio accuracy result. These are coverage/precision checks only.\n\n",
+  "frozen": {
+    "kind": "ai_blind_link_reference",
+    "labeller": "ChatGPT",
+    "model": "not shown",
+    "interface": "ChatGPT through Codex CLI (agent session)",
+    "utc_time": "2026-10-19T07:05:06.353719+00:00",
+    "rows": 200,
+    "independent_human_check": false,
+    "same_resolver": true,
+    "rule_sha256": "42b6c39454c523889e2aac743a839161af3ca00e201c396ff8b437939c6cc92b",
+    "files_sha256": {
+      "data/reference/universe_extended.csv": "7a95f11f8b9fab6557604ece0fb229a87e37c13f936be565a59b4e21bf213eb9",
+      "data/reference/linker_extended_probes.csv": "c8a9648b12a9dfe2a2ae8ce8ec578b1dc3271c050d3449632f60ef171f0f723c",
+      "data/reference/universe.csv": "bdb35e4087da799c7dce2f819c0e059f7704be929d19e2e206f4c83001cec891",
+      "data/gold/credit/credit_to_label.csv": "67936b4f8634c2818a6c63fe74a128d5aa70a00c18905dfd567f76f55c60b01d",
+      "src/riskengine/ingest/linking.py": "540abe08536e6c094188a7b00354cc4e38d8a962bf56f799171dba611de70fe1",
+      "src/riskengine/ingest/linking_extended.py": "f099cb9767ebad61e35d568e2be4d0b28ab187e363a6406224f37361fb5d9ab1",
+      "src/riskengine/eval/linker_extended.py": "55f42f40eb850da1b7b05c1571f142502ce457a6b8769507183b6af8ba7feff5",
+      "src/riskengine/api.py": "24de493e22f2a818238193c733a3eae15f50eec79f1b113fabf69ba3f78148af",
+      "src/riskengine/config.py": "19d0105785d3cc7ba7ce26833cfbf3a4987a7e86c19342c4f0617300f990b7ea",
+      "tests/test_linker_extended.py": "0dc53d21af0af2e17ebff5f5a0beebd34a56c1ddea737a60e464032e4aced226",
+      "data/cache/history_texts.csv.gz": "89dfc6668b42a4f02422675f4ca78addf6b71ed3af19db446c55048104f1b409",
+      "data/cache/headline_scores_fresh.csv.gz": "26d545607924a012cec43da8f71956cc46b9adc996c0e9403c15b3ca7a95a3be",
+      "data/raw/fnspid/universe_news_named.csv.gz": "b21227baab3d5ffbe5bcef3492811f1bf4c22eec13a7d148c789a19be5a69b2d",
+      "data/raw/fnspid/fresh_news.csv.gz": "3e1939c2f60f706451f68a30d106fd822d1baf6c5e0751a80d2e20778448128f",
+      "private_notes/annotation_uploads/task1/linker_extended/sample.csv": "c9c9aba664c2d0249da8097131babd70a2b195054080fa71bcbdf8be4508b18c",
+      "private_notes/annotation_uploads/task1/linker_extended/sampling.json": "0df182d1eabc73199631cd1d228f4235c10a2a79ac56f0a95361aa2d08a935f3",
+      "private_notes/annotation_uploads/task1/linker_extended/provenance.csv": "b46a51d7ab5e210991bf6fb9db6cd402c030f543665aefe0543ee91b1442d0d1"
+    }
+  },
+  "limits": "Same-AI labels, one small historical company-conditioned sample; coverage only."
+}

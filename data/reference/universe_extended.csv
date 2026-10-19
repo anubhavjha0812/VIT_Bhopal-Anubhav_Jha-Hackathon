@@ -1,0 +1,100 @@
+ticker,name,sector,cashtags,aliases,in_index
+AAPL,Apple Inc.,Technology,AAPL,Apple,true
+MSFT,Microsoft Corp.,Technology,MSFT,Microsoft,true
+GOOGL,Alphabet Inc.,Communication,GOOGL|GOOG,Alphabet|Google,true
+META,Meta Platforms Inc.,Communication,META|FB,Meta Platforms|Facebook,true
+NVDA,NVIDIA Corp.,Technology,NVDA,Nvidia|NVIDIA,true
+AMD,Advanced Micro Devices Inc.,Technology,AMD,Advanced Micro Devices|AMD,true
+NFLX,Netflix Inc.,Communication,NFLX,Netflix,true
+DIS,Walt Disney Co.,Communication,DIS,Disney,true
+AMZN,Amazon.com Inc.,Consumer Discretionary,AMZN,Amazon,true
+TSLA,Tesla Inc.,Consumer Discretionary,TSLA,Tesla,true
+KO,Coca-Cola Co.,Consumer Staples,KO,Coca-Cola|Coca Cola,true
+BA,Boeing Co.,Industrials,BA,Boeing,true
+XOM,Exxon Mobil Corp.,Energy,XOM,Exxon|ExxonMobil,true
+JPM,JPMorgan Chase & Co.,Financials,JPM,JPMorgan|JP Morgan|J.P. Morgan,true
+BAC,Bank of America Corp.,Financials,BAC,Bank of America|BofA,true
+ABBV,AbbVie Inc.,Health Care,ABBV,AbbVie Inc|AbbVie,false
+ABT,Abbott Laboratories,Health Care,ABT,Abbott Laboratories|Abbott,false
+ACN,Accenture plc,Technology,ACN,Accenture plc|Accenture,false
+ADBE,Adobe Inc.,Technology,ADBE,Adobe Systems|Adobe Inc|Adobe,false
+AIG,American International Group Inc.,Financials,AIG,American International Group|AIG,false
+ALL,Allstate Corporation,Financials,ALL,Allstate Corporation|Allstate,false
+AMGN,Amgen Inc.,Health Care,AMGN,Amgen Inc|Amgen,false
+AMT,American Tower Corporation,Real Estate,AMT,American Tower Corporation|American Tower,false
+AXP,American Express Company,Financials,AXP,American Express Company|American Express,false
+BIIB,Biogen Inc.,Health Care,BIIB,Biogen Idec|Biogen Inc|Biogen,false
+BKNG,Booking Holdings Inc.,Consumer Discretionary,BKNG,Booking Holdings|Priceline Group|Priceline,false
+BLK,BlackRock Inc.,Financials,BLK,BlackRock Inc|BlackRock,false
+BMY,Bristol-Myers Squibb Company,Health Care,BMY,Bristol-Myers Squibb|Bristol Myers Squibb,false
+C,Citigroup Inc.,Financials,C,Citigroup Inc|Citigroup|Citi,false
+CAT,Caterpillar Inc.,Industrials,CAT,Caterpillar Inc|Caterpillar,false
+CHTR,Charter Communications Inc.,Communication,CHTR,Charter Communications,false
+CL,Colgate-Palmolive Company,Consumer Staples,CL,Colgate-Palmolive|Colgate Palmolive,false
+CMCSA,Comcast Corporation,Communication,CMCSA,Comcast Corporation|Comcast,false
+COF,Capital One Financial Corporation,Financials,COF,Capital One Financial Corporation|Capital One Financial|Capital One,false
+COP,ConocoPhillips,Energy,COP,ConocoPhillips,false
+COST,Costco Wholesale Corporation,Consumer Staples,COST,Costco Wholesale|Costco,false
+CRM,Salesforce Inc.,Technology,CRM,Salesforce.com|Salesforce,false
+CSCO,Cisco Systems Inc.,Technology,CSCO,Cisco Systems|Cisco,false
+CVS,CVS Health Corporation,Health Care,CVS,CVS Health|CVS Caremark|CVS,false
+CVX,Chevron Corporation,Energy,CVX,Chevron Corporation|Chevron,false
+DD,DuPont de Nemours Inc.,Materials,DD,DuPont de Nemours|DuPont|Dupont,false
+DHR,Danaher Corporation,Health Care,DHR,Danaher Corporation|Danaher,false
+DOW,Dow Inc.,Materials,DOW,Dow Inc|Dow Chemical|Dow,false
+DUK,Duke Energy Corporation,Utilities,DUK,Duke Energy,false
+EMR,Emerson Electric Co.,Industrials,EMR,Emerson Electric,false
+EXC,Exelon Corporation,Utilities,EXC,Exelon Corporation|Exelon,false
+F,Ford Motor Company,Consumer Discretionary,F,Ford Motor Company|Ford Motor|Ford,false
+FDX,FedEx Corporation,Industrials,FDX,FedEx Corporation|FedEx|Federal Express,false
+GD,General Dynamics Corporation,Industrials,GD,General Dynamics,false
+GE,General Electric Company,Industrials,GE,General Electric|GE,false
+GILD,Gilead Sciences Inc.,Health Care,GILD,Gilead Sciences|Gilead,false
+GM,General Motors Company,Consumer Discretionary,GM,General Motors|GM,false
+GS,Goldman Sachs Group Inc.,Financials,GS,Goldman Sachs Group|Goldman Sachs,false
+HD,Home Depot Inc.,Consumer Discretionary,HD,Home Depot,false
+HON,Honeywell International Inc.,Industrials,HON,Honeywell International|Honeywell,false
+IBM,International Business Machines Corporation,Technology,IBM,International Business Machines|IBM,false
+INTC,Intel Corporation,Technology,INTC,Intel Corporation|Intel,false
+JNJ,Johnson & Johnson,Health Care,JNJ,Johnson & Johnson|Johnson and Johnson,false
+KHC,Kraft Heinz Company,Consumer Staples,KHC,Kraft Heinz,false
+KMI,Kinder Morgan Inc.,Energy,KMI,Kinder Morgan,false
+LLY,Eli Lilly and Company,Health Care,LLY,Eli Lilly|Lilly,false
+LMT,Lockheed Martin Corporation,Industrials,LMT,Lockheed Martin,false
+LOW,Lowe's Companies Inc.,Consumer Discretionary,LOW,Lowe's|Lowe’s|Lowes,false
+MA,Mastercard Incorporated,Financials,MA,Mastercard Incorporated|MasterCard|Mastercard,false
+MCD,McDonald's Corporation,Consumer Discretionary,MCD,McDonald's|McDonald’s|McDonalds,false
+MDLZ,Mondelez International Inc.,Consumer Staples,MDLZ,Mondelez International|Mondelez,false
+MDT,Medtronic plc,Health Care,MDT,Medtronic plc|Medtronic,false
+MET,MetLife Inc.,Financials,MET,MetLife Inc|MetLife,false
+MMM,3M Company,Industrials,MMM,3M Company|3M,false
+MO,Altria Group Inc.,Consumer Staples,MO,Altria Group|Altria,false
+MRK,Merck & Co. Inc.,Health Care,MRK,Merck & Co|Merck,false
+MS,Morgan Stanley,Financials,MS,Morgan Stanley,false
+NEE,NextEra Energy Inc.,Utilities,NEE,NextEra Energy,false
+NKE,NIKE Inc.,Consumer Discretionary,NKE,Nike Inc|NIKE|Nike,false
+ORCL,Oracle Corporation,Technology,ORCL,Oracle Corporation|Oracle Corp|Oracle,false
+OXY,Occidental Petroleum Corporation,Energy,OXY,Occidental Petroleum,false
+PEP,PepsiCo Inc.,Consumer Staples,PEP,PepsiCo|Pepsico,false
+PFE,Pfizer Inc.,Health Care,PFE,Pfizer Inc|Pfizer,false
+PG,Procter & Gamble Company,Consumer Staples,PG,Procter & Gamble|Procter and Gamble,false
+PM,Philip Morris International Inc.,Consumer Staples,PM,Philip Morris International|Philip Morris,false
+PYPL,PayPal Holdings Inc.,Financials,PYPL,PayPal Holdings|PayPal,false
+QCOM,QUALCOMM Incorporated,Technology,QCOM,QUALCOMM|Qualcomm,false
+RTX,Raytheon Technologies Corporation,Industrials,RTX,Raytheon Technologies|Raytheon|United Technologies,false
+SBUX,Starbucks Corporation,Consumer Discretionary,SBUX,Starbucks Corporation|Starbucks,false
+SLB,Schlumberger Limited,Energy,SLB,Schlumberger Limited|Schlumberger,false
+SO,Southern Company,Utilities,SO,Southern Company,false
+SPG,Simon Property Group Inc.,Real Estate,SPG,Simon Property Group,false
+T,AT&T Inc.,Communication,T,AT&T Inc|AT&T,false
+TGT,Target Corporation,Consumer Staples,TGT,Target Corporation|Target Corp|Target,false
+TMO,Thermo Fisher Scientific Inc.,Health Care,TMO,Thermo Fisher Scientific,false
+TXN,Texas Instruments Incorporated,Technology,TXN,Texas Instruments,false
+UNH,UnitedHealth Group Incorporated,Health Care,UNH,UnitedHealth Group|UnitedHealth,false
+UNP,Union Pacific Corporation,Industrials,UNP,Union Pacific,false
+UPS,United Parcel Service Inc.,Industrials,UPS,United Parcel Service|UPS,false
+USB,U.S. Bancorp,Financials,USB,U.S. Bancorp|US Bancorp|U.S. Bank|US Bank,false
+V,Visa Inc.,Financials,V,Visa Inc|Visa,false
+VZ,Verizon Communications Inc.,Communication,VZ,Verizon Communications|Verizon,false
+WFC,Wells Fargo & Company,Financials,WFC,Wells Fargo,false
+WMT,Walmart Inc.,Consumer Staples,WMT,Wal-Mart Stores|Wal-Mart|Walmart,false

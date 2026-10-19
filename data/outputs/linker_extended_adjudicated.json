@@ -1,0 +1,69 @@
+{
+  "experiment": "E38 secondary: stored linker outputs re-scored on adjudicated labels (no linker rerun)",
+  "labels_sha256": "378e1ac67420a5b719d654907181faa5de3ee90b30af87a0d09be2293199ddc5",
+  "edits": {
+    "L38-028": {
+      "op": "remove",
+      "entity": "tpi",
+      "reason": "Adjudicated by the written guide: truncated 'TPI ...', identity not clear from the text, so not guessed."
+    },
+    "L38-033": {
+      "op": "remove",
+      "entity": "GOOGL",
+      "reason": "Adjudicated: Google Cloud Platform is a partner platform of a differently named product; not a target of the headline."
+    },
+    "L38-072": {
+      "op": "add",
+      "entity": "GOOGL",
+      "reason": "Adjudicated: 'Alphabet' is named explicitly, so the listed company is a subject."
+    },
+    "L38-085": {
+      "op": "add",
+      "entity": "XOM",
+      "reason": "Adjudicated: 'Exxon' is named explicitly, so the listed company is a subject."
+    }
+  },
+  "set_a_old": {
+    "rows": 200,
+    "precision": 0.7619047619047619,
+    "recall": 0.34238095238095234,
+    "f1": 0.376952380952381,
+    "wrong_links": 25,
+    "tp": 86,
+    "fp": 25,
+    "fn": 172,
+    "precision_rows": 105,
+    "recall_rows": 175,
+    "f1_rows": 175,
+    "empty_both": 25,
+    "empty_predictions": 95,
+    "empty_references": 25,
+    "exact_set_accuracy": 0.34,
+    "micro_precision": 0.7747747747747747,
+    "micro_recall": 0.3333333333333333,
+    "micro_f1": 0.46612466124661245
+  },
+  "set_a_extended": {
+    "rows": 200,
+    "precision": 0.7713178294573644,
+    "recall": 0.4884761904761905,
+    "f1": 0.510312925170068,
+    "wrong_links": 32,
+    "tp": 119,
+    "fp": 32,
+    "fn": 139,
+    "precision_rows": 129,
+    "recall_rows": 175,
+    "f1_rows": 175,
+    "empty_both": 25,
+    "empty_predictions": 71,
+    "empty_references": 25,
+    "exact_set_accuracy": 0.465,
+    "micro_precision": 0.7880794701986755,
+    "micro_recall": 0.46124031007751937,
+    "micro_f1": 0.5819070904645477
+  },
+  "set_b_original_company_differences": 20,
+  "decision_if_adjudicated": false,
+  "note": "Edits were decided from the written label guide before looking at per-row linker outputs. Primary result stays the frozen labels in linker_extended.json."
+}
