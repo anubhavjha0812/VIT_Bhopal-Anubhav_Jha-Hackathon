@@ -65,6 +65,7 @@ These rows measure different things: the credit rows use AI credit-event labels 
 |---|---|---:|---:|---:|
 | Credit gate | E23, AI credit reference (243 rows) | 0.470 | 0.848 | — |
 | Credit gate | 8-K, AI credit reference (287 rows) | 0.842 | 0.871 | — |
+| Credit gate + precision rules (E36b) | E23, AI credit reference, design data (rules amended after the E36 run; no unseen alert set) | 0.661 | 0.848 | — |
 | v3 P95 | E30 F 2019, absolute CAR >= 5% | 0.232 | 0.054 | 3.23 |
 | Volatility, P95 matched count | E30 F 2019, absolute CAR >= 5% | 0.095 | 0.022 | 1.32 |
 | Random P95, seed 0 draw | E30 F 2019, absolute CAR >= 5% | 0.046 | 0.011 | 0.65 |

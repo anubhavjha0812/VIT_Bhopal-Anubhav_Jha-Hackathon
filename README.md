@@ -67,12 +67,15 @@ The project uses publicly available financial text and market data. No confident
 | Daily prices and S&P 500/VIX data via yfinance | Event studies and portfolio backtesting |
 | SEC EDGAR XBRL and credit-rating evidence | Company debt information and credit-risk inputs |
 | FRED and historical market data | Macroeconomic inputs and stress scenarios |
+| [Financial Transactions Dataset: Analytics (Kaggle)](https://www.kaggle.com/datasets/computingvictor/transactions-fraud-datasets) | Separate synthetic merchant-flow sleeve; license: see the dataset page |
 
 ### Historical window and assumptions
 
 The primary integrated replay and portfolio backtest use **9 April–10 June 2020**, with 14,169 sampled text documents and 15 stocks. The historical window is constrained by the available news and market data.
 
-Module B uses a hypothetical bank book dated 31 December 2019, with 85 positions across 15 companies and approximately $2.96 billion in loan and bond exposure. Its exposures, hedge positions, loss-given-default assumptions and initial capital are modelling assumptions rather than records from a real bank.
+Module B's main book uses SEC inputs and is dated 31 December 2019, with 85 positions across 15 companies and approximately $2.96 billion in loan and bond exposure. Its exposures, hedge positions, loss-given-default assumptions and initial capital are modelling assumptions rather than records from a real bank.
+
+A separate [transaction-seeded sleeve](docs/MODULE_B_TRANSACTIONS.md) uses monthly merchant purchase flows from the public transaction dataset. Its loans, bonds, hedges and rating buckets are synthetic proxies; the ratings are not real credit ratings. Merchant IDs are not mapped to real companies. The aggregated sample can rebuild this sleeve without the raw download. Its stress results are stored separately; the dashboard, alerts and existing backtests still use the SEC book.
 
 Historical scenarios include the Global Financial Crisis, the Eurozone crisis and COVID-19. These are stress-testing scenarios, not forecasts. Some market and hedge risks remain simplified or outside the current model.
 
@@ -202,9 +205,15 @@ For 9 April–10 June 2020, with the same allocation rule and costs:
 
 With 1,000 shuffled-company placebos, p was **0.403 for return** and **0.380 for Sharpe**. The tilt shows **no proven value over chance or equal weight**. Sources and the earlier `own` comparison are in [RESULTS](docs/RESULTS.md#module-a-portfolio-and-placebo).
 
+### Impact score (v3) and alert validation
+
+The impact score is now a learned expected price move (clipped ridge on past headlines and the real two-day abnormal move), used for news and tweets. Spearman rank match with the real move, volatility-only baseline in brackets: fresh stocks 2019 **0.280** (0.143), 2020 **0.353** (0.331); our stocks 2019 **0.327** (0.270), 2020 **0.381** (0.340). The earlier version (v2) failed in 2020 (-0.092); v3 fixes that. On tweets (test 1 Jun to 16 Jul 2020) it reaches 0.140 vs 0.134 for volatility only and 0.011 for the old formula. 2019 and 2020 were already seen during development, so this is a development check, not a blind test. Details: [IMPACT_V3](docs/IMPACT_V3.md).
+
+The credit gate keeps the severity formula, because the learned score says how far a stock may move, not how serious a credit event is; with the learned score the gate dropped real downgrades. We also tested whether the learned score could trigger non-credit alerts. At the same number of alerts it was no better than choosing the most volatile stocks (precision 0.076 vs 0.067 in 2019, 0.411 vs 0.428 in 2020), so Module B stays on the credit and market-wide gates. A big price move shows that the market reacted, not that a crisis happened. See [E30](docs/E30_TRIGGER_VALIDATION.md).
+
 ### Other limits
 
-The impact score has not consistently beaten the volatility-only baseline across fresh test periods. Credit gating still needs broader independent validation. The hypothetical bank book simplifies interest-rate, funding and hedge risks. Historical results are prototype outputs under these assumptions, not forecasts or production risk estimates.
+The learned impact beats volatility only for ranking, not for choosing alerts; `/analyze` still uses the formula because it has no price history. Credit gating still needs broader independent validation. The hypothetical bank book simplifies interest-rate, funding and hedge risks. Historical results are prototype outputs under these assumptions, not forecasts or production risk estimates.
 
 ## License
 
