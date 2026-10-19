@@ -8,7 +8,7 @@
 | **College Email ID** | anubhav.23bai11112@vitbhopal.ac.in |
 | **College / Campus** | VIT Bhopal |
 | **Demo Video Link** | https://vercel.com/anubhav-jhas-projects-6003010f/landing-page-bank|
-| **Slide Deck Link** | https://docs.google.com/presentation/d/1FT8_KLupz0IJT5HMbO_TSWoIdaK4OYzoQY8jl74XQfY/edit?usp=sharing — `docs/presentation.pdf` |
+| **Slide Deck Link** | [Presentation (PDF)](docs/presentation.pdf) |
 
 ## 1. Project Overview / Problem Statement & Approach
 
@@ -18,6 +18,11 @@
 - **Module B — Credit Stress Testing:** Uses a credit gate and a separate Geopolitical/Macroeconomic market gate to trigger stress analysis on a hypothetical bank portfolio of loans, bonds and derivatives. It estimates credit losses and capital impacts under historical crisis scenarios and configurable what-if assumptions.
 
 The dashboard includes historical replay and a live GDELT news interface. Measured results and limits are below; full details are in [RESULTS](docs/RESULTS.md) and [EXPERIMENTS](docs/EXPERIMENTS.md).
+
+
+Live news and `/analyze` use the 99-company linker candidate 3 by default. The owner selected it after E38c; the original 95% precision requirement no longer blocks this selection. Historical batch/replay portfolios still cover the original 15 companies; recognising another company does not add portfolio exposure.
+
+Live credit decisions can optionally produce persisted stress previews and a separate ledger (`live_decisions=false` by default); `/live/health` shows freshness, errors, lag and recent previews. This does not execute trades or change weights.
 
 ## 2. Architecture & Tech Stack
 
@@ -29,7 +34,7 @@ The dashboard includes historical replay and a live GDELT news interface. Measur
 
 1. **Data sources:** Financial news, social media posts, historical stock prices, company debt information, credit ratings and macroeconomic data.
 2. **Ingestion and preprocessing:** Cleans text, identifies company references and prepares documents for inference.
-3. **NLP signal generation:** New pipeline scoring defaults to E27 company-specific sentiment (`sentiment = "entity"`), with the older `own` model as fallback when the company name is missing. Events use E24 candidate C (`events = "model_rules"`); impact uses a formula.
+3. **NLP signal generation:** New pipeline scoring defaults to E27 company-specific sentiment (`sentiment = "entity"`), with the older `own` model as fallback when the company name is missing. Events use the E24 candidate C rules over the E25 v3 student (`events = "student_rules"`, chosen on the sealed E44 test); impact is the learned v3 score.
 4. **Shared signal layer and API:** Exposes signals through FastAPI. Stored credit-replay signals still contain `own` sentiment, because entity scoring missed a real downgrade alert. The credit gate and a separate Geopolitical/Macroeconomic market gate feed Module B.
 5. **Risk modules:** Module A computes portfolio weights and backtest metrics. Module B applies financial formulas, historical shocks and statistical simulation to estimate credit losses and capital impacts.
 6. **Dashboard:** A React and TypeScript interface displays signals, replay progress, portfolio weights, credit alerts and stress-test outputs.
@@ -89,23 +94,36 @@ All new project labels for E24 (including D1/D2 and the final sets), Macro/Geo a
 
 **Tested environment:** Linux development environment. The project also includes CI checks; verify the current repository's supported platforms before relying on a different operating system.
 
-### Prerequisites
+### Option 1: Docker (one command)
 
-- Git
-- Python 3.12
-- [uv](https://docs.astral.sh/uv/)
-- Node.js 22 and npm for the dashboard
-
-### Clone and install
+Only Docker is needed.
 
 ```bash
-git clone <YOUR_PUBLIC_REPOSITORY_URL>
-cd <YOUR_REPOSITORY_FOLDER>
+git clone https://github.com/anubhavjha0812/VIT_Bhopal-Anubhav_Jha-Hackathon.git
+cd VIT_Bhopal-Anubhav_Jha-Hackathon
 
-uv sync
+docker compose up --build
 ```
 
-### Run the command-line demo
+Open **http://localhost:8000**: the dashboard, with the API under `/api` (docs at `/api/docs`). That is all: the first build takes a few minutes (it builds the dashboard and bakes the models in, so nothing is downloaded at run time); later starts are fast. It runs the saved-signal demo first, then starts the server. Stop it with `Ctrl+C`.
+
+### Option 2: without Docker
+
+You need Git, Python 3.12, [uv](https://docs.astral.sh/uv/) and Node.js 22 with npm.
+
+```bash
+git clone https://github.com/anubhavjha0812/VIT_Bhopal-Anubhav_Jha-Hackathon.git
+cd VIT_Bhopal-Anubhav_Jha-Hackathon
+
+uv sync                                   # Python dependencies
+(cd web && npm install && npm run build)  # the dashboard
+
+uv run uvicorn riskengine.site:app --host 127.0.0.1 --port 8000
+```
+
+Open **http://127.0.0.1:8000**: the same dashboard and API as Option 1.
+
+### Optional: command-line demo
 
 ```bash
 uv run python run_demo.py
@@ -113,9 +131,9 @@ uv run python run_demo.py
 
 This uses the saved `own`-sentiment signals. The separate entity-sentiment comparison is saved in `data/outputs/signals_entity.jsonl.gz`; changing the config default does not replace the stored credit signals.
 
-### Run the complete dashboard and API
+### Dashboard and API in detail
 
-Build the frontend and start the combined server:
+The same steps as Option 2, one at a time:
 
 ```bash
 cd web
