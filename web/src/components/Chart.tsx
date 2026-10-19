@@ -15,6 +15,9 @@ interface Props {
   style?: CSSProperties
 }
 
+// Canvas text does not inherit the page font, so name it here (a chart may still set its own).
+const TEXT = { textStyle: { fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" } }
+
 export default function Chart({ option, style }: Props) {
-  return <ReactEChartsCore echarts={echarts} option={option} style={{ width: '100%', ...style }} notMerge />
+  return <ReactEChartsCore echarts={echarts} option={{ ...TEXT, ...option }} style={{ width: '100%', ...style }} notMerge />
 }

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { gsap, MOTION_OK, useGSAP } from '../motion'
 import { getJSON, postJSON } from '../api'
 import ErrorBox from '../components/ErrorBox'
 import EventBadge, { ImpactPill } from '../components/EventBadge'
@@ -36,6 +37,12 @@ type LiveState = {
 }
 
 const observed = (value: string) => new Date(value).toLocaleString()
+
+/** "12 min" / "3 h" since a time, for how fresh the newest headline is. */
+const age = (value: string) => {
+  const minutes = Math.max(0, Math.round((Date.now() - new Date(value).getTime()) / 60000))
+  return minutes < 90 ? `${minutes} min` : `${Math.round(minutes / 60)} h`
+}
 
 export default function Live() {
   const [data, setData] = useState<LiveState | null>(null)
@@ -82,10 +89,36 @@ export default function Live() {
     }
   }
 
+  const newest = data?.signals.reduce<string | null>(
+    (latest, signal) => (!latest || signal.published_at > latest ? signal.published_at : latest), null)
+
   const shown = useMemo(() => (data?.signals ?? []).filter((signal) =>
     signal.impact >= minImpact && (!ticker || signal.tickers.includes(ticker)) &&
     `${signal.text} ${signal.domain}`.toLowerCase().includes(search.toLowerCase()),
   ), [data, ticker, minImpact, search])
+
+  // Headlines that arrive after the first load glow for a moment, so a refresh shows what is new.
+  const list = useRef<HTMLDivElement>(null)
+  const seen = useRef<Set<string> | null>(null)
+  useGSAP(
+    () => {
+      const ids = (data?.signals ?? []).map((signal) => signal.doc_id)
+      if (!ids.length) return
+      if (seen.current === null) {
+        seen.current = new Set(ids) // the first load is the baseline, nothing is "new" yet
+        return
+      }
+      const fresh = ids.filter((id) => !seen.current!.has(id))
+      ids.forEach((id) => seen.current!.add(id))
+      if (!fresh.length) return
+      const mm = gsap.matchMedia()
+      mm.add(MOTION_OK, () => {
+        const rows = fresh.map((id) => `[data-id="${CSS.escape(id)}"]`).join(',')
+        gsap.fromTo(rows, { backgroundColor: 'rgba(20,184,166,0.16)' }, { backgroundColor: 'rgba(20,184,166,0)', duration: 1.8, ease: 'power2.out', clearProps: 'backgroundColor' })
+      })
+    },
+    { scope: list, dependencies: [data] },
+  )
 
   return (
     <div className="min-w-0 space-y-6">
@@ -95,7 +128,7 @@ export default function Live() {
             <span className={`h-2 w-2 rounded-full ${data?.error || error ? 'bg-amber-500' : 'bg-teal-500'}`} />
             Current news · GDELT
           </div>
-          <h1 className="text-2xl font-semibold tracking-tight">Live GDELT feed</h1>
+          <h1 className="text-3xl font-semibold">Live GDELT feed</h1>
           <p className="mt-1 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
             Financial headlines scored by our risk engine. New articles are checked every five minutes.
           </p>
@@ -123,6 +156,17 @@ export default function Live() {
         </div>
       )}
 
+      {!data?.error && (data?.warning || newest) && (
+        <p role="status" className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-600 dark:text-slate-300">
+          {newest && <span>Newest headline observed {age(newest)} ago.</span>}
+          {data?.warning && data.active_source === 'gdelt_gkg' && (
+            <span className="text-amber-800 dark:text-amber-300">
+              GDELT's news search is not answering, so headlines come from its 15-minute GKG file instead.
+            </span>
+          )}
+        </p>
+      )}
+
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard label="Recent headlines" value={String(data?.total ?? 0)} note="latest 500 retained" />
         <StatCard label="High impact (> 7)" value={String(data?.high_impact ?? 0)} tone="alert" note="across recent headlines" />
@@ -133,7 +177,7 @@ export default function Live() {
 
       <section className="min-w-0 rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <div className="flex flex-col gap-3 border-b border-slate-200 p-4 dark:border-slate-800 lg:flex-row lg:items-center lg:justify-between">
-          <h2 className="shrink-0 text-sm font-semibold">Latest risk signals <span className="font-normal text-slate-500">· {shown.length}</span></h2>
+          <h2 className="shrink-0 text-lg font-semibold">Latest risk signals <span className="font-normal text-slate-500">· {shown.length}</span></h2>
           <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:flex-wrap">
             <input aria-label="Search headlines" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search headlines or source…"
               className="min-w-0 rounded-lg border border-slate-200 bg-transparent px-3 py-2 text-sm dark:border-slate-700" />
@@ -151,9 +195,9 @@ export default function Live() {
         {!shown.length && <p className="p-6 text-sm text-slate-500 dark:text-slate-400">
           {!data || data.polling ? 'Fetching and analyzing current headlines…' : data.error ? 'Waiting for GDELT to reconnect.' : 'No headlines match the current filters.'}
         </p>}
-        <div className="divide-y divide-slate-100 dark:divide-slate-800">
+        <div ref={list} className="divide-y divide-slate-100 dark:divide-slate-800">
           {shown.map((signal) => (
-            <article key={signal.doc_id} className="grid min-w-0 gap-3 p-4 sm:p-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-6">
+            <article key={signal.doc_id} data-id={signal.doc_id} className="grid min-w-0 gap-3 p-4 sm:p-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-6">
               <div className="min-w-0 space-y-2">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
                   <span className="break-all font-medium">{signal.domain}</span>
@@ -168,7 +212,7 @@ export default function Live() {
               <div className="flex flex-wrap items-center gap-3 lg:justify-end" title={`Model: ${signal.model}`}>
                 <EventBadge event={signal.event} />
                 <span className="flex items-center gap-1.5 text-xs text-slate-500">Impact <ImpactPill impact={signal.impact} /></span>
-                <span className={`font-mono text-sm tabular-nums ${signal.sentiment > 0.2 ? 'text-teal-700 dark:text-teal-400' : signal.sentiment < -0.2 ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}`}>
+                <span className={`font-figures text-sm tabular-nums ${signal.sentiment > 0.2 ? 'text-teal-700 dark:text-teal-400' : signal.sentiment < -0.2 ? 'text-rose-600 dark:text-rose-400' : 'text-slate-500'}`}>
                   <span className="mr-1 font-sans text-xs text-slate-500">Sentiment</span>{signed(signal.sentiment, 3)}
                 </span>
               </div>
@@ -177,7 +221,6 @@ export default function Live() {
         </div>
       </section>
       <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-        {data?.active_source === 'gdelt_gkg' ? 'Using the latest GKG file while the DOC API is unavailable. ' : ''}
         Headline analysis only. Times show when GDELT observed each article. Live signals are stored separately from historical replay and backtests.
         {' '}Manual checks are spaced at least one minute apart.
       </p>

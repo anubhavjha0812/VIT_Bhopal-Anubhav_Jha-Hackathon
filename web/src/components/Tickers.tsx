@@ -3,7 +3,7 @@ export function AnalystTag({ ticker }: { ticker: string }) {
   return (
     <span
       title="Named only as the analyst giving a stock rating; not what the text is about"
-      className="whitespace-nowrap rounded bg-slate-100 px-1 font-mono text-xs text-slate-500 dark:bg-slate-800 dark:text-slate-400"
+      className="whitespace-nowrap rounded bg-slate-100 px-1 font-figures text-xs text-slate-500 dark:bg-slate-800 dark:text-slate-400"
     >
       {ticker} (analyst)
     </span>
@@ -12,7 +12,7 @@ export function AnalystTag({ ticker }: { ticker: string }) {
 
 export default function Tickers({ subjects, analysts = [] }: { subjects: string[]; analysts?: string[] }) {
   return (
-    <span className="inline-flex flex-wrap items-center gap-1 font-mono text-xs">
+    <span className="inline-flex flex-wrap items-center gap-1 font-figures text-xs">
       {subjects.length > 0 && <span>{subjects.join(' ')}</span>}
       {analysts.map((t) => (
         <AnalystTag key={t} ticker={t} />

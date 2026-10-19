@@ -14,18 +14,19 @@ export default function ClassF1Table({ rows, engineModel }: Props) {
   const classes = Object.keys(scored[0].per_class_f1!)
   return (
     <section className="min-w-0 rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-      <h2 className="border-b border-slate-200 px-4 py-3 text-sm font-semibold dark:border-slate-800">
+      <h2 className="border-b border-slate-200 px-4 py-3 text-lg font-semibold dark:border-slate-800">
         F1 per event class <span className="font-normal text-slate-500">· %, same test</span>
       </h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-[780px] w-full text-sm">
-          <thead className="text-left text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+      {/* no side scroll: model names wrap inside their column and the padding is tighter */}
+      <div>
+        <table className="w-full text-sm">
+          <thead className="text-left text-xs text-slate-500 dark:text-slate-400">
             <tr>
-              <th className="px-3 py-2">Class</th>
+              <th className="py-2 pr-1 pl-3 align-bottom font-medium">Class</th>
               {scored.map((r) => (
                 <th
                   key={r.model}
-                  className={`px-3 py-2 text-right font-medium normal-case tracking-normal ${
+                  className={`px-1.5 py-2 text-right align-bottom font-medium break-words ${
                     r.model === engineModel ? 'bg-teal-50 font-semibold text-slate-800 dark:bg-teal-950/40 dark:text-slate-100' : ''
                   }`}
                 >
@@ -37,14 +38,14 @@ export default function ClassF1Table({ rows, engineModel }: Props) {
           <tbody>
             {classes.map((c) => (
               <tr key={c} className="border-t border-slate-100 dark:border-slate-800">
-                <td className="px-3 py-2 whitespace-nowrap">{c}</td>
+                <td className="py-2 pr-1 pl-3">{c}</td>
                 {scored.map((r) => {
                   const engine = r.model === engineModel
                   const ci = r.per_class_f1_ci95?.[c]
                   return (
                     <td
                       key={r.model}
-                      className={`px-3 py-2 text-right font-mono tabular-nums ${engine ? 'bg-teal-50 font-semibold dark:bg-teal-950/40' : ''}`}
+                      className={`px-1.5 py-2 text-right font-figures tabular-nums ${engine ? 'bg-teal-50 font-semibold dark:bg-teal-950/40' : ''}`}
                     >
                       {pct(r.per_class_f1![c])}
                       {engine && ci && (

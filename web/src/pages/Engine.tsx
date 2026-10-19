@@ -21,7 +21,7 @@ function TickerPicker({ tickers, value, onChange }: { tickers: string[]; value: 
           key={t}
           type="button"
           onClick={() => onChange(t)}
-          className={`shrink-0 rounded-lg border px-3 py-1.5 font-mono text-sm transition ${
+          className={`shrink-0 rounded-lg border px-3 py-1.5 font-figures text-sm transition ${
             t === value
               ? 'border-teal-600 bg-teal-600 text-white'
               : 'border-slate-200 bg-white text-slate-700 hover:border-teal-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
@@ -89,7 +89,7 @@ function SignalTable({ rows }: { rows: Signal[] }) {
   return (
     <div className="overflow-x-auto">
         <table className="min-w-[900px] w-full text-sm">
-        <thead className="text-left text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        <thead className="text-left text-xs text-slate-500 dark:text-slate-400">
           <tr>
             <th className="px-4 py-2">Time (UTC)</th>
             <th className="px-4 py-2">Source</th>
@@ -102,7 +102,7 @@ function SignalTable({ rows }: { rows: Signal[] }) {
         <tbody>
           {rows.map((s) => (
             <tr key={s.doc_id} className="border-t border-slate-100 align-top dark:border-slate-800">
-              <td className="whitespace-nowrap px-4 py-2 font-mono text-xs text-slate-500">
+              <td className="whitespace-nowrap px-4 py-2 font-figures text-xs text-slate-500">
                 {s.published_at.slice(0, 16).replace('T', ' ')}
               </td>
               <td className="px-4 py-2 text-xs">{s.source}</td>
@@ -119,7 +119,7 @@ function SignalTable({ rows }: { rows: Signal[] }) {
                 <ImpactPill impact={s.impact} />
               </td>
               <td
-                className={`px-4 py-2 text-right font-mono tabular-nums ${
+                className={`px-4 py-2 text-right font-figures tabular-nums ${
                   s.sentiment > 0.2 ? 'text-teal-700 dark:text-teal-400' : s.sentiment < -0.2 ? 'text-rose-600 dark:text-rose-400' : ''
                 }`}
               >
@@ -196,14 +196,16 @@ function TickerPanel({ ticker, minImpact, setMinImpact }: { ticker: string; minI
   return (
     <>
       <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
-        <StatCard label={`${ticker} texts`} value={stats.texts.toLocaleString()} note="news + tweets naming the stock" />
+        <StatCard hero label={`${ticker} texts`} value={stats.texts.toLocaleString()} note="news + tweets naming the stock" />
         <StatCard
+          hero
           label="Mean sentiment"
           value={signed(stats.mean, 3)}
           note="−1 very negative · +1 very positive"
         />
-        <StatCard label="High impact (> 7)" value={String(stats.high)} tone="alert" note="texts above the trigger" />
+        <StatCard hero label="High impact (> 7)" value={String(stats.high)} tone="alert" note="texts above the trigger" />
         <StatCard
+          hero
           label="Price over window"
           value={`${signed(stats.move * 100, 1)}%`}
           note="first to last close"
@@ -220,7 +222,7 @@ function TickerPanel({ ticker, minImpact, setMinImpact }: { ticker: string; minI
 
       <section className="rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <div className="flex flex-col gap-3 border-b border-slate-200 px-4 py-3 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-sm font-semibold">
+          <h2 className="text-lg font-semibold">
             Texts with impact ≥ {minImpact}{' '}
             <span className="font-normal text-slate-500">
               · {matching.toLocaleString()}

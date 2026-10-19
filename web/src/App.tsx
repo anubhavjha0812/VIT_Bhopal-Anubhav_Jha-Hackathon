@@ -1,16 +1,18 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import Intro from './components/Intro'
 import ThemeToggle from './components/ThemeToggle'
-import Analyze from './pages/Analyze'
-import Engine from './pages/Engine'
-import Live from './pages/Live'
-import ModuleA from './pages/ModuleA'
-import ModuleB from './pages/ModuleB'
-import Overview from './pages/Overview'
-import Replay from './pages/Replay'
 import { shouldShowIntro } from './intro'
 import { applyTheme, initialTheme, ThemeContext, type Theme } from './theme'
+
+// Each page (and the chart library it pulls in) loads only when it is first opened.
+const Analyze = lazy(() => import('./pages/Analyze'))
+const Engine = lazy(() => import('./pages/Engine'))
+const Live = lazy(() => import('./pages/Live'))
+const ModuleA = lazy(() => import('./pages/ModuleA'))
+const ModuleB = lazy(() => import('./pages/ModuleB'))
+const Overview = lazy(() => import('./pages/Overview'))
+const Replay = lazy(() => import('./pages/Replay'))
 
 // A page gets a link here only once it exists (no empty sections).
 const PAGES = [
@@ -216,15 +218,17 @@ export default function App() {
         {intro && <Intro onDone={endIntro} />}
         <Island theme={theme} onTheme={changeTheme} ready={!intro} />
         <main className="mx-auto min-h-screen w-full max-w-[1500px] px-3 pt-5 pb-32 sm:px-5 md:px-6 md:pt-[4.5rem] md:pb-8">
-          <Routes>
-            <Route path="/" element={<Overview />} />
-            <Route path="/engine" element={<Engine />} />
-            <Route path="/analyze" element={<Analyze />} />
-            <Route path="/live" element={<Live />} />
-            <Route path="/replay" element={<Replay />} />
-            <Route path="/module-a" element={<ModuleA />} />
-            <Route path="/module-b" element={<ModuleB />} />
-          </Routes>
+          <Suspense fallback={<p className="text-sm text-slate-500">Loading…</p>}>
+            <Routes>
+              <Route path="/" element={<Overview />} />
+              <Route path="/engine" element={<Engine />} />
+              <Route path="/analyze" element={<Analyze />} />
+              <Route path="/live" element={<Live />} />
+              <Route path="/replay" element={<Replay />} />
+              <Route path="/module-a" element={<ModuleA />} />
+              <Route path="/module-b" element={<ModuleB />} />
+            </Routes>
+          </Suspense>
         </main>
       </BrowserRouter>
     </ThemeContext.Provider>

@@ -3,6 +3,7 @@ import { signed } from '../format'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useApi } from '../api'
 import ErrorBox from '../components/ErrorBox'
+import PageHero from '../components/PageHero'
 import EventBadge, { ImpactPill } from '../components/EventBadge'
 import WeightBars from '../components/WeightBars'
 import Tickers from '../components/Tickers'
@@ -128,6 +129,24 @@ export default function Replay() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoplay, play])
 
+  // New rows are added at the top. While the viewer has scrolled down into the feed, hold the list still
+  // (otherwise every arrival pushes it down and the page can never be scrolled back up) and offer a jump.
+  const feedTop = useRef<HTMLElement>(null)
+  const [away, setAway] = useState(false)
+  const [held, setHeld] = useState<{ feed: ReplaySignal[]; texts: number } | null>(null)
+  useEffect(() => {
+    const onScroll = () => setAway((feedTop.current?.getBoundingClientRect().top ?? 1) < 60)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  useEffect(() => {
+    if (!away) setHeld({ feed: r.feed, texts: r.count.texts })
+  }, [away, r.feed, r.count.texts])
+  const hold = away && held != null && r.status !== 'idle'
+  const shown = hold ? held.feed : r.feed
+  const waiting = hold ? r.count.texts - held.texts : 0
+
   if (overview.error) return <ErrorBox message={overview.error} />
   const total = overview.data?.texts ?? 0
   const trigger = overview.data?.config.impact_trigger ?? 7
@@ -135,6 +154,10 @@ export default function Replay() {
 
   return (
     <div className="space-y-6">
+      <PageHero
+        title="Replay: the engine on real news, in order"
+        text="Press play and the 9 April to 10 June 2020 news and tweets arrive as they were published, each scored by the engine. Credit alerts and Module A weights appear as they happen."
+      />
       <section className={`${card} flex flex-col gap-4 p-4 sm:flex-row sm:flex-wrap sm:items-center`}>
         {r.status === 'playing' ? (
           <button type="button" onClick={r.pause} className="w-full rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white dark:bg-slate-200 dark:text-slate-900 sm:w-auto">
@@ -172,7 +195,7 @@ export default function Replay() {
           </select>
         </label>
         <div className="w-full text-left sm:ml-auto sm:w-auto sm:text-right">
-          <div className="font-mono text-lg font-semibold tabular-nums">{now ? `${nyTime(now)} NY` : '—'}</div>
+          <div className="font-figures text-lg font-semibold tabular-nums">{now ? `${nyTime(now)} NY` : '—'}</div>
           <div className="text-xs text-slate-500">
             {r.count.texts.toLocaleString()} / {total.toLocaleString()} texts · {r.count.news} news · {r.count.tweets} tweets
             {r.status === 'done' && ' · finished'}
@@ -185,23 +208,23 @@ export default function Replay() {
       </section>
 
       <div className="grid min-w-0 gap-6 xl:grid-cols-3">
-        <section className={`${card} xl:col-span-2`}>
+        <section ref={feedTop} className={`${card} xl:col-span-2`}>
           <h2 className={head}>Live feed · newest first</h2>
-          {r.feed.length === 0 ? (
+          {shown.length === 0 ? (
             <p className="p-4 text-sm text-slate-500">
               Press Play: the 9 Apr – 10 Jun 2020 news and tweets arrive in the order they were published, each scored by
               the engine.
             </p>
           ) : (
             <ul>
-              {r.feed.map((s) => (
+              {shown.map((s) => (
                 <li key={s.doc_id} className="flex flex-wrap items-start gap-2 border-t border-slate-100 px-4 py-3 text-sm first:border-t-0 dark:border-slate-800 sm:flex-nowrap sm:gap-3 sm:py-2">
-                  <span className="w-full shrink-0 font-mono text-xs text-slate-500 sm:w-24">{nyTime(s.published_at)}</span>
+                  <span className="w-full shrink-0 font-figures text-xs text-slate-500 sm:w-24">{nyTime(s.published_at)}</span>
                   <span className="min-w-24 shrink-0 sm:w-28">
                     <Tickers subjects={s.tickers} analysts={s.analysts} />
                   </span>
                   <span
-                    className={`w-12 shrink-0 text-left font-mono tabular-nums sm:text-right ${
+                    className={`w-12 shrink-0 text-left font-figures tabular-nums sm:text-right ${
                       s.sentiment > 0.2 ? 'text-teal-700 dark:text-teal-400' : s.sentiment < -0.2 ? 'text-rose-600 dark:text-rose-400' : ''
                     }`}
                   >
@@ -242,7 +265,7 @@ export default function Replay() {
                     <div className="mt-1">{s.text}</div>
                     {s.obligors && (
                       <div className="mt-1 text-xs text-rose-700 dark:text-rose-400">
-                        → Module B: <span className="font-mono">{s.obligors.join(' ')}</span> · {s.gate}
+                        → Module B: <span className="font-figures">{s.obligors.join(' ')}</span> · {s.gate}
                       </div>
                     )}
                     {s.obligors?.map((o) => {
@@ -275,6 +298,15 @@ export default function Replay() {
           </section>
         </div>
       </div>
+      {waiting > 0 && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 left-1/2 z-20 -translate-x-1/2 rounded-full bg-teal-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-teal-700"
+        >
+          ↑ {waiting.toLocaleString()} new · back to top
+        </button>
+      )}
     </div>
   )
 }

@@ -50,7 +50,7 @@ export default function Intro({ onDone }: { onDone: () => void }) {
         <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl" style={rise(800)}>
           AI Risk Engine
         </h1>
-        <p className="mt-4 text-xs font-medium tracking-[0.25em] text-teal-300/90 uppercase sm:text-sm" style={rise(2600)}>
+        <p className="mt-4 text-xs font-medium text-teal-300/90 sm:text-sm" style={rise(2600)}>
           S&amp;P Global × Crisil · Campus Hackathon 2026
         </p>
         <p className="mt-2 text-sm text-white/50" style={rise(2000)}>

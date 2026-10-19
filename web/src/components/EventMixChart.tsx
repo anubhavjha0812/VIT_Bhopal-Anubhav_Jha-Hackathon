@@ -17,7 +17,8 @@ export default function EventMixChart({ events }: Props) {
 
   const option = {
     backgroundColor: 'transparent',
-    grid: { left: 96, right: 24, top: 10, bottom: 30 },
+    // labels measured into the grid, inset 16px like the card heading
+    grid: { left: 16, right: 40, top: 10, bottom: 30, containLabel: true },
     tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
     xAxis: {
       type: 'value',
@@ -36,7 +37,7 @@ export default function EventMixChart({ events }: Props) {
         data: rows.map(([name, n]) => ({
           value: n,
           itemStyle: {
-            color: ['Default', 'Credit downgrade', 'Covenant breach'].includes(name) ? '#e11d48' : '#0d9488',
+            color: ['Default', 'Credit downgrade', 'Covenant breach'].includes(name) ? '#b23a2e' : '#1f6f5c',
             borderRadius: [0, 4, 4, 0],
           },
         })),
@@ -47,7 +48,7 @@ export default function EventMixChart({ events }: Props) {
 
   return (
     <section className="min-w-0 rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-      <h2 className="border-b border-slate-200 px-4 py-3 text-sm font-semibold dark:border-slate-800">
+      <h2 className="border-b border-slate-200 px-4 py-3 text-lg font-semibold dark:border-slate-800">
         Event classes in the window
       </h2>
       <Chart option={option} style={{ height: 260 }} />

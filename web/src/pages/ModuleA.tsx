@@ -2,6 +2,8 @@ import { useApi } from '../api'
 import Chart from '../components/Chart'
 import ErrorBox from '../components/ErrorBox'
 import { chartColors, useTheme } from '../theme'
+import PageHero from '../components/PageHero'
+import StatCard from '../components/StatCard'
 import WeightBars from '../components/WeightBars'
 
 type Metrics = Record<string, Record<string, number>>
@@ -18,7 +20,7 @@ const METRIC_ROWS: [string, string, (x: number) => string][] = [
 ]
 // 15 distinct colours, stable per ticker
 const PALETTE = [
-  '#0d9488', '#2563eb', '#d97706', '#dc2626', '#7c3aed', '#059669', '#db2777', '#0891b2',
+  '#1f6f5c', '#2563eb', '#d99a00', '#b23a2e', '#7c3aed', '#059669', '#db2777', '#0891b2',
   '#65a30d', '#ea580c', '#4f46e5', '#ca8a04', '#be123c', '#0284c7', '#9333ea',
 ]
 
@@ -88,11 +90,26 @@ export default function ModuleA() {
   const latest = weights.data[weights.data.length - 1]
   return (
     <div className="space-y-6">
-      <p className="text-sm text-slate-600 dark:text-slate-300">
-        A mock index of 15 S&amp;P 100 stocks. Each day the sentiment tilt moves weight toward stocks with better recent
-        news (3-day mean sentiment), long only, capped at 15% per stock, and trades at the <em>next</em> close so no
-        future news is used. 5 bp cost on every trade. Equal weight is the benchmark.
-      </p>
+      <PageHero
+        wide
+        title="Module A · Portfolio rebalancing"
+        text={
+          <>
+            A mock index of 15 S&amp;P 100 stocks. Each day the sentiment tilt moves weight toward stocks with better recent
+            news (3-day mean sentiment), long only, capped at 15% per stock, and trades at the <em>next</em> close so no
+            future news is used. 5 bp cost on every trade. Equal weight is the benchmark.
+          </>
+        }
+      >
+        {metrics.data.sentiment && metrics.data.equal && (
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <StatCard hero label="Sentiment tilt, total return" value={`${(metrics.data.sentiment.total_return * 100).toFixed(1)}%`} note={`equal weight ${(metrics.data.equal.total_return * 100).toFixed(1)}%`} />
+            <StatCard hero label="Sharpe ratio" value={metrics.data.sentiment.sharpe.toFixed(2)} note={`equal weight ${metrics.data.equal.sharpe.toFixed(2)}`} />
+            <StatCard label="Daily turnover" value={`${(metrics.data.sentiment.avg_daily_turnover * 100).toFixed(1)}%`} note={`equal weight ${(metrics.data.equal.avg_daily_turnover * 100).toFixed(1)}%; 5 bp cost`} tone="alert" />
+            <StatCard label="Verdict" value="No proven edge" note="The tilt trails equal weight; 43 days cannot tell skill from luck (placebo p about 0.4)" />
+          </div>
+        )}
+      </PageHero>
 
       <div className="grid gap-6 xl:grid-cols-3">
         <section className={`${card} xl:col-span-2`}>
@@ -105,7 +122,7 @@ export default function ModuleA() {
           <h2 className={head}>Performance, {equity.data[0].date} → {equity.data[equity.data.length - 1].date}</h2>
           <div className="overflow-x-auto">
             <table className="min-w-[420px] w-full text-sm">
-              <thead className="text-left text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+              <thead className="text-left text-xs text-slate-500 dark:text-slate-400">
                 <tr>
                   <th className="px-4 py-2" />
                   {strategies.map((s) => (
@@ -120,7 +137,7 @@ export default function ModuleA() {
                   <tr key={key} className="border-t border-slate-100 dark:border-slate-800">
                     <td className="px-4 py-2">{label}</td>
                     {strategies.map((s) => (
-                      <td key={s} className="px-4 py-2 text-right font-mono tabular-nums">
+                      <td key={s} className="px-4 py-2 text-right font-figures tabular-nums">
                         {fmt(metrics.data![s][key])}
                       </td>
                     ))}

@@ -3,9 +3,106 @@
 /* `dark:` utilities follow a .dark class on <html> (set by ThemeToggle), not only the OS. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Credit-desk palette. The four colour families the pages use are remapped here, so each class
+   keeps its role: slate = navy ink and cool paper, teal = "better" green, rose = "worse" brick,
+   amber = watch-list. */
 @theme {
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  /* Body text uses the system face (SF on Apple, Segoe on Windows): tuned for screens, no download. */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-figures: 'Barlow Condensed', system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
+
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.25rem;
+
+  --color-slate-50: #f3f5f7;
+  --color-slate-100: #e6eaef;
+  --color-slate-200: #d3d9e1;
+  --color-slate-300: #b3bcc9;
+  --color-slate-400: #8590a2;
+  --color-slate-500: #5e697d;
+  --color-slate-600: #46516a;
+  --color-slate-700: #333d55;
+  --color-slate-800: #222b40;
+  --color-slate-900: #172238;
+  --color-slate-950: #0d1524;
+
+  --color-teal-50: #eef6f3;
+  --color-teal-100: #d5ebe3;
+  --color-teal-200: #abd6c7;
+  --color-teal-300: #7bbda8;
+  --color-teal-400: #4fa088;
+  --color-teal-500: #2f8770;
+  --color-teal-600: #1f6f5c;
+  --color-teal-700: #195a4b;
+  --color-teal-800: #15483d;
+  --color-teal-900: #113a31;
+  --color-teal-950: #0a231e;
+
+  --color-rose-50: #fbf1ef;
+  --color-rose-100: #f6ddd9;
+  --color-rose-200: #edbcb4;
+  --color-rose-300: #e09284;
+  --color-rose-400: #d06a59;
+  --color-rose-500: #c14e3f;
+  --color-rose-600: #b23a2e;
+  --color-rose-700: #942f25;
+  --color-rose-800: #77271f;
+  --color-rose-900: #5e211b;
+  --color-rose-950: #36110d;
+
+  --color-amber-50: #fdf7e6;
+  --color-amber-100: #faebc0;
+  --color-amber-200: #f4d683;
+  --color-amber-300: #edc04a;
+  --color-amber-400: #e4ab1c;
+  --color-amber-500: #d99a00;
+  --color-amber-600: #b47f00;
+  --color-amber-700: #8c6300;
+  --color-amber-800: #6e4e04;
+  --color-amber-900: #5a4008;
+  --color-amber-950: #332300;
+}
+
+/* Headings share the condensed face of the big figures, like a rating sheet. Tracking depends on
+   size: large type a little tighter, small labels a little looser. In the base layer so utility
+   classes on an element still win. */
+/* Cards across every page: soft two-layer lift on light, none on dark (borders carry it there). */
+@layer components {
+  .rounded-xl.bg-white {
+    box-shadow:
+      0 1px 2px rgb(23 34 56 / 0.06),
+      0 12px 28px rgb(23 34 56 / 0.06);
+  }
+  .dark .rounded-xl.dark\:bg-slate-900 {
+    box-shadow: none;
+  }
+}
+
+@layer base {
+  h1,
+  h2 {
+    font-family: var(--font-figures);
+  }
+
+  h1 {
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+
+  h2 {
+    letter-spacing: 0.005em;
+  }
+
+  .text-xs {
+    letter-spacing: 0.01em;
+  }
+
+  /* A press shows at once, on pointer-down, not after release. */
+  button:not(:disabled):active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+  }
 }
 
 html {
@@ -18,6 +115,10 @@ html.dark {
 
 body {
   @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+  /* switching theme eases the brightness change instead of flashing */
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 /* The island's border light: a conic gradient with one short bright arc (a comet with a fading
@@ -44,12 +145,12 @@ body {
   background: conic-gradient(
     from var(--ring-angle),
     transparent 0deg 270deg,
-    rgb(45 212 191 / 0.25) 310deg,
-    rgb(45 212 191) 350deg,
-    rgb(240 253 250) 358deg,
+    rgb(79 160 136 / 0.25) 310deg,
+    rgb(79 160 136) 350deg,
+    rgb(238 246 243) 358deg,
     transparent 360deg
   );
-  filter: drop-shadow(0 0 3px rgb(45 212 191 / 0.9));
+  filter: drop-shadow(0 0 3px rgb(79 160 136 / 0.9));
   mask:
     linear-gradient(#000 0 0) content-box exclude,
     linear-gradient(#000 0 0);
@@ -61,12 +162,12 @@ body {
   background: conic-gradient(
     from var(--ring-angle),
     transparent 0deg 270deg,
-    rgb(13 148 136 / 0.25) 310deg,
-    rgb(13 148 136) 350deg,
-    rgb(17 94 89) 358deg,
+    rgb(31 111 92 / 0.25) 310deg,
+    rgb(31 111 92) 350deg,
+    rgb(21 72 61) 358deg,
     transparent 360deg
   );
-  filter: drop-shadow(0 0 3px rgb(20 184 166 / 0.8));
+  filter: drop-shadow(0 0 3px rgb(47 135 112 / 0.8));
 }
 
 /* the opening intro (components/Intro.tsx) */
@@ -103,6 +204,37 @@ body {
 
   .island-ring {
     display: none;
+  }
+
+  body,
+  button:active {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Asked for less see-through UI or more contrast: the page switcher turns solid with a clear edge. */
+@media (prefers-reduced-transparency: reduce) {
+  .island {
+    backdrop-filter: none !important;
+    background-color: var(--color-slate-950) !important;
+  }
+
+  .dark .island {
+    background-color: var(--color-slate-100) !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .island {
+    backdrop-filter: none !important;
+    background-color: var(--color-slate-950) !important;
+    border-color: var(--color-slate-100) !important;
+  }
+
+  .dark .island {
+    background-color: var(--color-slate-100) !important;
+    border-color: var(--color-slate-950) !important;
   }
 }
 
