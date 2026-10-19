@@ -1,0 +1,19 @@
+{
+  "grid": [
+    "none",
+    "0.05",
+    "0.1",
+    "0.15"
+  ],
+  "dev_sharpe_diff_vs_equal": {
+    "none": 0.09484440641359249,
+    "0.05": 0.0636497958340505,
+    "0.1": 0.03495056714111855,
+    "0.15": 0.03179544954532543
+  },
+  "chosen_cap": "none",
+  "decision": {
+    "decision": "no cap beats the daily move on development",
+    "defaults_changed": false
+  }
+}
