@@ -1,0 +1,69 @@
+{
+  "phase": "scored",
+  "started_utc": "2026-10-19T15:34:14.294852+00:00",
+  "predicted_utc": "2026-10-19T15:34:48.276635+00:00",
+  "plan_sha256": "8d6f1406db597935ec8387ff7ffb6bc328917bf9031a9497cd8d9e2f74f42193",
+  "labels_sha256": "722986b2547f7274be4b29b9f9b5cb090942adee08cf179390feae7542d1177d",
+  "rows": 822,
+  "ids_sha256": "3c0b24b95559aeae475bf8bd5c60de954818c7d506ff45c92e2a26c096b0cea0",
+  "predictions_sha256": "35afa80c7be5d34117abe66b2b7d38d04d1638961a3992c49c62ab8e7cef9dc6",
+  "scorer_sha256": "ee867f80d63f3928759e8066a5031d15d6bfaa751e36d00ac22d5224a49a044b",
+  "runtime": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "onnxruntime": "1.30.0",
+    "torch": "2.14.1+cpu",
+    "transformers": "5.18.0"
+  },
+  "engine_inference": {
+    "method": "onnx_cpu_per_row_dynamic_padding_v1",
+    "batch_size": 1,
+    "padding": "longest_in_single_row",
+    "truncation": true,
+    "max_length": 64,
+    "provider": "CPUExecutionProvider",
+    "onnxruntime_version": "1.30.0",
+    "intra_op_num_threads": 1,
+    "inter_op_num_threads": 1,
+    "execution_mode": "ORT_SEQUENTIAL",
+    "graph_optimization_level": "ORT_ENABLE_ALL",
+    "softmax": "torch_float32_softmax_last_dimension",
+    "torch_version": "2.14.1+cpu",
+    "transformers_version": "5.18.0",
+    "model_sha256": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "assets_sha256": {
+      "config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+      "model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+      "source_metrics.json": "2dca2b4609638cb3ff6f954d811b57db11ff84560fe4054015e651287809d80a",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+    }
+  },
+  "student_inference": {
+    "method": "onnx_cpu_per_row_dynamic_padding_v1",
+    "batch_size": 1,
+    "padding": "longest_in_single_row",
+    "truncation": true,
+    "max_length": 64,
+    "provider": "CPUExecutionProvider",
+    "onnxruntime_version": "1.30.0",
+    "intra_op_num_threads": 1,
+    "inter_op_num_threads": 1,
+    "execution_mode": "ORT_SEQUENTIAL",
+    "graph_optimization_level": "ORT_ENABLE_ALL",
+    "softmax": "torch_float32_softmax_last_dimension",
+    "torch_version": "2.14.1+cpu",
+    "transformers_version": "5.18.0",
+    "model_sha256": "80b70feb6bc2b436a8e500fb57d9d82642f293fe2e94aeeb99c5d60febb98dd6",
+    "assets_sha256": {
+      "config.json": "596a8b3a87448227d15c622c859c55e4b9d35f94aa2da136ab3d119c8ac4d1da",
+      "model.onnx": "80b70feb6bc2b436a8e500fb57d9d82642f293fe2e94aeeb99c5d60febb98dd6",
+      "source_metrics.json": "d8fbd66da49394d81a339dc69426cd960457279b7ef6332193c833f9d2cc89e3",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+    }
+  },
+  "results_sha256": "593eac604fbbb77692f0b6e44a3418132b35be477286f9cafce3126072b61a7b",
+  "completed_utc": "2026-10-19T15:35:20.731358+00:00"
+}

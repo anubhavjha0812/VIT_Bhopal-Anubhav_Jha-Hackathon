@@ -1,0 +1,2229 @@
+{
+  "rows": 822,
+  "classes": [
+    "Default",
+    "Credit downgrade",
+    "Covenant breach",
+    "Geopolitical",
+    "Macroeconomic",
+    "M&A",
+    "Product news",
+    "Earnings",
+    "Analyst rating",
+    "Legal/Regulatory",
+    "Management change",
+    "Other"
+  ],
+  "primary_classes": [
+    "Default",
+    "Credit downgrade",
+    "Covenant breach",
+    "Geopolitical",
+    "Macroeconomic",
+    "M&A",
+    "Product news",
+    "Earnings",
+    "Analyst rating",
+    "Legal/Regulatory",
+    "Management change",
+    "Other"
+  ],
+  "secondary_classes": [
+    "Default",
+    "Credit downgrade",
+    "Covenant breach",
+    "Geopolitical",
+    "Macroeconomic",
+    "M&A",
+    "Product news",
+    "Earnings",
+    "Analyst rating",
+    "Legal/Regulatory",
+    "Management change"
+  ],
+  "support": {
+    "Default": 28,
+    "Credit downgrade": 69,
+    "Covenant breach": 43,
+    "Geopolitical": 34,
+    "Macroeconomic": 62,
+    "M&A": 52,
+    "Product news": 48,
+    "Earnings": 57,
+    "Analyst rating": 53,
+    "Legal/Regulatory": 73,
+    "Management change": 58,
+    "Other": 245
+  },
+  "bootstrap": {
+    "draws": 1000,
+    "seed": 44,
+    "block_length": 29,
+    "sort": [
+      "date",
+      "id"
+    ],
+    "percentiles": [
+      2.5,
+      97.5
+    ],
+    "ordering": "publication date, id",
+    "indices_sha256": "4a6e373b19fe6519146ac2fd94dfba1c652df778edbfef2a3797974f27f7c1fa"
+  },
+  "scores": {
+    "A": {
+      "macro_f1_primary": {
+        "estimate": 0.5414022398374067,
+        "ci95": [
+          0.5144452596194614,
+          0.5691289633698092
+        ],
+        "difference_vs_C": -0.06264305637974399,
+        "difference_vs_C_ci95": [
+          -0.08220537392547074,
+          -0.03558582604755406
+        ]
+      },
+      "macro_f1_without_other": {
+        "estimate": 0.5512428907122705,
+        "ci95": [
+          0.521321208848202,
+          0.582455934473597
+        ],
+        "difference_vs_C": -0.060902657094109136,
+        "difference_vs_C_ci95": [
+          -0.08139355868101447,
+          -0.032728382820672114
+        ]
+      },
+      "accuracy": {
+        "estimate": 0.5401459854014599,
+        "ci95": [
+          0.5170012165450122,
+          0.5717761557177615
+        ],
+        "difference_vs_C": -0.06326034063260344,
+        "difference_vs_C_ci95": [
+          -0.09002433090024331,
+          -0.029197080291970767
+        ]
+      },
+      "per_class": {
+        "Default": {
+          "support": 28,
+          "precision": {
+            "estimate": 0.39344262295081966,
+            "ci95": [
+              0.3,
+              0.5
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.8571428571428571,
+            "ci95": [
+              0.7367543859649123,
+              0.9655172413793104
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5393258426966292,
+            "ci95": [
+              0.4307594936708861,
+              0.631578947368421
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Credit downgrade": {
+          "support": 69,
+          "precision": {
+            "estimate": 0.8888888888888888,
+            "ci95": [
+              0.8038235294117647,
+              0.9821428571428571
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.6956521739130435,
+            "ci95": [
+              0.6,
+              0.8077054794520548
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.7804878048780488,
+            "ci95": [
+              0.7058823529411765,
+              0.8666911764705882
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Covenant breach": {
+          "support": 43,
+          "precision": {
+            "estimate": 0.37777777777777777,
+            "ci95": [
+              0.23396072013093291,
+              0.5263397129186602
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.3953488372093023,
+            "ci95": [
+              0.2571245421245421,
+              0.5283296337402885
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.38636363636363635,
+            "ci95": [
+              0.24656480505795572,
+              0.5137887183213734
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Geopolitical": {
+          "support": 34,
+          "precision": {
+            "estimate": 0.5263157894736842,
+            "ci95": [
+              0.26282894736842105,
+              0.7619047619047619
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.29411764705882354,
+            "ci95": [
+              0.1427579365079365,
+              0.4600853658536585
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.37735849056603776,
+            "ci95": [
+              0.18518518518518517,
+              0.5432659932659932
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Macroeconomic": {
+          "support": 62,
+          "precision": {
+            "estimate": 0.43283582089552236,
+            "ci95": [
+              0.34644912174439735,
+              0.510970458072303
+            ],
+            "difference_vs_C": -0.0065581184984170315,
+            "difference_vs_C_ci95": [
+              -0.01598745139496849,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.9354838709677419,
+            "ci95": [
+              0.8769230769230769,
+              0.9836065573770492
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5918367346938775,
+            "ci95": [
+              0.5026723968978358,
+              0.6635071090047393
+            ],
+            "difference_vs_C": -0.00610140963601935,
+            "difference_vs_C_ci95": [
+              -0.01514617990343163,
+              0.0
+            ]
+          }
+        },
+        "M&A": {
+          "support": 52,
+          "precision": {
+            "estimate": 0.45454545454545453,
+            "ci95": [
+              0.35504546602677445,
+              0.5821206467661691
+            ],
+            "difference_vs_C": -0.1608391608391609,
+            "difference_vs_C_ci95": [
+              -0.22811165035042827,
+              -0.08098016255682597
+            ]
+          },
+          "recall": {
+            "estimate": 0.7692307692307693,
+            "ci95": [
+              0.679213303485769,
+              0.8780975609756098
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5714285714285714,
+            "ci95": [
+              0.4720131530873219,
+              0.6792641509433962
+            ],
+            "difference_vs_C": -0.11233211233211238,
+            "difference_vs_C_ci95": [
+              -0.1569684855558798,
+              -0.05741483778968696
+            ]
+          }
+        },
+        "Product news": {
+          "support": 48,
+          "precision": {
+            "estimate": 0.33064516129032256,
+            "ci95": [
+              0.23683014354066984,
+              0.4267142857142857
+            ],
+            "difference_vs_C": -0.24511241446725324,
+            "difference_vs_C_ci95": [
+              -0.388510578955225,
+              -0.06478535353535352
+            ]
+          },
+          "recall": {
+            "estimate": 0.8541666666666666,
+            "ci95": [
+              0.7567567567567568,
+              0.9348505434782608
+            ],
+            "difference_vs_C": 0.4583333333333333,
+            "difference_vs_C_ci95": [
+              0.2926829268292683,
+              0.6123233908948195
+            ]
+          },
+          "f1": {
+            "estimate": 0.47674418604651164,
+            "ci95": [
+              0.36733486293925854,
+              0.5746189002343004
+            ],
+            "difference_vs_C": 0.007608383577375866,
+            "difference_vs_C_ci95": [
+              -0.14446651321651316,
+              0.1658054969058537
+            ]
+          }
+        },
+        "Earnings": {
+          "support": 57,
+          "precision": {
+            "estimate": 0.47368421052631576,
+            "ci95": [
+              0.28205128205128205,
+              0.6551993534482758
+            ],
+            "difference_vs_C": -0.06868867082961644,
+            "difference_vs_C_ci95": [
+              -0.17879866725298516,
+              0.041666666666666685
+            ]
+          },
+          "recall": {
+            "estimate": 0.3157894736842105,
+            "ci95": [
+              0.2,
+              0.420076923076923
+            ],
+            "difference_vs_C": -0.24561403508771928,
+            "difference_vs_C_ci95": [
+              -0.33333333333333337,
+              -0.13112972202423379
+            ]
+          },
+          "f1": {
+            "estimate": 0.37894736842105264,
+            "ci95": [
+              0.24386548410938655,
+              0.47920673076923076
+            ],
+            "difference_vs_C": -0.17277676950998183,
+            "difference_vs_C_ci95": [
+              -0.26758555921352695,
+              -0.07352297003541777
+            ]
+          }
+        },
+        "Analyst rating": {
+          "support": 53,
+          "precision": {
+            "estimate": 0.46875,
+            "ci95": [
+              0.29618055555555556,
+              0.6296783625730994
+            ],
+            "difference_vs_C": -0.20772058823529416,
+            "difference_vs_C_ci95": [
+              -0.30936983598470835,
+              -0.08292424313182735
+            ]
+          },
+          "recall": {
+            "estimate": 0.2830188679245283,
+            "ci95": [
+              0.1875,
+              0.42857142857142855
+            ],
+            "difference_vs_C": -0.5849056603773586,
+            "difference_vs_C_ci95": [
+              -0.6896865203761756,
+              -0.4106737012987013
+            ]
+          },
+          "f1": {
+            "estimate": 0.35294117647058826,
+            "ci95": [
+              0.23992105263157895,
+              0.4742461340206185
+            ],
+            "difference_vs_C": -0.40738940204180846,
+            "difference_vs_C_ci95": [
+              -0.498128845826959,
+              -0.2469279381922388
+            ]
+          }
+        },
+        "Legal/Regulatory": {
+          "support": 73,
+          "precision": {
+            "estimate": 0.9047619047619048,
+            "ci95": [
+              0.8181818181818182,
+              0.9772727272727273
+            ],
+            "difference_vs_C": 0.0023228803716608404,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.01046716668455182
+            ]
+          },
+          "recall": {
+            "estimate": 0.5205479452054794,
+            "ci95": [
+              0.4025324675324676,
+              0.6341656987998451
+            ],
+            "difference_vs_C": 0.013698630136986245,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.047648083623693355
+            ]
+          },
+          "f1": {
+            "estimate": 0.6608695652173913,
+            "ci95": [
+              0.5544333451202264,
+              0.7478296217744786
+            ],
+            "difference_vs_C": 0.011746758199847385,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.04353399489465101
+            ]
+          }
+        },
+        "Management change": {
+          "support": 58,
+          "precision": {
+            "estimate": 0.9642857142857143,
+            "ci95": [
+              0.9107142857142857,
+              1.0
+            ],
+            "difference_vs_C": 0.0006493506493506773,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.003478757706034979
+            ]
+          },
+          "recall": {
+            "estimate": 0.9310344827586207,
+            "ci95": [
+              0.898261250730567,
+              1.0
+            ],
+            "difference_vs_C": 0.01724137931034475,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.05357142857142849
+            ]
+          },
+          "f1": {
+            "estimate": 0.9473684210526315,
+            "ci95": [
+              0.9215382613222279,
+              0.9908256880733946
+            ],
+            "difference_vs_C": 0.009315323707498768,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.02842980004797052
+            ]
+          }
+        },
+        "Other": {
+          "support": 245,
+          "precision": {
+            "estimate": 0.627906976744186,
+            "ci95": [
+              0.5422887366269984,
+              0.7266962025316456
+            ],
+            "difference_vs_C": 0.03843329253365979,
+            "difference_vs_C_ci95": [
+              -0.035558198380566806,
+              0.11833839648481465
+            ]
+          },
+          "recall": {
+            "estimate": 0.3306122448979592,
+            "ci95": [
+              0.26936914561453307,
+              0.39000402187902183
+            ],
+            "difference_vs_C": -0.12653061224489792,
+            "difference_vs_C_ci95": [
+              -0.1875,
+              -0.06943597560975608
+            ]
+          },
+          "f1": {
+            "estimate": 0.43315508021390375,
+            "ci95": [
+              0.36884053038038833,
+              0.4963404963404963
+            ],
+            "difference_vs_C": -0.08178744852172842,
+            "difference_vs_C_ci95": [
+              -0.14233831904034747,
+              -0.02532503809192647
+            ]
+          }
+        }
+      }
+    },
+    "C": {
+      "macro_f1_primary": {
+        "estimate": 0.6040452962171506,
+        "ci95": [
+          0.5709722560186172,
+          0.6318483902761112
+        ],
+        "difference_vs_C": 0.0,
+        "difference_vs_C_ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "macro_f1_without_other": {
+        "estimate": 0.6121455478063796,
+        "ci95": [
+          0.576372564598909,
+          0.6414598623076836
+        ],
+        "difference_vs_C": 0.0,
+        "difference_vs_C_ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "accuracy": {
+        "estimate": 0.6034063260340633,
+        "ci95": [
+          0.5741788321167883,
+          0.6338199513381995
+        ],
+        "difference_vs_C": 0.0,
+        "difference_vs_C_ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "per_class": {
+        "Default": {
+          "support": 28,
+          "precision": {
+            "estimate": 0.39344262295081966,
+            "ci95": [
+              0.3,
+              0.5
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.8571428571428571,
+            "ci95": [
+              0.7367543859649123,
+              0.9655172413793104
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5393258426966292,
+            "ci95": [
+              0.4307594936708861,
+              0.631578947368421
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Credit downgrade": {
+          "support": 69,
+          "precision": {
+            "estimate": 0.8888888888888888,
+            "ci95": [
+              0.8038235294117647,
+              0.9821428571428571
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.6956521739130435,
+            "ci95": [
+              0.6,
+              0.8077054794520548
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.7804878048780488,
+            "ci95": [
+              0.7058823529411765,
+              0.8666911764705882
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Covenant breach": {
+          "support": 43,
+          "precision": {
+            "estimate": 0.37777777777777777,
+            "ci95": [
+              0.23396072013093291,
+              0.5263397129186602
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.3953488372093023,
+            "ci95": [
+              0.2571245421245421,
+              0.5283296337402885
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.38636363636363635,
+            "ci95": [
+              0.24656480505795572,
+              0.5137887183213734
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Geopolitical": {
+          "support": 34,
+          "precision": {
+            "estimate": 0.5263157894736842,
+            "ci95": [
+              0.26282894736842105,
+              0.7619047619047619
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.29411764705882354,
+            "ci95": [
+              0.1427579365079365,
+              0.4600853658536585
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.37735849056603776,
+            "ci95": [
+              0.18518518518518517,
+              0.5432659932659932
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Macroeconomic": {
+          "support": 62,
+          "precision": {
+            "estimate": 0.4393939393939394,
+            "ci95": [
+              0.35537190082644626,
+              0.5166810344827587
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.9354838709677419,
+            "ci95": [
+              0.8769230769230769,
+              0.9836065573770492
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5979381443298969,
+            "ci95": [
+              0.5116089484327604,
+              0.6666666666666666
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "M&A": {
+          "support": 52,
+          "precision": {
+            "estimate": 0.6153846153846154,
+            "ci95": [
+              0.4696892393320965,
+              0.7324178403755869
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.7692307692307693,
+            "ci95": [
+              0.679213303485769,
+              0.8780975609756098
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.6837606837606838,
+            "ci95": [
+              0.5738509316770186,
+              0.7719419237749546
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Product news": {
+          "support": 48,
+          "precision": {
+            "estimate": 0.5757575757575758,
+            "ci95": [
+              0.36363636363636365,
+              0.7501689189189188
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.3958333333333333,
+            "ci95": [
+              0.25,
+              0.5476190476190477
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.4691358024691358,
+            "ci95": [
+              0.3013698630136986,
+              0.6053214523650898
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Earnings": {
+          "support": 57,
+          "precision": {
+            "estimate": 0.5423728813559322,
+            "ci95": [
+              0.3672978806907379,
+              0.6721311475409836
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.5614035087719298,
+            "ci95": [
+              0.3998039215686275,
+              0.6739483342744212
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5517241379310345,
+            "ci95": [
+              0.3958140432098765,
+              0.6569395203336809
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Analyst rating": {
+          "support": 53,
+          "precision": {
+            "estimate": 0.6764705882352942,
+            "ci95": [
+              0.5283018867924528,
+              0.7683161350844278
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.8679245283018868,
+            "ci95": [
+              0.7545990566037737,
+              0.9433962264150944
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.7603305785123967,
+            "ci95": [
+              0.6304273377010126,
+              0.8196839249911546
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Legal/Regulatory": {
+          "support": 73,
+          "precision": {
+            "estimate": 0.9024390243902439,
+            "ci95": [
+              0.813953488372093,
+              0.9767441860465116
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.5068493150684932,
+            "ci95": [
+              0.390625,
+              0.620712954333644
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.6491228070175439,
+            "ci95": [
+              0.5365727935629873,
+              0.7358954531394988
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Management change": {
+          "support": 58,
+          "precision": {
+            "estimate": 0.9636363636363636,
+            "ci95": [
+              0.9074074074074074,
+              1.0
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.9137931034482759,
+            "ci95": [
+              0.875,
+              0.9846323529411765
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.9380530973451328,
+            "ci95": [
+              0.9056603773584906,
+              0.9853192989524577
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Other": {
+          "support": 245,
+          "precision": {
+            "estimate": 0.5894736842105263,
+            "ci95": [
+              0.5081038181038181,
+              0.673817900365888
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.45714285714285713,
+            "ci95": [
+              0.4035068895414502,
+              0.5139679579554124
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5149425287356322,
+            "ci95": [
+              0.4552000734425025,
+              0.5733605870020965
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "C-noPF": {
+      "macro_f1_primary": {
+        "estimate": 0.5981881939041097,
+        "ci95": [
+          0.5665380179338964,
+          0.6223990284209077
+        ],
+        "difference_vs_C": -0.005857102313040929,
+        "difference_vs_C_ci95": [
+          -0.0189244990942913,
+          0.007526785967403895
+        ]
+      },
+      "macro_f1_without_other": {
+        "estimate": 0.6149513839455492,
+        "ci95": [
+          0.5807789259339426,
+          0.6418884668015824
+        ],
+        "difference_vs_C": 0.0028058361391695152,
+        "difference_vs_C_ci95": [
+          -0.008889443019537124,
+          0.01558130497100263
+        ]
+      },
+      "accuracy": {
+        "estimate": 0.5827250608272506,
+        "ci95": [
+          0.5523114355231143,
+          0.6094890510948905
+        ],
+        "difference_vs_C": -0.020681265206812682,
+        "difference_vs_C_ci95": [
+          -0.04014598540145986,
+          -0.0036496350364962904
+        ]
+      },
+      "per_class": {
+        "Default": {
+          "support": 28,
+          "precision": {
+            "estimate": 0.39344262295081966,
+            "ci95": [
+              0.3,
+              0.5
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.8571428571428571,
+            "ci95": [
+              0.7367543859649123,
+              0.9655172413793104
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5393258426966292,
+            "ci95": [
+              0.4307594936708861,
+              0.631578947368421
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Credit downgrade": {
+          "support": 69,
+          "precision": {
+            "estimate": 0.8888888888888888,
+            "ci95": [
+              0.8038235294117647,
+              0.9821428571428571
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.6956521739130435,
+            "ci95": [
+              0.6,
+              0.8077054794520548
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.7804878048780488,
+            "ci95": [
+              0.7058823529411765,
+              0.8666911764705882
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Covenant breach": {
+          "support": 43,
+          "precision": {
+            "estimate": 0.37777777777777777,
+            "ci95": [
+              0.23396072013093291,
+              0.5263397129186602
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.3953488372093023,
+            "ci95": [
+              0.2571245421245421,
+              0.5283296337402885
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.38636363636363635,
+            "ci95": [
+              0.24656480505795572,
+              0.5137887183213734
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Geopolitical": {
+          "support": 34,
+          "precision": {
+            "estimate": 0.5263157894736842,
+            "ci95": [
+              0.26282894736842105,
+              0.7619047619047619
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.29411764705882354,
+            "ci95": [
+              0.1427579365079365,
+              0.4600853658536585
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.37735849056603776,
+            "ci95": [
+              0.18518518518518517,
+              0.5432659932659932
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Macroeconomic": {
+          "support": 62,
+          "precision": {
+            "estimate": 0.4393939393939394,
+            "ci95": [
+              0.35537190082644626,
+              0.5166810344827587
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.9354838709677419,
+            "ci95": [
+              0.8769230769230769,
+              0.9836065573770492
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5979381443298969,
+            "ci95": [
+              0.5116089484327604,
+              0.6666666666666666
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "M&A": {
+          "support": 52,
+          "precision": {
+            "estimate": 0.6153846153846154,
+            "ci95": [
+              0.4696892393320965,
+              0.7324178403755869
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.7692307692307693,
+            "ci95": [
+              0.679213303485769,
+              0.8780975609756098
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.6837606837606838,
+            "ci95": [
+              0.5738509316770186,
+              0.7719419237749546
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Product news": {
+          "support": 48,
+          "precision": {
+            "estimate": 0.35,
+            "ci95": [
+              0.2543822479928635,
+              0.4461570247933884
+            ],
+            "difference_vs_C": -0.22575757575757582,
+            "difference_vs_C_ci95": [
+              -0.3611405367231638,
+              -0.06207638609883497
+            ]
+          },
+          "recall": {
+            "estimate": 0.875,
+            "ci95": [
+              0.7735849056603774,
+              0.957490230134607
+            ],
+            "difference_vs_C": 0.4791666666666667,
+            "difference_vs_C_ci95": [
+              0.35710317460317453,
+              0.6000000000000001
+            ]
+          },
+          "f1": {
+            "estimate": 0.5,
+            "ci95": [
+              0.38395414012738854,
+              0.6
+            ],
+            "difference_vs_C": 0.030864197530864224,
+            "difference_vs_C_ci95": [
+              -0.09778387321490774,
+              0.17139435468102882
+            ]
+          }
+        },
+        "Earnings": {
+          "support": 57,
+          "precision": {
+            "estimate": 0.5423728813559322,
+            "ci95": [
+              0.3672978806907379,
+              0.6721311475409836
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.5614035087719298,
+            "ci95": [
+              0.3998039215686275,
+              0.6739483342744212
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5517241379310345,
+            "ci95": [
+              0.3958140432098765,
+              0.6569395203336809
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Analyst rating": {
+          "support": 53,
+          "precision": {
+            "estimate": 0.6764705882352942,
+            "ci95": [
+              0.5283018867924528,
+              0.7683161350844278
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.8679245283018868,
+            "ci95": [
+              0.7545990566037737,
+              0.9433962264150944
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.7603305785123967,
+            "ci95": [
+              0.6304273377010126,
+              0.8196839249911546
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Legal/Regulatory": {
+          "support": 73,
+          "precision": {
+            "estimate": 0.9024390243902439,
+            "ci95": [
+              0.813953488372093,
+              0.9767441860465116
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.5068493150684932,
+            "ci95": [
+              0.390625,
+              0.620712954333644
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.6491228070175439,
+            "ci95": [
+              0.5365727935629873,
+              0.7358954531394988
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Management change": {
+          "support": 58,
+          "precision": {
+            "estimate": 0.9636363636363636,
+            "ci95": [
+              0.9074074074074074,
+              1.0
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.9137931034482759,
+            "ci95": [
+              0.875,
+              0.9846323529411765
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.9380530973451328,
+            "ci95": [
+              0.9056603773584906,
+              0.9853192989524577
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Other": {
+          "support": 245,
+          "precision": {
+            "estimate": 0.6990291262135923,
+            "ci95": [
+              0.6,
+              0.7931212228937078
+            ],
+            "difference_vs_C": 0.109555442003066,
+            "difference_vs_C_ci95": [
+              0.04953919998498568,
+              0.1557391895385316
+            ]
+          },
+          "recall": {
+            "estimate": 0.2938775510204082,
+            "ci95": [
+              0.2289156626506024,
+              0.35136585082937016
+            ],
+            "difference_vs_C": -0.16326530612244894,
+            "difference_vs_C_ci95": [
+              -0.21901114550064205,
+              -0.12015542978301387
+            ]
+          },
+          "f1": {
+            "estimate": 0.41379310344827586,
+            "ci95": [
+              0.33440514469453375,
+              0.4802213086253094
+            ],
+            "difference_vs_C": -0.10114942528735632,
+            "difference_vs_C_ci95": [
+              -0.15999817456522408,
+              -0.058542500465471846
+            ]
+          }
+        }
+      }
+    },
+    "E25-v3": {
+      "macro_f1_primary": {
+        "estimate": 0.6686309505621991,
+        "ci95": [
+          0.6349872610541099,
+          0.6952448894714135
+        ],
+        "difference_vs_C": 0.06458565434504848,
+        "difference_vs_C_ci95": [
+          0.03929616729349294,
+          0.08756011941359429
+        ]
+      },
+      "macro_f1_without_other": {
+        "estimate": 0.6786956168179074,
+        "ci95": [
+          0.6419140572494466,
+          0.7057021554218273
+        ],
+        "difference_vs_C": 0.06655006901152771,
+        "difference_vs_C_ci95": [
+          0.041167989806883916,
+          0.09030021333760178
+        ]
+      },
+      "accuracy": {
+        "estimate": 0.6581508515815085,
+        "ci95": [
+          0.6264902676399027,
+          0.6898114355231143
+        ],
+        "difference_vs_C": 0.054744525547445244,
+        "difference_vs_C_ci95": [
+          0.030383211678832026,
+          0.08029197080291972
+        ]
+      },
+      "per_class": {
+        "Default": {
+          "support": 28,
+          "precision": {
+            "estimate": 0.39344262295081966,
+            "ci95": [
+              0.3,
+              0.5
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.8571428571428571,
+            "ci95": [
+              0.7367543859649123,
+              0.9655172413793104
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.5393258426966292,
+            "ci95": [
+              0.4307594936708861,
+              0.631578947368421
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Credit downgrade": {
+          "support": 69,
+          "precision": {
+            "estimate": 0.8888888888888888,
+            "ci95": [
+              0.8038235294117647,
+              0.9821428571428571
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.6956521739130435,
+            "ci95": [
+              0.6,
+              0.8077054794520548
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.7804878048780488,
+            "ci95": [
+              0.7058823529411765,
+              0.8666911764705882
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Covenant breach": {
+          "support": 43,
+          "precision": {
+            "estimate": 0.37777777777777777,
+            "ci95": [
+              0.23396072013093291,
+              0.5263397129186602
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.3953488372093023,
+            "ci95": [
+              0.2571245421245421,
+              0.5283296337402885
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.38636363636363635,
+            "ci95": [
+              0.24656480505795572,
+              0.5137887183213734
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Geopolitical": {
+          "support": 34,
+          "precision": {
+            "estimate": 0.8529411764705882,
+            "ci95": [
+              0.7498546511627907,
+              0.9642857142857143
+            ],
+            "difference_vs_C": 0.326625386996904,
+            "difference_vs_C_ci95": [
+              0.05805447743745616,
+              0.6343984710941232
+            ]
+          },
+          "recall": {
+            "estimate": 0.8529411764705882,
+            "ci95": [
+              0.7037037037037037,
+              0.9714285714285714
+            ],
+            "difference_vs_C": 0.5588235294117647,
+            "difference_vs_C_ci95": [
+              0.359974358974359,
+              0.75
+            ]
+          },
+          "f1": {
+            "estimate": 0.8529411764705882,
+            "ci95": [
+              0.7555345911949686,
+              0.9333333333333333
+            ],
+            "difference_vs_C": 0.47558268590455044,
+            "difference_vs_C_ci95": [
+              0.27639530399063217,
+              0.6864763690922732
+            ]
+          }
+        },
+        "Macroeconomic": {
+          "support": 62,
+          "precision": {
+            "estimate": 0.72,
+            "ci95": [
+              0.6081081081081081,
+              0.8048859676908457
+            ],
+            "difference_vs_C": 0.2806060606060606,
+            "difference_vs_C_ci95": [
+              0.2101288559894873,
+              0.3473393834780259
+            ]
+          },
+          "recall": {
+            "estimate": 0.8709677419354839,
+            "ci95": [
+              0.7857142857142857,
+              0.9420496894409938
+            ],
+            "difference_vs_C": -0.06451612903225801,
+            "difference_vs_C_ci95": [
+              -0.13638591800356517,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.7883211678832117,
+            "ci95": [
+              0.6983942414174972,
+              0.8513910969793322
+            ],
+            "difference_vs_C": 0.19038302355331482,
+            "difference_vs_C_ci95": [
+              0.12833704777781516,
+              0.254305754736979
+            ]
+          }
+        },
+        "M&A": {
+          "support": 52,
+          "precision": {
+            "estimate": 0.6065573770491803,
+            "ci95": [
+              0.47058823529411764,
+              0.7313695606474668
+            ],
+            "difference_vs_C": -0.008827238335435084,
+            "difference_vs_C_ci95": [
+              -0.1499999999999999,
+              0.11316487720597307
+            ]
+          },
+          "recall": {
+            "estimate": 0.7115384615384616,
+            "ci95": [
+              0.6229326047358834,
+              0.8235661764705882
+            ],
+            "difference_vs_C": -0.05769230769230771,
+            "difference_vs_C_ci95": [
+              -0.15384615384615385,
+              0.03705450733752614
+            ]
+          },
+          "f1": {
+            "estimate": 0.6548672566371682,
+            "ci95": [
+              0.5617878967080623,
+              0.7313523844193666
+            ],
+            "difference_vs_C": -0.028893427123515614,
+            "difference_vs_C_ci95": [
+              -0.139748677564522,
+              0.0687162287840037
+            ]
+          }
+        },
+        "Product news": {
+          "support": 48,
+          "precision": {
+            "estimate": 0.5757575757575758,
+            "ci95": [
+              0.36363636363636365,
+              0.7501689189189188
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "recall": {
+            "estimate": 0.3958333333333333,
+            "ci95": [
+              0.25,
+              0.5476190476190477
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "f1": {
+            "estimate": 0.4691358024691358,
+            "ci95": [
+              0.3013698630136986,
+              0.6053214523650898
+            ],
+            "difference_vs_C": 0.0,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Earnings": {
+          "support": 57,
+          "precision": {
+            "estimate": 0.6338028169014085,
+            "ci95": [
+              0.4917723476647077,
+              0.7375
+            ],
+            "difference_vs_C": 0.09142993554547629,
+            "difference_vs_C_ci95": [
+              0.03904576154069055,
+              0.17363993854928003
+            ]
+          },
+          "recall": {
+            "estimate": 0.7894736842105263,
+            "ci95": [
+              0.6730603448275863,
+              0.8709884201819685
+            ],
+            "difference_vs_C": 0.22807017543859653,
+            "difference_vs_C_ci95": [
+              0.14280133928571423,
+              0.34924812030075186
+            ]
+          },
+          "f1": {
+            "estimate": 0.703125,
+            "ci95": [
+              0.5820373134328358,
+              0.7820652173913043
+            ],
+            "difference_vs_C": 0.15140086206896552,
+            "difference_vs_C_ci95": [
+              0.0898343338452231,
+              0.24699912122225165
+            ]
+          }
+        },
+        "Analyst rating": {
+          "support": 53,
+          "precision": {
+            "estimate": 0.6,
+            "ci95": [
+              0.45711779448621553,
+              0.6823672883787661
+            ],
+            "difference_vs_C": -0.07647058823529418,
+            "difference_vs_C_ci95": [
+              -0.15412736062166804,
+              -0.013793596340766188
+            ]
+          },
+          "recall": {
+            "estimate": 0.9056603773584906,
+            "ci95": [
+              0.8148148148148148,
+              0.9696969696969697
+            ],
+            "difference_vs_C": 0.037735849056603765,
+            "difference_vs_C_ci95": [
+              -0.032786885245901676,
+              0.12508012820512812
+            ]
+          },
+          "f1": {
+            "estimate": 0.7218045112781954,
+            "ci95": [
+              0.5999122807017544,
+              0.7805244819365487
+            ],
+            "difference_vs_C": -0.03852606723420127,
+            "difference_vs_C_ci95": [
+              -0.10982767538833721,
+              0.025580786207081395
+            ]
+          }
+        },
+        "Legal/Regulatory": {
+          "support": 73,
+          "precision": {
+            "estimate": 0.7377049180327869,
+            "ci95": [
+              0.6078256302521008,
+              0.8500186567164179
+            ],
+            "difference_vs_C": -0.164734106357457,
+            "difference_vs_C_ci95": [
+              -0.30095658263305325,
+              -0.035822066592031715
+            ]
+          },
+          "recall": {
+            "estimate": 0.6164383561643836,
+            "ci95": [
+              0.507457278823275,
+              0.7142857142857143
+            ],
+            "difference_vs_C": 0.1095890410958904,
+            "difference_vs_C_ci95": [
+              0.042238849765258164,
+              0.16953055307760923
+            ]
+          },
+          "f1": {
+            "estimate": 0.6716417910447762,
+            "ci95": [
+              0.5689615627965834,
+              0.7500378787878788
+            ],
+            "difference_vs_C": 0.02251898402723229,
+            "difference_vs_C_ci95": [
+              -0.0622841656987998,
+              0.10593414687803637
+            ]
+          }
+        },
+        "Management change": {
+          "support": 58,
+          "precision": {
+            "estimate": 0.8260869565217391,
+            "ci95": [
+              0.7249305555555555,
+              0.9152602052995942
+            ],
+            "difference_vs_C": -0.1375494071146245,
+            "difference_vs_C_ci95": [
+              -0.21920334903885516,
+              -0.06744385000963948
+            ]
+          },
+          "recall": {
+            "estimate": 0.9827586206896551,
+            "ci95": [
+              0.9464285714285714,
+              1.0
+            ],
+            "difference_vs_C": 0.06896551724137923,
+            "difference_vs_C_ci95": [
+              0.0,
+              0.101738749269433
+            ]
+          },
+          "f1": {
+            "estimate": 0.8976377952755905,
+            "ci95": [
+              0.8292602695763799,
+              0.9503662364841298
+            ],
+            "difference_vs_C": -0.04041530206954225,
+            "difference_vs_C_ci95": [
+              -0.10704413260816781,
+              -0.0031743091762252824
+            ]
+          }
+        },
+        "Other": {
+          "support": 245,
+          "precision": {
+            "estimate": 0.6629213483146067,
+            "ci95": [
+              0.5865723447158772,
+              0.734221661214621
+            ],
+            "difference_vs_C": 0.07344766410408043,
+            "difference_vs_C_ci95": [
+              0.01655786010986907,
+              0.1349638573823661
+            ]
+          },
+          "recall": {
+            "estimate": 0.4816326530612245,
+            "ci95": [
+              0.42585365672528513,
+              0.5405649331642112
+            ],
+            "difference_vs_C": 0.024489795918367363,
+            "difference_vs_C_ci95": [
+              -0.01639512919112187,
+              0.07173755631838662
+            ]
+          },
+          "f1": {
+            "estimate": 0.557919621749409,
+            "ci95": [
+              0.5,
+              0.6129770936679312
+            ],
+            "difference_vs_C": 0.042977093013776835,
+            "difference_vs_C_ci95": [
+              0.004493953537125678,
+              0.08993176260904814
+            ]
+          }
+        }
+      }
+    }
+  },
+  "decision": {
+    "A": {
+      "challenger": false,
+      "gain_at_least_0_02": false,
+      "paired_lower_above_zero": false,
+      "qualifies_for_owner_review": false
+    },
+    "C": {
+      "challenger": false,
+      "gain_at_least_0_02": false,
+      "paired_lower_above_zero": false,
+      "qualifies_for_owner_review": false
+    },
+    "C-noPF": {
+      "challenger": true,
+      "gain_at_least_0_02": false,
+      "paired_lower_above_zero": false,
+      "qualifies_for_owner_review": false
+    },
+    "E25-v3": {
+      "challenger": true,
+      "gain_at_least_0_02": true,
+      "paired_lower_above_zero": true,
+      "qualifies_for_owner_review": true
+    }
+  },
+  "running_system": "C",
+  "engine_changed": false,
+  "selected_model": null,
+  "limits": [
+    "AI agreement only; no independent human validation.",
+    "78 disagreements were dropped rather than settled, selecting easier agreed rows.",
+    "Default has only 28 rows; low-support estimates are unstable.",
+    "Enriched sampling is not population prevalence; old news and source mix limit transfer.",
+    "Different headlines may describe one event; temporal blocks do not ensure independence.",
+    "Project overlap checks do not certify unknown upstream pretraining exposure."
+  ],
+  "deviations": [
+    "Owner dropped 78 disagreements instead of protocol settlement."
+  ],
+  "experiment": "E44b",
+  "completed_utc": "2026-10-19T15:35:20.731358+00:00",
+  "plan_sha256": "8d6f1406db597935ec8387ff7ffb6bc328917bf9031a9497cd8d9e2f74f42193",
+  "label_sha256": "722986b2547f7274be4b29b9f9b5cb090942adee08cf179390feae7542d1177d",
+  "prediction_sha256": "35afa80c7be5d34117abe66b2b7d38d04d1638961a3992c49c62ab8e7cef9dc6",
+  "scorer_sha256": "ee867f80d63f3928759e8066a5031d15d6bfaa751e36d00ac22d5224a49a044b",
+  "candidate_files_sha256": {
+    "data/outputs/e24_frozen.json": "ac05ff894934ece1fa220bf20c6050ebde38ed841e7e8871b140402dce897bec",
+    "docs/DECISIONS.md": "97f716563b1e19ba7a83061cb3dffbae67958f893bf70ab45053de93295b36a7",
+    "docs/E44_EVENT_TEST_V2.md": "d44258e8202f4d9e1a00e80f55b8ed5546ea86e80eb4807ccbe6f9e61d04ed45",
+    "models/topic/config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+    "models/topic/model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+    "models/topic/source_metrics.json": "2dca2b4609638cb3ff6f954d811b57db11ff84560fe4054015e651287809d80a",
+    "models/topic/tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+    "models/topic/tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e",
+    "private_notes/annotation_uploads/task1/e25_student_output/v2/models/e25-student-bge-small-en-v1.5-int8/model.onnx": "a84bb36065ba3b715029f954033c3f3dfbc253e8c6f0b5f64fb8d86300980bbe",
+    "private_notes/annotation_uploads/task1/e25_student_output/v3/models/e25-student-bge-small-en-v1.5-int8/config.json": "596a8b3a87448227d15c622c859c55e4b9d35f94aa2da136ab3d119c8ac4d1da",
+    "private_notes/annotation_uploads/task1/e25_student_output/v3/models/e25-student-bge-small-en-v1.5-int8/model.onnx": "80b70feb6bc2b436a8e500fb57d9d82642f293fe2e94aeeb99c5d60febb98dd6",
+    "private_notes/annotation_uploads/task1/e25_student_output/v3/models/e25-student-bge-small-en-v1.5-int8/source_metrics.json": "d8fbd66da49394d81a339dc69426cd960457279b7ef6332193c833f9d2cc89e3",
+    "private_notes/annotation_uploads/task1/e25_student_output/v3/models/e25-student-bge-small-en-v1.5-int8/tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+    "private_notes/annotation_uploads/task1/e25_student_output/v3/models/e25-student-bge-small-en-v1.5-int8/tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e",
+    "private_notes/annotation_uploads/task1/event_test_v2/labels_final_record.json": "249941535a36effd1a1e28866c69b81f21eae11c750b9972574fac59e64a3d46",
+    "private_notes/annotation_uploads/task1/event_test_v2/sampling.json": "9999354b34e7453a722c56494eef631ec65531cc1d2470d4b954b0a616cb6b1a",
+    "src/riskengine/eval/e24_dev.py": "5f7c6cc096b2a76d1c71dc17aa3dab63ec31a41ddf64d578849c28b452abe036",
+    "src/riskengine/eval/e24_gate.py": "4691ba67b52d5ba3e622e9756b55a686171d90f1949d6965466c7ac6353cd7c9",
+    "src/riskengine/eval/e24_inference.py": "614f164e76e672e38cb5050d8da56eeb06fa32da998f16d20d337976e3ef2c20",
+    "src/riskengine/eval/e24_rules.py": "b7317befcf1fe639c58c91050c5c317ce78626db05a4341dcdad3f804a0a68b4",
+    "src/riskengine/eval/e25_candidate.py": "3bf4ff3ac48948be1553ed4997ff6612a3b0f43f50579a4ef9ce8da0d56f5ba7",
+    "src/riskengine/nlp/classifier.py": "b433fefb74e2f75ca496bbc34a3be99e873b6dc4fa2a6b3643341e25ef809f1b",
+    "src/riskengine/nlp/events.py": "e2f9db573a47ceb2935d3ad9eeab382b6ee0f0474152343eece97974e642e2de",
+    "src/riskengine/paths.py": "bb8636a72d1cd67eb1103ef83597064836e5fdcfb219a2f67f054029ad9672a2"
+  },
+  "inference": {
+    "C": {
+      "method": "onnx_cpu_per_row_dynamic_padding_v1",
+      "batch_size": 1,
+      "padding": "longest_in_single_row",
+      "truncation": true,
+      "max_length": 64,
+      "provider": "CPUExecutionProvider",
+      "onnxruntime_version": "1.30.0",
+      "intra_op_num_threads": 1,
+      "inter_op_num_threads": 1,
+      "execution_mode": "ORT_SEQUENTIAL",
+      "graph_optimization_level": "ORT_ENABLE_ALL",
+      "softmax": "torch_float32_softmax_last_dimension",
+      "torch_version": "2.14.1+cpu",
+      "transformers_version": "5.18.0",
+      "model_sha256": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+      "assets_sha256": {
+        "config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+        "model.onnx": "e942bf1c66896cf809f128eb90e51a146ba32e11381e14564193a670c7282db9",
+        "source_metrics.json": "2dca2b4609638cb3ff6f954d811b57db11ff84560fe4054015e651287809d80a",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+      }
+    },
+    "E25-v3": {
+      "method": "onnx_cpu_per_row_dynamic_padding_v1",
+      "batch_size": 1,
+      "padding": "longest_in_single_row",
+      "truncation": true,
+      "max_length": 64,
+      "provider": "CPUExecutionProvider",
+      "onnxruntime_version": "1.30.0",
+      "intra_op_num_threads": 1,
+      "inter_op_num_threads": 1,
+      "execution_mode": "ORT_SEQUENTIAL",
+      "graph_optimization_level": "ORT_ENABLE_ALL",
+      "softmax": "torch_float32_softmax_last_dimension",
+      "torch_version": "2.14.1+cpu",
+      "transformers_version": "5.18.0",
+      "model_sha256": "80b70feb6bc2b436a8e500fb57d9d82642f293fe2e94aeeb99c5d60febb98dd6",
+      "assets_sha256": {
+        "config.json": "596a8b3a87448227d15c622c859c55e4b9d35f94aa2da136ab3d119c8ac4d1da",
+        "model.onnx": "80b70feb6bc2b436a8e500fb57d9d82642f293fe2e94aeeb99c5d60febb98dd6",
+        "source_metrics.json": "d8fbd66da49394d81a339dc69426cd960457279b7ef6332193c833f9d2cc89e3",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "8ccd7632bce0dc3e48daaef7c854244d4675d7d381d43e56406f3d6c47c3145e"
+      }
+    }
+  }
+}

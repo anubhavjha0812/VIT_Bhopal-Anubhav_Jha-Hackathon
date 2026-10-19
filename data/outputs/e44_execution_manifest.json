@@ -1,0 +1,16 @@
+{
+  "bundle_manifest_sha256": "769ed1339db969a756554345fd1b7c9c47cdec65e9805ad5e35ef26d22a1c31b",
+  "loader_deviation": "Kaggle auto-extracted ZIP; folder copied, every file re-hashed against bundle manifest; runtime installed to a separate --target folder and used only in subprocesses",
+  "plan_sha256": "8d6f1406db597935ec8387ff7ffb6bc328917bf9031a9497cd8d9e2f74f42193",
+  "bundled_notebook_sha256": "977246f409abbc7f89a74efd762f27f0ad32f8f37afbdba507a0f1e498965fcd",
+  "validated_utc": "2026-10-19T15:34:11.766199+00:00",
+  "runtime": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "onnxruntime": "1.30.0",
+    "torch": "2.14.1+cpu",
+    "transformers": "5.18.0"
+  },
+  "note": "Paths may be edited; bundled notebook hash identifies the supplied source."
+}

@@ -1,0 +1,823 @@
+id,A,A_source,C,C_source,C-noPF,C-noPF_source,E25-v3,E25-v3_source
+E44_0001,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0002,M&A,model,M&A,model,M&A,model,Other,model
+E44_0003,Earnings,model,Earnings,model,Earnings,model,Earnings,model
+E44_0004,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0006,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0007,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0008,M&A,model,M&A,model,M&A,model,Analyst rating,model
+E44_0009,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0010,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0011,Other,model,Other,model,Other,model,Other,model
+E44_0012,Other,model,Other,model,Other,model,Other,model
+E44_0013,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0014,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,M&A,model
+E44_0015,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0016,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0017,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0018,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0019,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0020,M&A,model,M&A,model,M&A,model,Management change,model
+E44_0021,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0022,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0023,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0024,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0026,Other,model,Other,model,Other,model,Other,model
+E44_0027,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0028,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model_product_to_other
+E44_0029,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0030,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0031,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0032,M&A,model,M&A,model,M&A,model,Other,model
+E44_0033,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0034,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0035,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0036,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0037,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0038,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0039,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0040,Other,model,Other,model,Other,model,Other,model
+E44_0041,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0042,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0043,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0045,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0047,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0048,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0049,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0050,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0051,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0053,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0054,Other,model,Other,model,Other,model,Other,model
+E44_0055,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0056,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0057,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0058,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,M&A,model
+E44_0059,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0060,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0061,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0062,Other,model,Other,model,Other,model,Other,model
+E44_0063,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0064,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0065,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0066,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0067,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0068,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0069,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0070,Other,model,Other,model,Other,model,Other,model
+E44_0072,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0073,Other,model,Other,model,Other,model,Other,model
+E44_0074,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0075,Geopolitical,model,Geopolitical,model,Geopolitical,model,Management change,model
+E44_0076,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0077,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0078,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Management change,model
+E44_0080,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0081,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0082,Other,model,Other,model,Other,model,Earnings,model
+E44_0083,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0084,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0085,Product news,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0086,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0087,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0088,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0089,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0090,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0091,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0092,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0094,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0095,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0096,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0097,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0098,Other,model,Other,model,Other,model,Other,model
+E44_0099,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0101,Other,model,Other,model,Other,model,Other,model
+E44_0102,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0103,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0104,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0105,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0106,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0107,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0109,M&A,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0110,Geopolitical,model,Geopolitical,model,Geopolitical,model,Other,model
+E44_0111,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0112,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0114,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0115,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0116,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0117,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0118,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0119,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0120,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0121,Product news,model,Other,model_product_to_other,Product news,model,Analyst rating,model
+E44_0122,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0123,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0124,Other,model,Other,model,Other,model,Earnings,model
+E44_0125,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0126,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0127,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0128,Product news,model,Other,model_product_to_other,Product news,model,Management change,model
+E44_0129,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0130,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0131,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0132,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0133,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0134,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0135,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0136,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0137,Earnings,model,Earnings,model,Earnings,model,M&A,model
+E44_0138,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0139,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0140,Geopolitical,model,Geopolitical,model,Geopolitical,model,Other,model
+E44_0141,Product news,model,Other,model_product_to_other,Product news,model,M&A,model
+E44_0142,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0143,Other,model,Other,model,Other,model,Earnings,model
+E44_0144,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0146,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0147,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0148,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0149,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0150,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0151,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0152,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0153,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0154,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0155,Other,model,Other,model,Other,model,Other,model
+E44_0156,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0157,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0158,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0159,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0160,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0161,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0162,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0163,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0164,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0165,Earnings,model,Earnings,model,Earnings,model,Earnings,model
+E44_0166,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0167,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0168,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0169,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0170,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0171,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0172,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0173,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0174,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0175,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0176,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0177,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0178,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0179,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0180,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0181,Other,model,Other,model,Other,model,Earnings,model
+E44_0182,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0183,M&A,model,M&A,model,M&A,model,Legal/Regulatory,model
+E44_0184,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0185,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0186,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0187,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0188,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0189,Other,model,Other,model,Other,model,Other,model
+E44_0190,Other,model,Other,model,Other,model,Earnings,model
+E44_0191,Other,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0192,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0194,Other,model,Other,model,Other,model,Earnings,model
+E44_0195,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0196,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model_product_to_other
+E44_0197,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Earnings,model
+E44_0198,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model_product_to_other
+E44_0199,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0200,Other,model,Other,model,Other,model,Other,model
+E44_0201,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0202,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0203,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0204,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0207,Other,model,Other,model,Other,model,Other,model
+E44_0208,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0209,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0210,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0211,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0213,Product news,model,Other,model_product_to_other,Product news,model,Management change,model
+E44_0214,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0215,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0216,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0217,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0218,Other,model,Other,model,Other,model,Other,model
+E44_0219,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0220,Other,model,Other,model,Other,model,Other,model
+E44_0222,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0223,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0224,Other,model,Other,model,Other,model,Earnings,model
+E44_0225,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0226,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0227,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0228,Other,model,Other,model,Other,model,Macroeconomic,model
+E44_0229,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0230,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0231,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0232,Other,model,Other,model,Other,model,Other,model
+E44_0233,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0235,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0238,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0239,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0240,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0241,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0242,Other,model,Other,model,Other,model,Other,model
+E44_0243,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0244,Other,model,Other,model,Other,model,Other,model
+E44_0245,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0246,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0247,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0248,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0249,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0250,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0251,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0252,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0253,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0254,Other,model,Other,model,Other,model,Other,model
+E44_0255,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0256,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,M&A,model
+E44_0257,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0258,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0259,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0260,Earnings,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0261,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0262,Geopolitical,model,Geopolitical,model,Geopolitical,model,Legal/Regulatory,model
+E44_0263,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0264,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0265,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0266,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0267,Other,model,Other,model,Other,model,Other,model
+E44_0268,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0269,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Analyst rating,model
+E44_0270,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0271,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0272,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0273,Earnings,model,Earnings,model,Earnings,model,Other,model
+E44_0274,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0275,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0276,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0277,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0278,Other,model,Other,model,Other,model,Other,model
+E44_0281,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0282,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0284,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0285,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0287,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0289,Geopolitical,model,Geopolitical,model,Geopolitical,model,Legal/Regulatory,model
+E44_0290,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0291,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0292,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0293,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0294,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0295,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0297,Other,model,Other,model,Other,model,Other,model
+E44_0298,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0299,Other,model,Other,model,Other,model,Other,model
+E44_0300,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0301,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0302,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0303,M&A,model,M&A,model,M&A,model,Analyst rating,model
+E44_0305,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0306,Other,model,Other,model,Other,model,Other,model
+E44_0307,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0308,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model_product_to_other
+E44_0309,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0310,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0311,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0312,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0314,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0315,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0316,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Analyst rating,model
+E44_0317,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0318,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0319,Other,model,Other,model,Other,model,Other,model
+E44_0320,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0321,Other,model,Other,model,Other,model,Other,model
+E44_0322,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0323,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0324,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0325,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0326,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0327,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0328,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,M&A,model
+E44_0329,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0330,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Geopolitical,model
+E44_0331,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0332,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0333,Other,model,Other,model,Other,model,Other,model
+E44_0334,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0335,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0336,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0337,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0338,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0339,Other,model,Other,model,Other,model,Other,model
+E44_0340,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0341,M&A,model,M&A,model,M&A,model,Analyst rating,model
+E44_0342,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0343,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0344,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0345,Geopolitical,model,Geopolitical,model,Geopolitical,model,Legal/Regulatory,model
+E44_0346,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0347,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0348,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0349,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0350,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0351,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0352,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0353,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0355,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0356,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0358,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0359,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0360,Other,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0362,Product news,model,Other,model_product_to_other,Product news,model,Legal/Regulatory,model
+E44_0363,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0364,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0366,Product news,model,Other,model_product_to_other,Product news,model,M&A,model
+E44_0367,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0368,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0369,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0370,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0371,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0372,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0373,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0374,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0375,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0376,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0377,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0380,Other,model,Other,model,Other,model,Macroeconomic,model
+E44_0381,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0382,Product news,model,Other,model_product_to_other,Product news,model,Legal/Regulatory,model
+E44_0383,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0386,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0387,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0390,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0391,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0392,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0393,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0394,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0395,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0396,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0399,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0400,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0401,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0402,Earnings,model,Earnings,model,Earnings,model,Earnings,model
+E44_0403,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0404,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0405,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0406,Other,model,Other,model,Other,model,Other,model
+E44_0407,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0408,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0409,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0410,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0411,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0412,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0414,Other,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0415,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0416,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0417,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0418,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0419,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0420,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0421,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0422,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0423,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0424,Analyst rating,model,Other,analyst_rule,Other,analyst_rule,Other,analyst_rule
+E44_0425,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0426,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0427,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0428,Other,model,Other,model,Other,model,Other,model
+E44_0429,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0430,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0431,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0432,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0433,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0434,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0435,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0436,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0437,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0438,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0439,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0440,Geopolitical,model,Geopolitical,model,Geopolitical,model,Legal/Regulatory,model
+E44_0441,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0442,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0443,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0444,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0445,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0446,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0447,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0448,Other,model,Other,model,Other,model,Other,model
+E44_0449,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0450,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0451,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0452,Other,model,Other,model,Other,model,Other,model
+E44_0453,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0454,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0455,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0456,Geopolitical,model,Geopolitical,model,Geopolitical,model,Other,model
+E44_0457,Product news,model,Other,model_product_to_other,Product news,model,Management change,model
+E44_0458,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0459,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0460,M&A,model,M&A,model,M&A,model,Other,model
+E44_0461,Other,model,Other,model,Other,model,Other,model
+E44_0464,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0465,Analyst rating,model,Analyst rating,model,Analyst rating,model,Management change,model
+E44_0466,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0467,Other,model,Other,model,Other,model,Other,model
+E44_0468,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0469,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0471,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0472,Other,model,Other,model,Other,model,Other,model
+E44_0474,Other,model,Other,model,Other,model,Other,model
+E44_0475,M&A,model,M&A,model,M&A,model,Analyst rating,model
+E44_0476,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0477,Other,model,Other,model,Other,model,Other,model
+E44_0478,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0479,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0480,Other,model,Other,model,Other,model,Other,model_product_to_other
+E44_0481,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Analyst rating,model
+E44_0484,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0485,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0486,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0487,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0488,Macroeconomic,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0489,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0490,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0491,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0492,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model_product_to_other
+E44_0493,Other,model,Other,model,Other,model,Legal/Regulatory,model
+E44_0494,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0495,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0496,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0497,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0498,Other,model,Other,model,Other,model,Other,model
+E44_0499,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0500,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0501,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0502,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0503,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0504,Product news,model,Other,model_product_to_other,Product news,model,M&A,model
+E44_0505,Other,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0507,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0508,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0509,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0510,M&A,model,M&A,model,M&A,model,Analyst rating,model
+E44_0511,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0512,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0513,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0514,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,M&A,model
+E44_0515,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0516,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0517,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0518,Other,model,Other,model,Other,model,Earnings,model
+E44_0519,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0520,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0521,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0522,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0523,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0524,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0526,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0527,Other,model,Other,model,Other,model,Other,model
+E44_0528,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0529,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0530,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0531,Other,model,Other,model,Other,model,Other,model
+E44_0532,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0533,Other,model,Other,model,Other,model,Other,model
+E44_0534,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0535,Other,model,Other,model,Other,model,Earnings,model
+E44_0536,Other,model,Other,model,Other,model,Other,model_product_to_other
+E44_0537,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0538,M&A,model,M&A,model,M&A,model,Analyst rating,model
+E44_0539,Other,model,Other,model,Other,model,Earnings,model
+E44_0540,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0541,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0542,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0543,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0544,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0546,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0547,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0548,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0549,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0550,M&A,model,M&A,model,M&A,model,Other,model
+E44_0552,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0553,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0554,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0555,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0556,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0557,Other,model,Other,model,Other,model,Other,model
+E44_0558,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0559,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0560,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0562,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0563,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0564,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0565,Other,model,Other,model,Other,model,Other,model
+E44_0566,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,M&A,model
+E44_0568,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0569,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0570,Geopolitical,model,Geopolitical,model,Geopolitical,model,Legal/Regulatory,model
+E44_0571,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0572,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0573,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0574,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0575,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0576,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0577,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0578,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0579,Earnings,model,Earnings,model,Earnings,model,Other,model
+E44_0580,Other,model,Other,model,Other,model,Analyst rating,model
+E44_0581,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0582,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0583,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0584,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0587,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0588,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0589,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0590,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0591,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0592,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0593,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0594,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0595,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0597,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0598,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0599,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0600,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0601,Other,model,Other,model,Other,model,Analyst rating,model
+E44_0602,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0603,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0604,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0605,Other,model,Other,model,Other,model,Other,model
+E44_0607,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0608,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0609,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0610,Product news,model,Other,model_product_to_other,Product news,model,M&A,model
+E44_0611,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0612,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0613,Other,model,Other,model,Other,model,Other,model
+E44_0614,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0615,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0616,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0617,Other,model,Other,model,Other,model,Other,model
+E44_0618,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0619,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0620,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0621,Other,model,Other,model,Other,model,Earnings,model
+E44_0622,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0623,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0624,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0625,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0627,Earnings,model,Earnings,model,Earnings,model,Earnings,model
+E44_0628,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0629,Other,model,Other,model,Other,model,Other,model
+E44_0630,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0631,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0632,Other,model,Other,model,Other,model,Other,model
+E44_0633,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0634,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0635,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0636,M&A,model,Other,holdings_rule,Other,holdings_rule,Other,holdings_rule
+E44_0637,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0638,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0639,Other,model,Other,model,Other,model,Other,model
+E44_0640,Other,model,Other,model,Other,model,Analyst rating,model
+E44_0641,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0642,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0643,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0644,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0645,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0646,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0647,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0648,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0649,Other,model,Other,model,Other,model,Earnings,model
+E44_0650,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0651,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0652,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0653,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0654,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0655,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0656,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0657,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0658,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0659,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0661,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0662,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0663,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0664,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0665,Other,model,Other,model,Other,model,Other,model
+E44_0666,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0668,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0669,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0670,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0671,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0672,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0673,Other,model,Other,model,Other,model,Other,model
+E44_0674,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0675,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0677,M&A,model,M&A,model,M&A,model,Other,model_product_to_other
+E44_0679,Product news,model,Other,model_product_to_other,Product news,model,M&A,model
+E44_0680,Other,model,Other,model,Other,model,Analyst rating,model
+E44_0681,Legal/Regulatory,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0682,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0683,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0684,Other,model,Other,model,Other,model,Other,model_product_to_other
+E44_0685,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0686,Analyst rating,model,Analyst rating,model,Analyst rating,model,Other,model
+E44_0687,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0688,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0689,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0690,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0691,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0692,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model_product_to_other
+E44_0693,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0694,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0695,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0696,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0697,Other,model,Other,model,Other,model,Earnings,model
+E44_0698,Other,model,Other,model,Other,model,Other,model
+E44_0699,Other,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0700,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0701,Product news,model,Other,model_product_to_other,Product news,model,Management change,model
+E44_0702,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0703,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0705,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0706,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0707,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0708,Other,model,Other,model,Other,model,Other,model
+E44_0709,Earnings,model,Earnings,model,Earnings,model,Earnings,model
+E44_0710,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0711,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0712,M&A,model,M&A,model,M&A,model,Other,model
+E44_0713,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0714,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0715,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0716,Product news,model,Other,model_product_to_other,Product news,model,Management change,model
+E44_0717,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0718,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0720,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0722,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0723,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0724,Other,model,Other,model,Other,model,Other,model
+E44_0725,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0726,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0727,Other,model,Other,model,Other,model,Earnings,model
+E44_0728,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0730,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0731,Other,model,Other,model,Other,model,Management change,model
+E44_0732,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0733,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0734,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0735,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0736,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0737,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0738,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0740,Other,model,Other,model,Other,model,Other,model
+E44_0741,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0742,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0743,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0744,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0745,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0746,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0748,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0749,Other,model,Other,model,Other,model,Other,model
+E44_0750,M&A,model,M&A,model,M&A,model,Other,model
+E44_0751,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0752,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0753,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0754,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0755,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0756,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0757,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0758,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0759,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0760,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0761,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0762,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0763,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0764,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0765,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0766,Other,model,Other,model,Other,model,Other,model
+E44_0767,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0768,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,M&A,model
+E44_0769,Other,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0771,Product news,model,Other,model_product_to_other,Product news,model,Management change,model
+E44_0772,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0773,Product news,model,Other,model_product_to_other,Product news,model,Legal/Regulatory,model
+E44_0774,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0775,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model_product_to_other
+E44_0776,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0777,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0778,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0779,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0780,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0781,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0782,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0783,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0784,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0785,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0786,M&A,model,M&A,model,M&A,model,Other,model
+E44_0787,M&A,model,M&A,model,M&A,model,Management change,model
+E44_0788,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0789,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0790,Other,model,Other,model,Other,model,Other,model
+E44_0791,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0792,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0793,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0794,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0795,Geopolitical,model,Geopolitical,model,Geopolitical,model,Other,model
+E44_0797,M&A,model,M&A,model,M&A,model,Other,model
+E44_0798,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0799,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0800,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0801,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0802,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0804,Geopolitical,model,Geopolitical,model,Geopolitical,model,Geopolitical,model
+E44_0805,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0806,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0807,Product news,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0808,Other,model,Other,model,Other,model,Geopolitical,model
+E44_0809,Analyst rating,model,Analyst rating,model,Analyst rating,model,Analyst rating,model
+E44_0810,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0811,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0812,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0813,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0814,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0815,Macroeconomic,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0816,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0817,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0818,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0819,Other,model,Other,model,Other,model,Other,model
+E44_0820,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0821,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0822,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Other,model_product_to_other
+E44_0823,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0825,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0827,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0828,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0829,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0830,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0832,Product news,model,Other,model_product_to_other,Product news,model,M&A,model
+E44_0833,Other,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0835,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0836,Other,model,Other,model,Other,model,Macroeconomic,model
+E44_0837,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0838,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0839,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0840,Other,model,Other,model,Other,model,Other,model
+E44_0841,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0842,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0843,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0844,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0845,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0846,Product news,model,Other,model_product_to_other,Product news,model,Other,model
+E44_0847,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0848,M&A,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0849,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0850,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule,Covenant breach,credit_rule
+E44_0851,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0852,Management change,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0854,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0855,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0856,Other,model,Other,model,Other,model,Other,model
+E44_0857,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0858,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0859,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0860,Product news,model,Other,model_product_to_other,Product news,model,Macroeconomic,model
+E44_0861,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0862,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0863,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0864,Earnings,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0865,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Other,model
+E44_0866,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0867,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0868,Analyst rating,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0869,Analyst rating,model,Analyst rating,model,Analyst rating,model,Management change,model
+E44_0871,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,M&A,model
+E44_0872,Product news,model,Other,model_product_to_other,Product news,model,M&A,model
+E44_0873,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0874,Product news,model,Product news,product_rule,Product news,product_rule,Product news,product_rule
+E44_0875,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0876,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0877,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule,Credit downgrade,credit_rule
+E44_0878,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0879,Product news,model,Other,model_product_to_other,Product news,model,Other,model_product_to_other
+E44_0880,Other,model,Other,model,Other,model,Other,model
+E44_0881,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Legal/Regulatory,model
+E44_0882,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0883,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0885,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0886,Management change,model,Management change,model,Management change,model,Management change,model
+E44_0887,M&A,model,M&A,model,M&A,model,Legal/Regulatory,model
+E44_0888,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model
+E44_0889,Earnings,model,Analyst rating,analyst_rule,Analyst rating,analyst_rule,Analyst rating,analyst_rule
+E44_0890,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0891,M&A,model,M&A,model,M&A,model,M&A,model
+E44_0892,Macroeconomic,model,Macroeconomic,model,Macroeconomic,model,Geopolitical,model
+E44_0893,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model,Legal/Regulatory,model
+E44_0894,Other,model,Other,model,Other,model,Analyst rating,model
+E44_0895,Earnings,model,Earnings,earnings_rule,Earnings,earnings_rule,Earnings,earnings_rule
+E44_0896,M&A,model,M&A,model,M&A,model,Management change,model
+E44_0897,Other,model,Other,model,Other,model,Other,model
+E44_0898,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0899,Default,credit_rule,Default,credit_rule,Default,credit_rule,Default,credit_rule
+E44_0900,Other,model,Other,model,Other,model,Geopolitical,model
