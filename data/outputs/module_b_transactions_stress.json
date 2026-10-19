@@ -1,0 +1,86 @@
+{
+  "book": "transactions",
+  "synthetic": true,
+  "currency": "USD",
+  "disclosure": "Transaction-flow proxy; exposures and ratings are synthetic, not real.",
+  "source_url": "https://www.kaggle.com/datasets/computingvictor/transactions-fraud-datasets",
+  "license": "see the dataset page",
+  "seed": 0,
+  "reference_window": [
+    "2018-11",
+    "2019-10"
+  ],
+  "market_base_date": "2019-12-31",
+  "stress_method": "Market only; multiple 1; no obligor downgrade; fixed Treasury rates. Existing stock-basket market factor, not merchant observations.",
+  "merchants": 60,
+  "positions": 111,
+  "positions_per_instrument": {
+    "revolver": 60,
+    "term_loan": 30,
+    "bond": 10,
+    "irs_pay_fixed": 5,
+    "cds_bought": 3,
+    "cds_sold": 3
+  },
+  "rating_counts": {
+    "A": 12,
+    "BBB": 12,
+    "BB": 12,
+    "B": 12,
+    "CCC": 12
+  },
+  "cash_ead_usd": 22558015.810000002,
+  "cash_notional_usd": 23980359.570000004,
+  "derivative_notional_usd": 3332115.04,
+  "episodes": {
+    "gfc2008": {
+      "dates": [
+        "2008-08-15",
+        "2008-12-15"
+      ],
+      "loss_usd": 602695.3911769178,
+      "value_before_usd": 18207191.521328285,
+      "value_after_usd": 17604496.130151372,
+      "rwa_before_inr": 942354728.1824375,
+      "rwa_after_inr": 1029422085.6617194,
+      "capital_before_inr": 122506114.66371688,
+      "capital_after_inr": 86617260.12329036,
+      "cet1_before": 0.13,
+      "cet1_after": 0.0841416376525594
+    },
+    "euro2011": {
+      "dates": [
+        "2011-07-01",
+        "2011-10-04"
+      ],
+      "loss_usd": 130625.78869879058,
+      "value_before_usd": 18207191.521328285,
+      "value_after_usd": 18076565.732629493,
+      "rwa_before_inr": 942354728.1824375,
+      "rwa_after_inr": 1037333575.5908068,
+      "capital_before_inr": 122506114.66371688,
+      "capital_after_inr": 114781756.8418847,
+      "cet1_before": 0.13,
+      "cet1_after": 0.11065076802947545
+    },
+    "covid2020": {
+      "dates": [
+        "2020-02-14",
+        "2020-03-23"
+      ],
+      "loss_usd": 604962.5054145304,
+      "value_before_usd": 18207191.521328285,
+      "value_after_usd": 17602229.015913755,
+      "rwa_before_inr": 942354728.1824375,
+      "rwa_after_inr": 987951940.9607542,
+      "capital_before_inr": 122506114.66371688,
+      "capital_after_inr": 87969109.74092957,
+      "cet1_before": 0.13,
+      "cet1_after": 0.08904189170920825
+    }
+  },
+  "sha256": {
+    "transactions_monthly_sample.csv": "07e671c9be96dd82ab950edb61c511746d2b55990e14a2fd97df5de3e9fbf940",
+    "book_transactions.csv": "829384933187b7cbed7047650713fb896b99a447267f19af2a1bdacae0175a9c"
+  }
+}

@@ -1,0 +1,112 @@
+position,ticker,rating,instrument,notional,ead,lgd,years,source,book,synthetic
+TP001,M27092,A,revolver,886987.26,665240.45,0.45,5.00,Synthetic flow proxy; MCC 4829: Money Transfer,transactions,True
+TP002,M27092,A,term_loan,2660961.78,2660961.78,0.45,3.00,Synthetic flow proxy; MCC 4829: Money Transfer,transactions,True
+TP003,M27092,A,bond,1330480.89,1330480.89,0.45,5.00,Synthetic flow proxy; MCC 4829: Money Transfer,transactions,True
+TP004,M59935,BBB,revolver,367965.56,275974.17,0.45,5.00,Synthetic flow proxy; MCC 5499: Miscellaneous Food Stores,transactions,True
+TP005,M59935,BBB,term_loan,1103896.68,1103896.68,0.45,3.00,Synthetic flow proxy; MCC 5499: Miscellaneous Food Stores,transactions,True
+TP006,M59935,BBB,bond,551948.34,551948.34,0.45,5.00,Synthetic flow proxy; MCC 5499: Miscellaneous Food Stores,transactions,True
+TP007,M61195,A,revolver,340580.28,255435.21,0.45,5.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP008,M61195,A,term_loan,1021740.85,1021740.85,0.45,3.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP009,M61195,A,bond,510870.43,510870.43,0.45,5.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP010,M60569,A,revolver,312504.41,234378.31,0.45,5.00,Synthetic flow proxy; MCC 5300: Wholesale Clubs,transactions,True
+TP011,M60569,A,term_loan,937513.23,937513.23,0.45,3.00,Synthetic flow proxy; MCC 5300: Wholesale Clubs,transactions,True
+TP012,M60569,A,bond,468756.61,468756.61,0.45,5.00,Synthetic flow proxy; MCC 5300: Wholesale Clubs,transactions,True
+TP013,M39021,A,revolver,288019.44,216014.58,0.45,5.00,Synthetic flow proxy; MCC 4784: Tolls and Bridge Fees,transactions,True
+TP014,M39021,A,term_loan,864058.31,864058.31,0.45,3.00,Synthetic flow proxy; MCC 4784: Tolls and Bridge Fees,transactions,True
+TP015,M39021,A,bond,432029.16,432029.16,0.45,5.00,Synthetic flow proxy; MCC 4784: Tolls and Bridge Fees,transactions,True
+TP016,M43293,BBB,revolver,228806.29,171604.72,0.45,5.00,Synthetic flow proxy; MCC 5499: Miscellaneous Food Stores,transactions,True
+TP017,M43293,BBB,term_loan,686418.86,686418.86,0.45,3.00,Synthetic flow proxy; MCC 5499: Miscellaneous Food Stores,transactions,True
+TP018,M43293,BBB,bond,343209.43,343209.43,0.45,5.00,Synthetic flow proxy; MCC 5499: Miscellaneous Food Stores,transactions,True
+TP019,M22204,BBB,revolver,215074.47,161305.85,0.45,5.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP020,M22204,BBB,term_loan,645223.40,645223.40,0.45,3.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP021,M22204,BBB,bond,322611.70,322611.70,0.45,5.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP022,M73186,BBB,revolver,213770.94,160328.21,0.45,5.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP023,M73186,BBB,term_loan,641312.81,641312.81,0.45,3.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP024,M73186,BBB,bond,320656.41,320656.41,0.45,5.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP025,M20561,A,revolver,150980.60,113235.45,0.45,5.00,Synthetic flow proxy; MCC 5912: Drug Stores and Pharmacies,transactions,True
+TP026,M20561,A,term_loan,452941.80,452941.80,0.45,3.00,Synthetic flow proxy; MCC 5912: Drug Stores and Pharmacies,transactions,True
+TP027,M20561,A,bond,226470.90,226470.90,0.45,5.00,Synthetic flow proxy; MCC 5912: Drug Stores and Pharmacies,transactions,True
+TP028,M50783,A,revolver,131886.45,98914.84,0.45,5.00,"Synthetic flow proxy; MCC 5411: Grocery Stores, Supermarkets",transactions,True
+TP029,M50783,A,term_loan,395659.35,395659.35,0.45,3.00,"Synthetic flow proxy; MCC 5411: Grocery Stores, Supermarkets",transactions,True
+TP030,M50783,A,bond,197829.68,197829.68,0.45,5.00,"Synthetic flow proxy; MCC 5411: Grocery Stores, Supermarkets",transactions,True
+TP031,M75781,A,revolver,112829.54,84622.15,0.45,5.00,"Synthetic flow proxy; MCC 5411: Grocery Stores, Supermarkets",transactions,True
+TP032,M75781,A,term_loan,338488.63,338488.63,0.45,3.00,"Synthetic flow proxy; MCC 5411: Grocery Stores, Supermarkets",transactions,True
+TP033,M26810,BBB,revolver,106446.52,79834.89,0.45,5.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP034,M26810,BBB,term_loan,319339.57,319339.57,0.45,3.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP035,M32175,BBB,revolver,95038.30,71278.73,0.45,5.00,Synthetic flow proxy; MCC 7538: Automotive Service Shops,transactions,True
+TP036,M32175,BBB,term_loan,285114.91,285114.91,0.45,3.00,Synthetic flow proxy; MCC 7538: Automotive Service Shops,transactions,True
+TP037,M48919,BB,revolver,82712.33,62034.25,0.45,5.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP038,M48919,BB,term_loan,248136.99,248136.99,0.45,3.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP039,M54850,BB,revolver,80464.87,60348.65,0.45,5.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP040,M54850,BB,term_loan,241394.60,241394.60,0.45,3.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP041,M81833,BBB,revolver,76825.50,57619.12,0.45,5.00,Synthetic flow proxy; MCC 5912: Drug Stores and Pharmacies,transactions,True
+TP042,M81833,BBB,term_loan,230476.49,230476.49,0.45,3.00,Synthetic flow proxy; MCC 5912: Drug Stores and Pharmacies,transactions,True
+TP043,M20519,A,revolver,76815.71,57611.78,0.45,5.00,Synthetic flow proxy; MCC 5942: Book Stores,transactions,True
+TP044,M20519,A,term_loan,230447.14,230447.14,0.45,3.00,Synthetic flow proxy; MCC 5942: Book Stores,transactions,True
+TP045,M9932,A,revolver,70405.54,52804.15,0.45,5.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP046,M9932,A,term_loan,211216.62,211216.62,0.45,3.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP047,M30286,B,revolver,66932.95,50199.71,0.45,5.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP048,M30286,B,term_loan,200798.85,200798.85,0.45,3.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP049,M75936,BB,revolver,62710.75,47033.06,0.45,5.00,Synthetic flow proxy; MCC 5814: Fast Food Restaurants,transactions,True
+TP050,M75936,BB,term_loan,188132.24,188132.24,0.45,3.00,Synthetic flow proxy; MCC 5814: Fast Food Restaurants,transactions,True
+TP051,M16798,A,revolver,62184.44,46638.33,0.45,5.00,Synthetic flow proxy; MCC 4121: Taxicabs and Limousines,transactions,True
+TP052,M16798,A,term_loan,186553.33,186553.33,0.45,3.00,Synthetic flow proxy; MCC 4121: Taxicabs and Limousines,transactions,True
+TP053,M18563,BBB,revolver,62119.26,46589.44,0.45,5.00,Synthetic flow proxy; MCC 4121: Taxicabs and Limousines,transactions,True
+TP054,M18563,BBB,term_loan,186357.77,186357.77,0.45,3.00,Synthetic flow proxy; MCC 4121: Taxicabs and Limousines,transactions,True
+TP055,M50867,BBB,revolver,61897.75,46423.31,0.45,5.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP056,M50867,BBB,term_loan,185693.24,185693.24,0.45,3.00,Synthetic flow proxy; MCC 5541: Service Stations,transactions,True
+TP057,M86616,BB,revolver,60602.93,45452.20,0.45,5.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP058,M86616,BB,term_loan,181808.78,181808.78,0.45,3.00,Synthetic flow proxy; MCC 4814: Telecommunication Services,transactions,True
+TP059,M15143,A,revolver,59719.09,44789.32,0.45,5.00,Synthetic flow proxy; MCC 4784: Tolls and Bridge Fees,transactions,True
+TP060,M15143,A,term_loan,179157.27,179157.27,0.45,3.00,Synthetic flow proxy; MCC 4784: Tolls and Bridge Fees,transactions,True
+TP061,M32858,BB,revolver,58191.65,43643.74,0.45,5.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP062,M32858,BB,term_loan,174574.94,174574.94,0.45,3.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP063,M25887,BBB,revolver,51470.68,38603.01,0.45,5.00,Synthetic flow proxy; MCC 5814: Fast Food Restaurants,transactions,True
+TP064,M25887,BBB,term_loan,154412.03,154412.03,0.45,3.00,Synthetic flow proxy; MCC 5814: Fast Food Restaurants,transactions,True
+TP065,M11468,BB,revolver,50292.48,37719.36,0.45,5.00,"Synthetic flow proxy; MCC 5970: Artist Supply Stores, Craft Shops",transactions,True
+TP066,M11468,BB,term_loan,150877.44,150877.44,0.45,3.00,"Synthetic flow proxy; MCC 5970: Artist Supply Stores, Craft Shops",transactions,True
+TP067,M49637,CCC,revolver,47642.69,35732.02,0.45,5.00,Synthetic flow proxy; MCC 3509: Industrial Equipment and Supplies,transactions,True
+TP068,M49637,CCC,term_loan,142928.08,142928.08,0.45,3.00,Synthetic flow proxy; MCC 3509: Industrial Equipment and Supplies,transactions,True
+TP069,M41122,A,revolver,46828.34,35121.25,0.45,5.00,Synthetic flow proxy; MCC 4784: Tolls and Bridge Fees,transactions,True
+TP070,M41122,A,term_loan,140485.03,140485.03,0.45,3.00,Synthetic flow proxy; MCC 4784: Tolls and Bridge Fees,transactions,True
+TP071,M7777,B,revolver,46826.20,35119.65,0.45,5.00,Synthetic flow proxy; MCC 3684: Semiconductors and Related Devices,transactions,True
+TP072,M86410,BB,revolver,46198.23,34648.67,0.45,5.00,Synthetic flow proxy; MCC 5211: Lumber and Building Materials,transactions,True
+TP073,M88459,B,revolver,45884.87,34413.65,0.45,5.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP074,M59474,B,revolver,44310.21,33232.66,0.45,5.00,Synthetic flow proxy; MCC 3722: Passenger Railways,transactions,True
+TP075,M13646,BBB,revolver,43852.92,32889.69,0.45,5.00,Synthetic flow proxy; MCC 7538: Automotive Service Shops,transactions,True
+TP076,M17976,BB,revolver,43798.37,32848.78,0.45,5.00,"Synthetic flow proxy; MCC 4900: Utilities - Electric, Gas, Water, Sanitary",transactions,True
+TP077,M44795,CCC,revolver,43687.86,32765.90,0.45,5.00,Synthetic flow proxy; MCC 3780: Computer Network Services,transactions,True
+TP078,M39991,B,revolver,43609.92,32707.44,0.45,5.00,Synthetic flow proxy; MCC 3771: Railroad Passenger Transport,transactions,True
+TP079,M52923,CCC,revolver,43392.61,32544.46,0.45,5.00,Synthetic flow proxy; MCC 3504: Gardening Supplies,transactions,True
+TP080,M36934,BB,revolver,42212.03,31659.02,0.45,5.00,Synthetic flow proxy; MCC 7538: Automotive Service Shops,transactions,True
+TP081,M3558,CCC,revolver,41429.44,31072.08,0.45,5.00,"Synthetic flow proxy; MCC 3640: Lighting, Fixtures, Electrical Supplies",transactions,True
+TP082,M34490,BB,revolver,40979.27,30734.45,0.45,5.00,Synthetic flow proxy; MCC 5719: Miscellaneous Home Furnishing Stores,transactions,True
+TP083,M74934,B,revolver,40442.21,30331.66,0.45,5.00,Synthetic flow proxy; MCC 3596: Miscellaneous Machinery and Parts Manufacturing,transactions,True
+TP084,M78644,B,revolver,39586.71,29690.03,0.45,5.00,Synthetic flow proxy; MCC 3775: Railroad Freight,transactions,True
+TP085,M19964,B,revolver,38819.30,29114.48,0.45,5.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP086,M57133,CCC,revolver,38186.43,28639.82,0.45,5.00,Synthetic flow proxy; MCC 3730: Ship Chandlers,transactions,True
+TP087,M38489,CCC,revolver,38003.48,28502.61,0.45,5.00,"Synthetic flow proxy; MCC 3058: Tools, Parts, Supplies Manufacturing",transactions,True
+TP088,M5594,CCC,revolver,37439.82,28079.86,0.45,5.00,Synthetic flow proxy; MCC 3001: Steel Products Manufacturing,transactions,True
+TP089,M67570,B,revolver,36214.38,27160.78,0.45,5.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP090,M99370,BB,revolver,35731.88,26798.91,0.45,5.00,Synthetic flow proxy; MCC 5311: Department Stores,transactions,True
+TP091,M18215,B,revolver,35601.85,26701.39,0.45,5.00,Synthetic flow proxy; MCC 5719: Miscellaneous Home Furnishing Stores,transactions,True
+TP092,M35451,B,revolver,34739.57,26054.68,0.45,5.00,Synthetic flow proxy; MCC 5812: Eating Places and Restaurants,transactions,True
+TP093,M82981,BB,revolver,34152.99,25614.74,0.45,5.00,Synthetic flow proxy; MCC 5912: Drug Stores and Pharmacies,transactions,True
+TP094,M57386,CCC,revolver,33085.95,24814.46,0.45,5.00,Synthetic flow proxy; MCC 3132: Leather Goods,transactions,True
+TP095,M60152,CCC,revolver,33006.74,24755.06,0.45,5.00,Synthetic flow proxy; MCC 3000: Steelworks,transactions,True
+TP096,M6063,CCC,revolver,32901.16,24675.87,0.45,5.00,Synthetic flow proxy; MCC 4511: Airlines,transactions,True
+TP097,M79927,B,revolver,32532.63,24399.47,0.45,5.00,Synthetic flow proxy; MCC 5912: Drug Stores and Pharmacies,transactions,True
+TP098,M29742,CCC,revolver,31617.96,23713.47,0.45,5.00,"Synthetic flow proxy; MCC 3256: Brick, Stone, and Related Materials",transactions,True
+TP099,M69972,BBB,revolver,31305.92,23479.44,0.45,5.00,Synthetic flow proxy; MCC 5814: Fast Food Restaurants,transactions,True
+TP100,M70268,CCC,revolver,31117.07,23337.80,0.45,5.00,Synthetic flow proxy; MCC 4722: Travel Agencies,transactions,True
+TP101,M49637,CCC,cds_bought,47642.69,0.00,0.45,5.00,Synthetic proxy; 25% of cash notional (E14 rule),transactions,True
+TP102,M44795,CCC,cds_bought,10921.97,0.00,0.45,5.00,Synthetic proxy; 25% of cash notional (E14 rule),transactions,True
+TP103,M52923,CCC,cds_bought,10848.15,0.00,0.45,5.00,Synthetic proxy; 25% of cash notional (E14 rule),transactions,True
+TP104,M27092,A,cds_sold,487842.99,0.00,0.45,5.00,Synthetic proxy; 10% of cash notional (E14 rule),transactions,True
+TP105,M61195,A,cds_sold,187319.16,0.00,0.45,5.00,Synthetic proxy; 10% of cash notional (E14 rule),transactions,True
+TP106,M60569,A,cds_sold,171877.43,0.00,0.45,5.00,Synthetic proxy; 10% of cash notional (E14 rule),transactions,True
+TP107,M27092,A,irs_pay_fixed,975685.99,0.00,0.45,5.00,Synthetic proxy; 20% of cash notional (E14 rule),transactions,True
+TP108,M59935,BBB,irs_pay_fixed,404762.12,0.00,0.45,5.00,Synthetic proxy; 20% of cash notional (E14 rule),transactions,True
+TP109,M61195,A,irs_pay_fixed,374638.31,0.00,0.45,5.00,Synthetic proxy; 20% of cash notional (E14 rule),transactions,True
+TP110,M60569,A,irs_pay_fixed,343754.85,0.00,0.45,5.00,Synthetic proxy; 20% of cash notional (E14 rule),transactions,True
+TP111,M39021,A,irs_pay_fixed,316821.38,0.00,0.45,5.00,Synthetic proxy; 20% of cash notional (E14 rule),transactions,True

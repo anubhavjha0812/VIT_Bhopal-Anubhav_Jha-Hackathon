@@ -3,6 +3,7 @@
 Where each position's loss goes:
 - revolvers (amortised cost): IFRS 9 expected credit loss. Stage 1 = 12-month PD; stage 2 =
   lifetime PD after a cut of 3+ notches or a fall from investment grade to below BBB-; stage 3 = D.
+- funded term loans (transaction sleeve): principal minus ECL, with the same staging and IRB RWA.
 - bonds (fair value through OCI, which counts in CET1): full repricing of a par bullet bond at
   Treasury + spread; at D the bond is worth its recovery (1 - LGD).
 - CDS (trading book): mark-to-market (spread change × risky annuity); at D, ± notional × LGD.
@@ -152,6 +153,10 @@ def _position(
         stg = stage(s["rating_before"], rating) if when == "after" else 1
         rwa = irb_rwa(pd_capital, lgd, years, p["ead"])
         return -ecl(pd_, lgd, p["ead"], years, stg), rwa, stg
+    if inst == "term_loan":
+        stg = stage(s["rating_before"], rating) if when == "after" else 1
+        rwa = irb_rwa(pd_capital, lgd, years, p["ead"])
+        return n - ecl(pd_, lgd, p["ead"], years, stg), rwa, stg
     if inst == "bond":
         value = n * (1 - lgd) if defaulted else n * bond_price(coupon, rate + sprd, years)
         rwa = irb_rwa(pd_capital, lgd, years, n) + market_risk_rwa(rating, years, value)

@@ -1,0 +1,721 @@
+merchant_id,ticker,month,flow_usd,mcc,sector,synthetic
+27092,M27092,2018-11,445063.56,4829,Money Transfer,True
+27092,M27092,2018-12,445060.00,4829,Money Transfer,True
+27092,M27092,2019-01,452280.00,4829,Money Transfer,True
+27092,M27092,2019-02,407300.00,4829,Money Transfer,True
+27092,M27092,2019-03,443340.00,4829,Money Transfer,True
+27092,M27092,2019-04,440400.00,4829,Money Transfer,True
+27092,M27092,2019-05,451960.00,4829,Money Transfer,True
+27092,M27092,2019-06,445600.00,4829,Money Transfer,True
+27092,M27092,2019-07,453960.00,4829,Money Transfer,True
+27092,M27092,2019-08,450600.00,4829,Money Transfer,True
+27092,M27092,2019-09,442500.00,4829,Money Transfer,True
+27092,M27092,2019-10,443860.00,4829,Money Transfer,True
+59935,M59935,2018-11,182856.45,5499,Miscellaneous Food Stores,True
+59935,M59935,2018-12,186803.86,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-01,190706.22,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-02,168906.57,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-03,188277.95,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-04,176472.49,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-05,179944.43,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-06,180969.80,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-07,199562.39,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-08,194058.52,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-09,170845.33,5499,Miscellaneous Food Stores,True
+59935,M59935,2019-10,188389.35,5499,Miscellaneous Food Stores,True
+61195,M61195,2018-11,166642.94,5541,Service Stations,True
+61195,M61195,2018-12,177800.50,5541,Service Stations,True
+61195,M61195,2019-01,174745.27,5541,Service Stations,True
+61195,M61195,2019-02,151836.25,5541,Service Stations,True
+61195,M61195,2019-03,170258.53,5541,Service Stations,True
+61195,M61195,2019-04,171814.28,5541,Service Stations,True
+61195,M61195,2019-05,170843.39,5541,Service Stations,True
+61195,M61195,2019-06,166211.14,5541,Service Stations,True
+61195,M61195,2019-07,174506.00,5541,Service Stations,True
+61195,M61195,2019-08,175158.33,5541,Service Stations,True
+61195,M61195,2019-09,177084.33,5541,Service Stations,True
+61195,M61195,2019-10,166580.74,5541,Service Stations,True
+60569,M60569,2018-11,154390.33,5300,Wholesale Clubs,True
+60569,M60569,2018-12,160236.60,5300,Wholesale Clubs,True
+60569,M60569,2019-01,162401.93,5300,Wholesale Clubs,True
+60569,M60569,2019-02,142203.42,5300,Wholesale Clubs,True
+60569,M60569,2019-03,162117.87,5300,Wholesale Clubs,True
+60569,M60569,2019-04,159198.21,5300,Wholesale Clubs,True
+60569,M60569,2019-05,156540.36,5300,Wholesale Clubs,True
+60569,M60569,2019-06,151630.86,5300,Wholesale Clubs,True
+60569,M60569,2019-07,163004.29,5300,Wholesale Clubs,True
+60569,M60569,2019-08,154111.69,5300,Wholesale Clubs,True
+60569,M60569,2019-09,147593.75,5300,Wholesale Clubs,True
+60569,M60569,2019-10,161597.15,5300,Wholesale Clubs,True
+39021,M39021,2018-11,140236.79,4784,Tolls and Bridge Fees,True
+39021,M39021,2018-12,148683.14,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-01,149374.87,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-02,130644.00,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-03,142952.67,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-04,137238.30,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-05,151462.79,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-06,143419.42,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-07,148514.39,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-08,148034.57,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-09,141804.45,4784,Tolls and Bridge Fees,True
+39021,M39021,2019-10,145751.23,4784,Tolls and Bridge Fees,True
+43293,M43293,2018-11,113298.78,5499,Miscellaneous Food Stores,True
+43293,M43293,2018-12,111581.67,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-01,119320.35,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-02,108788.27,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-03,129799.97,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-04,108637.36,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-05,119004.98,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-06,110346.62,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-07,113053.14,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-08,113091.07,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-09,111319.97,5499,Miscellaneous Food Stores,True
+43293,M43293,2019-10,114595.55,5499,Miscellaneous Food Stores,True
+22204,M22204,2018-11,106181.83,5541,Service Stations,True
+22204,M22204,2018-12,110690.84,5541,Service Stations,True
+22204,M22204,2019-01,107973.95,5541,Service Stations,True
+22204,M22204,2019-02,98627.39,5541,Service Stations,True
+22204,M22204,2019-03,114147.38,5541,Service Stations,True
+22204,M22204,2019-04,107397.96,5541,Service Stations,True
+22204,M22204,2019-05,107605.14,5541,Service Stations,True
+22204,M22204,2019-06,99561.04,5541,Service Stations,True
+22204,M22204,2019-07,113704.66,5541,Service Stations,True
+22204,M22204,2019-08,108639.98,5541,Service Stations,True
+22204,M22204,2019-09,106844.07,5541,Service Stations,True
+22204,M22204,2019-10,109072.56,5541,Service Stations,True
+73186,M73186,2018-11,103470.88,4814,Telecommunication Services,True
+73186,M73186,2018-12,118607.73,4814,Telecommunication Services,True
+73186,M73186,2019-01,110698.03,4814,Telecommunication Services,True
+73186,M73186,2019-02,93208.11,4814,Telecommunication Services,True
+73186,M73186,2019-03,110165.79,4814,Telecommunication Services,True
+73186,M73186,2019-04,102338.68,4814,Telecommunication Services,True
+73186,M73186,2019-05,103725.30,4814,Telecommunication Services,True
+73186,M73186,2019-06,104867.05,4814,Telecommunication Services,True
+73186,M73186,2019-07,113879.86,4814,Telecommunication Services,True
+73186,M73186,2019-08,104907.61,4814,Telecommunication Services,True
+73186,M73186,2019-09,111095.64,4814,Telecommunication Services,True
+73186,M73186,2019-10,105660.95,4814,Telecommunication Services,True
+20561,M20561,2018-11,74200.87,5912,Drug Stores and Pharmacies,True
+20561,M20561,2018-12,77122.29,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-01,73854.06,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-02,69872.44,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-03,81056.63,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-04,75930.69,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-05,76935.47,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-06,76156.44,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-07,75118.03,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-08,75013.68,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-09,75866.00,5912,Drug Stores and Pharmacies,True
+20561,M20561,2019-10,74757.01,5912,Drug Stores and Pharmacies,True
+50783,M50783,2018-11,68531.16,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2018-12,68702.63,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-01,65139.26,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-02,59479.67,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-03,66443.23,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-04,65887.76,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-05,64707.88,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-06,64768.12,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-07,65856.50,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-08,65446.18,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-09,65882.23,5411,"Grocery Stores, Supermarkets",True
+50783,M50783,2019-10,70474.08,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2018-11,53411.50,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2018-12,58302.73,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-01,56918.78,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-02,52008.26,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-03,56792.98,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-04,52696.57,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-05,59245.07,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-06,58994.85,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-07,56914.02,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-08,57836.58,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-09,56776.22,5411,"Grocery Stores, Supermarkets",True
+75781,M75781,2019-10,57079.70,5411,"Grocery Stores, Supermarkets",True
+26810,M26810,2018-11,54658.99,5541,Service Stations,True
+26810,M26810,2018-12,57231.62,5541,Service Stations,True
+26810,M26810,2019-01,51653.27,5541,Service Stations,True
+26810,M26810,2019-02,49314.22,5541,Service Stations,True
+26810,M26810,2019-03,49682.77,5541,Service Stations,True
+26810,M26810,2019-04,48521.10,5541,Service Stations,True
+26810,M26810,2019-05,54334.93,5541,Service Stations,True
+26810,M26810,2019-06,57455.18,5541,Service Stations,True
+26810,M26810,2019-07,53702.97,5541,Service Stations,True
+26810,M26810,2019-08,57897.77,5541,Service Stations,True
+26810,M26810,2019-09,51984.49,5541,Service Stations,True
+26810,M26810,2019-10,52241.82,5541,Service Stations,True
+32175,M32175,2018-11,45312.20,7538,Automotive Service Shops,True
+32175,M32175,2018-12,49615.07,7538,Automotive Service Shops,True
+32175,M32175,2019-01,47838.42,7538,Automotive Service Shops,True
+32175,M32175,2019-02,43381.02,7538,Automotive Service Shops,True
+32175,M32175,2019-03,49516.48,7538,Automotive Service Shops,True
+32175,M32175,2019-04,46423.77,7538,Automotive Service Shops,True
+32175,M32175,2019-05,48613.36,7538,Automotive Service Shops,True
+32175,M32175,2019-06,43202.53,7538,Automotive Service Shops,True
+32175,M32175,2019-07,51063.33,7538,Automotive Service Shops,True
+32175,M32175,2019-08,51853.82,7538,Automotive Service Shops,True
+32175,M32175,2019-09,44401.11,7538,Automotive Service Shops,True
+32175,M32175,2019-10,49008.71,7538,Automotive Service Shops,True
+48919,M48919,2018-11,43643.01,5311,Department Stores,True
+48919,M48919,2018-12,46452.83,5311,Department Stores,True
+48919,M48919,2019-01,40750.54,5311,Department Stores,True
+48919,M48919,2019-02,36532.44,5311,Department Stores,True
+48919,M48919,2019-03,40138.73,5311,Department Stores,True
+48919,M48919,2019-04,40372.40,5311,Department Stores,True
+48919,M48919,2019-05,40988.30,5311,Department Stores,True
+48919,M48919,2019-06,43652.89,5311,Department Stores,True
+48919,M48919,2019-07,39350.22,5311,Department Stores,True
+48919,M48919,2019-08,43577.99,5311,Department Stores,True
+48919,M48919,2019-09,39733.35,5311,Department Stores,True
+48919,M48919,2019-10,41081.29,5311,Department Stores,True
+54850,M54850,2018-11,43190.28,4814,Telecommunication Services,True
+54850,M54850,2018-12,41867.79,4814,Telecommunication Services,True
+54850,M54850,2019-01,42947.91,4814,Telecommunication Services,True
+54850,M54850,2019-02,32394.50,4814,Telecommunication Services,True
+54850,M54850,2019-03,39002.36,4814,Telecommunication Services,True
+54850,M54850,2019-04,38286.33,4814,Telecommunication Services,True
+54850,M54850,2019-05,42154.36,4814,Telecommunication Services,True
+54850,M54850,2019-06,40062.44,4814,Telecommunication Services,True
+54850,M54850,2019-07,43847.51,4814,Telecommunication Services,True
+54850,M54850,2019-08,40283.02,4814,Telecommunication Services,True
+54850,M54850,2019-09,40895.84,4814,Telecommunication Services,True
+54850,M54850,2019-10,37856.86,4814,Telecommunication Services,True
+81833,M81833,2018-11,36582.95,5912,Drug Stores and Pharmacies,True
+81833,M81833,2018-12,40696.03,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-01,39139.99,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-02,36064.47,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-03,39435.30,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-04,37306.17,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-05,38952.22,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-06,36202.28,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-07,37265.98,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-08,40455.44,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-09,38592.87,5912,Drug Stores and Pharmacies,True
+81833,M81833,2019-10,40259.28,5912,Drug Stores and Pharmacies,True
+20519,M20519,2018-11,37070.77,5942,Book Stores,True
+20519,M20519,2018-12,38213.94,5942,Book Stores,True
+20519,M20519,2019-01,38817.12,5942,Book Stores,True
+20519,M20519,2019-02,34635.56,5942,Book Stores,True
+20519,M20519,2019-03,39033.89,5942,Book Stores,True
+20519,M20519,2019-04,39354.64,5942,Book Stores,True
+20519,M20519,2019-05,39389.50,5942,Book Stores,True
+20519,M20519,2019-06,37430.10,5942,Book Stores,True
+20519,M20519,2019-07,39474.47,5942,Book Stores,True
+20519,M20519,2019-08,40917.03,5942,Book Stores,True
+20519,M20519,2019-09,37578.72,5942,Book Stores,True
+20519,M20519,2019-10,38978.55,5942,Book Stores,True
+9932,M9932,2018-11,35001.49,5311,Department Stores,True
+9932,M9932,2018-12,32892.12,5311,Department Stores,True
+9932,M9932,2019-01,37863.15,5311,Department Stores,True
+9932,M9932,2019-02,34804.03,5311,Department Stores,True
+9932,M9932,2019-03,36127.34,5311,Department Stores,True
+9932,M9932,2019-04,34952.49,5311,Department Stores,True
+9932,M9932,2019-05,36939.64,5311,Department Stores,True
+9932,M9932,2019-06,35603.90,5311,Department Stores,True
+9932,M9932,2019-07,35004.78,5311,Department Stores,True
+9932,M9932,2019-08,34918.20,5311,Department Stores,True
+9932,M9932,2019-09,33163.42,5311,Department Stores,True
+9932,M9932,2019-10,35162.68,5311,Department Stores,True
+30286,M30286,2018-11,32705.18,4814,Telecommunication Services,True
+30286,M30286,2018-12,34344.33,4814,Telecommunication Services,True
+30286,M30286,2019-01,39160.41,4814,Telecommunication Services,True
+30286,M30286,2019-02,26234.64,4814,Telecommunication Services,True
+30286,M30286,2019-03,34959.53,4814,Telecommunication Services,True
+30286,M30286,2019-04,34050.05,4814,Telecommunication Services,True
+30286,M30286,2019-05,34040.88,4814,Telecommunication Services,True
+30286,M30286,2019-06,36167.88,4814,Telecommunication Services,True
+30286,M30286,2019-07,32715.85,4814,Telecommunication Services,True
+30286,M30286,2019-08,35312.32,4814,Telecommunication Services,True
+30286,M30286,2019-09,30872.75,4814,Telecommunication Services,True
+30286,M30286,2019-10,31033.88,4814,Telecommunication Services,True
+75936,M75936,2018-11,31911.87,5814,Fast Food Restaurants,True
+75936,M75936,2018-12,32268.44,5814,Fast Food Restaurants,True
+75936,M75936,2019-01,35296.56,5814,Fast Food Restaurants,True
+75936,M75936,2019-02,28416.30,5814,Fast Food Restaurants,True
+75936,M75936,2019-03,31292.11,5814,Fast Food Restaurants,True
+75936,M75936,2019-04,30783.64,5814,Fast Food Restaurants,True
+75936,M75936,2019-05,30903.03,5814,Fast Food Restaurants,True
+75936,M75936,2019-06,30602.79,5814,Fast Food Restaurants,True
+75936,M75936,2019-07,33898.88,5814,Fast Food Restaurants,True
+75936,M75936,2019-08,32095.78,5814,Fast Food Restaurants,True
+75936,M75936,2019-09,28568.57,5814,Fast Food Restaurants,True
+75936,M75936,2019-10,30226.51,5814,Fast Food Restaurants,True
+16798,M16798,2018-11,30242.27,4121,Taxicabs and Limousines,True
+16798,M16798,2018-12,32269.54,4121,Taxicabs and Limousines,True
+16798,M16798,2019-01,31899.26,4121,Taxicabs and Limousines,True
+16798,M16798,2019-02,30517.47,4121,Taxicabs and Limousines,True
+16798,M16798,2019-03,31422.70,4121,Taxicabs and Limousines,True
+16798,M16798,2019-04,30216.46,4121,Taxicabs and Limousines,True
+16798,M16798,2019-05,32354.16,4121,Taxicabs and Limousines,True
+16798,M16798,2019-06,30963.35,4121,Taxicabs and Limousines,True
+16798,M16798,2019-07,32049.15,4121,Taxicabs and Limousines,True
+16798,M16798,2019-08,29979.22,4121,Taxicabs and Limousines,True
+16798,M16798,2019-09,30559.23,4121,Taxicabs and Limousines,True
+16798,M16798,2019-10,30633.86,4121,Taxicabs and Limousines,True
+18563,M18563,2018-11,31657.61,4121,Taxicabs and Limousines,True
+18563,M18563,2018-12,30761.79,4121,Taxicabs and Limousines,True
+18563,M18563,2019-01,31683.63,4121,Taxicabs and Limousines,True
+18563,M18563,2019-02,28404.11,4121,Taxicabs and Limousines,True
+18563,M18563,2019-03,30916.82,4121,Taxicabs and Limousines,True
+18563,M18563,2019-04,28916.85,4121,Taxicabs and Limousines,True
+18563,M18563,2019-05,30914.74,4121,Taxicabs and Limousines,True
+18563,M18563,2019-06,31681.64,4121,Taxicabs and Limousines,True
+18563,M18563,2019-07,33581.87,4121,Taxicabs and Limousines,True
+18563,M18563,2019-08,31667.03,4121,Taxicabs and Limousines,True
+18563,M18563,2019-09,30056.25,4121,Taxicabs and Limousines,True
+18563,M18563,2019-10,32473.21,4121,Taxicabs and Limousines,True
+50867,M50867,2018-11,29220.26,5541,Service Stations,True
+50867,M50867,2018-12,31693.02,5541,Service Stations,True
+50867,M50867,2019-01,32365.37,5541,Service Stations,True
+50867,M50867,2019-02,29129.23,5541,Service Stations,True
+50867,M50867,2019-03,32402.56,5541,Service Stations,True
+50867,M50867,2019-04,33851.32,5541,Service Stations,True
+50867,M50867,2019-05,31238.96,5541,Service Stations,True
+50867,M50867,2019-06,30563.09,5541,Service Stations,True
+50867,M50867,2019-07,28374.62,5541,Service Stations,True
+50867,M50867,2019-08,29169.02,5541,Service Stations,True
+50867,M50867,2019-09,29895.78,5541,Service Stations,True
+50867,M50867,2019-10,33483.24,5541,Service Stations,True
+86616,M86616,2018-11,31059.68,4814,Telecommunication Services,True
+86616,M86616,2018-12,29741.67,4814,Telecommunication Services,True
+86616,M86616,2019-01,30857.34,4814,Telecommunication Services,True
+86616,M86616,2019-02,31393.25,4814,Telecommunication Services,True
+86616,M86616,2019-03,27111.27,4814,Telecommunication Services,True
+86616,M86616,2019-04,30812.62,4814,Telecommunication Services,True
+86616,M86616,2019-05,30332.09,4814,Telecommunication Services,True
+86616,M86616,2019-06,29961.31,4814,Telecommunication Services,True
+86616,M86616,2019-07,28642.46,4814,Telecommunication Services,True
+86616,M86616,2019-08,30533.16,4814,Telecommunication Services,True
+86616,M86616,2019-09,28275.54,4814,Telecommunication Services,True
+86616,M86616,2019-10,34897.16,4814,Telecommunication Services,True
+15143,M15143,2018-11,29729.38,4784,Tolls and Bridge Fees,True
+15143,M15143,2018-12,32152.84,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-01,30393.15,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-02,27741.63,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-03,30265.25,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-04,28663.65,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-05,30128.95,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-06,29926.04,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-07,30178.20,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-08,29810.78,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-09,29310.52,4784,Tolls and Bridge Fees,True
+15143,M15143,2019-10,30014.14,4784,Tolls and Bridge Fees,True
+32858,M32858,2018-11,30034.32,5311,Department Stores,True
+32858,M32858,2018-12,28025.31,5311,Department Stores,True
+32858,M32858,2019-01,27087.29,5311,Department Stores,True
+32858,M32858,2019-02,24459.35,5311,Department Stores,True
+32858,M32858,2019-03,31543.89,5311,Department Stores,True
+32858,M32858,2019-04,30914.88,5311,Department Stores,True
+32858,M32858,2019-05,33285.32,5311,Department Stores,True
+32858,M32858,2019-06,28067.28,5311,Department Stores,True
+32858,M32858,2019-07,29558.63,5311,Department Stores,True
+32858,M32858,2019-08,28039.70,5311,Department Stores,True
+32858,M32858,2019-09,28251.43,5311,Department Stores,True
+32858,M32858,2019-10,29882.48,5311,Department Stores,True
+25887,M25887,2018-11,24767.08,5814,Fast Food Restaurants,True
+25887,M25887,2018-12,25205.42,5814,Fast Food Restaurants,True
+25887,M25887,2019-01,25557.82,5814,Fast Food Restaurants,True
+25887,M25887,2019-02,22706.20,5814,Fast Food Restaurants,True
+25887,M25887,2019-03,26103.13,5814,Fast Food Restaurants,True
+25887,M25887,2019-04,25607.12,5814,Fast Food Restaurants,True
+25887,M25887,2019-05,26133.23,5814,Fast Food Restaurants,True
+25887,M25887,2019-06,26882.60,5814,Fast Food Restaurants,True
+25887,M25887,2019-07,29257.67,5814,Fast Food Restaurants,True
+25887,M25887,2019-08,24628.88,5814,Fast Food Restaurants,True
+25887,M25887,2019-09,25794.11,5814,Fast Food Restaurants,True
+25887,M25887,2019-10,26180.79,5814,Fast Food Restaurants,True
+11468,M11468,2018-11,25714.69,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2018-12,23394.88,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-01,25845.66,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-02,21879.89,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-03,26073.18,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-04,24940.61,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-05,26118.56,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-06,24195.66,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-07,24548.44,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-08,28430.94,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-09,24184.19,5970,"Artist Supply Stores, Craft Shops",True
+11468,M11468,2019-10,26428.18,5970,"Artist Supply Stores, Craft Shops",True
+49637,M49637,2018-11,21027.31,3509,Industrial Equipment and Supplies,True
+49637,M49637,2018-12,24203.14,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-01,23082.71,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-02,16218.44,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-03,24537.84,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-04,21179.99,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-05,24015.38,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-06,25058.39,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-07,31355.97,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-08,32639.20,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-09,24978.35,3509,Industrial Equipment and Supplies,True
+49637,M49637,2019-10,17559.45,3509,Industrial Equipment and Supplies,True
+41122,M41122,2018-11,22228.25,4784,Tolls and Bridge Fees,True
+41122,M41122,2018-12,23454.93,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-01,24023.43,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-02,21696.49,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-03,24377.03,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-04,21894.49,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-05,23574.89,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-06,23453.25,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-07,24084.30,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-08,24428.41,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-09,24594.71,4784,Tolls and Bridge Fees,True
+41122,M41122,2019-10,23159.88,4784,Tolls and Bridge Fees,True
+7777,M7777,2018-11,20924.01,3684,Semiconductors and Related Devices,True
+7777,M7777,2018-12,25591.79,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-01,16215.38,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-02,27597.27,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-03,18501.04,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-04,22510.06,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-05,25493.50,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-06,27482.08,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-07,26655.02,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-08,23503.87,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-09,24625.45,3684,Semiconductors and Related Devices,True
+7777,M7777,2019-10,21857.75,3684,Semiconductors and Related Devices,True
+86410,M86410,2018-11,21808.91,5211,Lumber and Building Materials,True
+86410,M86410,2018-12,25226.06,5211,Lumber and Building Materials,True
+86410,M86410,2019-01,24847.88,5211,Lumber and Building Materials,True
+86410,M86410,2019-02,22364.66,5211,Lumber and Building Materials,True
+86410,M86410,2019-03,25861.62,5211,Lumber and Building Materials,True
+86410,M86410,2019-04,23385.28,5211,Lumber and Building Materials,True
+86410,M86410,2019-05,23949.73,5211,Lumber and Building Materials,True
+86410,M86410,2019-06,21618.95,5211,Lumber and Building Materials,True
+86410,M86410,2019-07,23287.86,5211,Lumber and Building Materials,True
+86410,M86410,2019-08,21365.64,5211,Lumber and Building Materials,True
+86410,M86410,2019-09,21381.52,5211,Lumber and Building Materials,True
+86410,M86410,2019-10,22091.25,5211,Lumber and Building Materials,True
+88459,M88459,2018-11,21531.91,5311,Department Stores,True
+88459,M88459,2018-12,21309.36,5311,Department Stores,True
+88459,M88459,2019-01,23727.05,5311,Department Stores,True
+88459,M88459,2019-02,19698.50,5311,Department Stores,True
+88459,M88459,2019-03,24090.06,5311,Department Stores,True
+88459,M88459,2019-04,24986.36,5311,Department Stores,True
+88459,M88459,2019-05,24804.13,5311,Department Stores,True
+88459,M88459,2019-06,21871.02,5311,Department Stores,True
+88459,M88459,2019-07,22335.64,5311,Department Stores,True
+88459,M88459,2019-08,25995.84,5311,Department Stores,True
+88459,M88459,2019-09,19372.64,5311,Department Stores,True
+88459,M88459,2019-10,25586.71,5311,Department Stores,True
+59474,M59474,2018-11,22827.74,3722,Passenger Railways,True
+59474,M59474,2018-12,21815.03,3722,Passenger Railways,True
+59474,M59474,2019-01,27203.47,3722,Passenger Railways,True
+59474,M59474,2019-02,19357.14,3722,Passenger Railways,True
+59474,M59474,2019-03,20208.67,3722,Passenger Railways,True
+59474,M59474,2019-04,23087.78,3722,Passenger Railways,True
+59474,M59474,2019-05,21899.93,3722,Passenger Railways,True
+59474,M59474,2019-06,25480.51,3722,Passenger Railways,True
+59474,M59474,2019-07,17888.74,3722,Passenger Railways,True
+59474,M59474,2019-08,21057.91,3722,Passenger Railways,True
+59474,M59474,2019-09,22026.33,3722,Passenger Railways,True
+59474,M59474,2019-10,23008.01,3722,Passenger Railways,True
+13646,M13646,2018-11,22136.68,7538,Automotive Service Shops,True
+13646,M13646,2018-12,23519.50,7538,Automotive Service Shops,True
+13646,M13646,2019-01,22690.27,7538,Automotive Service Shops,True
+13646,M13646,2019-02,19945.08,7538,Automotive Service Shops,True
+13646,M13646,2019-03,21635.62,7538,Automotive Service Shops,True
+13646,M13646,2019-04,20876.00,7538,Automotive Service Shops,True
+13646,M13646,2019-05,22559.73,7538,Automotive Service Shops,True
+13646,M13646,2019-06,21667.02,7538,Automotive Service Shops,True
+13646,M13646,2019-07,23244.99,7538,Automotive Service Shops,True
+13646,M13646,2019-08,20633.34,7538,Automotive Service Shops,True
+13646,M13646,2019-09,21765.70,7538,Automotive Service Shops,True
+13646,M13646,2019-10,22443.57,7538,Automotive Service Shops,True
+17976,M17976,2018-11,22206.15,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2018-12,22205.57,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-01,22525.56,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-02,22178.92,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-03,23444.53,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-04,22736.28,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-05,18348.21,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-06,21129.71,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-07,19771.46,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-08,23499.48,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-09,22537.82,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+17976,M17976,2019-10,22206.53,4900,"Utilities - Electric, Gas, Water, Sanitary",True
+44795,M44795,2018-11,17051.00,3780,Computer Network Services,True
+44795,M44795,2018-12,23058.41,3780,Computer Network Services,True
+44795,M44795,2019-01,17756.32,3780,Computer Network Services,True
+44795,M44795,2019-02,19769.01,3780,Computer Network Services,True
+44795,M44795,2019-03,24448.37,3780,Computer Network Services,True
+44795,M44795,2019-04,17536.83,3780,Computer Network Services,True
+44795,M44795,2019-05,20851.48,3780,Computer Network Services,True
+44795,M44795,2019-06,31108.51,3780,Computer Network Services,True
+44795,M44795,2019-07,21918.47,3780,Computer Network Services,True
+44795,M44795,2019-08,26079.66,3780,Computer Network Services,True
+44795,M44795,2019-09,24298.09,3780,Computer Network Services,True
+44795,M44795,2019-10,18250.99,3780,Computer Network Services,True
+39991,M39991,2018-11,21811.50,3771,Railroad Passenger Transport,True
+39991,M39991,2018-12,22880.24,3771,Railroad Passenger Transport,True
+39991,M39991,2019-01,19673.21,3771,Railroad Passenger Transport,True
+39991,M39991,2019-02,18891.42,3771,Railroad Passenger Transport,True
+39991,M39991,2019-03,18067.32,3771,Railroad Passenger Transport,True
+39991,M39991,2019-04,22921.88,3771,Railroad Passenger Transport,True
+39991,M39991,2019-05,23411.61,3771,Railroad Passenger Transport,True
+39991,M39991,2019-06,18862.37,3771,Railroad Passenger Transport,True
+39991,M39991,2019-07,23892.63,3771,Railroad Passenger Transport,True
+39991,M39991,2019-08,29185.00,3771,Railroad Passenger Transport,True
+39991,M39991,2019-09,22433.69,3771,Railroad Passenger Transport,True
+39991,M39991,2019-10,19628.67,3771,Railroad Passenger Transport,True
+52923,M52923,2018-11,16041.00,3504,Gardening Supplies,True
+52923,M52923,2018-12,19903.93,3504,Gardening Supplies,True
+52923,M52923,2019-01,23280.48,3504,Gardening Supplies,True
+52923,M52923,2019-02,17870.30,3504,Gardening Supplies,True
+52923,M52923,2019-03,19450.31,3504,Gardening Supplies,True
+52923,M52923,2019-04,17732.55,3504,Gardening Supplies,True
+52923,M52923,2019-05,21813.49,3504,Gardening Supplies,True
+52923,M52923,2019-06,31282.95,3504,Gardening Supplies,True
+52923,M52923,2019-07,20834.73,3504,Gardening Supplies,True
+52923,M52923,2019-08,24584.26,3504,Gardening Supplies,True
+52923,M52923,2019-09,25748.29,3504,Gardening Supplies,True
+52923,M52923,2019-10,21813.38,3504,Gardening Supplies,True
+36934,M36934,2018-11,19111.76,7538,Automotive Service Shops,True
+36934,M36934,2018-12,20728.33,7538,Automotive Service Shops,True
+36934,M36934,2019-01,20145.79,7538,Automotive Service Shops,True
+36934,M36934,2019-02,18214.98,7538,Automotive Service Shops,True
+36934,M36934,2019-03,21653.52,7538,Automotive Service Shops,True
+36934,M36934,2019-04,22447.86,7538,Automotive Service Shops,True
+36934,M36934,2019-05,21864.49,7538,Automotive Service Shops,True
+36934,M36934,2019-06,21854.69,7538,Automotive Service Shops,True
+36934,M36934,2019-07,21017.83,7538,Automotive Service Shops,True
+36934,M36934,2019-08,23722.15,7538,Automotive Service Shops,True
+36934,M36934,2019-09,20775.65,7538,Automotive Service Shops,True
+36934,M36934,2019-10,21735.14,7538,Automotive Service Shops,True
+3558,M3558,2018-11,21607.29,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2018-12,19202.38,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-01,15929.05,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-02,13277.93,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-03,21790.73,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-04,20290.14,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-05,23689.05,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-06,20956.95,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-07,23033.95,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-08,28871.01,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-09,22573.80,3640,"Lighting, Fixtures, Electrical Supplies",True
+3558,M3558,2019-10,17354.37,3640,"Lighting, Fixtures, Electrical Supplies",True
+34490,M34490,2018-11,20768.05,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2018-12,22356.81,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-01,18651.02,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-02,18159.61,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-03,21160.21,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-04,21744.06,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-05,18893.91,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-06,18748.75,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-07,21355.32,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-08,20160.75,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-09,22485.19,5719,Miscellaneous Home Furnishing Stores,True
+34490,M34490,2019-10,21391.93,5719,Miscellaneous Home Furnishing Stores,True
+74934,M74934,2018-11,19203.68,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2018-12,19861.97,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-01,16658.17,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-02,16071.43,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-03,20442.60,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-04,24634.08,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-05,20689.79,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-06,23645.29,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-07,25098.55,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-08,21371.04,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-09,19633.70,3596,Miscellaneous Machinery and Parts Manufacturing,True
+74934,M74934,2019-10,15342.96,3596,Miscellaneous Machinery and Parts Manufacturing,True
+78644,M78644,2018-11,17018.18,3775,Railroad Freight,True
+78644,M78644,2018-12,17693.37,3775,Railroad Freight,True
+78644,M78644,2019-01,20048.87,3775,Railroad Freight,True
+78644,M78644,2019-02,20964.77,3775,Railroad Freight,True
+78644,M78644,2019-03,17987.45,3775,Railroad Freight,True
+78644,M78644,2019-04,26707.80,3775,Railroad Freight,True
+78644,M78644,2019-05,21715.44,3775,Railroad Freight,True
+78644,M78644,2019-06,14160.43,3775,Railroad Freight,True
+78644,M78644,2019-07,19529.66,3775,Railroad Freight,True
+78644,M78644,2019-08,20125.44,3775,Railroad Freight,True
+78644,M78644,2019-09,17315.97,3775,Railroad Freight,True
+78644,M78644,2019-10,24252.90,3775,Railroad Freight,True
+19964,M19964,2018-11,17123.96,5311,Department Stores,True
+19964,M19964,2018-12,19464.33,5311,Department Stores,True
+19964,M19964,2019-01,19284.84,5311,Department Stores,True
+19964,M19964,2019-02,17837.39,5311,Department Stores,True
+19964,M19964,2019-03,19687.68,5311,Department Stores,True
+19964,M19964,2019-04,20579.67,5311,Department Stores,True
+19964,M19964,2019-05,17728.19,5311,Department Stores,True
+19964,M19964,2019-06,20159.17,5311,Department Stores,True
+19964,M19964,2019-07,22221.66,5311,Department Stores,True
+19964,M19964,2019-08,17737.89,5311,Department Stores,True
+19964,M19964,2019-09,20065.57,5311,Department Stores,True
+19964,M19964,2019-10,21025.44,5311,Department Stores,True
+57133,M57133,2018-11,21036.69,3730,Ship Chandlers,True
+57133,M57133,2018-12,13252.30,3730,Ship Chandlers,True
+57133,M57133,2019-01,17876.67,3730,Ship Chandlers,True
+57133,M57133,2019-02,18434.09,3730,Ship Chandlers,True
+57133,M57133,2019-03,15989.08,3730,Ship Chandlers,True
+57133,M57133,2019-04,18473.08,3730,Ship Chandlers,True
+57133,M57133,2019-05,21712.36,3730,Ship Chandlers,True
+57133,M57133,2019-06,21027.85,3730,Ship Chandlers,True
+57133,M57133,2019-07,26095.30,3730,Ship Chandlers,True
+57133,M57133,2019-08,20937.14,3730,Ship Chandlers,True
+57133,M57133,2019-09,15369.18,3730,Ship Chandlers,True
+57133,M57133,2019-10,18914.85,3730,Ship Chandlers,True
+38489,M38489,2018-11,26495.58,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2018-12,21291.50,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-01,18347.70,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-02,18010.11,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-03,15371.17,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-04,21747.44,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-05,20933.81,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-06,20174.56,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-07,18831.07,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-08,18462.28,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-09,16816.33,3058,"Tools, Parts, Supplies Manufacturing",True
+38489,M38489,2019-10,11539.34,3058,"Tools, Parts, Supplies Manufacturing",True
+5594,M5594,2018-11,26855.83,3001,Steel Products Manufacturing,True
+5594,M5594,2018-12,12371.85,3001,Steel Products Manufacturing,True
+5594,M5594,2019-01,14703.91,3001,Steel Products Manufacturing,True
+5594,M5594,2019-02,19207.47,3001,Steel Products Manufacturing,True
+5594,M5594,2019-03,21193.08,3001,Steel Products Manufacturing,True
+5594,M5594,2019-04,24590.43,3001,Steel Products Manufacturing,True
+5594,M5594,2019-05,24965.76,3001,Steel Products Manufacturing,True
+5594,M5594,2019-06,19471.37,3001,Steel Products Manufacturing,True
+5594,M5594,2019-07,15793.64,3001,Steel Products Manufacturing,True
+5594,M5594,2019-08,14821.66,3001,Steel Products Manufacturing,True
+5594,M5594,2019-09,17482.84,3001,Steel Products Manufacturing,True
+5594,M5594,2019-10,13181.06,3001,Steel Products Manufacturing,True
+67570,M67570,2018-11,20457.14,5311,Department Stores,True
+67570,M67570,2018-12,18715.81,5311,Department Stores,True
+67570,M67570,2019-01,20328.07,5311,Department Stores,True
+67570,M67570,2019-02,14431.27,5311,Department Stores,True
+67570,M67570,2019-03,17399.92,5311,Department Stores,True
+67570,M67570,2019-04,14951.49,5311,Department Stores,True
+67570,M67570,2019-05,22839.66,5311,Department Stores,True
+67570,M67570,2019-06,15589.27,5311,Department Stores,True
+67570,M67570,2019-07,16893.83,5311,Department Stores,True
+67570,M67570,2019-08,19015.51,5311,Department Stores,True
+67570,M67570,2019-09,17361.32,5311,Department Stores,True
+67570,M67570,2019-10,19302.98,5311,Department Stores,True
+99370,M99370,2018-11,18557.94,5311,Department Stores,True
+99370,M99370,2018-12,19883.09,5311,Department Stores,True
+99370,M99370,2019-01,17894.98,5311,Department Stores,True
+99370,M99370,2019-02,15244.73,5311,Department Stores,True
+99370,M99370,2019-03,17682.25,5311,Department Stores,True
+99370,M99370,2019-04,18707.22,5311,Department Stores,True
+99370,M99370,2019-05,18809.85,5311,Department Stores,True
+99370,M99370,2019-06,18916.53,5311,Department Stores,True
+99370,M99370,2019-07,17434.40,5311,Department Stores,True
+99370,M99370,2019-08,15834.50,5311,Department Stores,True
+99370,M99370,2019-09,17189.81,5311,Department Stores,True
+99370,M99370,2019-10,18235.97,5311,Department Stores,True
+18215,M18215,2018-11,16805.24,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2018-12,17770.35,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-01,19628.79,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-02,16830.19,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-03,18320.08,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-04,17909.13,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-05,18364.87,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-06,17779.10,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-07,15517.86,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-08,19422.70,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-09,15418.98,5719,Miscellaneous Home Furnishing Stores,True
+18215,M18215,2019-10,19843.79,5719,Miscellaneous Home Furnishing Stores,True
+35451,M35451,2018-11,16445.32,5812,Eating Places and Restaurants,True
+35451,M35451,2018-12,18702.45,5812,Eating Places and Restaurants,True
+35451,M35451,2019-01,17688.69,5812,Eating Places and Restaurants,True
+35451,M35451,2019-02,15112.80,5812,Eating Places and Restaurants,True
+35451,M35451,2019-03,17978.68,5812,Eating Places and Restaurants,True
+35451,M35451,2019-04,14644.13,5812,Eating Places and Restaurants,True
+35451,M35451,2019-05,18029.77,5812,Eating Places and Restaurants,True
+35451,M35451,2019-06,17200.46,5812,Eating Places and Restaurants,True
+35451,M35451,2019-07,20330.26,5812,Eating Places and Restaurants,True
+35451,M35451,2019-08,17586.76,5812,Eating Places and Restaurants,True
+35451,M35451,2019-09,17667.85,5812,Eating Places and Restaurants,True
+35451,M35451,2019-10,17050.22,5812,Eating Places and Restaurants,True
+82981,M82981,2018-11,16343.17,5912,Drug Stores and Pharmacies,True
+82981,M82981,2018-12,16998.35,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-01,16728.85,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-02,14803.95,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-03,16268.28,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-04,16450.99,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-05,17690.32,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-06,16768.45,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-07,19386.45,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-08,16619.79,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-09,17516.66,5912,Drug Stores and Pharmacies,True
+82981,M82981,2019-10,19342.67,5912,Drug Stores and Pharmacies,True
+57386,M57386,2018-11,12273.03,3132,Leather Goods,True
+57386,M57386,2018-12,16423.64,3132,Leather Goods,True
+57386,M57386,2019-01,18707.67,3132,Leather Goods,True
+57386,M57386,2019-02,15493.63,3132,Leather Goods,True
+57386,M57386,2019-03,19179.40,3132,Leather Goods,True
+57386,M57386,2019-04,19074.71,3132,Leather Goods,True
+57386,M57386,2019-05,14676.35,3132,Leather Goods,True
+57386,M57386,2019-06,21185.84,3132,Leather Goods,True
+57386,M57386,2019-07,21136.21,3132,Leather Goods,True
+57386,M57386,2019-08,10448.87,3132,Leather Goods,True
+57386,M57386,2019-09,14159.05,3132,Leather Goods,True
+57386,M57386,2019-10,15757.32,3132,Leather Goods,True
+60152,M60152,2018-11,30867.63,3000,Steelworks,True
+60152,M60152,2018-12,14846.42,3000,Steelworks,True
+60152,M60152,2019-01,17760.61,3000,Steelworks,True
+60152,M60152,2019-02,12738.20,3000,Steelworks,True
+60152,M60152,2019-03,11480.85,3000,Steelworks,True
+60152,M60152,2019-04,16462.98,3000,Steelworks,True
+60152,M60152,2019-05,13954.83,3000,Steelworks,True
+60152,M60152,2019-06,14203.12,3000,Steelworks,True
+60152,M60152,2019-07,16078.43,3000,Steelworks,True
+60152,M60152,2019-08,18625.87,3000,Steelworks,True
+60152,M60152,2019-09,16123.44,3000,Steelworks,True
+60152,M60152,2019-10,14898.04,3000,Steelworks,True
+6063,M6063,2018-11,15669.72,4511,Airlines,True
+6063,M6063,2018-12,16812.71,4511,Airlines,True
+6063,M6063,2019-01,13685.56,4511,Airlines,True
+6063,M6063,2019-02,16735.75,4511,Airlines,True
+6063,M6063,2019-03,20267.25,4511,Airlines,True
+6063,M6063,2019-04,20360.15,4511,Airlines,True
+6063,M6063,2019-05,16236.94,4511,Airlines,True
+6063,M6063,2019-06,9555.70,4511,Airlines,True
+6063,M6063,2019-07,21692.87,4511,Airlines,True
+6063,M6063,2019-08,12972.64,4511,Airlines,True
+6063,M6063,2019-09,15548.26,4511,Airlines,True
+6063,M6063,2019-10,17869.40,4511,Airlines,True
+79927,M79927,2018-11,15729.79,5912,Drug Stores and Pharmacies,True
+79927,M79927,2018-12,17844.34,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-01,18638.51,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-02,13385.23,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-03,15020.23,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-04,15904.08,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-05,16112.19,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-06,15806.31,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-07,15671.53,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-08,18465.03,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-09,15945.22,5912,Drug Stores and Pharmacies,True
+79927,M79927,2019-10,16673.32,5912,Drug Stores and Pharmacies,True
+29742,M29742,2018-11,18793.99,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2018-12,9383.09,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-01,16004.12,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-02,16349.83,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-03,19368.48,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-04,16785.26,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-05,13331.15,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-06,16445.76,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-07,19007.83,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-08,16256.29,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-09,9939.16,3256,"Brick, Stone, and Related Materials",True
+29742,M29742,2019-10,18042.81,3256,"Brick, Stone, and Related Materials",True
+69972,M69972,2018-11,13609.96,5814,Fast Food Restaurants,True
+69972,M69972,2018-12,15277.99,5814,Fast Food Restaurants,True
+69972,M69972,2019-01,16673.13,5814,Fast Food Restaurants,True
+69972,M69972,2019-02,15974.42,5814,Fast Food Restaurants,True
+69972,M69972,2019-03,15665.46,5814,Fast Food Restaurants,True
+69972,M69972,2019-04,15919.59,5814,Fast Food Restaurants,True
+69972,M69972,2019-05,14807.43,5814,Fast Food Restaurants,True
+69972,M69972,2019-06,16645.19,5814,Fast Food Restaurants,True
+69972,M69972,2019-07,16857.50,5814,Fast Food Restaurants,True
+69972,M69972,2019-08,15423.71,5814,Fast Food Restaurants,True
+69972,M69972,2019-09,15195.36,5814,Fast Food Restaurants,True
+69972,M69972,2019-10,15785.81,5814,Fast Food Restaurants,True
+70268,M70268,2018-11,15386.27,4722,Travel Agencies,True
+70268,M70268,2018-12,18511.65,4722,Travel Agencies,True
+70268,M70268,2019-01,11792.55,4722,Travel Agencies,True
+70268,M70268,2019-02,16164.88,4722,Travel Agencies,True
+70268,M70268,2019-03,10708.77,4722,Travel Agencies,True
+70268,M70268,2019-04,11883.74,4722,Travel Agencies,True
+70268,M70268,2019-05,15020.93,4722,Travel Agencies,True
+70268,M70268,2019-06,15556.02,4722,Travel Agencies,True
+70268,M70268,2019-07,18111.81,4722,Travel Agencies,True
+70268,M70268,2019-08,25114.85,4722,Travel Agencies,True
+70268,M70268,2019-09,9468.98,4722,Travel Agencies,True
+70268,M70268,2019-10,18981.98,4722,Travel Agencies,True
