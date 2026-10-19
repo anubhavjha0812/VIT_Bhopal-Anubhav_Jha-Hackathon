@@ -102,7 +102,7 @@ def history_pool(linker: Linker) -> pd.DataFrame:
         for e, s, t in zip(h["event"], h["sentiment"], h["text"], strict=True)
     ]
     h["source"] = "news"
-    g = gate(h.reset_index(drop=True), load_config().impact_trigger, linker)
+    g = gate(h.reset_index(drop=True), load_config().impact_trigger, linker, precision_rules=False)
     return g.assign(source_set="history")
 
 
@@ -112,7 +112,7 @@ def replay_pool(linker: Linker) -> pd.DataFrame:
 
     s = load_signals()
     s = s[s["role"] == "subject"] if "role" in s else s
-    g = gate(s, load_config().impact_trigger, linker)
+    g = gate(s, load_config().impact_trigger, linker, precision_rules=False)
     return g.assign(source_set="replay", rule_class=g["text"].map(credit_event))
 
 

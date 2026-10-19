@@ -18,6 +18,7 @@ import re
 
 import pandas as pd
 
+from riskengine.gate_rules import blocked_reason
 from riskengine.ingest.linking import Linker
 from riskengine.nlp.events import CREDIT_CLASSES, names_agency
 
@@ -36,8 +37,16 @@ def _same_text(text: str) -> str:
     return " ".join(_URL.sub("", text).lower().split())
 
 
-def gate(signals: pd.DataFrame, trigger: int, linker: Linker | None = None) -> pd.DataFrame:
-    """`signals` plus `fired` and `reason` per row."""
+def gate(
+    signals: pd.DataFrame,
+    trigger: int,
+    linker: Linker | None = None,
+    precision_rules: bool = True,
+) -> pd.DataFrame:
+    """`signals` plus `fired` and `reason` per row.
+
+    `precision_rules` removes alerts that are a deal rating or an affirmation (E36b). The stored
+    E23 and Module B history results were made without it, so those callers pass False."""
     linker = linker or Linker.from_csv()
     s = signals.copy()
     if "role" not in s:
@@ -77,6 +86,11 @@ def gate(signals: pd.DataFrame, trigger: int, linker: Linker | None = None) -> p
             reason[i] = "fired: 2 sources in 24 h"
         else:
             reason[i] = "1 source, no agency"
+    if precision_rules:
+        for i in s.index[reason.str.startswith("fired")]:
+            why = blocked_reason(s.at[i, "text"], s.at[i, "event"])
+            if why:
+                reason[i] = f"blocked: {why}"
     s["reason"] = reason
     s["fired"] = reason.str.startswith("fired")
     return s

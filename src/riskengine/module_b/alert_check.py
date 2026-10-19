@@ -89,14 +89,14 @@ def history_alerts(linker: Linker) -> pd.DataFrame:
         for e, s, t in zip(h["event"], h["sentiment"], h["text"], strict=True)
     ]
     h["source"], h["doc_id"] = "news", [f"h{i}" for i in range(len(h))]
-    g = gate(h.reset_index(drop=True), load_config().impact_trigger, linker)
+    g = gate(h.reset_index(drop=True), load_config().impact_trigger, linker, precision_rules=False)
     return g[g["fired"]].assign(sample="primary (history 2010 – 8 Apr 2020)")
 
 
 def replay_alerts(linker: Linker) -> pd.DataFrame:
     from riskengine.pipeline import load_signals
 
-    g = gate(load_signals(), load_config().impact_trigger, linker)
+    g = gate(load_signals(), load_config().impact_trigger, linker, precision_rules=False)
     return g[g["fired"]].assign(sample="secondary (replay window, seen)")
 
 

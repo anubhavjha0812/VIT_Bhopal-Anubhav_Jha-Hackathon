@@ -1,0 +1,187 @@
+{
+  "rules": "docs/E36_GATE_PRECISION.md",
+  "e23_design_data": {
+    "note": "design data: the 44 false alerts were seen before the rules were written",
+    "before": {
+      "alerts": 83,
+      "TP": 39,
+      "FP": 44,
+      "FN": 7,
+      "precision": 0.46987951807228917,
+      "recall": 0.8478260869565217
+    },
+    "after": {
+      "alerts": 58,
+      "TP": 38,
+      "FP": 20,
+      "FN": 8,
+      "precision": 0.6551724137931034,
+      "recall": 0.8260869565217391
+    },
+    "false_removed": 24,
+    "true_removed": 1,
+    "false_removed_by_rule": {
+      "securitization": 23,
+      "affirmation or upgrade": 1
+    },
+    "false_removed_by_old_reason": {
+      "securitization": 20,
+      "no_own_credit_event": 3,
+      "affirmation": 1
+    },
+    "true_removed_rows": [
+      "Fitch Affirms AMD's IDR at 'B-'; Outlook Revised to Negative"
+    ],
+    "removed_rows": [
+      {
+        "headline": "Moody's cuts BofA mortgage servicing ratings",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "TEXT-Fitch cuts JP Morgan Chase Commercial Mortgage 2002-CIBC4",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Bank of America Mortgage-Servicer Ratings Cut by Moody\u2019s, Remain on Review",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan Commercial Mortgage Finance Corp., Series 2000-C10",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "TEXT-Fitch downgrades JPMorgan Commercial Mortgage 2005-CIBC12",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades JP Morgan 2002-CIBC4; Assigns LS Ratings",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades Five Classes of JPMorgan 2009-RR1 & Removes from Watch Negative",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades JPMorgan 2006-FL2; Assigns Outlooks, LS and RR Ratings",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan Chase 2007-CIBC20; Affirms Super Senior & Mezzanine Classes",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan Chase Commercial Mortgage Securities Corp., Series 2001-CIBC1",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades JP Morgan 2002-CIBC5",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Affirms AMD's IDR at 'B-'; Outlook Revised to Negative",
+        "outcome": "TP",
+        "blocked": "affirmation or upgrade"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan Chase Commercial Mortgage Securities Corp., Series 2001-CIBC1",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades Four Classes of JPMorgan 2006-FL2; Revises Outlooks",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Affirms Bank of America's IDR at 'A'; Outlook Remains Negative on Support Expectations",
+        "outcome": "FP",
+        "blocked": "affirmation or upgrade"
+      },
+      {
+        "headline": "Fitch Downgrades JP Morgan Chase Commercial Mtge Securities Trust 2010-C1; Revises Outlooks",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan 2001-CIBC3; Assigns LS Ratings",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan Chase Commercial Mortgage Securities Corp., Series 2001-A",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan Chase Commercial Mortgage Securities Corp. 2004-PNC1",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan 2001-CIBC3",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "UPDATE 2-Moody's cuts BofA mortgage servicing ratings",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "TEXT-Fitch cuts JP Morgan Chase 2007-CIBC20",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan 1999-C8",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades J.P. Morgan Chase 2007-CIBC20; Affirms Super Sr and Mezzanine Classes at 'AAA'",
+        "outcome": "FP",
+        "blocked": "securitization"
+      },
+      {
+        "headline": "Fitch Downgrades JP Morgan 2003-CIBC6",
+        "outcome": "FP",
+        "blocked": "securitization"
+      }
+    ]
+  },
+  "sec_8k_guard": {
+    "credit_true_rows": 147,
+    "blocked": 0,
+    "recall_change_at_most": 0.0,
+    "blocked_rows": []
+  },
+  "pools": {
+    "history": {
+      "old_alerts": 79,
+      "removed": 25
+    },
+    "replay": {
+      "old_alerts": 4,
+      "removed": 0
+    },
+    "replay_removed_rows": [],
+    "removed_outside_e23_unique_texts": 0
+  },
+  "audit_sample_file": "data/outputs/e36_removal_audit_sample.csv",
+  "audit_sample_size": 0,
+  "checks_before_audit": {
+    "e23_false_removed_at_least_20": true,
+    "e23_no_true_removed": false
+  }
+}
