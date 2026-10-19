@@ -21,7 +21,8 @@ DIST = ROOT / "web" / "dist"
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     # A mounted app's own lifespan does not run, so start the model warm-up here.
-    asyncio.get_running_loop().run_in_executor(None, api.warm_up)
+    # Wait for it: a first /analyze racing the warm-up thread could fail with ImportError.
+    await asyncio.get_running_loop().run_in_executor(None, api.warm_up)
     yield
 
 
