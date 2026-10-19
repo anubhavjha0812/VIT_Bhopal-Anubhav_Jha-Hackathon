@@ -1,4 +1,13 @@
 # syntax=docker/dockerfile:1
+
+# Stage 1: build the dashboard (web/dist). Only this folder is copied into the final image.
+FROM node:22-slim AS web
+WORKDIR /web
+COPY web/package.json web/package-lock.json ./
+RUN npm ci
+COPY web/ ./
+RUN npm run build
+
 FROM python:3.12-slim
 
 COPY --from=ghcr.io/astral-sh/uv:0.12.23 /uv /uvx /bin/
@@ -21,8 +30,14 @@ snapshot_download('ProsusAI/finbert', allow_patterns=['*.json', '*.txt', 'pytorc
 ENV HF_HUB_OFFLINE=1
 
 COPY . .
+COPY --from=web /web/dist web/dist
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-dev
 
-EXPOSE 8000
-CMD ["python", "run_demo.py"]
+# The live feed and the ledger write under data/; a host may run the container as another user.
+RUN mkdir -p data/live && chmod -R a+rwX data
+
+# One server for API + dashboard. HF Spaces expects 7860; locally: -e PORT=8000 or compose below.
+ENV PORT=7860
+EXPOSE 7860
+CMD ["sh", "-c", "uvicorn riskengine.site:app --host 0.0.0.0 --port ${PORT}"]

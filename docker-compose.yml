@@ -9,6 +9,7 @@ services:
     depends_on:
       demo:
         condition: service_completed_successfully
-    command: ["uvicorn", "riskengine.api:app", "--host", "0.0.0.0", "--port", "8000"]
+    # site = the API under /api plus the dashboard at / (http://localhost:8000)
+    command: ["uvicorn", "riskengine.site:app", "--host", "0.0.0.0", "--port", "8000"]
     ports:
       - "8000:8000"

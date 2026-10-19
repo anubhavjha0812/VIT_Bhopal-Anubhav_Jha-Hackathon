@@ -6,7 +6,7 @@
 .env
 kaggle.json
 data/raw
-models
+models/kaggle_*
 PLAN.md
 STEPS.md
 private_notes
