@@ -45,6 +45,7 @@ models/*
 !models/topic/
 !models/e27-entity-bge-small-en-v1.5-int8/
 !models/impact-v3/
+!models/e25-student-v3/
 *.ckpt
 *.safetensors
 

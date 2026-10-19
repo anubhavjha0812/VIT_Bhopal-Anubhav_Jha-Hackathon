@@ -2,11 +2,13 @@
 # Defaults are our fine-tuned int8 models (DECISIONS E11); set finbert / keywords for the baselines.
 
 sentiment = "entity"     # finbert | own | entity (E27, per-company, text pair; own is the fallback)
-events = "model_rules"   # keywords | model | model_rules (E24 candidate C, chosen on D2, final-tested)
+events = "student_rules"   # keywords | model | model_rules (E24 candidate C) | student_rules (C rules + v3 student, E44b winner)
 impact = "learned"       # formula | learned (E28: adds move_score; the 1-10 impact stays the formula)
 rebalancer = "sentiment" # equal | sentiment (equal weight is always run as the benchmark)
 shock = "flat"           # flat | scaled
 rates = "moved"          # fixed | moved (E22: Treasury moves with the episode, parallel shift)
+extended_linker = true   # E38c: candidate 3 for live/API, selected by the owner
+live_decisions = false  # E41: persisted credit decisions and stress previews; no execution
 
 impact_trigger = 7       # Module B runs on events with impact above this
 

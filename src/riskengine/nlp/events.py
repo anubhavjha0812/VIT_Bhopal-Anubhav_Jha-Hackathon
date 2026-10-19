@@ -14,6 +14,7 @@ from collections.abc import Callable, Sequence
 from riskengine.paths import MODELS
 
 OWN_TOPIC = MODELS / "topic"
+EVENT_STUDENT = MODELS / "e25-student-v3"  # E44b winner: C rules over the v3 student
 
 EVENT_CLASSES = [
     "Default",

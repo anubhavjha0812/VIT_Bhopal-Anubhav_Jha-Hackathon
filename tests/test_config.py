@@ -4,10 +4,15 @@ from riskengine.config import Config, load_config
 
 
 def test_default_config_runs_our_models():
-    # The file switches on entity sentiment (E27), the E24 candidate C rules, learned impact
-    # (E28) and moved rates (E22); Config() itself stays the baseline.
+    # The file switches on entity sentiment (E27), C rules over the v3 student (E44b), learned
+    # impact (E28), moved rates (E22) and the extended live linker (E38c).
+    # Config() itself stays the baseline.
     assert load_config() == Config(
-        sentiment="entity", events="model_rules", impact="learned", rates="moved"
+        sentiment="entity",
+        events="student_rules",
+        impact="learned",
+        rates="moved",
+        extended_linker=True,
     )
 
 

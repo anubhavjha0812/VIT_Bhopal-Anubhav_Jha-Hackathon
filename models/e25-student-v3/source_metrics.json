@@ -1,0 +1,30 @@
+{
+  "seed": 43,
+  "best": {
+    "epoch": 3,
+    "valid_macro_f1": 0.8721,
+    "valid_acc": 0.9184
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "valid_macro_f1": 0.8214,
+      "valid_acc": 0.8975
+    },
+    {
+      "epoch": 2,
+      "valid_macro_f1": 0.8359,
+      "valid_acc": 0.9075
+    },
+    {
+      "epoch": 3,
+      "valid_macro_f1": 0.8721,
+      "valid_acc": 0.9184
+    },
+    {
+      "epoch": 4,
+      "valid_macro_f1": 0.872,
+      "valid_acc": 0.9254
+    }
+  ]
+}
