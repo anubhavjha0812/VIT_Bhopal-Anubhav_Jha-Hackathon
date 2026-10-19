@@ -29,7 +29,7 @@ from contextlib import asynccontextmanager
 from dataclasses import asdict
 from datetime import date, datetime
 from functools import lru_cache
-from typing import Literal
+from typing import Literal, cast
 
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
@@ -40,6 +40,7 @@ from riskengine.config import load_config
 from riskengine.gate import gate
 from riskengine.ingest.gdelt import GdeltClient
 from riskengine.ingest.linking import Linker
+from riskengine.ingest.linking_extended import ExtendedLinker
 from riskengine.ingest.prices import load_prices
 from riskengine.live import LiveFeed
 from riskengine.market_gate import evidence, market_gate
@@ -53,14 +54,20 @@ from riskengine.module_b.shock import DEFAULT_EPISODE, parse_notches
 from riskengine.nlp.event_engine import get_engine_classifier
 from riskengine.nlp.events import (
     CREDIT_CLASSES,
+    EVENT_STUDENT,
     OWN_TOPIC,
     is_analyst_rating,
     names_agency,
 )
 from riskengine.nlp.impact import impact_formula
-from riskengine.nlp.sentiment import ENTITY_SENTIMENT, OWN_SENTIMENT, get_scorer
+from riskengine.nlp.sentiment import (
+    ENTITY_SENTIMENT,
+    OWN_SENTIMENT,
+    EntitySentimentScorer,
+    get_scorer,
+)
 from riskengine.paths import DATA
-from riskengine.pipeline import SIGNALS_PATH, load_signals, subjects
+from riskengine.pipeline import SIGNALS_PATH, _entity_scores, load_signals, subjects
 from riskengine.replay import events, sse
 
 log = logging.getLogger(__name__)
@@ -77,7 +84,9 @@ def warm_up() -> None:
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    asyncio.get_running_loop().run_in_executor(None, warm_up)  # in the background
+    # Finish loading before serving: a request that imports the models while the warm-up thread
+    # is still importing them could fail with ImportError on the very first /analyze.
+    await asyncio.get_running_loop().run_in_executor(None, warm_up)
     yield
     if live_feed.cache_info().currsize:
         live_feed().close()
@@ -120,6 +129,15 @@ def linker() -> Linker:
 
 
 @lru_cache
+def extended_linker() -> ExtendedLinker:
+    return ExtendedLinker.from_csv(candidate=3)
+
+
+def live_linker() -> Linker:
+    return extended_linker() if load_config().extended_linker else linker()
+
+
+@lru_cache
 def module_a_outputs() -> tuple[pd.DataFrame, pd.DataFrame]:
     weights_path = OUTPUTS / "weights_history.csv"
     metrics_path = OUTPUTS / "module_a_metrics.csv"
@@ -159,6 +177,8 @@ def engine_models(config) -> dict[str, str]:
     events = OWN_TOPIC.resolve().name if config.events != "keywords" else "keywords (baseline)"
     if config.events == "model_rules":
         events += " + rules (E24 candidate C)"
+    if config.events == "student_rules":
+        events = EVENT_STUDENT.name + " + rules (E44b winner)"
     return {"sentiment": sentiment, "events": events}
 
 
@@ -217,7 +237,17 @@ class AnalyzeIn(BaseModel):
 
 @lru_cache
 def live_feed() -> LiveFeed:
-    return LiveFeed(GdeltClient(linker()), lambda text: analyze(AnalyzeIn(text=text)))
+    feed = LiveFeed(GdeltClient(live_linker()), lambda text: analyze(AnalyzeIn(text=text)))
+    if load_config().live_decisions:
+        from riskengine.live_decisions import LiveDecisions
+
+        feed.decisions = LiveDecisions(load_config(), live_linker())
+    return feed
+
+
+@app.get("/live/health")
+def live_health() -> dict:
+    return live_feed().health()
 
 
 @app.get("/live")
@@ -275,17 +305,52 @@ def daily(ticker: str | None = None) -> list[dict]:
 
 @app.post("/analyze")
 def analyze(item: AnalyzeIn) -> dict:
-    s = scorer().score([item.text])[0]
+    """Company scores reuse batch pair inference, rounding and missing-name fallback.
+
+    `entities` includes every linked company with numeric sentiment in [-1, 1], its role
+    and actual sentiment path. In entity mode, the legacy top-level sentiment (and formula
+    impact) uses the first subject in linker order, or the first analyst if no subject is
+    linked. With no company, or in headline modes, it keeps the single headline score.
+    Top-level `sentiment_path` describes that selected score; mixed paths are explicit
+    on the individual entities. Existing live cache rows are not rescored.
+    """
+    config, model, companies = load_config(), scorer(), live_linker()
+    linked = companies.link(item.text)
+    analysts = companies.analyst_only(item.text) & set(linked)
+    entity_mode = config.sentiment == "entity"
+    if entity_mode and linked:
+        rows = pd.DataFrame({"text": [item.text] * len(linked), "ticker": linked})
+        scores = _entity_scores(rows, cast(EntitySentimentScorer, model), companies)
+    else:
+        s = model.score([item.text])[0]
+        scores = [round(s, 4)] * len(linked)
+    entities = [
+        {
+            "ticker": ticker,
+            "in_index": ticker in linker().tickers,
+            "sentiment": score,
+            "role": "analyst" if ticker in analysts else "subject",
+            "sentiment_path": (
+                "entity" if entity_mode and companies.company_name(ticker) else "headline"
+            ),
+        }
+        for ticker, score in zip(linked, scores, strict=True)
+    ]
+    sentiment_path = "headline"
+    if entity_mode and entities:
+        primary = next((row for row in entities if row["role"] == "subject"), entities[0])
+        s, sentiment_path = primary["sentiment"], primary["sentiment_path"]
     event = event_classifier()([item.text])[0]
-    analysts = linker().analyst_only(item.text) & set(linker().link(item.text))
     return {
-        "tickers": [t for t in linker().link(item.text) if t not in analysts],
+        "tickers": [t for t in linked if t not in analysts],
         "analysts": sorted(analysts),
         "sentiment": round(s, 4),
+        "sentiment_path": sentiment_path,
+        "entities": entities,
         "event": event,
         "analyst_rating": is_analyst_rating(item.text),
         "impact": impact_formula(event, s, item.source, names_agency(item.text)),
-        "model": f"{scorer().name}+{load_config().events}+formula",
+        "model": f"{model.name}+{config.events}+formula",
     }
 
 
@@ -501,6 +566,26 @@ def module_b_report(
         notches = 0
     rep = module_b_run(ticker, notches, episode, 1.0 if multiple is None else multiple)
     return {**rep, "alert": alert, "memo": module_b.memo(rep, alert)}
+
+
+@lru_cache(maxsize=64)
+def module_b_paths_run(ticker: str | None, notches: int, episode: str, multiple: float) -> dict:
+    return module_b.shock_paths(book(), ticker, notches, episode, multiple,
+                                load_config().rates)  # fmt: skip
+
+
+@app.get("/module-b/paths")
+def module_b_paths(
+    ticker: str | None = None,
+    notches: int = Query(1, ge=0, le=99),
+    episode: Episode = DEFAULT_EPISODE,
+    multiple: float = Query(1.0, ge=0, le=5),
+) -> dict:
+    """Shock-size uncertainty for the scenario the page shows (slow: 21 revaluations, cached)."""
+    ticker = ticker.upper() if ticker else None
+    if ticker and ticker not in set(book()["ticker"]):
+        raise HTTPException(404, f"{ticker} is not in the book")
+    return module_b_paths_run(ticker, notches if ticker else 0, episode, multiple)
 
 
 @app.get("/module-b/book")

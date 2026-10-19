@@ -18,6 +18,10 @@ from riskengine.nlp.events import AGENCY, DEFAULT, DOWNGRADE
 EPISODE_LABELS = {"gfc2008": "GFC 2008", "euro2011": "euro crisis 2011", "covid2020": "COVID 2020"}
 TOP = 10  # largest position losses shown
 BINS = 40  # Monte Carlo histogram
+# Shock-size paths: the episode multiple × a mean-one lognormal draw. The book is revalued in
+# full on a grid of multiples and each path is read off that curve (loss and CET1 are smooth and
+# monotone in the multiple), so 500 paths cost 21 revaluations.
+PATHS, PATH_SIGMA, PATH_GRID, PATH_SEED = 500, 0.35, 21, 42
 
 
 def alert_multiple(impact: int, shock: str) -> float:
@@ -71,6 +75,42 @@ def _histogram(before: np.ndarray, after: np.ndarray) -> dict:
             "after": np.histogram(after, edges)[0].tolist()}  # fmt: skip
 
 
+def _by_class(pos: pd.DataFrame) -> list[dict]:
+    """Notional, value before/after and loss of each instrument class (USD)."""
+    g = pos.groupby("instrument")[["notional", "value_before", "value_after", "loss"]].sum()
+    return [{"instrument": k, **{c: float(v) for c, v in row.items()}} for k, row in g.iterrows()]
+
+
+def _cet1_bridge(r: Result) -> dict:
+    """CET1 before → after in two exact steps: the after-tax loss, then the RWA change."""
+    loss_only = r.capital_after_inr / r.rwa_before_inr
+    return {"before": r.cet1_before, "loss": loss_only - r.cet1_before,
+            "rwa": r.cet1_after - loss_only, "after": r.cet1_after}  # fmt: skip
+
+
+def shock_paths(
+    book: pd.DataFrame, ticker: str | None, notches: int, episode: str, multiple: float,
+    rates: str,
+) -> dict:  # fmt: skip
+    """Uncertainty in the shock size: loss and CET1 over PATHS lognormal multiples."""
+    rng = np.random.default_rng(PATH_SEED)
+    draws = multiple * np.exp(rng.normal(-(PATH_SIGMA**2) / 2, PATH_SIGMA, PATHS))
+    grid = np.linspace(0.0, max(float(draws.max()), 1e-9), PATH_GRID)
+    runs = [revalue(book, ticker, notches, episode, float(k), rates) for k in grid]
+    loss = np.interp(draws, grid, [x.loss_usd for x in runs])
+    cet1 = np.interp(draws, grid, [x.cet1_after for x in runs])
+    p5, p1 = np.quantile(loss, [0.95, 0.99])
+    edges = np.linspace(float(loss.min()), float(loss.max()) + 1e-9, BINS + 1)
+    return {
+        "paths": PATHS, "sigma": PATH_SIGMA, "seed": PATH_SEED,
+        "histogram": {"edges": edges.tolist(), "counts": np.histogram(loss, edges)[0].tolist()},
+        "median_loss": float(np.median(loss)), "p5_loss": float(p5), "p1_loss": float(p1),
+        "es975_loss": float(loss[loss >= np.quantile(loss, 0.975)].mean()),
+        "cet1_p1": float(np.quantile(cet1, 0.01)), "cet1_median": float(np.median(cet1)),
+        "p_below_floor": float((cet1 < CET1_FLOOR).mean()),
+    }  # fmt: skip
+
+
 def run(
     book: pd.DataFrame, ticker: str | None, notches: int, episode: str, multiple: float,
     rates: str = "fixed",
@@ -98,6 +138,8 @@ def run(
         },
         "capital": _capital(r),
         "by_instrument": pos.groupby("instrument")["loss"].sum().round(2).to_dict(),
+        "by_class": _by_class(pos),
+        "cet1_bridge": _cet1_bridge(r),
         "top_losses": top[["position", "ticker", "instrument", "rating", "notional", "loss",
                            "stage"]].to_dict("records"),
         "obligors": obligors[["ticker", "rating_before", "rating_after", "spread_before",

@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useApi } from '../api'
 import Chart from '../components/Chart'
 import ErrorBox from '../components/ErrorBox'
+import PageHero from '../components/PageHero'
 import StatCard from '../components/StatCard'
 import { chartColors, useTheme } from '../theme'
 
@@ -12,6 +13,8 @@ interface Capital {
   floor: number
   loss_usd: number
   rwa_before_inr: number
+  capital_before_inr: number
+  capital_after_inr: number
   rwa_after_inr: number
   fx_before: number
   fx_after: number
@@ -71,6 +74,14 @@ interface Report {
     loss: number
   }[]
   stages: Record<string, number>
+  by_class: {
+    instrument: string
+    notional: number
+    value_before: number
+    value_after: number
+    loss: number
+  }[]
+  cet1_bridge: { before: number; loss: number; rwa: number; after: number }
   monte_carlo: {
     draws: number
     level: number
@@ -80,6 +91,19 @@ interface Report {
   }
   reverse_stress: number | null
   memo: string
+}
+interface Paths {
+  paths: number
+  sigma: number
+  seed: number
+  histogram: { edges: number[]; counts: number[] }
+  median_loss: number
+  p5_loss: number
+  p1_loss: number
+  es975_loss: number
+  cet1_p1: number
+  cet1_median: number
+  p_below_floor: number
 }
 interface Checks {
   alerts: {
@@ -161,8 +185,8 @@ function Cet1Gauge({ c }: { c: Capital }) {
         <span>15%</span>
       </div>
       <p className="text-sm">
-        <span className="font-mono">{pct(c.cet1_before)}</span> (black line) →{' '}
-        <span className={`font-mono font-semibold ${breach ? 'text-rose-600 dark:text-rose-400' : ''}`}>
+        <span className="font-figures">{pct(c.cet1_before)}</span> (black line) →{' '}
+        <span className={`font-figures font-semibold ${breach ? 'text-rose-600 dark:text-rose-400' : ''}`}>
           {pct(c.cet1_after)}
         </span>
         {breach ? ' · below the floor' : ` · ${(100 * (c.cet1_after - c.floor)).toFixed(2)} pt above the floor`}
@@ -235,6 +259,309 @@ function LossHistogram({ mc }: { mc: Report['monte_carlo'] }) {
     ],
   }
   return <Chart option={option} style={{ height: 300 }} />
+}
+
+const investmentGrade = (r: string) => /^(A|BBB)/.test(r)
+
+/** Waterfall bars: an invisible base plus the visible step, ECharts' usual way. */
+function waterfall(steps: { name: string; value: number; total?: boolean }[]) {
+  let run = 0
+  return steps.map((st) => {
+    if (st.total) return { base: Math.min(0, st.value), size: Math.abs(st.value), ...st }
+    const from = run
+    run += st.value
+    return { base: Math.min(from, run), size: Math.abs(st.value), ...st }
+  })
+}
+
+/** Where the loss comes from: each product's loss, then the total. */
+function LossWaterfall({ rows, total }: { rows: Report['by_class']; total: number }) {
+  const c = chartColors(useTheme())
+  const sorted = [...rows].sort((a, b) => b.loss - a.loss)
+  const bars = waterfall([
+    ...sorted.map((r) => ({
+      name: INSTRUMENTS[r.instrument] ?? r.instrument,
+      value: r.loss / 1e6,
+    })),
+    { name: 'Total loss', value: total / 1e6, total: true },
+  ])
+  const notional = Object.fromEntries(sorted.map((r) => [INSTRUMENTS[r.instrument] ?? r.instrument, r.notional]))
+  const option = {
+    backgroundColor: 'transparent',
+    animation: false,
+    grid: { left: 110, right: 90, top: 8, bottom: 28 },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' },
+      formatter: (ps: { dataIndex: number }[]) => {
+        const b = bars[ps[0].dataIndex]
+        const n = notional[b.name]
+        return `${b.name}<br/>${b.value >= 0 ? 'loss' : 'gain'} $${Math.abs(b.value).toFixed(1)}m${
+          n ? `<br/>notional $${(n / 1e6).toFixed(0)}m` : ''
+        }`
+      },
+    },
+    yAxis: {
+      type: 'category',
+      inverse: true,
+      data: bars.map((b) => b.name),
+      axisLabel: { color: c.text },
+      axisTick: { show: false },
+      axisLine: { lineStyle: { color: c.grid } },
+    },
+    xAxis: {
+      type: 'value',
+      axisLabel: { color: c.text, formatter: (v: number) => `$${v}m` },
+      splitLine: { lineStyle: { color: c.grid } },
+    },
+    series: [
+      {
+        type: 'bar',
+        stack: 'w',
+        silent: true,
+        itemStyle: { color: 'transparent' },
+        data: bars.map((b) => b.base),
+      },
+      {
+        type: 'bar',
+        stack: 'w',
+        barWidth: '55%',
+        data: bars.map((b) => ({
+          value: b.size,
+          itemStyle: {
+            color: b.value >= 0 ? c.down : c.up,
+            opacity: b.total ? 1 : 0.85,
+            borderRadius: 3,
+          },
+        })),
+        label: {
+          show: true,
+          position: 'right',
+          color: c.text,
+          formatter: (p: { dataIndex: number }) => {
+            const v = bars[p.dataIndex].value
+            return `${v >= 0 ? '−' : '+'}$${Math.abs(v).toFixed(1)}m`
+          },
+        },
+      },
+    ],
+  }
+  return <Chart option={option} style={{ height: 40 * bars.length + 40 }} />
+}
+
+/** CET1 before → after in two exact steps (after-tax loss, RWA change), against the floor. */
+function Cet1Bridge({ b, floor }: { b: Report['cet1_bridge']; floor: number }) {
+  const c = chartColors(useTheme())
+  const bars = waterfall([
+    { name: 'Before', value: 100 * b.before, total: true },
+    { name: 'Loss after tax', value: 100 * b.loss },
+    { name: 'RWA change', value: 100 * b.rwa },
+    { name: 'After', value: 100 * b.after, total: true },
+  ])
+  const colour = (x: (typeof bars)[number]) =>
+    x.total
+      ? x.name === 'After' && b.after < floor
+        ? c.down
+        : x.name === 'After'
+          ? c.line
+          : c.text
+      : x.value < 0
+        ? c.down
+        : c.up
+  const option = {
+    backgroundColor: 'transparent',
+    animation: false,
+    grid: { left: 44, right: 16, top: 24, bottom: 28 },
+    tooltip: { show: false },
+    xAxis: {
+      type: 'category',
+      data: bars.map((x) => x.name),
+      axisLabel: { color: c.text },
+      axisTick: { show: false },
+      axisLine: { lineStyle: { color: c.grid } },
+    },
+    yAxis: {
+      type: 'value',
+      min: 0,
+      axisLabel: { color: c.text, formatter: (v: number) => `${v}%` },
+      splitLine: { lineStyle: { color: c.grid } },
+    },
+    series: [
+      {
+        type: 'bar',
+        stack: 'w',
+        silent: true,
+        itemStyle: { color: 'transparent' },
+        data: bars.map((x) => x.base),
+      },
+      {
+        type: 'bar',
+        stack: 'w',
+        barWidth: '50%',
+        data: bars.map((x) => ({
+          value: x.size,
+          itemStyle: {
+            color: colour(x),
+            opacity: x.total ? 0.9 : 0.8,
+            borderRadius: 3,
+          },
+        })),
+        label: {
+          show: true,
+          position: 'top',
+          color: c.text,
+          formatter: (p: { dataIndex: number }) => {
+            const x = bars[p.dataIndex]
+            return x.total ? `${x.value.toFixed(2)}%` : `${x.value >= 0 ? '+' : '−'}${Math.abs(x.value).toFixed(2)} pt`
+          },
+        },
+        markLine: {
+          symbol: 'none',
+          silent: true,
+          data: [{ yAxis: 100 * floor }],
+          lineStyle: { color: c.down, type: 'dashed' },
+          label: {
+            formatter: `floor ${(100 * floor).toFixed(0)}%`,
+            color: c.down,
+            position: 'insideEndTop',
+          },
+        },
+      },
+    ],
+  }
+  return <Chart option={option} style={{ height: 280 }} />
+}
+
+/** Capital and credit facts for the scenario, before → after. */
+function CapitalTable({ rep }: { rep: Report }) {
+  const { capital: c, obligors, stages } = rep
+  const cr = (inr: number) => `₹${(inr / 1e7).toLocaleString(undefined, { maximumFractionDigits: 0 })} cr`
+  const moved = obligors.filter((o) => o.rating_before !== o.rating_after)
+  const fallen = moved.filter((o) => investmentGrade(o.rating_before) && !investmentGrade(o.rating_after))
+  const stressed = (stages['2'] ?? 0) + (stages['3'] ?? 0)
+  const rows: [string, string, boolean?][] = [
+    ['CET1 ratio', `${pct(c.cet1_before)} → ${pct(c.cet1_after)}`, c.cet1_after < c.floor],
+    ['CET1 capital', `${cr(c.capital_before_inr)} → ${cr(c.capital_after_inr)}`],
+    ['Risk-weighted assets', `${cr(c.rwa_before_inr)} → ${cr(c.rwa_after_inr)}`],
+    [
+      'Headroom vs floor',
+      `${Math.round(1e4 * (c.cet1_before - c.floor))} bp → ${Math.round(1e4 * (c.cet1_after - c.floor))} bp`,
+      c.cet1_after < c.floor,
+    ],
+    ['USD/INR', `${c.fx_before.toFixed(2)} → ${c.fx_after.toFixed(2)}`],
+    ['Revolvers in Stage 2/3', `0 → ${stressed} of ${Object.values(stages).reduce((a, b) => a + b, 0)}`],
+    ['Downgraded names', `${moved.length} · ${fallen.length} fallen angel${fallen.length === 1 ? '' : 's'}`],
+  ]
+  return (
+    <table className="w-full text-sm">
+      <tbody>
+        {rows.map(([k, v, bad]) => (
+          <tr key={k} className="border-b border-slate-100 last:border-0 dark:border-slate-800">
+            <td className="py-2 text-slate-600 dark:text-slate-400">{k}</td>
+            <td
+              className={`py-2 text-right font-figures tabular-nums whitespace-nowrap ${
+                bad ? 'font-semibold text-rose-600 dark:text-rose-400' : ''
+              }`}
+            >
+              {v}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+/** Shock-size uncertainty: the same scenario at 500 lognormal multiples of its size. */
+function ShockPaths({ s, loss, floor }: { s: Report['scenario']; loss: number; floor: number }) {
+  const c = chartColors(useTheme())
+  const q = new URLSearchParams({
+    episode: s.episode,
+    multiple: String(s.multiple),
+    notches: String(s.notches),
+  })
+  if (s.ticker) q.set('ticker', s.ticker)
+  const paths = useApi<Paths>(`/module-b/paths?${q}`)
+  if (paths.error) return <p className={`p-4 ${muted}`}>{paths.error}</p>
+  if (!paths.data) return <p className={`p-4 ${muted}`}>Revaluing the book on 21 shock sizes…</p>
+  const p = paths.data
+  const { edges, counts } = p.histogram
+  const mid = edges.slice(1).map((e, i) => (e + edges[i]) / 2 / 1e6)
+  const at = (x: number) => Math.max(0, Math.min(mid.length - 1, edges.findIndex((e) => e > x) - 1))
+  const mark = (name: string, x: number, color: string) => ({
+    xAxis: at(x),
+    lineStyle: {
+      color,
+      type: name === 'scenario' ? 'solid' : 'dashed',
+      width: 1.5,
+    },
+    label: { formatter: name, color, position: 'end' },
+  })
+  const option = {
+    backgroundColor: 'transparent',
+    animation: false,
+    grid: { left: 40, right: 16, top: 28, bottom: 40 },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' },
+      formatter: (ps: { dataIndex: number; value: number }[]) =>
+        `loss ≈ $${mid[ps[0].dataIndex].toFixed(0)}m<br/>${ps[0].value} paths`,
+    },
+    xAxis: {
+      type: 'category',
+      data: mid.map((m) => m.toFixed(0)),
+      name: 'loss before tax, $m',
+      nameLocation: 'middle',
+      nameGap: 26,
+      nameTextStyle: { color: c.text },
+      axisLabel: { color: c.text, interval: 7 },
+      axisLine: { lineStyle: { color: c.grid } },
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: { color: c.text },
+      splitLine: { lineStyle: { color: c.grid } },
+    },
+    series: [
+      {
+        type: 'bar',
+        barCategoryGap: '8%',
+        itemStyle: { color: c.down, opacity: 0.8, borderRadius: [2, 2, 0, 0] },
+        data: counts,
+        markLine: {
+          symbol: 'none',
+          silent: true,
+          data: [mark('scenario', loss, c.line), mark('P5', p.p5_loss, '#d99a00'), mark('P1', p.p1_loss, c.down)],
+        },
+      },
+    ],
+  }
+  const tiles: [string, string, string, boolean?][] = [
+    ['P5 loss (1-in-20)', usd(p.p5_loss), `median ${usd(p.median_loss)}`],
+    ['P1 loss (1-in-100)', usd(p.p1_loss), `ES 97.5% ${usd(p.es975_loss)}`],
+    ['CET1 at P1', pct(p.cet1_p1), `median ${pct(p.cet1_median)}`, p.cet1_p1 < floor],
+    ['P(CET1 < floor)', pct(p.p_below_floor, 1), `floor ${pct(floor, 0)}`, p.p_below_floor > 0],
+  ]
+  return (
+    <div className="space-y-3 p-4">
+      <Chart option={option} style={{ height: 240 }} />
+      <div className="grid grid-cols-2 gap-3">
+        {tiles.map(([k, v, note, bad]) => (
+          <div key={k} className={box}>
+            <div className={muted}>{k}</div>
+            <div className={`font-figures text-2xl font-semibold ${bad ? 'text-rose-600 dark:text-rose-400' : ''}`}>
+              {v}
+            </div>
+            <div className={muted}>{note}</div>
+          </div>
+        ))}
+      </div>
+      <p className={muted}>
+        {p.paths} paths: the episode size × a mean-one lognormal draw (σ {p.sigma}, seed {p.seed}). The book is fully
+        revalued at 21 sizes; each path is read off that curve.
+      </p>
+    </div>
+  )
 }
 
 function MonthlyChart({ rows }: { rows: Checks['monthly']['rows'] }) {
@@ -314,11 +641,11 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
                 }`}
               >
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="font-mono font-semibold">{a.ticker}</span>
+                  <span className="font-figures font-semibold">{a.ticker}</span>
                   <span className="text-slate-500">
                     {a.published_at.slice(0, 10)} · {a.source}
                   </span>
-                    <span className="w-full font-mono sm:ml-auto sm:w-auto">CET1 {pct(a.cet1_after)}</span>
+                  <span className="w-full font-figures sm:ml-auto sm:w-auto">CET1 {pct(a.cet1_after)}</span>
                 </div>
                 <div className="mt-1 line-clamp-2">{a.text}</div>
               </button>
@@ -374,7 +701,11 @@ function Picker({ alerts, tickers, doc }: { alerts: Alert[]; tickers: string[]; 
             <span className={`block ${muted}`}>Market episode (real FRED and price moves)</span>
             <div className="mt-1 flex flex-wrap gap-2">
               {EPISODES.map(([key, label]) => (
-                <button key={key} className={`${pill(episode === key)} flex-1 sm:flex-none`} onClick={() => set({ episode: key })}>
+                <button
+                  key={key}
+                  className={`${pill(episode === key)} flex-1 sm:flex-none`}
+                  onClick={() => set({ episode: key })}
+                >
                   {label}
                 </button>
               ))}
@@ -392,18 +723,21 @@ function ReportView({ rep }: { rep: Report }) {
     <>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard
+          hero
           label="CET1 ratio"
           value={`${pct(c.cet1_before, 1)} → ${pct(c.cet1_after, 1)}`}
           note={`floor ${pct(c.floor, 0)}`}
           tone={c.cet1_after < c.floor ? 'alert' : 'default'}
         />
-        <StatCard label="Loss before tax" value={usd(c.loss_usd)} note={`book of ${rep.book_date}`} />
+        <StatCard hero label="Loss before tax" value={usd(c.loss_usd)} note={`book of ${rep.book_date}`} />
         <StatCard
+          hero
           label={`ES ${pct(mc.level, 0)} (defaults)`}
           value={`${usd(mc.before.es)} → ${usd(mc.after.es)}`}
           note={`${mc.draws.toLocaleString()} correlated draws`}
         />
         <StatCard
+          hero
           label="Reverse stress"
           value={rep.reverse_stress == null ? '> 20×' : `${rep.reverse_stress.toFixed(2)}×`}
           note={`of ${s.episode_label} takes CET1 to ${pct(c.floor, 0)}`}
@@ -423,7 +757,7 @@ function ReportView({ rep }: { rep: Report }) {
           <h2 className={head}>Top 10 position losses</h2>
           <div className="overflow-x-auto">
             <table className="min-w-[520px] w-full text-sm">
-              <thead className="text-left text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+              <thead className="text-left text-xs text-slate-500 dark:text-slate-400">
                 <tr>
                   <th className="px-4 py-2">Name</th>
                   <th className="px-4 py-2">Instrument</th>
@@ -434,12 +768,14 @@ function ReportView({ rep }: { rep: Report }) {
               <tbody>
                 {rep.top_losses.map((p) => (
                   <tr key={p.position} className="border-t border-slate-100 dark:border-slate-800">
-                    <td className="px-4 py-2 font-mono">
+                    <td className="px-4 py-2 font-figures">
                       {p.ticker} <span className="text-xs text-slate-500">{p.rating}</span>
                     </td>
                     <td className="px-4 py-2">{INSTRUMENTS[p.instrument] ?? p.instrument}</td>
-                    <td className="px-4 py-2 text-right font-mono tabular-nums">{usd(p.notional)}</td>
-                    <td className={`px-4 py-2 text-right font-mono tabular-nums ${p.loss < 0 ? 'text-teal-600' : ''}`}>
+                    <td className="px-4 py-2 text-right font-figures tabular-nums">{usd(p.notional)}</td>
+                    <td
+                      className={`px-4 py-2 text-right font-figures tabular-nums ${p.loss < 0 ? 'text-teal-600' : ''}`}
+                    >
                       {usd(p.loss)}
                     </td>
                   </tr>
@@ -452,12 +788,37 @@ function ReportView({ rep }: { rep: Report }) {
           >
             {Object.entries(rep.by_instrument).map(([k, v]) => (
               <span key={k}>
-                {INSTRUMENTS[k] ?? k}: <span className="font-mono">{usd(v)}</span>
+                {INSTRUMENTS[k] ?? k}: <span className="font-figures">{usd(v)}</span>
               </span>
             ))}
           </div>
         </section>
       </div>
+
+      <div className="grid min-w-0 gap-6 pt-2 xl:grid-cols-2">
+        <section className={`${card} min-w-0`}>
+          <h2 className={head}>Loss by product</h2>
+          <div className="p-2">
+            <LossWaterfall rows={rep.by_class} total={c.loss_usd} />
+          </div>
+          <p className={`px-4 pb-3 ${muted}`}>
+            Each product's loss before tax, then the total. Green bars are gains (bought CDS protection, pay-fixed swaps
+            when rates rise).
+          </p>
+        </section>
+        <section className={`${card} min-w-0`}>
+          <h2 className={head}>Shock-size uncertainty · Monte Carlo</h2>
+          <ShockPaths s={s} loss={c.loss_usd} floor={c.floor} />
+        </section>
+      </div>
+
+      <section className={`${card} mt-2`}>
+        <h2 className={head}>Capital impact · CET1 bridge</h2>
+        <div className="grid gap-6 p-4 lg:grid-cols-2">
+          <Cet1Bridge b={rep.cet1_bridge} floor={c.floor} />
+          <CapitalTable rep={rep} />
+        </div>
+      </section>
 
       <div className="grid min-w-0 gap-6 pt-2 xl:grid-cols-5">
         <section className={`${card} xl:col-span-3`}>
@@ -472,15 +833,15 @@ function ReportView({ rep }: { rep: Report }) {
         </section>
         <section className={`${card} min-w-0 xl:col-span-2`}>
           <h2 className={head}>Per company</h2>
-          <div className="max-h-96 overflow-auto">
-            <table className="min-w-[620px] w-full text-sm">
-              <thead className="sticky top-0 bg-white text-left text-xs uppercase tracking-wide text-slate-500 dark:bg-slate-900 dark:text-slate-400">
+          <div className="max-h-96 overflow-y-auto overflow-x-hidden">
+            <table className="w-full text-sm">
+              <thead className="sticky top-0 bg-white text-left text-xs text-slate-500 dark:bg-slate-900 dark:text-slate-400">
                 <tr>
-                  <th className="px-3 py-2">Name</th>
-                  <th className="px-3 py-2">Rating</th>
-                  <th className="min-w-28 px-3 py-2 text-right whitespace-nowrap">Spread bp</th>
-                  <th className="px-3 py-2 text-right">PD</th>
-                  <th className="px-3 py-2 text-right">Loss</th>
+                  <th className="py-2 pl-4 pr-2">Name</th>
+                  <th className="px-2 py-2">Rating</th>
+                  <th className="px-2 py-2 text-right">Spread bp</th>
+                  <th className="px-2 py-2 text-right">PD</th>
+                  <th className="py-2 pl-2 pr-4 text-right">Loss</th>
                 </tr>
               </thead>
               <tbody>
@@ -488,19 +849,19 @@ function ReportView({ rep }: { rep: Report }) {
                   .sort((a, b) => b.loss - a.loss)
                   .map((o) => (
                     <tr key={o.ticker} className="border-t border-slate-100 dark:border-slate-800">
-                      <td className="px-3 py-1.5 font-mono">{o.ticker}</td>
-                      <td className="px-3 py-1.5 font-mono text-xs whitespace-nowrap">
+                      <td className="py-1.5 pl-4 pr-2 font-figures">{o.ticker}</td>
+                      <td className="px-2 py-1.5 font-figures text-xs">
                         {o.rating_before === o.rating_after
                           ? o.rating_before
                           : `${o.rating_before} → ${o.rating_after}`}
                       </td>
-                      <td className="min-w-28 px-3 py-1.5 text-right font-mono tabular-nums whitespace-nowrap">
+                      <td className="px-2 py-1.5 text-right font-figures tabular-nums">
                         {Math.round(100 * o.spread_before)} → {Math.round(100 * o.spread_after)}
                       </td>
-                      <td className="px-3 py-1.5 text-right font-mono tabular-nums whitespace-nowrap">
+                      <td className="px-2 py-1.5 text-right font-figures tabular-nums">
                         {pct(o.pd_before)} → {pct(o.pd_after)}
                       </td>
-                      <td className="px-3 py-1.5 text-right font-mono tabular-nums">{usd(o.loss)}</td>
+                      <td className="py-1.5 pl-2 pr-4 text-right font-figures tabular-nums">{usd(o.loss)}</td>
                     </tr>
                   ))}
               </tbody>
@@ -539,8 +900,8 @@ function Compare({ ours, rows }: { ours: string; rows: [string, string, string][
         {rows.map(([label, a, b]) => (
           <tr key={label} className="border-t border-slate-100 dark:border-slate-800">
             <td className="py-1.5">{label}</td>
-            <td className="py-1.5 text-right font-mono tabular-nums whitespace-nowrap">{a}</td>
-            <td className="py-1.5 text-right font-mono tabular-nums whitespace-nowrap">{b}</td>
+            <td className="py-1.5 text-right font-figures tabular-nums whitespace-nowrap">{a}</td>
+            <td className="py-1.5 text-right font-figures tabular-nums whitespace-nowrap">{b}</td>
           </tr>
         ))}
       </tbody>
@@ -654,12 +1015,12 @@ function ChecksView({ checks }: { checks: Checks }) {
                   {checks.alerts.map((a) => (
                     <tr key={a.window + a.ticker} className="border-t border-slate-100 dark:border-slate-800">
                       <td className="py-1.5 whitespace-nowrap">
-                        <span className="font-mono font-semibold">{a.ticker}</span>{' '}
+                        <span className="font-figures font-semibold">{a.ticker}</span>{' '}
                         <span className="text-xs text-slate-500">{a.window.slice(0, 10)}</span>
                       </td>
-                      <td className="py-1.5 text-right font-mono tabular-nums">{usd(a.predicted_loss)}</td>
-                      <td className="py-1.5 text-right font-mono tabular-nums">{usd(a.naive_loss)}</td>
-                      <td className="py-1.5 text-right font-mono tabular-nums">{usd(a.realised_loss)}</td>
+                      <td className="py-1.5 text-right font-figures tabular-nums">{usd(a.predicted_loss)}</td>
+                      <td className="py-1.5 text-right font-figures tabular-nums">{usd(a.naive_loss)}</td>
+                      <td className="py-1.5 text-right font-figures tabular-nums">{usd(a.realised_loss)}</td>
                       <td className={`py-1.5 text-right ${a.sign_match ? 'text-teal-600' : 'text-rose-600'}`}>
                         {a.sign_match ? '✓' : '✗'}
                       </td>
@@ -726,7 +1087,7 @@ function ChecksView({ checks }: { checks: Checks }) {
                 ]}
               />
               <p className="text-sm">
-                Direction: <span className="font-mono font-semibold text-teal-600">{pct(m.model_sign, 0)}</span> vs
+                Direction: <span className="font-figures font-semibold text-teal-600">{pct(m.model_sign, 0)}</span> vs
                 naive {pct(m.naive_sign, 0)}.{' '}
                 <span className={muted}>
                   Always guessing "gain" would get {pct(gainShare, 0)}. Reported, not part of the pass rule.
@@ -813,15 +1174,18 @@ export default function ModuleB() {
   const tickers = [...new Set(book.data.map((p) => p.ticker))].sort()
   return (
     <div className="space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-xl font-semibold">Module B · Credit stress test</h2>
-        <p className="text-sm text-slate-600 dark:text-slate-300">
-          An Indian bank (capital in rupees, RBI 8% CET1 floor) lends to our 15 companies: 0.5% of each one's real debt
-          from its SEC filing at 31 Dec 2019, as revolvers and bonds, with CDS and swap hedges. A credit alert cuts the
-          company's rating; a real market episode moves spreads, stocks and the rupee. The book is revalued (IFRS 9,
-          Basel IRB, market-risk capital) and the defaults are simulated together.
-        </p>
-      </div>
+      <PageHero
+        title="Module B · Credit stress test"
+        wide
+        text={
+          <>
+            An Indian bank (capital in rupees, RBI 8% CET1 floor) lends to our 15 companies: 0.5% of each one's real
+            debt from its SEC filing at 31 Dec 2019, as revolvers and bonds, with CDS and swap hedges. A credit alert
+            cuts the company's rating; a real market episode moves spreads, stocks and the rupee. The book is revalued
+            (IFRS 9, Basel IRB, market-risk capital) and the defaults are simulated together.
+          </>
+        }
+      />
       <Picker alerts={alerts.data} tickers={tickers} doc={doc} />
       {report.data ? (
         <div className="relative" aria-busy={report.loading}>
