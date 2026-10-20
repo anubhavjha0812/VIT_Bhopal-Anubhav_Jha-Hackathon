@@ -1,23 +1,24 @@
-# AI Risk Engine: From News & Social Sentiment to Portfolio and Credit Risk
+# Helix: AI/NLP Risk Engine with Index Rebalancing and Portfolio Stress Testing - S&P Global & Crisil Campus Hackathon
 
-**Submission for the S&P Global & CRISIL Campus Hackathon 2026**
+**From news and social text to structured risk signals, portfolio weights and bank stress tests. Submission for the S&P Global & Crisil Campus Hackathon 2026.**
 
 | Detail | Information |
 |---|---|
 | **Candidate Name** | Anubhav Jha |
 | **College Email ID** | anubhav.23bai11112@vitbhopal.ac.in |
+| **Personal Email ID** | anubhavjha0812@gmail.com |
 | **College / Campus** | VIT Bhopal |
-| **Demo Video Link** | https://vercel.com/anubhav-jhas-projects-6003010f/landing-page-bank|
+| **Demo Video Link** | https://youtu.be/5p9WRqy6gjQ |
 | **Slide Deck Link** | [Presentation (PDF)](docs/presentation.pdf) |
 
 ## 1. Project Overview / Problem Statement & Approach
 
 **AI Risk Engine** turns financial news and social posts into company, sentiment, event and impact signals. Rules and financial calculations connect those signals to two prototype risk workflows.
 
-- **Module A — Portfolio Rebalancing:** Uses historical sentiment signals to adjust the weights of a simulated portfolio of 15 S&P 100 stocks. It compares sentiment-based allocation against an equal-weight benchmark.
-- **Module B — Credit Stress Testing:** Uses a credit gate and a separate Geopolitical/Macroeconomic market gate to trigger stress analysis on a hypothetical bank portfolio of loans, bonds and derivatives. It estimates credit losses and capital impacts under historical crisis scenarios and configurable what-if assumptions.
+- **Module A — Tactical Index Rebalancing:** Uses historical sentiment signals to adjust the weights of a simulated portfolio of 15 S&P 100 stocks. It compares sentiment-based allocation against an equal-weight benchmark.
+- **Module B — Strategic Portfolio Stress Testing:** Uses a credit gate and a separate Geopolitical/Macroeconomic market gate to trigger stress analysis on a hypothetical bank portfolio of loans, bonds and derivatives. It estimates credit losses and capital impacts under historical crisis scenarios and configurable what-if assumptions.
 
-The dashboard includes historical replay and a live GDELT news interface. Measured results and limits are below; full details are in [RESULTS](docs/RESULTS.md) and [EXPERIMENTS](docs/EXPERIMENTS.md).
+The dashboard includes historical replay and a live GDELT news interface. Measured results and limits are below; full details are in [RESULTS](docs/others/RESULTS.md) and [EXPERIMENTS](docs/experiments/EXPERIMENTS.md). Current design choices and links to the preserved evaluation protocols are in [DESIGN_DECISIONS](docs/others/DESIGN_DECISIONS.md).
 
 
 Live news and `/analyze` use the 99-company linker candidate 3 by default. The owner selected it after E38c; the original 95% precision requirement no longer blocks this selection. Historical batch/replay portfolios still cover the original 15 companies; recognising another company does not add portfolio exposure.
@@ -80,13 +81,13 @@ The primary integrated replay and portfolio backtest use **9 April–10 June 202
 
 Module B's main book uses SEC inputs and is dated 31 December 2019, with 85 positions across 15 companies and approximately $2.96 billion in loan and bond exposure. Its exposures, hedge positions, loss-given-default assumptions and initial capital are modelling assumptions rather than records from a real bank.
 
-A separate [transaction-seeded sleeve](docs/MODULE_B_TRANSACTIONS.md) uses monthly merchant purchase flows from the public transaction dataset. Its loans, bonds, hedges and rating buckets are synthetic proxies; the ratings are not real credit ratings. Merchant IDs are not mapped to real companies. The aggregated sample can rebuild this sleeve without the raw download. Its stress results are stored separately; the dashboard, alerts and existing backtests still use the SEC book.
+A separate [transaction-seeded sleeve](docs/others/MODULE_B_TRANSACTIONS.md) uses monthly merchant purchase flows from the public transaction dataset. Its loans, bonds, hedges and rating buckets are synthetic proxies; the ratings are not real credit ratings. Merchant IDs are not mapped to real companies. The aggregated sample can rebuild this sleeve without the raw download. Its stress results are stored separately; the dashboard, alerts and existing backtests still use the SEC book.
 
 Historical scenarios include the Global Financial Crisis, the Eurozone crisis and COVID-19. These are stress-testing scenarios, not forecasts. Some market and hedge risks remain simplified or outside the current model.
 
 Dataset licences and known data-quality issues are documented in the project. In particular, the Kaggle tweet source contains duplicated records across certain tickers, and some public training datasets overlap with their original test sets. The relevant experiments account for identified overlap where documented.
 
-All new project labels for E24 (including D1/D2 and the final sets), Macro/Geo adjudication and the 8-K credit set are **AI-made or AI-adjudicated by ChatGPT and Claude, with no human check**. Their provenance includes `ai_agreed`, `ai_agreed_ai_audited` and `ai_adjudicated`; none means human review. SEntFiN supplies the human-made reference labels for E27. See [label provenance](docs/RESULTS.md#label-provenance).
+All new project labels for E24 (including D1/D2 and the final sets), Macro/Geo adjudication and the 8-K credit set are **AI-made or AI-adjudicated by ChatGPT and Claude, with no human check**. Their provenance includes `ai_agreed`, `ai_agreed_ai_audited` and `ai_adjudicated`; none means human review. SEntFiN supplies the human-made reference labels for E27. See [label provenance](docs/others/RESULTS.md#label-provenance).
 
 ## 4. Quickstart & Installation
 
@@ -185,32 +186,36 @@ npm run build
 
 **Data and model notes:** The repository contains small samples and derived outputs. Full raw datasets and model files may require separate downloads or setup according to the repository documentation. Some evaluation and demo workflows use precomputed outputs to avoid unnecessary downloads.
 
-## 5. Results and Limits
+## 5. Key Results & Domain Impact
 
 ### Entity-aware sentiment (E27)
 
 On SEntFiN's Indian business news with human labels, macro-F1 rose from **0.476 to 0.821** on 463 entity rows from conflicting headlines: gain **+0.344**, 95% range **0.295 to 0.400**. Across all 2,152 rows, it rose from **0.675 to 0.864**. The registered switch rule passed; the config default is now `entity`.
 
-A small, post-hoc FiQA US check (150 rows) gave Spearman **0.582 to 0.623** and sign accuracy **0.731 to 0.787**. This does not establish broad US news or tweet performance. Full results and seed-record limits are in [RESULTS](docs/RESULTS.md#entity-aware-sentiment-e27).
+A small, post-hoc FiQA US check (150 rows) gave Spearman **0.582 to 0.623** and sign accuracy **0.731 to 0.787**. This does not establish broad US news or tweet performance. Full results and seed-record limits are in [RESULTS](docs/others/RESULTS.md#entity-aware-sentiment-e27).
 
 ### Event classification
 
-The running engine is **E24 candidate C (rules + event model)**. Its final test was run once, against the previous engine A. Macro-F1 uses all 12 event classes:
+The running engine is **candidate C rules over the E25 v3 student** (`events = "student_rules"`). It was scored once on a sealed test (E44/E44b): 900 headlines drawn blind from 13,057,514 real FNSPID rows, labelled separately by Claude and ChatGPT; the 822 rows where they agreed are scored, and the 78 disagreements were dropped. The scoring plan was hash-locked before any prediction, and the scorer refuses to run twice. Macro-F1 uses all 12 event classes:
 
-| Final set | Rows | Previous engine A | Running candidate C | Gain | 95% range of gain |
-|---|---:|---:|---:|---:|---|
-| News | 200 | 0.309 | 0.376 | +0.067 | +0.029 to +0.107 |
-| Tweets | 100 | 0.142 | 0.132 | -0.010 | -0.031 to +0.009 |
+| System | Macro-F1 | Difference vs previous engine C |
+|---|---:|---|
+| Reference A | 0.541 | -0.063 |
+| Previous engine C | 0.604 | - |
+| C without the product filter | 0.598 | -0.006 [-0.019, 0.008] |
+| **E25 v3 student + C rules (running)** | **0.669** | **+0.065 [+0.039, +0.088]** |
 
-The tweet result is inside the registered margin; it is not an improvement. Eight of the 12 classes are absent in tweets. Every evaluation label for these final sets is **AI-made**: ChatGPT, Claude and AI adjudication, with **no human check**. Development sets D1 and D2 are also AI-derived. See the [results file](data/outputs/e24_final_results.json) and [labelling amendment](docs/E25_LABELLER_AMENDMENT.md).
+Limits: the labels are **AI-agreed only, with no human check**; dropping 78 disagreements keeps easier rows; Default has only 28 rows; and v3 was chosen on this same set, so 0.669 is a selection score, not an untouched test. See the [E44 results](data/outputs/e44_results.json), the [test design](docs/experiments/E44_EVENT_TEST_V2.md) and the [scoring plan](docs/experiments/E44_SCORING_PLAN.md).
 
-Earlier TFNS sentiment and TFN-topic component benchmarks are kept separately in [RESULTS](docs/RESULTS.md); they are not scores for the new entity model or the credit gate.
+Earlier E24 test (200 news headlines, one run): previous engine A 0.309, candidate C 0.376 (+0.067, 95% range +0.029 to +0.107); tweets 0.142 vs 0.132, inside the registered margin. All labels were AI-made, with no human check. See the [E24 results](data/outputs/e24_final_results.json) and [labelling amendment](docs/experiments/E25_LABELLER_AMENDMENT.md).
+
+Earlier TFNS sentiment and TFN-topic component benchmarks are kept separately in [RESULTS](docs/others/RESULTS.md); they are not scores for the new entity model or the credit gate.
 
 ### Credit and market alerts
 
 On the wider 8-K set (287 headlines), frozen C had recall **0.871** and precision **0.842**. ChatGPT and Claude agreed on **86.8%** of labels; Claude's label was used where they differed, so the adjudicator was also a labeller. All labels are AI-made, with no human check. This Default-heavy sample and E23 are **not comparable**; E23 precision **0.47** remains the reported worst case.
 
-Entity scoring reduced replay credit alerts **4 to 2**: it removed a false BAC alert but also missed a real Boeing downgrade. The credit chain therefore keeps the stored `own` scores. The market gate produced 15 alerts on that stored replay; an earlier non-blind read of 16 alerts found about 70% market-wide, an exploratory check only. See [RESULTS](docs/RESULTS.md#module-b-alert-gates).
+Entity scoring reduced replay credit alerts **4 to 2**: it removed a false BAC alert but also missed a real Boeing downgrade. The credit chain therefore keeps the stored `own` scores. The market gate produced 15 alerts on that stored replay; an earlier non-blind read of 16 alerts found about 70% market-wide, an exploratory check only. See [RESULTS](docs/others/RESULTS.md#module-b-alert-gates).
 
 ### Module A portfolio comparison
 
@@ -221,17 +226,21 @@ For 9 April–10 June 2020, with the same allocation rule and costs:
 | Equal-weight benchmark | 25.52% | 4.88 |
 | Entity-sentiment tilt | 24.85% | 4.73 |
 
-With 1,000 shuffled-company placebos, p was **0.403 for return** and **0.380 for Sharpe**. The tilt shows **no proven value over chance or equal weight**. Sources and the earlier `own` comparison are in [RESULTS](docs/RESULTS.md#module-a-portfolio-and-placebo).
+With 1,000 shuffled-company placebos, p was **0.403 for return** and **0.380 for Sharpe**. The tilt shows **no proven value over chance or equal weight**. Sources and the earlier `own` comparison are in [RESULTS](docs/others/RESULTS.md#module-a-portfolio-and-placebo).
 
 ### Impact score (v3) and alert validation
 
-The impact score is now a learned expected price move (clipped ridge on past headlines and the real two-day abnormal move), used for news and tweets. Spearman rank match with the real move, volatility-only baseline in brackets: fresh stocks 2019 **0.280** (0.143), 2020 **0.353** (0.331); our stocks 2019 **0.327** (0.270), 2020 **0.381** (0.340). The earlier version (v2) failed in 2020 (-0.092); v3 fixes that. On tweets (test 1 Jun to 16 Jul 2020) it reaches 0.140 vs 0.134 for volatility only and 0.011 for the old formula. 2019 and 2020 were already seen during development, so this is a development check, not a blind test. Details: [IMPACT_V3](docs/IMPACT_V3.md).
+The impact score is now a learned expected price move (clipped ridge on past headlines and the real two-day abnormal move), used for news and tweets. Spearman rank match with the real move, volatility-only baseline in brackets: fresh stocks 2019 **0.280** (0.143), 2020 **0.353** (0.331); our stocks 2019 **0.327** (0.270), 2020 **0.381** (0.340). The earlier version (v2) failed in 2020 (-0.092); v3 fixes that. On tweets (test 1 Jun to 16 Jul 2020) it reaches 0.140 vs 0.134 for volatility only and 0.011 for the old formula. 2019 and 2020 were already seen during development, so this is a development check, not a blind test. Details: [IMPACT_V3](docs/experiments/IMPACT_V3.md).
 
-The credit gate keeps the severity formula, because the learned score says how far a stock may move, not how serious a credit event is; with the learned score the gate dropped real downgrades. We also tested whether the learned score could trigger non-credit alerts. At the same number of alerts it was no better than choosing the most volatile stocks (precision 0.076 vs 0.067 in 2019, 0.411 vs 0.428 in 2020), so Module B stays on the credit and market-wide gates. A big price move shows that the market reacted, not that a crisis happened. See [E30](docs/E30_TRIGGER_VALIDATION.md).
+The credit gate keeps the severity formula, because the learned score says how far a stock may move, not how serious a credit event is; with the learned score the gate dropped real downgrades. We also tested whether the learned score could trigger non-credit alerts. At the same number of alerts it was no better than choosing the most volatile stocks (precision 0.076 vs 0.067 in 2019, 0.411 vs 0.428 in 2020), so Module B stays on the credit and market-wide gates. A big price move shows that the market reacted, not that a crisis happened. See [E30](docs/experiments/E30_TRIGGER_VALIDATION.md).
 
 ### Other limits
 
 The learned impact beats volatility only for ranking, not for choosing alerts; `/analyze` still uses the formula because it has no price history. Credit gating still needs broader independent validation. The hypothetical bank book simplifies interest-rate, funding and hedge risks. Historical results are prototype outputs under these assumptions, not forecasts or production risk estimates.
+
+### Domain impact
+
+A credit or risk desk reads far more text than it can act on. Helix names the company, the event and a 1 to 10 impact for each text, then carries that to two decisions: a capped portfolio weight (Module A), and, only when a rating agency or two sources back a credit event, a bank loss and CET1 change with a reverse-stress multiple (Module B). The credit gate keeps one unsupported post from starting a stress test, and a hash-chained decision ledger makes an edited alert or weight detectable. The result is a screening and what-if tool on a hypothetical book, not a forecast or a trading system.
 
 ## License
 

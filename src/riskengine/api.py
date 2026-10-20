@@ -68,7 +68,9 @@ from riskengine.nlp.sentiment import (
 )
 from riskengine.paths import DATA
 from riskengine.pipeline import SIGNALS_PATH, _entity_scores, load_signals, subjects
-from riskengine.replay import events, sse
+from riskengine.replay import sse
+from riskengine.replay import stream as replay_stream
+from riskengine.replay import texts as replay_texts_of
 
 log = logging.getLogger(__name__)
 
@@ -87,6 +89,9 @@ async def lifespan(_: FastAPI):
     # Finish loading before serving: a request that imports the models while the warm-up thread
     # is still importing them could fail with ImportError on the very first /analyze.
     await asyncio.get_running_loop().run_in_executor(None, warm_up)
+    if SIGNALS_PATH.exists():  # so the first Play does not wait for it
+        load = lambda: (replay_texts(), module_a_outputs())  # noqa: E731
+        await asyncio.get_running_loop().run_in_executor(None, load)
     yield
     if live_feed.cache_info().currsize:
         live_feed().close()
@@ -106,6 +111,12 @@ def stored_signals() -> pd.DataFrame:
     if not SIGNALS_PATH.exists():
         raise HTTPException(503, "no signals yet: run `uv run python run_demo.py` first")
     return load_signals()  # load_signals returns df
+
+
+@lru_cache
+def replay_texts() -> pd.DataFrame:
+    """One row per stored text with its gate result; built once, as it takes about two seconds."""
+    return replay_texts_of(gated_signals())
 
 
 def gated_signals() -> pd.DataFrame:
@@ -387,7 +398,7 @@ async def replay(
     time (texts at exactly that time are sent again; the client skips ids it has seen).
     `ticker` keeps texts that mention it. Alerts are the credit gate's (gate.py).
     """
-    df = gated_signals()
+    df = replay_texts()
     weights, _ = module_a_outputs()
     begin = pd.Timestamp(start, tz=NY) if start else None
     if after:
@@ -400,11 +411,12 @@ async def replay(
         weights = weights[pd.to_datetime(weights["date"]) >= first_day]
     if ticker:
         # keep every ticker of a matching text, so the event shows who else it names
-        df = df[df["doc_id"].isin(df.loc[df["ticker"] == ticker.upper(), "doc_id"])]
+        t = ticker.upper()
+        df = df[[t in a or t in b for a, b in zip(df["tickers"], df["analysts"], strict=True)]]
 
     async def stream():
         sent = 0
-        for kind, payload in events(df, weights, alert_capital):
+        for kind, payload in replay_stream(df, weights, alert_capital):
             if kind == "signal":
                 if limit and sent == limit:
                     break

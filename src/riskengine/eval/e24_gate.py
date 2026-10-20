@@ -35,11 +35,11 @@ CLASSES = [
 ]  # fmt: skip
 LABEL_SOURCES = {
     "ai_agreed", "ai_agreed_human_audited", "human_adjudicated", "excluded",
-    "ai_adjudicated", "ai_agreed_ai_audited",  # docs/E25_LABELLER_AMENDMENT.md
+    "ai_adjudicated", "ai_agreed_ai_audited",  # docs/experiments/E25_LABELLER_AMENDMENT.md
 }  # fmt: skip
 LABEL_COLUMNS = ["item_id", "label", "ambiguous", "rationale", "label_source"]
-LABELLER_B = ("gemini", "claude")  # docs/E25_LABELLER_AMENDMENT.md
-CANDIDATES = {"A", "B", "C", "D", "E"}  # E: docs/E25_AMENDMENT.md
+LABELLER_B = ("gemini", "claude")  # docs/experiments/E25_LABELLER_AMENDMENT.md
+CANDIDATES = {"A", "B", "C", "D", "E"}  # E: docs/experiments/E25_AMENDMENT.md
 GRID = [round(0.30 + 0.05 * i, 2) for i in range(9)]  # 0.30 ... 0.70, fixed in E24
 E24_SECTION_SHA = "bfffa0ad37366c8a"  # first 16 hex of the locked DECISIONS E24 section
 BOOT, BOOT_SEED, MAX_WIDTH, TWEET_MARGIN = 1000, 0, 0.20, 0.05

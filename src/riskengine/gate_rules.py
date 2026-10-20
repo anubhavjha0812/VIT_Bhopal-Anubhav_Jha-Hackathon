@@ -1,4 +1,4 @@
-"""Precision rules for the credit gate (docs/E36_GATE_PRECISION.md).
+"""Precision rules for the credit gate (docs/experiments/E36_GATE_PRECISION.md).
 
 Two category rules that only remove alerts the gate has already fired:
 1. securitization: a rating of a deal or a servicer, not of the company's own debt

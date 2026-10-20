@@ -1,4 +1,4 @@
-"""One-run check of the fixed rules in docs/E36_GATE_PRECISION.md.
+"""One-run check of the fixed rules in docs/experiments/E36_GATE_PRECISION.md.
 
 uv run python -m riskengine.eval.e36_gate_precision --run
 uv run python -m riskengine.eval.e36_gate_precision --label-audit   # after labelling the sample
@@ -117,7 +117,7 @@ def run() -> None:
         "e23_no_true_removed": design["true_removed"] == 0,
     }
     out = {
-        "rules": "docs/E36_GATE_PRECISION.md",
+        "rules": "docs/experiments/E36_GATE_PRECISION.md",
         "e23_design_data": design,
         "sec_8k_guard": sec_8k_guard(),
         "pools": pools,
@@ -142,7 +142,7 @@ def run_b() -> None:
     pools, outside = pool_removals(e23_texts)
     design, guard = e23_design(), sec_8k_guard()
     out = {
-        "rules": "docs/E36_GATE_PRECISION.md, section E36b",
+        "rules": "docs/experiments/E36_GATE_PRECISION.md, section E36b",
         "note": "amended after the E36 run; E23 is design data and no unseen alert set exists",
         "e23_design_data": design,
         "sec_8k_guard": guard,

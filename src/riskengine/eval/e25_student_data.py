@@ -1,4 +1,5 @@
-"""E25 student training data (docs/E25_TEACHER_STUDENT.md section 5). No test row is read.
+"""E25 student training data. No test row is read.
+Plan: docs/experiments/E25_TEACHER_STUDENT.md section 5
 
 uv run python -m riskengine.eval.e25_student_data --dry-run   # counts, writes nothing
 uv run python -m riskengine.eval.e25_student_data --build     # writes train.csv / valid.csv

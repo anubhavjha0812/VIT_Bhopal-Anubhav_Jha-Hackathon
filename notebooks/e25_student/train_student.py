@@ -1,6 +1,6 @@
 """E25 student: a bge-small event model trained on two teachers' agreed labels.
 
-Design: docs/E25_TEACHER_STUDENT.md. Input (private Kaggle dataset): train.csv and valid.csv from
+Design: docs/experiments/E25_TEACHER_STUDENT.md. Input (private Kaggle dataset): train.csv and valid.csv from
 `python -m riskengine.eval.e25_student_data` (columns id, text, label, source and p_<class> for the
 9 learned classes). Twitter Financial News Topic (TFN) tweets for all 9 classes are mixed in
 here, so tweet style is not a hint for any class (hard labels, at most TFN_CAP per class, train

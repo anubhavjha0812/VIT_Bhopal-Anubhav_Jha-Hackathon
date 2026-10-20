@@ -18,7 +18,7 @@ from riskengine.paths import DATA, ROOT
 
 WORK = ROOT / "private_notes/annotation_uploads/task1/linker_extended"
 RESULT = DATA / "outputs/linker_extended.json"
-RULES = ROOT / "docs/LINKER_EXTENDED.md"
+RULES = ROOT / "docs/experiments/LINKER_EXTENDED.md"
 CATALOG = DATA / "reference/universe_extended.csv"
 PROBES = DATA / "reference/linker_extended_probes.csv"
 E23 = DATA / "gold/credit/credit_to_label.csv"

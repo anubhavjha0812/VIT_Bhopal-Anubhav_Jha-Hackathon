@@ -1,4 +1,5 @@
-"""Fresh event test sample for the E vs C re-test (docs/E25_RETEST.md). No labels, no model output.
+"""Fresh event test sample for the E vs C re-test. No labels, no model output.
+Plan: docs/experiments/E25_RETEST.md
 
 uv run python -m riskengine.eval.e25_retest --dry-run   # counts, writes nothing
 uv run python -m riskengine.eval.e25_retest --build     # writes the blind label sheet

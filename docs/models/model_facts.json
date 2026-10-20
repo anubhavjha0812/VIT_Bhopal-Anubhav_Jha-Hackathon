@@ -1,0 +1,645 @@
+{
+  "models": {
+    "sentiment": {
+      "config": {
+        "add_cross_attention": false,
+        "architectures": [
+          "BertForSequenceClassification"
+        ],
+        "attention_probs_dropout_prob": 0.1,
+        "bos_token_id": null,
+        "classifier_dropout": null,
+        "dtype": "float32",
+        "eos_token_id": null,
+        "hidden_act": "gelu",
+        "hidden_dropout_prob": 0.1,
+        "hidden_size": 384,
+        "id2label": {
+          "0": "negative",
+          "1": "positive",
+          "2": "neutral"
+        },
+        "initializer_range": 0.02,
+        "intermediate_size": 1536,
+        "is_decoder": false,
+        "label2id": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 1
+        },
+        "layer_norm_eps": 1e-12,
+        "max_position_embeddings": 512,
+        "model_type": "bert",
+        "num_attention_heads": 12,
+        "num_hidden_layers": 12,
+        "pad_token_id": 0,
+        "position_embedding_type": "absolute",
+        "problem_type": "single_label_classification",
+        "tie_word_embeddings": true,
+        "transformers_version": "5.18.0",
+        "type_vocab_size": 2,
+        "use_cache": true,
+        "vocab_size": 30522
+      },
+      "labels": [
+        "negative",
+        "positive",
+        "neutral"
+      ],
+      "source_metrics": {
+        "task": "sentiment",
+        "backbone": "BAAI/bge-small-en-v1.5",
+        "train_rows": 8588,
+        "dev_rows": 955,
+        "best_dev_macro_f1": 0.8521,
+        "history": [
+          {
+            "epoch": 1,
+            "dev_macro_f1": 0.8179
+          },
+          {
+            "epoch": 2,
+            "dev_macro_f1": 0.8521
+          },
+          {
+            "epoch": 3,
+            "dev_macro_f1": 0.8439
+          },
+          {
+            "epoch": 4,
+            "dev_macro_f1": 0.8447
+          }
+        ],
+        "params_m": 33.4,
+        "train_minutes": 1.0,
+        "device": "Tesla T4",
+        "settings": {
+          "seed": 42,
+          "max_len": 64,
+          "batch": 32,
+          "epochs": 4,
+          "lr": 5e-05,
+          "warmup": 0.1,
+          "dev_frac": 0.1
+        }
+      }
+    },
+    "topic": {
+      "config": {
+        "add_cross_attention": false,
+        "architectures": [
+          "BertForSequenceClassification"
+        ],
+        "attention_probs_dropout_prob": 0.1,
+        "bos_token_id": null,
+        "classifier_dropout": null,
+        "dtype": "float32",
+        "eos_token_id": null,
+        "hidden_act": "gelu",
+        "hidden_dropout_prob": 0.1,
+        "hidden_size": 384,
+        "id2label": {
+          "0": "Geopolitical",
+          "1": "Macroeconomic",
+          "2": "M&A",
+          "3": "Product news",
+          "4": "Earnings",
+          "5": "Analyst rating",
+          "6": "Legal/Regulatory",
+          "7": "Management change",
+          "8": "Other"
+        },
+        "initializer_range": 0.02,
+        "intermediate_size": 1536,
+        "is_decoder": false,
+        "label2id": {
+          "Analyst rating": 5,
+          "Earnings": 4,
+          "Geopolitical": 0,
+          "Legal/Regulatory": 6,
+          "M&A": 2,
+          "Macroeconomic": 1,
+          "Management change": 7,
+          "Other": 8,
+          "Product news": 3
+        },
+        "layer_norm_eps": 1e-12,
+        "max_position_embeddings": 512,
+        "model_type": "bert",
+        "num_attention_heads": 12,
+        "num_hidden_layers": 12,
+        "pad_token_id": 0,
+        "position_embedding_type": "absolute",
+        "problem_type": "single_label_classification",
+        "tie_word_embeddings": true,
+        "transformers_version": "5.18.0",
+        "type_vocab_size": 2,
+        "use_cache": true,
+        "vocab_size": 30522
+      },
+      "labels": [
+        "Geopolitical",
+        "Macroeconomic",
+        "M&A",
+        "Product news",
+        "Earnings",
+        "Analyst rating",
+        "Legal/Regulatory",
+        "Management change",
+        "Other"
+      ],
+      "source_metrics": {
+        "candidate": "events9",
+        "backbone": "BAAI/bge-small-en-v1.5",
+        "labels": [
+          "Geopolitical",
+          "Macroeconomic",
+          "M&A",
+          "Product news",
+          "Earnings",
+          "Analyst rating",
+          "Legal/Regulatory",
+          "Management change",
+          "Other"
+        ],
+        "train_rows": 13226,
+        "dev_rows": 1471,
+        "best_dev_events9_macro_f1": 0.8478,
+        "history": [
+          {
+            "epoch": 1,
+            "dev_events9_macro_f1": 0.7008,
+            "dev_events9_f1": {
+              "Geopolitical": 0.8936,
+              "Macroeconomic": 0.9172,
+              "M&A": 0.4722,
+              "Product news": 0.8541,
+              "Earnings": 0.9421,
+              "Analyst rating": 0.0,
+              "Legal/Regulatory": 0.6923,
+              "Management change": 0.6471,
+              "Other": 0.8889
+            }
+          },
+          {
+            "epoch": 2,
+            "dev_events9_macro_f1": 0.7922,
+            "dev_events9_f1": {
+              "Geopolitical": 0.9282,
+              "Macroeconomic": 0.9201,
+              "M&A": 0.7059,
+              "Product news": 0.8906,
+              "Earnings": 0.9582,
+              "Analyst rating": 0.0,
+              "Legal/Regulatory": 0.8936,
+              "Management change": 0.9247,
+              "Other": 0.9083
+            }
+          },
+          {
+            "epoch": 3,
+            "dev_events9_macro_f1": 0.7917,
+            "dev_events9_f1": {
+              "Geopolitical": 0.9486,
+              "Macroeconomic": 0.9306,
+              "M&A": 0.7207,
+              "Product news": 0.8861,
+              "Earnings": 0.9552,
+              "Analyst rating": 0.0,
+              "Legal/Regulatory": 0.8696,
+              "Management change": 0.9053,
+              "Other": 0.9097
+            }
+          },
+          {
+            "epoch": 4,
+            "dev_events9_macro_f1": 0.8478,
+            "dev_events9_f1": {
+              "Geopolitical": 0.954,
+              "Macroeconomic": 0.9387,
+              "M&A": 0.7767,
+              "Product news": 0.8906,
+              "Earnings": 0.9621,
+              "Analyst rating": 0.4118,
+              "Legal/Regulatory": 0.875,
+              "Management change": 0.9053,
+              "Other": 0.9161
+            }
+          }
+        ],
+        "params_m": 33.4,
+        "train_minutes": 1.4,
+        "device": "Tesla T4",
+        "settings": {
+          "seed": 42,
+          "max_len": 64,
+          "batch": 32,
+          "epochs": 4,
+          "lr": 5e-05,
+          "warmup": 0.1,
+          "dev_frac": 0.1
+        }
+      }
+    },
+    "e25-student-v3": {
+      "config": {
+        "add_cross_attention": false,
+        "architectures": [
+          "BertForSequenceClassification"
+        ],
+        "attention_probs_dropout_prob": 0.1,
+        "bos_token_id": null,
+        "classifier_dropout": null,
+        "dtype": "float32",
+        "eos_token_id": null,
+        "hidden_act": "gelu",
+        "hidden_dropout_prob": 0.1,
+        "hidden_size": 384,
+        "id2label": {
+          "0": "M&A",
+          "1": "Geopolitical",
+          "2": "Macroeconomic",
+          "3": "Product news",
+          "4": "Earnings",
+          "5": "Analyst rating",
+          "6": "Legal/Regulatory",
+          "7": "Management change",
+          "8": "Other"
+        },
+        "initializer_range": 0.02,
+        "intermediate_size": 1536,
+        "is_decoder": false,
+        "label2id": {
+          "Analyst rating": 5,
+          "Earnings": 4,
+          "Geopolitical": 1,
+          "Legal/Regulatory": 6,
+          "M&A": 0,
+          "Macroeconomic": 2,
+          "Management change": 7,
+          "Other": 8,
+          "Product news": 3
+        },
+        "layer_norm_eps": 1e-12,
+        "max_position_embeddings": 512,
+        "model_type": "bert",
+        "num_attention_heads": 12,
+        "num_hidden_layers": 12,
+        "pad_token_id": 0,
+        "position_embedding_type": "absolute",
+        "tie_word_embeddings": true,
+        "transformers_version": "5.16.1",
+        "type_vocab_size": 2,
+        "use_cache": true,
+        "vocab_size": 30522
+      },
+      "labels": [
+        "M&A",
+        "Geopolitical",
+        "Macroeconomic",
+        "Product news",
+        "Earnings",
+        "Analyst rating",
+        "Legal/Regulatory",
+        "Management change",
+        "Other"
+      ],
+      "source_metrics": {
+        "seed": 43,
+        "best": {
+          "epoch": 3,
+          "valid_macro_f1": 0.8721,
+          "valid_acc": 0.9184
+        },
+        "history": [
+          {
+            "epoch": 1,
+            "valid_macro_f1": 0.8214,
+            "valid_acc": 0.8975
+          },
+          {
+            "epoch": 2,
+            "valid_macro_f1": 0.8359,
+            "valid_acc": 0.9075
+          },
+          {
+            "epoch": 3,
+            "valid_macro_f1": 0.8721,
+            "valid_acc": 0.9184
+          },
+          {
+            "epoch": 4,
+            "valid_macro_f1": 0.872,
+            "valid_acc": 0.9254
+          }
+        ]
+      }
+    },
+    "e27-entity-bge-small-en-v1.5-int8": {
+      "config": {
+        "add_cross_attention": false,
+        "architectures": [
+          "BertForSequenceClassification"
+        ],
+        "attention_probs_dropout_prob": 0.1,
+        "bos_token_id": null,
+        "classifier_dropout": null,
+        "dtype": "float32",
+        "eos_token_id": null,
+        "hidden_act": "gelu",
+        "hidden_dropout_prob": 0.1,
+        "hidden_size": 384,
+        "id2label": {
+          "0": "negative",
+          "1": "neutral",
+          "2": "positive"
+        },
+        "initializer_range": 0.02,
+        "intermediate_size": 1536,
+        "is_decoder": false,
+        "label2id": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 2
+        },
+        "layer_norm_eps": 1e-12,
+        "max_position_embeddings": 512,
+        "model_type": "bert",
+        "num_attention_heads": 12,
+        "num_hidden_layers": 12,
+        "pad_token_id": 0,
+        "position_embedding_type": "absolute",
+        "tie_word_embeddings": true,
+        "transformers_version": "5.16.1",
+        "type_vocab_size": 2,
+        "use_cache": true,
+        "vocab_size": 30522
+      },
+      "labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "source_metrics": {
+        "seed": 44,
+        "best": {
+          "epoch": 4,
+          "dev_macro_f1": 0.8832,
+          "dev_acc": 0.8847
+        },
+        "history": [
+          {
+            "epoch": 1,
+            "dev_macro_f1": 0.8272,
+            "dev_acc": 0.8294
+          },
+          {
+            "epoch": 2,
+            "dev_macro_f1": 0.8734,
+            "dev_acc": 0.8747
+          },
+          {
+            "epoch": 3,
+            "dev_macro_f1": 0.8812,
+            "dev_acc": 0.8829
+          },
+          {
+            "epoch": 4,
+            "dev_macro_f1": 0.8832,
+            "dev_acc": 0.8847
+          }
+        ]
+      }
+    }
+  },
+  "sources_sha256": {
+    "models/models-metadata.md": "e999de3ee5a4e42b1f83f311f0e05a08084db0c3abb5ad030e43125080980f56",
+    "config/default.toml": "d60b5898bb553f04f0ed83d98ead17b562f8edde77c55be89b5df29affa7fcda",
+    "src/riskengine/nlp/sentiment.py": "e421889acf767795f19f292985721b569836e5e807ae04c3378478ef0da1d8ae",
+    "src/riskengine/nlp/classifier.py": "b433fefb74e2f75ca496bbc34a3be99e873b6dc4fa2a6b3643341e25ef809f1b",
+    "src/riskengine/nlp/event_engine.py": "bbff2a548975d7680ae4684a5c7e1d89b15b74fb1fec09cf8877435b94d96150",
+    "src/riskengine/nlp/events.py": "8a9fe664931e6d562900e278b65c37d83ba607502d53e62f4af9964797f12941",
+    "src/riskengine/eval/e24_dev.py": "3f03b1f41332677acf76d1d788f4b386e38ace2c1c809519b9f23a4d2b23cc00",
+    "src/riskengine/eval/e24_inference.py": "614f164e76e672e38cb5050d8da56eeb06fa32da998f16d20d337976e3ef2c20",
+    "src/riskengine/eval/e27_entity_eval.py": "c5a8a161599c0af6dd676985f71ec429edd5b7e52a62f81d990514512f511463",
+    "src/riskengine/impact/features.py": "669290098b667c1205053e2db3a3e6e70fffe2a4964803b256e2bea3a14ed046",
+    "src/riskengine/impact/train_v2.py": "5cb461ccab6c38890ccd38c91b7049a45750530e56f2571ab3bcc6ba7c1b5633",
+    "src/riskengine/impact/train_v3.py": "c33573b9b3ba252ed164af4905b6ea478bfe4eec4c18aafcfc74d086f54a1360",
+    "src/riskengine/impact/tweets_v3.py": "78f5daa5eab10a0c989f0ce9aedf1e420c9509200cb41a07827ad318b27b16ef",
+    "src/riskengine/impact/learned.py": "f7fbb88542a9c5d3c13b08ab51e9b0723ab40d1cc5a9aa8b13156871a092e3ed",
+    "src/riskengine/impact/scores.py": "83238e2080df1726579907d7b130bedd0113aaaa134194f70cf14cc4806cca6c",
+    "models/sentiment/config.json": "4fa7f87f62540f12f09ac224c38a44b3db571c26565eda118b9d6cfe21316b84",
+    "models/sentiment/source_metrics.json": "9d97c1afe258bb289416c76fb0f65dee5855a8d4a72df83926180f90b738a464",
+    "models/topic/config.json": "37fa9cd6921b2f5d92331a51e896d0eadd501e391bc05c638278022524ad3266",
+    "models/topic/source_metrics.json": "2dca2b4609638cb3ff6f954d811b57db11ff84560fe4054015e651287809d80a",
+    "models/e25-student-v3/config.json": "596a8b3a87448227d15c622c859c55e4b9d35f94aa2da136ab3d119c8ac4d1da",
+    "models/e25-student-v3/source_metrics.json": "d8fbd66da49394d81a339dc69426cd960457279b7ef6332193c833f9d2cc89e3",
+    "models/e27-entity-bge-small-en-v1.5-int8/config.json": "dcf28398bb0465b3f881c457b4c14fc986e22365ea6ed7156314e93e2f1e6657",
+    "models/e27-entity-bge-small-en-v1.5-int8/source_metrics.json": "1520d6a18739bda4fcf872d077b5199167cb09a38dade694e0671dc52ec02c81",
+    "models/impact-v3/impact_v3.joblib": "da48b1e83aa8162745dc87fe2ec4d8bc4025df7eaaef0e8aeae5b9a24ee85ac8",
+    "models/impact-v3/impact_v3_tweets.joblib": "e1b02745214a46a39f9037c7c57425dd82ae0d2a5e57e967dc363beef4ac02c2"
+  },
+  "impact": {
+    "impact_v3.joblib": {
+      "kind": "d_clipped_no_vol",
+      "used": [
+        "sentiment",
+        "abs_sentiment",
+        "title_words",
+        "n_prev_24h",
+        "novelty",
+        "p_Analyst Update",
+        "p_Company | Product News",
+        "p_Currencies",
+        "p_Dividend",
+        "p_Earnings",
+        "p_Energy | Oil",
+        "p_Fed | Central Banks",
+        "p_Financials",
+        "p_General News | Opinion",
+        "p_Gold | Metals | Materials",
+        "p_IPO",
+        "p_Legal | Regulation",
+        "p_M&A | Investments",
+        "p_Macro",
+        "p_Markets",
+        "p_Personnel Change",
+        "p_Politics",
+        "p_Stock Commentary",
+        "p_Stock Movement",
+        "p_Treasuries | Corporate Debt",
+        "event",
+        "publisher"
+      ],
+      "numeric": [
+        "sentiment",
+        "abs_sentiment",
+        "title_words",
+        "n_prev_24h",
+        "novelty",
+        "p_Analyst Update",
+        "p_Company | Product News",
+        "p_Currencies",
+        "p_Dividend",
+        "p_Earnings",
+        "p_Energy | Oil",
+        "p_Fed | Central Banks",
+        "p_Financials",
+        "p_General News | Opinion",
+        "p_Gold | Metals | Materials",
+        "p_IPO",
+        "p_Legal | Regulation",
+        "p_M&A | Investments",
+        "p_Macro",
+        "p_Markets",
+        "p_Personnel Change",
+        "p_Politics",
+        "p_Stock Commentary",
+        "p_Stock Movement",
+        "p_Treasuries | Corporate Debt"
+      ],
+      "wrapper": "Clipped",
+      "pipeline": [
+        [
+          "prep",
+          "ColumnTransformer"
+        ],
+        [
+          "model",
+          "Ridge"
+        ]
+      ],
+      "alpha": 1.0,
+      "categorical": [
+        "event",
+        "publisher"
+      ],
+      "categorical_transform": "OneHotEncoder",
+      "numeric_transform": "StandardScaler",
+      "edges": 9,
+      "probability_features": [
+        "p_Analyst Update",
+        "p_Company | Product News",
+        "p_Currencies",
+        "p_Dividend",
+        "p_Earnings",
+        "p_Energy | Oil",
+        "p_Fed | Central Banks",
+        "p_Financials",
+        "p_General News | Opinion",
+        "p_Gold | Metals | Materials",
+        "p_IPO",
+        "p_Legal | Regulation",
+        "p_M&A | Investments",
+        "p_Macro",
+        "p_Markets",
+        "p_Personnel Change",
+        "p_Politics",
+        "p_Stock Commentary",
+        "p_Stock Movement",
+        "p_Treasuries | Corporate Debt"
+      ]
+    },
+    "impact_v3_tweets.joblib": {
+      "kind": "d_clipped_no_vol",
+      "used": [
+        "sentiment",
+        "abs_sentiment",
+        "title_words",
+        "p_Analyst rating",
+        "p_Earnings",
+        "p_Geopolitical",
+        "p_Legal/Regulatory",
+        "p_M&A",
+        "p_Macroeconomic",
+        "p_Management change",
+        "p_Other",
+        "p_Product news",
+        "event",
+        "publisher"
+      ],
+      "numeric": [
+        "sentiment",
+        "abs_sentiment",
+        "title_words",
+        "p_Analyst rating",
+        "p_Earnings",
+        "p_Geopolitical",
+        "p_Legal/Regulatory",
+        "p_M&A",
+        "p_Macroeconomic",
+        "p_Management change",
+        "p_Other",
+        "p_Product news"
+      ],
+      "wrapper": "Clipped",
+      "pipeline": [
+        [
+          "prep",
+          "ColumnTransformer"
+        ],
+        [
+          "model",
+          "Ridge"
+        ]
+      ],
+      "alpha": 1.0,
+      "categorical": [
+        "event",
+        "publisher"
+      ],
+      "categorical_transform": "OneHotEncoder",
+      "numeric_transform": "StandardScaler",
+      "edges": 9,
+      "probability_features": [
+        "p_Analyst rating",
+        "p_Earnings",
+        "p_Geopolitical",
+        "p_Legal/Regulatory",
+        "p_M&A",
+        "p_Macroeconomic",
+        "p_Management change",
+        "p_Other",
+        "p_Product news"
+      ]
+    }
+  },
+  "scoring_max_tokens": 64,
+  "rendered_images": [
+    {
+      "file": "sentiment.png",
+      "width": 1600,
+      "height": 1000,
+      "text_boxes": 31,
+      "sha256": "462ef7a9353752c1cb518b7b720ababcb1484bedd2ea0d3fdc65477a8bc39843"
+    },
+    {
+      "file": "topic.png",
+      "width": 1600,
+      "height": 1000,
+      "text_boxes": 40,
+      "sha256": "22b80aba43776ddf455e87a5e218a9df7c4a4154c297c16b33db171a46597a5c"
+    },
+    {
+      "file": "e25-student-v3.png",
+      "width": 1600,
+      "height": 1000,
+      "text_boxes": 44,
+      "sha256": "79747de4087e580b0025fed30403d23b19bd76ec605e43913460efa0501e492b"
+    },
+    {
+      "file": "entity-sentiment.png",
+      "width": 1600,
+      "height": 1000,
+      "text_boxes": 27,
+      "sha256": "5f34f6bda93c99f2ea4ef53e08be5fff41326c863d72b3ca6e9ccfab837fe962"
+    },
+    {
+      "file": "impact-v3.png",
+      "width": 1600,
+      "height": 1000,
+      "text_boxes": 24,
+      "sha256": "d293d75c9739a7d4b616b77eed65ee4374a9df1e57fa3edd1ba441f1ceb23902"
+    }
+  ]
+}

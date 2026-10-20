@@ -67,7 +67,7 @@ gain from the fixed Supertrend regime forecast**. No tuning or automatic adoptio
 ## Execution and preservation
 
 Write only a new evaluator/tests and new E35 results; log the outcome in this
-file, `docs/EXPERIMENTS.md` and the next `STEPS.md` entry. Record input/code/rule/artifact hashes and package versions.
+file, `docs/experiments/EXPERIMENTS.md` and the next `STEPS.md` entry. Record input/code/rule/artifact hashes and package versions.
 Scoring refuses existing result artifacts. Fixes before a saved result may be
 retried under the unchanged rules, with any failure recorded. The separate
 download can be retried for transport failure without scoring or changing rules.

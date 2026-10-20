@@ -1,4 +1,4 @@
-"""Impact v3 for tweets: one pre-registered fit and test (docs/IMPACT_V3.md, E28d).
+"""Impact v3 for tweets: one pre-registered fit and test (docs/experiments/IMPACT_V3.md, E28d).
 
 uv run python -m riskengine.impact.tweets_v3 --run
 """

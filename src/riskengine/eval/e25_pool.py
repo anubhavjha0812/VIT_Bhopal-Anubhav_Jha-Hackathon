@@ -1,4 +1,5 @@
-"""E25 training pool for the teacher–student event model (docs/E25_TEACHER_STUDENT.md). No labels.
+"""E25 training pool for the teacher–student event model. No labels.
+Plan: docs/experiments/E25_TEACHER_STUDENT.md
 
 uv run python -m riskengine.eval.e25_pool --dry-run   # counts and hashes, writes nothing
 uv run python -m riskengine.eval.e25_pool --build     # writes the pool and its manifest

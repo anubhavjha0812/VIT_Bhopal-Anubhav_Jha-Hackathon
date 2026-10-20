@@ -48,6 +48,6 @@ Paired precision difference (v3 P99 minus volatility at the same fire count), wi
 
 Do not adopt v3 as an extra non-credit trigger; keep the credit and market-wide gates.
 
-The [stored JSON](../data/outputs/e30_trigger_validation.json) includes fired counts, both labels, precision/recall intervals for every trigger, and the secondary S sets. Undefined ratios are stored as null; intervals omit undefined resamples and record the number of valid draws.
+The [stored JSON](../../../data/outputs/e30_trigger_validation.json) includes fired counts, both labels, precision/recall intervals for every trigger, and the secondary S sets. Undefined ratios are stored as null; intervals omit undefined resamples and record the number of valid draws.
 
 Caveats: a big price move validates "the market reacted", not "it was a crisis". 2019–2020 were already seen in E28, so this is a development check, not a blind test. The unit is a headline-stock row; recall is at row level, with uncertainty clustered by stock-day. F 2020 uses the existing fresh-set window ending 10 June, not the full year. The z >= 3 label and S sets are reported only. No trigger was wired into the engine.

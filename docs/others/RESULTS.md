@@ -4,7 +4,7 @@ Results from the saved experiment records linked below. Earlier component tables
 
 ## Current configuration and saved signals
 
-[default.toml](../config/default.toml) now selects `sentiment = "entity"` and `events = "model_rules"`. New pipeline scoring uses E27's company-name/headline pair model and computes impact per company. Missing company names fall back to the older `own` headline model; `own` and `finbert` remain selectable.
+[default.toml](../../config/default.toml) now selects `sentiment = "entity"` and `events = "model_rules"`. New pipeline scoring uses E27's company-name/headline pair model and computes impact per company. Missing company names fall back to the older `own` headline model; `own` and `finbert` remain selectable.
 
 The default and the saved replay have different sentiment provenance. `data/outputs/signals.jsonl.gz` still contains `own` sentiment and is kept for the credit chain. The separate `signals_entity.jsonl.gz` supplied the entity-sentiment Module A comparison below. Changing the config did not replace the saved credit signals.
 
@@ -19,20 +19,20 @@ All labels newly created for the project's event and credit work are **AI-made o
 | Wider 8-K credit set | ChatGPT and Claude; Claude's label used on disagreements | None |
 | SEntFiN for E27 | Dataset authors' human-made labels | No new project labels were created |
 
-Provenance values include `ai_agreed`, `ai_agreed_ai_audited` and `ai_adjudicated`. An AI audit or adjudication is not a human check. In the wider credit set, the adjudicator was also one of the labellers, so resolution was not independent. The [annotation protocol](ANNOTATION_PROTOCOL.md) describes intended quality controls; it does not establish that human review happened. The [E24 labelling amendment](E25_LABELLER_AMENDMENT.md) records the AI-label process. Older third-party benchmarks below are separate from these new project annotations.
+Provenance values include `ai_agreed`, `ai_agreed_ai_audited` and `ai_adjudicated`. An AI audit or adjudication is not a human check. In the wider credit set, the adjudicator was also one of the labellers, so resolution was not independent. The [annotation protocol](supporting/ANNOTATION_PROTOCOL.md) describes intended quality controls; it does not establish that human review happened. The [E24 labelling amendment](supporting/E25_LABELLER_AMENDMENT.md) records the AI-label process. Older third-party benchmarks below are separate from these new project annotations.
 
 ## Running engine and final event test (E24)
 
-The running event engine is **candidate C: rules + event model**, configured as `events = "model_rules"` in [default.toml](../config/default.toml). The final test was run once against the previous engine A. Macro-F1 includes all 12 event classes.
+The running event engine is **candidate C: rules + event model**, configured as `events = "model_rules"` in [default.toml](../../config/default.toml). The final test was run once against the previous engine A. Macro-F1 includes all 12 event classes.
 
 | Final set | Rows | Previous engine A | Running candidate C | Gain | 95% range of gain |
 |---|---:|---:|---:|---:|---|
 | News | 200 | 0.309 | 0.376 | +0.067 | +0.029 to +0.107 |
 | Tweets | 100 | 0.142 | 0.132 | -0.010 | -0.031 to +0.009 |
 
-The tweet result is inside the registered margin, not an improvement. Eight of the 12 classes are absent in tweets. Source: [final results](../data/outputs/e24_final_results.json).
+The tweet result is inside the registered margin, not an improvement. Eight of the 12 classes are absent in tweets. Source: [final results](../../data/outputs/e24_final_results.json).
 
-Every evaluation label for these final sets is **AI-made**: ChatGPT, Claude and AI adjudication, with **no human check**. D1 and D2 development labels are also AI-derived. These are not independent human reference labels. The [labelling amendment and its addendum](E25_LABELLER_AMENDMENT.md) record the process.
+Every evaluation label for these final sets is **AI-made**: ChatGPT, Claude and AI adjudication, with **no human check**. D1 and D2 development labels are also AI-derived. These are not independent human reference labels. The [labelling amendment and its addendum](supporting/E25_LABELLER_AMENDMENT.md) record the process.
 
 ## Module B alert gates
 
@@ -45,7 +45,7 @@ The wider 8-K set contains **287 headlines** sampled around bankruptcy/accelerat
 | Wider 8-K set, frozen C | 287 | 0.871 | 0.842 |
 | E23 | — | — | 0.47 |
 
-On the 8-K set there were 147 credit-labelled rows and 152 predicted credit rows: 128 true alerts, 24 false alerts and 19 misses. Provenance counts are 169 `ai_agreed`, 80 `ai_agreed_ai_audited` and 38 `ai_adjudicated`. Using ChatGPT's labels instead gives recall 0.921 and precision 0.770, showing sensitivity to label choice. Source: [credit result](../data/outputs/e25_credit_8k_full_gate.json).
+On the 8-K set there were 147 credit-labelled rows and 152 predicted credit rows: 128 true alerts, 24 false alerts and 19 misses. Provenance counts are 169 `ai_agreed`, 80 `ai_agreed_ai_audited` and 38 `ai_adjudicated`. Using ChatGPT's labels instead gives recall 0.921 and precision 0.770, showing sensitivity to label choice. Source: [credit result](../../data/outputs/e25_credit_8k_full_gate.json).
 
 **These sets are not comparable.** The 8-K sample is Default-heavy; its 0.842 precision does not establish an improvement over E23. E23's 0.47 remains the reported worst case. Neither the sampling scheme nor the AI adjudication establishes population performance.
 
@@ -85,9 +85,9 @@ These rows measure different things: the credit rows use AI credit-event labels 
 | Formula >= 7 | E30 F 2020, absolute CAR >= 5% | 0.229 | 0.024 | 1.33 |
 | Formula >= 8 | E30 F 2020, absolute CAR >= 5% | 0.273 | 0.019 | 1.59 |
 
-Credit sources: [E23 stored result](../data/outputs/e24_e23_gate_v6.json) and [8-K stored result](../data/outputs/e25_credit_8k_full_gate.json). E23 recall above is sample recall; its stored population-weighted point estimate is 0.758. The 8-K set is Default-heavy and its precision is not comparable to E23. No stored precision/recall validation was found for the market-wide gate; E26's alert count is not a precision estimate.
+Credit sources: [E23 stored result](../../data/outputs/e24_e23_gate_v6.json) and [8-K stored result](../../data/outputs/e25_credit_8k_full_gate.json). E23 recall above is sample recall; its stored population-weighted point estimate is 0.758. The 8-K set is Default-heavy and its precision is not comparable to E23. No stored precision/recall validation was found for the market-wide gate; E26's alert count is not a precision estimate.
 
-E30 source: [stored result](../data/outputs/e30_trigger_validation.json), [rules and intervals](E30_TRIGGER_VALIDATION.md#result). Random rows show the seed-0 draw; expected precision is the base rate. Thresholds use 2009–2018 fit rows only; volatility/random fire counts match v3. The years were already seen in E28; recall is at headline-stock-row level. F 2020 ends 10 June.
+E30 source: [stored result](../../data/outputs/e30_trigger_validation.json), [rules and intervals](supporting/E30_TRIGGER_VALIDATION.md#result). Random rows show the seed-0 draw; expected precision is the base rate. Thresholds use 2009–2018 fit rows only; volatility/random fire counts match v3. The years were already seen in E28; recall is at headline-stock-row level. F 2020 ends 10 June.
 
 Do not adopt v3 as an extra non-credit trigger; keep the credit and market-wide gates.
 
@@ -104,7 +104,7 @@ The registered test used **SEntFiN Indian business news with human-made labels f
 | Conflicting headlines | 463 | 0.476 | 0.821 | +0.344 | 0.295 to 0.400 |
 | All test rows | 2,152 | 0.675 | 0.864 | +0.189 | 0.169 to 0.211 |
 
-The fixed rule required at least +0.05 macro-F1 on conflicting rows and no all-test drop greater than 0.02. Both conditions passed. Intervals use 1,000 paired entity-row bootstrap resamples, seed 0. The [saved report](../data/outputs/e27_entity_eval.json) predates activation and records the recommendation without applying it; the current config now selects `entity`. The rule is in [E27_ENTITY_SENTIMENT.md](E27_ENTITY_SENTIMENT.md).
+The fixed rule required at least +0.05 macro-F1 on conflicting rows and no all-test drop greater than 0.02. Both conditions passed. Intervals use 1,000 paired entity-row bootstrap resamples, seed 0. The [saved report](../../data/outputs/e27_entity_eval.json) predates activation and records the recommendation without applying it; the current config now selects `entity`. The rule is in [E27_ENTITY_SENTIMENT.md](supporting/E27_ENTITY_SENTIMENT.md).
 
 Only the winning seed's record was downloaded, so the comparison across all training seeds cannot be rechecked. Training on SEntFiN also spends its earlier E20 role as an unused confirmation set. The registered E27 result covers Indian news headlines, not broad US news or tweet performance.
 
@@ -117,7 +117,7 @@ The 150-row FiQA test check used its target ticker/name as the entity. It was **
 | Spearman correlation | 0.582 | 0.623 |
 | Sign accuracy | 0.731 | 0.787 |
 
-Source: [FiQA check](../data/outputs/e27_fiqa_check.json). This continuous-score/sign check is separate from the older three-class FiQA component table below.
+Source: [FiQA check](../../data/outputs/e27_fiqa_check.json). This continuous-score/sign check is separate from the older three-class FiQA component table below.
 
 ## Module A portfolio and placebo
 
@@ -136,7 +136,24 @@ Each placebo experiment used 1,000 shuffles of which stock received each daily s
 | Own | 0.459 | 0.468 |
 | Entity | 0.403 | 0.380 |
 
-These p values are the fractions of placebos matching or exceeding the real tilt. The entity tilt remains below equal weight on both return and Sharpe. **There is no proven value over chance or equal weight in this window.** Sources: [own placebo](../data/outputs/module_a_placebo.json), [entity placebo](../data/outputs/module_a_placebo_entity.json) and [experiment log](EXPERIMENTS.md).
+These p values are the fractions of placebos matching or exceeding the real tilt. The entity tilt remains below equal weight on both return and Sharpe. **There is no proven value over chance or equal weight in this window.** Sources: [own placebo](../../data/outputs/module_a_placebo.json), [entity placebo](../../data/outputs/module_a_placebo_entity.json) and [experiment log](EXPERIMENTS.md).
+
+## Later tests (E37 to E43): what changed and what did not
+
+Each row was run once under rules written before the run. "Not adopted" means the live engine is unchanged. Labels are AI-made (see Label provenance).
+
+| Test | Result | Engine change |
+|---|---|---|
+| E37 live sentiment paths | `/analyze` and the live feed now use the same company-pair scorer as the batch pipeline | Yes: bug fix |
+| E38, E38b extended 99-company linker | Precision 0.76 (E38) and 0.94 (E38b) against the 0.95 rule; E38b recall 0.48 vs 0.39 for the 15-company linker; 16 of 31 removals of original-company links judged wrong | Not adopted at those runs; later superseded by candidate 3 |
+| E38c linker candidate 3 | On a new 200-headline AI reference, precision 0.925 to 0.939, recall 0.377 to 0.513, F1 0.429 to 0.560 and exact accuracy 0.335 to 0.420; wrong links 8 to 10; zero wrong Set B removals, 59/60 probes | Yes: owner selected candidate 3 for live/API and removed the 0.95 rule as a selection blocker; original scored result unchanged |
+| E39 calibration of stored event heads | ECE 0.388 to 0.184 (event model), 0.266 to 0.146 (student E); accuracy unchanged; 153 rows, out-of-fold | No: display option only |
+| E40 Laya yes/no filter on credit alerts | On E23 design data: precision 0.661 to 0.750 but true alerts 39 to 27 (rule allowed losing 1) | No: not promoted |
+| E41 live scored event, gate, stress preview, ledger | Engineering check on stored and invented rows; 4 of 4 gate results match `/gate`; no duplicates after restart | Yes: new flow, off by default |
+| E42 Module A trade deadband | Turnover down about 16% against the 30% rule; Sharpe +0.028 [-0.012, 0.076]; tweet window slightly lower | No: not supported |
+| E43 Module A daily turnover cap | No cap beat the daily move on the 2010-2016 development years (Sharpe difference 0.095 vs 0.032 to 0.064) | No: not supported |
+
+Together E17, E42 and E43 say Module A's turnover is its signal: slower, partial, banded or capped trading did not help. Sources: [E39](../../data/outputs/e39_calibration.json), [E40](../../data/outputs/e40_decision_model.json), [E42](../../data/outputs/module_a_deadband.json), [E43](../../data/outputs/module_a_turncap.json), [E38](../../data/outputs/linker_extended.json), [E38b](../../data/outputs/linker_extended_v2.json), and `docs/experiments/EXPERIMENTS.md` rows E37 to E43.
 
 ## Earlier component benchmarks
 

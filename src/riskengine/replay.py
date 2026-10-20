@@ -67,6 +67,13 @@ def events(
     signals: pd.DataFrame, weights: pd.DataFrame, on_alert: OnAlert | None = None
 ) -> Iterator[Event]:
     """`weights` has a `date` column (trading day) and one column per ticker."""
+    return stream(texts(signals), weights, on_alert)
+
+
+def stream(
+    per_text: pd.DataFrame, weights: pd.DataFrame, on_alert: OnAlert | None = None
+) -> Iterator[Event]:
+    """Like `events`, from the frame `texts` returns, so a caller can build it once."""
     days = pd.to_datetime(weights["date"])
     by_day = weights.drop(columns="date").round(4)
     pending = 0  # index of the next weights row to send
@@ -78,7 +85,7 @@ def events(
             yield "weights", {"date": days.iloc[pending].date().isoformat(), "weights": row}
             pending += 1
 
-    for t in texts(signals).itertuples(index=False):
+    for t in per_text.itertuples(index=False):
         ny_day = t.published_at.tz_convert(NY).tz_localize(None).normalize()
         yield from weights_until(ny_day)
         payload = {

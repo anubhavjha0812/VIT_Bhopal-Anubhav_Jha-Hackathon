@@ -35,7 +35,7 @@ from riskengine.nlp.multihead import MultiHeadModel
 from riskengine.nlp.sentiment import FINBERT, TransformerSentiment
 from riskengine.paths import DATA, MODELS, ROOT
 
-RESULTS_MD = ROOT / "docs" / "RESULTS.md"
+RESULTS_MD = ROOT / "docs" / "others" / "RESULTS.md"
 RESULTS_JSON = DATA / "outputs" / "eval_results.json"
 EVENTS9_KEY = "Events (TFN-topic, 9 classes)"
 E18_KEY = "Sentiment, more public sets (E18)"

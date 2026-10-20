@@ -23,7 +23,7 @@ Written 2026-10-17, before any row of the new set was labelled or scored.
 2. **E replaces C** only if E beats C by at least 0.02 macro-F1 on R3 **and** no class with 10 or more R3 rows loses more than 0.05 F1 against C.
 3. Otherwise C stays. A tie or a small win is not enough (E is the more complex model).
 4. No threshold, temperature or rule changes after seeing R3 scores. No retraining on R3.
-5. R3 is a development set. D2 selection and the freeze still follow `docs/E25_TEACHER_STUDENT.md` section 7, and the final holdouts are scored once after the freeze.
+5. R3 is a development set. D2 selection and the freeze still follow `docs/experiments/E25_TEACHER_STUDENT.md` section 7, and the final holdouts are scored once after the freeze.
 6. Report D1 and R3 together, whatever the result.
 
 ## Not allowed

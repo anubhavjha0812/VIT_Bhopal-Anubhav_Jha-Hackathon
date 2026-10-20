@@ -1,7 +1,7 @@
 """E35: one fixed Supertrend regime forecast, without engine changes.
 
 --fetch downloads separate S&P 500 OHLC only; --run scores the cached bars once.
-Rules: docs/E35_SUPERTREND.md. No close-only proxy or parameter search.
+Rules: docs/experiments/E35_SUPERTREND.md. No close-only proxy or parameter search.
 """
 
 import argparse
@@ -20,7 +20,7 @@ from riskengine.eval import e33_direct_loss as e33
 from riskengine.eval import e34_recent_means as e34
 from riskengine.module_b.book import load_book
 
-RULES = e32.ROOT / "docs/E35_SUPERTREND.md"
+RULES = e32.ROOT / "docs/experiments/E35_SUPERTREND.md"
 OUTPUT = e32.DATA / "outputs/e35_supertrend.json"
 CACHE = e32.DATA / "cache/e35"
 BARS_PATH, META_PATH = CACHE / "spx_ohlc.csv", CACHE / "spx_ohlc_meta.json"

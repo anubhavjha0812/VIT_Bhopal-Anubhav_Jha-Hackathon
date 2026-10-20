@@ -75,7 +75,7 @@ files. An existing E34 result JSON must refuse a rerun; a crash before a JSON is
 saved may be fixed and retried without changing this contract, with a note.
 New JSON, predictions and per-year files only. Save code/rule/input/output hashes,
 weight and timing audits, package versions and the decision. Append the outcome
-here; log E34 in `docs/EXPERIMENTS.md` and the next `STEPS.md` entry. No network, commit, push, tuning or wiring.
+here; log E34 in `docs/experiments/EXPERIMENTS.md` and the next `STEPS.md` entry. No network, commit, push, tuning or wiring.
 Run fixture tests, full tests and Ruff; verify old baseline and preservation hashes.
 
 ## Results

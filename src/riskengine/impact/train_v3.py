@@ -1,4 +1,5 @@
-"""Impact v3: robustness candidates chosen on rolling folds only (docs/IMPACT_V3.md, E28).
+"""Impact v3 (E28): robustness candidates chosen on rolling folds only.
+Plan: docs/experiments/IMPACT_V3.md
 
 uv run python -m riskengine.impact.train_v3 --select   # folds only, writes the frozen choice
 uv run python -m riskengine.impact.train_v3 --test     # once, after --select

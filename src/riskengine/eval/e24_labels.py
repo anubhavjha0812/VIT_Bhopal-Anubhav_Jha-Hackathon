@@ -97,7 +97,7 @@ def adjudication_sheet(chatgpt, gemini, ids, seed: int = SEED) -> pd.DataFrame:
     return sheet[cols].assign(human_label="", human_rationale="")
 
 
-AI_SOURCES = {  # docs/E25_LABELLER_AMENDMENT.md: when an AI, not a person, adjudicates
+AI_SOURCES = {  # docs/experiments/E25_LABELLER_AMENDMENT.md: when an AI, not a person, adjudicates
     "human_adjudicated": "ai_adjudicated",
     "ai_agreed_human_audited": "ai_agreed_ai_audited",
 }

@@ -11,7 +11,7 @@ from riskengine.ingest.prices import load_prices
 from riskengine.ingest.tweets import load_akkerman
 from riskengine.paths import ROOT
 
-OUT_PATH = ROOT / "docs" / "data_coverage.md"
+OUT_PATH = ROOT / "docs" / "others" / "data_coverage.md"
 
 
 def in_window(df: pd.DataFrame, config: Config, col: str = "published_at") -> pd.DataFrame:

@@ -1,4 +1,4 @@
-"""E25 teacher labelling: 12-class event probabilities from open LLMs (docs/E25_TEACHER_STUDENT.md).
+"""E25 teacher labelling: 12-class event probabilities from open LLMs (docs/experiments/E25_TEACHER_STUDENT.md).
 
 Each teacher gets the same fixed prompt (the E24 class definitions plus hand-written examples that
 are not from any test set) and answers with one letter, A to L. The probability over the 12 classes

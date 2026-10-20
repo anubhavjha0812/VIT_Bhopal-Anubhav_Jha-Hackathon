@@ -1,4 +1,5 @@
-"""E43: does a daily turnover cap cut Module A's cost? Rules: docs/MODULE_A_TURNOVER_CAP.md (fixed).
+"""E43: does a daily turnover cap cut Module A's cost?
+Rules (fixed): docs/experiments/MODULE_A_TURNOVER_CAP.md
 
 uv run python -m riskengine.module_a_turncap --run   # one scored run, refuses a repeat
 

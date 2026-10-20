@@ -27,7 +27,7 @@ from riskengine.paths import DATA, ROOT
 WORK = ROOT / "private_notes/annotation_uploads/task1/linker_extended_v3"
 DESIGN = ROOT / "private_notes/annotation_uploads/task1/linker_extended_v3_design"
 RESULT = DATA / "outputs/linker_extended_v3.json"
-RULES = ROOT / "docs/LINKER_EXTENDED_V3.md"
+RULES = ROOT / "docs/experiments/LINKER_EXTENDED_V3.md"
 
 
 def rules_text() -> str:

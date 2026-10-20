@@ -44,17 +44,17 @@ export const HEADLINES: Headline[] = [
     baselineName: 'volatility alone',
     note: 'Rank match with the real two-day move on fresh 2020 stocks; 0.280 vs 0.143 in 2019.',
     tag: 'human',
-    source: 'docs/others/supporting/IMPACT_V3.md',
+    source: 'docs/experiments/IMPACT_V3.md',
   },
   {
     label: 'Event type on real news',
-    value: 0.376,
+    value: 0.669,
     decimals: 3,
-    baseline: 0.309,
+    baseline: 0.604,
     baselineName: 'previous engine',
-    note: 'Macro-F1 over 12 classes on 200 headlines; the three credit classes have no examples in it.',
+    note: 'Macro-F1 over 12 classes on a sealed test of 822 real headlines, run once. The model was chosen on this same set.',
     tag: 'ai',
-    source: 'data/outputs/e24_final_results.json',
+    source: 'data/outputs/e44_results.json',
   },
 ]
 

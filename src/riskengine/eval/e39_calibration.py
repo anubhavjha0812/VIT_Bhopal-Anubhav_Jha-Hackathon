@@ -353,7 +353,7 @@ def run() -> dict:
     out = {
         "experiment": "E39",
         "created_utc": datetime.now(UTC).isoformat(),
-        "protocol": "docs/DECISION_MODEL_BENCH.md#e39",
+        "protocol": "docs/experiments/DECISION_MODEL_BENCH.md#e39",
         "seed": SEED,
         "provenance": provenance,
         "fold_method": method,

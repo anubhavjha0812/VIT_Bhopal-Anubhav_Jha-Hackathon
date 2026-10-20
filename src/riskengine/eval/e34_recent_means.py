@@ -1,7 +1,7 @@
 """E34: fixed rolling/EWMA market-move forecasts. No tuning or engine wiring.
 
 uv run python -m riskengine.eval.e34_recent_means --run
-Rules: docs/E34_RECENT_MEANS.md. Existing results are read-only controls.
+Rules: docs/experiments/E34_RECENT_MEANS.md. Existing results are read-only controls.
 """
 
 import argparse
@@ -19,7 +19,7 @@ from riskengine.eval import e32_forecast_replay as e32
 from riskengine.eval import e33_direct_loss as e33
 from riskengine.module_b.book import load_book
 
-RULES = e32.ROOT / "docs/E34_RECENT_MEANS.md"
+RULES = e32.ROOT / "docs/experiments/E34_RECENT_MEANS.md"
 OUTPUT = e32.DATA / "outputs/e34_recent_means.json"
 ROLLING_TARGETS, HALF_LIFE_MONTHS = 60, 24
 CANDIDATES = ("e32_mean", "e32_no_change", "rolling_60m", "ewma_h24m")

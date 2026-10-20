@@ -341,8 +341,8 @@ def test_flow_keeps_real_protected_files_byte_identical(setup):
                 "src/riskengine/module_a.py",
                 "src/riskengine/pipeline.py",
                 "src/riskengine/replay.py",
-                "docs/others/DECISIONS.md",
-                "docs/others/DECISION_MODEL_BENCH.md",
+                "docs/DECISIONS.md",
+                "docs/experiments/DECISION_MODEL_BENCH.md",
             )
         ],
         *sorted((ROOT / "docs/others").glob("LINKER_EXTENDED*.md")),

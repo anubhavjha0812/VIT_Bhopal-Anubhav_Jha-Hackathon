@@ -1,4 +1,4 @@
-"""E32: one offline chronological replay; rules in docs/E32_FORECAST_REPLAY.md.
+"""E32: one offline chronological replay; rules in docs/experiments/E32_FORECAST_REPLAY.md.
 
 uv run python -m riskengine.eval.e32_forecast_replay --run
 
@@ -26,7 +26,7 @@ from riskengine.module_b.sources import MARKET_PATH
 from riskengine.paths import DATA
 
 ROOT = DATA.parent
-RULES = ROOT / "docs/E32_FORECAST_REPLAY.md"
+RULES = ROOT / "docs/experiments/E32_FORECAST_REPLAY.md"
 OUTPUT = DATA / "outputs/e32_forecast_replay.json"
 TARGETS = [*FEATURES, "d_ust"]
 HORIZONS = (60, 20)
@@ -317,7 +317,7 @@ def run(output: Path = OUTPUT) -> dict:
     results, years = summarise(predictions)
     result = {
         "experiment": "E32", "created_utc": datetime.now(UTC).isoformat(),
-        "rules": "docs/E32_FORECAST_REPLAY.md",
+        "rules": "docs/experiments/E32_FORECAST_REPLAY.md",
         "pre_run_rules_sha256": hashlib.sha256(rules_text.encode()).hexdigest(),
         "pre_run_rules_text": rules_text,
         "availability": {"buffer_trading_sessions": AVAILABILITY_SESSIONS,

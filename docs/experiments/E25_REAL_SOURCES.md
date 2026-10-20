@@ -33,7 +33,7 @@ manifest also predates R3. A later ingestion step must exclude all current reser
 including the new credit held-out set, before using any candidate.
 
 Counts, exact added expressions, input hashes and the small reproducible count script:
-[fnspid_counts.json](../private_notes/annotation_uploads/task1/real_sources_20261017/fnspid_counts.json).
+[fnspid_counts.json](../../../private_notes/annotation_uploads/task1/real_sources_20261017/fnspid_counts.json).
 No titles were sampled or labelled in this sources task.
 
 ## Five preferred external sources
@@ -52,7 +52,7 @@ All five have English headlines/titles. Their existing topic tags are **not** E2
 Official search documentation: [GOV.UK Search API](https://docs.publishing.service.gov.uk/repos/search-api/using-the-search-api.html).
 Its `public_timestamp` is an update time: verify original publication date from content
 metadata before enforcing the training cutoff. The successful request URLs and small-response
-sizes are saved in [source_metadata.json](../private_notes/annotation_uploads/task1/real_sources_20261017/source_metadata.json).
+sizes are saved in [source_metadata.json](../../../private_notes/annotation_uploads/task1/real_sources_20261017/source_metadata.json).
 Initial document-type queries returned zero; documented format filters returned real counts.
 Do not treat the initial zeros as an empty archive. A direct automated Fed archive request
 returned HTTP 403; its public archive was verified through web browsing, without bypassing it.

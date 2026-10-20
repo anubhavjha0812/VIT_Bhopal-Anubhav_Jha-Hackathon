@@ -10,7 +10,7 @@ Candidates (E24): A = the current engine (E13 credit rules override the 9-class 
 B = A + product rule + narrow Product-news mapping (a model "Product news" without a product
 event becomes Other); C = B + earnings rule; D = C + one global abstention threshold on the
 model's (optionally temperature-scaled) top probability. The D1-only amendment in
-docs/E24_AMENDMENT.md adds holdings/analyst routing to B–D. Order: credit → holdings →
+docs/experiments/E24_AMENDMENT.md adds holdings/analyst routing to B–D. Order: credit → holdings →
 analyst → earnings preview/results → product → model; abstention applies only to model predictions.
 """
 
@@ -148,7 +148,7 @@ def per_class_f1(y, pred) -> dict:
     return dict(zip(CLASSES, map(float, vals), strict=True))
 
 
-E_MARGIN = 0.02  # docs/E25_AMENDMENT.md: E must beat the best of A-D by this much
+E_MARGIN = 0.02  # docs/experiments/E25_AMENDMENT.md: E must beat the best of A-D by this much
 
 
 def select(
@@ -221,7 +221,9 @@ def run_selection(
 def main() -> None:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--select", action="store_true")
-    a.add_argument("--with-e", action="store_true", help="also score E (docs/E25_AMENDMENT.md)")
+    a.add_argument(
+        "--with-e", action="store_true", help="also score E (docs/experiments/E25_AMENDMENT.md)"
+    )
     a.add_argument("--d1", default=str(DATA / "gold/e24/e3_D1_labels.csv"))
     a.add_argument("--d2", default=str(DATA / "gold/e24/e3_D2_labels.csv"))
     args = a.parse_args()

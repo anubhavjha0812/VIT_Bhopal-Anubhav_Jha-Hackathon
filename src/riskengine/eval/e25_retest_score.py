@@ -1,4 +1,4 @@
-"""Score A, C, D and E on the fresh R3 set with the rule in docs/E25_RETEST.md.
+"""Score A, C, D and E on the fresh R3 set with the rule in docs/experiments/E25_RETEST.md.
 
 uv run python -m riskengine.eval.e25_retest_score
 uv run python -m riskengine.eval.e25_retest_score --student <folder> --output-suffix _v3

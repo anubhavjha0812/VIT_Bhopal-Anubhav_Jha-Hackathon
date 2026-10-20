@@ -721,7 +721,7 @@ function ReportView({ rep }: { rep: Report }) {
   const { scenario: s, capital: c, monte_carlo: mc } = rep
   return (
     <>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
         <StatCard
           hero
           label="CET1 ratio"
@@ -1175,7 +1175,7 @@ export default function ModuleB() {
   return (
     <div className="space-y-6">
       <PageHero
-        title="Module B · Credit stress test"
+        title="Module B · Portfolio stress test"
         wide
         text={
           <>

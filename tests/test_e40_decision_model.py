@@ -102,7 +102,7 @@ def test_script_fixed_questions_and_probability_semantics():
 
 def test_script_matches_frozen_protocol_questions():
     script = decision.kaggle_contract()
-    protocol = (decision.ROOT / "docs/DECISION_MODEL_BENCH.md").read_text()
+    protocol = (decision.ROOT / "docs/experiments/DECISION_MODEL_BENCH.md").read_text()
     for question in script.QUESTIONS.values():
         assert f'"{question}"' in protocol
 

@@ -21,7 +21,7 @@ from riskengine.paths import DATA, ROOT
 
 MODEL_PATH = DATA / "models" / "impact_model.joblib"
 RESULTS_JSON = DATA / "outputs" / "impact_results.json"
-RESULTS_MD = ROOT / "docs" / "IMPACT.md"
+RESULTS_MD = ROOT / "docs" / "others" / "IMPACT.md"
 SPLITS = {
     "train": (2009, 2016),
     "valid": (2017, 2018),

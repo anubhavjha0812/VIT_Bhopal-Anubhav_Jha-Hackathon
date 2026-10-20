@@ -1,4 +1,5 @@
-"""E42: does a trade deadband cut Module A's cost? Rules: docs/MODULE_A_DEADBAND.md (fixed).
+"""E42: does a trade deadband cut Module A's cost?
+Rules (fixed): docs/experiments/MODULE_A_DEADBAND.md
 
 uv run python -m riskengine.module_a_deadband --run   # one scored run, refuses a repeat
 

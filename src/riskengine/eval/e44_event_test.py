@@ -17,7 +17,7 @@ from riskengine.eval.e25_sec8k import load_cached_exclusions, sha_file
 from riskengine.eval.leaks import norm
 from riskengine.paths import ROOT
 
-RULES = ROOT / "docs/others/E44_EVENT_TEST_V2.md"
+RULES = ROOT / "docs/experiments/E44_EVENT_TEST_V2.md"
 WORK = ROOT / "private_notes/annotation_uploads/task1/event_test_v2"
 
 

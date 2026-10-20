@@ -18,7 +18,7 @@ import pandas as pd
 from riskengine.eval.e24_dev import Config, build_predictor
 from riskengine.paths import ROOT
 
-PLAN = "docs/others/E44_SCORING_PLAN.md"
+PLAN = "docs/experiments/E44_SCORING_PLAN.md"
 PLAN_LOCK = "data/outputs/e44_scoring_plan.lock"
 PLAN_SHA256 = "8d6f1406db597935ec8387ff7ffb6bc328917bf9031a9497cd8d9e2f74f42193"
 LABEL_SHA256 = "722986b2547f7274be4b29b9f9b5cb090942adee08cf179390feae7542d1177d"

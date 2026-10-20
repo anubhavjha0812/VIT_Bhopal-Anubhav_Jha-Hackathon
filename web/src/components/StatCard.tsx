@@ -29,10 +29,10 @@ export default function StatCard({ label, value, note, tone = 'default', hero = 
         ? 'text-teal-700 dark:text-teal-300'
         : 'text-slate-900 dark:text-white'
   // A "before → after" figure is long: a step smaller so it stays on one line.
-  const long = value.length > 13
+  const long = value.length > 13 || value.includes('→')
   const size = hero
     ? long
-      ? 'text-3xl sm:text-4xl'
+      ? 'text-3xl sm:text-4xl 2xl:text-3xl'
       : 'text-4xl sm:text-5xl'
     : long
       ? 'text-2xl sm:text-3xl'
@@ -88,7 +88,7 @@ export default function StatCard({ label, value, note, tone = 'default', hero = 
       <div className="text-xs font-medium text-slate-500 dark:text-slate-400">{label}</div>
       <div
         ref={figure}
-        className={`mt-1 break-words font-figures font-semibold tabular-nums sm:whitespace-nowrap ${size} ${color}`}
+        className={`mt-1 break-words font-figures font-semibold tabular-nums ${long ? '' : 'sm:whitespace-nowrap'} ${size} ${color}`}
       >
         {value}
       </div>

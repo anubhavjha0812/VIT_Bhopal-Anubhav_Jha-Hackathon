@@ -22,7 +22,7 @@ from riskengine.paths import DATA, ROOT
 
 WORK = ROOT / "private_notes/annotation_uploads/task1/linker_extended_v2"
 RESULT = DATA / "outputs/linker_extended_v2.json"
-RULES = ROOT / "docs/LINKER_EXTENDED_V2.md"
+RULES = ROOT / "docs/experiments/LINKER_EXTENDED_V2.md"
 LABELS_SHA256 = "f7362bbb07d60c2e4db931276f9379b179878c580361e77945ea309786945ab0"
 JUDGEMENT_COLUMNS = [
     "id",

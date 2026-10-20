@@ -2,7 +2,7 @@
 
 uv run python -m riskengine.eval.e33_direct_loss --run
 
-Rules: docs/E33_DIRECT_LOSS.md. All old E32 results are read-only controls.
+Rules: docs/experiments/E33_DIRECT_LOSS.md. All old E32 results are read-only controls.
 """
 
 import argparse
@@ -24,7 +24,7 @@ from riskengine.module_b import outlook
 from riskengine.module_b.book import load_book
 from riskengine.module_b.shock import TRADING_DAYS
 
-RULES = e32.ROOT / "docs/E33_DIRECT_LOSS.md"
+RULES = e32.ROOT / "docs/experiments/E33_DIRECT_LOSS.md"
 OUTPUT = e32.DATA / "outputs/e33_direct_loss.json"
 ALPHA, QUANTILE = 0.05, 0.5
 LOSS, CET1 = "loss_usd_m", "cet1_pp"

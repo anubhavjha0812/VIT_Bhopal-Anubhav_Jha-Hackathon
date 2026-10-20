@@ -270,7 +270,7 @@ def run(raw_path: Path = RAW, manifest_path: Path = RAW_MANIFEST) -> dict:
     out = {
         "experiment": "E40",
         "created_utc": datetime.now(UTC).isoformat(),
-        "protocol": "docs/DECISION_MODEL_BENCH.md#e40",
+        "protocol": "docs/experiments/DECISION_MODEL_BENCH.md#e40",
         "Kaggle_run": manifest,
         "threshold": threshold,
         "results": forms,

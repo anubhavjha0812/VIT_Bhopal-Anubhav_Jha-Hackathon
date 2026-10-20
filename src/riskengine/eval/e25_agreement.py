@@ -5,7 +5,7 @@ uv run python -m riskengine.eval.e25_agreement --dir <folder with d1_<teacher>.c
 Reads the teacher probabilities (Kaggle output) and the v6 reference labels of D1 only (never D2
 or the final sets), and writes data/outputs/e25_d1_agreement.json. The reference stays on this
 machine. Also reads each teacher's <tag>_<teacher>_meta.json (if present) and applies the speed
-rule of docs/E25_TEACHER_STUDENT.md to the second teacher.
+rule of docs/experiments/E25_TEACHER_STUDENT.md to the second teacher.
 """
 
 import argparse

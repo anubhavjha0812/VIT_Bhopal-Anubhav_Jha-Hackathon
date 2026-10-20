@@ -90,7 +90,7 @@ experiment once; `--run` refuses an existing E33 JSON. A crash before saving a
 JSON may be fixed and retried with the same contract, with the failure logged.
 No retuning after results. Save JSON, predictions, training outcomes and per-year
 metrics to new E33 files only. Save rule/code/input/artifact hashes and package
-versions. Append results here, add E33 to `docs/EXPERIMENTS.md` and the next
+versions. Append results here, add E33 to `docs/experiments/EXPERIMENTS.md` and the next
 `STEPS.md` number.
 
 Existing Module B source, frozen E24 files, `docs/DECISIONS.md`, models, E32,

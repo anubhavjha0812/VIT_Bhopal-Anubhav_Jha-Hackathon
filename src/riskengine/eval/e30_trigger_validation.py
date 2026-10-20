@@ -1,4 +1,4 @@
-"""One-run, local E30 check of the fixed rules in docs/E30_TRIGGER_VALIDATION.md.
+"""One-run, local E30 check of the fixed rules in docs/experiments/E30_TRIGGER_VALIDATION.md.
 
 uv run python -m riskengine.eval.e30_trigger_validation --run
 """

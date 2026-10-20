@@ -1,6 +1,6 @@
 """D1-designed E24 evaluation rules; production candidate A is unchanged.
 
-The fund-holding and analyst routing amendment is recorded in docs/E24_AMENDMENT.md.
+The fund-holding and analyst routing amendment is recorded in docs/experiments/E24_AMENDMENT.md.
 Only D1 examples informed these patterns. No company names or row identifiers are matched.
 """
 

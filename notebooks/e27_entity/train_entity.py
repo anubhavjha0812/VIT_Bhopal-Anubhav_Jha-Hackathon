@@ -1,4 +1,4 @@
-"""E27 entity-aware sentiment on Kaggle (docs/E27_ENTITY_SENTIMENT.md). Never reads test.csv.
+"""E27 entity-aware sentiment on Kaggle (docs/experiments/E27_ENTITY_SENTIMENT.md). Never reads test.csv.
 
 Input (private dataset): train.csv and dev.csv with columns sno, headline, entity, label
 (negative | neutral | positive), conflict, n_entities. The model reads (entity, headline) as a

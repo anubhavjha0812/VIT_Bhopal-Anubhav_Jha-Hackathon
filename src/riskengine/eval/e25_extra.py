@@ -1,4 +1,4 @@
-"""E25 extra rows for thin classes (docs/E25_TEACHER_STUDENT.md). No labels.
+"""E25 extra rows for thin classes (docs/experiments/E25_TEACHER_STUDENT.md). No labels.
 
 uv run python -m riskengine.eval.e25_extra --dry-run   # counts, writes nothing
 uv run python -m riskengine.eval.e25_extra --build     # writes data/cache/e25/extra.csv.gz

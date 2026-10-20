@@ -111,7 +111,7 @@ Rule (fixed before the run): keep **Mistral-Nemo-12B** as teacher 2 unless it fa
 - `notebooks/e25_train_student.py`: Kaggle student training and int8 export.
 - `src/riskengine/eval/e25_candidate.py`: candidate E wired into `eval/e24_dev.py`.
 - `tests/test_e25_*.py`: pool exclusion, agreement filter, and the no-test-training guard.
-- New outputs named `e25_*` in `data/outputs/`. Log in `STEPS.md` and `docs/EXPERIMENTS.md`.
+- New outputs named `e25_*` in `data/outputs/`. Log in `STEPS.md` and `docs/experiments/EXPERIMENTS.md`.
 
 ## 11. Stop rules
 

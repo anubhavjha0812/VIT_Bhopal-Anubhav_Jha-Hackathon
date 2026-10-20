@@ -21,7 +21,7 @@ from riskengine.paths import DATA, ROOT
 
 MODEL_PATH = DATA / "models" / "impact_model_v2.joblib"
 RESULTS_JSON = DATA / "outputs" / "impact_v2_results.json"
-RESULTS_MD = ROOT / "docs" / "IMPACT_V2.md"
+RESULTS_MD = ROOT / "docs" / "others" / "IMPACT_V2.md"
 FIRST_YEAR, FOLDS, LAST_FIT_YEAR = 2009, (2015, 2016, 2017, 2018), 2018
 SQRT2 = np.sqrt(2)
 
